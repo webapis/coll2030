@@ -36,9 +36,7 @@ export default function SearchBox() {
         <TextField {...params} label="Ürünler" placeholder="Favorites" />
       )}
     />
-      <IconButton aria-label="delete">
-        <FilterListIcon />
-      </IconButton>
+ 
     </Box>
   );
 }

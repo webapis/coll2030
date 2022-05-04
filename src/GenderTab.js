@@ -14,7 +14,7 @@ export default function CenteredTabs() {
     };
 
     return (
-        <Container>
+        <Container >
     
             <Tabs value={value} onChange={handleChange} centered variant="scrollable" scrollButtons="auto" sx={{paddingBottom:'10px'}}>
                 <Tab label="ERKEK" />
