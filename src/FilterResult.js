@@ -13,12 +13,12 @@ export default function FilterResult() {
 
     return (
         <Container>
-            <Tabs value={value} onChange={handleChange} centered variant="scrollable" scrollButtons="auto" sx={{paddingBottom:'10px'}}>
-                <Tab label="0000000" />
-                <Tab label="Kategory" />
-                <Tab label="Fiyat" />
-                <Tab label="Marka" />
-                <Tab  icon={<FilterListIcon/>}/>
+            <Tabs value={value} onChange={handleChange}    variant="scrollable"  scrollButtons="auto" allowScrollButtonsMobile  sx={{paddingBottom:'10px'}}>
+                <Tab label={<div>Sonuç<span></span><br/><span style={{color:'#9e9e9e'}}>(12.000)</span></div>} sx={{fontSize:'12px'}}/>
+                <Tab label={<div><span>Kategory</span><br/><span style={{color:'#9e9e9e'}}>(2)</span></div>} sx={{fontSize:'12px'}} />
+                <Tab label={<div><span>Fiyat</span><br/><span style={{color:'#9e9e9e'}}>(1)</span></div>}   sx={{fontSize:'12px'}}/>
+                <Tab label={<div><span>Marka</span><br/><span style={{color:'#9e9e9e'}}>(10)</span></div>}   sx={{fontSize:'12px'}}/>
+                <Tab  icon={<FilterListIcon/>} sx={{fontSize:'12px'}}/>
             </Tabs>
         </Container>
     );

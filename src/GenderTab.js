@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import SearchBox from './SearchBox';
 import Container from '@mui/material/Container';
+
 import FilterResult from './FilterResult';
 
 export default function CenteredTabs() {
@@ -16,7 +17,7 @@ export default function CenteredTabs() {
     return (
         <Container >
     
-            <Tabs value={value} onChange={handleChange} centered variant="scrollable" scrollButtons="auto" sx={{paddingBottom:'10px'}}>
+            <Tabs value={value} onChange={handleChange}  variant="scrollable"  scrollButtons="auto" allowScrollButtonsMobile sx={{paddingBottom:'10px'}}>
                 <Tab label="ERKEK" />
                 <Tab label="KADIN" />
                 <Tab label="ERKEK ÇOCUK" />
