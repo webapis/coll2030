@@ -17,13 +17,14 @@ export default function CenteredTabs() {
     return (
         <Container >
     
-            <Tabs value={value} onChange={handleChange}  variant="scrollable"  scrollButtons="auto" allowScrollButtonsMobile sx={{paddingBottom:'10px'}}>
-                <Tab label="ERKEK" />
+            <Tabs centered value={value} onChange={handleChange}    allowScrollButtonsMobile sx={{paddingBottom:'10px'}}>
                 <Tab label="KADIN" />
-                <Tab label="ERKEK ÇOCUK" />
+                <Tab label="ERKEK" />
                 <Tab label="KIZ ÇOCUK" />
-                <Tab label="ERKEK BEBEK" />
+                <Tab label="ERKEK ÇOCUK" />
                 <Tab label="KIZ BEBEK" />
+                <Tab label="ERKEK BEBEK" />
+               
             </Tabs>
             <SearchBox />
             <FilterResult/>

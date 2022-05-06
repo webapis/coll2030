@@ -4,7 +4,7 @@ import GenderTab from './GenderTab'
 
 function App() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
   <GenderTab/>
 
     </Container>
