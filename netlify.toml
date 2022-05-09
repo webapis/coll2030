@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/atlas/*"
+  to="/.netlify/functions/atlas"
+  query = {path = ":path"}
+  status = 200
+  force = true

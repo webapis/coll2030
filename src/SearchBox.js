@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
-
+import Container from '@mui/material/Container'
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -12,7 +12,7 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 export default function SearchBox() {
   return (
 
- 
+ <Container  maxWidth="sm">
     <Autocomplete
  
       multiple
@@ -38,7 +38,7 @@ export default function SearchBox() {
       )}
     />
  
- 
+ </Container>
   );
 }
 

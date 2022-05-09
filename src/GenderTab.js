@@ -3,10 +3,10 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import SearchBox from './SearchBox';
-import Container from '@mui/material/Container';
-import CategoryTab from './CategoryTabs'
-import FilterResult from './FilterResult';
 
+import CategoryTab from './CategoryTabs'
+
+import Box from '@mui/material/Box'
 export default function CenteredTabs() {
     const [value, setValue] = React.useState(0);
 
@@ -15,7 +15,7 @@ export default function CenteredTabs() {
     };
 
     return (
-        <Container >
+        <Box >
     
             <Tabs centered value={value} onChange={handleChange}    allowScrollButtonsMobile >
                 <Tab label="KADIN" />
@@ -28,8 +28,8 @@ export default function CenteredTabs() {
             </Tabs>
             <CategoryTab/>
             <SearchBox />
-            <FilterResult/>
-        </Container>
+      
+        </Box>
 
 
     );

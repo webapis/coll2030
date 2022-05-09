@@ -2,8 +2,8 @@ require('dotenv').config()
 const { MongoClient } = require('mongodb');
 
 //const uri = process.env.DEPLOY_URL === 'http://localhost:8888' ? process.env.mongodb_localUrl : process.env.mongodb_url;
-const uri = process.env.mongodb_url;
-
+const uri = process.env.LOCAL==='TRUE' ? process.env.mongodb_localUrl: process.env.mongodb_url;
+debugger;
 const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -13,7 +13,7 @@ const headers = {
 exports.handler = async function (event, context) {
     const { gender, subcategory, page, category } = event.queryStringParameters
     const query = { subcategory: subcategory !== 'null' ? subcategory : undefined, category: category !== 'null' ? category : undefined, gender: gender !== 'null' ? gender : undefined }
-
+debugger;
 for(let item in query){
     let current =query[item]
     if(current===undefined){
@@ -22,6 +22,8 @@ for(let item in query){
     }
 
 }
+
+debugger;
     const skip = parseInt(page)
  
         const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
