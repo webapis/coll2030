@@ -8,8 +8,9 @@ debugger;
 export default  async (req, res)=> {
     debugger;
     const { gender, subcategory, page, category } = req.query
+      const query = { subcategory:'pantolon', category: 'alt-giyim', gender: 'kadın' }
     debugger;
-    const query = { subcategory: subcategory !== 'null' ? subcategory : undefined, category: category !== 'null' ? category : undefined, gender: gender !== 'null' ? gender : undefined }
+  //  const query = { subcategory: subcategory !== 'null' ? subcategory : undefined, category: category !== 'null' ? category : undefined, gender: gender !== 'null' ? gender : undefined }
 debugger;
 for(let item in query){
     let current =query[item]
@@ -21,7 +22,7 @@ for(let item in query){
 }
 
 debugger;
-    const skip = parseInt(page)
+    const skip = 0
  
         const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     const clnt = await client.connect()
