@@ -22,8 +22,8 @@ export default function ProductImageList() {
     const gender = localStorage.getItem('gender')
     // const subcategory = localStorage.getItem('subcategory')
     // const category = localStorage.getItem('category')
-    const url = `/.netlify/functions/atlas?gender=${gender}&category=alt-giyim&subcategory=pantolon&page=${page}`
-
+  //  const url = `/.netlify/functions/atlas?gender=${gender}&category=alt-giyim&subcategory=pantolon&page=${page}`
+    const url = `/api/atlas?gender=${gender}&category=alt-giyim&subcategory=pantolon&page=${page}`
     const response = await fetch(url, { cache: 'default' })
 
     const { data } = await response.json()
