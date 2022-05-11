@@ -45,16 +45,8 @@ jobs:
         id: collection
         run: node main.js
       - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -m "Built files"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - uses: EndBug/add-and-commit@v9
         with:
-          github_token: $
-          branch: $
-
+          default_author: github_actions
 
 
