@@ -1,7 +1,10 @@
 {
     "functions": {
-      "api/taf.js": {
-        "includeFiles": "_files/**"
-      }
+        "api/taf.js": {
+            "includeFiles": "_files/**"
+        },
+        "api/atlas.js": {
+            "includeFiles": "_files/**"
+        }
     }
-  }
+}

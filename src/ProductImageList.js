@@ -64,21 +64,21 @@ function ImageComponent(props) {
   const imageEl = useRef(null);
   useEffect(() => {
 
-    // if (window.IntersectionObserver) {
+    if (window.IntersectionObserver) {
 
-    //   let observer = new IntersectionObserver((entries, observer) => {
-    //     entries.forEach(entry => {
-    //       if (entry.isIntersecting) {
-    //         //  console.log(entry);
-    //         entry.target.src = entry.target.dataset.src;
-    //         observer.unobserve(entry.target);
-    //       }
-    //     });
-    //   }, { threshold: 0.1 });
-    //   window.obz = observer
-    //   window.obz.observe(imageEl.current)
+      let observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            //  console.log(entry);
+            entry.target.src = entry.target.dataset.src;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      window.obz = observer
+      window.obz.observe(imageEl.current)
 
-    // }
+    }
 
 
   }, []);
