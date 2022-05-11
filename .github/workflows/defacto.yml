@@ -45,17 +45,17 @@ jobs:
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-
-      - name: Create report file
-        run: date +%s > report.txt
-      - name: Commit report
+      - name: Commit files
         run: |
-          git config --global user.name 'Serdar Aşirow'
-          git config --global user.email 'webapis@users.noreply.github.com'
-          git remote set-url origin https://webapis:${{ secrets.GITHUB_TOKEN }}@github.com/webapis/coll2030.git
-          git add .
-          git commit -am "Automated report"
-          git push origin master
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add lib
+          git commit -m "Built files"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: $
+          branch: $
 
 
 
