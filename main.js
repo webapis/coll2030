@@ -2,7 +2,7 @@
  console.log('main.js is loading...')
  require('dotenv').config()
  const { getGoogleToken } = require('./google/google.oauth')
- 
+ const fs =require('fs')
  
  const { getSheetValues, setSheetValue, appendSheetValues } = require('./google.sheet.js')
 
@@ -10,7 +10,7 @@
 
 
  
- 
+ fs.writeFileSync('helloworld.txt', 'Hello World!')
  
  Apify.main(async () => {
      const startDate = new Date().toLocaleDateString()
