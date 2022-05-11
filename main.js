@@ -8,7 +8,7 @@
 
  const Apify = require('apify');
 
- const { setInputs } = require('./inputConfig')
+
  
  
  
