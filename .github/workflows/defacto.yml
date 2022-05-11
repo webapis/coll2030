@@ -51,7 +51,7 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/coll2030
           git add .
           git commit -am "Automated report"
-          git push
+          git push origin master
 
 
 
