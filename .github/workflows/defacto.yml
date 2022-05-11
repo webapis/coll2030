@@ -12,8 +12,8 @@ env:
   CLIENT_ID: ${{secrets.CLIENT_ID}}
 
 
-  female: https://www.defacto.com.tr/kadin-pantolon
-  marka: defacto
+  female: https://www.koton.com/tr/kadin/giyim/alt-giyim/pantolon/c/M01-C02-N01-AK102-K100021
+  marka: koton
 jobs:
   aggregator:
     runs-on: ubuntu-latest
