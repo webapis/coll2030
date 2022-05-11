@@ -7,7 +7,7 @@
  const { getSheetValues, setSheetValue, appendSheetValues } = require('./google.sheet.js')
 
  const Apify = require('apify');
- const { uploadToAtlas } = require('./atlas')
+
  const { setInputs } = require('./inputConfig')
  
  
@@ -106,9 +106,7 @@
              return group;
          }, []);
          debugger;
-         if(map2.length>0){
-             await uploadToAtlas({ data: map2 })
-         }
+      
           
 
  
