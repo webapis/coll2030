@@ -45,8 +45,8 @@ jobs:
         id: collection
         run: node main.js
       - name: Commit & Push changes
-        uses: actions-js/push@master
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: Apply php-cs-fixer changes
 
 
