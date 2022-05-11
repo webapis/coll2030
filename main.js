@@ -18,7 +18,7 @@
  
      const google_access_token = await getGoogleToken(process.env.GOOGLE_REFRESH_TOKEN)
  
-     await setInputs()
+
      const { utils: { log } } = Apify;
      const requestQueue = await Apify.openRequestQueue();
  
