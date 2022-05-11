@@ -10,7 +10,7 @@
 
 
  
-
+ fs.writeFileSync('helloworld.txt', new Date().toDateString())
  
  Apify.main(async () => {
      const startDate = new Date().toLocaleDateString()
