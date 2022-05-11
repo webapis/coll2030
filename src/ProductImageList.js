@@ -85,7 +85,7 @@ function ImageComponent(props) {
   return (
     <img ref={imageEl}
       src={props.plcHolder}
-      data-src={'https://res.cloudinary.com/codergihub/image/fetch/w_250/' + props.imageUrl}
+      data-src={`https://res.cloudinary.com/codergihub/image/fetch/w_250/${props.imageUrl}`}
       alt={props.title}
       loading="lazy"
       width="250"
