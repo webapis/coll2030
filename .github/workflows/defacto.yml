@@ -52,7 +52,7 @@ jobs:
         run: |
           git config --global user.name 'Serdar Aşirow'
           git config --global user.email 'webapis@users.noreply.github.com'
-          git remote set-url origin https://webapis:${{ secrets.GH_TOKEN }}@github.com/webapis/coll2030.git
+          git remote set-url origin https://webapis:${{ secrets.GITHUB_TOKEN }}@github.com/webapis/coll2030.git
           git add .
           git commit -am "Automated report"
           git push origin master
