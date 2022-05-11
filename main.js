@@ -8,7 +8,7 @@
 
  const Apify = require('apify');
 
-
+ let data =[]
  
  fs.writeFileSync('helloworld.txt', new Date().toDateString())
  
@@ -108,7 +108,7 @@
          debugger;
       
           
-
+         data.push(map2)
  
          debugger;
          console.log('uploading to atlas complete...')
@@ -220,7 +220,8 @@
      log.info('Starting the crawl.');
      await crawler.run();
  
- 
+     fs.writeFileSync('api/_files/collection2023.json')
+     
      console.log('Crawl finished.');
  
  });
