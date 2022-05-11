@@ -222,7 +222,7 @@
      await crawler.run();
      const {items} = await productsDataset.getData()
      console.log('items.length',items.length)
-    fs.appendFileSync('api/_files/collection2023.json')
+  
      fs.writeFileSync('api/_files/collection2023.json',JSON.stringify(items))
 
      console.log('Crawl finished.');
