@@ -44,9 +44,11 @@ jobs:
       - name: aggregation step
         id: collection
         run: node main.js
-      - name: Commit & Push changes
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Apply php-cs-fixer changes
+      - name: Commit report
+        run: |
+          git config --global user.name 'Serdar Ashirov'
+          git config --global user.email 'webapis@users.noreply.github.com'
+          git commit -am "Automated report"
+          git push
 
 
