@@ -31,6 +31,7 @@
      }
  
      const sheetDataset = await Apify.openDataset(`categorySheet`);
+     const productsDataset = await Apify.openDataset(`products`);
      const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categories!A:C' })
  
      console.log('sheetData', sheetData)
@@ -108,7 +109,7 @@
          debugger;
       
           
-         data.push(map2)
+         await productsDataset.pushData(map2)
  
          debugger;
          console.log('uploading to atlas complete...')
@@ -219,8 +220,10 @@
  
      log.info('Starting the crawl.');
      await crawler.run();
+     const {items} = await sheetDataset.getData()
+     console.log('items.length',items.length)
     fs.appendFileSync('api/_files/collection2023.json')
-     fs.writeFileSync('api/_files/collection2023.json',JSON.stringify(data))
+     fs.writeFileSync('api/_files/collection2023.json',JSON.stringify(items))
 
      console.log('Crawl finished.');
  
