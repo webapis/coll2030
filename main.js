@@ -8,14 +8,14 @@
 
  const Apify = require('apify');
 
- let data =[]
+
  
  fs.writeFileSync('helloworld.txt', new Date().toDateString())
  
  Apify.main(async () => {
      const startDate = new Date().toLocaleDateString()
      console.log('apify.main.js is loading...')
- 
+     let data =[]
      const google_access_token = await getGoogleToken(process.env.GOOGLE_REFRESH_TOKEN)
  
 
