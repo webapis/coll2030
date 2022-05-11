@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { MongoClient } = require('mongodb');
 
-const uri = process.env.LOCAL==='TRUE' ? process.env.mongodb_localUrl: process.env.mongodb_url;
+const uri ='mongodb+srv://webapis:Dragonfly1977@cluster0.8svj0.mongodb.net/ecom?retryWrites=true&w=majority'
 debugger;
 
 

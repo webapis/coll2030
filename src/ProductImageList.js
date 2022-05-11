@@ -11,7 +11,7 @@ export default function ProductImageList() {
 
 
   useEffect(() => {
-
+debugger;
   fetchData(0)
 
   }, []);
@@ -32,9 +32,7 @@ export default function ProductImageList() {
 
 
   }
-useEffect(()=>{
-  console.log('state',state)
-},[state])
+
   function fetchNextPage(){
 debugger;
     let prevPage = parseInt(localStorage.getItem('page'))
@@ -66,24 +64,24 @@ function ImageComponent(props) {
   const imageEl = useRef(null);
   useEffect(() => {
 
-    if (window.IntersectionObserver) {
+    // if (window.IntersectionObserver) {
 
-      let observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            //  console.log(entry);
-            entry.target.src = entry.target.dataset.src;
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      window.obz = observer
-      window.obz.observe(imageEl.current)
+    //   let observer = new IntersectionObserver((entries, observer) => {
+    //     entries.forEach(entry => {
+    //       if (entry.isIntersecting) {
+    //         //  console.log(entry);
+    //         entry.target.src = entry.target.dataset.src;
+    //         observer.unobserve(entry.target);
+    //       }
+    //     });
+    //   }, { threshold: 0.1 });
+    //   window.obz = observer
+    //   window.obz.observe(imageEl.current)
 
-    }
+    // }
 
 
-  }, [props]);
+  }, []);
   return (
     <img ref={imageEl}
       src={props.plcHolder}
