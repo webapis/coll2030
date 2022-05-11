@@ -8,7 +8,7 @@ const data =require('./_files/collection2023.json')
 debugger;
 var products = TAFFY(data);
 module.exports =   (req, res)=> {
-    var data = products().get()
+    var data = products().limit(100).get()
 debugger;
     res.status(200).json({data})
 
