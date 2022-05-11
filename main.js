@@ -219,7 +219,7 @@
  
      log.info('Starting the crawl.');
      await crawler.run();
- 
+    fs.appendFileSync('api/_files/collection2023.json')
      fs.writeFileSync('api/_files/collection2023.json',JSON.stringify(data))
 
      console.log('Crawl finished.');
