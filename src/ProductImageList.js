@@ -62,6 +62,8 @@ export default function ProductImageList() {
 
 function ImageComponent(props) {
   const imageEl = useRef(null);
+const cloudinary ='https://res.cloudinary.com/codergihub/image/fetch/w_250/'
+
   useEffect(() => {
 
     if (window.IntersectionObserver) {
@@ -85,7 +87,7 @@ function ImageComponent(props) {
   return (
     <img ref={imageEl}
       src={props.plcHolder}
-      data-src={`https://ik.imagekit.io/mumrjdehaou/${props.imageUrl}?tr=w-250`}
+      data-src={cloudinary+props.imageUrl}
       alt={props.title}
       loading="lazy"
       width="250"

@@ -71,3 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 npm config set proxy http://proxy_host:port
+
+//        const cloudinaryUrl = `https://res.cloudinary.com/codergihub/image/fetch/w_250/`
+//    data-src={`https://ik.imagekit.io/mumrjdehaou/${props.imageUrl}?tr=w-250`}
