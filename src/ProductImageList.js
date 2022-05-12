@@ -11,7 +11,7 @@ export default function ProductImageList() {
 
 
   useEffect(() => {
-debugger;
+
   fetchData(0)
 
   }, []);
@@ -27,14 +27,14 @@ debugger;
     const response = await fetch(url, { cache: 'default' })
 
     const { data } = await response.json()
-    debugger;
+    
     setData(prevState=>[...prevState,...data])
 
 
   }
 
   function fetchNextPage(){
-debugger;
+
     let prevPage = parseInt(localStorage.getItem('page'))
     let nextPage = ++prevPage
     localStorage.setItem('page', nextPage)
