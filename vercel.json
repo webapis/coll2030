@@ -1,10 +1,196 @@
 {
     "functions": {
-        "api/taf.js": {
-            "includeFiles": "_files/**"
+        "api/kadin/pantolon.js": {
+            "includeFiles": "_files/kadin/pantolon.json"
         },
-        "api/atlas.js": {
-            "includeFiles": "_files/**"
+        "api/kadin/esofman-alt.js": {
+            "includeFiles": "_files/kadin/esofman-alt.json"
+        },
+        "api/kadin/undefined.js": {
+            "includeFiles": "_files/kadin/undefined.json"
         }
+    },
+    "api/kadin/pantolon.js": {
+        "includeFiles": "_files/kadin/pantolon.json"
+    },
+    "api/kadin/tisort.js": {
+        "includeFiles": "_files/kadin/tisort.json"
+    },
+    "api/kadin/atlet.js": {
+        "includeFiles": "_files/kadin/atlet.json"
+    },
+    "api/kadin/gomlek.js": {
+        "includeFiles": "_files/kadin/gomlek.json"
+    },
+    "api/kadin/undefined.js": {
+        "includeFiles": "_files/kadin/undefined.json"
+    },
+    "api/kadin/sandalet.js": {
+        "includeFiles": "_files/kadin/sandalet.json"
+    },
+    "api/kadin/sapka.js": {
+        "includeFiles": "_files/kadin/sapka.json"
+    },
+    "api/kadin/elbise.js": {
+        "includeFiles": "_files/kadin/elbise.json"
+    },
+    "api/kadin/esofman-alt.js": {
+        "includeFiles": "_files/kadin/esofman-alt.json"
+    },
+    "api/kadin/ceket.js": {
+        "includeFiles": "_files/kadin/ceket.json"
+    },
+    "api/kadin/sort.js": {
+        "includeFiles": "_files/kadin/sort.json"
+    },
+    "api/kadin/terlik.js": {
+        "includeFiles": "_files/kadin/terlik.json"
+    },
+    "api/kadin/sweatshirt.js": {
+        "includeFiles": "_files/kadin/sweatshirt.json"
+    },
+    "api/kadin/plaj-kiyafeti.js": {
+        "includeFiles": "_files/kadin/plaj-kiyafeti.json"
+    },
+    "api/kadin/tunik.js": {
+        "includeFiles": "_files/kadin/tunik.json"
+    },
+    "api/kadin/sutyen.js": {
+        "includeFiles": "_files/kadin/sutyen.json"
+    },
+    "api/kadin/etek.js": {
+        "includeFiles": "_files/kadin/etek.json"
+    },
+    "api/kadin/kulot.js": {
+        "includeFiles": "_files/kadin/kulot.json"
+    },
+    "api/kadin/tayt.js": {
+        "includeFiles": "_files/kadin/tayt.json"
+    },
+    "api/kadin/bluz.js": {
+        "includeFiles": "_files/kadin/bluz.json"
+    },
+    "api/kadin/canta.js": {
+        "includeFiles": "_files/kadin/canta.json"
+    },
+    "api/kadin/yagmurluk.js": {
+        "includeFiles": "_files/kadin/yagmurluk.json"
+    },
+    "api/kadin/hirka.js": {
+        "includeFiles": "_files/kadin/hirka.json"
+    },
+    "api/kadin/mayo.js": {
+        "includeFiles": "_files/kadin/mayo.json"
+    },
+    "api/kadin/mont.js": {
+        "includeFiles": "_files/kadin/mont.json"
+    },
+    "api/kadin/yelek.js": {
+        "includeFiles": "_files/kadin/yelek.json"
+    },
+    "api/kadin/kazak.js": {
+        "includeFiles": "_files/kadin/kazak.json"
+    },
+    "api/kadin/tulum.js": {
+        "includeFiles": "_files/kadin/tulum.json"
+    },
+    "api/kadin/cuzdan.js": {
+        "includeFiles": "_files/kadin/cuzdan.json"
+    },
+    "api/kadin/trenckot.js": {
+        "includeFiles": "_files/kadin/trenckot.json"
+    },
+    "api/kadin/corap.js": {
+        "includeFiles": "_files/kadin/corap.json"
+    },
+    "api/kadin/gecelik.js": {
+        "includeFiles": "_files/kadin/gecelik.json"
+    },
+    "api/kadin/bez-ayakkabi.js": {
+        "includeFiles": "_files/kadin/bez-ayakkabi.json"
+    },
+    "api/kadin/bralet.js": {
+        "includeFiles": "_files/kadin/bralet.json"
+    },
+    "api/kadin/string.js": {
+        "includeFiles": "_files/kadin/string.json"
+    },
+    "api/kadin/kemer.js": {
+        "includeFiles": "_files/kadin/kemer.json"
+    },
+    "api/kadin/suveter.js": {
+        "includeFiles": "_files/kadin/suveter.json"
+    },
+    "api/kadin/slip.js": {
+        "includeFiles": "_files/kadin/slip.json"
+    },
+    "api/kadin/bermuda.js": {
+        "includeFiles": "_files/kadin/bermuda.json"
+    },
+    "api/kadin/spor-ayakkabi.js": {
+        "includeFiles": "_files/kadin/spor-ayakkabi.json"
+    },
+    "api/kadin/sabahlik.js": {
+        "includeFiles": "_files/kadin/sabahlik.json"
+    },
+    "api/kadin/topuklu-ayakkabi.js": {
+        "includeFiles": "_files/kadin/topuklu-ayakkabi.json"
+    },
+    "api/kadin/korse.js": {
+        "includeFiles": "_files/kadin/korse.json"
+    },
+    "api/kadin/parka.js": {
+        "includeFiles": "_files/kadin/parka.json"
+    },
+    "api/kadin/bel-korse.js": {
+        "includeFiles": "_files/kadin/bel-korse.json"
+    },
+    "api/kadin/athlete.js": {
+        "includeFiles": "_files/kadin/athlete.json"
+    },
+    "api/kadin/babet.js": {
+        "includeFiles": "_files/kadin/babet.json"
+    },
+    "api/kadin/esofman.js": {
+        "includeFiles": "_files/kadin/esofman.json"
+    },
+    "api/kadin/kimono.js": {
+        "includeFiles": "_files/kadin/kimono.json"
+    },
+    "api/kadin/body.js": {
+        "includeFiles": "_files/kadin/body.json"
+    },
+    "api/kadin/hamile-ust.js": {
+        "includeFiles": "_files/kadin/hamile-ust.json"
+    },
+    "api/kadin/jartiyer.js": {
+        "includeFiles": "_files/kadin/jartiyer.json"
+    },
+    "api/kadin/parfum.js": {
+        "includeFiles": "_files/kadin/parfum.json"
+    },
+    "api/kadin/sal.js": {
+        "includeFiles": "_files/kadin/sal.json"
+    },
+    "api/kadin/gozluk.js": {
+        "includeFiles": "_files/kadin/gozluk.json"
+    },
+    "api/kadin/tac.js": {
+        "includeFiles": "_files/kadin/tac.json"
+    },
+    "api/kadin/toka.js": {
+        "includeFiles": "_files/kadin/toka.json"
+    },
+    "api/kadin/esarp.js": {
+        "includeFiles": "_files/kadin/esarp.json"
+    },
+    "api/kadin/kupe.js": {
+        "includeFiles": "_files/kadin/kupe.json"
+    },
+    "api/kadin/krem.js": {
+        "includeFiles": "_files/kadin/krem.json"
+    },
+    "api/kadin/maskara.js": {
+        "includeFiles": "_files/kadin/maskara.json"
     }
 }

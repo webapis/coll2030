@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "collection": "apify run -p",
+    "collection": "node main.js",
     "dev": "netlify dev",
     "vercel:dev": "vercel dev"
   },

@@ -14,6 +14,7 @@ env:
 
   female: https://www.koton.com/tr/kadin/giyim/alt-giyim/pantolon/c/M01-C02-N01-AK102-K100021
   marka: koton
+  GENDER: kadin
 jobs:
   aggregator:
     runs-on: ubuntu-latest
