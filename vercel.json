@@ -151,38 +151,6 @@
     },
     "api/kadin/body.js": {
         "includeFiles": "_files/kadin/body.json"
-    },
-    "api/kadin/hamile-ust.js": {
-        "includeFiles": "_files/kadin/hamile-ust.json"
-    },
-    "api/kadin/jartiyer.js": {
-        "includeFiles": "_files/kadin/jartiyer.json"
-    },
-    "api/kadin/parfum.js": {
-        "includeFiles": "_files/kadin/parfum.json"
-    },
-    "api/kadin/sal.js": {
-        "includeFiles": "_files/kadin/sal.json"
-    },
-    "api/kadin/gozluk.js": {
-        "includeFiles": "_files/kadin/gozluk.json"
-    },
-    "api/kadin/tac.js": {
-        "includeFiles": "_files/kadin/tac.json"
-    },
-    "api/kadin/toka.js": {
-        "includeFiles": "_files/kadin/toka.json"
-    },
-    "api/kadin/esarp.js": {
-        "includeFiles": "_files/kadin/esarp.json"
-    },
-    "api/kadin/kupe.js": {
-        "includeFiles": "_files/kadin/kupe.json"
-    },
-    "api/kadin/krem.js": {
-        "includeFiles": "_files/kadin/krem.json"
-    },
-    "api/kadin/maskara.js": {
-        "includeFiles": "_files/kadin/maskara.json"
     }
+ 
 }}
