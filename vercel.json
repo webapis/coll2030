@@ -1,15 +1,7 @@
 {
     "functions": {
-        "api/kadin/pantolon.js": {
-            "includeFiles": "_files/kadin/pantolon.json"
-        },
-        "api/kadin/esofman-alt.js": {
-            "includeFiles": "_files/kadin/esofman-alt.json"
-        },
-        "api/kadin/undefined.js": {
-            "includeFiles": "_files/kadin/undefined.json"
-        }
-    },
+
+    
     "api/kadin/pantolon.js": {
         "includeFiles": "_files/kadin/pantolon.json"
     },
@@ -193,4 +185,4 @@
     "api/kadin/maskara.js": {
         "includeFiles": "_files/kadin/maskara.json"
     }
-}
+}}
