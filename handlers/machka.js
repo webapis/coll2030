@@ -1,5 +1,5 @@
 const Apify = require('apify');
-const { extractPercentage } = require('../helper')
+
 async function handler(page, context) {
     const { request: { userData: { start, gender } } } = context
     const url = await page.url()
