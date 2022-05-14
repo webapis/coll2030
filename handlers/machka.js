@@ -1,7 +1,7 @@
 const Apify = require('apify');
 
 async function handler(page, context) {
-    const { request: { userData: { start, gender } } } = context
+    const { request: { userData: { start, gender,marka } } } = context
     const url = await page.url()
     await page.waitForSelector('.ems-prd-list-wrapper')
 
@@ -60,7 +60,7 @@ async function handler(page, context) {
         const nextPage = `${url}&page=2`
         const requestQueue = await Apify.openRequestQueue();
 
-        requestQueue.addRequest({ url: nextPage, userData: { start: false, gender } })
+        requestQueue.addRequest({ url: nextPage, userData: { start: false, gender,marka } })
     } else if (nextPageExists && !start) {
 
         const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
@@ -69,7 +69,7 @@ async function handler(page, context) {
         const nextPage = pageUrl + pageNumber
         const requestQueue = await Apify.openRequestQueue();
 
-        requestQueue.addRequest({ url: nextPage, userData: { start: false, gender } })
+        requestQueue.addRequest({ url: nextPage, userData: { start: false, gender,marka } })
 
     }
 
