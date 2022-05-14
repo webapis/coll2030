@@ -15,19 +15,24 @@ async function handler(page) {
           const hizliGonderi=productCard.querySelector('.product-badges').textContent.indexOf('hızlı gönderi') !==-1 ? true:false 
           const kargoBedava =productCard.querySelector('.product-badges').textContent.indexOf('kargo bedava') !==-1 ? true:false
           const gender =productCard.getAttribute('data-dimension64').toLowerCase()
+
+          const longlink =productCard.querySelector('.product-figure-wrap a').href
+          const link = longlink.substring(longlink.indexOf('https://www.boyner.com.tr/fabrika-comfort-mont-1002573')+26)
+          const longImgUrl = imageUrl&&  productCard.querySelector('.product-img img').getAttribute('data-original')
+          const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://statics.boyner.com.tr/mnresize/')+39)
           debugger;
             return {
                 title,
-                priceOld,
+              //  priceOld,
                 priceNew,
-                priceBasket,
-                basketDiscount,
-                imageUrl: imageUrl,
-                link: productCard.querySelector('.product-figure-wrap a').href,   
-                timestamp2:  new Date().toISOString(),
+             ////   priceBasket,
+             //   basketDiscount,
+                imageUrl: imageUrlshort,
+                link,   
+              //  timestamp2:  new Date().toISOString(),
                 timestamp: Date.now(),
              //   plcHolder:"https://statics.boyner.com.tr/assets/images/loading-icon.gif",
-                discPerc,
+              //  discPerc,
             //    gender,
                 marka:'boyner'
 

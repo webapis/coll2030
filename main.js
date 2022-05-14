@@ -92,18 +92,6 @@ Apify.main(async () => {
         console.log('map1.length', map1.length)
 
  
-        // const map2 = map1.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).map((c, i) => {
-        //     return { ...c, itemOrder: i }
-        // })
-
-      //  console.log('map2.length', map2.length)
-
-        // const table = map2.reduce((group, product) => {
-        //     const values = Object.values(product)
-
-        //     group.push(values);
-        //     return group;
-        // }, []);
 
 
 
@@ -121,16 +109,7 @@ Apify.main(async () => {
         }, {});
 
         let colResulValues = []
-        // for (let cat in groupByCategory) {
-        //     const curr = groupByCategory[cat]
-        //     const gender = curr[0].gender
-        //     const category = curr[0].category
-        //     const subcategory = curr[0].subcategory
-
-        //     colResulValues.push([`${process.env.marka}`, `${gender}`, `${category}`, `${subcategory}`, `${curr.length}`, startDate, currentDate])
-
-        // }
-
+ 
         if (gender === 'MALE') {
 
             //   const response= await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'DATA!A:B', values: table })
