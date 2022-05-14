@@ -4,7 +4,7 @@ require('dotenv').config()
        
        // Create a new database a single object (first record)
        
-       const data =require('../_files/kadin/sandalet.json')
+       const data =require('../_files/kadin/data.json')
      
        var products = TAFFY(data);
        module.exports =   (req, res)=> {

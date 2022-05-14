@@ -16,23 +16,26 @@ async function handler(page) {
             const priceBasket = productCard.querySelector('.product-card__price--basket>.sale') && productCard.querySelector('.product-card__price--basket>.sale').textContent.trim().replace('₺', '').replace('TL', '')
             const basketDiscount = productCard.querySelector('.product-card__price--basket span') && productCard.querySelector('.product-card__price--basket span').innerText.replace(/(\D+)/g, '')
             const discPerc = priceOld ? Math.floor(((parseInt(priceOld) - parseInt(priceNew)) * 100) / parseInt(priceOld)) : null
-            const gender =productCard.querySelector('[data-category]').getAttribute('data-gender').toLowerCase()
-           
-                return {
+            const gender = productCard.querySelector('[data-category]').getAttribute('data-gender').toLowerCase()
+            const longlink = productCard.querySelector('.catalog-products .product-card .product-card__image .image-box a').href
+            const link = longlink.substring(longlink.indexOf("defacto.com.tr/") + 15)
+            const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
+            const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
+            return {
                 title,
-                priceOld: priceOld ? priceOld.replace(',', '.').trim() : 0,
+                //   priceOld: priceOld ? priceOld.replace(',', '.').trim() : 0,
                 priceNew: priceNew ? priceNew.replace(',', '.').trim() : 0,
-                priceBasket: priceBasket ? priceBasket.replace(',', '.').trim() : 0,
-                basketDiscount: basketDiscount ? basketDiscount : 0,
-                imageUrl: imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4),
-                link: productCard.querySelector('.catalog-products .product-card .product-card__image .image-box a').href,
-                timestamp2: new Date().toISOString(),
+                //  priceBasket: priceBasket ? priceBasket.replace(',', '.').trim() : 0,
+                //   basketDiscount: basketDiscount ? basketDiscount : 0,
+                imageUrl: imageUrlshort,
+                link,
+                //    timestamp2: new Date().toISOString(),
                 timestamp: Date.now(),
-                plcHolder: "https://dfcdn.defacto.com.tr/AssetsV2/dist/img/placeholders/placeholder.svg",
-                discPerc: discPerc ? discPerc : 0,
-                gender,
-                marka:'defacto',
-             
+                //   plcHolder: "https://dfcdn.defacto.com.tr/AssetsV2/dist/img/placeholders/placeholder.svg",
+                //   discPerc: discPerc ? discPerc : 0,
+                //   gender,
+                marka: 'defacto',
+
 
             }
         }).filter(f => f.imageUrl !== null)
@@ -55,12 +58,12 @@ async function getUrls(page) {
     let pagesLeft = totalPages
     for (let i = 2; i <= totalPages; i++) {
 
-       // if (pagesLeft > 0) {
+        // if (pagesLeft > 0) {
 
-            pageUrls.push(`${url}?page=` + i)
-            --pagesLeft
-       // }
-     
+        pageUrls.push(`${url}?page=` + i)
+        --pagesLeft
+        // }
+
     }
 
     return { pageUrls, productCount, pageLength: pageUrls.length + 1 }

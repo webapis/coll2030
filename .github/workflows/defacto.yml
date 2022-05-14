@@ -10,11 +10,6 @@ env:
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
   CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
   CLIENT_ID: ${{secrets.CLIENT_ID}}
-
-
-  female: https://www.koton.com/tr/kadin/giyim/alt-giyim/pantolon/c/M01-C02-N01-AK102-K100021
-  marka: koton
-  GENDER: kadin
 jobs:
   aggregator:
     runs-on: ubuntu-latest

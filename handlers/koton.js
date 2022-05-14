@@ -18,20 +18,18 @@ async function handler(page) {
             const gender =window.location.href.substring(window.location.href.indexOf('.com/tr/')+8,window. location. href.indexOf('/c/')).replace('i','ı')
             return {
                 title: productCard.querySelector('.prc-name').innerText,
-                priceOld: insteadPrice,
+             //   priceOld: insteadPrice,
                 priceNew,
-                priceBasket: '',
-                basketDiscount:'',
+              //  priceBasket: '',
+             //   basketDiscount:'',
                 imageUrl: imageUrl,
                 link: productCard.querySelector('.prc-name').href,
-                timestamp2:  new Date().toISOString(),
+             //   timestamp2:  new Date().toISOString(),
                 timestamp: Date.now(),
-                plcHolder: "http://img-kotonw.mncdn.com/_ui/shared/images/koton-loading-gif2.gif",
-                discPerc,
-                gender,
+             //   plcHolder: "http://img-kotonw.mncdn.com/_ui/shared/images/koton-loading-gif2.gif",
+              //  discPerc,
+             //   gender,
                 marka:'koton'
-
-            
             }
         })//.filter(f => f.imageUrl !== null)
 

@@ -15,20 +15,23 @@ fs.writeFileSync('helloworld.txt', new Date().toDateString())
 Apify.main(async () => {
     const startDate = new Date().toLocaleDateString()
     console.log('apify.main.js is loading...')
-    let data = []
+ 
     const google_access_token = await getGoogleToken(process.env.GOOGLE_REFRESH_TOKEN)
 
 
     const { utils: { log } } = Apify;
     const requestQueue = await Apify.openRequestQueue();
-    //match(/(?<=www.).*(?=.com)/g)
-    if (process.env.male) {
-        requestQueue.addRequest({ url: process.env.male, userData: { start: true, gender: 'MALE' } })
+    const urlsData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'URLS!A:B' })
+    debugger;
+    for (let value of urlsData.values) {
+        const url = value[0]
+        const gender = value[1]
+        const marka = url.match(/(?<=www.).*(?=.com)/g)[0]
+        await requestQueue.addRequest({ url, userData: { start: true, gender, marka } })
+        debugger;
     }
-
-    if (process.env.female) {
-        requestQueue.addRequest({ url: process.env.female, userData: { start: true, gender: 'FEMALE' } })
-    }
+    debugger;
+ 
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);
     const productsDataset = await Apify.openDataset(`products`);
@@ -47,13 +50,9 @@ Apify.main(async () => {
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
 
-        const { page, request: { userData: { start, gender } } } = context
+        const { page, request: { userData: { start, gender,marka } } } = context
 
-        const pageUrl = await page.url()
-        const pageUrldataset = await Apify.openDataset(`${process.env.marka}`);
-
-        await pageUrldataset.pushData({ marka: process.env.marka, pageUrl });
-        const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
+        const { handler, getUrls } = require(`./handlers/${marka}`);
         const { pageUrls, productCount, pageLength } = await getUrls(page)
         process.env.productCount = productCount
 
@@ -61,9 +60,9 @@ Apify.main(async () => {
             let order = 1
             for (let url of pageUrls) {
                 if (pageUrls.length === order) {
-                    requestQueue.addRequest({ url, userData: { start: false, gender } })
+                    requestQueue.addRequest({ url, userData: { start: false, gender,marka} })
                 } else {
-                    requestQueue.addRequest({ url, userData: { start: false, gender } })
+                    requestQueue.addRequest({ url, userData: { start: false, gender,marka } })
                 }
                 ++order;
             }
@@ -224,21 +223,45 @@ Apify.main(async () => {
     await crawler.run();
     const { items } = await productsDataset.getData()
 
-    const groupByCategory = items.reduce((group, product) => {
-        const { subcategory } = product;
-        group[subcategory] = group[subcategory] ?? [];
-        group[subcategory].push(product);
-        return group;
-    }, {});
+
+
+
+    debugger;
+    if (fs.existsSync(`./api/_files/${process.env.GENDER}/data.json`)) {
+
+        fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
+    }
+    //save data to jsson
+    fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(items))
+
+
+    console.log('items.length', items.length)
+
+
+    console.log('Crawl finished.');
+
+});
+
+
+
+
+
+/*
+
     for (let subcategory in groupByCategory) {
         const withoutunicode = subcategory.toLocaleLowerCase().replace('ç', "c").replace("ö", "o").replace("ü", "u").replace("ş", "s").replace("ı", "i").replace("ğ", "g")
         const current = groupByCategory[subcategory]
-        if (fs.existsSync(`./api/_files/${process.env.GENDER}/${withoutunicode}.json`)) {
-            fs.unlinkSync(`./api/_files/${process.env.GENDER}/${withoutunicode}.json`)
+        if (fs.existsSync(`./api/_files/${process.env.GENDER}/data.json`)) {
+            fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
         }
         //save data to jsson
-        fs.appendFileSync(`./api/_files/${process.env.GENDER}/${withoutunicode}.json`, JSON.stringify(current))
-        fs.appendFileSync(`./api/${process.env.GENDER}/${withoutunicode}.js`, `require('dotenv').config()
+        fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(items))
+       
+
+      
+
+    }
+ fs.appendFileSync(`./api/${process.env.GENDER}/${withoutunicode}.js`, `require('dotenv').config()
         var TAFFY = require( 'taffy' );
 
        
@@ -256,20 +279,11 @@ Apify.main(async () => {
        }
        `)
 
-        const vercel = require('./vercel.json')
+
+         const vercel = require('./vercel.json')
 
         vercel[`api/${process.env.GENDER}/${withoutunicode}.js`] = { includeFiles: "" }
         vercel[`api/${process.env.GENDER}/${withoutunicode}.js`]['includeFiles'] = `_files/${process.env.GENDER}/${withoutunicode}.json`
         debugger;
        fs.writeFileSync(`vercel.json`,JSON.stringify(vercel))
-
-    }
-
-    console.log('items.length', items.length)
-
-
-    console.log('Crawl finished.');
-
-});
-
-
+*/

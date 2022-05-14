@@ -40,9 +40,9 @@ async function handler(page, context) {
                 link: item.querySelector('.prd-lnk').href,
                 timestamp2: new Date().toISOString(),
                 timestamp: Date.now(),
-                plcHolder: 'https://img1-ipekyol.mncdn.com/images/lazyload/placeHolder.gif',
+               // plcHolder: 'https://img1-ipekyol.mncdn.com/images/lazyload/placeHolder.gif',
                 discPerc,
-                gender: 'kadın',
+              //  gender: 'kadın',
                 marka: 'ipekyol',
 
                 /*

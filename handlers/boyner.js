@@ -26,9 +26,9 @@ async function handler(page) {
                 link: productCard.querySelector('.product-figure-wrap a').href,   
                 timestamp2:  new Date().toISOString(),
                 timestamp: Date.now(),
-                plcHolder:"https://statics.boyner.com.tr/assets/images/loading-icon.gif",
+             //   plcHolder:"https://statics.boyner.com.tr/assets/images/loading-icon.gif",
                 discPerc,
-                gender,
+            //    gender,
                 marka:'boyner'
 
             }

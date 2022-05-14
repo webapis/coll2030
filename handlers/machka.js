@@ -33,9 +33,9 @@ async function handler(page,context) {
                 link: item.querySelector('.ems-prd-link.btn-full').href,
                 timestamp: Date.now(),
                 timestamp2:  new Date().toISOString(),
-                plcHolder: 'https://storage.machka.com.tr/Machka/frontend/images/logo-emblem.svg',
+             //   plcHolder: 'https://storage.machka.com.tr/Machka/frontend/images/logo-emblem.svg',
                 discPerc,
-                gender:'kadın',
+              //  gender:'kadın',
                 marka:'machka'
   
             }
