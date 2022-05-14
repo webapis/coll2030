@@ -1,11 +1,11 @@
 const Apify = require('apify');
 const { extractPercentage } = require('../helper')
-async function handler(page,context) {
-    const { request: { userData: { start,gender } } } = context
+async function handler(page, context) {
+    const { request: { userData: { start, gender } } } = context
     const url = await page.url()
     await page.waitForSelector('.ems-prd-list-wrapper')
 
- 
+
     const data = await page.evaluate(() => {
         function extractPercentage(val1, val2) {
             const value1ll = parseInt(val1.substring(0, leftLastIndex(val1)).replace('.', ''))
@@ -22,53 +22,60 @@ async function handler(page,context) {
             const priceOld = item.querySelector('.ems-prd-price-first') && item.querySelector('.ems-prd-price-first').innerText.replace('₺', '').trim()
             const priceNew = item.querySelector('.ems-prd-price-last') && item.querySelector('.ems-prd-price-last').innerText.replace('₺', '').trim()
             const discPerc = priceOld ? extractPercentage(priceOld, priceNew) : null;
-           // const yeni =item.querySelector('.ems-prd-badge1') && item.querySelector('.ems-prd-badge1').innerText.trim()==='Yeni'?true:false
+            // const yeni =item.querySelector('.ems-prd-badge1') && item.querySelector('.ems-prd-badge1').innerText.trim()==='Yeni'?true:false
+
+
+            const longlink = item.querySelector('.ems-prd-link.btn-full').href
+            const link = longlink.substring(longlink.indexOf('https://www.machka.com.tr/')+26)
+            const longImgUrl = item.querySelector('.ems-responsive-item').getAttribute('data-image-src')
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://image.machka.com.tr/')+28)
+
             return {
                 title: item.querySelector('.ems-prd-title').innerText,
-                priceOld,
+                // priceOld,
                 priceNew,
-                priceBasket: null,
-                basketDiscount: null,
-                imageUrl:item.querySelector('.ems-responsive-item').getAttribute('data-image-src'),
-                link: item.querySelector('.ems-prd-link.btn-full').href,
+                //   priceBasket: null,
+                //  basketDiscount: null,
+                imageUrl: imageUrlshort,
+                link,
                 timestamp: Date.now(),
-                timestamp2:  new Date().toISOString(),
-             //   plcHolder: 'https://storage.machka.com.tr/Machka/frontend/images/logo-emblem.svg',
-                discPerc,
-              //  gender:'kadın',
-                marka:'machka'
-  
+                //  timestamp2:  new Date().toISOString(),
+                //   plcHolder: 'https://storage.machka.com.tr/Machka/frontend/images/logo-emblem.svg',
+                //  discPerc,
+                //  gender:'kadın',
+                marka: 'machka'
+
             }
         }).filter(f => f.imageUrl !== null)
     })
-    
-    console.log('data length_____', data.length)
-  
-    
-        const nextPageExists = await page.$('.btn.btn-size01.load-next')
-        
-        if (nextPageExists && start) {
-           
-         
-            const nextPage = `${url}&page=2`
-            const requestQueue = await Apify.openRequestQueue();
-            
-            requestQueue.addRequest({ url: nextPage, userData: {  start: false,gender } })
-        } else if (nextPageExists && !start){
-            
-            const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
-            const pageNumber =parseInt( url.substr(url.lastIndexOf("=")+1))+1
-            
-            const nextPage = pageUrl + pageNumber
-            const requestQueue = await Apify.openRequestQueue();
-            
-            requestQueue.addRequest({ url: nextPage, userData: { start: false,gender } })
-    
-        }
 
-        console.log('data length_____', data.length, 'url:', url)
+    console.log('data length_____', data.length)
+
+
+    const nextPageExists = await page.$('.btn.btn-size01.load-next')
+
+    if (nextPageExists && start) {
+
+
+        const nextPage = `${url}&page=2`
+        const requestQueue = await Apify.openRequestQueue();
+
+        requestQueue.addRequest({ url: nextPage, userData: { start: false, gender } })
+    } else if (nextPageExists && !start) {
+
+        const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
+        const pageNumber = parseInt(url.substr(url.lastIndexOf("=") + 1)) + 1
+
+        const nextPage = pageUrl + pageNumber
+        const requestQueue = await Apify.openRequestQueue();
+
+        requestQueue.addRequest({ url: nextPage, userData: { start: false, gender } })
+
+    }
+
+    console.log('data length_____', data.length, 'url:', url)
     return data
-    
+
 
 }
 async function autoScroll(page) {

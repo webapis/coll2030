@@ -29,19 +29,22 @@ async function handler(page, context) {
 
             debugger;
             const discPerc = priceOld ? extractPercentage(priceOld, priceNew) : null
-
+            const longlink =item.querySelector('.prd-lnk').href
+            const link = longlink.substring(longlink.indexOf('https://www.ipekyol.com.tr/')+27)
+            const longImgUrl =  item.querySelector('[data-image-src]') && item.querySelector('[data-image-src]').getAttribute('data-image-src')
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://img2-ipekyol.mncdn.com/mnresize/')+40)
             return {
                 title: item.querySelector('.prd-name').innerText,
-                priceOld,
+             //   priceOld,
                 priceNew,
-                priceBasket: null,
-                basketDiscount: null,
-                imageUrl: item.querySelector('[data-image-src]') && item.querySelector('[data-image-src]').getAttribute('data-image-src'),
-                link: item.querySelector('.prd-lnk').href,
-                timestamp2: new Date().toISOString(),
+             //   priceBasket: null,
+              //  basketDiscount: null,
+                imageUrl:imageUrlshort,
+                link,
+              //  timestamp2: new Date().toISOString(),
                 timestamp: Date.now(),
                // plcHolder: 'https://img1-ipekyol.mncdn.com/images/lazyload/placeHolder.gif',
-                discPerc,
+               // discPerc,
               //  gender: 'kadın',
                 marka: 'ipekyol',
 
