@@ -90,33 +90,30 @@ Apify.main(async () => {
             }
         })
         console.log('map1.length', map1.length)
-        const map2 = map1.map((c, i, arr) => {
 
-            const filteredData = arr.filter(obj => obj.subcategory === c.subcategory)
-            let index;
+ 
+        // const map2 = map1.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).map((c, i) => {
+        //     return { ...c, itemOrder: i }
+        // })
 
-            index = filteredData.findIndex(obj => obj.imageUrl === c.imageUrl)
-            return { ...c, itemOrder: index }
-        })
+      //  console.log('map2.length', map2.length)
 
-        console.log('map2.length', map2.length)
+        // const table = map2.reduce((group, product) => {
+        //     const values = Object.values(product)
 
-        const table = map2.reduce((group, product) => {
-            const values = Object.values(product)
-
-            group.push(values);
-            return group;
-        }, []);
+        //     group.push(values);
+        //     return group;
+        // }, []);
 
 
 
-        await productsDataset.pushData(map2)
+        await productsDataset.pushData(map1)
 
 
 
         console.log('uploading to excell....')
 
-        const groupByCategory = map2.reduce((group, product) => {
+        const groupByCategory = map1.reduce((group, product) => {
             const { subcategory } = product;
             group[subcategory] = group[subcategory] ?? [];
             group[subcategory].push(product);
@@ -124,15 +121,15 @@ Apify.main(async () => {
         }, {});
 
         let colResulValues = []
-        for (let cat in groupByCategory) {
-            const curr = groupByCategory[cat]
-            const gender = curr[0].gender
-            const category = curr[0].category
-            const subcategory = curr[0].subcategory
+        // for (let cat in groupByCategory) {
+        //     const curr = groupByCategory[cat]
+        //     const gender = curr[0].gender
+        //     const category = curr[0].category
+        //     const subcategory = curr[0].subcategory
 
-            colResulValues.push([`${process.env.marka}`, `${gender}`, `${category}`, `${subcategory}`, `${curr.length}`, startDate, currentDate])
+        //     colResulValues.push([`${process.env.marka}`, `${gender}`, `${category}`, `${subcategory}`, `${curr.length}`, startDate, currentDate])
 
-        }
+        // }
 
         if (gender === 'MALE') {
 
@@ -149,8 +146,8 @@ Apify.main(async () => {
 
         console.log('uploading to excell complete....')
 
-        console.log('items...', map2.length);
-        process.env.dataLength = parseInt(process.env.dataLength) + map2.length
+      //  console.log('items...', map2.length);
+        process.env.dataLength = parseInt(process.env.dataLength) + map1.length
         console.log('process.env.dataLength', process.env.dataLength)
 
     }
@@ -225,6 +222,21 @@ Apify.main(async () => {
 
 
 
+    const groupByCategory = items.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).reduce((group, product) => {
+        const {  marka } = product;
+        group[marka] = group[marka] ?? [];
+        group[marka].push(product);
+        return group;
+    }, {});
+    const orderedByMarka = []
+    for (let g in groupByCategory) {
+        const current = groupByCategory[g]
+        orderedByMarka.push(...current.map((c, i) => { return { ...c, itemOrder: i } }))
+    
+       
+    }
+    
+    const ordereditemOrder=orderedByMarka.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
 
     debugger;
     if (fs.existsSync(`./api/_files/${process.env.GENDER}/data.json`)) {
@@ -232,10 +244,10 @@ Apify.main(async () => {
         fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
     }
     //save data to jsson
-    fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(items))
+    fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(ordereditemOrder))
 
 
-    console.log('items.length', items.length)
+    console.log('items.length', ordereditemOrder.length)
 
 
     console.log('Crawl finished.');

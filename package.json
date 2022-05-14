@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "collection": "node main.js",
     "dev": "netlify dev",
-    "vercel:dev": "vercel dev"
+    "vercel:dev": "vercel dev",
+    "spine": "node spine.js"
   },
   "eslintConfig": {
     "extends": [

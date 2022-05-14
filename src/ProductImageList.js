@@ -30,7 +30,7 @@ export default function ProductImageList() {
 
     const { data } = await response.json()
 
-
+debugger;
     setData(prevState => [...prevState, ...data])
 
 
@@ -68,7 +68,7 @@ function ImageComponent(props) {
   const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_250/'
   const imagePlaceholder = placeholders[props.marka].placeholder
   const imageSource = cloudinary + placeholders[props.marka].imageHost.trim() + props.imageUrl
-  debugger;
+
   useEffect(() => {
 
     if (window.IntersectionObserver) {
