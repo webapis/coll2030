@@ -16,14 +16,19 @@ async function handler(page) {
             const priceNew = firstPrice || newPrice
             const discPerc = insteadPrice ? Math.floor(((parseInt(insteadPrice) - parseInt(priceNew)) * 100) / parseInt(insteadPrice)) : null
             const gender =window.location.href.substring(window.location.href.indexOf('.com/tr/')+8,window. location. href.indexOf('/c/')).replace('i','ı')
+
+            const longlink =  productCard.querySelector('.prc-name').href
+            const link = longlink.substring(longlink.indexOf('https://www.koton.com/tr/')+25)
+            const longImgUrl = imageUrl && productCard.querySelector('.image img').getAttribute('data-src')
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://ktnimg.mncdn.com/mnresize/')+34)
             return {
                 title: productCard.querySelector('.prc-name').innerText,
              //   priceOld: insteadPrice,
                 priceNew,
               //  priceBasket: '',
              //   basketDiscount:'',
-                imageUrl: imageUrl,
-                link: productCard.querySelector('.prc-name').href,
+                imageUrl: imageUrlshort,
+                link,
              //   timestamp2:  new Date().toISOString(),
                 timestamp: Date.now(),
              //   plcHolder: "http://img-kotonw.mncdn.com/_ui/shared/images/koton-loading-gif2.gif",
