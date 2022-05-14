@@ -1,6 +1,7 @@
 
 console.log('main.js is loading...')
 require('dotenv').config()
+var TAFFY = require( 'taffy' );
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
 
@@ -22,15 +23,15 @@ Apify.main(async () => {
     const { utils: { log } } = Apify;
     const requestQueue = await Apify.openRequestQueue();
     const urlsData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'URLS!A:B' })
-    debugger;
+    
     for (let value of urlsData.values) {
         const url = value[0]
         const gender = value[1]
         const marka = url.match(/(?<=www.).*(?=.com)/g)[0]
         await requestQueue.addRequest({ url, userData: { start: true, gender, marka } })
-        debugger;
+        
     }
-    debugger;
+    
  
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);
@@ -101,12 +102,14 @@ Apify.main(async () => {
 
         console.log('uploading to excell....')
 
-        const groupByCategory = map1.reduce((group, product) => {
-            const { subcategory } = product;
-            group[subcategory] = group[subcategory] ?? [];
-            group[subcategory].push(product);
+        const table = map1.reduce((group, product) => {
+            const values = Object.values(product)
+
+
+
+            group.push(values);
             return group;
-        }, {});
+        }, []);
 
         let colResulValues = []
  
@@ -217,13 +220,20 @@ Apify.main(async () => {
     
     const ordereditemOrder=orderedByMarka.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
 
-    debugger;
-    if (fs.existsSync(`./api/_files/${process.env.GENDER}/data.json`)) {
+    
+    // if (fs.existsSync(`./api/_files/${process.env.GENDER}/data.json`)) {
 
-        fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
-    }
+    //  //   fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
+    // }
+    const data =require('./api/_files/kadin/data.json')
+    var products = TAFFY(data);
+        products.merge(ordereditemOrder,"imageUrl")
+    const mergedData =products().get()
+    
+debugger;
     //save data to jsson
-    fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(ordereditemOrder))
+    fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
+    fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(mergedData))
 
 
     console.log('items.length', ordereditemOrder.length)
@@ -275,6 +285,6 @@ Apify.main(async () => {
 
         vercel[`api/${process.env.GENDER}/${withoutunicode}.js`] = { includeFiles: "" }
         vercel[`api/${process.env.GENDER}/${withoutunicode}.js`]['includeFiles'] = `_files/${process.env.GENDER}/${withoutunicode}.json`
-        debugger;
+        
        fs.writeFileSync(`vercel.json`,JSON.stringify(vercel))
 */

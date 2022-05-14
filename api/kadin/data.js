@@ -9,6 +9,7 @@ require('dotenv').config()
        var products = TAFFY(data);
        module.exports =   (req, res)=> {
            var data = products().order("itemOrder asec, subcategory desc").limit(100).get()
+      
   
            res.status(200).json({data})
        
