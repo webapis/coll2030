@@ -16,6 +16,7 @@ debugger;
 // }
 
 // const ordereditemOrder=orderedByMarka.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
+
 // const groupByCategory = data.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).map((c,i,arr)=>{
 //     const filterByMarka =arr.filter(f=>f.marka===c.marka)
 //     const itemOrder =filterByMarka.findIndex(i=>i.imageUrl===c.imageUrl)
