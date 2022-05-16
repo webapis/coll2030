@@ -1,5 +1,7 @@
 
 const data = require('./api/_files/kadin/data.json')
+const fs =require('fs')
+debugger;
 function order(items) {
     const groupByMarka = items.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).reduce((group, product) => {
         const { marka } = product;
@@ -26,7 +28,7 @@ function order(items) {
 
 
     }
-
+debugger;
     const addItemOrder = {}
     for (let c in groupbysub) {
         const { subcategories } = groupbysub[c]
@@ -44,17 +46,20 @@ function order(items) {
 
 
     }
+
     let flatten = []
-    for (let c in groupbysub) {
-        const { subcategories } = groupbysub[c]
 
-        for (let s in subcategories) {
+    for (let c in addItemOrder) {
+
+        const current = addItemOrder[c]
+
+        for (let s in current) {
 
 
 
-            const current = subcategories[s]
+            const currents = current[s]
 
-            flatten.push(...current)
+            flatten.push(...currents)
 
 
         }
@@ -63,9 +68,14 @@ function order(items) {
     }
 
 
-
+debugger;
 
     return flatten.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
 }
+debugger;
+const result =order(data)
 
-order(data)
+fs.unlinkSync(`./api/_files/kadin/data.json`)
+fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify(result))
+
+debugger;

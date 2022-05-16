@@ -10,7 +10,7 @@ require('dotenv').config()
        module.exports =   (req, res)=> {
            const {subcategory}=req.query
            debugger;
-           var data = products().filter({subcategory}).order("itemOrder").limit(100).get()
+           var data = products().order("itemOrder asec").filter({subcategory}).limit(100).get()
       
         debugger;
            res.status(200).json({data})

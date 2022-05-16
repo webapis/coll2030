@@ -256,8 +256,9 @@ function order(items) {
         }
 
 
-    }
 
+    }
+debugger;
     const addItemOrder = {}
     for (let c in groupbysub) {
         const { subcategories } = groupbysub[c]
@@ -270,27 +271,30 @@ function order(items) {
 
             addItemOrder[c][s] = current
 
+
         }
+
+
     }
+
     let flatten = []
-    for (let c in groupbysub) {
-        const { subcategories } = groupbysub[c]
 
-        for (let s in subcategories) {
+    for (let c in addItemOrder) {
+
+        const current = addItemOrder[c]
+
+        for (let s in current) {
 
 
+            const currents = current[s]
 
-            const current = subcategories[s]
-
-            flatten.push(...current)
+            flatten.push(...currents)
 
 
         }
 
 
     }
-
-    return flatten.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
 }
 /*
 
