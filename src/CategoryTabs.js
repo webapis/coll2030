@@ -13,11 +13,11 @@ export default function CategoryTabs() {
 
     return (
  
-            <Tabs centered value={value} onChange={handleChange}      scrollButtons="auto" allowScrollButtonsMobile sx={{marginTop:0,paddingTop:0}}>
-                 <Tab label="Tümü" sx={{fontSize:'12px'}}/>
-                <Tab label="Giyim" sx={{fontSize:'12px'}}/>
-                <Tab label="Ayakkabı" sx={{fontSize:'12px'}} />
-                <Tab label="Aksessuar"   sx={{fontSize:'12px'}}/>
+            <Tabs centered value={value} onChange={handleChange}      scrollButtons="auto" allowScrollButtonsMobile >
+                 <Tab label="Tümü" />
+                <Tab label="Giyim" />
+                <Tab label="Ayakkabı"  />
+                <Tab label="Aksessuar"   />
               
             </Tabs>
      

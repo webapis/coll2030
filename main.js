@@ -214,8 +214,6 @@ Apify.main(async () => {
     for (let g in groupByCategory) {
         const current = groupByCategory[g]
         orderedByMarka.push(...current.map((c, i) => { return { ...c, itemOrder: i } }))
-    
-       
     }
     
     const ordereditemOrder=orderedByMarka.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)

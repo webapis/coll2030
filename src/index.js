@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import reportWebVitals from './reportWebVitals';
-import GenderTab from './GenderTab'
+import SearchBox from './SearchBox'
+import CategoryTabs from './CategoryTabs'
 import FilterResult from './FilterResult';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
-    <GenderTab />
+
+    <SearchBox />
     <FilterResult />
   </div>
 );
