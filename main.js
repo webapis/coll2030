@@ -229,11 +229,13 @@ Apify.main(async () => {
     var products = TAFFY(data);
         products.merge(ordereditemOrder,"imageUrl")
     const mergedData =products().get()
+
+    const storedandmergedData = mergedData.orderedByMarka.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
     
 debugger;
     //save data to jsson
     fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
-    fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(mergedData))
+    fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(storedandmergedData))
 
 
     console.log('items.length', ordereditemOrder.length)
