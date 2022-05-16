@@ -230,7 +230,7 @@ Apify.main(async () => {
         products.merge(ordereditemOrder,"imageUrl")
     const mergedData =products().get()
 
-    const storedandmergedData = mergedData.orderedByMarka.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
+    const storedandmergedData = mergedData.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
     
 debugger;
     //save data to jsson
