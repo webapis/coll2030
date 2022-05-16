@@ -258,7 +258,10 @@ function order(items) {
 
 
     }
-debugger;
+
+    
+
+
     const addItemOrder = {}
     for (let c in groupbysub) {
         const { subcategories } = groupbysub[c]
@@ -295,6 +298,8 @@ debugger;
 
 
     }
+
+    return flatten
 }
 /*
 
