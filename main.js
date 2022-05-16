@@ -232,8 +232,6 @@ Apify.main(async () => {
 });
 
 
-
-
 function order(items) {
     const groupByMarka = items.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).reduce((group, product) => {
         const { marka } = product;
@@ -258,7 +256,6 @@ function order(items) {
         }
 
 
-
     }
 
     const addItemOrder = {}
@@ -273,10 +270,7 @@ function order(items) {
 
             addItemOrder[c][s] = current
 
-
         }
-
-
     }
     let flatten = []
     for (let c in groupbysub) {
