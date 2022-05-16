@@ -22,10 +22,10 @@ export default function ProductImageList() {
 
   async function fetchData(page) {
     const gender = localStorage.getItem('gender')
-    // const subcategory = localStorage.getItem('subcategory')
+   const subcategory = localStorage.getItem('subcategory')
     // const category = localStorage.getItem('category')
     //  const url = `/.netlify/functions/atlas?gender=${gender}&category=alt-giyim&subcategory=pantolon&page=${page}`
-    const url = `/api/kadin/data?page=${page}`
+    const url = `/api/kadin/data?page=${page}&subcategory=${subcategory}`
     const response = await fetch(url, { cache: 'default' })
 
     const { data } = await response.json()
@@ -84,9 +84,7 @@ function ImageComponent(props) {
       }, { threshold: 0.1 });
       window.obz = observer
       window.obz.observe(imageEl.current)
-
     }
-
 
   }, []);
   return (

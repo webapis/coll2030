@@ -65,10 +65,10 @@ function ProductMenu() {
 
 
  function handleTreeClick(subcategory){
-   
+  localStorage.setItem('subcategory',subcategory)
   debugger;
 
-  
+
   }
 
   return (<div>

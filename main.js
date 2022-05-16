@@ -1,7 +1,7 @@
 
 console.log('main.js is loading...')
 require('dotenv').config()
-var TAFFY = require( 'taffy' );
+var TAFFY = require('taffy');
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
 
@@ -16,23 +16,23 @@ fs.writeFileSync('helloworld.txt', new Date().toDateString())
 Apify.main(async () => {
     const startDate = new Date().toLocaleDateString()
     console.log('apify.main.js is loading...')
- 
+
     const google_access_token = await getGoogleToken(process.env.GOOGLE_REFRESH_TOKEN)
 
 
     const { utils: { log } } = Apify;
     const requestQueue = await Apify.openRequestQueue();
     const urlsData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'URLS!A:B' })
-    
+
     for (let value of urlsData.values) {
         const url = value[0]
         const gender = value[1]
         const marka = url.match(/(?<=www.).*(?=.com)/g)[0]
         await requestQueue.addRequest({ url, userData: { start: true, gender, marka } })
-        
+
     }
-    
- 
+
+
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);
     const productsDataset = await Apify.openDataset(`products`);
@@ -51,7 +51,7 @@ Apify.main(async () => {
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
 
-        const { page, request: { userData: { start, gender,marka } } } = context
+        const { page, request: { userData: { start, gender, marka } } } = context
 
         const { handler, getUrls } = require(`./handlers/${marka}`);
         const { pageUrls, productCount, pageLength } = await getUrls(page)
@@ -61,9 +61,9 @@ Apify.main(async () => {
             let order = 1
             for (let url of pageUrls) {
                 if (pageUrls.length === order) {
-                    requestQueue.addRequest({ url, userData: { start: false, gender,marka} })
+                    requestQueue.addRequest({ url, userData: { start: false, gender, marka } })
                 } else {
-                    requestQueue.addRequest({ url, userData: { start: false, gender,marka } })
+                    requestQueue.addRequest({ url, userData: { start: false, gender, marka } })
                 }
                 ++order;
             }
@@ -92,7 +92,7 @@ Apify.main(async () => {
         })
         console.log('map1.length', map1.length)
 
- 
+
 
 
 
@@ -112,7 +112,7 @@ Apify.main(async () => {
         }, []);
 
         let colResulValues = []
- 
+
         if (gender === 'MALE') {
 
             //   const response= await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'DATA!A:B', values: table })
@@ -128,7 +128,7 @@ Apify.main(async () => {
 
         console.log('uploading to excell complete....')
 
-      //  console.log('items...', map2.length);
+        //  console.log('items...', map2.length);
         process.env.dataLength = parseInt(process.env.dataLength) + map1.length
         console.log('process.env.dataLength', process.env.dataLength)
 
@@ -204,33 +204,21 @@ Apify.main(async () => {
 
 
 
-    const groupByCategory = items.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).reduce((group, product) => {
-        const {  marka } = product;
-        group[marka] = group[marka] ?? [];
-        group[marka].push(product);
-        return group;
-    }, {});
-    const orderedByMarka = []
-    for (let g in groupByCategory) {
-        const current = groupByCategory[g]
-        orderedByMarka.push(...current.map((c, i) => { return { ...c, itemOrder: i } }))
-    }
-    
-    const ordereditemOrder=orderedByMarka.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
+    const ordereditemOrder = order(items)
 
-    
+
     // if (fs.existsSync(`./api/_files/${process.env.GENDER}/data.json`)) {
 
     //  //   fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
     // }
-    const data =require('./api/_files/kadin/data.json')
+    const data = require('./api/_files/kadin/data.json')
     var products = TAFFY(data);
-        products.merge(ordereditemOrder,"imageUrl")
-    const mergedData =products().get()
+    products.merge(ordereditemOrder, "imageUrl")
+    const mergedData = products().get()
 
-    const storedandmergedData = mergedData.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
-    
-debugger;
+    const storedandmergedData = order(mergedData)
+
+    debugger;
     //save data to jsson
     fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
     fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(storedandmergedData))
@@ -246,7 +234,21 @@ debugger;
 
 
 
+function order(items) {
+    const groupByCategory = items.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).reduce((group, product) => {
+        const { marka } = product;
+        group[marka] = group[marka] ?? [];
+        group[marka].push(product);
+        return group;
+    }, {});
+    const orderedByMarka = []
+    for (let g in groupByCategory) {
+        const current = groupByCategory[g]
+        orderedByMarka.push(...current.map((c, i) => { return { ...c, itemOrder: i } }))
+    }
 
+    return orderedByMarka.sort((a, b) => (a.itemOrder > b.itemOrder) ? 1 : -1)
+}
 /*
 
     for (let subcategory in groupByCategory) {

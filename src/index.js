@@ -4,7 +4,7 @@ import './index.css';
 
 import reportWebVitals from './reportWebVitals';
 import SearchBox from './SearchBox'
-import CategoryTabs from './CategoryTabs'
+
 import FilterResult from './FilterResult';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
