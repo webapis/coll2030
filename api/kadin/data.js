@@ -8,9 +8,10 @@ require('dotenv').config()
      
        var products = TAFFY(data);
        module.exports =   (req, res)=> {
-           const {subcategory}=req.query
+           const {subcategory,page}=req.query
+           const start =parseInt(page)
            debugger;
-           var data = products().order("itemOrder asec").filter({subcategory}).limit(100).get()
+           var data = products().order("itemOrder asec").filter({subcategory}).start(start).limit(100).get()
       
         debugger;
            res.status(200).json({data})

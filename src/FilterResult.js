@@ -14,7 +14,7 @@ import TreeItem from '@mui/lab/TreeItem';
 
 import nav from './nav.json'
 const {navs,total}=nav
-debugger;
+
 export default function FilterResult() {
   const [value, setValue] = React.useState(0);
 
