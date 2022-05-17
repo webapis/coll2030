@@ -79,11 +79,13 @@ Apify.main(async () => {
             const procutTitle = p.title
 
             const productCategory = categoryItems.find(c => {
-                const regexvar = "(\\s|^|\\b)(" + c.subcategory + ")($)"
+                const regexvar = "" + c.subcategory + ""
                 const reg = new RegExp(regexvar, "i")
                 const result = reg.test(procutTitle.toLowerCase())
+    
                 return result
             })
+
             if (productCategory) {
                 return { ...p, category: productCategory.category, subcategory: productCategory.regex }
             } else {
@@ -113,18 +115,16 @@ Apify.main(async () => {
 
         let colResulValues = []
 
-        if (gender === 'MALE') {
 
-            //   const response= await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'DATA!A:B', values: table })
 
-        }
+        const response = await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
+debugger;
+
         if (gender === 'FEMALE') {
 
             //  const response= await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
 
         }
-
-
 
         console.log('uploading to excell complete....')
 
@@ -259,7 +259,7 @@ function order(items) {
 
     }
 
-    
+
 
 
     const addItemOrder = {}
