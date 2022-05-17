@@ -22,16 +22,11 @@ Apify.main(async () => {
 
     const { utils: { log } } = Apify;
     const requestQueue = await Apify.openRequestQueue();
-    const urlsData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'URLS!A:B' })
+    //const urlsData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'URLS!A:B' })
 
-    for (let value of urlsData.values) {
-        const url = value[0]
-        const gender = value[1]
-        const marka = url.match(/(?<=www.).*(?=.com)/g)[0]
+  
+        const marka = process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
         await requestQueue.addRequest({ url, userData: { start: true, gender, marka } })
-
-    }
-
 
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);

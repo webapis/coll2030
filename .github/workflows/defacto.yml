@@ -1,16 +1,16 @@
 name: defacto
 on:
-  workflow_call:
+   workflow_dispatch:
     inputs:
       projectName:
         description: 'Project Name'
         required: false
-        type: string
 env:
   CLOUD: true
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
   CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
   CLIENT_ID: ${{secrets.CLIENT_ID}}
+  START_URL: https://www.defacto.com.tr/kadin-tumu
 jobs:
   aggregator:
     runs-on: ubuntu-latest
