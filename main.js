@@ -24,9 +24,9 @@ Apify.main(async () => {
     const requestQueue = await Apify.openRequestQueue();
     //const urlsData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'URLS!A:B' })
 
-  
-        const marka = process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
-        await requestQueue.addRequest({ url:process.env.START_URL, userData: { start: true, gender:'kadin', marka } })
+
+    const marka = process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
+    await requestQueue.addRequest({ url: process.env.START_URL, userData: { start: true, gender: 'kadin', marka } })
 
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);
@@ -113,7 +113,7 @@ Apify.main(async () => {
 
 
         const response = await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
-        
+
 
         if (gender === 'FEMALE') {
 
@@ -197,26 +197,20 @@ Apify.main(async () => {
     await crawler.run();
     const { items } = await productsDataset.getData()
 
-debugger;
-
-    const ordereditemOrder = order(items)
-
-
-
+    debugger;
     const data = require('./api/_files/kadin/data.json')
-    var products = TAFFY(data);
-    products.merge(ordereditemOrder, "imageUrl")
-    const mergedData = products().get()
-debugger;
-    const storedandmergedData = order(mergedData)
-    navTree(storedandmergedData)
-    
+    const ordereditemOrder = order([...items, ...data])
+
+    debugger;
+
+    navTree(ordereditemOrder)
+    debugger;
     //save data to jsson
     fs.unlinkSync(`./api/_files/kadin/data.json`)
-    fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify(storedandmergedData))
+    debugger;
+    fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify(ordereditemOrder))
 
-debugger;
-    console.log('items.length', ordereditemOrder.length)
+    debugger;
 
 
     console.log('Crawl finished.');
@@ -225,7 +219,12 @@ debugger;
 
 
 function order(items) {
-    const groupByMarka = items.sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).reduce((group, product) => {
+debugger;
+    const groupByMarka =items.filter((value, index, self) =>
+    index === self.findIndex((t) => (
+      t.imageUrl === value.imageUrl 
+    ))
+  ).sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).reduce((group, product) => {
         const { marka } = product;
         group[marka] = group[marka] ?? [];
         group[marka].push(product);
