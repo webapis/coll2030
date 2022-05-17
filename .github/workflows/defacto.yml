@@ -5,6 +5,7 @@ on:
       projectName:
         description: 'Project Name'
         required: false
+         type: string
 env:
   CLOUD: true
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
