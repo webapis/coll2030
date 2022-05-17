@@ -26,8 +26,7 @@ function navTree(data) {
     }
 
     const groupbysubcount = {}
-    debugger;
-    for (let c in groupbysub) {
+    debugger;    for (let c in groupbysub) {
         const { total, subcategories } = groupbysub[c]
         const subs = {}
 
@@ -44,8 +43,8 @@ function navTree(data) {
         }
 
     }
-
-
+    fs.unlinkSync(`src/nav.json`)
+debugger;
     fs.appendFileSync(`src/nav.json`, JSON.stringify(groupbysubcount))
 return groupbysubcount
 }
