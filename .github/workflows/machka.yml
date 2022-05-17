@@ -1,4 +1,4 @@
-name: defacto
+name: machka
 on:
    workflow_dispatch:
     inputs:
