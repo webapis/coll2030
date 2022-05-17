@@ -26,7 +26,7 @@ Apify.main(async () => {
 
   
         const marka = process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
-        await requestQueue.addRequest({ url:process.env.START_URL, userData: { start: true, gender, marka } })
+        await requestQueue.addRequest({ url:process.env.START_URL, userData: { start: true, gender:'kadin', marka } })
 
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);
