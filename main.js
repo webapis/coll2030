@@ -113,7 +113,7 @@ Apify.main(async () => {
 
 
         const response = await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
-        debugger;
+        
 
         if (gender === 'FEMALE') {
 
@@ -197,7 +197,7 @@ Apify.main(async () => {
     await crawler.run();
     const { items } = await productsDataset.getData()
 
-
+debugger;
 
     const ordereditemOrder = order(items)
 
@@ -207,15 +207,15 @@ Apify.main(async () => {
     var products = TAFFY(data);
     products.merge(ordereditemOrder, "imageUrl")
     const mergedData = products().get()
-
+debugger;
     const storedandmergedData = order(mergedData)
     navTree(storedandmergedData)
-    debugger;
+    
     //save data to jsson
-    fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
-    fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(storedandmergedData))
+    fs.unlinkSync(`./api/_files/kadin/data.json`)
+    fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify(storedandmergedData))
 
-
+debugger;
     console.log('items.length', ordereditemOrder.length)
 
 
