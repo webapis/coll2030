@@ -11,9 +11,10 @@ import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
-import Avatar from '@mui/material/Avatar';
-import nav from './nav.json'
 
+import nav from './nav.json'
+const {navs,total}=nav
+debugger;
 export default function FilterResult() {
   const [value, setValue] = React.useState(0);
 
@@ -24,7 +25,7 @@ export default function FilterResult() {
   return (
     <Box>
       <Tabs centered value={value} onChange={handleChange} scrollButtons="auto" allowScrollButtonsMobile sx={{ paddingBottom: '10px' }}>
-        <Tab label={<div>Ürünler<span></span><br /><span style={{ color: '#9e9e9e' }}>(12.000)</span></div>} sx={{ fontSize: '12px' }} />
+        <Tab label={<div>Ürünler<span></span><br /><span style={{ color: '#9e9e9e' }}>({total})</span></div>} sx={{ fontSize: '12px' }} />
         <Tab label={<div>Sonuç<span></span><br /><span style={{ color: '#9e9e9e' }}>(12.000)</span></div>} sx={{ fontSize: '12px' }} />
       </Tabs>
       <TabPanel value={value} index={0}>
@@ -78,7 +79,8 @@ function ProductMenu() {
       defaultExpandIcon={<ChevronRightIcon />}
       sx={{  flexGrow: 1,  }}
     >
-      {Object.entries(nav).map((n, i) => {
+      {Object.entries(navs).map((n, i) => {
+        debugger;
         const {category,categoryTotal,subcategories} = n[1]
      
         return (

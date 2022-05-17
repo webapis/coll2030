@@ -1,1 +1,353 @@
-{"aksesuar":{"categoryTotal":984,"category":"aksesuar","subcategories":{"broş":{"subcategory":"broş","subCatTotal":3},"şapka":{"subcategory":"şapka","subCatTotal":87},"şal":{"subcategory":"şal","subCatTotal":43},"çorap":{"subcategory":"çorap","subCatTotal":181},"çanta":{"subcategory":"çanta","subCatTotal":234},"Çorap":{"subcategory":"Çorap","subCatTotal":1},"toka":{"subcategory":"toka","subCatTotal":12},"taç":{"subcategory":"taç","subCatTotal":12},"sprey":{"subcategory":"sprey","subCatTotal":9},"serum":{"subcategory":"serum","subCatTotal":17},"saç":{"subcategory":"saç","subCatTotal":21},"ruj":{"subcategory":"ruj","subCatTotal":2},"parfüm":{"subcategory":"parfüm","subCatTotal":31},"maske":{"subcategory":"maske","subCatTotal":8},"maskara":{"subcategory":"maskara","subCatTotal":14},"krem":{"subcategory":"krem","subCatTotal":8},"korse":{"subcategory":"korse","subCatTotal":40},"kemer":{"subcategory":"kemer","subCatTotal":78},"kapatıcı":{"subcategory":"kapatıcı","subCatTotal":19},"gözlük":{"subcategory":"gözlük","subCatTotal":39},"eşarp":{"subcategory":"eşarp","subCatTotal":4},"eyeliner":{"subcategory":"eyeliner","subCatTotal":3},"cüzdan":{"subcategory":"cüzdan","subCatTotal":116},"bel-korse":{"subcategory":"bel-korse","subCatTotal":2}}},"alt-giyim":{"categoryTotal":1488,"category":"alt-giyim","subcategories":{"şort":{"subcategory":"şort","subCatTotal":345},"pantolon":{"subcategory":"pantolon","subCatTotal":658},"etek":{"subcategory":"etek","subCatTotal":267},"tayt":{"subcategory":"tayt","subCatTotal":118},"bermuda":{"subcategory":"bermuda","subCatTotal":100}}},"ayakkabı":{"categoryTotal":210,"category":"ayakkabı","subcategories":{"topuklu-ayakkabı":{"subcategory":"topuklu-ayakkabı","subCatTotal":6},"terlik":{"subcategory":"terlik","subCatTotal":72},"spor-ayakkabı":{"subcategory":"spor-ayakkabı","subCatTotal":61},"sandalet":{"subcategory":"sandalet","subCatTotal":11},"bez-ayakkabı":{"subcategory":"bez-ayakkabı","subCatTotal":16},"babet":{"subcategory":"babet","subCatTotal":44}}},"dış-giyim":{"categoryTotal":206,"category":"dış-giyim","subcategories":{"yelek":{"subcategory":"yelek","subCatTotal":14},"mont":{"subcategory":"mont","subCatTotal":16},"ceket":{"subcategory":"ceket","subCatTotal":159},"yağmurluk":{"subcategory":"yağmurluk","subCatTotal":11},"trençkot":{"subcategory":"trençkot","subCatTotal":4},"parka":{"subcategory":"parka","subCatTotal":2}}},"ev-giyim":{"categoryTotal":163,"category":"ev-giyim","subcategories":{"pijama":{"subcategory":"pijama","subCatTotal":119},"gecelik":{"subcategory":"gecelik","subCatTotal":44}}},"giyim":{"categoryTotal":917,"category":"giyim","subcategories":{"triko":{"subcategory":"triko","subCatTotal":13},"elbise":{"subcategory":"elbise","subCatTotal":684},"tulum":{"subcategory":"tulum","subCatTotal":27},"body":{"subcategory":"body","subCatTotal":60},"Eşofman":{"subcategory":"Eşofman","subCatTotal":133}}},"iç-giyim":{"categoryTotal":472,"category":"iç-giyim","subcategories":{"sütyen":{"subcategory":"sütyen","subCatTotal":80},"string":{"subcategory":"string","subCatTotal":6},"slip":{"subcategory":"slip","subCatTotal":9},"mayo":{"subcategory":"mayo","subCatTotal":71},"külot":{"subcategory":"külot","subCatTotal":99},"jartiyer":{"subcategory":"jartiyer","subCatTotal":1},"bralet":{"subcategory":"bralet","subCatTotal":21},"bikini":{"subcategory":"bikini","subCatTotal":185}}},"plaj":{"categoryTotal":22,"category":"plaj","subcategories":{"plaj-kıyafeti":{"subcategory":"plaj-kıyafeti","subCatTotal":22}}},"undefined":{"categoryTotal":305,"category":"undefined","subcategories":{"undefined":{"subcategory":"undefined","subCatTotal":305}}},"üst-giyim":{"categoryTotal":3060,"category":"üst-giyim","subcategories":{"tunik":{"subcategory":"tunik","subCatTotal":70},"tişört":{"subcategory":"tişört","subCatTotal":933},"sweatshirt":{"subcategory":"sweatshirt","subCatTotal":189},"penye":{"subcategory":"penye","subCatTotal":7},"gömlek":{"subcategory":"gömlek","subCatTotal":592},"crop":{"subcategory":"crop","subCatTotal":381},"bluz":{"subcategory":"bluz","subCatTotal":272},"süveter":{"subcategory":"süveter","subCatTotal":14},"kimono":{"subcategory":"kimono","subCatTotal":28},"kazak":{"subcategory":"kazak","subCatTotal":53},"hırka":{"subcategory":"hırka","subCatTotal":72},"hamile-üst":{"subcategory":"hamile-üst","subCatTotal":2},"atlet":{"subcategory":"atlet","subCatTotal":430},"athlete":{"subcategory":"athlete","subCatTotal":17}}}}
+{
+    "navs": {
+        "aksesuar": {
+            "categoryTotal": 984,
+            "category": "aksesuar",
+            "subcategories": {
+                "bel-korse": {
+                    "subcategory": "bel-korse",
+                    "subCatTotal": 2
+                },
+                "cüzdan": {
+                    "subcategory": "cüzdan",
+                    "subCatTotal": 116
+                },
+                "eyeliner": {
+                    "subcategory": "eyeliner",
+                    "subCatTotal": 3
+                },
+                "eşarp": {
+                    "subcategory": "eşarp",
+                    "subCatTotal": 4
+                },
+                "gözlük": {
+                    "subcategory": "gözlük",
+                    "subCatTotal": 39
+                },
+                "kapatıcı": {
+                    "subcategory": "kapatıcı",
+                    "subCatTotal": 19
+                },
+                "kemer": {
+                    "subcategory": "kemer",
+                    "subCatTotal": 78
+                },
+                "korse": {
+                    "subcategory": "korse",
+                    "subCatTotal": 40
+                },
+                "krem": {
+                    "subcategory": "krem",
+                    "subCatTotal": 8
+                },
+                "maskara": {
+                    "subcategory": "maskara",
+                    "subCatTotal": 14
+                },
+                "maske": {
+                    "subcategory": "maske",
+                    "subCatTotal": 8
+                },
+                "parfüm": {
+                    "subcategory": "parfüm",
+                    "subCatTotal": 31
+                },
+                "ruj": {
+                    "subcategory": "ruj",
+                    "subCatTotal": 2
+                },
+                "saç": {
+                    "subcategory": "saç",
+                    "subCatTotal": 21
+                },
+                "serum": {
+                    "subcategory": "serum",
+                    "subCatTotal": 17
+                },
+                "sprey": {
+                    "subcategory": "sprey",
+                    "subCatTotal": 9
+                },
+                "taç": {
+                    "subcategory": "taç",
+                    "subCatTotal": 12
+                },
+                "toka": {
+                    "subcategory": "toka",
+                    "subCatTotal": 12
+                },
+                "Çorap": {
+                    "subcategory": "Çorap",
+                    "subCatTotal": 1
+                },
+                "çanta": {
+                    "subcategory": "çanta",
+                    "subCatTotal": 234
+                },
+                "çorap": {
+                    "subcategory": "çorap",
+                    "subCatTotal": 181
+                },
+                "şal": {
+                    "subcategory": "şal",
+                    "subCatTotal": 43
+                },
+                "şapka": {
+                    "subcategory": "şapka",
+                    "subCatTotal": 87
+                },
+                "broş": {
+                    "subcategory": "broş",
+                    "subCatTotal": 3
+                }
+            }
+        },
+        "alt-giyim": {
+            "categoryTotal": 1488,
+            "category": "alt-giyim",
+            "subcategories": {
+                "bermuda": {
+                    "subcategory": "bermuda",
+                    "subCatTotal": 100
+                },
+                "etek": {
+                    "subcategory": "etek",
+                    "subCatTotal": 267
+                },
+                "pantolon": {
+                    "subcategory": "pantolon",
+                    "subCatTotal": 658
+                },
+                "tayt": {
+                    "subcategory": "tayt",
+                    "subCatTotal": 118
+                },
+                "şort": {
+                    "subcategory": "şort",
+                    "subCatTotal": 345
+                }
+            }
+        },
+        "ayakkabı": {
+            "categoryTotal": 210,
+            "category": "ayakkabı",
+            "subcategories": {
+                "babet": {
+                    "subcategory": "babet",
+                    "subCatTotal": 44
+                },
+                "bez-ayakkabı": {
+                    "subcategory": "bez-ayakkabı",
+                    "subCatTotal": 16
+                },
+                "sandalet": {
+                    "subcategory": "sandalet",
+                    "subCatTotal": 11
+                },
+                "spor-ayakkabı": {
+                    "subcategory": "spor-ayakkabı",
+                    "subCatTotal": 61
+                },
+                "terlik": {
+                    "subcategory": "terlik",
+                    "subCatTotal": 72
+                },
+                "topuklu-ayakkabı": {
+                    "subcategory": "topuklu-ayakkabı",
+                    "subCatTotal": 6
+                }
+            }
+        },
+        "dış-giyim": {
+            "categoryTotal": 206,
+            "category": "dış-giyim",
+            "subcategories": {
+                "ceket": {
+                    "subcategory": "ceket",
+                    "subCatTotal": 159
+                },
+                "mont": {
+                    "subcategory": "mont",
+                    "subCatTotal": 16
+                },
+                "parka": {
+                    "subcategory": "parka",
+                    "subCatTotal": 2
+                },
+                "trençkot": {
+                    "subcategory": "trençkot",
+                    "subCatTotal": 4
+                },
+                "yağmurluk": {
+                    "subcategory": "yağmurluk",
+                    "subCatTotal": 11
+                },
+                "yelek": {
+                    "subcategory": "yelek",
+                    "subCatTotal": 14
+                }
+            }
+        },
+        "ev-giyim": {
+            "categoryTotal": 163,
+            "category": "ev-giyim",
+            "subcategories": {
+                "gecelik": {
+                    "subcategory": "gecelik",
+                    "subCatTotal": 44
+                },
+                "pijama": {
+                    "subcategory": "pijama",
+                    "subCatTotal": 119
+                }
+            }
+        },
+        "giyim": {
+            "categoryTotal": 917,
+            "category": "giyim",
+            "subcategories": {
+                "Eşofman": {
+                    "subcategory": "Eşofman",
+                    "subCatTotal": 133
+                },
+                "body": {
+                    "subcategory": "body",
+                    "subCatTotal": 60
+                },
+                "elbise": {
+                    "subcategory": "elbise",
+                    "subCatTotal": 684
+                },
+                "triko": {
+                    "subcategory": "triko",
+                    "subCatTotal": 13
+                },
+                "tulum": {
+                    "subcategory": "tulum",
+                    "subCatTotal": 27
+                }
+            }
+        },
+        "iç-giyim": {
+            "categoryTotal": 472,
+            "category": "iç-giyim",
+            "subcategories": {
+                "bikini": {
+                    "subcategory": "bikini",
+                    "subCatTotal": 185
+                },
+                "bralet": {
+                    "subcategory": "bralet",
+                    "subCatTotal": 21
+                },
+                "jartiyer": {
+                    "subcategory": "jartiyer",
+                    "subCatTotal": 1
+                },
+                "külot": {
+                    "subcategory": "külot",
+                    "subCatTotal": 99
+                },
+                "mayo": {
+                    "subcategory": "mayo",
+                    "subCatTotal": 71
+                },
+                "slip": {
+                    "subcategory": "slip",
+                    "subCatTotal": 9
+                },
+                "string": {
+                    "subcategory": "string",
+                    "subCatTotal": 6
+                },
+                "sütyen": {
+                    "subcategory": "sütyen",
+                    "subCatTotal": 80
+                }
+            }
+        },
+        "plaj": {
+            "categoryTotal": 22,
+            "category": "plaj",
+            "subcategories": {
+                "plaj-kıyafeti": {
+                    "subcategory": "plaj-kıyafeti",
+                    "subCatTotal": 22
+                }
+            }
+        },
+        "undefined": {
+            "categoryTotal": 305,
+            "category": "undefined",
+            "subcategories": {
+                "undefined": {
+                    "subcategory": "undefined",
+                    "subCatTotal": 305
+                }
+            }
+        },
+        "üst-giyim": {
+            "categoryTotal": 3060,
+            "category": "üst-giyim",
+            "subcategories": {
+                "athlete": {
+                    "subcategory": "athlete",
+                    "subCatTotal": 17
+                },
+                "atlet": {
+                    "subcategory": "atlet",
+                    "subCatTotal": 430
+                },
+                "bluz": {
+                    "subcategory": "bluz",
+                    "subCatTotal": 272
+                },
+                "crop": {
+                    "subcategory": "crop",
+                    "subCatTotal": 381
+                },
+                "gömlek": {
+                    "subcategory": "gömlek",
+                    "subCatTotal": 592
+                },
+                "hamile-üst": {
+                    "subcategory": "hamile-üst",
+                    "subCatTotal": 2
+                },
+                "hırka": {
+                    "subcategory": "hırka",
+                    "subCatTotal": 72
+                },
+                "kazak": {
+                    "subcategory": "kazak",
+                    "subCatTotal": 53
+                },
+                "kimono": {
+                    "subcategory": "kimono",
+                    "subCatTotal": 28
+                },
+                "penye": {
+                    "subcategory": "penye",
+                    "subCatTotal": 7
+                },
+                "sweatshirt": {
+                    "subcategory": "sweatshirt",
+                    "subCatTotal": 189
+                },
+                "süveter": {
+                    "subcategory": "süveter",
+                    "subCatTotal": 14
+                },
+                "tişört": {
+                    "subcategory": "tişört",
+                    "subCatTotal": 933
+                },
+                "tunik": {
+                    "subcategory": "tunik",
+                    "subCatTotal": 70
+                }
+            }
+        }
+    },
+    "total": 7827
+}

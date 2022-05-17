@@ -1,8 +1,8 @@
-const fs =require('fs')
+const fs = require('fs')
 function navTree(data) {
 
     const groupByCategory = data.sort((a, b) => (a.category > b.category) ? 1 : -1).reduce((group, product) => {
-        const {  category } = product;
+        const { category } = product;
         group[category] = group[category] ?? [];
         group[category].push(product);
         return group;
@@ -26,7 +26,7 @@ function navTree(data) {
     }
 
     const groupbysubcount = {}
-    debugger;    for (let c in groupbysub) {
+    debugger; for (let c in groupbysub) {
         const { total, subcategories } = groupbysub[c]
         const subs = {}
 
@@ -44,8 +44,8 @@ function navTree(data) {
 
     }
     fs.unlinkSync(`src/nav.json`)
-debugger;
-    fs.appendFileSync(`src/nav.json`, JSON.stringify(groupbysubcount))
-return groupbysubcount
+    debugger;
+    fs.appendFileSync(`src/nav.json`, JSON.stringify({ navs: groupbysubcount, total: data.length }))
+    return groupbysubcount
 }
-module.exports = {navTree}
+module.exports = { navTree }
