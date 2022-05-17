@@ -4,7 +4,7 @@ require('dotenv').config()
 var TAFFY = require('taffy');
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
-
+const { navTree } = require('./navTree')
 const { getSheetValues, setSheetValue, appendSheetValues } = require('./google.sheet.js')
 
 const Apify = require('apify');
@@ -82,7 +82,7 @@ Apify.main(async () => {
                 const regexvar = "" + c.subcategory + ""
                 const reg = new RegExp(regexvar, "i")
                 const result = reg.test(procutTitle.toLowerCase())
-    
+
                 return result
             })
 
@@ -118,7 +118,7 @@ Apify.main(async () => {
 
 
         const response = await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
-debugger;
+        debugger;
 
         if (gender === 'FEMALE') {
 
@@ -207,17 +207,14 @@ debugger;
     const ordereditemOrder = order(items)
 
 
-    // if (fs.existsSync(`./api/_files/${process.env.GENDER}/data.json`)) {
 
-    //  //   fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
-    // }
     const data = require('./api/_files/kadin/data.json')
     var products = TAFFY(data);
     products.merge(ordereditemOrder, "imageUrl")
     const mergedData = products().get()
 
     const storedandmergedData = order(mergedData)
-
+    navTree(storedandmergedData)
     debugger;
     //save data to jsson
     fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
@@ -301,44 +298,5 @@ function order(items) {
 
     return flatten
 }
-/*
-
-    for (let subcategory in groupByCategory) {
-        const withoutunicode = subcategory.toLocaleLowerCase().replace('ç', "c").replace("ö", "o").replace("ü", "u").replace("ş", "s").replace("ı", "i").replace("ğ", "g")
-        const current = groupByCategory[subcategory]
-        if (fs.existsSync(`./api/_files/${process.env.GENDER}/data.json`)) {
-            fs.unlinkSync(`./api/_files/${process.env.GENDER}/data.json`)
-        }
-        //save data to jsson
-        fs.appendFileSync(`./api/_files/${process.env.GENDER}/data.json`, JSON.stringify(items))
-       
-
-      
-
-    }
- fs.appendFileSync(`./api/${process.env.GENDER}/${withoutunicode}.js`, `require('dotenv').config()
-        var TAFFY = require( 'taffy' );
-
-       
-       // Create a new database a single object (first record)
-       
-       const data =require('../_files/${process.env.GENDER}/${withoutunicode}.json')
-     
-       var products = TAFFY(data);
-       module.exports =   (req, res)=> {
-           var data = products().limit(100).get()
-  
-           res.status(200).json({data})
-       
-       
-       }
-       `)
 
 
-         const vercel = require('./vercel.json')
-
-        vercel[`api/${process.env.GENDER}/${withoutunicode}.js`] = { includeFiles: "" }
-        vercel[`api/${process.env.GENDER}/${withoutunicode}.js`]['includeFiles'] = `_files/${process.env.GENDER}/${withoutunicode}.json`
-        
-       fs.writeFileSync(`vercel.json`,JSON.stringify(vercel))
-*/

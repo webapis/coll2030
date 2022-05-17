@@ -1,6 +1,6 @@
 name: defacto
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       projectName:
         description: 'Project Name'

@@ -46,7 +46,7 @@ function navTree(data) {
     }
 
 
-    fs.appendFileSync(`public/nav.json`, JSON.stringify(groupbysubcount))
+    fs.appendFileSync(`src/nav.json`, JSON.stringify(groupbysubcount))
 return groupbysubcount
 }
 module.exports = {navTree}
