@@ -4,7 +4,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import placeholders from './placeholders'
-
+import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid'
 
 export default function ProductImageList() {
@@ -21,16 +21,15 @@ export default function ProductImageList() {
 
 
   async function fetchData(page) {
-    const gender = localStorage.getItem('gender')
+
     const subcategory = localStorage.getItem('subcategory')
-    // const category = localStorage.getItem('category')
-    //  const url = `/.netlify/functions/atlas?gender=${gender}&category=alt-giyim&subcategory=pantolon&page=${page}`
+
     const url = `/api/kadin/data?page=${page}&subcategory=${subcategory}`
     const response = await fetch(url, { cache: 'default' })
 
     const { data } = await response.json()
 
-    debugger;
+  
     setData(prevState => [...prevState, ...data])
 
 
@@ -51,7 +50,7 @@ export default function ProductImageList() {
       {state.map((item, i) => {
 
         return <Grid item key={i} >
-          <ImageComponent plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} />
+          <ImageComponent plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} />
 
         </Grid>
       })}
@@ -69,6 +68,7 @@ function ImageComponent(props) {
   const imagePlaceholder = placeholders[props.marka].placeholder
   const logo= placeholders[props.marka].logo
   const imageSource = cloudinary + placeholders[props.marka].imageHost.trim() + props.imageUrl
+  const detailHost =placeholders[props.marka].detailHost +props.link
 
   useEffect(() => {
 
@@ -77,7 +77,7 @@ function ImageComponent(props) {
       let observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            //  console.log(entry);
+     
             entry.target.src = entry.target.dataset.src;
             observer.unobserve(entry.target);
           }
@@ -90,7 +90,7 @@ function ImageComponent(props) {
   }, []);
   return (
     <div>
-      <div>
+      <a href={detailHost} target="_blank">
         <img ref={imageEl}
           src={imagePlaceholder}
           data-src={imageSource}
@@ -99,12 +99,14 @@ function ImageComponent(props) {
           width="250"
         />
         
-      </div>
+      </a>
       <div >
       <img src={logo}  width='80' />
       </div>
+      <Typography sx={{width:250}} variant="caption" display="block" gutterBottom>
+      {props.title}
+      </Typography>
      
-      <h7>{props.title}</h7>
     </div>
 
   )

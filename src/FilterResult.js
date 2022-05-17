@@ -67,7 +67,7 @@ function ProductMenu() {
 
  function handleTreeClick(subcategory){
   localStorage.setItem('subcategory',subcategory)
-  debugger;
+
 
 
   }
@@ -80,7 +80,7 @@ function ProductMenu() {
       sx={{  flexGrow: 1,  }}
     >
       {Object.entries(navs).map((n, i) => {
-        debugger;
+   
         const {category,categoryTotal,subcategories} = n[1]
      
         return (
