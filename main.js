@@ -9,7 +9,7 @@ const { getSheetValues, setSheetValue, appendSheetValues } = require('./google.s
 
 const Apify = require('apify');
 
-console.log('MASTER BRANCH IS MERGED...........')
+console.log('PROD BRANCH IS MERGED TO MASTER...........')
 
 fs.writeFileSync('helloworld.txt', new Date().toDateString())
 
