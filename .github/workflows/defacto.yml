@@ -10,7 +10,7 @@ env:
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
   CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
   CLIENT_ID: ${{secrets.CLIENT_ID}}
-  START_URL: https://www.defacto.com.tr/kadin-atlet
+  START_URL: https://www.defacto.com.tr/kadin-tumu
 jobs:
   aggregator:
     runs-on: ubuntu-latest
