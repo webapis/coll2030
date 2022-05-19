@@ -1,8 +1,6 @@
 name: defacto
 on:
    workflow_dispatch:
-    branches:    
-      - master
     inputs:
       projectName:
         description: 'Project Name'
