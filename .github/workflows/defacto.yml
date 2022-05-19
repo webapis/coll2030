@@ -28,7 +28,7 @@ jobs:
           type: now
           from_branch: master
           target_branch: prod
-          github_token: ${{ github.token }}
+          github_token: ${{ secrets.GH_TOKEN }}
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
