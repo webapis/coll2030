@@ -1,19 +1,29 @@
 
 console.log('main.js is loading...')
 require('dotenv').config()
-var TAFFY = require('taffy');
+
+const { MongoClient } = require('mongodb');
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
 const { navTree } = require('./navTree')
 const { getSheetValues, setSheetValue, appendSheetValues } = require('./google.sheet.js')
 
 const Apify = require('apify');
+const uri = process.env.MONGODB_URL
+
 
 console.log('PROD BRANCH IS MERGED TO MASTER...........????????.......+++++++++------========333333')
 
 fs.writeFileSync('helloworld.txt', new Date().toDateString())
 
 Apify.main(async () => {
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const clnt = await client.connect()
+console.log('connected to mongodb')
+const collection = clnt.db("ecom").collection("collection2023");
+    const insertOne = await collection.insertOne({greet:'hello'})
+    console.log('insertOne',insertOne)
+debugger;
     const startDate = new Date().toLocaleDateString()
     console.log('apify.main.js is loading...')
 
