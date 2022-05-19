@@ -12,7 +12,7 @@ env:
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
   CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
   CLIENT_ID: ${{secrets.CLIENT_ID}}
-  START_URL: https://www.defacto.com.tr/kadin-tumu
+  START_URL: https://www.defacto.com.tr/kadin-atlet
 jobs:
   aggregator:
     runs-on: ubuntu-latest
@@ -57,6 +57,6 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
           git add .
           git commit -m "Automated report. Defacto"
-          git push
+          git push origin prod
 
 
