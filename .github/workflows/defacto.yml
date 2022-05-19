@@ -57,6 +57,6 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
           git add .
           git commit -m "Automated report. Defacto"
-          git push origin prod
+          git push
 
 
