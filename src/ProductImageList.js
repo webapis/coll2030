@@ -45,7 +45,7 @@ export default function ProductImageList() {
 
   return (
 
-    <Grid container justifyContent="center" spacing={1}
+    <Grid container justifyContent="center" spacing={1} 
     >
       {state.map((item, i) => {
 
@@ -111,7 +111,7 @@ function ImageComponent(props) {
     
       <div>
     
-      <img src={logo}  width='70' />
+      <img src={logo}  width='45%' />
       
       </div>
   

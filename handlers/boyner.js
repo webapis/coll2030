@@ -17,7 +17,7 @@ async function handler(page) {
           const gender =productCard.getAttribute('data-dimension64').toLowerCase()
 
           const longlink =productCard.querySelector('.product-figure-wrap a').href
-          const link = longlink.substring(longlink.indexOf('https://www.boyner.com.tr/fabrika-comfort-mont-1002573')+26)
+          const link = longlink.substring(longlink.indexOf('https://www.boyner.com.tr/')+26)
           const longImgUrl = imageUrl&&  productCard.querySelector('.product-img img').getAttribute('data-original')
           const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://statics.boyner.com.tr/mnresize/')+39)
           debugger;
