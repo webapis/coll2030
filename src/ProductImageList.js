@@ -50,7 +50,7 @@ export default function ProductImageList() {
       {state.map((item, i) => {
 
         return <Grid item key={i} >
-          <ImageComponent plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} />
+          <ImageComponent plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew}/>
 
         </Grid>
       })}
@@ -69,7 +69,13 @@ function ImageComponent(props) {
   const logo= placeholders[props.marka].logo
   const imageSource = cloudinary + placeholders[props.marka].imageHost.trim() + props.imageUrl
   const detailHost =placeholders[props.marka].detailHost +props.link
-
+  const date2 = props.timestamp
+  const date1 = Date.now()
+  const hour = Math.floor(Math.abs(date1 - date2) / 36e5);
+  const minutesdiff = Math.abs(new Date(date1) - new Date(date2));
+  var minutes = Math.floor((minutesdiff / 1000) / 60);
+  var days = Math.floor(minutesdiff / (1000 * 60 * 60 * 24));
+  var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
   useEffect(() => {
 
     if (window.IntersectionObserver) {
@@ -90,8 +96,12 @@ function ImageComponent(props) {
   }, []);
   return (
     <div>
+      <div style={{position:'relative'}}>
+        <Typography style={{textAlign:'right', position:'absolute',top:5,right:2}}>{props.price} <span style={{fontSize:11}}>TL</span></Typography>
       <a href={detailHost} target="_blank">
+    
         <img ref={imageEl}
+       
           src={imagePlaceholder}
           data-src={imageSource}
           alt={props.title}
@@ -100,13 +110,23 @@ function ImageComponent(props) {
         />
         
       </a>
-      <div >
-      <img src={logo}  width='80' />
       </div>
+    
+      <div>
+    
+     
+
+    
+      <img src={logo}  width='80' />
+     
+   
+      
+      </div>
+  
       <Typography sx={{width:250}} variant="caption" display="block" gutterBottom>
       {props.title}
       </Typography>
-     
+      <Typography style={{textAlign:'right'}} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
     </div>
 
   )
