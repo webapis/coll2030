@@ -49,7 +49,7 @@ export default function ProductImageList() {
     >
       {state.map((item, i) => {
 
-        return <Grid item key={i} >
+        return <Grid item key={i} xs={6}>
           <ImageComponent plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew}/>
 
         </Grid>
@@ -95,35 +95,27 @@ function ImageComponent(props) {
 
   }, []);
   return (
-    <div>
+    <div style={{width:145}}>
       <div style={{position:'relative'}}>
-        <Typography style={{textAlign:'right', position:'absolute',bottom:-20,right:2}}>{props.price} <span style={{fontSize:11}}>TL</span></Typography>
+        <Typography style={{textAlign:'right', position:'absolute',bottom:-20,right:2, fontSize:10}}>{props.price} <span style={{fontSize:11}}>TL</span></Typography>
       <a href={detailHost} target="_blank">
-    
         <img ref={imageEl}
-       
+          width="145"
           src={imagePlaceholder}
           data-src={imageSource}
           alt={props.title}
           loading="lazy"
-          width="250"
         />
-        
       </a>
       </div>
     
       <div>
     
-     
-
-    
-      <img src={logo}  width='80' />
-     
-   
+      <img src={logo}  width='70' />
       
       </div>
   
-      <Typography sx={{width:250}} variant="caption" display="block" gutterBottom>
+      <Typography  variant="caption" display="block" gutterBottom>
       {props.title}
       </Typography>
       <Typography style={{textAlign:'right'}} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
