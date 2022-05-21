@@ -97,7 +97,7 @@ function ImageComponent(props) {
   return (
     <div>
       <div style={{position:'relative'}}>
-        <Typography style={{textAlign:'right', position:'absolute',bottom:5,right:2}}>{props.price} <span style={{fontSize:11}}>TL</span></Typography>
+        <Typography style={{textAlign:'right', position:'absolute',bottom:-20,right:2}}>{props.price} <span style={{fontSize:11}}>TL</span></Typography>
       <a href={detailHost} target="_blank">
     
         <img ref={imageEl}
