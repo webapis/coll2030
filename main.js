@@ -2,28 +2,22 @@
 console.log('main.js is loading...')
 require('dotenv').config()
 
-const { MongoClient } = require('mongodb');
+const { importData, exportData, generateNav } = require('./mongodbimport')
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
-const { navTree } = require('./navTree')
+
 const { getSheetValues, setSheetValue, appendSheetValues } = require('./google.sheet.js')
 
 const Apify = require('apify');
 const uri = process.env.MONGODB_URL
 
 
-console.log('PROD BRANCH IS MERGED TO MASTER...........????????.......+++++++++------========333333')
-
 fs.writeFileSync('helloworld.txt', new Date().toDateString())
 
 Apify.main(async () => {
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-const clnt = await client.connect()
-console.log('connected to mongodb')
-const collection = clnt.db("ecom").collection("collection2023");
-    const insertOne = await collection.insertOne({greet:'hello'})
-    console.log('insertOne',insertOne)
-debugger;
+
+
+
     const startDate = new Date().toLocaleDateString()
     console.log('apify.main.js is loading...')
 
@@ -207,100 +201,36 @@ debugger;
     await crawler.run();
     const { items } = await productsDataset.getData()
 
-    debugger;
+    //MONGODB--------
+    console.log('MONGODB-----------START')
     const data = require('./api/_files/kadin/data.json')
-    const ordereditemOrder = order([...items, ...data])
+    debugger;
+    if (data && data.length > 0) {
+        fs.unlinkSync('./api/_files/kadin/data.json')
+        fs.appendFileSync('./api/_files/kadin/data.json', JSON.stringify([...data, ...items]))
+        debugger;
+        await importData()
+        debugger;
+    }
+    else {
+        debugger;
 
+        fs.appendFileSync('./api/_files/kadin/data.json', JSON.stringify(items))
+        await importData()
+        debugger;
+    }
     debugger;
+    await exportData()
+    debugger;
+    await generateNav()
+    debugger;
+    console.log('MONGODB-----------END')
+    //MONGODB---------
 
-    navTree(ordereditemOrder)
-    debugger;
-    //save data to jsson
-    fs.unlinkSync(`./api/_files/kadin/data.json`)
-    debugger;
-    fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify(ordereditemOrder))
-
-    debugger;
 
 
     console.log('Crawl finished.');
 
 });
-
-
-function order(items) {
-debugger;
-    const groupByMarka =items.filter((value, index, self) =>
-    index === self.findIndex((t) => (
-      t.imageUrl === value.imageUrl 
-    ))
-  ).sort((a, b) => (a.subcategory > b.subcategory) ? 1 : -1).reduce((group, product) => {
-        const { marka } = product;
-        group[marka] = group[marka] ?? [];
-        group[marka].push(product);
-        return group;
-    }, {});
-
-    const groupbysub = {}
-
-    for (let c in groupByMarka) {
-        const current = groupByMarka[c]
-
-        groupbysub[c] = {
-            total: current.length, subcategories: current.reduce((group, product) => {
-                const { subcategory } = product;
-
-                group[subcategory] = group[subcategory] ?? [];
-                group[subcategory].push(product);
-                return group;
-            }, {})
-        }
-
-
-
-    }
-
-
-
-
-    const addItemOrder = {}
-    for (let c in groupbysub) {
-        const { subcategories } = groupbysub[c]
-        addItemOrder[c] = {}
-        for (let s in subcategories) {
-
-            addItemOrder[c][s] = []
-
-            const current = subcategories[s].map((sk, i) => { return { ...sk, itemOrder: i } })
-
-            addItemOrder[c][s] = current
-
-
-        }
-
-
-    }
-
-    let flatten = []
-
-    for (let c in addItemOrder) {
-
-        const current = addItemOrder[c]
-
-        for (let s in current) {
-
-
-            const currents = current[s]
-
-            flatten.push(...currents)
-
-
-        }
-
-
-    }
-
-    return flatten
-}
 
 

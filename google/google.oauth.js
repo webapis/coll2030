@@ -14,7 +14,6 @@ async function getGoogleToken() {
       console.log('old access token.......')
       return process.env.access_token
     } else {
-      
       const authresponse = await refreshToken(process.env.GOOGLE_REFRESH_TOKEN)
       debugger;
       let authData = JSON.parse(authresponse)
@@ -27,10 +26,7 @@ async function getGoogleToken() {
       process.env.lasttimestamp = Date.now()
       console.log('refreshed access token.......')
       return access_token
-
     }
-
-    
   } else {
 
     const authresponse = await refreshToken(process.env.GOOGLE_REFRESH_TOKEN)
