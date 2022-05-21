@@ -61,7 +61,7 @@ async function getUrls(page) {
         const url = `${firstUrl}&page=${i}`
 //&page=2
       
-        if (pagesLeft >= 0) {
+        if (pagesLeft >= 1) {
             pageUrls.push(url)
             --pagesLeft
         }
