@@ -1,0 +1,540 @@
+[
+    {
+        "nav": {
+            "total": 97667,
+            "tree": {
+                "koton": {
+                    "total": 25095,
+                    "iç-giyim": {
+                        "total": 1042,
+                        "subcategories": {
+                            "mayo": 64,
+                            "bikini": 211,
+                            "bralet": 1,
+                            "jartiyer": 4,
+                            "külot": 418,
+                            "sütyen": 343,
+                            "string": 1
+                        }
+                    },
+                    "üst-giyim": {
+                        "total": 12577,
+                        "subcategories": {
+                            "süveter": 28,
+                            "gömlek": 1060,
+                            "sweatshirt": 1011,
+                            "crop": 426,
+                            "bluz": 2559,
+                            "atlet": 2388,
+                            "kazak": 798,
+                            "tişört": 3916,
+                            "tanktop": 44,
+                            "kimono": 70,
+                            "tunik": 277
+                        }
+                    },
+                    "aksesuar": {
+                        "total": 2443,
+                        "subcategories": {
+                            "saç": 18,
+                            "cüzdan": 82,
+                            "korse": 4,
+                            "çanta": 130,
+                            "parfüm": 17,
+                            "şapka": 74,
+                            "taç": 4,
+                            "maske": 7,
+                            "koku": 3,
+                            "eldiven": 35,
+                            "bileklik": 63,
+                            "dezenfek": 2,
+                            "çorap": 422,
+                            "toka": 22,
+                            "küpe": 255,
+                            "battaniye": 2,
+                            "şal": 143,
+                            "bere": 77,
+                            "kolye": 110,
+                            "yüzük": 92,
+                            "kemer": 798,
+                            "oje": 7,
+                            "atkı": 66,
+                            "sprey": 10
+                        }
+                    },
+                    "ayakkabı": {
+                        "total": 34,
+                        "subcategories": {
+                            "terlik": 25,
+                            "topuklu-ayakkabı": 2,
+                            "babet": 7
+                        }
+                    },
+                    "dış-giyim": {
+                        "total": 335,
+                        "subcategories": {
+                            "kaban": 88,
+                            "mont": 103,
+                            "yelek": 110,
+                            "yağmurluk": 13,
+                            "parka": 5,
+                            "trençkot": 16
+                        }
+                    },
+                    "giyim": {
+                        "total": 2930,
+                        "subcategories": {
+                            "eşofman-alt": 25,
+                            "elbise": 2399,
+                            "body": 38,
+                            "tulum": 222,
+                            "triko": 32,
+                            "Eşofman": 214
+                        }
+                    },
+                    "ev-giyim": {
+                        "total": 245,
+                        "subcategories": {
+                            "gecelik": 19,
+                            "pijama": 226
+                        }
+                    },
+                    "alt-giyim": {
+                        "total": 5277,
+                        "subcategories": {
+                            "pantolon": 2519,
+                            "bermuda": 19,
+                            "tayt": 304,
+                            "etek": 2435
+                        }
+                    },
+                    "undefined": {
+                        "total": 212,
+                        "subcategories": {
+                            "undefined": 212
+                        }
+                    }
+                },
+                "lcwaikiki": {
+                    "total": 30510,
+                    "aksesuar": {
+                        "total": 3328,
+                        "subcategories": {
+                            "korse": 51,
+                            "maske": 63,
+                            "eşarp": 7,
+                            "çanta": 1897,
+                            "kemer": 172,
+                            "ruj": 101,
+                            "toka": 75,
+                            "Çorap": 5,
+                            "serum": 6,
+                            "eldiven": 3,
+                            "koku": 2,
+                            "parfüm": 41,
+                            "maskara": 50,
+                            "taç": 15,
+                            "şal": 132,
+                            "saç": 62,
+                            "broş": 3,
+                            "sprey": 12,
+                            "gözlük": 44,
+                            "kapatıcı": 12,
+                            "kolye": 22,
+                            "şapka": 143,
+                            "yüzük": 13,
+                            "küpe": 28,
+                            "cüzdan": 152,
+                            "krem": 35,
+                            "bere": 16,
+                            "oje": 82,
+                            "defter ": 56,
+                            "eyeliner": 23,
+                            "atkı": 5
+                        }
+                    },
+                    "giyim": {
+                        "total": 4079,
+                        "subcategories": {
+                            "body": 39,
+                            "triko": 100,
+                            "elbise": 2897,
+                            "tulum": 107,
+                            "Eşofman": 936
+                        }
+                    },
+                    "ayakkabı": {
+                        "total": 1209,
+                        "subcategories": {
+                            "sandalet": 130,
+                            "babet": 170,
+                            "spor-ayakkabı": 387,
+                            "topuklu-ayakkabı": 22,
+                            "terlik": 500
+                        }
+                    },
+                    "alt-giyim": {
+                        "total": 4928,
+                        "subcategories": {
+                            "tayt": 610,
+                            "bermuda": 263,
+                            "etek": 898,
+                            "şort": 745,
+                            "pantolon": 2411
+                        }
+                    },
+                    "dış-giyim": {
+                        "total": 861,
+                        "subcategories": {
+                            "yelek": 126,
+                            "ceket": 399,
+                            "trençkot": 19,
+                            "kaban": 11,
+                            "mont": 182,
+                            "parka": 2,
+                            "yağmurluk": 122
+                        }
+                    },
+                    "üst-giyim": {
+                        "total": 12039,
+                        "subcategories": {
+                            "tunik": 1566,
+                            "penye": 25,
+                            "tişört": 3691,
+                            "süveter": 47,
+                            "kazak": 547,
+                            "gömlek": 1687,
+                            "kimono": 128,
+                            "bluz": 1783,
+                            "atlet": 663,
+                            "crop": 179,
+                            "hırka": 561,
+                            "sweatshirt": 1162
+                        }
+                    },
+                    "iç-giyim": {
+                        "total": 1396,
+                        "subcategories": {
+                            "jartiyer": 4,
+                            "külot": 331,
+                            "bikini": 524,
+                            "bralet": 42,
+                            "sütyen": 340,
+                            "mayo": 155
+                        }
+                    },
+                    "ev-giyim": {
+                        "total": 937,
+                        "subcategories": {
+                            "gecelik": 153,
+                            "pijama": 784
+                        }
+                    },
+                    "undefined": {
+                        "total": 1733,
+                        "subcategories": {
+                            "undefined": 1733
+                        }
+                    }
+                },
+                "defacto": {
+                    "total": 7024,
+                    "dış-giyim": {
+                        "total": 171,
+                        "subcategories": {
+                            "mont": 7,
+                            "parka": 2,
+                            "trençkot": 4,
+                            "ceket": 136,
+                            "yelek": 10,
+                            "yağmurluk": 12
+                        }
+                    },
+                    "üst-giyim": {
+                        "total": 2835,
+                        "subcategories": {
+                            "athlete": 17,
+                            "bluz": 207,
+                            "süveter": 12,
+                            "tişört": 890,
+                            "crop": 353,
+                            "penye": 3,
+                            "sweatshirt": 172,
+                            "tunik": 57,
+                            "hamile-üst": 2,
+                            "hırka": 66,
+                            "kazak": 34,
+                            "kimono": 28,
+                            "atlet": 431,
+                            "gömlek": 563
+                        }
+                    },
+                    "undefined": {
+                        "total": 312,
+                        "subcategories": {
+                            "undefined": 312
+                        }
+                    },
+                    "aksesuar": {
+                        "total": 791,
+                        "subcategories": {
+                            "ruj": 4,
+                            "serum": 15,
+                            "saç": 20,
+                            "kemer": 76,
+                            "eşarp": 4,
+                            "taç": 12,
+                            "bel-korse": 2,
+                            "Çorap": 1,
+                            "maskara": 14,
+                            "şapka": 87,
+                            "toka": 10,
+                            "maske": 7,
+                            "kapatıcı": 19,
+                            "sprey": 9,
+                            "gözlük": 41,
+                            "eyeliner": 3,
+                            "çanta": 234,
+                            "krem": 8,
+                            "korse": 37,
+                            "şal": 45,
+                            "cüzdan": 112,
+                            "parfüm": 31
+                        }
+                    },
+                    "giyim": {
+                        "total": 764,
+                        "subcategories": {
+                            "triko": 3,
+                            "body": 52,
+                            "tulum": 26,
+                            "Eşofman": 134,
+                            "elbise": 549
+                        }
+                    },
+                    "alt-giyim": {
+                        "total": 1302,
+                        "subcategories": {
+                            "pantolon": 606,
+                            "şort": 342,
+                            "etek": 237,
+                            "tayt": 117
+                        }
+                    },
+                    "ayakkabı": {
+                        "total": 204,
+                        "subcategories": {
+                            "bez-ayakkabı": 16,
+                            "babet": 39,
+                            "topuklu-ayakkabı": 6,
+                            "spor-ayakkabı": 56,
+                            "sandalet": 13,
+                            "terlik": 74
+                        }
+                    },
+                    "iç-giyim": {
+                        "total": 456,
+                        "subcategories": {
+                            "bikini": 175,
+                            "bralet": 21,
+                            "külot": 98,
+                            "slip": 9,
+                            "jartiyer": 1,
+                            "mayo": 68,
+                            "sütyen": 78,
+                            "string": 6
+                        }
+                    },
+                    "ev-giyim": {
+                        "total": 165,
+                        "subcategories": {
+                            "gecelik": 45,
+                            "pijama": 120
+                        }
+                    },
+                    "plaj": {
+                        "total": 24,
+                        "subcategories": {
+                            "plaj-kıyafeti": 24
+                        }
+                    }
+                },
+                "boyner": {
+                    "total": 34692,
+                    "aksesuar": {
+                        "total": 6560,
+                        "subcategories": {
+                            "şapka": 258,
+                            "kapatıcı": 106,
+                            "saç": 39,
+                            "küpe": 159,
+                            "maske": 51,
+                            "krem": 75,
+                            "toka": 9,
+                            "kemer": 55,
+                            "maskara": 64,
+                            "kolye": 173,
+                            "bileklik": 74,
+                            "battaniye": 1,
+                            "yüzük": 9,
+                            "ruj": 610,
+                            "gözlük": 468,
+                            "eşarp": 1312,
+                            "cüzdan": 140,
+                            "eldiven": 7,
+                            "çanta": 1924,
+                            "çorap": 124,
+                            "oje": 12,
+                            "serum": 8,
+                            "parfüm": 555,
+                            "eyeliner": 34,
+                            "dezenfek": 1,
+                            "bere": 61,
+                            "sprey": 6,
+                            "şal": 179,
+                            "atkı": 46
+                        }
+                    },
+                    "üst-giyim": {
+                        "total": 9805,
+                        "subcategories": {
+                            "jannie-üst": 1,
+                            "tişört": 3699,
+                            "kazak": 1106,
+                            "hırka": 259,
+                            "penye": 10,
+                            "linda-üst": 3,
+                            "atlet": 369,
+                            "lexi-üst": 2,
+                            "bluz": 1518,
+                            "gömlek": 947,
+                            "kimono": 39,
+                            "sweatshirt": 1545,
+                            "tunik": 64,
+                            "milena-üst": 1,
+                            "süveter": 19,
+                            "crop": 223
+                        }
+                    },
+                    "alt-giyim": {
+                        "total": 4282,
+                        "subcategories": {
+                            "tayt": 573,
+                            "bermuda": 7,
+                            "etek": 981,
+                            "şort": 859,
+                            "pantolon": 1862
+                        }
+                    },
+                    "giyim": {
+                        "total": 3529,
+                        "subcategories": {
+                            "tulum": 131,
+                            "elbise": 2461,
+                            "Eşofman": 847,
+                            "eşofman-alt": 1,
+                            "body": 81,
+                            "triko": 8
+                        }
+                    },
+                    "iç-giyim": {
+                        "total": 1589,
+                        "subcategories": {
+                            "sütyen": 123,
+                            "bralet": 18,
+                            "mayo": 363,
+                            "string": 1,
+                            "bikini": 1062,
+                            "külot": 22
+                        }
+                    },
+                    "ayakkabı": {
+                        "total": 2238,
+                        "subcategories": {
+                            "spor-ayakkabı": 873,
+                            "topuklu-ayakkabı": 196,
+                            "sandalet": 482,
+                            "babet": 110,
+                            "terlik": 577
+                        }
+                    },
+                    "ev-giyim": {
+                        "total": 359,
+                        "subcategories": {
+                            "pijama": 233,
+                            "gecelik": 126
+                        }
+                    },
+                    "dış-giyim": {
+                        "total": 1119,
+                        "subcategories": {
+                            "yelek": 92,
+                            "parka": 5,
+                            "trençkot": 32,
+                            "yağmurluk": 32,
+                            "ceket": 620,
+                            "mont": 256,
+                            "kaban": 82
+                        }
+                    },
+                    "undefined": {
+                        "total": 5211,
+                        "subcategories": {
+                            "undefined": 5211
+                        }
+                    }
+                },
+                "machka": {
+                    "total": 346,
+                    "giyim": {
+                        "total": 113,
+                        "subcategories": {
+                            "triko": 8,
+                            "elbise": 105
+                        }
+                    },
+                    "üst-giyim": {
+                        "total": 129,
+                        "subcategories": {
+                            "penye": 3,
+                            "sweatshirt": 9,
+                            "gömlek": 15,
+                            "bluz": 68,
+                            "tişört": 19,
+                            "tunik": 12,
+                            "crop": 3
+                        }
+                    },
+                    "dış-giyim": {
+                        "total": 26,
+                        "subcategories": {
+                            "yelek": 2,
+                            "ceket": 18,
+                            "mont": 6
+                        }
+                    },
+                    "alt-giyim": {
+                        "total": 65,
+                        "subcategories": {
+                            "etek": 31,
+                            "şort": 5,
+                            "pantolon": 29
+                        }
+                    },
+                    "aksesuar": {
+                        "total": 3,
+                        "subcategories": {
+                            "broş": 3
+                        }
+                    },
+                    "undefined": {
+                        "total": 10,
+                        "subcategories": {
+                            "undefined": 10
+                        }
+                    }
+                }
+            }
+        }
+    }
+]

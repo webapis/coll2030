@@ -1,0 +1,150 @@
+[
+    {
+        "nav": {
+            "total": 97668,
+            "tree": {
+                "iç-giyim": {
+                    "total": 4483,
+                    "subcategories": {
+                        "mayo": 650,
+                        "jartiyer": 9,
+                        "sütyen": 884,
+                        "bikini": 1972,
+                        "bralet": 82,
+                        "külot": 869,
+                        "string": 8,
+                        "slip": 9
+                    }
+                },
+                "aksesuar": {
+                    "total": 13125,
+                    "subcategories": {
+                        "korse": 92,
+                        "saç": 139,
+                        "şapka": 562,
+                        "cüzdan": 486,
+                        "kapatıcı": 137,
+                        "ruj": 715,
+                        "küpe": 442,
+                        "çanta": 4185,
+                        "maske": 128,
+                        "serum": 29,
+                        "eşarp": 1323,
+                        "parfüm": 644,
+                        "kemer": 1101,
+                        "toka": 116,
+                        "Çorap": 6,
+                        "krem": 118,
+                        "taç": 31,
+                        "koku": 5,
+                        "eldiven": 45,
+                        "bel-korse": 2,
+                        "maskara": 128,
+                        "şal": 499,
+                        "kolye": 305,
+                        "bileklik": 137,
+                        "broş": 6,
+                        "sprey": 37,
+                        "gözlük": 553,
+                        "battaniye": 3,
+                        "yüzük": 114,
+                        "dezenfek": 3,
+                        "çorap": 546,
+                        "bere": 154,
+                        "eyeliner": 60,
+                        "oje": 101,
+                        "defter ": 56,
+                        "atkı": 117
+                    }
+                },
+                "dış-giyim": {
+                    "total": 2512,
+                    "subcategories": {
+                        "mont": 554,
+                        "yelek": 340,
+                        "kaban": 181,
+                        "ceket": 1173,
+                        "parka": 14,
+                        "trençkot": 71,
+                        "yağmurluk": 179
+                    }
+                },
+                "giyim": {
+                    "total": 11415,
+                    "subcategories": {
+                        "body": 210,
+                        "triko": 151,
+                        "eşofman-alt": 26,
+                        "tulum": 486,
+                        "elbise": 8411,
+                        "Eşofman": 2131
+                    }
+                },
+                "ayakkabı": {
+                    "total": 3685,
+                    "subcategories": {
+                        "sandalet": 625,
+                        "babet": 326,
+                        "terlik": 1176,
+                        "topuklu-ayakkabı": 226,
+                        "spor-ayakkabı": 1316,
+                        "bez-ayakkabı": 16
+                    }
+                },
+                "üst-giyim": {
+                    "total": 37385,
+                    "subcategories": {
+                        "süveter": 106,
+                        "athlete": 17,
+                        "jannie-üst": 1,
+                        "gömlek": 4272,
+                        "sweatshirt": 3899,
+                        "tişört": 12215,
+                        "crop": 1184,
+                        "penye": 41,
+                        "tunik": 1976,
+                        "bluz": 6135,
+                        "kazak": 2485,
+                        "hırka": 886,
+                        "linda-üst": 3,
+                        "atlet": 3851,
+                        "lexi-üst": 2,
+                        "hamile-üst": 2,
+                        "kimono": 265,
+                        "tanktop": 44,
+                        "milena-üst": 1
+                    }
+                },
+                "alt-giyim": {
+                    "total": 15855,
+                    "subcategories": {
+                        "tayt": 1604,
+                        "pantolon": 7429,
+                        "şort": 1951,
+                        "bermuda": 289,
+                        "etek": 4582
+                    }
+                },
+                "undefined": {
+                    "total": 7478,
+                    "subcategories": {
+                        "undefined": 7478
+                    }
+                },
+                "ev-giyim": {
+                    "total": 1706,
+                    "subcategories": {
+                        "gecelik": 343,
+                        "pijama": 1363
+                    }
+                },
+                "plaj": {
+                    "total": 24,
+                    "subcategories": {
+                        "plaj-kıyafeti": 24
+                    }
+                }
+            }
+        }
+    }
+]

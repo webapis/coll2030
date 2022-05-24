@@ -12,8 +12,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
 
-import nav from './nav.json'
-const {navs,total}=nav
+import catNav from './category-nav.json'
+
+const {tree:navs,total}=catNav[0]['nav']
 
 export default function FilterResult() {
   const [value, setValue] = React.useState(0);
@@ -80,14 +81,19 @@ function ProductMenu() {
       sx={{  flexGrow: 1,  }}
     >
       {Object.entries(navs).map((n, i) => {
-   
-        const {category,categoryTotal,subcategories} = n[1]
-     
+        const category =n[0]
+        const categoryTotal =n[1]['total']
+
+        
+        const {subcategories} = n[1]
+
         return (
           <TreeItem key={i} nodeId={category+ i} label={<div><span>{category}</span><span style={{color:'#9e9e9e',marginLeft:2, borderRadius:25,padding:2}}>({categoryTotal})</span></div>}>
-            {Object.values(subcategories).map((s,c)=>{
-       
-              const {subcategory,subCatTotal}=s
+            {Object.entries(subcategories).map((s,c)=>{
+              const subcategory=s[0]
+              const subCatTotal=s[1]
+         debugger;
+           
               return  <TreeItem key={c} id={subcategory} onClick={()=>handleTreeClick(subcategory)} nodeId={`${subcategory}-${c}`} label={<span><span>{subcategory}</span><span style={{color:'#9e9e9e',marginLeft:2, borderRadius:25,padding:2}}>({subCatTotal})</span></span>} />
          
             })}

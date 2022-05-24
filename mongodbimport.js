@@ -255,7 +255,52 @@ const orderAggr = [
 ]
 
 
-
+const markaAgr=[
+  {
+    '$group': {
+      '_id': {
+        'marka': '$marka', 
+        'category': '$category'
+      }, 
+      'marka': {
+        '$first': '$marka'
+      }, 
+      'category': {
+        '$first': '$category'
+      }, 
+      'products': {
+        '$push': {
+          'category': '$category', 
+          'subcategory': '$subcategory'
+        }
+      }
+    }
+  }, {
+    '$sort': {
+      'marka': 1
+    }
+  }, {
+    '$group': {
+      '_id': '$marka', 
+      'tree': {
+        '$push': {
+          'category': '$category', 
+          'sub': {
+            '$filter': {
+              'input': '$products', 
+              'as': 'product', 
+              'cond': {
+                '$eq': [
+                  '$$product.category', '$category'
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]
 
 
 /*
