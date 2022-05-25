@@ -33,7 +33,9 @@ export default function FilterResult(props) {
       <TabPanel value={selectedTab} index={2}>
         <ProductImageList />
       </TabPanel>
-
+      <TabPanel value={selectedTab} index={3}>
+        Searchbox
+      </TabPanel>
 
     </Box>
   );
