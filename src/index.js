@@ -75,23 +75,23 @@ export default function HideAppBar(props) {
         <AppBar>
           <Toolbar>
             <Typography variant="h6" component="div">
-              Marka
+              MU
 
             </Typography>
             <Tabs centered value={value} onChange={handleChange} scrollButtons="auto" allowScrollButtonsMobile sx={{ marginLeft: 'auto' }} textColor="inherit" indicatorColor='secondary'>
-              <Tab label={<div>Ürünler<span></span></div>} sx={{ fontSize: '12px' }} />
-              <Tab label={<div>Markalar<span></span><br /></div>} sx={{ fontSize: '12px' }} />
-           
+              <Tab label="Ürünler" />
+              <Tab label="Markalar" />
+              <Tab label="Sonuç" />
             </Tabs>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
       <Toolbar />
       <Container>
-        <Box sx={{ my: 2 }}>
+      
 
           <FilterResult selectedTab={value} handleChange={handleChange}/>
-        </Box>
+       
       </Container>
     </React.Fragment>
   );

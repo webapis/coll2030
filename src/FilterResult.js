@@ -87,14 +87,14 @@ function ProductMenu(props) {
         const { subcategories } = n[1]
 
         return (
-          <TreeItem key={i} nodeId={category + i} label={<div><span>{category}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></div>}>
+          <TreeItem key={i} nodeId={category + i} label={<div><span style={{textTransform:'capitalize'}}>{category.replace('-',' ')}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></div>}>
            <div style={{maxHeight:'20vh',  overflowX:'hidden',overflowY:'auto'}}>
             {Object.entries(subcategories).map((s, c) => {
               const subcategory = s[0]
               const subCatTotal = s[1]
 
 
-              return <TreeItem key={c} id={subcategory} onClick={() => handleTreeClick(subcategory)} nodeId={`${subcategory}-${c}`} label={<span><span>{subcategory}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
+              return <TreeItem key={c} id={subcategory} onClick={() => handleTreeClick(subcategory)} nodeId={`${subcategory.replace('-',' ')}-${c}`} label={<span><span style={{textTransform:'capitalize'}}>{subcategory}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
 
             })}
 </div>
@@ -135,20 +135,20 @@ function MarkaMenu(props) {
         const categories = Object.entries(n[1])
 
         return (
-          <TreeItem  onClick={() => handleMarkaClick(marka)}   key={i} nodeId={marka + i} label={<div><span>{marka}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({totalByMarka})</span></div>}>
+          <TreeItem  onClick={() => handleMarkaClick(marka)}   key={i} nodeId={marka + i} label={<div><span style={{textTransform:'capitalize'}}>{marka}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({totalByMarka})</span></div>}>
             {Object.entries(categories).filter((f, i) => i > 0).map((s, c) => {
 
               const category = s[1][0]
               const categoryTotal = s[1][1]['total']
               const subcategories = s[1][1]['subcategories']
        
-              return (<TreeItem   nodeId={`${marka}-${category}-${c}`}  key={c} id={category+i} label={<span><span>{category}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></span>} >
+              return (<TreeItem   nodeId={`${marka}-${category}-${c}`}  key={c} id={category+i} label={<span><span style={{textTransform:'capitalize'}}>{category.replace('-',' ')}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></span>} >
                 {
                 <div style={{maxHeight:'20vh',   overflowX:'hidden',overflowY:'auto'}}>{
                   Object.entries(subcategories).map((s, sk) => {
                     const subcategory = s[0]
                     const subCatTotal = s[1]
-                    return  <TreeItem  key={sk} id={marka+subcategory} onClick={() => handleSubCategoryClick(subcategory)} nodeId={`${marka}-${subcategory}-${sk}`} label={<span><span>{subcategory}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
+                    return  <TreeItem  key={sk} id={marka+subcategory} onClick={() => handleSubCategoryClick(subcategory)} nodeId={`${marka}-${subcategory}-${sk}`} label={<span><span style={{textTransform:'capitalize'}}>{subcategory.replace('-',' ')}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
                   })
             
                 }</div>}
