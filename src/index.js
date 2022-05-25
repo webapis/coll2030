@@ -97,9 +97,7 @@ export default function HideAppBar(props) {
               MU
 
             </Typography>
-            <Tabs centered value={value} onChange={handleChange}    variant="scrollable"
-  scrollButtons
-  allowScrollButtonsMobile sx={{ marginLeft: 'auto' }} textColor="inherit" indicatorColor='secondary'>
+            <Tabs  value={value} onChange={handleChange}    variant="scrollable" scrollButtons allowScrollButtonsMobile sx={{ marginLeft: 'auto' }} textColor="inherit" indicatorColor='secondary'>
               <Tab label="Ürünler" />
               <Tab label="Markalar" />
               <Tab label="Sonuç" />

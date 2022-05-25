@@ -6,7 +6,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import placeholders from './placeholders'
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid'
-
+import IntersectionObserver from "./intersectObserver";
 export default function ProductImageList() {
   const [state, setData] = useState([]);
 
@@ -16,9 +16,29 @@ export default function ProductImageList() {
     localStorage.setItem('page', 0)
     fetchData(0)
 
+    
   }, []);
 
+useEffect(()=>{
+  if(state.length>0){
+    let items = document.querySelectorAll(".figure[data-intersection=true]");
+    
+    const onIntersect = (bool, entry) => {
+                 entry.target.src = entry.target.dataset.src;
+          
+      console.log("intersect callback", bool, entry);
+    };
+    
+    const intersectObserver = new IntersectionObserver({
+      items,
+      callback: onIntersect,
+      threehold: 0.5,
+      triggerOnce: false
+    });
+  }
 
+
+},[state])
 
   async function fetchData(page) {
 
@@ -79,28 +99,28 @@ function ImageComponent(props) {
   var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
   useEffect(() => {
 
-    if (window.IntersectionObserver) {
+    // if (window.IntersectionObserver) {
 
-      let observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
+    //   let observer = new IntersectionObserver((entries, observer) => {
+    //     entries.forEach(entry => {
+    //       if (entry.isIntersecting) {
      
-            entry.target.src = entry.target.dataset.src;
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      window.obz = observer
-      window.obz.observe(imageEl.current)
-    }
+    //         entry.target.src = entry.target.dataset.src;
+    //         observer.unobserve(entry.target);
+    //       }
+    //     });
+    //   }, { threshold: 0.1 });
+    //   window.obz = observer
+    //   window.obz.observe(imageEl.current)
+    // }
 
   }, []);
   return (
     <div style={{width:130}}>
-      <div style={{position:'relative', margin: 'auto;'}}>
+      <div style={{position:'relative', margin: 'auto'}}>
         <Typography style={{textAlign:'right', position:'absolute',bottom:-20,right:2, fontSize:10}}>{props.price} <span style={{fontSize:11}}>TL</span></Typography>
-      <a href={detailHost} target="_blank">
-        <img ref={imageEl}
+      <a  href={detailHost} target="_blank" >
+        <img ref={imageEl} data-intersection="true" className="figure"
           width="130"
           src={imagePlaceholder}
           data-src={imageSource}
