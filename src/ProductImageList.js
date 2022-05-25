@@ -7,6 +7,8 @@ import placeholders from './placeholders'
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid'
 import IntersectionObserver from "./intersectObserver";
+import ShowMoreText from "react-show-more-text";
+
 export default function ProductImageList() {
   const [state, setData] = useState([]);
 
@@ -115,6 +117,11 @@ function ImageComponent(props) {
     // }
 
   }, []);
+
+ function executeOnClick(isExpanded) {
+    console.log(isExpanded);
+}
+
   return (
     <div style={{width:130}}>
       <div style={{position:'relative', margin: 'auto'}}>
@@ -135,9 +142,20 @@ function ImageComponent(props) {
       <img src={logo}  width='45%' />
       
       </div>
-  
+
       <Typography  variant="caption" display="block" gutterBottom>
-      {props.title}
+        <ShowMoreText  lines={1}
+                more={<span style={{ textDecoration:'none',fontSize:10, marginLeft:5}}>göster</span>}
+                less={<span style={{  textDecoration:'none',marginLeft:5}}>gizle</span>}
+               
+             
+                onClick={executeOnClick}
+                expanded={false}
+                width={200}
+                truncatedEndingComponent={"..."}>
+        {props.title}
+        </ShowMoreText>
+ 
       </Typography>
       <Typography style={{textAlign:'right'}} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
     </div>

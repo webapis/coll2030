@@ -1,10 +1,8 @@
 import * as React from 'react';
 
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 
 
-import Grid from '@mui/material/Grid';
+
 import Box from '@mui/material/Box';
 import ProductImageList from './ProductImageList'
 import TreeView from '@mui/lab/TreeView';
