@@ -23,8 +23,9 @@ export default function ProductImageList() {
   async function fetchData(page) {
 
     const subcategory = localStorage.getItem('subcategory')
+    const marka =localStorage.getItem('marka')
 
-    const url = `/api/kadin/data?page=${page}&subcategory=${subcategory}`
+    const url = `/api/kadin/data?page=${page}&subcategory=${subcategory}&marka=${marka}`
     const response = await fetch(url, { cache: 'default' })
 
     const { data } = await response.json()
