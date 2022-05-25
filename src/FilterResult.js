@@ -17,27 +17,20 @@ import MarkaNav from './marka-nav.json'
 const { tree: navs, total } = catNav[0]['nav']
 const { tree: mnavs, mtotal } = MarkaNav[0]['nav']
 
-export default function FilterResult() {
-  const [value, setValue] = React.useState(0);
+export default function FilterResult(props) {
+  const {selectedTab,handleChange}=props
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
     <Box>
-      <Tabs centered value={value} onChange={handleChange} scrollButtons="auto" allowScrollButtonsMobile sx={{ paddingBottom: '10px' }}>
-        <Tab label={<div>Ürünler<span></span><br /><span style={{ color: '#9e9e9e' }}>({total})</span></div>} sx={{ fontSize: '12px' }} />
-        <Tab label={<div>Markalar<span></span><br /><span style={{ color: '#9e9e9e' }}>({total})</span></div>} sx={{ fontSize: '12px' }} />
-        <Tab label={<div>Sonuç<span></span><br /><span style={{ color: '#9e9e9e' }}>(12.000)</span></div>} sx={{ fontSize: '12px' }} />
-      </Tabs>
-      <TabPanel value={value} index={0} sx={{display:'flex', justifyContent:'center'}}>
+   
+      <TabPanel value={selectedTab} index={0} sx={{display:'flex', justifyContent:'center'}}>
         <ProductMenu sx={{ height: "100%" }}   handleTabChange={handleChange}/>
       </TabPanel>
-      <TabPanel value={value} index={1} sx={{display:'flex', justifyContent:'center'}}>
+      <TabPanel value={selectedTab} index={1} sx={{display:'flex', justifyContent:'center'}}>
         <MarkaMenu sx={{ height: "100%" }} handleTabChange={handleChange}/>
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={selectedTab} index={2}>
         <ProductImageList />
       </TabPanel>
 
@@ -95,7 +88,7 @@ function ProductMenu(props) {
 
         return (
           <TreeItem key={i} nodeId={category + i} label={<div><span>{category}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></div>}>
-           <div style={{height:'20vh',  overflowX:'hidden',overflowY:'auto'}}>
+           <div style={{maxHeight:'20vh',  overflowX:'hidden',overflowY:'auto'}}>
             {Object.entries(subcategories).map((s, c) => {
               const subcategory = s[0]
               const subCatTotal = s[1]
@@ -151,7 +144,7 @@ function MarkaMenu(props) {
        
               return (<TreeItem   nodeId={`${marka}-${category}-${c}`}  key={c} id={category+i} label={<span><span>{category}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></span>} >
                 {
-                <div style={{height:'20vh',   overflowX:'hidden',overflowY:'auto'}}>{
+                <div style={{maxHeight:'20vh',   overflowX:'hidden',overflowY:'auto'}}>{
                   Object.entries(subcategories).map((s, sk) => {
                     const subcategory = s[0]
                     const subCatTotal = s[1]
