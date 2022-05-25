@@ -12,7 +12,8 @@ import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
 import './index.css';
 
 import reportWebVitals from './reportWebVitals';
@@ -66,8 +67,25 @@ export default function HideAppBar(props) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
+    if(newValue===0){
+      localStorage.setItem('navCategory','Ürünler')
+      localStorage.removeItem('category')
+      localStorage.removeItem('subcategory')
+      localStorage.removeItem('marka')
+    } 
+    else if(newValue===1){
+      localStorage.setItem('navCategory','Marka') 
+      localStorage.removeItem('category')
+      localStorage.removeItem('subcategory')
+      localStorage.removeItem('marka')
+    }
     setValue(newValue);
   };
+
+  const navCategory =localStorage.getItem('navCategory')
+  const marka =localStorage.getItem('marka')
+  const category =localStorage.getItem('category')
+  const subcategory =localStorage.getItem('subcategory')
   return (
     <React.Fragment>
       <CssBaseline />
@@ -83,11 +101,21 @@ export default function HideAppBar(props) {
               <Tab label="Markalar" />
               <Tab label="Sonuç" />
             </Tabs>
+
+          </Toolbar>
+          <Toolbar>
+          <Breadcrumbs aria-label="breadcrumb">
+          {navCategory && <Typography  >{navCategory}</Typography>}
+          {marka && <Typography >{marka}</Typography>}
+          {category && <Typography  >{category}</Typography>}
+          {subcategory && <Typography  >{subcategory}</Typography>}
+      
+      </Breadcrumbs>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
       <Toolbar />
-      <Container>
+      <Container >
       
 
           <FilterResult selectedTab={value} handleChange={handleChange}/>
