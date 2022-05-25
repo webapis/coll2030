@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
 
-
+import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import ProductImageList from './ProductImageList'
 import TreeView from '@mui/lab/TreeView';
@@ -31,10 +31,10 @@ export default function FilterResult() {
         <Tab label={<div>Markalar<span></span><br /><span style={{ color: '#9e9e9e' }}>({total})</span></div>} sx={{ fontSize: '12px' }} />
         <Tab label={<div>Sonuç<span></span><br /><span style={{ color: '#9e9e9e' }}>(12.000)</span></div>} sx={{ fontSize: '12px' }} />
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} sx={{display:'flex', justifyContent:'center'}}>
         <ProductMenu sx={{ height: "100%" }}   handleTabChange={handleChange}/>
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1} sx={{display:'flex', justifyContent:'center'}}>
         <MarkaMenu sx={{ height: "100%" }} handleTabChange={handleChange}/>
       </TabPanel>
       <TabPanel value={value} index={2}>
@@ -95,6 +95,7 @@ function ProductMenu(props) {
 
         return (
           <TreeItem key={i} nodeId={category + i} label={<div><span>{category}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></div>}>
+           <div style={{height:'20vh',  overflowX:'hidden',overflowY:'auto'}}>
             {Object.entries(subcategories).map((s, c) => {
               const subcategory = s[0]
               const subCatTotal = s[1]
@@ -103,7 +104,7 @@ function ProductMenu(props) {
               return <TreeItem key={c} id={subcategory} onClick={() => handleTreeClick(subcategory)} nodeId={`${subcategory}-${c}`} label={<span><span>{subcategory}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
 
             })}
-
+</div>
           </TreeItem>
         )
 
@@ -121,7 +122,7 @@ function MarkaMenu(props) {
     handleTabChange({},2)
   }
   function handleMarkaClick(marka) {
-    debugger;
+    
     localStorage.setItem('marka', marka)
     localStorage.removeItem('subcategory')
    
@@ -148,14 +149,16 @@ function MarkaMenu(props) {
               const categoryTotal = s[1][1]['total']
               const subcategories = s[1][1]['subcategories']
        
-              return (<TreeItem  nodeId={`${marka}-${category}-${c}`}  key={c} id={category+i} label={<span><span>{category}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></span>} >
+              return (<TreeItem   nodeId={`${marka}-${category}-${c}`}  key={c} id={category+i} label={<span><span>{category}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></span>} >
                 {
+                <div style={{height:'20vh',   overflowX:'hidden',overflowY:'auto'}}>{
                   Object.entries(subcategories).map((s, sk) => {
                     const subcategory = s[0]
                     const subCatTotal = s[1]
-                    return <TreeItem key={sk} id={marka+subcategory} onClick={() => handleSubCategoryClick(subcategory)} nodeId={`${marka}-${subcategory}-${sk}`} label={<span><span>{subcategory}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
+                    return  <TreeItem  key={sk} id={marka+subcategory} onClick={() => handleSubCategoryClick(subcategory)} nodeId={`${marka}-${subcategory}-${sk}`} label={<span><span>{subcategory}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
                   })
-                }
+            
+                }</div>}
 
               </TreeItem>)
 
