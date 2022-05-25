@@ -145,13 +145,13 @@ function ImageComponent(props) {
 
       <Typography  variant="caption" display="block" gutterBottom>
         <ShowMoreText  lines={1}
-                more={<span style={{ textDecoration:'none',fontSize:10, marginLeft:5}}>göster</span>}
+                more={<span style={{ textDecoration:'none',fontSize:10, marginLeft:5}}>fazla göster</span>}
                 less={<span style={{  textDecoration:'none',marginLeft:5}}>gizle</span>}
                
              
                 onClick={executeOnClick}
                 expanded={false}
-                width={200}
+                width={400}
                 truncatedEndingComponent={"..."}>
         {props.title}
         </ShowMoreText>
