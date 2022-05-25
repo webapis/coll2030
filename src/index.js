@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import SearchIcon from '@mui/icons-material/Search';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
+
 import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
 import Tabs from '@mui/material/Tabs';
@@ -86,6 +86,7 @@ export default function HideAppBar(props) {
   const marka =localStorage.getItem('marka')
   const category =localStorage.getItem('category')
   const subcategory =localStorage.getItem('subcategory')
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -102,16 +103,16 @@ export default function HideAppBar(props) {
               <Tab label="Ürünler" />
               <Tab label="Markalar" />
               <Tab label="Sonuç" />
-              <Tab label="Search" />
+              <Tab icon={<SearchIcon />} />
             </Tabs>
 
           </Toolbar>
           <Toolbar>
           <Breadcrumbs aria-label="breadcrumb">
-          {navCategory && <Typography  >{navCategory}</Typography>}
-          {marka && <Typography >{marka}</Typography>}
-          {category && <Typography  >{category}</Typography>}
-          {subcategory && <Typography  >{subcategory}</Typography>}
+          {navCategory && <Link   underline="hover" color="whitesmoke" href="#" fontSize="small">{navCategory}</Link >}
+          {marka && <Link  underline="hover" color="whitesmoke" href="#" fontSize="small">{marka}</Link >}
+          {category && <Link underline="hover" color="whitesmoke" href="#" fontSize="small" >{category}</Link >}
+          {subcategory && <Link  underline="hover" color="whitesmoke" href="#" fontSize="small">{subcategory}</Link >}
       
       </Breadcrumbs>
           </Toolbar>
