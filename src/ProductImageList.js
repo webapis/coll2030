@@ -50,7 +50,7 @@ export default function ProductImageList() {
     >
       {state.map((item, i) => {
 
-        return <Grid item key={i} xs={6}>
+        return <Grid item key={i} xs={6} sx={{display:'flex',justifyContent:'center'}}>
           <ImageComponent plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew}/>
 
         </Grid>
@@ -97,7 +97,7 @@ function ImageComponent(props) {
   }, []);
   return (
     <div style={{width:130}}>
-      <div style={{position:'relative'}}>
+      <div style={{position:'relative', margin: 'auto;'}}>
         <Typography style={{textAlign:'right', position:'absolute',bottom:-20,right:2, fontSize:10}}>{props.price} <span style={{fontSize:11}}>TL</span></Typography>
       <a href={detailHost} target="_blank">
         <img ref={imageEl}

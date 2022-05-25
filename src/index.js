@@ -119,10 +119,10 @@ export default function HideAppBar(props) {
         </AppBar>
       </HideOnScroll>
       <Toolbar />
-      <Container >
+      <Container sx={{padding:2}}>
       
 
-          <FilterResult selectedTab={value} handleChange={handleChange}/>
+          <FilterResult id="123" selectedTab={value} handleChange={handleChange}/>
        
       </Container>
     </React.Fragment>

@@ -22,7 +22,7 @@ export default function FilterResult(props) {
 
 
   return (
-    <Box paddingTop={8}>
+    <Box   paddingTop={8}>
    
       <TabPanel value={selectedTab} index={0} sx={{display:'flex', justifyContent:'center'}}>
         <ProductMenu sx={{ height: "100%" }}   handleTabChange={handleChange}/>
@@ -54,7 +54,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box >
           {children}
         </Box>
       )}
