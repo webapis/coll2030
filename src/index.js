@@ -129,7 +129,7 @@ export default function HideAppBar(props) {
 
           </Container>
 
-          <Container sx={{display:'flex',justifyContent:'space-between'}}> 
+          <Container > 
                              
             <Breadcrumbs aria-label="breadcrumb">
             {navCategory && <Link underline="hover" href="#">{navCategory}</Link >}
@@ -138,7 +138,7 @@ export default function HideAppBar(props) {
             {subcategory && <Link underline="hover" href="#" >{subcategory}</Link >}
 
           </Breadcrumbs>
-          {value===2&& <Typography>{totalSubcategory} Ürün Sayısı</Typography> }
+          {value===2&& <Typography variant="caption" display="block" gutterBottom>{totalSubcategory} Ürün Sayısı</Typography> }
           </Container>
 
         </div>
