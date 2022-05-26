@@ -20,7 +20,7 @@ export default function FilterResult(props) {
 
 
   return (
-    <Box paddingTop={8}>
+    <Box >
 
       <TabPanel value={selectedTab} index={0} sx={{ display: 'flex', justifyContent: 'center' }}>
         <ProductMenu sx={{ height: "100%" }} handleTabChange={handleChange} />

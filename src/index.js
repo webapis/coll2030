@@ -100,8 +100,8 @@ export default function HideAppBar(props) {
             <IconButton color="inherit" onClick={() => handleChange({}, 0)}>
               <MenuIcon />
             </IconButton>
-            <Typography>
-              Hanım Kıyafetleri
+            <Typography fontFamily="'Cinzel Decorative', cursive"  variant="h5" gutterBottom component="div">
+              Hanım Kıyafet
             </Typography>
 
           </Toolbar>
@@ -147,7 +147,7 @@ export default function HideAppBar(props) {
 
       </HideOnScroll>
      
-      <Container sx={{ marginTop: 5, paddingTop: 15 }}>
+      <Container sx={{ marginTop: 0, paddingTop: 15 }}>
 
 
 

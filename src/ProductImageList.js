@@ -7,10 +7,34 @@ import IntersectionObserver from "./intersectObserver";
 import ShowMoreText from "react-show-more-text";
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
+
+const getWidth = () => window.innerWidth 
+  || document.documentElement.clientWidth 
+  || document.body.clientWidth;
 export default function ProductImageList(props) {
   const [state, setData] = useState([]);
+  let [width, setWidth] = useState(getWidth());
+
+useEffect(()=>{
+  const width =getWidth()
+  
+  debugger;
+
+  const resizeListener = () => {
+    // change width from the state object
+  
+    setWidth(getWidth())
 
 
+  };
+  window.addEventListener('resize', resizeListener);
+
+  // clean up function
+  return () => {
+    // remove resize listener
+    window.removeEventListener('resize', resizeListener);
+  }
+},[])
 
   useEffect(() => {
     localStorage.setItem('page', 0)
@@ -66,11 +90,11 @@ export default function ProductImageList(props) {
 
   return (
 
-    <Grid container justifyContent="center" spacing={0}
+    <Grid container justifyContent="center" spacing={0} paddingTop={5}
     >
       {state.map((item, i) => {
 
-        return <Grid item key={i} xs={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+        return <Grid item key={i} xs={6} sm={4} md={3} lg={2}  sx={{ display: 'flex', justifyContent: 'center' }}>
 
           <ImageComponent plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 
