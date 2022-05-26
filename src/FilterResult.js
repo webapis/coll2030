@@ -9,7 +9,7 @@ import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
-
+import HomeComponent from './HomeComp';
 import catNav from './category-nav.json'
 import MarkaNav from './marka-nav.json'
 const { tree: navs, total } = catNav[0]['nav']
@@ -34,7 +34,9 @@ export default function FilterResult(props) {
       <TabPanel value={selectedTab} index={3}>
         Searchbox
       </TabPanel>
-
+      <TabPanel value={selectedTab} index={4}>
+        <HomeComponent/>
+      </TabPanel>
     </Box>
   );
 }

@@ -68,7 +68,7 @@ useEffect(()=>{
 
   return (
 
-    <Grid container justifyContent="center" spacing={1} 
+    <Grid container justifyContent="center" spacing={0} 
     >
       {state.map((item, i) => {
 
