@@ -2,8 +2,9 @@
 console.log('main.js is loading...')
 require('dotenv').config()
 
-const { importData, exportData, generateNav } = require('./mongodbimport')
+const { importData, exportData } = require('./mongodbimport')
 const {generateCategoryNav}=require('./utils/navByCategory')
+const {generateMarkaNav}=require('./utils/navByMarka')
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
 
@@ -224,6 +225,7 @@ Apify.main(async () => {
     await exportData()
     debugger;
     await generateCategoryNav()
+    await generateMarkaNav()
     debugger;
     console.log('MONGODB-----------END')
     //MONGODB---------

@@ -10,17 +10,18 @@ const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { us
 async function importData() {
 
     const clnt = await client.connect()
-    const collection = clnt.db("streamToMongoDB").collection("category-nav");
+    const collection = clnt.db("streamToMongoDB").collection("marka-nav");
     const stream = fs.createReadStream("./api/_files/kadin/data.json")
 
     stream.pipe(jsonArrayStreams.parse())
         .pipe(through.obj(async function (object, enc, cb) {
-            const { category, subcategory
+            const { marka, category, subcategory
             } = object
             await collection.updateOne({}, { $inc: { [`nav.total`]: 1 } }, { upsert: true })
-            await collection.updateOne({}, { $inc: { [`nav.tree.${category}.total`]: 1 } }, { upsert: true })
-            await collection.updateOne({}, { $inc: { [`nav.tree.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
-      
+            await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.total`]: 1 } }, { upsert: true })
+            await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.${category}.total`]: 1 } }, { upsert: true })
+            await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
+         
             cb();
         }))
     return new Promise((resolve, reject) => {
@@ -40,20 +41,22 @@ async function extractNavTree() {
 
     const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { useNewUrlParser: true, useUnifiedTopology: true });
     const clnt = await client.connect()
-    const collection = clnt.db("streamToMongoDB").collection("category-nav");
+    const collection = clnt.db("streamToMongoDB").collection("marka-nav");
     const data = await collection.aggregate([{ $project: { _id: 0, marka: 0 } }]).toArray()
-    if(  fs.existsSync('./src/category-nav.json')){
-        fs.unlinkSync('./src/category-nav.json')
+    if(  fs.existsSync('./src/marka-nav.json')){
+        fs.unlinkSync('./src/marka-nav.json')
     }
-    fs.appendFileSync(`./src/category-nav.json`, JSON.stringify(data))
+  
+   
+    fs.appendFileSync(`./src/marka-nav.json`, JSON.stringify(data))
     debugger;
 
 }
 
-async function generateCategoryNav() {
-    console.log('CATEGORY NAV GEN STARTED....')
+async function generateMarkaNav() {
+    console.log('MARKA NAV GEN STARTED....')
     await importData()
     await extractNavTree()
-    console.log('CATEGORY NAV GEN COMPLETE....')
+    console.log('MARKA NAV GEN COMPLETE....')
 }
-module.exports = { generateCategoryNav }
+module.exports = { generateMarkaNav }
