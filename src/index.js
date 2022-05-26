@@ -112,7 +112,7 @@ export default function HideAppBar(props) {
       <Toolbar/>
 
       <HideOnScroll>
-        <div style={{ paddingTop: 40, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
+        <div style={{ paddingTop: 10, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
 
       
           <SearchInput />
@@ -133,13 +133,13 @@ export default function HideAppBar(props) {
           <Container > 
                              
             <Breadcrumbs aria-label="breadcrumb">
-            {navCategory && <Link underline="hover" href="#">{navCategory}</Link >}
-            {marka && <Link underline="hover" href="#" >{marka}</Link >}
-            {category && <Link underline="hover" href="#" >{category}</Link >}
-            {subcategory && <Link underline="hover" href="#" >{subcategory}</Link >}
+            {navCategory && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{navCategory}</Link >}
+            {marka && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{marka}</Link >}
+            {category && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{category}</Link >}
+            {subcategory && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{subcategory}</Link >}
 
           </Breadcrumbs>
-          {value===2&& <Divider sx={{fontSize:12}}>{totalSubcategory} Ürün Sayısı</Divider> }
+          {value===2&& <Divider sx={{fontSize:12,color:'#9e9e9e'}}>{totalSubcategory} Ürün Sayısı</Divider> }
           
           </Container>
 
