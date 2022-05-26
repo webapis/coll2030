@@ -79,6 +79,7 @@ export default function HideAppBar(props) {
       localStorage.removeItem('category')
       localStorage.removeItem('subcategory')
       localStorage.removeItem('marka')
+
     }
     setValue(newValue);
   };
@@ -87,6 +88,7 @@ export default function HideAppBar(props) {
   const marka = localStorage.getItem('marka')
   const category = localStorage.getItem('category')
   const subcategory = localStorage.getItem('subcategory')
+  const totalSubcategory = localStorage.getItem('totalSubcategory')
 
   return (
     <React.Fragment>
@@ -94,13 +96,13 @@ export default function HideAppBar(props) {
       <HideOnScroll {...props}>
         <AppBar >
           <Toolbar>
-            <IconButton color="inherit" onClick={()=>handleChange({},0)}>
+            <IconButton color="inherit" onClick={() => handleChange({}, 0)}>
               <MenuIcon />
             </IconButton>
-        <Typography>
-          Hanım Kıyafetleri
-        </Typography>
-     
+            <Typography>
+              Hanım Kıyafetleri
+            </Typography>
+
           </Toolbar>
 
         </AppBar>
@@ -109,35 +111,43 @@ export default function HideAppBar(props) {
 
 
       <HideOnScroll>
-        <div style={{ marginTop:23, position: 'fixed', width: '100%',zIndex:10000,backgroundColor:'#fff' }}>
+        <div style={{ marginTop: 50, position: 'fixed', width: '100%', zIndex: 10000, backgroundColor: '#fff' }}>
 
-          <Breadcrumbs aria-label="breadcrumb">
-            {navCategory && <Link underline="hover" href="#" fontSize="small">{navCategory}</Link >}
-            {marka && <Link underline="hover" href="#" fontSize="small">{marka}</Link >}
-            {category && <Link underline="hover" href="#" fontSize="small" >{category}</Link >}
-            {subcategory && <Link underline="hover" href="#" fontSize="small">{subcategory}</Link >}
-          </Breadcrumbs>
+      
           <SearchInput />
-          <Container sx={{ display: 'flex', justifyContent: 'center'}}>
-        
-           
+          <Container sx={{ display: 'flex', justifyContent: 'center' }}>
+
+
             <Tabs value={value} onChange={handleChange} variant="scrollable"
               scrollButtons="auto" allowScrollButtonsMobile textColor="inherit" >
               <Tab label="Ürünler" />
               <Tab label="Markalar" />
               <Tab label="Sonuç" />
 
-            </Tabs> 
-           
-        
+            </Tabs>
+
+
           </Container>
 
+          <Container sx={{display:'flex',justifyContent:'space-between'}}> 
+                             
+            <Breadcrumbs aria-label="breadcrumb">
+            {navCategory && <Link underline="hover" href="#">{navCategory}</Link >}
+            {marka && <Link underline="hover" href="#" >{marka}</Link >}
+            {category && <Link underline="hover" href="#" >{category}</Link >}
+            {subcategory && <Link underline="hover" href="#" >{subcategory}</Link >}
+
+          </Breadcrumbs>
+          {value===2&& <Typography>{totalSubcategory} Ürün Sayısı</Typography> }
+          </Container>
 
         </div>
 
       </HideOnScroll>
 
-      <Container sx={{ marginTop: 5,paddingTop:10 }}>
+      <Container sx={{ marginTop: 5, paddingTop: 15 }}>
+
+
 
 
 
