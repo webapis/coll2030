@@ -7,10 +7,12 @@ import TextField from '@mui/material/TextField';
 
 export default function SearchInput() {
   return (
-    <Container sx={{display:'flex'}}>
-        
-<TextField fullWidth size="small" />
-       <Button>Ara</Button>
+    <Container center sx={{display:'flex'}}>
+     
+        <TextField  fullWidth size="small" />
+       <Button sx={{marginLeft:-8}} variant='outlined'>Ara</Button>
+ 
+
     
     </Container>
   );

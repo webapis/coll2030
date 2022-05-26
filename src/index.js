@@ -15,6 +15,7 @@ import Tab from '@mui/material/Tab';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import './index.css';
+import Divider from '@mui/material/Divider';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -108,10 +109,10 @@ export default function HideAppBar(props) {
         </AppBar>
       </HideOnScroll>
 
-
+      <Toolbar/>
 
       <HideOnScroll>
-        <div style={{ marginTop: 50, position: 'fixed', width: '100%', zIndex: 10000, backgroundColor: '#fff' }}>
+        <div style={{ paddingTop: 40, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
 
       
           <SearchInput />
@@ -138,13 +139,14 @@ export default function HideAppBar(props) {
             {subcategory && <Link underline="hover" href="#" >{subcategory}</Link >}
 
           </Breadcrumbs>
-          {value===2&& <Typography variant="caption" display="block" gutterBottom>{totalSubcategory} Ürün Sayısı</Typography> }
+          {value===2&& <Divider sx={{fontSize:12}}>{totalSubcategory} Ürün Sayısı</Divider> }
+          
           </Container>
 
         </div>
 
       </HideOnScroll>
-
+     
       <Container sx={{ marginTop: 5, paddingTop: 15 }}>
 
 
