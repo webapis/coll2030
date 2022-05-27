@@ -2,7 +2,7 @@
 console.log('main.js is loading...')
 require('dotenv').config()
 
-const { importData, exportData } = require('./mongodbimport')
+const { mergeNewData } = require('./mongodbimport')
 const {generateCategoryNav}=require('./utils/navByCategory')
 const {generateMarkaNav}=require('./utils/navByMarka')
 const { getGoogleToken } = require('./google/google.oauth')
@@ -17,9 +17,6 @@ const uri = process.env.MONGODB_URL
 fs.writeFileSync('helloworld.txt', new Date().toDateString())
 
 Apify.main(async () => {
-
-
-
     const startDate = new Date().toLocaleDateString()
     console.log('apify.main.js is loading...')
 
@@ -95,20 +92,12 @@ Apify.main(async () => {
         })
         console.log('map1.length', map1.length)
 
-
-
-
-
         await productsDataset.pushData(map1)
-
-
 
         console.log('uploading to excell....')
 
         const table = map1.reduce((group, product) => {
             const values = Object.values(product)
-
-
 
             group.push(values);
             return group;
@@ -183,12 +172,9 @@ Apify.main(async () => {
         handleFailedRequestFunction: async ({ request: { errorMessages, url, userData: { gender, start } } }) => {
             const google_access_token1 = await getGoogleToken(process.env.GOOGLE_REFRESH_TOKEN)
             if (gender === 'MALE') {
-
                 const response = await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'ERROR!A:B', values: [[url, errorMessages[0].substring(0, 150), gender, start]] })
-
             }
             if (gender === 'FEMALE') {
-
                 const response = await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'ERROR!A:B', values: [[url, errorMessages[0].substring(0, 150), gender, start]] })
 
             }
@@ -205,32 +191,15 @@ Apify.main(async () => {
 
     //MONGODB--------
     console.log('MONGODB-----------START')
-    const data = require('./api/_files/kadin/data.json')
-    debugger;
-    if (data && data.length > 0) {
-        fs.unlinkSync('./api/_files/kadin/data.json')
-        fs.appendFileSync('./api/_files/kadin/data.json', JSON.stringify([...data, ...items]))
-        debugger;
-        await importData()
-        debugger;
-    }
-    else {
-        debugger;
 
-        fs.appendFileSync('./api/_files/kadin/data.json', JSON.stringify(items))
-        await importData()
-        debugger;
-    }
+   await mergeNewData(items)
     debugger;
-    await exportData()
-    debugger;
-    await generateCategoryNav()
     await generateMarkaNav()
+   await generateCategoryNav()
+ 
     debugger;
     console.log('MONGODB-----------END')
     //MONGODB---------
-
-
 
     console.log('Crawl finished.');
 
