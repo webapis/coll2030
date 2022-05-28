@@ -15,7 +15,11 @@ import Tab from '@mui/material/Tab';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import './index.css';
+
 import Divider from '@mui/material/Divider';
+import { Provider } from 'react-redux'
+
+import store from './store'
 
 import reportWebVitals from './reportWebVitals';
 
@@ -24,7 +28,9 @@ import FilterResult from './FilterResult';
 import { Typography } from '@mui/material';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Provider store={store}>
   <HideAppBar />
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
@@ -113,12 +119,8 @@ export default function HideAppBar(props) {
 
       <HideOnScroll>
         <div style={{ paddingTop: 10, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
-
-      
           <SearchInput />
           <Container sx={{ display: 'flex', justifyContent: 'center' }}>
-
-
             <Tabs value={value} onChange={handleChange} variant="scrollable"
               scrollButtons="auto" allowScrollButtonsMobile textColor="inherit" >
               <Tab label="Ürünler" />
@@ -126,12 +128,8 @@ export default function HideAppBar(props) {
               <Tab label="Sonuç" />
 
             </Tabs>
-
-
           </Container>
-
           <Container > 
-                             
             <Breadcrumbs aria-label="breadcrumb">
             {navCategory && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{navCategory}</Link >}
             {marka && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{marka}</Link >}
@@ -150,7 +148,7 @@ export default function HideAppBar(props) {
       <Container sx={{ marginTop: 0, paddingTop: 15 }}>
 
 
-
+ 
 
 
         <FilterResult id="123" selectedTab={value} handleChange={handleChange} />
