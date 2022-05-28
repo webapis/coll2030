@@ -50,7 +50,7 @@ useEffect(()=>{
       const onIntersect = (bool, entry) => {
         entry.target.src = entry.target.dataset.src;
 
-        console.log("intersect callback", bool, entry);
+       
       };
 
       const intersectObserver = new IntersectionObserver({
@@ -183,7 +183,7 @@ function ImageComponent(props) {
         </ShowMoreText>
 
       </Typography>
-      <Typography style={{ textAlign: 'right' }} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
+      <Typography color='#9e9e9e' style={{ textAlign: 'right',fontSize:9 }} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
     </div>
 
   )

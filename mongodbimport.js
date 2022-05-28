@@ -29,7 +29,7 @@ async function importOldData() {
       .pipe(through.obj(async function (object, enc, cb) {
         const { imageUrl
         } = object
-        await collection.updateOne({ "_id": imageUrl }, { $set: object }, { upsert: true })
+        await collection.updateOne({ "_id": imageUrl }, { $set: { ...object, updated: false } }, { upsert: true })
         ++countImportedData
         if (countImportedData === jsonData.length) {
           return resolve(true)
@@ -53,19 +53,19 @@ async function importOldData() {
 
 
 async function importNewData(newCollectedData) {
-  // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-  // const clnt = await client.connect()
+
+  let marka = ''
   const collection = await mongoClient()
   for (let obj in newCollectedData) {
+
     const object = newCollectedData[obj]
     const { imageUrl } = object
-    await collection.updateOne({ _id: imageUrl }, { $set: object }, { upsert: true })
-
-
+    marka = object.marka
+    await collection.updateOne({ _id: imageUrl }, { $set: { ...object, updated: true } }, { upsert: true })
   }
 
-
-
+  const deletedNotUpdate = await collection.deleteMany({ "updated": false, marka })
+  console.log('deletedNotUpdate...', deletedNotUpdate)
 
 }
 
@@ -73,10 +73,7 @@ async function exportData() {
 
   console.log('EXPORTING DATA STARTED......')
   const collection = await mongoClient()
-  // const uri = process.env.MONGODB_URL
-  // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-  // const clnt = await client.connect()
-  // const collection = clnt.db("streamToMongoDB").collection("data");
+
   const cursor = await collection.aggregate(orderAggr, { allowDiskUse: true })
   const cursor2 = await collection.aggregate(orderAggr, { allowDiskUse: true })
   if (fs.existsSync('./api/_files/kadin/data.json')) {
