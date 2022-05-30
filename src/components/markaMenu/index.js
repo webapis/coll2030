@@ -59,8 +59,8 @@ export default function MarkaMenu() {
                 const subcategories = s[1][1]['subcategories']
                 const catNodeId=`${marka}-${category}-${c}`
                 return (<TreeItem  onClick={() => handleCategoryClick(category,catNodeId)} nodeId={catNodeId} key={c} id={category + i} label={<span><span style={{ textTransform: 'uppercase' }}>{category.replace('-', ' ')}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></span>} >
-                  {
-                    <div style={{ maxHeight: '80vh', overflowX: 'hidden', overflowY: 'auto' }}>{
+                  
+                {
                       Object.entries(subcategories).map((s, sk) => {
                         const subcategory = s[0]
                         const subCatTotal = s[1]
@@ -68,7 +68,7 @@ export default function MarkaMenu() {
                         return <TreeItem sx={{padding:0.1}} key={sk} id={marka + subcategory} onClick={() => handleSubCategoryClick(subcategory,subCatTotal,selectedSubcategory)} nodeId={selectedSubcategory} label={<span><span style={{ textTransform: 'capitalize' }}>{subcategory.replace('-', ' ')}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
                       })
   
-                    }</div>}
+                    }
   
                 </TreeItem>)
   

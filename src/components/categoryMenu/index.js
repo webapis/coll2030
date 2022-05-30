@@ -45,14 +45,14 @@ export default function ProductMenu(props) {
         const nodeId ='top-'+ category + i
         return (
           <TreeItem onClick={() => handleCategoryClick(category, nodeId)} key={i} nodeId={nodeId} label={<div><span style={{ textTransform: 'uppercase' }}>{category.replace('-', ' ')}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></div>}>
-            <div style={{ maxHeight: '80vh', overflowX: 'hidden', overflowY: 'visible' }}>
+        
               {Object.entries(subcategories).map((s, c) => {
                 const subcategory = s[0]
                 const subCatTotal = s[1]
                 const selectedSubcategory =`${subcategory.replace('-', ' ')}-${c}`
                 return <TreeItem sx={{ padding: 0.1 }} key={c} id={subcategory} onClick={() => handleSubCategoryClick(subcategory, subCatTotal,selectedSubcategory)} nodeId={selectedSubcategory} label={<span><span style={{ textTransform: 'capitalize' }}>{subcategory}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({subCatTotal})</span></span>} />
               })}
-            </div>
+          
           </TreeItem>
         )
       })}
