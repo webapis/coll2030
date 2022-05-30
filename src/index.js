@@ -7,24 +7,22 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import SearchInput from './SearchInput';
+import SearchInput from './components/SearchInput';
 import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
-import './index.css';
-
+import { useDispatch } from 'react-redux';
+import { actions } from './store/breadcrumbSlice';
+import TabsContainer from './components/TabsContainer';
+import BreadcrumbContainer from './components/BreadcrumbsContainer'
 import Divider from '@mui/material/Divider';
 import { Provider } from 'react-redux'
 
-import store from './store'
+import store from './store/store'
 
 import reportWebVitals from './reportWebVitals';
 
 
-import FilterResult from './FilterResult';
+import FilterResult from './components/FilterResult';
 import { Typography } from '@mui/material';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -73,28 +71,23 @@ HideOnScroll.propTypes = {
 export default function HideAppBar(props) {
 
   const [value, setValue] = React.useState(0);
+  const dispatch =useDispatch()
 
   const handleChange = (event, newValue) => {
     if (newValue === 0) {
-      localStorage.setItem('navCategory', 'Ürünler')
-      localStorage.removeItem('category')
-      localStorage.removeItem('subcategory')
-      localStorage.removeItem('marka')
+
+      dispatch(actions.selectNavCategory('Ürünler'))
+  
     }
     else if (newValue === 1) {
-      localStorage.setItem('navCategory', 'Marka')
-      localStorage.removeItem('category')
-      localStorage.removeItem('subcategory')
-      localStorage.removeItem('marka')
+      dispatch(actions.selectNavCategory('Markalar'))
+
 
     }
     setValue(newValue);
   };
 
-  const navCategory = localStorage.getItem('navCategory')
-  const marka = localStorage.getItem('marka')
-  const category = localStorage.getItem('category')
-  const subcategory = localStorage.getItem('subcategory')
+
   const totalSubcategory = localStorage.getItem('totalSubcategory')
 
   return (
@@ -120,23 +113,9 @@ export default function HideAppBar(props) {
       <HideOnScroll>
         <div style={{ paddingTop: 10, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
           <SearchInput />
-          <Container sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Tabs value={value} onChange={handleChange} variant="scrollable"
-              scrollButtons="auto" allowScrollButtonsMobile textColor="inherit" >
-              <Tab label="Ürünler" />
-              <Tab label="Markalar" />
-              <Tab label="Sonuç" />
-
-            </Tabs>
-          </Container>
+      <TabsContainer value={value} handleChange={handleChange}/>
           <Container > 
-            <Breadcrumbs aria-label="breadcrumb">
-            {navCategory && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{navCategory}</Link >}
-            {marka && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{marka}</Link >}
-            {category && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{category}</Link >}
-            {subcategory && <Link underline="hover" href="#" fontSize="small" color="#9e9e9e">{subcategory}</Link >}
-
-          </Breadcrumbs>
+      <BreadcrumbContainer/>
           {value===2&& <Divider sx={{fontSize:12,color:'#9e9e9e'}}>{totalSubcategory} Ürün Sayısı</Divider> }
           
           </Container>
@@ -146,10 +125,6 @@ export default function HideAppBar(props) {
       </HideOnScroll>
      
       <Container sx={{ marginTop: 0, paddingTop: 15 }}>
-
-
- 
-
 
         <FilterResult id="123" selectedTab={value} handleChange={handleChange} />
 

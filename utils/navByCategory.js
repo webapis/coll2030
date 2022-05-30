@@ -46,10 +46,10 @@ async function extractNavTree() {
     const clnt = await client.connect()
     const collection = clnt.db("streamToMongoDB").collection("category-nav");
     const data = await collection.aggregate([{ $project: { _id: 0, marka: 0 } }]).toArray()
-    if(  fs.existsSync('./src/category-nav.json')){
-        fs.unlinkSync('./src/category-nav.json')
+    if(  fs.existsSync('./src/components/categoryMenu/category-nav.json')){
+        fs.unlinkSync('./src/components/categoryMenu/category-nav.json')
     }
-    fs.appendFileSync(`./src/category-nav.json`, JSON.stringify(data))
+    fs.appendFileSync(`./src/components/categoryMenu/category-nav.json`, JSON.stringify(data))
     debugger;
 
 }

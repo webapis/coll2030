@@ -2,7 +2,7 @@
 console.log('main.js is loading...')
 require('dotenv').config()
 
-const { mergeNewData } = require('./mongodbimport')
+const { mergeNewData } = require('./utils/mergeNewData')
 const {generateCategoryNav}=require('./utils/navByCategory')
 const {generateMarkaNav}=require('./utils/navByMarka')
 const { getGoogleToken } = require('./google/google.oauth')

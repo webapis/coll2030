@@ -52,12 +52,12 @@ async function extractNavTree() {
     const clnt = await client.connect()
     const collection = clnt.db("streamToMongoDB").collection("marka-nav");
     const data = await collection.aggregate([{ $project: { _id: 0, marka: 0 } }]).toArray()
-    if (fs.existsSync('./src/marka-nav.json')) {
-        fs.unlinkSync('./src/marka-nav.json')
+    if (fs.existsSync('./src/components/markaMenu/marka-nav.json')) {
+        fs.unlinkSync('./src/components/markaMenu/marka-nav.json')
     }
 
 
-    fs.appendFileSync(`./src/marka-nav.json`, JSON.stringify(data))
+    fs.appendFileSync(`./src/components/markaMenu/marka-nav.json`, JSON.stringify(data))
     debugger;
 
 }
