@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import Grid from '@mui/material/Grid'
 import IntersectionObserver from "../intersectObserver";
@@ -12,12 +13,14 @@ const getWidth = () => window.innerWidth
   || document.body.clientWidth;
 export default function ProductImageList(props) {
   const [state, setData] = useState([]);
+  const {marka,subcategory} =useSelector(state=>state.breadcrumb)
+  debugger;
   let [width, setWidth] = useState(getWidth());
 
 useEffect(()=>{
   const width =getWidth()
   
-  debugger;
+
 
   const resizeListener = () => {
     // change width from the state object
@@ -65,8 +68,6 @@ useEffect(()=>{
 
   async function fetchData(page) {
 
-    const subcategory = localStorage.getItem('subcategory')
-    const marka = localStorage.getItem('marka')
 
     const url = `/api/kadin/data?page=${page}&subcategory=${subcategory}&marka=${marka}`
     const response = await fetch(url, { cache: 'default' })

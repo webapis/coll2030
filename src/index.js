@@ -12,22 +12,19 @@ import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
 import { useDispatch } from 'react-redux';
 import { actions } from './store/breadcrumbSlice';
+
 import TabsContainer from './components/TabsContainer';
 import BreadcrumbContainer from './components/BreadcrumbsContainer'
 import Divider from '@mui/material/Divider';
 import { Provider } from 'react-redux'
-
 import store from './store/store'
-
 import reportWebVitals from './reportWebVitals';
-
-
 import FilterResult from './components/FilterResult';
 import { Typography } from '@mui/material';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-  <HideAppBar />
+    <HideAppBar />
   </Provider>
 );
 
@@ -71,20 +68,11 @@ HideOnScroll.propTypes = {
 export default function HideAppBar(props) {
 
   const [value, setValue] = React.useState(0);
-  const dispatch =useDispatch()
+  const dispatch = useDispatch()
 
   const handleChange = (event, newValue) => {
-    if (newValue === 0) {
-
-      dispatch(actions.selectNavCategory('Ürünler'))
-  
-    }
-    else if (newValue === 1) {
-      dispatch(actions.selectNavCategory('Markalar'))
-
-
-    }
-    setValue(newValue);
+    debugger;
+    dispatch(actions.selectTab({ selectTab: newValue }))
   };
 
 
@@ -96,10 +84,10 @@ export default function HideAppBar(props) {
       <HideOnScroll {...props}>
         <AppBar >
           <Toolbar>
-            <IconButton color="inherit" onClick={() => handleChange({}, 0)}>
+            <IconButton color="inherit" onClick={() => handleChange({}, { selectTab: 0, selectedTabLabel: 'Ürünler' })}>
               <MenuIcon />
             </IconButton>
-            <Typography fontFamily="'Cinzel Decorative', cursive"  variant="h5" gutterBottom component="div">
+            <Typography fontFamily="'Cinzel Decorative', cursive" variant="h5" gutterBottom component="div">
               Hanım Kıyafet
             </Typography>
 
@@ -108,25 +96,25 @@ export default function HideAppBar(props) {
         </AppBar>
       </HideOnScroll>
 
-      <Toolbar/>
+      <Toolbar />
 
       <HideOnScroll>
         <div style={{ paddingTop: 10, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
           <SearchInput />
-      <TabsContainer value={value} handleChange={handleChange}/>
-          <Container > 
-      <BreadcrumbContainer/>
-          {value===2&& <Divider sx={{fontSize:12,color:'#9e9e9e'}}>{totalSubcategory} Ürün Sayısı</Divider> }
-          
+          <TabsContainer />
+          <Container >
+            <BreadcrumbContainer />
+            {value === 2 && <Divider sx={{ fontSize: 12, color: '#9e9e9e' }}>{totalSubcategory} Ürün Sayısı</Divider>}
+
           </Container>
 
         </div>
 
       </HideOnScroll>
-     
+
       <Container sx={{ marginTop: 0, paddingTop: 15 }}>
 
-        <FilterResult id="123" selectedTab={value} handleChange={handleChange} />
+        <FilterResult id="123" />
 
       </Container>
     </React.Fragment>

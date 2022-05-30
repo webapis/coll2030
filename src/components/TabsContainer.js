@@ -2,19 +2,25 @@
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Container from '@mui/material/Container';
-export default function TabsContainer(props){
+import { useDispatch, useSelector } from 'react-redux';
+import { actions } from '../store/breadcrumbSlice'
+export default function TabsContainer(props) {
+  const selectedTab = useSelector(state => state.breadcrumb.selectedTab)
+  const dispatch = useDispatch()
 
-    const {handleChange,value}=props
+  function handleChange(e, selectedTab) {
+    const { id } = e.target
+    dispatch(actions.selectTab({ selectedTab, selectedTabLabel: id }))
+  }
+  return (
+    <Container sx={{ display: 'flex', justifyContent: 'center' }}>
+      <Tabs value={selectedTab} onChange={handleChange} variant="scrollable"
+        scrollButtons="auto" allowScrollButtonsMobile textColor="inherit" >
+        <Tab label="Ürünler" id="Ürünler" />
+        <Tab label="Markalar" id="Markalar" />
+        <Tab label="Sonuç" id="Sonuç" />
 
-    return (
-        <Container sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Tabs value={value} onChange={handleChange} variant="scrollable"
-          scrollButtons="auto" allowScrollButtonsMobile textColor="inherit" >
-          <Tab label="Ürünler" />
-          <Tab label="Markalar" />
-          <Tab label="Sonuç" />
-
-        </Tabs>
-      </Container>
-    )
+      </Tabs>
+    </Container>
+  )
 }

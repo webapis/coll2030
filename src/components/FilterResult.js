@@ -3,9 +3,16 @@ import Box from '@mui/material/Box';
 import ProductImageList from './ProductImageList'
 import CategoryMenu from './categoryMenu';
 import MarkaMenu from './markaMenu';
+import { actions } from '../store/breadcrumbSlice'
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function FilterResult(props) {
-  const { selectedTab, handleChange } = props
+  const dispatch = useDispatch()
+  const selectedTab = useSelector(state => state.breadcrumb.selectedTab)
+  function handleChange(event, tabId) {
+    dispatch(actions.selectTab(tabId))
+  }
+
   return (
     <Box >
       <TabPanel value={selectedTab} index={0} sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -15,10 +22,10 @@ export default function FilterResult(props) {
         <MarkaMenu sx={{ height: "100%" }} handleTabChange={handleChange} />
       </TabPanel>
       <TabPanel value={selectedTab} index={2}>
-        <ProductImageList  />
+        <ProductImageList />
       </TabPanel>
 
- 
+
     </Box>
   );
 }
