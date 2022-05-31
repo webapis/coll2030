@@ -75,8 +75,6 @@ function MarkaMenu(props) {
  
     const [open, setOpen] = React.useState(false);
 
-
-
     function toggle() {
         setOpen(!open);
         dispatch(actions.selectBreadCrumbTop({selectedTabLabel:'Markalar'}))

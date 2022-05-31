@@ -105,12 +105,12 @@ export default function HideAppBar(props) {
         </div>
 
       </HideOnScroll>
-      <Container sx={{ marginTop: 0, paddingTop: 15 }}>
+      <Container  sx={{ marginTop: 0, paddingTop: 15 }}>
       
-
+      <FilterResult  />
 
     <DrawerComp/>
-        <FilterResult id="123" />
+      
       </Container>
     </React.Fragment>
   );
