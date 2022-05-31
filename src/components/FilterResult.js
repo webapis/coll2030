@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import ProductImageList from './ProductImageList'
-import CategoryMenu from './categoryMenu';
+import Link from '@mui/material/Link';
 import MarkaMenu from './markaMenu';
 import { actions } from '../store/breadcrumbSlice'
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function FilterResult(props) {
   const dispatch = useDispatch()
   const selectedTab = useSelector(state => state.breadcrumb.selectedTab)
+
+
   function handleChange(event, tabId) {
     dispatch(actions.selectTab(tabId))
   }
@@ -16,7 +18,7 @@ export default function FilterResult(props) {
   return (
     <Box >
       <TabPanel value={selectedTab} index={0} sx={{ display: 'flex', justifyContent: 'center' }}>
-        <CategoryMenu sx={{ height: "100%" }} handleTabChange={handleChange} />
+        <Subcategories />
       </TabPanel>
       <TabPanel value={selectedTab} index={1} sx={{ display: 'flex', justifyContent: 'center' }}>
         <MarkaMenu sx={{ height: "100%" }} handleTabChange={handleChange} />
@@ -52,3 +54,25 @@ function TabPanel(props) {
 }
 
 
+function Subcategories() {
+  const dispatch =useDispatch()
+  const subcategories = useSelector(state => state.breadcrumb.subcategories)
+  const object =subcategories && Object.entries(subcategories)[1] && Object.entries(subcategories)[1][1]
+  function handleSubCategoryClick(e) {
+    const { id } = e.target
+    dispatch(actions.selectSubcategory({selectedSubcategory:id}))
+    debugger;
+  }
+  return <div style={{ display: 'flex', flexDirection: 'column' }}>
+
+    {
+      object && Object.entries(object).map((o, i) => {
+        const subcategory = o[0]
+        const subtotal = o[1]
+        return <Link onClick={handleSubCategoryClick} id={subcategory}>{subcategory}{subtotal}</Link>
+
+      })
+    }
+  </div>
+
+}

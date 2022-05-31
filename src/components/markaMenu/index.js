@@ -59,7 +59,7 @@ export default function MarkaMenu() {
                 const subcategories = s[1][1]['subcategories']
                 const catNodeId=`${marka}-${category}-${c}`
                 return (<TreeItem  onClick={() => handleCategoryClick(category,catNodeId)} nodeId={catNodeId} key={c} id={category + i} label={<span><span style={{ textTransform: 'uppercase' }}>{category.replace('-', ' ')}</span><span style={{ color: '#9e9e9e', marginLeft: 2, borderRadius: 25, padding: 2 }}>({categoryTotal})</span></span>} >
-                  
+            
                 {
                       Object.entries(subcategories).map((s, sk) => {
                         const subcategory = s[0]

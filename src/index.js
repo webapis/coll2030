@@ -21,6 +21,7 @@ import store from './store/store'
 import reportWebVitals from './reportWebVitals';
 import FilterResult from './components/FilterResult';
 import { Typography } from '@mui/material';
+import DrawerComp from './components/DrawerComp';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
@@ -70,35 +71,53 @@ export default function HideAppBar(props) {
   const [value, setValue] = React.useState(0);
   const dispatch = useDispatch()
 
-  const handleChange = (event, newValue) => {
-    debugger;
-    dispatch(actions.selectTab({ selectTab: newValue }))
-  };
 
-
+  function handleMenuClick(){
+    dispatch(actions.toggleDrawer())
+  }
   const totalSubcategory = localStorage.getItem('totalSubcategory')
-
   return (
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar >
           <Toolbar>
-            <IconButton color="inherit" onClick={() => handleChange({}, { selectTab: 0, selectedTabLabel: 'Ürünler' })}>
+            <IconButton color="inherit" onClick={() => handleMenuClick({}, { selectTab: 0, selectedTabLabel: 'Ürünler' })}>
               <MenuIcon />
             </IconButton>
             <Typography fontFamily="'Cinzel Decorative', cursive" variant="h5" gutterBottom component="div">
               Hanım Kıyafet
             </Typography>
-
           </Toolbar>
-
         </AppBar>
       </HideOnScroll>
-
       <Toolbar />
-
       <HideOnScroll>
+        <div style={{ paddingTop: 10, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
+          <SearchInput />
+     
+          <Container >
+            <BreadcrumbContainer />
+            {value === 2 && <Divider sx={{ fontSize: 12, color: '#9e9e9e' }}>{totalSubcategory} Ürün Sayısı</Divider>}
+
+          </Container>
+
+        </div>
+
+      </HideOnScroll>
+      <Container sx={{ marginTop: 0, paddingTop: 15 }}>
+      
+
+
+    <DrawerComp/>
+        <FilterResult id="123" />
+      </Container>
+    </React.Fragment>
+  );
+}
+
+/*
+   <HideOnScroll>
         <div style={{ paddingTop: 10, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
           <SearchInput />
           <TabsContainer />
@@ -111,12 +130,4 @@ export default function HideAppBar(props) {
         </div>
 
       </HideOnScroll>
-
-      <Container sx={{ marginTop: 0, paddingTop: 15 }}>
-
-        <FilterResult id="123" />
-
-      </Container>
-    </React.Fragment>
-  );
-}
+*/

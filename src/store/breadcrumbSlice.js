@@ -10,19 +10,19 @@ export const breadcrumbSlice = createSlice({
     expanded: [],
     selectedTab: 0,
     selectedTabLabel: 'Ürünler',
-    selectedSubcategory: null
+    selectedSubcategory: null,
+    drawerOpen: false,
+    subcategories: []
   },
   reducers: {
     selectTab: (state, action) => {
       debugger;
-      if (action.payload.selectedTab !== 2) {
-        state.navCategory = action.payload
-        state.subcategory = null;
-        state.subCatTotal = null;
-        state.marka = null;
-        state.category = null;
-        state.selectedSubcategory = null;
-        state.expanded = []
+    
+      if (action.payload.selectedTab === 0) {
+        state.subcategories = action.payload.subcategories
+        debugger;
+        state.category=action.payload.selectedCategory
+        state.drawerOpen=false
       }
       state.selectedTab = action.payload.selectedTab
       state.selectedTabLabel = action.payload.selectedTabLabel
@@ -31,21 +31,13 @@ export const breadcrumbSlice = createSlice({
     selectCategory: (state, action) => {
       debugger;
       state.category = action.payload.category
-      let isTopNav = action.payload.expanded.includes('top-')
-      debugger;
-      if (state.expanded.find(f => f === action.payload.expanded)) {
-        state.expanded = state.expanded.filter(f => f !== action.payload.expanded)
-      } else {
-        if (isTopNav) {
-          state.expanded = []
-        }
-        state.expanded.push(action.payload.expanded)
-      }
+    
+      
       debugger;
     },
     selectSubcategory: (state, action) => {
       debugger;
-      state.subcategory = action.payload.subcategory
+      state.subcategory = action.payload.selectedSubcategory
       state.subCatTotal = action.payload.subCatTotal
       state.selectedSubcategory = action.payload.selectedSubcategory
       debugger;
@@ -55,16 +47,8 @@ export const breadcrumbSlice = createSlice({
     selectMarka: (state, action) => {
       state.marka = action.payload.marka
       debugger;
-      let isTopNav = action.payload.expanded.includes('top-')
-      if (state.expanded.find(f => f === action.payload.expanded)) {
-        state.expanded = state.expanded.filter(f => f !== action.payload.expanded)
-      }
-      else {
-        if (isTopNav) {
-          state.expanded = []
-        }
-        state.expanded.push(action.payload.expanded)
-      }
+
+   
     },
 
     selectBreadCrumbCategory: (state, action) => {
@@ -82,20 +66,23 @@ export const breadcrumbSlice = createSlice({
         state.selectedSubcategory = null
         state.expanded = []
         state.category = null;
-        state.marka=null;
-        state.subcategory=null;
-        
+        //  state.marka=null;
+        state.subcategory = null;
+
 
       } else if (state.selectedTabLabel === 'Ürünler') {
         state.selectedTab = 0
         state.selectedSubcategory = null
         state.expanded = []
         state.category = null;
-        state.marka=null;
-        state.subcategory=null;
+        state.marka = null;
+        state.subcategory = null;
       }
-    },
 
+    },
+    toggleDrawer: (state, action) => {
+      state.drawerOpen = !state.drawerOpen
+    }
   },
 })
 
