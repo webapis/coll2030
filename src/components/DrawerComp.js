@@ -44,11 +44,13 @@ export default function DrawerComp() {
 }
 
 function CategoryMenu(props) {
+    const dispatch =useDispatch()
     const [open, setOpen] = React.useState(false);
     const { categories } = props
 
     function toggle() {
         setOpen(!open);
+    dispatch(actions.selectBreadCrumbTop({selectedTabLabel:'Ürünler'}))
     }
 
     return (
@@ -69,15 +71,15 @@ function CategoryMenu(props) {
 
 function MarkaMenu(props) {
     const { render } = props
-    function handleMarkaClick(id) {
-        setMarka(id)
-    }
+    const dispatch=useDispatch()
+ 
     const [open, setOpen] = React.useState(false);
-    const [selectedMarka, setMarka] = React.useState(null)
+
 
 
     function toggle() {
         setOpen(!open);
+        dispatch(actions.selectBreadCrumbTop({selectedTabLabel:'Markalar'}))
     }
     return (
         <List>

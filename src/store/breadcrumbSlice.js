@@ -25,7 +25,7 @@ export const breadcrumbSlice = createSlice({
         state.drawerOpen=false
       }
       state.selectedTab = action.payload.selectedTab
-      state.selectedTabLabel = action.payload.selectedTabLabel
+     
 
     },
     selectCategory: (state, action) => {
@@ -61,22 +61,22 @@ export const breadcrumbSlice = createSlice({
       }
     },
     selectBreadCrumbTop: (state, action) => {
+      state.selectedTabLabel = action.payload.selectedTabLabel
       if (state.selectedTabLabel === 'Markalar') {
-        state.selectedTab = 1
-        state.selectedSubcategory = null
-        state.expanded = []
-        state.category = null;
-        //  state.marka=null;
-        state.subcategory = null;
+      //  // state.selectedTab = 1
+      //   state.selectedSubcategory = null
+  
+      //   state.category = null;
+      //   //  state.marka=null;
+      //   state.subcategory = null;
 
 
       } else if (state.selectedTabLabel === 'Ürünler') {
-        state.selectedTab = 0
-        state.selectedSubcategory = null
-        state.expanded = []
-        state.category = null;
-        state.marka = null;
-        state.subcategory = null;
+        //state.selectedTab = 0
+      //   state.selectedSubcategory = null
+      //   state.category = null;
+      //  // state.marka = null;
+      //   state.subcategory = null;
       }
 
     },
