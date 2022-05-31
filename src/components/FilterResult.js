@@ -76,7 +76,7 @@ function Subcategories() {
       object && Object.entries(object).map((o, i) => {
         const subcategory = o[0]
         const subtotal = o[1]
-        return <Grid item xs={12} sm={6} md={4}>
+        return <Grid item xs={6} sm={6} md={4}>
 
           <Button onClick={handleSubCategoryClick} id={subcategory}>{subcategory}<Chip sx={{marginLeft:1}} size="small" variant="filled" label={subtotal}/></Button>
         </Grid>
