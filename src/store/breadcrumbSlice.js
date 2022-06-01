@@ -13,28 +13,29 @@ export const breadcrumbSlice = createSlice({
     selectedSubcategory: null,
     drawerOpen: false,
     subcategories: [],
-    markaTabSelected:false,
-    categoryTabSelected:false,
+    markaTabSelected: false,
+    categoryTabSelected: false,
+    totalFetchedProducts: 0
   },
   reducers: {
+    setFetchedProductsTotal: (state, action) => {
+      state.totalFetchedProducts = state.totalFetchedProducts + action.payload
+    },
     selectTab: (state, action) => {
       debugger;
-    
-   
-
     },
     selectCategory: (state, action) => {
       debugger;
       state.selectedCategory = action.payload.selectedCategory
-      state.selectedSubcategory=null
+      state.selectedSubcategory = null
       state.subcategories = action.payload.subcategories
-      state.drawerOpen=false
-      state.selectedTab= 0
+      state.drawerOpen = false
+      state.selectedTab = 0
       debugger;
     },
     selectSubcategory: (state, action) => {
       debugger;
-  
+
       state.subCatTotal = action.payload.subCatTotal
       debugger;
       state.selectedSubcategory = action.payload.selectedSubcategory
@@ -43,16 +44,16 @@ export const breadcrumbSlice = createSlice({
       debugger;
     },
     selectMarka: (state, action) => {
-      
-      if(state.selectedMarka===action.payload.selectedMarka){
-        state.selectedMarka=null
-      } else{
+
+      if (state.selectedMarka === action.payload.selectedMarka) {
+        state.selectedMarka = null
+      } else {
         state.selectedMarka = action.payload.selectedMarka
       }
 
       debugger;
 
-   
+
     },
 
     selectBreadCrumbCategory: (state, action) => {
@@ -62,36 +63,36 @@ export const breadcrumbSlice = createSlice({
     },
     selectBreadCrumbTop: (state, action) => {
       debugger;
-      state.drawerOpen=true
+      state.drawerOpen = true
       //state.selectedCategory = null;
-     // state.selectedSubcategory = null;
-     // state.selectedMarka=null;
-   
+      // state.selectedSubcategory = null;
+      // state.selectedMarka=null;
+
 
     },
     toggleDrawer: (state, action) => {
       state.drawerOpen = !state.drawerOpen
     },
-    selectMarkaTab:(state,action)=>{
-      state.markaTabSelected=!state.markaTabSelected
-      if(state.markaTabSelected){
-        state.categoryTabSelected=false
-        state.selectedTabLabel='Markalar'
-        state.selectedCategory=null;
-        state.selectedSubcategory=null;
+    selectMarkaTab: (state, action) => {
+      state.markaTabSelected = !state.markaTabSelected
+      if (state.markaTabSelected) {
+        state.categoryTabSelected = false
+        state.selectedTabLabel = 'Markalar'
+        state.selectedCategory = null;
+        state.selectedSubcategory = null;
       }
     },
-    selectCategoryTab:(state,action)=>{
-      state.categoryTabSelected=!state.categoryTabSelected
-      if(state.categoryTabSelected){
-        state.markaTabSelected=false
-        state.selectedTabLabel='Ürünler'
-        state.selectedMarka=null;
-        state.selectedCategory=null;
-        state.selectedSubcategory=null;
-      }else{
-      
-      } 
+    selectCategoryTab: (state, action) => {
+      state.categoryTabSelected = !state.categoryTabSelected
+      if (state.categoryTabSelected) {
+        state.markaTabSelected = false
+        state.selectedTabLabel = 'Ürünler'
+        state.selectedMarka = null;
+        state.selectedCategory = null;
+        state.selectedSubcategory = null;
+      } else {
+
+      }
     }
   },
 })

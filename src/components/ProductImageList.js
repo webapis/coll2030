@@ -1,19 +1,22 @@
 
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 
 import Grid from '@mui/material/Grid'
 import IntersectionObserver from "../intersectObserver";
 import ImageComponent from './imageComponent';
 import CircularProgress from '@mui/material/CircularProgress';
+import {actions} from '../store/breadcrumbSlice'
 import Button from '@mui/material/Button';
+import { Typography } from '@mui/material';
 
 const getWidth = () => window.innerWidth 
   || document.documentElement.clientWidth 
   || document.body.clientWidth;
 export default function ProductImageList(props) {
   const [state, setData] = useState([]);
-  const {selectedMarka,selectedSubcategory} =useSelector(state=>state.breadcrumb)
+  const {selectedMarka,selectedSubcategory,totalFetchedProducts,subCatTotal} =useSelector(state=>state.breadcrumb)
+  const dispatch =useDispatch()
   debugger;
   let [width, setWidth] = useState(getWidth());
 
@@ -74,6 +77,7 @@ debugger;
 
     const { data } = await response.json()
 
+    dispatch(actions.setFetchedProductsTotal(data.length))
 
     setData(prevState => [...prevState, ...data])
 
@@ -102,7 +106,7 @@ debugger;
       })}
 
       <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
-        {state.length > 0 ? <Button variant='outlined' onClick={fetchNextPage}>Daha Fazla</Button> : <CircularProgress />}
+        {state.length > 0 ?<Button disabled={(totalFetchedProducts-1) >=subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts-1)}/{subCatTotal}</Button>  : <CircularProgress />}
       </Grid>
     </Grid>
 
