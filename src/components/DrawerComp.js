@@ -103,17 +103,32 @@ function MarkasList({ markas, open }) {
     return (
         <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-                {Object.entries(mnavs).map((n, i) => {
-                    const marka = n[0]
-                    const markaTotal = n[1]['total']
-                    const categories = Object.entries(n[1])
+                {Object.entries(mnavs).map((m,i)=>{
+                    return {
+                         marka: m[0],
+                         markaTotal: m[1]['total'],
+                         categories: Object.entries(m[1])
+                    }
+                }).sort(function (a, b) {
+                    var textA = a.marka.toUpperCase();
+                    var textB = b.marka.toUpperCase();
+                    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+                  }).map((n, i) => {
+                    const {marka,markaTotal,categories} = n
+                   
                     return <MarkaListItem key={i} id={marka}  markaTotal={markaTotal} title={marka} categories={categories} render={({ open, categories }) => <CategoryList open={open} categories={categories} />} />
                 })}
             </List>
         </Collapse>
     )
 }
-
+/*
+.sort(function (a, b) {
+        var textA = a.subcategory.toUpperCase();
+        var textB = b.subcategory.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      })
+*/
 function MarkaListItem(props) {
     const [open, setOpen] = React.useState(false);
     const selectedMarka =useSelector(state=>state.breadcrumb.selectedMarka)
@@ -150,10 +165,19 @@ function CategoryList({ categories, open }) {
     }
     return (<Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-            {Object.entries(categories).filter((f, i) => i > 0).map((n, i) => {
-                const category = n[1][0]
-                const categoryTotal = n[1][1]['total']
-                const subcategories = n[1][1]
+            {Object.entries(categories).filter((f, i) => i > 0).map((m,i)=>{
+                return {
+                     category : m[1][0],
+                     categoryTotal : m[1][1]['total'],
+                     subcategories : m[1][1]
+                }
+            }).sort(function (a, b) {
+                var textA = a.category.toUpperCase();
+                var textB = b.category.toUpperCase();
+                return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+              }).map((n, i) => {
+                const {category,categoryTotal,subcategories} = n
+               
                 return (<ListItem key={i} disablePadding secondaryAction={<span style={{ color: "#9e9e9e" }}>{categoryTotal}</span>}>
                     <ListItemButton selected={selectedCategory===category} onClick={() => handleCategoryClick(category, subcategories)} id={category}>
                         <ListItemIcon>
