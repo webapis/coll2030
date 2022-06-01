@@ -111,7 +111,7 @@ function Subcategories() {
           </Grid>]
 
         }
-        if (currentfirstChar !== previousChar) {
+        if (currentfirstChar === previousChar) {
           return [
 
             <Grid item xs={12} key={i}>
