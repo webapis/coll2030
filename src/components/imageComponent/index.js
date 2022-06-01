@@ -1,16 +1,13 @@
 
-import React, { useEffect,useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import placeholders from './placeholders'
 import Typography from '@mui/material/Typography';
 import ShowMoreText from "react-show-more-text";
 import { ImageListItem } from '@mui/material';
 
 
-const getWidth = () => window.innerWidth
-  || document.documentElement.clientWidth
-  || document.body.clientWidth;
 export default function ImageComponent(props) {
-  let [width, setWidth] = useState(getWidth());
+
 
     const imageEl = useRef(null);
     const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'

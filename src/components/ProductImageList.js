@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
@@ -10,36 +10,13 @@ import { actions } from '../store/breadcrumbSlice'
 import Button from '@mui/material/Button';
 
 
-const getWidth = () => window.innerWidth
-  || document.documentElement.clientWidth
-  || document.body.clientWidth;
+
 export default function ProductImageList(props) {
-  const [state, setData] = useState([]);
+
   const { selectedMarka, selectedSubcategory, totalFetchedProducts, subCatTotal, fetching, products } = useSelector(state => state.breadcrumb)
 
   const dispatch = useDispatch()
   
-  let [width, setWidth] = useState(getWidth());
-
-  useEffect(() => {
-    const width = getWidth()
-
- 
-    const resizeListener = () => {
-      // change width from the state object
-
-      setWidth(getWidth())
-
-
-    };
-    window.addEventListener('resize', resizeListener);
-
-    // clean up function
-    return () => {
-      // remove resize listener
-      window.removeEventListener('resize', resizeListener);
-    }
-  }, [])
 
   useEffect(() => {
     localStorage.setItem('page', 1)
@@ -67,7 +44,7 @@ export default function ProductImageList(props) {
     // }
 
 
-  }, [state])
+  }, [])
 
   async function fetchData(page) {
 
@@ -79,7 +56,7 @@ export default function ProductImageList(props) {
 
     dispatch(actions.setFetchedProductsTotal({ products: data }))
     dispatch(actions.setFetchState(false))
-    // setData(prevState => [...prevState, ...data])
+  
 
 
   }
