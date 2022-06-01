@@ -10,10 +10,9 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import SearchInput from './components/SearchInput';
 import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { actions } from './store/breadcrumbSlice';
 
-import TabsContainer from './components/TabsContainer';
 import BreadcrumbContainer from './components/BreadcrumbsContainer'
 import Divider from '@mui/material/Divider';
 import { Provider } from 'react-redux'
@@ -68,14 +67,15 @@ HideOnScroll.propTypes = {
 
 export default function HideAppBar(props) {
 
-  const [value, setValue] = React.useState(0);
+  const selectedTab =useSelector(state=>state.breadcrumb.selectedTab)
+  const subCatTotal =useSelector(state=>state.breadcrumb.subCatTotal)
   const dispatch = useDispatch()
 
 
   function handleMenuClick(){
     dispatch(actions.toggleDrawer())
   }
-  const totalSubcategory = localStorage.getItem('totalSubcategory')
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -98,7 +98,7 @@ export default function HideAppBar(props) {
      
           <Container >
             <BreadcrumbContainer />
-            {value === 2 && <Divider sx={{ fontSize: 12, color: '#9e9e9e' }}>{totalSubcategory} Ürün Sayısı</Divider>}
+            {selectedTab === 2 && <Divider sx={{ fontSize: 12, color: '#9e9e9e' }}>{subCatTotal} Ürün Sayısı</Divider>}
 
           </Container>
 
@@ -116,18 +116,3 @@ export default function HideAppBar(props) {
   );
 }
 
-/*
-   <HideOnScroll>
-        <div style={{ paddingTop: 10, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
-          <SearchInput />
-          <TabsContainer />
-          <Container >
-            <BreadcrumbContainer />
-            {value === 2 && <Divider sx={{ fontSize: 12, color: '#9e9e9e' }}>{totalSubcategory} Ürün Sayısı</Divider>}
-
-          </Container>
-
-        </div>
-
-      </HideOnScroll>
-*/

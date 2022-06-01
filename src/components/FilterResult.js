@@ -64,9 +64,9 @@ function Subcategories() {
   const dispatch = useDispatch()
   const subcategories = useSelector(state => state.breadcrumb.subcategories)
   const object = subcategories && Object.entries(subcategories)[1] && Object.entries(subcategories)[1][1]
-  function handleSubCategoryClick(e) {
-    const { id } = e.target
-    dispatch(actions.selectSubcategory({ selectedSubcategory: id }))
+  function handleSubCategoryClick(selectedSubcategory,subCatTotal) {
+  
+    dispatch(actions.selectSubcategory({ selectedSubcategory,subCatTotal }))
     debugger;
   }
   return <Grid container  
@@ -75,10 +75,10 @@ function Subcategories() {
     {
       object && Object.entries(object).map((o, i) => {
         const subcategory = o[0]
-        const subtotal = o[1]
+        const subCatTotal = o[1]
         return <Grid item xs={6} sm={6} md={4}>
 
-          <Button onClick={handleSubCategoryClick} id={subcategory}>{subcategory}<Chip sx={{marginLeft:1}} size="small" variant="filled" label={subtotal}/></Button>
+          <Button onClick={()=>handleSubCategoryClick(subcategory,subCatTotal)} id={subcategory}>{subcategory}<Chip sx={{marginLeft:1}} size="small" variant="filled" label={subCatTotal}/></Button>
         </Grid>
 
       })
