@@ -20,20 +20,13 @@ export const breadcrumbSlice = createSlice({
     selectTab: (state, action) => {
       debugger;
     
-      if (action.payload.selectedTab === 0) {
-     //   state.subcategories = action.payload.subcategories
-        debugger;
-     //   state.category=action.payload.selectedCategory
-       
-      }
-     // state.selectedTab = action.payload.selectedTab
-     
+   
 
     },
     selectCategory: (state, action) => {
       debugger;
       state.selectedCategory = action.payload.selectedCategory
-      
+      state.selectedSubcategory=null
       state.subcategories = action.payload.subcategories
       state.drawerOpen=false
       state.selectedTab= 0
@@ -41,7 +34,7 @@ export const breadcrumbSlice = createSlice({
     },
     selectSubcategory: (state, action) => {
       debugger;
-      //state.subcategory = action.payload.selectedSubcategory
+  
       state.subCatTotal = action.payload.subCatTotal
       state.selectedSubcategory = action.payload.selectedSubcategory
       debugger;
@@ -69,25 +62,10 @@ export const breadcrumbSlice = createSlice({
     selectBreadCrumbTop: (state, action) => {
       debugger;
       state.drawerOpen=true
-      state.category = null;
-      state.subcategory = null;
+      //state.selectedCategory = null;
+     // state.selectedSubcategory = null;
+     // state.selectedMarka=null;
    
-      if (state.selectedTabLabel === 'Markalar') {
-      //  // state.selectedTab = 1
-      //   state.selectedSubcategory = null
-  
-      //   state.category = null;
-      //   //  state.marka=null;
-      //   state.subcategory = null;
-    
-
-      } else if (state.selectedTabLabel === 'Ürünler') {
-        //state.selectedTab = 0
-      //   state.selectedSubcategory = null
-      //   state.category = null;
-      //  // state.marka = null;
-      //   state.subcategory = null;
-      }
 
     },
     toggleDrawer: (state, action) => {

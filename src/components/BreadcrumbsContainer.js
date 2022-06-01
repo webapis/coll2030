@@ -21,7 +21,7 @@ export default function BreadcrumbsContainer(props) {
     <Breadcrumbs aria-label="breadcrumb">
       {selectedTabLabel && <Link onClick={handleTopBreadClick} underline="hover" href="#" fontSize="small">{selectedTabLabel}</Link >}
       {selectedMarka && <Link onClick={handleTopBreadClick} underline="hover" href="#" fontSize="small" >{selectedMarka}</Link >}
-      {selectedCategory && <Link onClick={handleCategoryClick} underline="hover" href="#" fontSize="small" >{selectedCategory}</Link >}
+      {selectedCategory && <Link  onClick={handleCategoryClick} underline="hover" href="#" fontSize="small" >{selectedCategory}</Link >}
       {selectedSubcategory && <Typography fontSize="small" color="#9e9e9e">{selectedSubcategory}</Typography >}
 
     </Breadcrumbs>
