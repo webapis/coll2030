@@ -24,8 +24,7 @@ export default function ProductImageList(props) {
   useEffect(() => {
     const width = getWidth()
 
-
-
+ 
     const resizeListener = () => {
       // change width from the state object
 
@@ -95,11 +94,11 @@ export default function ProductImageList(props) {
 
   return (
 
-    <Grid container justifyContent="center" spacing={0} paddingTop={5}
+    <Grid container justifyContent="center" spacing={1} paddingTop={5}
     >
       {products.length > 0 && products.map((item, i) => {
 
-        return <Grid item key={i} xs={6} sm={4} md={3} lg={2} sx={{ display: 'flex', justifyContent: 'center' }}>
+        return <Grid item key={i} xs={6} sm={4} md={3}  sx={{ display: 'flex', justifyContent: 'center' }}>
 
           <ImageComponent plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 

@@ -1,12 +1,19 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect,useState, useRef } from 'react';
 import placeholders from './placeholders'
 import Typography from '@mui/material/Typography';
 import ShowMoreText from "react-show-more-text";
+import { ImageListItem } from '@mui/material';
 
+
+const getWidth = () => window.innerWidth
+  || document.documentElement.clientWidth
+  || document.body.clientWidth;
 export default function ImageComponent(props) {
+  let [width, setWidth] = useState(getWidth());
+
     const imageEl = useRef(null);
-    const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_250/'
+    const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
     const imagePlaceholder = placeholders[props.marka].placeholder
     const logo = placeholders[props.marka].logo
     const imageSource = cloudinary + placeholders[props.marka].imageHost.trim() + props.imageUrl
@@ -42,23 +49,27 @@ export default function ImageComponent(props) {
     }
   
     return (
-      <div style={{ width: 130 }}>
+      <div>
         <div style={{ position: 'relative', margin: 'auto' }}>
-          <Typography style={{ textAlign: 'right', position: 'absolute', bottom: -20, right: 2, fontSize: 10 }}>{props.price} <span style={{ fontSize: 11 }}>TL</span></Typography>
+          <Typography variant="h6" style={{ textAlign: 'right', position: 'absolute', bottom: -20, right: 2 }}>{props.price} <span style={{ fontSize: 10 }}>TL</span></Typography>
           <a href={detailHost} target="_blank" >
+            <ImageListItem>
+
+         
             <img ref={imageEl} data-intersection="true" className="figure"
-              width="130"
+              
               src={imagePlaceholder}
               data-src={imageSource}
               alt={props.title}
               loading="lazy"
             />
+               </ImageListItem>
           </a>
         </div>
   
         <div>
   
-          <img src={logo} width='45%' />
+          <img src={logo} width='35%' />
   
         </div>
   
