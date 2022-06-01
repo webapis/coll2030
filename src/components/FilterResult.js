@@ -22,9 +22,9 @@ export default function FilterResult(props) {
     <Box>
       <TabPanel value={selectedTab} index={0} sx={{ display: 'flex', justifyContent: 'center' }}>
         <Container>
-        <Subcategories />
+          <Subcategories />
         </Container>
-    
+
       </TabPanel>
       <TabPanel value={selectedTab} index={1} sx={{ display: 'flex', justifyContent: 'center' }}>
         <MarkaMenu sx={{ height: "100%" }} handleTabChange={handleChange} />
@@ -64,22 +64,67 @@ function Subcategories() {
   const dispatch = useDispatch()
   const subcategories = useSelector(state => state.breadcrumb.subcategories)
   const object = subcategories && Object.entries(subcategories)[1] && Object.entries(subcategories)[1][1]
-  function handleSubCategoryClick(selectedSubcategory,subCatTotal) {
-  
-    dispatch(actions.selectSubcategory({ selectedSubcategory,subCatTotal }))
-    
+  function handleSubCategoryClick(selectedSubcategory, subCatTotal) {
+
+    dispatch(actions.selectSubcategory({ selectedSubcategory, subCatTotal }))
+
   }
-  return <Grid container  
->
+  return <Grid container
+  >
 
     {
-      object && Object.entries(object).map((o, i) => {
-        const subcategory = o[0]
-        const subCatTotal = o[1]
-        return <Grid item xs={6} sm={6} md={4} key={i}>
+      object && Object.entries(object).sort(function (a, b) {
 
-          <Button onClick={()=>handleSubCategoryClick(subcategory,subCatTotal)} id={subcategory}>{subcategory}<Chip sx={{marginLeft:1}} size="small" variant="filled" label={subCatTotal}/></Button>
-        </Grid>
+      }).map((m, i) => {
+        return {
+          subcategory: m[0],
+          subCatTotal: m[1]
+        }
+      }).sort(function (a, b) {
+        var textA = a.subcategory.toUpperCase();
+        var textB = b.subcategory.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      }).map((o, i, array) => {
+        const { subcategory, subCatTotal } = o
+        const previousObj = array[i - 1]
+        const currentfirstChar = subcategory.charAt(0).toUpperCase()
+        debugger;
+        const previousChar = previousObj && previousObj['subcategory'].charAt(0).toUpperCase()
+        debugger;
+        if (i === 0) {
+          return [
+            <Grid item xs={12} key={i}>
+              {currentfirstChar}
+            </Grid>,
+            <Grid item xs={12} key={i}>
+              <Button onClick={() => handleSubCategoryClick(subcategory, subCatTotal)} id={subcategory}>{subcategory}<Chip sx={{ marginLeft: 1 }} size="small" variant="filled" label={subCatTotal} /></Button>
+            </Grid>]
+        }
+
+
+        if (currentfirstChar !== previousChar) {
+          debugger;
+          return [<Grid item xs={12} key={i}>
+            {currentfirstChar}
+          </Grid>, <Grid item xs={12} key={i}>
+            <Button onClick={() => handleSubCategoryClick(subcategory, subCatTotal)} id={subcategory}>{subcategory}<Chip sx={{ marginLeft: 1 }} size="small" variant="filled" label={subCatTotal} /></Button>
+          </Grid>]
+
+        }
+        if (currentfirstChar !== previousChar) {
+          return [
+
+            <Grid item xs={12} key={i}>
+              <Button onClick={() => handleSubCategoryClick(subcategory, subCatTotal)} id={subcategory}>{subcategory}<Chip sx={{ marginLeft: 1 }} size="small" variant="filled" label={subCatTotal} /></Button>
+            </Grid>,
+
+          ]
+        }
+
+
+
+
+
 
       })
     }
