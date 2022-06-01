@@ -39,6 +39,7 @@ export const breadcrumbSlice = createSlice({
       state.subCatTotal = action.payload.subCatTotal
       debugger;
       state.selectedSubcategory = action.payload.selectedSubcategory
+      state.totalFetchedProducts=0
       debugger;
       state.selectedTab = 2
       debugger;

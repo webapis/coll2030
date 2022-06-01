@@ -106,7 +106,7 @@ debugger;
       })}
 
       <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
-        {state.length > 0 ?<Button disabled={(totalFetchedProducts-1) >=subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts-1)}/{subCatTotal}</Button>  : <CircularProgress />}
+        {state.length > 0 ?<Button disabled={(totalFetchedProducts) >=subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>  : <CircularProgress />}
       </Grid>
     </Grid>
 
