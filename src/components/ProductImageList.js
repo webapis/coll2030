@@ -43,8 +43,8 @@ useEffect(()=>{
 },[])
 
   useEffect(() => {
-    localStorage.setItem('page', 0)
-    fetchData(0)
+    localStorage.setItem('page', 1)
+    fetchData(1)
 
 
   }, []);
