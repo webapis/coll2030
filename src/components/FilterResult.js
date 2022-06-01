@@ -67,7 +67,7 @@ function Subcategories() {
   function handleSubCategoryClick(selectedSubcategory,subCatTotal) {
   
     dispatch(actions.selectSubcategory({ selectedSubcategory,subCatTotal }))
-    debugger;
+    
   }
   return <Grid container  
 >

@@ -18,7 +18,7 @@ export default function ProductImageList(props) {
   const { selectedMarka, selectedSubcategory, totalFetchedProducts, subCatTotal, fetching, products } = useSelector(state => state.breadcrumb)
 
   const dispatch = useDispatch()
-  debugger;
+  
   let [width, setWidth] = useState(getWidth());
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export default function ProductImageList(props) {
 
   async function fetchData(page) {
 
-    debugger;
+    
     const url = `/api/kadin/data?page=${page}&subcategory=${selectedSubcategory}&marka=${selectedMarka}`
     const response = await fetch(url, { cache: 'default' })
 
@@ -109,7 +109,7 @@ export default function ProductImageList(props) {
       <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
         {products.length > 0 ? <div>{fetching ? <Box sx={{ display: 'flex' }}>
           <CircularProgress disableShrink />
-        </Box> : <Button disabled={(totalFetchedProducts) >= subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>}</div> : <CircularProgress />}
+        </Box> : <Button disabled={(totalFetchedProducts || fetching) >= subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>}</div> : <CircularProgress />}
       </Grid>
     </Grid>
 

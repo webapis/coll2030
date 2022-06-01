@@ -25,7 +25,7 @@ export default function ProductMenu(props) {
    
       dispatch(actions.selectCategory({ category, expanded }))
     
-    debugger;
+    
     
   }
 

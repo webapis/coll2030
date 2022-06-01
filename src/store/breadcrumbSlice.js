@@ -30,29 +30,29 @@ export const breadcrumbSlice = createSlice({
       }
     },
     selectTab: (state, action) => {
-      debugger;
+      
     },
     selectCategory: (state, action) => {
-      debugger;
+      
       state.selectedCategory = action.payload.selectedCategory
       state.selectedSubcategory = null
       state.subcategories = action.payload.subcategories
       state.drawerOpen = false
       state.selectedTab = 0
-      debugger;
+      
     },
     selectSubcategory: (state, action) => {
-      debugger;
+      
 
       state.subCatTotal = action.payload.subCatTotal
-      debugger;
+      
       state.selectedSubcategory = action.payload.selectedSubcategory
       state.totalFetchedProducts=0
       state.products=[]
-      debugger;
+      
       state.selectedTab = 2
    
-      debugger;
+      
     },
     selectMarka: (state, action) => {
 
@@ -62,7 +62,7 @@ export const breadcrumbSlice = createSlice({
         state.selectedMarka = action.payload.selectedMarka
       }
 
-      debugger;
+      
 
 
     },
@@ -73,7 +73,7 @@ export const breadcrumbSlice = createSlice({
 
     },
     selectBreadCrumbTop: (state, action) => {
-      debugger;
+      
       state.drawerOpen = true
       //state.selectedCategory = null;
       // state.selectedSubcategory = null;

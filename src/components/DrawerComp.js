@@ -117,7 +117,7 @@ function MarkasList({ markas, open }) {
 function MarkaListItem(props) {
     const [open, setOpen] = React.useState(false);
     const selectedMarka =useSelector(state=>state.breadcrumb.selectedMarka)
-    debugger;
+    
     const dispatch =useDispatch()
     const { render, categories } = props
     const { title, markaTotal } = props

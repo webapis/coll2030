@@ -21,6 +21,7 @@ import reportWebVitals from './reportWebVitals';
 import FilterResult from './components/FilterResult';
 import { Typography } from '@mui/material';
 import DrawerComp from './components/DrawerComp';
+import BackToTop from './components/BackToTop';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
@@ -91,7 +92,8 @@ export default function HideAppBar(props) {
           </Toolbar>
         </AppBar>
       </HideOnScroll>
-      <Toolbar />
+      <Toolbar id="back-to-top-anchor" />
+   
       <HideOnScroll>
         <div style={{ paddingTop: 10, position: 'fixed', width: '100%', zIndex: 20000, backgroundColor: '#fff' }}>
           <SearchInput />
@@ -106,8 +108,10 @@ export default function HideAppBar(props) {
 
       </HideOnScroll>
       <Container  sx={{ marginTop: 0, paddingTop: 15 }}>
-      
+      <BackToTop>
       <FilterResult  />
+      </BackToTop>
+     
 
     <DrawerComp/>
       

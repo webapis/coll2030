@@ -21,7 +21,7 @@ export default function MarkaMenu() {
     }
  
     function handleMarkaClick(marka,expanded) {
-      debugger;
+      
    
         dispatch(actions.selectMarka({ marka, expanded }))
       
