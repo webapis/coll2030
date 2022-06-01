@@ -8,14 +8,14 @@ import ImageComponent from './imageComponent';
 import CircularProgress from '@mui/material/CircularProgress';
 import {actions} from '../store/breadcrumbSlice'
 import Button from '@mui/material/Button';
-import { Typography } from '@mui/material';
+
 
 const getWidth = () => window.innerWidth 
   || document.documentElement.clientWidth 
   || document.body.clientWidth;
 export default function ProductImageList(props) {
   const [state, setData] = useState([]);
-  const {selectedMarka,selectedSubcategory,totalFetchedProducts,subCatTotal} =useSelector(state=>state.breadcrumb)
+  const {selectedMarka,selectedSubcategory,totalFetchedProducts,subCatTotal,fetching} =useSelector(state=>state.breadcrumb)
   const dispatch =useDispatch()
   debugger;
   let [width, setWidth] = useState(getWidth());
@@ -70,7 +70,7 @@ useEffect(()=>{
   }, [state])
 
   async function fetchData(page) {
-
+    dispatch(actions.setFetchState(true))
 debugger;
     const url = `/api/kadin/data?page=${page}&subcategory=${selectedSubcategory}&marka=${selectedMarka}`
     const response = await fetch(url, { cache: 'default' })
@@ -78,7 +78,7 @@ debugger;
     const { data } = await response.json()
 
     dispatch(actions.setFetchedProductsTotal(data.length))
-
+    dispatch(actions.setFetchState(false))
     setData(prevState => [...prevState, ...data])
 
 
@@ -106,7 +106,7 @@ debugger;
       })}
 
       <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
-        {state.length > 0 ?<Button disabled={(totalFetchedProducts) >=subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>  : <CircularProgress />}
+        {state.length > 0 ?<div>{fetching?<CircularProgress />:<Button disabled={(totalFetchedProducts) >=subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>}</div>  : <CircularProgress />}
       </Grid>
     </Grid>
 

@@ -15,9 +15,13 @@ export const breadcrumbSlice = createSlice({
     subcategories: [],
     markaTabSelected: false,
     categoryTabSelected: false,
-    totalFetchedProducts: 0
+    totalFetchedProducts: 0,
+    fetching:false
   },
   reducers: {
+    setFetchState:(state,action)=>{
+      state.fetching=action.payload
+    },
     setFetchedProductsTotal: (state, action) => {
       state.totalFetchedProducts = state.totalFetchedProducts + action.payload
     },
