@@ -122,13 +122,7 @@ function MarkasList({ markas, open }) {
         </Collapse>
     )
 }
-/*
-.sort(function (a, b) {
-        var textA = a.subcategory.toUpperCase();
-        var textB = b.subcategory.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      })
-*/
+
 function MarkaListItem(props) {
     const [open, setOpen] = React.useState(false);
     const selectedMarka =useSelector(state=>state.breadcrumb.selectedMarka)
