@@ -108,7 +108,7 @@ export default function ProductImageList(props) {
 
       <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
         {products.length > 0 ? <div>{fetching ? <Box sx={{ display: 'flex' }}>
-          <CircularProgress />
+          <CircularProgress disableShrink />
         </Box> : <Button disabled={(totalFetchedProducts) >= subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>}</div> : <CircularProgress />}
       </Grid>
     </Grid>
