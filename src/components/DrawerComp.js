@@ -45,12 +45,13 @@ export default function DrawerComp() {
 
 function CategoryMenu(props) {
     const dispatch =useDispatch()
+    const categoryTabSelected =useSelector(state=>state.breadcrumb.categoryTabSelected)
     const [open, setOpen] = React.useState(false);
     const { categories } = props
 
     function toggle() {
-        setOpen(!open);
-    dispatch(actions.selectBreadCrumbTop({selectedTabLabel:'Ürünler'}))
+  
+    dispatch(actions.selectCategoryTab())
     }
 
     return (
@@ -60,9 +61,9 @@ function CategoryMenu(props) {
                     <CategoryIcon />
                 </ListItemIcon>
                 <ListItemText >ÜRÜNLER</ListItemText>
-                {open ? <ExpandLess /> : <ExpandMore />}
+                {categoryTabSelected ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <CategoryList categories={Object.entries(categories)} open={open} />
+            <CategoryList categories={Object.entries(categories)} open={categoryTabSelected} />
         </List>
     )
 
@@ -71,13 +72,14 @@ function CategoryMenu(props) {
 
 function MarkaMenu(props) {
     const { render } = props
+    const markaTabSelected =useSelector(state=> state.breadcrumb.markaTabSelected)
     const dispatch=useDispatch()
  
-    const [open, setOpen] = React.useState(false);
+
 
     function toggle() {
-        setOpen(!open);
-        dispatch(actions.selectBreadCrumbTop({selectedTabLabel:'Markalar'}))
+
+        dispatch(actions.selectMarkaTab())
     }
     return (
         <List>
@@ -86,10 +88,9 @@ function MarkaMenu(props) {
                     <CategoryIcon />
                 </ListItemIcon>
                 <ListItemText >MARKALAR</ListItemText>
-                {open ? <ExpandLess /> : <ExpandMore />}
+                {markaTabSelected ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            {render({ markas: mnavs, open })}
-
+            {render({ markas: mnavs, open:markaTabSelected })}
         </List>
     )
 }
@@ -115,25 +116,27 @@ function MarkasList({ markas, open }) {
 
 function MarkaListItem(props) {
     const [open, setOpen] = React.useState(false);
+    const selectedMarka =useSelector(state=>state.breadcrumb.selectedMarka)
+    debugger;
     const dispatch =useDispatch()
     const { render, categories } = props
     const { title, markaTotal } = props
     function toggle() {
         debugger;
         setOpen(!open);
-        dispatch(actions.selectMarka({marka:title}))
+        dispatch(actions.selectMarka({selectedMarka:title}))
     }
     return (
         <>
             <ListItem disablePadding secondaryAction={<ListItemText >{markaTotal}</ListItemText>}>
-                <ListItemButton onClick={() => toggle()}>
+                <ListItemButton onClick={() => toggle()} id={title} selected={selectedMarka===title}>
                     <ListItemIcon>
-                        {!open ? <ChevronRightIcon /> : <ExpandMore />}
+                        {!selectedMarka===title ? <ChevronRightIcon /> : <ExpandMore />}
                     </ListItemIcon>
                     <ListItemText sx={{ textTransform: 'uppercase' }}>{title}</ListItemText>
                 </ListItemButton>
             </ListItem>
-            {render({ open, categories })}
+            {render({ open:selectedMarka===title, categories })}
         </>
     )
 }
@@ -141,8 +144,9 @@ function MarkaListItem(props) {
 
 function CategoryList({ categories, open }) {
     const dispatch = useDispatch()
+    const selectedCategory =useSelector(state=>state.breadcrumb.selectedCategory)
     function handleCategoryClick(category, subcategories) {
-        dispatch(actions.selectTab({ selectedTab: 0, subcategories, selectedCategory: category }))
+        dispatch(actions.selectCategory({ subcategories, selectedCategory: category }))
     }
     return (<Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
@@ -151,7 +155,7 @@ function CategoryList({ categories, open }) {
                 const categoryTotal = n[1][1]['total']
                 const subcategories = n[1][1]
                 return (<ListItem key={i} disablePadding secondaryAction={<span style={{ color: "#9e9e9e" }}>{categoryTotal}</span>}>
-                    <ListItemButton onClick={() => handleCategoryClick(category, subcategories)}>
+                    <ListItemButton selected={selectedCategory===category} onClick={() => handleCategoryClick(category, subcategories)} id={category}>
                         <ListItemIcon>
                         </ListItemIcon>
                         <ListItemText style={{ textTransform: 'capitalize' }}>{category.replace('-', ' ')}</ListItemText>

@@ -13,7 +13,7 @@ const getWidth = () => window.innerWidth
   || document.body.clientWidth;
 export default function ProductImageList(props) {
   const [state, setData] = useState([]);
-  const {marka,subcategory} =useSelector(state=>state.breadcrumb)
+  const {selectedMarka,selectedSubcategory} =useSelector(state=>state.breadcrumb)
   debugger;
   let [width, setWidth] = useState(getWidth());
 
@@ -68,8 +68,8 @@ useEffect(()=>{
 
   async function fetchData(page) {
 
-
-    const url = `/api/kadin/data?page=${page}&subcategory=${subcategory}&marka=${marka}`
+debugger;
+    const url = `/api/kadin/data?page=${page}&subcategory=${selectedSubcategory}&marka=${selectedMarka}`
     const response = await fetch(url, { cache: 'default' })
 
     const { data } = await response.json()
