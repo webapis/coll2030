@@ -20,20 +20,20 @@ export default function ImageComponent(props) {
     var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
     useEffect(() => {
   
-      // if (window.IntersectionObserver) {
+      if (window.IntersectionObserver) {
   
-      //   let observer = new IntersectionObserver((entries, observer) => {
-      //     entries.forEach(entry => {
-      //       if (entry.isIntersecting) {
+        let observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
   
-      //         entry.target.src = entry.target.dataset.src;
-      //         observer.unobserve(entry.target);
-      //       }
-      //     });
-      //   }, { threshold: 0.1 });
-      //   window.obz = observer
-      //   window.obz.observe(imageEl.current)
-      // }
+              entry.target.src = entry.target.dataset.src;
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        window.obz = observer
+        window.obz.observe(imageEl.current)
+      }
   
     }, []);
   

@@ -49,22 +49,22 @@ useEffect(()=>{
   }, []);
 
   useEffect(() => {
-    if (state.length > 0) {
-      let items = document.querySelectorAll(".figure[data-intersection=true]");
+    // if (state.length > 0) {
+    //   let items = document.querySelectorAll(".figure[data-intersection=true]");
 
-      const onIntersect = (bool, entry) => {
-        entry.target.src = entry.target.dataset.src;
+    //   const onIntersect = (bool, entry) => {
+    //     entry.target.src = entry.target.dataset.src;
 
        
-      };
+    //   };
 
-      const intersectObserver = new IntersectionObserver({
-        items,
-        callback: onIntersect,
-        threehold: 0.5,
-        triggerOnce: false
-      });
-    }
+    //   const intersectObserver = new IntersectionObserver({
+    //     items,
+    //     callback: onIntersect,
+    //     threehold: 0.5,
+    //     triggerOnce: false
+    //   });
+    // }
 
 
   }, [state])
