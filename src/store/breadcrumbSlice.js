@@ -16,14 +16,18 @@ export const breadcrumbSlice = createSlice({
     markaTabSelected: false,
     categoryTabSelected: false,
     totalFetchedProducts: 0,
-    fetching:false
+    fetching:false,
+    products:[]
   },
   reducers: {
     setFetchState:(state,action)=>{
       state.fetching=action.payload
     },
     setFetchedProductsTotal: (state, action) => {
-      state.totalFetchedProducts = state.totalFetchedProducts + action.payload
+      state.totalFetchedProducts = state.totalFetchedProducts + action.payload.products.length
+      if(action.payload.products){
+        state.products=[...state.products,...action.payload.products]
+      }
     },
     selectTab: (state, action) => {
       debugger;
@@ -44,8 +48,10 @@ export const breadcrumbSlice = createSlice({
       debugger;
       state.selectedSubcategory = action.payload.selectedSubcategory
       state.totalFetchedProducts=0
+      state.products=[]
       debugger;
       state.selectedTab = 2
+   
       debugger;
     },
     selectMarka: (state, action) => {

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 
 import Grid from '@mui/material/Grid'
-import IntersectionObserver from "../intersectObserver";
+//import IntersectionObserver from "../intersectObserver";
 import ImageComponent from './imageComponent';
 import CircularProgress from '@mui/material/CircularProgress';
 import {actions} from '../store/breadcrumbSlice'
@@ -15,7 +15,8 @@ const getWidth = () => window.innerWidth
   || document.body.clientWidth;
 export default function ProductImageList(props) {
   const [state, setData] = useState([]);
-  const {selectedMarka,selectedSubcategory,totalFetchedProducts,subCatTotal,fetching} =useSelector(state=>state.breadcrumb)
+  const {selectedMarka,selectedSubcategory,totalFetchedProducts,subCatTotal,fetching,products} =useSelector(state=>state.breadcrumb)
+  
   const dispatch =useDispatch()
   debugger;
   let [width, setWidth] = useState(getWidth());
@@ -77,9 +78,9 @@ debugger;
 
     const { data } = await response.json()
 
-    dispatch(actions.setFetchedProductsTotal(data.length))
+    dispatch(actions.setFetchedProductsTotal({products:data}))
     dispatch(actions.setFetchState(false))
-    setData(prevState => [...prevState, ...data])
+   // setData(prevState => [...prevState, ...data])
 
 
   }
@@ -96,7 +97,7 @@ debugger;
 
     <Grid container justifyContent="center" spacing={0} paddingTop={5}
     >
-      {state.map((item, i) => {
+      {products.length>0 && products.map((item, i) => {
 
         return <Grid item key={i} xs={6} sm={4} md={3} lg={2}  sx={{ display: 'flex', justifyContent: 'center' }}>
 
@@ -106,7 +107,7 @@ debugger;
       })}
 
       <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
-        {state.length > 0 ?<div>{fetching?<CircularProgress />:<Button disabled={(totalFetchedProducts) >=subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>}</div>  : <CircularProgress />}
+        {products.length > 0 ?<div>{fetching?<CircularProgress />:<Button disabled={(totalFetchedProducts) >=subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>}</div>  : <CircularProgress />}
       </Grid>
     </Grid>
 
