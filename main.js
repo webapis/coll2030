@@ -194,8 +194,8 @@ Apify.main(async () => {
 
    await mergeNewData(items)
     debugger;
-    await generateMarkaNav()
-   await generateCategoryNav()
+  //  await generateMarkaNav()
+  //  await generateCategoryNav()
  
     debugger;
     console.log('MONGODB-----------END')

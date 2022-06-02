@@ -62,7 +62,6 @@ jobs:
         with:
           name: data
           path: api/_files/kadin/data.json
-      - name: publish 
-        run: vercel
+
 
 
