@@ -4,8 +4,13 @@ on:
     inputs:
       start_url:
         description: 'Start url'
+        required: true
+        type: string
+      order:
+        description: 'order'
         required: false
         type: string
+      
 env:
   CLOUD: true
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
@@ -43,6 +48,7 @@ jobs:
         run: 'npm install'
       - name: Install vercel cli
         run: 'npm i -g vercel'
+        if: ${{ inputs.order!=0 }}
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
