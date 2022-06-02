@@ -49,6 +49,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: data
-          path: api/files/kadin/data.json
+          path: api/_files/kadin/data.json
 
 
