@@ -131,7 +131,6 @@ function MarkaListItem(props) {
     const { render, categories } = props
     const { title, markaTotal } = props
     function toggle() {
- 
         setOpen(!open);
         dispatch(actions.selectMarka({selectedMarka:title}))
     }

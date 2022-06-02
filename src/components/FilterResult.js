@@ -69,7 +69,7 @@ function Subcategories() {
     dispatch(actions.selectSubcategory({ selectedSubcategory, subCatTotal }))
 
   }
-  return <Grid container
+  return <Grid container 
   >
 
     {
@@ -93,7 +93,7 @@ function Subcategories() {
         debugger;
         if (i === 0) {
           return [
-            <Grid item xs={12} key={i}>
+            <Grid item xs={12}  key={i}>
               {currentfirstChar}
             </Grid>,
             <Grid item xs={12} key={i}>
