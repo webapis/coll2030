@@ -48,8 +48,8 @@ jobs:
         run: 'npm install'
       - name: Install vercel cli
         run: 'npm i -g vercel'
-        if: ${{ inputs.order!=0 }}
       - name: Download a single artifact
+        if:  inputs.order ==true
         uses: actions/download-artifact@v3
         with:
           name: data
