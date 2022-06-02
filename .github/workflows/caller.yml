@@ -1,3 +1,6 @@
+name: caller
+on:
+   workflow_dispatch:
 jobs:
   callme:
     uses: ./.github/workflows/reusable.yml
