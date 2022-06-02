@@ -5,5 +5,5 @@ jobs:
   callme:
     uses: ./.github/workflows/reusable.yml
     with:
-      star_url:  https://www.machka.com.tr/search?q=%C5%9Eort%20Elbise%20Bluz%20G%C3%B6mlek%20Tunik%20Ceket%20Kap%20Etek%20Pantolon%20Triko%20Sweatshirt%20Penye%20Yelek%20Pard%C3%B6s%C3%BC%20Mont			
+      start_url:  https://www.machka.com.tr/search?q=%C5%9Eort%20Elbise%20Bluz%20G%C3%B6mlek%20Tunik%20Ceket%20Kap%20Etek%20Pantolon%20Triko%20Sweatshirt%20Penye%20Yelek%20Pard%C3%B6s%C3%BC%20Mont			
     secrets: inherit
