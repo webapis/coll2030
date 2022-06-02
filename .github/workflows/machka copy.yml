@@ -42,6 +42,10 @@ jobs:
         run: 'npm install'
       - name: Install vercel cli
         run: 'npm i -g vercel'
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: data
       - name: aggregation step
         id: collection
         run: node main.js
