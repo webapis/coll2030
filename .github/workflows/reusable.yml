@@ -1,0 +1,57 @@
+name: Reusable workflow example
+on:
+    workflow_call:
+    inputs:
+      start_url:
+        description: 'Start url'
+        required: false
+        type: string
+env:
+  CLOUD: true
+  GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
+  CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
+  CLIENT_ID: ${{secrets.CLIENT_ID}}
+  START_URL: ${{inputs.start_url}}																
+jobs:
+  aggregator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.7.0
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+         cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS...
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Install dependencies
+        run: 'npm install'
+      - name: Install vercel cli
+        run: 'npm i -g vercel'
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: aggregation step
+        id: collection
+        run: node main.js
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: data
+          path: api/_files/kadin/data.json
+
+
