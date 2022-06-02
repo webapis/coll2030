@@ -46,6 +46,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: data
+          path: api/_files/kadin/data.json
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: aggregation step
         id: collection
         run: node main.js
