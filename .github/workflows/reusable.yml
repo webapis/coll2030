@@ -43,8 +43,11 @@ jobs:
         run: 'npm install'
       - name: Install vercel cli
         run: 'npm i -g vercel'
-      - name: Display structure of downloaded files
-        run: ls -R
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: data
+          path: api/_files/kadin/data.json
       - name: aggregation step
         id: collection
         run: node main.js
