@@ -13,12 +13,14 @@ async function importData() {
     return new Promise(async (resolve, reject) => {
         const clnt = await client.connect()
         const collection = clnt.db("streamToMongoDB").collection("marka-nav");
-        const collectionData = clnt.db("streamToMongoDB").collection("data");
-        const count = await collectionData.countDocuments()
+        //  const collectionData = clnt.db("streamToMongoDB").collection("data");
+        //   const count = await collectionData.countDocuments()
         let exportCount = 0
-  
+        const data = fs.readFileSync("./api/_files/kadin/data.json", { encoding: 'utf-8' })
+        const dataObjArr = JSON.parse(data).length
+        
         const stream = fs.createReadStream("./api/_files/kadin/data.json")
-   
+
         stream.pipe(jsonArrayStreams.parse())
             .pipe(through.obj(async function (object, enc, cb) {
                 const { marka, category, subcategory
@@ -28,22 +30,23 @@ async function importData() {
                 await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.total`]: 1 } }, { upsert: true })
                 await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.${category}.total`]: 1 } }, { upsert: true })
                 await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
-               ++ exportCount
+                ++exportCount
 
-               console.log("exportCount and count-1",exportCount, count-1)
-                if (exportCount === (count-1)) {
+                console.log("exportCount and count-1", exportCount, dataObjArr.length)
+                if (exportCount === (dataObjArr)) {
                     debugger;
                     return resolve(true)
-                } else{
+                } else {
                     debugger;
                 }
 
                 cb();
             }))
-             stream.on('error', (error) => {
-                debugger;
-                return reject(error)
-            })
+        stream.on('error', (error) => {
+            debugger;
+            console.log('Error', error)
+            return reject(error)
+        })
     })
 
 }
