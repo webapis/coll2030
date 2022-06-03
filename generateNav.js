@@ -4,8 +4,10 @@
 
 (async () => {
     console.log('Generated nav')
-    // const { generateCategoryNav } = require('./utils/navByCategory')
-    // const { generateMarkaNav } = require('./utils/navByMarka')
-    // await generateMarkaNav()
-    // await generateCategoryNav()
+    const { dataAggregation } = require('./utils/dataAggregation')
+    const { generateCategoryNav } = require('./utils/navByCategory')
+    const { generateMarkaNav } = require('./utils/navByMarka')
+    await dataAggregation()
+    await generateMarkaNav()
+    await generateCategoryNav()
 })()
