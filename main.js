@@ -191,7 +191,9 @@ Apify.main(async () => {
 
     //MONGODB--------
     console.log('MONGODB-----------START')
-    fs.appendFileSync(`./data/${marka}.json`, JSON.stringify(items))
+    const filexists =fs.existsSync(`data/${marka}.json`)
+    console.log('filexists',filexists)
+    fs.appendFileSync(`data/${marka}.json`, JSON.stringify(items))
   // await mergeNewData(items)
     debugger;
   //  await generateMarkaNav()
