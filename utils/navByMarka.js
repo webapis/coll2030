@@ -68,11 +68,18 @@ async function extractNavTree() {
 }
 
 async function generateMarkaNav() {
-    console.log('MARKA NAV GEN STARTED....')
-    debugger;
-    await importData()
-    debugger;
-    await extractNavTree()
-    console.log('MARKA NAV GEN COMPLETE....')
+ 
+
+    try {
+        console.log('MARKA NAV GEN STARTED....')
+        debugger;
+        await importData()
+        debugger;
+        await extractNavTree()
+        console.log('MARKA NAV GEN COMPLETE....') 
+        return 
+    } catch (error) {
+        console.log('generateMarkaNav error',error)
+    }
 }
 module.exports = { generateMarkaNav }

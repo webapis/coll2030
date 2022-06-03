@@ -29,6 +29,7 @@ async function importData() {
                 await collection.updateOne({}, { $inc: { [`nav.tree.${category}.total`]: 1 } }, { upsert: true })
                 await collection.updateOne({}, { $inc: { [`nav.tree.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
                 ++ exportCount
+                console.log("exportCount and count-1", exportCount, dataObjArr)
                 if (exportCount === (dataObjArr)) {
                   
                     return resolve(true)
@@ -59,9 +60,15 @@ async function extractNavTree() {
 }
 
 async function generateCategoryNav() {
-    console.log('CATEGORY NAV GEN STARTED....')
-    await importData()
-    await extractNavTree()
-    console.log('CATEGORY NAV GEN COMPLETE....')
+    try {
+        console.log('CATEGORY NAV GEN STARTED....')
+        await importData()
+        await extractNavTree()
+        console.log('CATEGORY NAV GEN COMPLETE....')
+        return 
+    } catch (error) {
+        console.log(' generateCategoryNav error',error)
+    }
+
 }
 module.exports = { generateCategoryNav }
