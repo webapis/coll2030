@@ -2,7 +2,7 @@
 console.log('main.js is loading...')
 require('dotenv').config()
 
-const { mergeNewData } = require('./utils/mergeNewData')
+const { mergeNewData } = require('./utils/dataAggregation')
 const {generateCategoryNav}=require('./utils/navByCategory')
 const {generateMarkaNav}=require('./utils/navByMarka')
 const { getGoogleToken } = require('./google/google.oauth')
@@ -191,8 +191,8 @@ Apify.main(async () => {
 
     //MONGODB--------
     console.log('MONGODB-----------START')
-
-   await mergeNewData(items)
+    fs.appendFileSync(`./data/${marka}.json`, JSON.stringify(items))
+  // await mergeNewData(items)
     debugger;
   //  await generateMarkaNav()
   //  await generateCategoryNav()

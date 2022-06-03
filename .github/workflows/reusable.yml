@@ -10,7 +10,10 @@ on:
         description: 'order'
         required: false
         type: string
-      
+      marka:
+        description: 'marka'
+        required: true
+        type: string
 env:
   CLOUD: true
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
@@ -46,14 +49,6 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: 'npm install'
-      - name: Install vercel cli
-        run: 'npm i -g vercel'
-      - name: Download a single artifact
-        if:  inputs.order ==true
-        uses: actions/download-artifact@v3
-        with:
-          name: data
-          path: api/_files/kadin/data.json
       - name: aggregation step
         id: collection
         run: node main.js
@@ -61,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: data
-          path: api/_files/kadin/data.json
+          path: data/${{ inputs.marka }}.json
 
 
 

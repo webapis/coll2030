@@ -52,7 +52,7 @@ async function importOldData() {
 
 
 
-async function importNewData(newCollectedData) {
+async function importData(newCollectedData) {
 
   let marka = ''
   const collection = await mongoClient()
@@ -133,12 +133,12 @@ async function mergeNewData(newCollectedData) {
 
 
 
-  await importNewData(newCollectedData)
+  //await importNewData(newCollectedData)
 
   await exportData()
 }
 
-module.exports = { mergeNewData }
+module.exports = { importData,exportData }
 
 
 const orderAggr = [
