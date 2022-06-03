@@ -18,7 +18,7 @@ async function importData() {
         let exportCount = 0
         const data = fs.readFileSync("./api/_files/kadin/data.json", { encoding: 'utf-8' })
         const dataObjArr = JSON.parse(data).length
-        
+        console.log('dataObjArr',dataObjArr)
         const stream = fs.createReadStream("./api/_files/kadin/data.json")
 
         stream.pipe(jsonArrayStreams.parse())
