@@ -59,7 +59,9 @@ async function importData() {
     const files = fs.readdirSync('data')
     const collection = await mongoClient()
     for (let file of files) {
+      console.log('file....',file)
       const data = fs.readFileSync(`data/${file}`, { encoding: 'utf8' })
+      console.log('file....data....',file,data.length)
       const dataObjectArr = JSON.parse(data)
       console.log('dataObjectArr.length', dataObjectArr.length)
       await collection.insertMany(dataObjectArr)
