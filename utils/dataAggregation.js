@@ -54,7 +54,7 @@ async function importOldData() {
 
 async function importData() {
   const files = fs.readdirSync('data')
-
+  const collection = await mongoClient()
   for (let file of files) {
     const data = fs.readFileSync(`data/${file}`, { encoding: 'utf8' })
     const dataObjectArr = JSON.parse(data)
