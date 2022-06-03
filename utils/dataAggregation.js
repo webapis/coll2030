@@ -52,20 +52,16 @@ async function importOldData() {
 
 
 
-async function importData(newCollectedData) {
+async function importData() {
+  const files = fs.readdirSync('data')
 
-  let marka = ''
-  const collection = await mongoClient()
-  for (let obj in newCollectedData) {
+  for (let file of files) {
+    const data = fs.readFileSync(`data/${file}`, { encoding: 'utf8' })
+    const dataObjectArr = JSON.parse(data)
+    console.log('dataObjectArr.length', dataObjectArr.length)
+    await collection.insertMany(dataObjectArr)
 
-    const object = newCollectedData[obj]
-    const { imageUrl } = object
-    marka = object.marka
-    await collection.updateOne({ _id: imageUrl }, { $set: { ...object, updated: true } }, { upsert: true })
   }
-
-  const deletedNotUpdate = await collection.deleteMany({ "updated": false, marka })
-  console.log('deletedNotUpdate...', deletedNotUpdate)
 
 }
 
@@ -125,20 +121,13 @@ async function exportData() {
 
 }
 
-async function mergeNewData(newCollectedData) {
 
-  if (fs.existsSync('./api/_files/kadin/data.json')) {
-    await importOldData()
-  }
-
-
-
-  //await importNewData(newCollectedData)
-
+async function dataAggregation() {
+  await importData()
   await exportData()
 }
 
-module.exports = { importData,exportData }
+module.exports = { dataAggregation }
 
 
 const orderAggr = [
