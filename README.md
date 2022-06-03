@@ -77,3 +77,6 @@ npm config set proxy http://proxy_host:port
 
 
 
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 3 * * *'
