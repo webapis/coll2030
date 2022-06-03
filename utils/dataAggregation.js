@@ -82,11 +82,11 @@ async function exportData() {
 
   const cursor = await collection.aggregate(orderAggr, { allowDiskUse: true })
   const cursor2 = await collection.aggregate(orderAggr, { allowDiskUse: true })
-  if (fs.existsSync('./api/_files/kadin/data.json')) {
-    fs.unlinkSync('./api/_files/kadin/data.json')
+  // if (fs.existsSync('./api/_files/kadin/data.json')) {
+  //   fs.unlinkSync('./api/_files/kadin/data.json')
 
-  }
-  fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify([]))
+  // }
+  //fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify([]))
   const writeStream = fs.createWriteStream('./api/_files/kadin/data.json')
   writeStream.write('[')
   const countdata = await cursor2.toArray()
