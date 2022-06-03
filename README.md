@@ -77,10 +77,3 @@ npm config set proxy http://proxy_host:port
 
 
 
-  machka_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      start_url:  https://www.machka.com.tr/search?q=%C5%9Eort%20Elbise%20Bluz%20G%C3%B6mlek%20Tunik%20Ceket%20Kap%20Etek%20Pantolon%20Triko%20Sweatshirt%20Penye%20Yelek%20Pard%C3%B6s%C3%BC%20Mont			
-      order: true
-      marka: machka
-    secrets: inherit
