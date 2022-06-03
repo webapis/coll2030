@@ -12,13 +12,34 @@ jobs:
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      start_url:  https://www.defacto.com.tr/kadin-elbise		
+      start_url:  https://www.defacto.com.tr/kadin-tumu		
       order: false
       marka: defacto
     secrets: inherit
+   koton_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      start_url:  https://www.koton.com/tr/kadin/c/M01-C02?text=kadin
+      order: false
+      marka: koton
+    secrets: inherit
+   boyner_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      start_url:  https://www.boyner.com.tr/search?q=kadin
+      order: false
+      marka: boyner
+    secrets: inherit
+   lcwaikiki_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      start_url:  https://www.lcwaikiki.com/tr-TR/TR/arama?q=kadin
+      order: false
+      marka: lcwaikiki
+    secrets: inherit
   generate_nav_job:
     runs-on: ubuntu-latest
-    needs: [defacto_job,machka_job]
+    needs: [defacto_job,machka_job,koton_job,boyner_job,lcwaikiki_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2

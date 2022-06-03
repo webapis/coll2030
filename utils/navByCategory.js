@@ -29,7 +29,7 @@ async function importData() {
                 await collection.updateOne({}, { $inc: { [`nav.tree.${category}.total`]: 1 } }, { upsert: true })
                 await collection.updateOne({}, { $inc: { [`nav.tree.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
                 ++ exportCount
-                console.log("exportCount and count-1", exportCount, dataObjArr)
+            //    console.log("exportCount and count-1", exportCount, dataObjArr)
                 if (exportCount === (dataObjArr)) {
                   
                     return resolve(true)
