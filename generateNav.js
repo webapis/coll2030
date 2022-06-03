@@ -10,4 +10,5 @@
     await dataAggregation()
     await generateMarkaNav()
     await generateCategoryNav()
+    process.exit(0)
 })()
