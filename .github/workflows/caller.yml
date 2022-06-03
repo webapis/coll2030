@@ -16,21 +16,21 @@ jobs:
       order: false
       marka: defacto
     secrets: inherit
-   koton_job:
+  koton_job:
     uses: ./.github/workflows/reusable.yml
     with:
       start_url:  https://www.koton.com/tr/kadin/c/M01-C02?text=kadin
       order: false
       marka: koton
     secrets: inherit
-   boyner_job:
+  boyner_job:
     uses: ./.github/workflows/reusable.yml
     with:
       start_url:  https://www.boyner.com.tr/search?q=kadin
       order: false
       marka: boyner
     secrets: inherit
-   lcwaikiki_job:
+  lcwaikiki_job:
     uses: ./.github/workflows/reusable.yml
     with:
       start_url:  https://www.lcwaikiki.com/tr-TR/TR/arama?q=kadin
