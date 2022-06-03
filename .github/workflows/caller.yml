@@ -55,10 +55,5 @@ jobs:
       - name: generate nav step
         id: gen_nav
         run: node generateNav.js
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: data
-          path: api/_files/kadin/data.json
       - name: publish 
         run: vercel --token ${{secrets.VERCEL_TOKEN}}
