@@ -14,8 +14,12 @@ async function importData() {
         const clnt = await client.connect()
         const collection = clnt.db("streamToMongoDB").collection("category-nav");
         const stream = fs.createReadStream("./api/_files/kadin/data.json")
-        const collectionData = clnt.db("streamToMongoDB").collection("data");
-        const count = await collectionData.countDocuments()
+        //const collectionData = clnt.db("streamToMongoDB").collection("data");
+       // const count = await collectionData.countDocuments()
+        const data = fs.readFileSync("./api/_files/kadin/data.json", { encoding: 'utf-8' })
+        const dataObjArr = JSON.parse(data).length
+        console.log('dataObjArr',dataObjArr)
+      
         let exportCount = 0
         stream.pipe(jsonArrayStreams.parse())
             .pipe(through.obj(async function (object, enc, cb) {
@@ -25,7 +29,7 @@ async function importData() {
                 await collection.updateOne({}, { $inc: { [`nav.tree.${category}.total`]: 1 } }, { upsert: true })
                 await collection.updateOne({}, { $inc: { [`nav.tree.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
                 ++ exportCount
-                if (exportCount === (count-1)) {
+                if (exportCount === (dataObjArr)) {
                   
                     return resolve(true)
                 }
