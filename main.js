@@ -79,7 +79,7 @@ Apify.main(async () => {
 
         await productsDataset.pushData(map1)
 
-        console.log('uploading to excell....')
+    
 
         const table = map1.reduce((group, product) => {
             const values = Object.values(product)
@@ -87,13 +87,13 @@ Apify.main(async () => {
             return group;
         }, []);
 
-        console.log('uploading to excell complete....')
+        console.log('uploading to excell complete....',process.env.dataLength)
 
        await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
 
         process.env.dataLength = parseInt(process.env.dataLength) + map1.length
         
-        console.log('process.env.dataLength',process.env.dataLength)
+     
     }
 
     const crawler = new Apify.PuppeteerCrawler({
