@@ -24,7 +24,7 @@ Apify.main(async () => {
 
 
     const { utils: { log } } = Apify;
-    const requestQueue = await Apify.openRequestQueue();
+    const requestQueue = await Apify.openRequestQueue();                                        
     //const urlsData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'URLS!A:B' })
 
 
@@ -107,7 +107,7 @@ Apify.main(async () => {
 
 
 
-        const response = await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
+      ////  const response = await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
 
 
         if (gender === 'FEMALE') {
