@@ -1,7 +1,11 @@
 require('dotenv').config()
 
-const { refreshToken } = require('./google-refresh')
+const { google } = require('googleapis')
+
 async function getGoogleToken() {
+
+   const scopes = ['https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/drive.appdata', 'https://www.googleapis.com/auth/drive.file', 'https://www.googleapis.com/auth/drive.metadata']
+
 
   if (process.env.access_token) {
     
@@ -12,42 +16,34 @@ async function getGoogleToken() {
     if (process.env.expires_in && issuetime > currenttimestamp) {
       
       console.log('old access token.......')
-      return process.env.access_token
-    } else {
-      const authresponse = await refreshToken(process.env.GOOGLE_REFRESH_TOKEN)
-      debugger;
-      let authData = JSON.parse(authresponse)
       
-      const {
-        access_token,
-        expires_in } = authData
-      process.env.expires_in = expires_in
+      return process.env.access_token
+
+    } else {
+      const auth = new google.auth.GoogleAuth({ keyFile: './encdata/turkmenistan-market-f1b9872438ea.json', scopes })
+   
+
+    const access_token = await auth.getAccessToken()   
+  
+      process.env.expires_in = 15000
       process.env.access_token = access_token
       process.env.lasttimestamp = Date.now()
-      console.log('refreshed access token.......')
+      console.log('refreshed access token......0.')
       return access_token
     }
   } else {
 
-    const authresponse = await refreshToken(process.env.GOOGLE_REFRESH_TOKEN)
+    const auth = new google.auth.GoogleAuth({ keyFile: './encdata/turkmenistan-market-f1b9872438ea.json', scopes })
     
-    let authData = JSON.parse(authresponse)
-
-    const {
-      access_token,
-      expires_in } = authData
-    process.env.expires_in = expires_in
-    process.env.access_token = access_token
-    process.env.lasttimestamp = Date.now()
-    console.log('first time refreshed access token.......')
-    
-    return access_token
+ 
+     const access_token = await auth.getAccessToken()   
+   
+       process.env.expires_in = 15000
+       process.env.access_token = access_token
+       process.env.lasttimestamp = Date.now()
+       console.log('refreshed access token......1.')
+       return access_token
   }
-
-
-
-
-
 
 }
 

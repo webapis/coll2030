@@ -29,3 +29,5 @@ yarn-error.log*
 .vercel
 .env
 apify_storage
+
+turkmenistan-market-f1b9872438ea.json
