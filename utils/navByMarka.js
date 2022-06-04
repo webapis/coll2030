@@ -13,8 +13,7 @@ async function importData() {
     return new Promise(async (resolve, reject) => {
         const clnt = await client.connect()
         const collection = clnt.db("streamToMongoDB").collection("marka-nav");
-        //  const collectionData = clnt.db("streamToMongoDB").collection("data");
-        //   const count = await collectionData.countDocuments()
+        await collection.deleteMany({})
         let exportCount = 0
         const data = fs.readFileSync("./api/_files/kadin/data.json", { encoding: 'utf-8' })
         const dataObjArr = JSON.parse(data).length

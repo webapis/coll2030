@@ -13,6 +13,7 @@ async function importData() {
     return new Promise(async(resolve, reject) => {
         const clnt = await client.connect()
         const collection = clnt.db("streamToMongoDB").collection("category-nav");
+        await collection.deleteMany({})
         const stream = fs.createReadStream("./api/_files/kadin/data.json")
         //const collectionData = clnt.db("streamToMongoDB").collection("data");
        // const count = await collectionData.countDocuments()

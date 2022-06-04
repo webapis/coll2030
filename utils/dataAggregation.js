@@ -58,6 +58,7 @@ async function importData() {
     console.log('IMPORTING DATA STARTED....')
     const files = fs.readdirSync('data')
     const collection = await mongoClient()
+    await collection.deleteMany({})
     for (let file of files) {
       console.log('file....',file)
       const data = fs.readFileSync(`data/${file}`, { encoding: 'utf8' })

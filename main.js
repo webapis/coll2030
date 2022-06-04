@@ -3,6 +3,7 @@ require('dotenv').config()
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
 const { getSheetValues, appendSheetValues } = require('./google.sheet.js')
+const makeDir = require('make-dir');
 const Apify = require('apify');
 
 
@@ -152,7 +153,7 @@ Apify.main(async () => {
     log.info('Starting the crawl.');
     await crawler.run();
     const { items } = await productsDataset.getData()
-
+    await makeDir('data');
     fs.appendFileSync(`data/${marka}.json`, JSON.stringify(items))
 
     console.log('Crawl finished.');
