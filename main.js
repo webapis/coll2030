@@ -63,7 +63,7 @@ Apify.main(async () => {
             const procutTitle = p.title
 
             const productCategory = categoryItems.find(c => {
-                const regexvar = "/\b" + c.subcategory + "\b/"
+                const regexvar = "/\\b" + c.subcategory + "\\b/"
                 const reg = new RegExp(regexvar, "i")
                 const result = reg.test(procutTitle.toLowerCase())
 
