@@ -13,7 +13,7 @@ Apify.main(async () => {
 
 
     const { utils: { log } } = Apify;
-    const requestQueue = await Apify.openRequestQueue();                                        
+    const requestQueue = await Apify.openRequestQueue();
 
     const marka = process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
     await requestQueue.addRequest({ url: process.env.START_URL, userData: { start: true, gender: 'kadin', marka } })
@@ -23,7 +23,7 @@ Apify.main(async () => {
     const productsDataset = await Apify.openDataset(`products`);
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categoriestest!A:C' })
 
- 
+
 
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const subcategory = value[0]
@@ -63,16 +63,16 @@ Apify.main(async () => {
             const productTitle = p.title
 
             const productCategory = categoryItems.find(c => {
-                    const regex =new RegExp(c.regex,'i')
-                 
-                 
-           
-                const result =regex.test(productTitle.toLowerCase())
-                if(result===false){
-console.log('productTitle',productTitle)
+                const regex = new RegExp(c.regex, 'i')
+
+
+
+                const result = regex.test(productTitle.toLowerCase())
+                if (result === false) {
+                    console.log('productTitle', productTitle)
                     debugger;
                 }
-        
+
                 return result
             })
 
@@ -82,11 +82,11 @@ console.log('productTitle',productTitle)
                 return { ...p, category: "undefined", subcategory: "undefined" }
             }
         })
-    
+
 
         await productsDataset.pushData(map1)
 
-    
+
 
         const table = map1.reduce((group, product) => {
             const values = Object.values(product)
@@ -94,13 +94,13 @@ console.log('productTitle',productTitle)
             return group;
         }, []);
 
-        console.log('uploading to excell complete....',process.env.dataLength)
+        console.log('uploading to excell complete....', process.env.dataLength)
 
-       await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
+        await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
 
         process.env.dataLength = parseInt(process.env.dataLength) + map1.length
-        
-     
+
+
     }
 
     const crawler = new Apify.PuppeteerCrawler({
@@ -150,9 +150,9 @@ console.log('productTitle',productTitle)
         ],
         handleFailedRequestFunction: async ({ request: { errorMessages, url, userData: { gender, start } } }) => {
             const google_access_token1 = await getGoogleToken()
-      await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'ERROR!A:B', values: [[url, errorMessages[0].substring(0, 150), gender, start]] })
-            
-  
+            await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'ERROR!A:B', values: [[url, errorMessages[0].substring(0, 150), gender, start]] })
+
+
         },
     });
 
