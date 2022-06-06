@@ -63,11 +63,14 @@ Apify.main(async () => {
             const procutTitle = p.title
 
             const productCategory = categoryItems.find(c => {
-                    const regex =new RegExp(c.regex,'i')
-                    
-             debugger;
+                    const regex =new RegExp(c.regex,'im')
+                    if(!regex){
+
+                        debugger;
+                    }
+           
                 const result =regex.test(procutTitle.toLowerCase())
-                debugger;
+             
                 return result
             })
 
