@@ -60,16 +60,16 @@ Apify.main(async () => {
 
         const categoryItems = categoryData.items
         const map1 = dataCollected.map((p, i) => {
-            const procutTitle = p.title
+            const productTitle = p.title
 
             const productCategory = categoryItems.find(c => {
                     const regex =new RegExp(c.regex,'im')
-                    if(!regex){
+                    if(regex===false){
 
                         debugger;
                     }
            
-                const result =regex.test(procutTitle.toLowerCase())
+                const result =regex.test(productTitle.toLowerCase())
              
                 return result
             })
