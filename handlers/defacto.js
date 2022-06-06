@@ -10,7 +10,7 @@ async function handler(page) {
         return productCards.map(productCard => {
 
             const imageUrl = productCard.querySelector('.catalog-products .product-card .product-card__image .image-box .product-card__image--item.swiper-slide img').getAttribute('data-srcset')
-            const title = productCard.querySelector('.product-card__title a').getAttribute('title')
+            const title = productCard.querySelector('.product-card__title a').getAttribute('title').trim()
             const priceOld = productCard.querySelector('.product-card__price--old') && productCard.querySelector('.product-card__price--old').textContent.trim().replace('₺', '').replace('TL', '')
             const priceNew = productCard.querySelector('.product-card__price--new') && productCard.querySelector('.product-card__price--new').textContent.trim().replace('₺', '').replace('TL', '')
             const priceBasket = productCard.querySelector('.product-card__price--basket>.sale') && productCard.querySelector('.product-card__price--basket>.sale').textContent.trim().replace('₺', '').replace('TL', '')

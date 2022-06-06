@@ -63,7 +63,9 @@ function TabPanel(props) {
 function Subcategories() {
   const dispatch = useDispatch()
   const subcategories = useSelector(state => state.breadcrumb.subcategories)
-  const object = subcategories && Object.entries(subcategories)[1] && Object.entries(subcategories)[1][1]
+  debugger;
+  const object = subcategories && Object.entries(subcategories) && Object.entries(subcategories)
+  debugger;
   function handleSubCategoryClick(selectedSubcategory, subCatTotal) {
 
     dispatch(actions.selectSubcategory({ selectedSubcategory, subCatTotal }))
@@ -73,7 +75,7 @@ function Subcategories() {
   >
 
     {
-      object && Object.entries(object).sort(function (a, b) {
+      object && object.sort(function (a, b) {
 
       }).map((m, i) => {
         return {

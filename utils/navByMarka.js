@@ -25,10 +25,10 @@ async function importData() {
                 const { marka, category, subcategory
                 } = object
 
-                await collection.updateOne({}, { $inc: { [`nav.total`]: 1 } }, { upsert: true })
-                await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.total`]: 1 } }, { upsert: true })
-                await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.${category}.total`]: 1 } }, { upsert: true })
-                await collection.updateOne({}, { $inc: { [`nav.tree.${marka}.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
+                await collection.updateOne({}, { $inc: { [`nav.totalByMarka`]: 1 } }, { upsert: true })
+                await collection.updateOne({}, { $inc: { [`nav.markas.${marka}.totalByCatory`]: 1 } }, { upsert: true })
+                await collection.updateOne({}, { $inc: { [`nav.markas.${marka}.categories.${category}.totalBySubcategory`]: 1 } }, { upsert: true })
+                await collection.updateOne({}, { $inc: { [`nav.markas.${marka}.categories.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
                 ++exportCount
 
               //  console.log("exportCount and count-1", exportCount, dataObjArr)

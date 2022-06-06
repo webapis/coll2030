@@ -11,7 +11,7 @@ require('dotenv').config()
            const filter ={subcategory, marka}
            for(let f in filter){
             const current =filter[f]
-            if(current==='null' || current==="undefined"){
+            if(current==='null'){
                 debugger;
                 delete filter[f]
             }

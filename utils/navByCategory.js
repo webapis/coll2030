@@ -26,9 +26,25 @@ async function importData() {
             .pipe(through.obj(async function (object, enc, cb) {
                 const { category, subcategory
                 } = object
-                await collection.updateOne({}, { $inc: { [`nav.total`]: 1 } }, { upsert: true })
-                await collection.updateOne({}, { $inc: { [`nav.tree.${category}.total`]: 1 } }, { upsert: true })
-                await collection.updateOne({}, { $inc: { [`nav.tree.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
+           
+                if(category===undefined){
+                    console.log('category..',category)   
+                }
+
+                if(category==="undefined"){
+                    console.log('category.. string',category)   
+                }
+
+                if(subcategory===undefined){
+                    console.log('subcategory..',subcategory)   
+                }
+
+                if(subcategory==="undefined"){
+                    console.log('subcategory.. string',subcategory)   
+                }
+                await collection.updateOne({}, { $inc: { [`nav.totalByCategory`]: 1 } }, { upsert: true })
+                await collection.updateOne({}, { $inc: { [`nav.categories.${category}.totalBySubcategory`]: 1 } }, { upsert: true })
+                await collection.updateOne({}, { $inc: { [`nav.categories.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
                 ++ exportCount
             //    console.log("exportCount and count-1", exportCount, dataObjArr)
                 if (exportCount === (dataObjArr)) {
