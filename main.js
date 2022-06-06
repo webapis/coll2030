@@ -72,7 +72,7 @@ Apify.main(async () => {
             })
 
             if (productCategory) {
-                return { ...p, category: productCategory.category, subcategory: productCategory.regex }
+                return { ...p, category: productCategory.category, subcategory: productCategory.subcategory }
             } else {
                 return { ...p, category: "undefined", subcategory: "undefined" }
             }
