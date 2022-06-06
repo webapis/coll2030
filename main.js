@@ -21,7 +21,7 @@ Apify.main(async () => {
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);
     const productsDataset = await Apify.openDataset(`products`);
-    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categories!A:C' })
+    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categoriestest!A:C' })
 
  
 
@@ -63,10 +63,11 @@ Apify.main(async () => {
             const procutTitle = p.title
 
             const productCategory = categoryItems.find(c => {
-                const regexvar = "/\\b" + c.subcategory + "\\b/"
-                const reg = new RegExp(regexvar, "i")
-                const result = reg.test(procutTitle.toLowerCase())
-
+                    const regex =new RegExp(c.regex,'i')
+                    
+             debugger;
+                const result =regex.test(procutTitle.toLowerCase())
+                debugger;
                 return result
             })
 
