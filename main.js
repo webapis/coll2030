@@ -63,14 +63,16 @@ Apify.main(async () => {
             const productTitle = p.title
 
             const productCategory = categoryItems.find(c => {
-                    const regex =new RegExp(c.regex,'im')
-                    if(regex===false){
-
-                        debugger;
-                    }
+                    const regex =new RegExp(c.regex,'i')
+                 
+                 
            
                 const result =regex.test(productTitle.toLowerCase())
-             
+                if(result===false){
+console.log('productTitle',productTitle)
+                    debugger;
+                }
+        
                 return result
             })
 
