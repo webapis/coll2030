@@ -48,7 +48,7 @@ jobs:
       - name: Download a single artifact 2
         uses: actions/download-artifact@v3
         with:
-          name: data nav
+          name: data-nav
           path: data-nav
       - name: generate nav step
         id: gen_nav
