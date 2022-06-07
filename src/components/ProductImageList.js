@@ -13,8 +13,8 @@ import Button from '@mui/material/Button';
 
 export default function ProductImageList(props) {
 
-  const { selectedMarka, selectedSubcategory, totalFetchedProducts, subCatTotal, fetching, products } = useSelector(state => state.breadcrumb)
-
+  const { selectedMarka, selectedSubcategory, totalFetchedProducts, subCatTotal, fetching, products,selectedRegex } = useSelector(state => state.breadcrumb)
+debugger;
   const dispatch = useDispatch()
   
 
@@ -49,7 +49,7 @@ export default function ProductImageList(props) {
   async function fetchData(page) {
 
     
-    const url = `/api/kadin/data?page=${page}&subcategory=${selectedSubcategory}&marka=${selectedMarka}`
+    const url = `/api/kadin/data?page=${page}&subcategory=${selectedRegex}&marka=${selectedMarka}`
     const response = await fetch(url, { cache: 'default' })
 
     const { data } = await response.json()

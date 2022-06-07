@@ -17,7 +17,8 @@ export const breadcrumbSlice = createSlice({
     categoryTabSelected: false,
     totalFetchedProducts: 0,
     fetching:false,
-    products:[]
+    products:[],
+    selectedRegex:''
   },
   reducers: {
     setFetchState:(state,action)=>{
@@ -36,6 +37,7 @@ export const breadcrumbSlice = createSlice({
       
       state.selectedCategory = action.payload.selectedCategory
       state.selectedSubcategory = null
+      state.selectedRegex=''
       state.subcategories = action.payload.subcategories
       state.drawerOpen = false
       state.selectedTab = 0
@@ -47,6 +49,8 @@ export const breadcrumbSlice = createSlice({
       state.subCatTotal = action.payload.subCatTotal
       
       state.selectedSubcategory = action.payload.selectedSubcategory
+      state.selectedRegex=action.payload.regex
+      debugger;
       state.totalFetchedProducts=0
       state.products=[]
       
@@ -69,6 +73,7 @@ export const breadcrumbSlice = createSlice({
 
     selectBreadCrumbCategory: (state, action) => {
       state.selectedSubcategory = null
+      state.selectedRegex=''
       state.selectedTab = 0
 
     },
@@ -91,6 +96,7 @@ export const breadcrumbSlice = createSlice({
         state.selectedTabLabel = 'Markalar'
         state.selectedCategory = null;
         state.selectedSubcategory = null;
+        state.selectedRegex=''
       }
     },
     selectCategoryTab: (state, action) => {
@@ -101,6 +107,7 @@ export const breadcrumbSlice = createSlice({
         state.selectedMarka = null;
         state.selectedCategory = null;
         state.selectedSubcategory = null;
+        state.selectedRegex=''
       } else {
 
       }

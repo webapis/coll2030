@@ -21,6 +21,7 @@ Apify.main(async () => {
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);
     const productsDataset = await Apify.openDataset(`products`);
+    const productsNavDataset = await Apify.openDataset(`productsnav`);
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categoriestest!A:C' })
 
 
@@ -59,36 +60,65 @@ Apify.main(async () => {
         const google_access_token1 = await getGoogleToken()
 
         const categoryItems = categoryData.items
-        const map1 = dataCollected.map((p, i) => {
+        //-----------------------------------------------------------------------------------------------------
+        const map1 = dataCollected.map(async (p, i) => {
             const productTitle = p.title
 
-            const productCategory = categoryItems.find(c => {
+            const productSubCategories = categoryItems.filter(c => {
                 const regex = new RegExp(c.regex, 'i')
-
-
-
                 const result = regex.test(productTitle.toLowerCase())
-                if (result === false) {
-                    console.log('productTitle', productTitle)
-                    debugger;
-                }
-
                 return result
             })
-
-            if (productCategory) {
-                return { ...p, category: productCategory.category, subcategory: productCategory.subcategory }
+            const mapMarka = productSubCategories.map(m => {
+                return { ...m, marka }
+            })
+            if (productSubCategories.length > 0) {
+                await productsNavDataset.pushData(...mapMarka)
             } else {
-                return { ...p, category: "undefined", subcategory: "undefined" }
+                const findcategory = categoryItems.find(c => {
+                    const regex = new RegExp(c.category, 'i')
+                    const result = regex.test(productTitle.toLowerCase())
+                
+                    return result
+                })
+                if (findcategory) {
+                 
+                    await productsNavDataset.pushData({ marka, category: findcategory.category, subcategory: 'diğer', regex: '' })
+                } else {
+               
+                    await productsNavDataset.pushData({ marka, category: 'undefined', subcategory: 'undefined', regex: 'undefined' })
+                }
+
+            }
+         
+        })
+        const map2 = dataCollected.map( (p, i) => {
+            const productTitle = p.title
+
+       
+            const productCategory = categoryItems.find(c => {
+                const regex = new RegExp(c.category, 'i')
+                const result = regex.test(productTitle.toLowerCase())
+                return result
+            })
+            if (productCategory) {
+
+                return { ...p, category: productCategory.category }
+
+            } else {
+
+                return { ...p, category: "undefined" }
             }
         })
+        debugger;
+
+        //---------------------------------------------------------------------------------------------------
+
+        await productsDataset.pushData(map2)
 
 
-        await productsDataset.pushData(map1)
 
-
-
-        const table = map1.reduce((group, product) => {
+        const table = map2.reduce((group, product) => {
             const values = Object.values(product)
             group.push(values);
             return group;
@@ -98,7 +128,7 @@ Apify.main(async () => {
 
         await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
 
-        process.env.dataLength = parseInt(process.env.dataLength) + map1.length
+        process.env.dataLength = parseInt(process.env.dataLength) + map2.length
 
 
     }
@@ -158,9 +188,18 @@ Apify.main(async () => {
 
     log.info('Starting the crawl.');
     await crawler.run();
-    const { items } = await productsDataset.getData()
+    const { items: productItems } = await productsDataset.getData();
+    const { items: productNavItems } = await productsNavDataset.getData();
     await makeDir('data');
-    fs.appendFileSync(`data/${marka}.json`, JSON.stringify(items))
+    await makeDir('data-nav')
+    if (fs.existsSync(`data/${marka}.json`)) {
+        fs.unlinkSync(`data/${marka}.json`)
+    }
+    if (fs.existsSync(`data-nav/${marka}.json`)) {
+        fs.unlinkSync(`data-nav/${marka}.json`)
+    }
+    fs.appendFileSync(`data/${marka}.json`, JSON.stringify(productItems));
+    fs.appendFileSync(`data-nav/${marka}.json`, JSON.stringify(productNavItems));
 
     console.log('Crawl finished.');
 

@@ -16,11 +16,12 @@ import { actions } from '../store/breadcrumbSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem } from "@mui/material";
 
-
+debugger;
 const {markas,totalByMarka} = MarkaNav[0]['nav']
 
+debugger;
 const { categories, totalByCategory } = catNav[0]['nav']
-
+debugger;
 export default function DrawerComp() {
     const drawerOpen = useSelector(state => state.breadcrumb.drawerOpen)
     const dispatch = useDispatch()
@@ -162,7 +163,7 @@ function MarkaListItem(props) {
 
 function CategoryList({ categories, open }) {
 
-
+debugger;
     const dispatch = useDispatch()
     const selectedCategory = useSelector(state => state.breadcrumb.selectedCategory)
     function handleCategoryClick(category, subcategories) {
@@ -171,9 +172,11 @@ function CategoryList({ categories, open }) {
     return (<Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
             {Object.entries(categories).map((m, i) => {
+                debugger;
                 const category = m[0]
                 const totalByCategory = m[1]['totalBySubcategory']
                 const subcategories = m[1]['subcategories']
+                debugger;
                 return {
                     category,
                     totalByCategory,
