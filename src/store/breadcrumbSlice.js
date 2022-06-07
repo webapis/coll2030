@@ -50,7 +50,7 @@ export const breadcrumbSlice = createSlice({
       
       state.selectedSubcategory = action.payload.selectedSubcategory
       state.selectedRegex=action.payload.regex
-      debugger;
+      
       state.totalFetchedProducts=0
       state.products=[]
       

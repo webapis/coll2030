@@ -63,11 +63,11 @@ function TabPanel(props) {
 function Subcategories() {
   const dispatch = useDispatch()
   const subcategories = useSelector(state => state.breadcrumb.subcategories)
-  debugger;
+  
   const object = subcategories && Object.entries(subcategories) && Object.entries(subcategories)
-  debugger;
+  
   function handleSubCategoryClick(selectedSubcategory, subCatTotal, regex) {
-    debugger;
+    
     dispatch(actions.selectSubcategory({ selectedSubcategory, subCatTotal, regex }))
 
   }
@@ -81,7 +81,7 @@ function Subcategories() {
         const subcategory = m[0]
         const subCatTotal = m[1]['count']
         const regex = m[1]['regex']
-        debugger;
+        
         return {
           subcategory,
           subCatTotal,
@@ -93,12 +93,12 @@ function Subcategories() {
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
       }).map((o, i, array) => {
         const { subcategory, subCatTotal, regex } = o
-        debugger;
+        
         const previousObj = array[i - 1]
         const currentfirstChar = subcategory.charAt(0).toUpperCase()
-        debugger;
+        
         const previousChar = previousObj && previousObj['subcategory'].charAt(0).toUpperCase()
-        debugger;
+        
         if (i === 0) {
           return [
             <Grid item xs={12} key={i}>
@@ -111,7 +111,7 @@ function Subcategories() {
 
 
         if (currentfirstChar !== previousChar) {
-          debugger;
+          
           return [<Grid item xs={12} key={i}>
             {currentfirstChar}
           </Grid>, <Grid item xs={12} key={i}>

@@ -16,12 +16,12 @@ import { actions } from '../store/breadcrumbSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem } from "@mui/material";
 
-debugger;
+
 const {markas,totalByMarka} = MarkaNav[0]['nav']
 
-debugger;
+
 const { categories, totalByCategory } = catNav[0]['nav']
-debugger;
+
 export default function DrawerComp() {
     const drawerOpen = useSelector(state => state.breadcrumb.drawerOpen)
     const dispatch = useDispatch()
@@ -111,7 +111,7 @@ function MarkasList({markas,open }) {
                     const  marka= m[0]
                     const  totalByCatory= m[1]['totalByCatory']
                     const categories=m[1]['categories']
-                    debugger;
+                    
                 
                     return {
                         marka,
@@ -124,7 +124,7 @@ function MarkasList({markas,open }) {
                     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
                 }).map((n, i) => {
                     const { marka, totalByCatory, categories } = n
-                    debugger;
+                    
 
                  
                     return <MarkaListItem key={i} id={marka} markaTotal={totalByCatory} title={marka} categories={categories} render={({ open, categories }) => <CategoryList open={open} categories={categories} />} />
@@ -163,7 +163,7 @@ function MarkaListItem(props) {
 
 function CategoryList({ categories, open }) {
 
-debugger;
+
     const dispatch = useDispatch()
     const selectedCategory = useSelector(state => state.breadcrumb.selectedCategory)
     function handleCategoryClick(category, subcategories) {
@@ -172,11 +172,11 @@ debugger;
     return (<Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
             {Object.entries(categories).map((m, i) => {
-                debugger;
+                
                 const category = m[0]
                 const totalByCategory = m[1]['totalBySubcategory']
                 const subcategories = m[1]['subcategories']
-                debugger;
+                
                 return {
                     category,
                     totalByCategory,
@@ -191,7 +191,7 @@ debugger;
             }).map((n, i) => {
 
                 const { category, totalByCategory, subcategories } = n
-                debugger;
+                
                 return (<ListItem key={i} disablePadding secondaryAction={<span style={{ color: "#9e9e9e" }}>{totalByCategory}</span>}>
                     <ListItemButton selected={selectedCategory === category} onClick={() => handleCategoryClick(category, subcategories)} id={category}>
                         <ListItemIcon>
