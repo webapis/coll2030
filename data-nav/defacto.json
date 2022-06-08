@@ -1,0 +1,4508 @@
+[
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Tulum",
+        "category": "tulum",
+        "regex": "Mini\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "belirsiz",
+        "subcategory": "belirsiz",
+        "regex": "belirsiz"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Plaj K��yafeti",
+        "category": "elbise",
+        "regex": "Plaj\\sKıyafeti",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Tulum",
+        "category": "tulum",
+        "regex": "Maxi\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Tulum",
+        "category": "tulum",
+        "regex": "Mini\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Tulum",
+        "category": "tulum",
+        "regex": "Maxi\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Tulum",
+        "category": "tulum",
+        "regex": "Mini\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Hamile Elbise",
+        "category": "elbise",
+        "regex": "Hamile\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Tulum",
+        "category": "tulum",
+        "regex": "Mini\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Tulum",
+        "category": "tulum",
+        "regex": "Maxi\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Elbise",
+        "category": "elbise",
+        "regex": "Gömlek\\sElbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Tulum",
+        "category": "tulum",
+        "regex": "Mini\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "marka": "defacto",
+        "category": "tulum",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Elbise",
+        "category": "elbise",
+        "regex": "(Maxi.*Elbise)|(Maxi\\sElbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Tulum",
+        "category": "tulum",
+        "regex": "Mini\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Tulum",
+        "category": "tulum",
+        "regex": "Maxi\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "marka": "defacto",
+        "category": "elbise",
+        "subcategory": "diğer",
+        "regex": "diğer"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Gömlek Yaka",
+        "category": "elbise",
+        "regex": "Gömlek Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Bisiklet Yaka",
+        "category": "elbise",
+        "regex": "Bisiklet Yaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Tulum",
+        "category": "tulum",
+        "regex": "Maxi\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Tulum",
+        "category": "tulum",
+        "regex": "Maxi\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Maxi Tulum",
+        "category": "tulum",
+        "regex": "Maxi\\sTulum",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "V Yaka",
+        "category": "elbise",
+        "regex": "V\\sYaka.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Mini Elbise",
+        "category": "elbise",
+        "regex": "Mini.*Elbise",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Midi Elbise",
+        "category": "elbise",
+        "regex": "(Midi\\sElbise)|(Midi.*Elbise)",
+        "marka": "defacto"
+    },
+    {
+        "subcategory": "Volanlı Elbise",
+        "category": "elbise",
+        "regex": "Volan.*Elbise",
+        "marka": "defacto"
+    }
+]

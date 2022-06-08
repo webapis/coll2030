@@ -22,7 +22,7 @@
     "mongodb": "^4.6.0",
     "ndjson": "^2.0.0",
     "node-fetch": "2.6.1",
-    "puppeteer": "^14.0.0",
+    "puppeteer": "*",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-redux": "^8.0.2",
