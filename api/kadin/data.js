@@ -36,6 +36,11 @@ module.exports = (req, res) => {
     debugger;
    var data = products().order("itemOrder asec").filter(filterBySearch).filter(filterBySub).filter(filterByCat).start(start).limit(100).get()
   //  var data = products().order("itemOrder asec").filter(filterBySearch).start(start).limit(100).get()
+  console.log('data.length',data.length)
+  console.log('subcatregex',subcatregex)
+  console.log('categoryregex',categoryregex)
+  console.log('search',search)
+  console.log('marka',marka)
     debugger;
     res.status(200).json({ data })
 }
