@@ -62,6 +62,7 @@ function Subcategories() {
   const dispatch = useDispatch()
   const subcategories = useSelector(state => state.breadcrumb.subcategories)
   
+  
   const object = subcategories && Object.entries(subcategories) && Object.entries(subcategories)
   
   function handleSubCategoryClick(selectedSubcategory, subCatTotal, regex) {

@@ -61,7 +61,8 @@ Apify.main(async () => {
 
         const categoryItems = categoryData.items
         //-----------------------------------------------------------------------------------------------------
-        const map1 = dataCollected.map(async (p, i) => {
+        for (let p of dataCollected) {
+
             const productTitle = p.title
 
             const productSubCategories = categoryItems.filter(c => {
@@ -74,40 +75,57 @@ Apify.main(async () => {
             })
             if (productSubCategories.length > 0) {
                 await productsNavDataset.pushData(...mapMarka)
+
             } else {
                 const findcategory = categoryItems.find(c => {
                     const regex = new RegExp(c.category, 'i')
                     const result = regex.test(productTitle.toLowerCase())
-                
+
                     return result
                 })
+
                 if (findcategory) {
-                 
-                    await productsNavDataset.pushData({ marka, category: findcategory.category, subcategory: 'diğer', regex: '' })
+
+                    await productsNavDataset.pushData({ marka, category: findcategory.category, subcategory: 'diğer', regex: 'diğer' })
                 } else {
-               
-                    await productsNavDataset.pushData({ marka, category: 'undefined', subcategory: 'undefined', regex: 'undefined' })
+
+                    await productsNavDataset.pushData({ marka, category: 'belirsiz', subcategory: 'belirsiz', regex: 'belirsiz' })
                 }
 
             }
-         
-        })
-        const map2 = dataCollected.map( (p, i) => {
+        }
+
+        const map2 = dataCollected.map((p, i) => {
             const productTitle = p.title
 
-       
-            const productCategory = categoryItems.find(c => {
-                const regex = new RegExp(c.category, 'i')
+
+            const productSubCategory = categoryItems.find(c => {
+                const regex = new RegExp(c.regex, 'i')
                 const result = regex.test(productTitle.toLowerCase())
                 return result
             })
-            if (productCategory) {
+            if (productSubCategory) {
 
-                return { ...p, category: productCategory.category }
+                return p
 
             } else {
 
-                return { ...p, category: "undefined" }
+                //  return { ...p, title: p.title + ' belirsiz' }
+                const findcategory = categoryItems.find(c => {
+                    const regex = new RegExp(c.category, 'i')
+                    const result = regex.test(productTitle.toLowerCase())
+
+                    return result
+                })
+
+                if (findcategory) {
+
+                    return { ...p, title: p.title + " diğer" }
+                } else {
+
+                    return { ...p, title: p.title + " belirsiz" }
+                }
+
             }
         })
         debugger;
