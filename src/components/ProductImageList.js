@@ -13,10 +13,10 @@ import Button from '@mui/material/Button';
 
 export default function ProductImageList(props) {
 
-  const { selectedMarka, selectedSubcategory,selectedCategory, totalFetchedProducts, subCatTotal, fetching, products,selectedRegex } = useSelector(state => state.breadcrumb)
-
+  const { selectedMarka, selectedSubcategory, selectedCategory, totalFetchedProducts, subCatTotal, fetching, products, selectedRegex, search } = useSelector(state => state.breadcrumb)
+debugger;
   const dispatch = useDispatch()
-  
+
 
   useEffect(() => {
     localStorage.setItem('page', 1)
@@ -48,15 +48,15 @@ export default function ProductImageList(props) {
 
   async function fetchData(page) {
 
-    
-    const url = `/api/kadin/data?page=${page}&subcatregex=${selectedRegex}&marka=${selectedMarka}&categoryregex=${selectedCategory}`
+
+    const url = `/api/kadin/data?page=${page}&subcatregex=${selectedRegex}&marka=${selectedMarka}&categoryregex=${selectedCategory}&search=${search}`
     const response = await fetch(url, { cache: 'default' })
 
     const { data } = await response.json()
 
     dispatch(actions.setFetchedProductsTotal({ products: data }))
     dispatch(actions.setFetchState(false))
-  
+
 
 
   }
@@ -75,9 +75,9 @@ export default function ProductImageList(props) {
     >
       {products.length > 0 && products.map((item, i) => {
 
-        return <Grid item key={i} xs={6} sm={4} md={3}  sx={{ display: 'flex', justifyContent: 'center' }}>
+        return <Grid item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
 
-          <ImageComponent selectedSubcategory={selectedSubcategory}  plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
+          <ImageComponent selectedSubcategory={selectedSubcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 
         </Grid>
       })}

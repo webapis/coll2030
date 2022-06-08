@@ -7,20 +7,10 @@ const data = require('./api/_files/kadin/data.json')
 debugger;
 var products = TAFFY(data);
 
-    const subcategory=new RegExp('V Yaka.*Elbise','i');
-    const marka ='defacto'
+    const text='Çiçek'
 
-    const start = parseInt()
-    const filter = { subcategory:{regex:new RegExp(subcategory,'')}, marka }
-    for (let f in filter) {
-        const current = filter[f]
-        if (current === 'null') {
-            debugger;
-            delete filter[f]
-        }
-    }
     debugger;
-    var d = products([{title:{regex:subcategory}}]).get();
+    var d = products([{title:{like:text}}]).get();
 
     debugger;
  
