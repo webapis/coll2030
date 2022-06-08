@@ -74,7 +74,7 @@ Apify.main(async () => {
                 return { ...m, marka }
             })
             if (productSubCategories.length > 0) {
-                await productsNavDataset.pushData(...mapMarka)
+                await productsNavDataset.pushData(mapMarka)
 
             } else {
                 const findcategory = categoryItems.find(c => {
