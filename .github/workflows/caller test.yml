@@ -5,7 +5,7 @@ jobs:
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      start_url:  https://www.defacto.com.tr/kadin-elbise
+      start_url:  https://www.defacto.com.tr/kadin-tumu
       order: false
       marka: defacto
     secrets: inherit

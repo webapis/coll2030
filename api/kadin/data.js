@@ -6,43 +6,35 @@ var TAFFY = require('taffy');
 const data = require('../_files/kadin/data.json')
 
 module.exports = (req, res) => {
-    const { subcatregex, categoryregex, page, marka, search } = req.query
-    const start = parseInt(page)
-    var products = TAFFY(data);
-    const filterBySub = subcatregex === '' ? {} : { title: { regex: new RegExp(subcatregex, 'i') } }
-    // for (let f in filterBySub) {
+  const { subcatregex, categoryregex, page, marka, search } = req.query
+  const start = parseInt(page)
+  var products = TAFFY(data);
+  const filterBySub = subcatregex === '' ? {} : { title: { regex: new RegExp(subcatregex, 'i') } }
+
+  const filterByCat = categoryregex === '' ? {} : { title: { regex: new RegExp(categoryregex, 'i') } }
+
+
+  const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
+  const filterByMarka = marka === '' ? {} : { marka }
+  debugger;
+  var d = products().order("itemOrder asec").filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).start(start).limit(100).get()
+
+  console.log('data.length', d.length)
+  console.log('subcatregex', filterBySub)
+  console.log('categoryregex', filterByCat)
+  console.log('search', filterBySearch)
+  console.log('marka', marka)
+  console.log('page', page)
+  debugger;
+  res.status(200).json({ data: d })
+}
+
+
+
+  // for (let f in filterBySub) {
     //     const current = filterBySub[f]
     //     if (current === 'null') {
     //         debugger;
     //         delete filterBySub[f]
     //     }
     // }
-    const filterByCat = categoryregex === '' ? {} : { title: { regex: new RegExp(categoryregex, 'i') } }
-    // for (let f in filterByCat) {
-    //     const current = filterByCat[f]
-    //     if (current === 'null') {
-    //         debugger;
-    //         delete filterByCat[f]
-    //     }
-    // }
-
-    const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
-    // for (let f in filterByCat) {
-    //     const current = filterBySearch[f]
-    //     if (current === 'null') {
-    //         debugger;
-    //         delete filterBySearch[f]
-    //     }
-    // }
-    debugger;
-   var d = products().order("itemOrder asec").filter(filterBySearch).filter(filterBySub).filter(filterByCat).start(start).limit(100).get()
-  //  var data = products().order("itemOrder asec").filter(filterBySearch).start(start).limit(100).get()
-  console.log('data.length',d.length)
-  console.log('subcatregex',filterBySub)
-  console.log('categoryregex',filterByCat)
-  console.log('search',filterBySearch)
-  console.log('marka',marka)
-  console.log('page',page)
-    debugger;
-    res.status(200).json({ data:d })
-}
