@@ -123,7 +123,7 @@ debugger;
                     return { ...p, title: marka+" "+ p.title + " _x " + findcategory.category + " diğer" }
                 } else {
 
-                    return { ...p, title: marka+" "+ p.title + " _x " + findcategory.category  + " belirsiz" }
+                    return { ...p, title: marka+" "+ p.title +" belirsiz" }
                 }
 
             }
