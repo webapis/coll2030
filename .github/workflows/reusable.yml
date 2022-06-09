@@ -59,6 +59,12 @@ jobs:
         with:
           name: data
           path: data/${{ inputs.marka }}.json
+      - name: Upload artifact 1
+        uses: actions/upload-artifact@v3
+        with:
+          name: data-nav
+          path: data-nav/${{ inputs.marka }}.json
+        
 
 
 

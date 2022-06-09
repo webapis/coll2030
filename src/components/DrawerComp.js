@@ -15,8 +15,12 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { actions } from '../store/breadcrumbSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem } from "@mui/material";
-const { tree: mnavs, mtotal } = MarkaNav[0]['nav']
-const { tree: navs, total } = catNav[0]['nav']
+
+
+const {markas,totalByMarka} = MarkaNav[0]['nav']
+
+
+const { categories, totalByCategory } = catNav[0]['nav']
 
 export default function DrawerComp() {
     const drawerOpen = useSelector(state => state.breadcrumb.drawerOpen)
@@ -25,7 +29,7 @@ export default function DrawerComp() {
         dispatch(actions.toggleDrawer())
     }
     return (
-        <Drawer open={drawerOpen} onClose={handleOnclose} sx={{zIndex: 20001}}>
+        <Drawer open={drawerOpen} onClose={handleOnclose} sx={{ zIndex: 20001 }}>
             <List
                 sx={{ width: 300, maxWidth: 360, bgcolor: 'background.paper' }}
                 component="nav"
@@ -36,7 +40,7 @@ export default function DrawerComp() {
                     </ListSubheader>
                 }
             >
-                <CategoryMenu categories={navs} />
+                <CategoryMenu categories={categories} />
                 <MarkaMenu render={({ markas, open }) => <MarkasList markas={markas} open={open} />} />
             </List>
         </Drawer>
@@ -44,14 +48,14 @@ export default function DrawerComp() {
 }
 
 function CategoryMenu(props) {
-    const dispatch =useDispatch()
-    const categoryTabSelected =useSelector(state=>state.breadcrumb.categoryTabSelected)
+    const dispatch = useDispatch()
+    const categoryTabSelected = useSelector(state => state.breadcrumb.categoryTabSelected)
     const [open, setOpen] = React.useState(false);
     const { categories } = props
 
     function toggle() {
-  
-    dispatch(actions.selectCategoryTab())
+
+        dispatch(actions.selectCategoryTab())
     }
 
     return (
@@ -60,10 +64,10 @@ function CategoryMenu(props) {
                 <ListItemIcon>
                     <CategoryIcon />
                 </ListItemIcon>
-                <ListItemText >ÜRÜNLER</ListItemText>
+                <ListItemText >ÜRÜNLER ({totalByCategory})</ListItemText>
                 {categoryTabSelected ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <CategoryList categories={Object.entries(categories)} open={categoryTabSelected} />
+            <CategoryList categories={categories} open={categoryTabSelected} />
         </List>
     )
 
@@ -72,9 +76,9 @@ function CategoryMenu(props) {
 
 function MarkaMenu(props) {
     const { render } = props
-    const markaTabSelected =useSelector(state=> state.breadcrumb.markaTabSelected)
-    const dispatch=useDispatch()
- 
+    const markaTabSelected = useSelector(state => state.breadcrumb.markaTabSelected)
+    const dispatch = useDispatch()
+
 
 
     function toggle() {
@@ -87,36 +91,43 @@ function MarkaMenu(props) {
                 <ListItemIcon>
                     <CategoryIcon />
                 </ListItemIcon>
-                <ListItemText >MARKALAR</ListItemText>
+                <ListItemText >MARKALAR({totalByMarka})</ListItemText>
                 {markaTabSelected ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            {render({ markas: mnavs, open:markaTabSelected })}
+            {render({ markas, open: markaTabSelected })}
         </List>
     )
 }
 
 
 
-function MarkasList({ markas, open }) {
+function MarkasList({markas,open }) {
 
-  
+
     return (
         <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-                {Object.entries(mnavs).map((m,i)=>{
+                {Object.entries(markas).map((m, i) => {
+                    const  marka= m[0]
+                    const  totalByCatory= m[1]['totalByCatory']
+                    const categories=m[1]['categories']
+                    
+                
                     return {
-                         marka: m[0],
-                         markaTotal: m[1]['total'],
-                         categories: Object.entries(m[1])
+                        marka,
+                        totalByCatory,
+                        categories
                     }
                 }).sort(function (a, b) {
                     var textA = a.marka.toUpperCase();
                     var textB = b.marka.toUpperCase();
                     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-                  }).map((n, i) => {
-                    const {marka,markaTotal,categories} = n
-                   
-                    return <MarkaListItem key={i} id={marka}  markaTotal={markaTotal} title={marka} categories={categories} render={({ open, categories }) => <CategoryList open={open} categories={categories} />} />
+                }).map((n, i) => {
+                    const { marka, totalByCatory, categories } = n
+                    
+
+                 
+                    return <MarkaListItem key={i} id={marka} markaTotal={totalByCatory} title={marka} categories={categories} render={({ open, categories }) => <CategoryList open={open} categories={categories} />} />
                 })}
             </List>
         </Collapse>
@@ -125,54 +136,64 @@ function MarkasList({ markas, open }) {
 
 function MarkaListItem(props) {
     const [open, setOpen] = React.useState(false);
-    const selectedMarka =useSelector(state=>state.breadcrumb.selectedMarka)
-    
-    const dispatch =useDispatch()
+    const selectedMarka = useSelector(state => state.breadcrumb.selectedMarka)
+
+    const dispatch = useDispatch()
     const { render, categories } = props
     const { title, markaTotal } = props
     function toggle() {
         setOpen(!open);
-        dispatch(actions.selectMarka({selectedMarka:title}))
+        dispatch(actions.selectMarka({ selectedMarka: title }))
     }
     return (
         <>
             <ListItem disablePadding secondaryAction={<ListItemText >{markaTotal}</ListItemText>}>
-                <ListItemButton onClick={() => toggle()} id={title} selected={selectedMarka===title}>
+                <ListItemButton onClick={() => toggle()} id={title} selected={selectedMarka === title}>
                     <ListItemIcon>
-                        {!selectedMarka===title ? <ChevronRightIcon /> : <ExpandMore />}
+                        {!selectedMarka === title ? <ChevronRightIcon /> : <ExpandMore />}
                     </ListItemIcon>
                     <ListItemText sx={{ textTransform: 'uppercase' }}>{title}</ListItemText>
                 </ListItemButton>
             </ListItem>
-            {render({ open:selectedMarka===title, categories })}
+            {render({ open: selectedMarka === title, categories })}
         </>
     )
 }
 
 
 function CategoryList({ categories, open }) {
+
+
     const dispatch = useDispatch()
-    const selectedCategory =useSelector(state=>state.breadcrumb.selectedCategory)
+    const selectedCategory = useSelector(state => state.breadcrumb.selectedCategory)
     function handleCategoryClick(category, subcategories) {
         dispatch(actions.selectCategory({ subcategories, selectedCategory: category }))
     }
     return (<Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-            {Object.entries(categories).filter((f, i) => i > 0).map((m,i)=>{
+            {Object.entries(categories).map((m, i) => {
+                
+                const category = m[0]
+                const totalByCategory = m[1]['totalBySubcategory']
+                const subcategories = m[1]['subcategories']
+                
                 return {
-                     category : m[1][0],
-                     categoryTotal : m[1][1]['total'],
-                     subcategories : m[1][1]
+                    category,
+                    totalByCategory,
+                    subcategories
                 }
             }).sort(function (a, b) {
+           
                 var textA = a.category.toUpperCase();
                 var textB = b.category.toUpperCase();
+            
                 return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-              }).map((n, i) => {
-                const {category,categoryTotal,subcategories} = n
-               
-                return (<ListItem key={i} disablePadding secondaryAction={<span style={{ color: "#9e9e9e" }}>{categoryTotal}</span>}>
-                    <ListItemButton selected={selectedCategory===category} onClick={() => handleCategoryClick(category, subcategories)} id={category}>
+            }).map((n, i) => {
+
+                const { category, totalByCategory, subcategories } = n
+                
+                return (<ListItem key={i} disablePadding secondaryAction={<span style={{ color: "#9e9e9e" }}>{totalByCategory}</span>}>
+                    <ListItemButton selected={selectedCategory === category} onClick={() => handleCategoryClick(category, subcategories)} id={category}>
                         <ListItemIcon>
                         </ListItemIcon>
                         <ListItemText style={{ textTransform: 'capitalize' }}>{category.replace('-', ' ')}</ListItemText>

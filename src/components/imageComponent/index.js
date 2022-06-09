@@ -2,13 +2,16 @@
 import React, { useEffect, useRef } from 'react';
 import placeholders from './placeholders'
 import Typography from '@mui/material/Typography';
-import ShowMoreText from "react-show-more-text";
-import { ImageListItem } from '@mui/material';
 
+import Highlighter from "react-highlight-words";
+import { ImageListItem } from '@mui/material';
+import './hl.css'
 
 export default function ImageComponent(props) {
 
-
+     const {selectedSubcategory}=props
+     const splitterwords =selectedSubcategory.split(' ')
+     
     const imageEl = useRef(null);
     const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
     const imagePlaceholder = placeholders[props.marka].placeholder
@@ -71,18 +74,14 @@ export default function ImageComponent(props) {
         </div>
   
         <Typography variant="caption" display="block" gutterBottom>
-          <ShowMoreText lines={1}
-            more={<span style={{ textDecoration: 'none', fontSize: 10, marginLeft: 5 }}>fazla göster</span>}
-            less={<span style={{ textDecoration: 'none', marginLeft: 5 }}>gizle</span>}
-  
-  
-            onClick={executeOnClick}
-            expanded={false}
-            width={400}
-            truncatedEndingComponent={"..."}>
-            {props.title}
-          </ShowMoreText>
-  
+     
+        <Highlighter
+    
+    highlightClassName="regexColor"
+    searchWords={splitterwords}
+    autoEscape={true}
+    textToHighlight={props.title}
+  />
         </Typography>
         <Typography color='#9e9e9e' style={{ textAlign: 'right',fontSize:9 }} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
       </div>
@@ -90,4 +89,5 @@ export default function ImageComponent(props) {
     )
   
   }
-  
+
+

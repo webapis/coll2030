@@ -13,7 +13,7 @@ Apify.main(async () => {
 
 
     const { utils: { log } } = Apify;
-    const requestQueue = await Apify.openRequestQueue();                                        
+    const requestQueue = await Apify.openRequestQueue();
 
     const marka = process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
     await requestQueue.addRequest({ url: process.env.START_URL, userData: { start: true, gender: 'kadin', marka } })
@@ -21,9 +21,10 @@ Apify.main(async () => {
 
     const sheetDataset = await Apify.openDataset(`categorySheet`);
     const productsDataset = await Apify.openDataset(`products`);
-    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categories!A:C' })
+    const productsNavDataset = await Apify.openDataset(`productsnav`);
+    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categoriestest!A:C' })
 
- 
+
 
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const subcategory = value[0]
@@ -59,42 +60,95 @@ Apify.main(async () => {
         const google_access_token1 = await getGoogleToken()
 
         const categoryItems = categoryData.items
-        const map1 = dataCollected.map((p, i) => {
-            const procutTitle = p.title
+        //-----------------------------------------------------------------------------------------------------
+        for (let p of dataCollected) {
 
-            const productCategory = categoryItems.find(c => {
-                const regexvar = "" + c.subcategory + ""
-                const reg = new RegExp(regexvar, "i")
-                const result = reg.test(procutTitle.toLowerCase())
+            const productTitle = p.title
 
+            const productSubCategories = categoryItems.filter(c => {
+                const regex = new RegExp(c.regex, 'i')
+                const result = regex.test(productTitle.toLowerCase())
                 return result
             })
+            const mapMarka = productSubCategories.map(m => {
+                return { ...m, marka }
+            })
+            if (productSubCategories.length > 0) {
+                await productsNavDataset.pushData(mapMarka)
 
-            if (productCategory) {
-                return { ...p, category: productCategory.category, subcategory: productCategory.regex }
             } else {
-                return { ...p, category: "undefined", subcategory: "undefined" }
+                const findcategory = categoryItems.find(c => {
+                    const regex = new RegExp(c.category, 'i')
+                    const result = regex.test(productTitle.toLowerCase())
+
+                    return result
+                })
+
+                if (findcategory) {
+
+                    await productsNavDataset.pushData({ marka, category: findcategory.category, subcategory: 'diğer', regex: 'diğer' })
+                } else {
+
+                    await productsNavDataset.pushData({ marka, category: 'belirsiz', subcategory: 'belirsiz', regex: 'belirsiz' })
+                }
+
+            }
+        }
+
+        const map2 = dataCollected.map((p, i) => {
+            const productTitle = p.title
+
+
+            const productSubCategory = categoryItems.find(c => {
+                const regex = new RegExp(c.regex, 'i')
+                const result = regex.test(productTitle.toLowerCase())
+                return result
+            })
+            if (productSubCategory) {
+
+                return p
+
+            } else {
+
+                //  return { ...p, title: p.title + ' belirsiz' }
+                const findcategory = categoryItems.find(c => {
+                    const regex = new RegExp(c.category, 'i')
+                    const result = regex.test(productTitle.toLowerCase())
+
+                    return result
+                })
+
+                if (findcategory) {
+
+                    return { ...p, title: p.title + " diğer" }
+                } else {
+
+                    return { ...p, title: p.title + " belirsiz" }
+                }
+
             }
         })
-    
+        debugger;
 
-        await productsDataset.pushData(map1)
+        //---------------------------------------------------------------------------------------------------
 
-    
+        await productsDataset.pushData(map2)
 
-        const table = map1.reduce((group, product) => {
+
+
+        const table = map2.reduce((group, product) => {
             const values = Object.values(product)
             group.push(values);
             return group;
         }, []);
 
-        console.log('uploading to excell complete....',process.env.dataLength)
+        console.log('uploading to excell complete....', process.env.dataLength)
 
-       await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
+        await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
 
-        process.env.dataLength = parseInt(process.env.dataLength) + map1.length
-        
-     
+        process.env.dataLength = parseInt(process.env.dataLength) + map2.length
+
+
     }
 
     const crawler = new Apify.PuppeteerCrawler({
@@ -144,17 +198,26 @@ Apify.main(async () => {
         ],
         handleFailedRequestFunction: async ({ request: { errorMessages, url, userData: { gender, start } } }) => {
             const google_access_token1 = await getGoogleToken()
-      await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'ERROR!A:B', values: [[url, errorMessages[0].substring(0, 150), gender, start]] })
-            
-  
+            await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'ERROR!A:B', values: [[url, errorMessages[0].substring(0, 150), gender, start]] })
+
+
         },
     });
 
     log.info('Starting the crawl.');
     await crawler.run();
-    const { items } = await productsDataset.getData()
+    const { items: productItems } = await productsDataset.getData();
+    const { items: productNavItems } = await productsNavDataset.getData();
     await makeDir('data');
-    fs.appendFileSync(`data/${marka}.json`, JSON.stringify(items))
+    await makeDir('data-nav')
+    if (fs.existsSync(`data/${marka}.json`)) {
+        fs.unlinkSync(`data/${marka}.json`)
+    }
+    if (fs.existsSync(`data-nav/${marka}.json`)) {
+        fs.unlinkSync(`data-nav/${marka}.json`)
+    }
+    fs.appendFileSync(`data/${marka}.json`, JSON.stringify(productItems));
+    fs.appendFileSync(`data-nav/${marka}.json`, JSON.stringify(productNavItems));
 
     console.log('Crawl finished.');
 

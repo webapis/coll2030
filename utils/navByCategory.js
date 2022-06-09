@@ -6,8 +6,15 @@ var jsonArrayStreams = require("json-array-streams");
 const { MongoClient } = require('mongodb')
 
 const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { useNewUrlParser: true, useUnifiedTopology: true });
-
-async function importData() {
+async function mongoClient() {
+    const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { useNewUrlParser: true, useUnifiedTopology: true });
+  
+    const clnt = await client.connect()
+    const collection = clnt.db("streamToMongoDB").collection("category-nav");
+  
+    return collection
+  }
+async function importOldData() {
 
 
     return new Promise(async(resolve, reject) => {
@@ -26,9 +33,11 @@ async function importData() {
             .pipe(through.obj(async function (object, enc, cb) {
                 const { category, subcategory
                 } = object
-                await collection.updateOne({}, { $inc: { [`nav.total`]: 1 } }, { upsert: true })
-                await collection.updateOne({}, { $inc: { [`nav.tree.${category}.total`]: 1 } }, { upsert: true })
-                await collection.updateOne({}, { $inc: { [`nav.tree.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
+           
+              
+                await collection.updateOne({}, { $inc: { [`nav.totalByCategory`]: 1 } }, { upsert: true })
+                await collection.updateOne({}, { $inc: { [`nav.categories.${category}.totalBySubcategory`]: 1 } }, { upsert: true })
+                await collection.updateOne({}, { $inc: { [`nav.categories.${category}.subcategories.${subcategory}`]: 1 } }, { upsert: true })
                 ++ exportCount
             //    console.log("exportCount and count-1", exportCount, dataObjArr)
                 if (exportCount === (dataObjArr)) {
@@ -46,6 +55,38 @@ async function importData() {
 
 }
 
+async function importData() {
+
+    try {
+      console.log('IMPORTING DATA STARTED....')
+      const files = fs.readdirSync('data-nav')
+      const collection = await mongoClient()
+      await collection.deleteMany({})
+      for (let file of files) {
+        console.log('file....',file)
+        const data = fs.readFileSync(`data-nav/${file}`, { encoding: 'utf8' })
+        console.log('file....data....',file,data.length)
+        const dataObjectArr = JSON.parse(data)
+        console.log('dataObjectArr.length', dataObjectArr.length)
+        for(let object of dataObjectArr){
+            const { category, subcategory,regex
+            } = object
+               
+            await collection.updateOne({}, { $inc: { [`nav.totalByCategory`]: 1 } }, { upsert: true })
+            await collection.updateOne({}, { $inc: { [`nav.categories.${category}.totalBySubcategory`]: 1 } }, { upsert: true })
+            await collection.updateOne({}, { $set: { [`nav.categories.${category}.subcategories.${subcategory}.regex`]: regex } }, { upsert: true })
+            await collection.updateOne({}, { $inc: { [`nav.categories.${category}.subcategories.${subcategory}.count`]: 1 } }, { upsert: true })
+        }
+      }
+      console.log('IMPORTING DATA COMPLETE....')
+    } catch (error) {
+  
+  
+      console.log('error importing data', error)
+    }
+  
+  
+  }
 async function extractNavTree() {
 
     const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { useNewUrlParser: true, useUnifiedTopology: true });

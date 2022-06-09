@@ -2,16 +2,16 @@ name: caller test
 on:
    workflow_dispatch:
 jobs:
-  defacto_job:
+  boyner_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      start_url:  https://www.defacto.com.tr/kadin-elbise		
+      start_url:  https://www.boyner.com.tr/search?q=kadin&filterIDList=19304&page=1
       order: false
-      marka: defacto
+      marka: boyner
     secrets: inherit
   generate_nav_job:
     runs-on: ubuntu-latest
-    needs: [defacto_job]
+    needs: [boyner_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -45,6 +45,11 @@ jobs:
         with:
           name: data
           path: data
+      - name: Download a single artifact 2
+        uses: actions/download-artifact@v3
+        with:
+          name: data-nav
+          path: data-nav
       - name: generate nav step
         id: gen_nav
         run: node generateNav.js
