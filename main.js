@@ -18,13 +18,13 @@ Apify.main(async () => {
     const marka = process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
     await requestQueue.addRequest({ url: process.env.START_URL, userData: { start: true, gender: 'kadin', marka } })
 
-
     const sheetDataset = await Apify.openDataset(`categorySheet`);
     const productsDataset = await Apify.openDataset(`products`);
     const productsNavDataset = await Apify.openDataset(`productsnav`);
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categoriestest!A:C' })
 
-
+    console.log('sheetData',sheetData)
+debugger;
 
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const subcategory = value[0]
@@ -144,7 +144,7 @@ Apify.main(async () => {
 
         console.log('uploading to excell complete....', process.env.dataLength)
 
-        await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
+      //  await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
 
         process.env.dataLength = parseInt(process.env.dataLength) + map2.length
 
