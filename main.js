@@ -106,7 +106,7 @@ Apify.main(async () => {
             })
             if (productSubCategory) {
 
-                return { ...p,  title: marka+" "+ p.title + "_x " + productSubCategory.category }
+                return { ...p,  title: marka+" "+ p.title + " _x " + productSubCategory.category }
 
             } else {
 
@@ -120,10 +120,10 @@ Apify.main(async () => {
 
                 if (findcategory) {
 
-                    return { ...p, title: marka+" "+ p.title + "_x " + findcategory.category + " diğer" }
+                    return { ...p, title: marka+" "+ p.title + " _x " + findcategory.category + " diğer" }
                 } else {
 
-                    return { ...p, title: marka+" "+ p.title + "_x " + findcategory.category  + " belirsiz" }
+                    return { ...p, title: marka+" "+ p.title + " _x " + findcategory.category  + " belirsiz" }
                 }
 
             }
