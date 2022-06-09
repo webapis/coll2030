@@ -17,13 +17,21 @@ export default function ProductImageList(props) {
 debugger;
   const dispatch = useDispatch()
 
-
   useEffect(() => {
-    localStorage.setItem('page', 1)
-    fetchData(1)
-
-
+   
+      localStorage.setItem('page', 1)
+      fetchData(1)
+    
   }, []);
+  useEffect(() => {
+    if(products.length===0){
+      localStorage.setItem('page', 1)
+      fetchData(1)
+    }
+
+
+
+  }, [products]);
 
   useEffect(() => {
     // if (state.length > 0) {
@@ -52,9 +60,9 @@ debugger;
     const url = `/api/kadin/data?page=${page}&subcatregex=${selectedRegex}&marka=${selectedMarka}&categoryregex=${selectedCategory}&search=${search}`
     const response = await fetch(url, { cache: 'default' })
 
-    const { data } = await response.json()
+    const { data,count } = await response.json()
 
-    dispatch(actions.setFetchedProductsTotal({ products: data }))
+    dispatch(actions.setFetchedProductsTotal({ products: data,subCatTotal:count }))
     dispatch(actions.setFetchState(false))
 
 

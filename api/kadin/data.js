@@ -17,7 +17,9 @@ module.exports = (req, res) => {
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
   const filterByMarka = marka === '' ? {} : { marka }
   debugger;
+  //  var d = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).order("itemOrder asec").start(start).limit(100).get()
   var d = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).order("itemOrder asec").start(start).limit(100).get()
+  let count = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).count()
 
   console.log('data.length', d.length)
   console.log('subcatregex', filterBySub)
@@ -26,7 +28,7 @@ module.exports = (req, res) => {
   console.log('marka', marka)
   console.log('page', page)
   debugger;
-  res.status(200).json({ data: d })
+  res.status(200).json({ data: d,count })
 }
 
 
