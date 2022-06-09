@@ -23,7 +23,7 @@ Apify.main(async () => {
     const productsNavDataset = await Apify.openDataset(`productsnav`);
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categoriestest!A:C' })
 
-    console.log('sheetData',sheetData)
+    console.log('sheetData.......',sheetData)
 debugger;
 
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
