@@ -1,8 +1,6 @@
 name: caller
 on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 8 * * *'
+   workflow_dispatch:
 jobs:
   machka_job:
     uses: ./.github/workflows/reusable.yml
