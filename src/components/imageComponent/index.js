@@ -11,7 +11,8 @@ export default function ImageComponent(props) {
 
      const {selectedSubcategory}=props
      const splitterwords =selectedSubcategory.split(' ')
-     
+     const productTitle =props.title.substring(props.title.indexOf(" "),props.title.lastIndexOf("_"))
+
     const imageEl = useRef(null);
     const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
     const imagePlaceholder = placeholders[props.marka].placeholder
@@ -80,7 +81,7 @@ export default function ImageComponent(props) {
     highlightClassName="regexColor"
     searchWords={splitterwords}
     autoEscape={true}
-    textToHighlight={props.title}
+    textToHighlight={productTitle}
   />
         </Typography>
         <Typography color='#9e9e9e' style={{ textAlign: 'right',fontSize:9 }} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
