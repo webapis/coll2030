@@ -14,17 +14,17 @@ import Button from '@mui/material/Button';
 export default function ProductImageList(props) {
 
   const { selectedMarka, selectedSubcategory, selectedCategory, totalFetchedProducts, subCatTotal, fetching, products, selectedRegex, search } = useSelector(state => state.breadcrumb)
-debugger;
+  debugger;
   const dispatch = useDispatch()
 
   useEffect(() => {
-   
-      localStorage.setItem('page', 1)
-      fetchData(1)
-    
+
+    localStorage.setItem('page', 1)
+    fetchData(1)
+
   }, []);
   useEffect(() => {
-    if(products.length===0){
+    if (products.length === 0) {
       localStorage.setItem('page', 1)
       fetchData(1)
     }
@@ -60,9 +60,9 @@ debugger;
     const url = `/api/kadin/data?page=${page}&subcatregex=${selectedRegex}&marka=${selectedMarka}&categoryregex=${selectedCategory}&search=${search}`
     const response = await fetch(url, { cache: 'default' })
 
-    const { data,count } = await response.json()
+    const { data, count } = await response.json()
 
-    dispatch(actions.setFetchedProductsTotal({ products: data,subCatTotal:count }))
+    dispatch(actions.setFetchedProductsTotal({ products: data, subCatTotal: count }))
     dispatch(actions.setFetchState(false))
 
 
@@ -77,28 +77,30 @@ debugger;
     fetchData(nextPage)
   }
 
-  return (
+    return (
 
-    <Grid container justifyContent="center" spacing={1} paddingTop={5}
-    >
-      {products.length > 0 && products.map((item, i) => {
+      <Grid container justifyContent="center" spacing={1} paddingTop={5}
+      >
+        {products.length > 0 && products.map((item, i) => {
 
-        return <Grid item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+          return <Grid item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
 
-          <ImageComponent selectedSubcategory={selectedSubcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
+            <ImageComponent selectedSubcategory={selectedSubcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 
+          </Grid>
+        })}
+
+        <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
+          {products.length > 0 ? <div>{fetching ? <Box sx={{ display: 'flex' }}>
+            <CircularProgress disableShrink />
+          </Box> : <Button disabled={(totalFetchedProducts || fetching) >= subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>}</div> : ''}
         </Grid>
-      })}
-
-      <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: 5 }}>
-        {products.length > 0 ? <div>{fetching ? <Box sx={{ display: 'flex' }}>
-          <CircularProgress disableShrink />
-        </Box> : <Button disabled={(totalFetchedProducts || fetching) >= subCatTotal} variant='outlined' onClick={fetchNextPage}>{(totalFetchedProducts)}/{subCatTotal}</Button>}</div> : <CircularProgress />}
+        <Grid>{!fetching && subCatTotal===0 && <div>Bulunamadı</div>}</Grid>
+        <Grid>{fetching && <CircularProgress color="success"  />}</Grid>
       </Grid>
-    </Grid>
 
 
-  );
+    );
 }
 
 
