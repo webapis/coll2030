@@ -98,7 +98,7 @@ async function exportData() {
 
   cursorAsStream = stream.Readable.from(cursor.map(async (entry) => {
     const { products, category, itemOrder, marka, subcategory } = entry
-    const next = { ...products, category, itemOrder, marka, subcategory }
+    const next = { ...products , itemOrder  }
 
     ++parcedData
     if (parcedData === countdata.length) {

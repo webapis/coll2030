@@ -106,7 +106,7 @@ Apify.main(async () => {
             })
             if (productSubCategory) {
 
-                return p
+                return { ...p,  title: marka+" "+ p.title + "_x " + productSubCategory.category }
 
             } else {
 
@@ -120,10 +120,10 @@ Apify.main(async () => {
 
                 if (findcategory) {
 
-                    return { ...p, title: p.title + " diğer" }
+                    return { ...p, title: marka+" "+ p.title + "_x " + findcategory.category + " diğer" }
                 } else {
 
-                    return { ...p, title: p.title + " belirsiz" }
+                    return { ...p, title: marka+" "+ p.title + "_x " + findcategory.category  + " belirsiz" }
                 }
 
             }
