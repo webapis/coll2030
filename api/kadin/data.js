@@ -15,7 +15,7 @@ module.exports = (req, res) => {
 
 
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
-  const filterByMarka = marka === '' ? {} : { marka }
+  const filterByMarka = marka === '' ? {} :{ title: { regex: new RegExp(marka, 'i') } }
   debugger;
   //  var d = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).order("itemOrder asec").start(start).limit(100).get()
   var d = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).order("itemOrder asec").start(start).limit(100).get()

@@ -23,15 +23,7 @@ export default function ProductImageList(props) {
     fetchData(1)
 
   }, []);
-  useEffect(() => {
-    if (products.length === 0) {
-      localStorage.setItem('page', 1)
-      fetchData(1)
-    }
 
-
-
-  }, [products]);
 
   useEffect(() => {
     // if (state.length > 0) {
@@ -82,10 +74,11 @@ export default function ProductImageList(props) {
       <Grid container justifyContent="center" spacing={1} paddingTop={5}
       >
         {products.length > 0 && products.map((item, i) => {
+          const marka =item.title.substring(0, item.title.indexOf(' '))
+debugger;
+          return <Grid item key={item.title} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
 
-          return <Grid item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-
-            <ImageComponent selectedSubcategory={selectedSubcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
+            <ImageComponent key={i} selectedSubcategory={selectedSubcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 
           </Grid>
         })}
