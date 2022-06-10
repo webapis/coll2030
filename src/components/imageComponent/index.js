@@ -11,7 +11,7 @@ export default function ImageComponent(props) {
 
      const {selectedSubcategory}=props
      const splitterwords =selectedSubcategory.split(' ')
-     const productTitle =props.title.substring(props.title.indexOf(" "),props.title.lastIndexOf("_"))
+     const productTitle =props.title.substring(props.title.indexOf(" "),props.title.lastIndexOf(" "))
 
     const imageEl = useRef(null);
     const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'

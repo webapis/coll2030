@@ -144,11 +144,7 @@ async function dataAggregation() {
 module.exports = { dataAggregation }
 
 const orderAggr = [
-  {
-    '$match': {
-      'subcategory': 'Elbise'
-    }
-  }, {
+ {
     '$group': {
       '_id': {
         'imageUrl': '$imageUrl'
