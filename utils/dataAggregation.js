@@ -60,9 +60,9 @@ async function importData() {
     const collection = await mongoClient()
     await collection.deleteMany({})
     for (let file of files) {
-      console.log('file....',file)
+      console.log('file....', file)
       const data = fs.readFileSync(`data/${file}`, { encoding: 'utf8' })
-      console.log('file....data....',file,data.length)
+      console.log('file....data....', file, data.length)
       const dataObjectArr = JSON.parse(data)
       console.log('dataObjectArr.length', dataObjectArr.length)
       await collection.insertMany(dataObjectArr)
@@ -98,7 +98,7 @@ async function exportData() {
 
   cursorAsStream = stream.Readable.from(cursor.map(async (entry) => {
     const { products, category, itemOrder, marka, subcategory } = entry
-    const next = { ...products , itemOrder  }
+    const next = { ...products, itemOrder }
 
     ++parcedData
     if (parcedData === countdata.length) {
@@ -137,16 +137,16 @@ async function exportData() {
 
 async function dataAggregation() {
   await importData()
+  debugger;
   await exportData()
 }
 
 module.exports = { dataAggregation }
 
-
 const orderAggr = [
   {
-    '$sort': {
-      'timestamp': 1
+    '$match': {
+      'subcategory': 'Elbise'
     }
   }, {
     '$group': {
@@ -182,16 +182,11 @@ const orderAggr = [
     '$group': {
       '_id': {
         'marka': '$marka',
-        'subcategory': '$subcategory'
+        'subcategory': '$subcategory',
+        'category': '$category'
       },
       'marka': {
         '$first': '$marka'
-      },
-      'subcategory': {
-        '$first': '$subcategory'
-      },
-      'category': {
-        '$first': '$category'
       },
       'products': {
         '$push': {
@@ -209,8 +204,80 @@ const orderAggr = [
       'includeArrayIndex': 'itemOrder',
       'preserveNullAndEmptyArrays': true
     }
+  }, {
+    '$sort': {
+      'itemOrder': 1
+    }
   }
 ]
+// const orderAggr = [
+//   {
+//     '$sort': {
+//       'timestamp': 1
+//     }
+//   }, {
+//     '$group': {
+//       '_id': {
+//         'imageUrl': '$imageUrl'
+//       },
+//       'title': {
+//         '$first': '$title'
+//       },
+//       'priceNew': {
+//         '$first': '$priceNew'
+//       },
+//       'imageUrl': {
+//         '$first': '$imageUrl'
+//       },
+//       'link': {
+//         '$first': '$link'
+//       },
+//       'timestamp': {
+//         '$first': '$timestamp'
+//       },
+//       'category': {
+//         '$first': '$category'
+//       },
+//       'marka': {
+//         '$first': '$marka'
+//       },
+//       'subcategory': {
+//         '$first': '$subcategory'
+//       }
+//     }
+//   }, {
+//     '$group': {
+//       '_id': {
+//         'marka': '$marka',
+//         'subcategory': '$subcategory'
+//       },
+//       'marka': {
+//         '$first': '$marka'
+//       },
+//       'subcategory': {
+//         '$first': '$subcategory'
+//       },
+//       'category': {
+//         '$first': '$category'
+//       },
+//       'products': {
+//         '$push': {
+//           'title': '$title',
+//           'priceNew': '$priceNew',
+//           'imageUrl': '$imageUrl',
+//           'link': '$link',
+//           'timestamp': '$timestamp'
+//         }
+//       }
+//     }
+//   }, {
+//     '$unwind': {
+//       'path': '$products',
+//       'includeArrayIndex': 'itemOrder',
+//       'preserveNullAndEmptyArrays': true
+//     }
+//   }
+// ]
 
 
 

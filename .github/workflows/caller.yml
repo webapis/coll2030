@@ -1,21 +1,19 @@
 name: caller
 on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 3 * * *'
+   workflow_dispatch:
 jobs:
   machka_job:
     uses: ./.github/workflows/reusable.yml
     with:
       start_url:  https://www.machka.com.tr/search?q=%C5%9Eort%20Elbise%20Bluz%20G%C3%B6mlek%20Tunik%20Ceket%20Kap%20Etek%20Pantolon%20Triko%20Sweatshirt%20Penye%20Yelek%20Pard%C3%B6s%C3%BC%20Mont			
-      order: true
+      order: false
       marka: machka
     secrets: inherit
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      start_url:  https://www.defacto.com.tr/kadin-tumu		
-      order: false
+      start_url:  https://www.defacto.com.tr/kadin-elbise
+      order: true
       marka: defacto
     secrets: inherit
   koton_job:
@@ -41,7 +39,7 @@ jobs:
     secrets: inherit
   generate_nav_job:
     runs-on: ubuntu-latest
-    needs: [defacto_job,machka_job,koton_job,boyner_job,lcwaikiki_job]
+    needs: [defacto_job,machka_job,lcwaikiki_job,boyner_job,koton_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -75,6 +73,11 @@ jobs:
         with:
           name: data
           path: data
+      - name: Download a single artifact 2
+        uses: actions/download-artifact@v3
+        with:
+          name: data-nav
+          path: data-nav
       - name: generate nav step
         id: gen_nav
         run: node generateNav.js

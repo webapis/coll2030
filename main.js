@@ -23,8 +23,8 @@ Apify.main(async () => {
     const productsNavDataset = await Apify.openDataset(`productsnav`);
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categoriestest!A:C' })
 
-    console.log('sheetData.......',sheetData)
-debugger;
+    console.log('sheetData.......', sheetData)
+    debugger;
 
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const subcategory = value[0]
@@ -106,7 +106,7 @@ debugger;
             })
             if (productSubCategory) {
 
-                return { ...p,  title: marka+" "+ p.title + " _x " + productSubCategory.category }
+                return { ...p, title: marka + " " + p.title + " _x " + productSubCategory.category, subcategory: productSubCategory.subcategory, category: productSubCategory.category }
 
             } else {
 
@@ -120,10 +120,10 @@ debugger;
 
                 if (findcategory) {
 
-                    return { ...p, title: marka+" "+ p.title + " _x " + findcategory.category + " diğer" }
+                    return { ...p, title: marka + " " + p.title + " _x " + findcategory.category + " diğer", subcategory: "diğer", category: findcategory.category, }
                 } else {
 
-                    return { ...p, title: marka+" "+ p.title +" belirsiz" }
+                    return { ...p, title: marka + " " + p.title + " belirsiz", subcategory: "belirsiz", category: "belirsiz" }
                 }
 
             }
@@ -144,7 +144,7 @@ debugger;
 
         console.log('uploading to excell complete....', process.env.dataLength)
 
-      //  await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
+        //  await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '12mKtqxu5A-CVoXP_Kw36JxKiC69oPUUXVQmm7LUfh3s', range: 'DATA!A:B', values: table })
 
         process.env.dataLength = parseInt(process.env.dataLength) + map2.length
 
