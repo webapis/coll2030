@@ -52,13 +52,11 @@ jobs:
         with:
           name: data
           path: data
-      - name: Download a single artifact 2
-        uses: actions/download-artifact@v3
-        with:
-          name: data-nav
-          path: data-nav
-      - name: generate nav step
-        id: gen_nav
-        run: node generateNav.js
+      - name: remove dublicate data 
+        id: removeDublicateData
+        run: node utils/removeDublicateData.js
+      - name: gen nav
+        id: genegateNavigation
+        run: node utils/genegateNavigation.js
       - name: publish 
         run: vercel --token ${{secrets.VERCEL_TOKEN}} 
