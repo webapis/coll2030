@@ -87,7 +87,7 @@ async function importData() {
   
   
   }
-async function extractNavTree() {
+async function extractNavTree({collection}) {
 
     const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { useNewUrlParser: true, useUnifiedTopology: true });
     const clnt = await client.connect()

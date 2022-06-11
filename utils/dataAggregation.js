@@ -8,11 +8,11 @@ var through = require("through2");
 var jsonArrayStreams = require("json-array-streams");
 
 
-async function mongoClient() {
+async function mongoClient({collectionName}) {
   const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
   const clnt = await client.connect()
-  const collection = clnt.db("streamToMongoDB").collection("data");
+  const collection = clnt.db("streamToMongoDB").collection(collectionName);
 
   return collection
 }
@@ -52,12 +52,12 @@ async function importOldData() {
 
 
 
-async function importData() {
+async function importData({collectionName}) {
 
   try {
     console.log('IMPORTING DATA STARTED....')
     const files = fs.readdirSync('data')
-    const collection = await mongoClient()
+    const collection = await mongoClient({collectionName})
     await collection.deleteMany({})
     for (let file of files) {
       console.log('file....', file)
@@ -117,18 +117,15 @@ async function exportData() {
       console.log('EXPORTING DATA COMPLETED......')
       fs.appendFileSync(`./api/_files/kadin/data.json`, ']')
       resolve(true)
-
     })
     writeStream.on('pipe', () => {
-
       console.log('data recieved')
     })
     writeStream.on('error', (error) => {
-
       console.log('export error', error)
       reject(error)
     })
-
+    
   })
 
 
