@@ -3,13 +3,13 @@
 require('dotenv').config()
 
 const { MongoClient } = require('mongodb')
-const stream = require('stream')
+//const stream = require('stream')
 const fs = require('fs')
 const path = require('path')
 
 const makeDir = require('make-dir');
-var through = require("through2");
-var jsonArrayStreams = require("json-array-streams");
+//var through = require("through2");
+//var jsonArrayStreams = require("json-array-streams");
 
 
 async function mongoClient({ collectionName }) {
@@ -60,12 +60,15 @@ async function exportData({ exportPath, collectionName, aggegation }) {
 }
 
 async function extractNavData({collection,exportPath}) {
-
+    const dirname = path.dirname(exportPath)
+    debugger;
+    await makeDir(dirname)
 
     const data = await collection.aggregate([{ $project: { _id: 0, marka: 0 } }]).toArray()
     if (fs.existsSync(exportPath)) {
         fs.unlinkSync(exportPath)
     }
+
     fs.appendFileSync(exportPath, JSON.stringify(data))
     debugger;
 
