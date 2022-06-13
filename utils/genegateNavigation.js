@@ -12,7 +12,7 @@ async function generateNavigation() {
     const google_access_token = await getGoogleToken()
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId: '1TVFTCbMIlLXFxeXICx2VuK0XtlNLpmiJxn6fJfRclRw', range: 'categoriestest!A:C' })
     var counter = 0
-    //console.log('sheetData.......', sheetData)
+    console.log('sheetData.......', sheetData)
     debugger;
     let categoryItems = []
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
@@ -38,15 +38,18 @@ async function generateNavigation() {
         debugger;
         let categoryExistsintitle = match && new RegExp(match.category, 'i').test(m.title)
 
-        let category = match ? categoryExistsintitle ? '' : "_ "+match.category : "belirsiz"
+        let category = match ? categoryExistsintitle ? '' : "_ " + match.category : "belirsiz"
         console.log('match', category)
         return {
-            ...m, title: m.title + category
+            ...m, title: m.title + category,
+          //  category: match? match.category:'belirsiz',
+          //  subcategory: match? match.subcategory:'belirsiz'
         }
     })
 
     for (let p of mapCategory) {
-        const { title: productTitle, marka } = p
+        const { title: productTitle } = p
+        const marka = productTitle.substring(0,productTitle.indexOf(" "))
         const productSubCategories = categoryItems.filter(c => {
             const regex = new RegExp(c.regex, 'i')
             const result = regex.test(productTitle.toLowerCase())

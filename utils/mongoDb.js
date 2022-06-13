@@ -48,6 +48,7 @@ async function exportData({ exportPath, collectionName, aggegation }) {
     const clnt = await client.connect()
     const collection = clnt.db("streamToMongoDB").collection(collectionName);
     const data = await collection.aggregate(aggegation).toArray()
+    debugger;
     const dirname = path.dirname(exportPath)
     debugger;
     await makeDir(dirname)

@@ -26,10 +26,7 @@ debugger;
             }, 
             'timestamp': {
               '$first': '$timestamp'
-            }, 
-            'marka': {
-              '$first': '$marka'
-            }
+            },
           }
         }, {
           '$unset': '_id'

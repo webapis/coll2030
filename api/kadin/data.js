@@ -1,7 +1,7 @@
 require('dotenv').config()
 var TAFFY = require('taffy');
 
-
+const { orderData } = require('./orderData')
 // Create a new database a single object (first record)
 const data = require('../_files/kadin/data.json')
 
@@ -9,17 +9,25 @@ module.exports = (req, res) => {
   const { subcatregex, categoryregex, page, marka, search } = req.query
   const start = parseInt(page)
   var products = TAFFY(data);
-  const filterBySub = subcatregex === '' ? {} : { title: { regex: new RegExp(subcatregex, 'i') } }
+  const filterBySub = subcatregex === '' ? {} : { title: { regex: new RegExp(subcatregex,"i") } }
 
-  const filterByCat = categoryregex === '' ? {} : { title: { regex: new RegExp(categoryregex, 'i') } }
+  const filterByCat = categoryregex === '' ? {} : { title: { regex: new RegExp(categoryregex, "i") } }
+
+  debugger;
 
 
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
-  const filterByMarka = marka === '' ? {} :{ title: { regex: new RegExp(marka, 'i') } }
+  const filterByMarka = marka === '' ? {} : { title: { regex: new RegExp(marka, 'i') } }
   debugger;
-  //  var d = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).order("itemOrder asec").start(start).limit(100).get()
-  var d = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).order("itemOrder asec, title asec").start(start).limit(100).get()
-  let count = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).count()
+  var filteredData = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).get()
+  debugger;
+  var orderedData = orderData(filteredData)
+  var orderedDb = TAFFY(orderedData)
+  debugger;
+  var d = orderedDb().start(start).limit(100).get()
+  let count = orderedDb().count()
+
+
 
   console.log('data.length', d.length)
   console.log('subcatregex', filterBySub)
@@ -29,7 +37,7 @@ module.exports = (req, res) => {
   console.log('page', page)
   console.log('count', count)
   debugger;
-  res.status(200).json({ data: d,count })
+  res.status(200).json({ data: d, count })
 }
 
 
