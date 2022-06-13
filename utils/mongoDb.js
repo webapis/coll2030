@@ -54,7 +54,9 @@ async function exportData({ exportPath, collectionName, aggegation }) {
   
     // }
     //fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify([]))
-    const writeStream = fs.createWriteStream('./api/_files/kadin/data.json')
+    const dirname = path.dirname(exportPath)
+    await makeDir(dirname)
+    const writeStream = fs.createWriteStream(exportPath)
     writeStream.write('[')
     const countdata = await cursor2.toArray()
   
@@ -76,10 +78,11 @@ async function exportData({ exportPath, collectionName, aggegation }) {
   
     return new Promise((resolve, reject) => {
   
-      writeStream.on('finish', () => {
+      writeStream.on('finish', async() => {
+  
   
         console.log('EXPORTING DATA COMPLETED......')
-        fs.appendFileSync(`./api/_files/kadin/data.json`, ']')
+        fs.appendFileSync(exportPath, ']')
         resolve(true)
       })
       writeStream.on('pipe', () => {
