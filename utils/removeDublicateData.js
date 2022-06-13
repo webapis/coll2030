@@ -36,6 +36,6 @@ debugger;
     await exportData({ exportPath: './api/_files/kadin/data.json', collectionName: 'data', aggegation })
     console.log('-------------REMOVING DUBLICATE DATA COMPLETE---------------')
     process.exit(0)
-    debugger;
+ 
 })()
 

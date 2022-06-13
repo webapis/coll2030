@@ -60,7 +60,7 @@ async function generateNavigation() {
         if (productSubCategories.length > 0) {
             for (let d of productSubCategories) {
                 counter = counter + 1
-                console.log('counter', counter)
+        
                 const { category, subcategory, regex } = d
                 debugger;
                 await categoryNavCollection.updateOne({}, { $inc: { [`nav.totalByCategory`]: 1 } }, { upsert: true })
