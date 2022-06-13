@@ -1,7 +1,7 @@
 
 
 require('dotenv').config()
-
+const stream = require('stream')
 const { MongoClient } = require('mongodb')
 //const stream = require('stream')
 const fs = require('fs')
@@ -44,19 +44,54 @@ async function importData({ collectionName, folder }) {
 
 async function exportData({ exportPath, collectionName, aggegation }) {
     console.log('EXPORTING DATA STARTED....')
-    const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { useNewUrlParser: true, useUnifiedTopology: true });
-    const clnt = await client.connect()
-    const collection = clnt.db("streamToMongoDB").collection(collectionName);
-    const data = await collection.aggregate(aggegation).toArray()
-    debugger;
-    const dirname = path.dirname(exportPath)
-    debugger;
-    await makeDir(dirname)
-    if (fs.existsSync(exportPath)) {
-        fs.unlinkSync(exportPath)
-    }
-    fs.appendFileSync(exportPath, JSON.stringify(data))
-    console.log('EXPORTING DATA COMPLETE....',data.length)
+    console.log('EXPORTING DATA STARTED......')
+    const collection = await mongoClient({collectionName})
+  
+    const cursor = await collection.aggregate(aggegation, { allowDiskUse: true })
+    const cursor2 = await collection.aggregate(aggegation, { allowDiskUse: true })
+    // if (fs.existsSync('./api/_files/kadin/data.json')) {
+    //   fs.unlinkSync('./api/_files/kadin/data.json')
+  
+    // }
+    //fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify([]))
+    const writeStream = fs.createWriteStream('./api/_files/kadin/data.json')
+    writeStream.write('[')
+    const countdata = await cursor2.toArray()
+  
+    let parcedData = 0
+  
+    cursorAsStream = stream.Readable.from(cursor.map(async (entry) => {
+    //   const { products, category, itemOrder, marka, subcategory } = entry
+    //   const next = { ...products, itemOrder }
+  
+      ++parcedData
+      if (parcedData === countdata.length) {
+        return JSON.stringify(entry) + '\n'
+      }
+  
+      return JSON.stringify(entry) + ',\n'
+  
+    }))
+    cursorAsStream.pipe(writeStream);
+  
+    return new Promise((resolve, reject) => {
+  
+      writeStream.on('finish', () => {
+  
+        console.log('EXPORTING DATA COMPLETED......')
+        fs.appendFileSync(`./api/_files/kadin/data.json`, ']')
+        resolve(true)
+      })
+      writeStream.on('pipe', () => {
+        console.log('data recieved')
+      })
+      writeStream.on('error', (error) => {
+        console.log('export error', error)
+        reject(error)
+      })
+      
+    })
+  
  
 }
 
@@ -77,3 +112,22 @@ async function extractNavData({collection,exportPath}) {
 module.exports = { importData, exportData,mongoClient,extractNavData }
 
 
+/*
+async function exportData({ exportPath, collectionName, aggegation }) {
+    console.log('EXPORTING DATA STARTED....')
+    const client = new MongoClient('mongodb://localhost:27017/streamToMongoDB', { useNewUrlParser: true, useUnifiedTopology: true });
+    const clnt = await client.connect()
+    const collection = clnt.db("streamToMongoDB").collection(collectionName);
+    const data = await collection.aggregate(aggegation).toArray()
+    debugger;
+    const dirname = path.dirname(exportPath)
+    debugger;
+    await makeDir(dirname)
+    if (fs.existsSync(exportPath)) {
+        fs.unlinkSync(exportPath)
+    }
+    fs.appendFileSync(exportPath, JSON.stringify(data))
+    console.log('EXPORTING DATA COMPLETE....',data.length)
+ 
+}
+*/
