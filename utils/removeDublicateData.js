@@ -33,7 +33,7 @@ debugger;
         }
       ]
 
-    await exportData({ exportPath: './data-unique/data.json', collectionName: 'data', aggegation })
+    await exportData({ exportPath: `${process.cwd()}/data-unique/data.json`, collectionName: 'data', aggegation })
     console.log('-------------REMOVING DUBLICATE DATA COMPLETE---------------')
     process.exit(0)
  

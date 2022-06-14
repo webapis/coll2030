@@ -189,7 +189,7 @@ async function generateNavigation() {
                     if (objCounter === totalObjects) {
 
                         console.log('end')
-            
+
 
                     } else {
 
@@ -207,9 +207,9 @@ async function generateNavigation() {
         readstream.on('end', async (data) => {
 
             console.log('closed')
-                        await extractNavData({ collection: categoryNavCollection, exportPath: './src/components/categoryMenu/category-nav.json' })
-                        await extractNavData({ collection: markaNavCollection, exportPath: './src/components/MarkaMenu/marka-nav.json' })
-                        return resolve(true)
+            await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/src/components/categoryMenu/category-nav.json` })
+            await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/src/components/MarkaMenu/marka-nav.json` })
+            return resolve(true)
 
         })
         readstream.on('error', (error) => {
@@ -224,7 +224,7 @@ async function generateNavigation() {
     console.log('---------------NAV GENERATION STARTED----------------')
     await generateNavigation()
     console.log('---------------NAV GENERATION COMPLETE----------------')
-     process.exit(0)
+    process.exit(0)
 })()
 
 
