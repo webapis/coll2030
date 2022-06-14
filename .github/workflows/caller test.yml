@@ -57,6 +57,9 @@ jobs:
       - name: remove dublicate data 
         id: removeDublicateData
         run: node utils/removeDublicateData.js
+      - name: categorize data 
+        id: datacategorization
+        run: node utils/categorizeData.js
       - name: gen nav
         id: genegateNavigation
         run: node utils/genegateNavigation.js

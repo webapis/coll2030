@@ -44,16 +44,12 @@ async function importData({ collectionName, folder }) {
 
 async function exportData({ exportPath, collectionName, aggegation }) {
     console.log('EXPORTING DATA STARTED....')
-    console.log('EXPORTING DATA STARTED......')
+
     const collection = await mongoClient({collectionName})
   
     const cursor = await collection.aggregate(aggegation, { allowDiskUse: true })
     const cursor2 = await collection.aggregate(aggegation, { allowDiskUse: true })
-    // if (fs.existsSync('./api/_files/kadin/data.json')) {
-    //   fs.unlinkSync('./api/_files/kadin/data.json')
-  
-    // }
-    //fs.appendFileSync(`./api/_files/kadin/data.json`, JSON.stringify([]))
+
     const dirname = path.dirname(exportPath)
     await makeDir(dirname)
     const writeStream = fs.createWriteStream(exportPath)
@@ -61,11 +57,7 @@ async function exportData({ exportPath, collectionName, aggegation }) {
     const countdata = await cursor2.toArray()
   
     let parcedData = 0
-  
-    cursorAsStream = stream.Readable.from(cursor.map(async (entry) => {
-    //   const { products, category, itemOrder, marka, subcategory } = entry
-    //   const next = { ...products, itemOrder }
-  
+    cursorAsStream = stream.Readable.from(cursor.map(async (entry) => {  
       ++parcedData
       if (parcedData === countdata.length) {
         return JSON.stringify(entry) + '\n'
