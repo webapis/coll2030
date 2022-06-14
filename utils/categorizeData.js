@@ -6,6 +6,7 @@ const { getGoogleToken } = require('../google/google.oauth')
 const fs = require('fs')
 const { getSheetValues, appendSheetValues } = require('../google.sheet.js')
 const makeDir = require('make-dir');
+const path =require('path')
 var through = require("through2");
 var jsonArrayStreams = require("json-array-streams");
 
