@@ -101,6 +101,11 @@ async function extractNavData({collection,exportPath}) {
     }
 
     fs.appendFileSync(exportPath, JSON.stringify(data))
+    console.log('exportpath',exportPath)
+   const files = fs.readdirSync(dirname)
+   files.forEach(file => {
+    console.log('file',file);
+  });
     debugger;
 
 }

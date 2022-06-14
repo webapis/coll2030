@@ -8,9 +8,9 @@ import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import catNav from '../components/categoryMenu/category-nav.json'
+import catNav from './categoryMenu/category-nav.json'
 import CategoryIcon from '@mui/icons-material/Category';
-import MarkaNav from '../components/markaMenu/marka-nav.json'
+import MarkaNav from './MarkaMenu/marka-nav.json'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { actions } from '../store/breadcrumbSlice'
 import { useDispatch, useSelector } from "react-redux";

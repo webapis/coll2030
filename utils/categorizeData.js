@@ -25,18 +25,18 @@ async function categorizeData() {
 
     debugger;
     return new Promise(async (resolve, reject) => {
-        if (fs.existsSync('api/_files/kadin/data.json')) {
-            fs.unlinkSync('api/_files/kadin/data.json')
+        if (fs.existsSync(`${process.cwd()}/api/_files/kadin/data.json`)) {
+            fs.unlinkSync(`${process.cwd()}/api/_files/kadin/data.json`)
         }
-        const dirname = path.dirname('api/_files/kadin/data.json')
+        const dirname = path.dirname(`${process.cwd()}/api/_files/kadin/data.json`)
         debugger;
         await makeDir(dirname)
-        fs.appendFileSync('api/_files/kadin/data.json', '')
+        fs.appendFileSync(`${process.cwd()}/api/_files/kadin/data.json`, '')
         let counter = 0
-        const writeStream = fs.createWriteStream('./api/_files/kadin/data.json')
+        const writeStream = fs.createWriteStream(`${process.cwd()}/api/_files/kadin/data.json`)
         writeStream.write('[')
-        const readstream = fs.createReadStream("./data-unique/data.json")
-        const data = fs.readFileSync("./data-unique/data.json")
+        const readstream = fs.createReadStream(`${process.cwd()}/data-unique/data.json`)
+        const data = fs.readFileSync(`${process.cwd()}/data-unique/data.json`)
         const totalObjects = JSON.parse(data).length
         let objCounter = 0
 
