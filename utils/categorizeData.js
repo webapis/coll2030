@@ -5,6 +5,7 @@
 const { getGoogleToken } = require('../google/google.oauth')
 const fs = require('fs')
 const { getSheetValues, appendSheetValues } = require('../google.sheet.js')
+const makeDir = require('make-dir');
 var through = require("through2");
 var jsonArrayStreams = require("json-array-streams");
 
@@ -26,7 +27,9 @@ async function categorizeData() {
         if (fs.existsSync('api/_files/kadin/data.json')) {
             fs.unlinkSync('api/_files/kadin/data.json')
         }
-
+        const dirname = path.dirname('api/_files/kadin/data.json')
+        debugger;
+        await makeDir(dirname)
         fs.appendFileSync('api/_files/kadin/data.json', '')
         let counter = 0
         const writeStream = fs.createWriteStream('./api/_files/kadin/data.json')
