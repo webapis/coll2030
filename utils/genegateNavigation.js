@@ -156,9 +156,9 @@ async function generateNavigation() {
                     if (objCounter === totalObjects) {
 
                         console.log('end')
-                        await extractNavData({ collection: categoryNavCollection, exportPath: './src/components/categoryMenu/category-nav.json' })
-                        await extractNavData({ collection: markaNavCollection, exportPath: './src/components/MarkaMenu/marka-nav.json' })
-                        return resolve(true)
+                        // await extractNavData({ collection: categoryNavCollection, exportPath: './src/components/categoryMenu/category-nav.json' })
+                        // await extractNavData({ collection: markaNavCollection, exportPath: './src/components/MarkaMenu/marka-nav.json' })
+                        // return resolve(true)
 
                     } else {
 
@@ -189,9 +189,7 @@ async function generateNavigation() {
                     if (objCounter === totalObjects) {
 
                         console.log('end')
-                        await extractNavData({ collection: categoryNavCollection, exportPath: './src/components/categoryMenu/category-nav.json' })
-                        await extractNavData({ collection: markaNavCollection, exportPath: './src/components/MarkaMenu/marka-nav.json' })
-                        return resolve(true)
+            
 
                     } else {
 
@@ -209,7 +207,9 @@ async function generateNavigation() {
         readstream.on('end', async (data) => {
 
             console.log('closed')
-
+                        await extractNavData({ collection: categoryNavCollection, exportPath: './src/components/categoryMenu/category-nav.json' })
+                        await extractNavData({ collection: markaNavCollection, exportPath: './src/components/MarkaMenu/marka-nav.json' })
+                        return resolve(true)
 
         })
         readstream.on('error', (error) => {
