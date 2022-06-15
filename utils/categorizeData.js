@@ -53,7 +53,7 @@ async function categorizeData() {
 
                 let categoryExistsintitle = match && new RegExp(match.category, 'i').test(title)
 
-                let category = match ? categoryExistsintitle ? '' : "_ " + match.category : "belirsiz"
+                let category = match ? categoryExistsintitle ? '' : " " + match.category : " belirsiz"
                // console.log('match', category)
                 const categorizedObject = { ...object, title: title + category }
                 writeStream.write(JSON.stringify(categorizedObject))
