@@ -1,10 +1,10 @@
 
  console.log('main.js is loading...')
  require('dotenv').config()
- const { getGoogleToken } = require('./google/google.oauth')
+ const { getGoogleToken } = require('../google/google.oauth')
  const fs =require('fs')
  
- const { getSheetValues, setSheetValue, appendSheetValues } = require('./google.sheet.js')
+ const { getSheetValues, setSheetValue, appendSheetValues } = require('../google.sheet.js')
 
  const Apify = require('apify');
 
