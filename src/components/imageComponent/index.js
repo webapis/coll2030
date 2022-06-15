@@ -18,7 +18,7 @@ export default function ImageComponent(props) {
     const imagePlaceholder = placeholders[props.marka].placeholder
     const logo = placeholders[props.marka].logo
     const imageSource = cloudinary + placeholders[props.marka].imageHost.trim() + props.imageUrl
-    const detailHost = placeholders[props.marka].detailHost + props.link
+    const detailHost = placeholders[props.marka].detailHost + props.link+placeholders[props.marka].postfix
     const date2 = props.timestamp
     const date1 = Date.now()
     const hour = Math.floor(Math.abs(date1 - date2) / 36e5);
@@ -60,7 +60,7 @@ export default function ImageComponent(props) {
             <img ref={imageEl} data-intersection="true" className="figure"
               
               src={imagePlaceholder}
-              data-src={imageSource}
+              data-src={imageSource.trim()}
               alt={props.title}
               loading="lazy"
             />

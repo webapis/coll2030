@@ -11,8 +11,7 @@ async function handler(page) {
             const firstPrice = productCard.querySelector('.firstPrice') ? productCard.querySelector('.firstPrice').innerText.trim().replace('₺', '').replace('TL', '') : null
             const insteadPrice = productCard.querySelector('.insteadPrice') ? productCard.querySelector('.insteadPrice').innerText.trim().replace('₺', '').replace('TL', '') : null
             const newPrice = productCard.querySelector('.newPrice') ? productCard.querySelector('.newPrice').innerText.trim().replace('₺', '').replace('TL', '') : null
-          //  const discount = productCard.querySelector('.product-badge') ? productCard.querySelector('.product-badge').innerText.trim() : null
-          //  const discount1Badge = productCard.querySelector('.vl-2ye-50indirim-badge img') ? true : false
+      
             const priceNew = firstPrice || newPrice
             const discPerc = insteadPrice ? Math.floor(((parseInt(insteadPrice) - parseInt(priceNew)) * 100) / parseInt(insteadPrice)) : null
             const gender =window.location.href.substring(window.location.href.indexOf('.com/tr/')+8,window. location. href.indexOf('/c/')).replace('i','ı')
@@ -20,26 +19,20 @@ async function handler(page) {
             const longlink =  productCard.querySelector('.prc-name').href
             const link = longlink.substring(longlink.indexOf('https://www.koton.com/tr/')+25)
             const longImgUrl = imageUrl && productCard.querySelector('.image img').getAttribute('data-src')
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://ktnimg.mncdn.com/mnresize/')+34)
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://ktnimg.mncdn.com/mnresize/842/1105/product-images/')+58)
+            const removePostfix = link.substring(0,link.indexOf('&listName'))
             return {
                 title: productCard.querySelector('.prc-name').innerText,
-             //   priceOld: insteadPrice,
                 priceNew,
-              //  priceBasket: '',
-             //   basketDiscount:'',
                 imageUrl: imageUrlshort,
-                link,
-             //   timestamp2:  new Date().toISOString(),
+                link:removePostfix,
                 timestamp: Date.now(),
-             //   plcHolder: "http://img-kotonw.mncdn.com/_ui/shared/images/koton-loading-gif2.gif",
-              //  discPerc,
-             //   gender,
                 marka:'koton'
             }
         })//.filter(f => f.imageUrl !== null)
 
     })
-
+debugger;
 
     console.log('data length_____', data.length, 'url:', url)
     return data
@@ -51,7 +44,7 @@ async function getUrls(page) {
     const productCount =  await page.$eval('.plt-count', element => parseInt(element.textContent.replace(/[^\d]/g, "")))
     const totalPages = Math.ceil((productCount-(191*2)) / 191)
     const pageUrls = []
-debugger;
+
     let pagesLeft = totalPages
     for (let i = 1; i <= totalPages; i++) {
 
