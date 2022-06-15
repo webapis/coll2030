@@ -29,7 +29,7 @@ async function handler(page) {
                 timestamp: Date.now(),
                 marka:'koton'
             }
-        })//.filter(f => f.imageUrl !== null)
+        }).filter(f => f.imageUrl !== null)
 
     })
 debugger;

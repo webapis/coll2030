@@ -7,39 +7,24 @@ async function handler(page) {
 
           const imageUrl = productCard.querySelector('.product-img img').getAttribute('data-original')
           const title= productCard.querySelector('.product-name').innerText
-          const priceOld=productCard.querySelector('.price-psfx') && productCard.querySelector('.price-psfx').innerText.replace('TL','').trim()
           const priceNew= productCard.querySelector('.price-payable') && productCard.querySelector('.price-payable').innerText.replace('TL','').trim()
-          const  priceBasket=productCard.querySelector('.a-campaignPrice') && productCard.querySelector('.a-campaignPrice').innerText.replace('TL','').trim()
-          const basketDiscount=priceBasket ? Math.floor( ((parseInt(priceNew)-parseInt(priceBasket))*100)/parseInt(priceNew)):null
-          const discPerc =priceOld ? Math.floor( ((parseInt(priceOld)-parseInt(priceNew))*100)/parseInt(priceOld)):null
-          const hizliGonderi=productCard.querySelector('.product-badges').textContent.indexOf('hızlı gönderi') !==-1 ? true:false 
-          const kargoBedava =productCard.querySelector('.product-badges').textContent.indexOf('kargo bedava') !==-1 ? true:false
-          const gender =productCard.getAttribute('data-dimension64').toLowerCase()
-
           const longlink =productCard.querySelector('.product-figure-wrap a').href
           const link = longlink.substring(longlink.indexOf('https://www.boyner.com.tr/')+26)
           const longImgUrl = imageUrl&&  productCard.querySelector('.product-img img').getAttribute('data-original')
-          const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://statics.boyner.com.tr/mnresize/')+39)
+          const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://statics.boyner.com.tr/mnresize/325/451/productimages/')+61)
           debugger;
             return {
                 title,
-              //  priceOld,
                 priceNew,
-             ////   priceBasket,
-             //   basketDiscount,
                 imageUrl: imageUrlshort,
                 link,   
-              //  timestamp2:  new Date().toISOString(),
                 timestamp: Date.now(),
-             //   plcHolder:"https://statics.boyner.com.tr/assets/images/loading-icon.gif",
-              //  discPerc,
-            //    gender,
                 marka:'boyner'
 
             }
-        })//.filter(f => f.imageUrl !== null)
+        }).filter(f => f.imageUrl !== null)
     })
-
+debugger;
     console.log('data length_____', data.length, 'url:', url)
   
 
@@ -48,7 +33,7 @@ async function handler(page) {
 }
 
 async function getUrls(page) {
-    const param='/?dropListingPageSize=90&orderOption=Editor'
+
     await page.waitForSelector('.red-v1 .grey')
     const firstUrl =await page.url()
     
@@ -57,7 +42,7 @@ async function getUrls(page) {
     const pageUrls = []
     let pagesLeft = totalPages
   const commonURL = firstUrl.substring(0,firstUrl.lastIndexOf('='))
-  debugger;
+
     for (let i = 2; i <= totalPages; i++) {
         const url = `${commonURL}=${i}`
 
@@ -67,8 +52,7 @@ async function getUrls(page) {
             --pagesLeft
         }
     }
-console.log('totalPages',totalPages)
-console.log('pageUrls',pageUrls.length)
+
 
  return { pageUrls, productCount, pageLength: pageUrls.length + 1 }
 }
