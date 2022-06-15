@@ -85,4 +85,4 @@ jobs:
         id: genegateNavigation
         run: node utils/genegateNavigation.js
       - name: publish 
-        run: vercel --token ${{secrets.VERCEL_TOKEN}} --prod
+        run: vercel --token ${{secrets.VERCEL_TOKEN}}
