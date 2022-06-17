@@ -1,11 +1,9 @@
 import Card from '@mui/material/Card';
 
 import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
 
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Avatar from '@mui/material/Avatar';
+
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
