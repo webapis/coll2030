@@ -11,7 +11,7 @@ export default function SearchInput() {
   const search = useSelector(state => state.breadcrumb.search)
   function handleOnInput(e) {
     const { value } = e.target
-    debugger;
+    
     dispatch(actions.setSearchText(value))
   }
 

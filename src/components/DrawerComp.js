@@ -19,9 +19,9 @@ import { ListItem } from "@mui/material";
 
 const {markas,totalByMarka} = MarkaNav[0]['nav']
 
-debugger;
+
 const { categories, totalByCategory } = catNav[0]['nav']
-debugger;
+
 export default function DrawerComp() {
     const drawerOpen = useSelector(state => state.breadcrumb.drawerOpen)
     const dispatch = useDispatch()
@@ -102,7 +102,7 @@ function MarkaMenu(props) {
 
 
 function MarkasList({markas,open }) {
-debugger;
+
 
     return (
         <Collapse in={open} timeout="auto" unmountOnExit>
@@ -125,7 +125,7 @@ debugger;
                 }).map((n, i) => {
                     const { marka, totalByCatory, categories } = n
                     
-debugger;
+
                  
                     return <MarkaListItem key={i} id={marka} markaTotal={totalByCatory} title={marka} categories={categories} render={({ open, categories }) => <CategoryList open={open} categories={categories} />} />
                 })}

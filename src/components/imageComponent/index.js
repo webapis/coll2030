@@ -45,9 +45,7 @@ export default function ImageComponent(props) {
   
     }, []);
   
-    function executeOnClick(isExpanded) {
-      console.log(isExpanded);
-    }
+
   
     return (
       <div>

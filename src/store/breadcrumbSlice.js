@@ -31,7 +31,7 @@ export const breadcrumbSlice = createSlice({
       state.selectedCategory = '';
       state.selectedSubcategory = '';
       state.search = action.payload
-      debugger;
+      
     },
     searchText:(state,action)=>{
    
@@ -46,7 +46,7 @@ export const breadcrumbSlice = createSlice({
     setFetchedProductsTotal: (state, action) => {
       state.totalFetchedProducts = state.totalFetchedProducts + action.payload.products.length
       state.subCatTotal = action.payload.subCatTotal
-      debugger;
+      
       if (action.payload.products) {
         state.products = [...state.products, ...action.payload.products]
       }

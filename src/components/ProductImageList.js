@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 export default function ProductImageList(props) {
 
   const { selectedMarka, selectedSubcategory, selectedCategory, totalFetchedProducts, subCatTotal, fetching, products, selectedRegex, search } = useSelector(state => state.breadcrumb)
-  debugger;
+  
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function ProductImageList(props) {
       >
         {products.length > 0 && products.map((item, i) => {
           const marka =item.title.substring(0, item.title.indexOf(' '))
-debugger;
+
           return <Grid item key={item.title} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
 
             <ImageComponent key={i} selectedSubcategory={selectedSubcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
