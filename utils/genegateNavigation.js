@@ -36,11 +36,11 @@ async function generateNavigation() {
         let objCounter = 0
         readstream.pipe(jsonArrayStreams.parse())
             .pipe(through.obj(async function (object, enc, cb) {
-
+                ++objCounter
                 const { title: productTitle } = object
                 const marka = productTitle.substring(0, productTitle.indexOf(" "))
                 const productSubCategories = categoryItems.filter(c => {
-                    const regex = new RegExp(c.regex, 'i')
+                    const regex = new RegExp(c.regex, "i")
                     const result = regex.test(productTitle.toLowerCase())
                     return result
                 })
@@ -53,17 +53,17 @@ async function generateNavigation() {
 
                     }
 
-                    ++objCounter
+                   
                
                     if (objCounter === totalObjects) {
 
-                        console.log('end')
-                
-
-                    } else {
+                        console.log('end....1')
+                        await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/src/components/categoryMenu/category-nav.json` })
+                        await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/src/components/MarkaMenu/marka-nav.json` })
+                        return resolve(true)
 
                     }
-
+               
                     cb()
 
                 } else {
@@ -76,14 +76,14 @@ async function generateNavigation() {
                     })
 
                     if (findcategory) {
-                        await updateDatabase({pc:{category: findcategory.category,subcategory: 'diğer', regex: 'diğer'}, marka, markaNavCollection, categoryNavCollection})
+                      //  await updateDatabase({pc:{category: findcategory.category,subcategory: 'diğer', regex: 'diğer'}, marka, markaNavCollection, categoryNavCollection})
                     
                     } else {
-                        await updateDatabase({pc:{category: 'belirsiz',subcategory: 'belirsiz', regex: 'belirsiz'}, marka, markaNavCollection, categoryNavCollection})
+                      //  await updateDatabase({pc:{category: 'belirsiz',subcategory: 'belirsiz', regex: 'belirsiz'}, marka, markaNavCollection, categoryNavCollection})
                    
                     }
                
-                    ++objCounter
+                  
          
                     if (objCounter === totalObjects) {
 
@@ -93,7 +93,12 @@ async function generateNavigation() {
                     } else {
 
                     }
-
+                    if(objCounter===totalObjects){
+                        console.log('end....2')
+                        await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/src/components/categoryMenu/category-nav.json` })
+                        await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/src/components/MarkaMenu/marka-nav.json` })
+                        return resolve(true)
+                    }
                     cb()
                 }
 

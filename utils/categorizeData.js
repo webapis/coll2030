@@ -57,7 +57,7 @@ async function categorizeData() {
                // console.log('match', category)
                 const categorizedObject = { ...object, title: title + category }
                 writeStream.write(JSON.stringify(categorizedObject))
-                ++objCounter
+                ++ objCounter
 
                 if (objCounter === totalObjects) {
 

@@ -2,10 +2,14 @@ import Card from '@mui/material/Card';
 
 import CardContent from '@mui/material/CardContent';
 
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+
+import  ListItem  from '@mui/material/ListItem';
+
+import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 
-import { red } from '@mui/material/colors';
-import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import { actions } from '../store/breadcrumbSlice'
 import { useDispatch } from 'react-redux';
@@ -24,15 +28,18 @@ export default function SubcategoriesComp({ subcategories }) {
         dispatch(actions.selectSubcategory({ selectedSubcategory, subCatTotal, regex }))
     
       }
-    return  <Card sx={{ minWidth: 200,margin:1 }} variant="outlined">
+    return  <Card sx={{ minWidth: 250,margin:1 }} variant="outlined">
    
        
        
       
       <CardContent>
-      <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+      <Avatar  aria-label="recipe">
             {scat.charAt(0).toUpperCase()}
           </Avatar>
+          <List>
+
+        
       {
         subcategories.map((m, i) => {
             const { regex, subCatTotal, subcategory } = m
@@ -43,10 +50,23 @@ export default function SubcategoriesComp({ subcategories }) {
                 scat =subcategory
             }
             
-            return  <Button key={i} sx={{display:'block'}} onClick={() => handleSubCategoryClick(subcategory, subCatTotal, regex)} id={i}>{scat}<Chip sx={{ marginLeft: 1 }} size="small" variant="filled" label={subCatTotal} /></Button>
+            return <ListItem   disableGutters disablePadding   secondaryAction={
+                    <Chip label={subCatTotal}/>
+              }>
+
+
+          <ListItemButton    href='#' underline="none" key={i} sx={{display:'block'}} onClick={() => handleSubCategoryClick(subcategory, subCatTotal, regex)} id={i}>
+       
+
+                <ListItemText primary={scat} />
+    
+            </ListItemButton> 
+            
+             </ListItem> 
         })
 
     }
+      </List>
       </CardContent>
    </Card> 
 }
