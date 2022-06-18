@@ -39,7 +39,7 @@ async function categorizeData() {
         const data = fs.readFileSync(`${process.cwd()}/data-unique/data.json`)
         const totalObjects = JSON.parse(data).length
         let objCounter = 0
-
+        let countCategories ={}
         readstream.pipe(jsonArrayStreams.parse())
             .pipe(through.obj(async function (object, enc, cb) {
                 const { title
@@ -65,16 +65,25 @@ async function categorizeData() {
     
                         return result === true
                     })
-
+                        
                     if(categorymatch !==undefined){
-                        console.log('diğer')
+                        if(countCategories[categorymatch.category]===undefined){
+                            countCategories[categorymatch.category]=0
+                        } else{
+                            countCategories[categorymatch.category]=++countCategories[categorymatch.category]
+                        }
+                        console.log('diğer',countCategories)
                         debugger;
                         let categoryExistsintitle =  new RegExp(categorymatch.category, 'i').test(title)
                         let category = categoryExistsintitle ? '' : "_" + categorymatch.category + "_"
                         const categorizedObject = { ...object, title: title + category+" diğer" }
+                        if(categorymatch.category==='elbise'){
+                          //  writeStream.write(JSON.stringify(categorizedObject))   
+                        }
                         writeStream.write(JSON.stringify(categorizedObject))
-                    } else{
                         debugger;
+                    } else{
+                    
                         const categorizedObject = { ...object, title: title + "_belirsiz" }
                         writeStream.write(JSON.stringify(categorizedObject))
                     }
