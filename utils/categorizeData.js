@@ -23,13 +23,13 @@ async function categorizeData() {
         categoryItems.push({ subcategory, category, regex })
     }
 
-    debugger;
+
     return new Promise(async (resolve, reject) => {
         if (fs.existsSync(`${process.cwd()}/api/_files/kadin/data.json`)) {
             fs.unlinkSync(`${process.cwd()}/api/_files/kadin/data.json`)
         }
         const dirname = path.dirname(`${process.cwd()}/api/_files/kadin/data.json`)
-        debugger;
+    
         await makeDir(dirname)
         fs.appendFileSync(`${process.cwd()}/api/_files/kadin/data.json`, '')
         let counter = 0
@@ -44,19 +44,42 @@ async function categorizeData() {
             .pipe(through.obj(async function (object, enc, cb) {
                 const { title
                 } = object
-                const match = categoryItems.find(c => {
+                const subcategorymatch = categoryItems.find(c => {
                     const regex = new RegExp(c.regex, 'i')
                     const result = regex.test(title.toLowerCase())
 
                     return result === true
                 })
+                if(subcategorymatch !==undefined){
+                    let categoryExistsintitle =  new RegExp(subcategorymatch.category, 'i').test(title)
+                    let category = categoryExistsintitle ? '' : "_" + subcategorymatch.category + "_" 
+                    const categorizedObject = { ...object, title: title + category }
+                    writeStream.write(JSON.stringify(categorizedObject))
+                } else
+                {
+                    //search by category
 
-                let categoryExistsintitle = match && new RegExp(match.category, 'i').test(title)
+                    const categorymatch = categoryItems.find(c => {
+                        const regex = new RegExp(c.category, 'i')
+                        const result = regex.test(title.toLowerCase())
+    
+                        return result === true
+                    })
 
-                let category = match ? categoryExistsintitle ? '' : " " + match.category : " belirsiz"
-               // console.log('match', category)
-                const categorizedObject = { ...object, title: title + category }
-                writeStream.write(JSON.stringify(categorizedObject))
+                    if(categorymatch !==undefined){
+                        console.log('diğer')
+                        debugger;
+                        let categoryExistsintitle =  new RegExp(categorymatch.category, 'i').test(title)
+                        let category = categoryExistsintitle ? '' : "_" + categorymatch.category + "_"
+                        const categorizedObject = { ...object, title: title + category+" diğer" }
+                        writeStream.write(JSON.stringify(categorizedObject))
+                    } else{
+                        debugger;
+                        const categorizedObject = { ...object, title: title + "_belirsiz" }
+                        writeStream.write(JSON.stringify(categorizedObject))
+                    }
+
+                }
                 ++ objCounter
 
                 if (objCounter === totalObjects) {
@@ -66,12 +89,12 @@ async function categorizeData() {
                     writeStream.write(',')
                 }
                 cb();
-                debugger;
+             
             }))
 
         readstream.on('data', (data) => {
 
-            debugger;
+          
         })
         readstream.on('close', (data) => {
             console.log('closed')

@@ -20,7 +20,8 @@ module.exports = (req, res) => {
   const filterByMarka = marka === '' ? {} : { title: { regex: new RegExp(marka, 'i') } }
   debugger;
   var filteredData = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByCat).get()
-  debugger;
+
+
   var orderedData = orderData(filteredData)
   var orderedDb = TAFFY(orderedData)
   debugger;

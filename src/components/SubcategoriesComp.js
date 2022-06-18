@@ -49,13 +49,13 @@ export default function SubcategoriesComp({ subcategories }) {
             } else{
                 scat =subcategory
             }
-            
+            debugger;
             return <ListItem   disableGutters disablePadding   secondaryAction={
                     <Chip label={subCatTotal}/>
               }>
 
 
-          <ListItemButton    href='#' underline="none" key={i} sx={{display:'block'}} onClick={() => handleSubCategoryClick(subcategory, subCatTotal, regex)} id={i}>
+          <ListItemButton    href='#' underline="none" key={i} sx={{display:'block'}} onClick={() => handleSubCategoryClick(scat, subCatTotal, regex)} id={i}>
        
 
                 <ListItemText primary={scat} />

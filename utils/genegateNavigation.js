@@ -76,10 +76,10 @@ async function generateNavigation() {
                     })
 
                     if (findcategory) {
-                      //  await updateDatabase({pc:{category: findcategory.category,subcategory: 'diğer', regex: 'diğer'}, marka, markaNavCollection, categoryNavCollection})
+                        await updateDatabase({pc:{category: findcategory.category,subcategory: 'diğer', regex: 'diğer'}, marka, markaNavCollection, categoryNavCollection})
                     
                     } else {
-                      //  await updateDatabase({pc:{category: 'belirsiz',subcategory: 'belirsiz', regex: 'belirsiz'}, marka, markaNavCollection, categoryNavCollection})
+                        await updateDatabase({pc:{category: 'belirsiz',subcategory: 'belirsiz', regex: 'belirsiz'}, marka, markaNavCollection, categoryNavCollection})
                    
                     }
                
