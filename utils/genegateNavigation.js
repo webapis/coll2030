@@ -46,14 +46,13 @@ async function generateNavigation() {
                 })
            
                 if (productSubCategories !==undefined) {
-                    console.log('productSubCategories',productSubCategories.category)
-                    console.log('productTitle',productTitle)
-                    const regex = new RegExp(productSubCategories.category, "i")
-                    const result = regex.test(productTitle.toLowerCase())
-                    if(result){
-                        console.log('result',result)
+                
+                   // const regex = new RegExp(productSubCategories.category, "i")
+                   // const result = regex.test(productTitle.toLowerCase())
+                  ////  if(result){
+                       
                         await updateDatabase({pc:productSubCategories, marka, markaNavCollection, categoryNavCollection})
-                    }
+                    //}
                       
 
                     if (objCounter === totalObjects) {

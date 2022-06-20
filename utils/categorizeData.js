@@ -57,37 +57,9 @@ async function categorizeData() {
                     writeStream.write(JSON.stringify(categorizedObject))
                 } else
                 {
-                    //search by category
-
-                    const categorymatch = categoryItems.find(c => {
-                        const regex = new RegExp(c.category, 'i')
-                        const result = regex.test(title.toLowerCase())
+                    const categorizedObject = { ...object, title: title + "_belirsiz" }
+                    writeStream.write(JSON.stringify(categorizedObject))
     
-                        return result === true
-                    })
-                        
-                    if(categorymatch !==undefined){
-                        // if(countCategories[categorymatch.category]===undefined){
-                        //     countCategories[categorymatch.category]=0
-                        // } else{
-                        //     countCategories[categorymatch.category]=++countCategories[categorymatch.category]
-                        // }
-                        // console.log('diğer',countCategories)
-                        // debugger;
-                        // let categoryExistsintitle =  new RegExp(categorymatch.category, 'i').test(title)
-                        // let category = categoryExistsintitle ? '' : "_" + categorymatch.category + "_"
-                        // const categorizedObject = { ...object, title: title + category+" diğer" }
-                        // if(categorymatch.category==='elbise'){
-                        //   //  writeStream.write(JSON.stringify(categorizedObject))   
-                        // }
-                        // writeStream.write(JSON.stringify(categorizedObject))
-                        // debugger;
-                    } else{
-                    
-                        const categorizedObject = { ...object, title: title + "_belirsiz" }
-                        writeStream.write(JSON.stringify(categorizedObject))
-                    }
-
                 }
                 ++ objCounter
 
