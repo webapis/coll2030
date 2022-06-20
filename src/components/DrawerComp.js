@@ -196,7 +196,7 @@ function CategoryList({ categories, open }) {
                     <ListItemButton selected={selectedCategory === category} onClick={() => handleCategoryClick(category, subcategories)} id={category}>
                         <ListItemIcon>
                         </ListItemIcon>
-                        <ListItemText style={{ textTransform: 'capitalize' }}>{category.replace('-', ' ')}</ListItemText>
+                        <ListItemText style={{ textTransform: 'capitalize' }}>{category}</ListItemText>
                     </ListItemButton>
                 </ListItem>
                 )

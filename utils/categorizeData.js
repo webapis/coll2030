@@ -67,21 +67,21 @@ async function categorizeData() {
                     })
                         
                     if(categorymatch !==undefined){
-                        if(countCategories[categorymatch.category]===undefined){
-                            countCategories[categorymatch.category]=0
-                        } else{
-                            countCategories[categorymatch.category]=++countCategories[categorymatch.category]
-                        }
-                        console.log('diğer',countCategories)
-                        debugger;
-                        let categoryExistsintitle =  new RegExp(categorymatch.category, 'i').test(title)
-                        let category = categoryExistsintitle ? '' : "_" + categorymatch.category + "_"
-                        const categorizedObject = { ...object, title: title + category+" diğer" }
-                        if(categorymatch.category==='elbise'){
-                          //  writeStream.write(JSON.stringify(categorizedObject))   
-                        }
-                        writeStream.write(JSON.stringify(categorizedObject))
-                        debugger;
+                        // if(countCategories[categorymatch.category]===undefined){
+                        //     countCategories[categorymatch.category]=0
+                        // } else{
+                        //     countCategories[categorymatch.category]=++countCategories[categorymatch.category]
+                        // }
+                        // console.log('diğer',countCategories)
+                        // debugger;
+                        // let categoryExistsintitle =  new RegExp(categorymatch.category, 'i').test(title)
+                        // let category = categoryExistsintitle ? '' : "_" + categorymatch.category + "_"
+                        // const categorizedObject = { ...object, title: title + category+" diğer" }
+                        // if(categorymatch.category==='elbise'){
+                        //   //  writeStream.write(JSON.stringify(categorizedObject))   
+                        // }
+                        // writeStream.write(JSON.stringify(categorizedObject))
+                        // debugger;
                     } else{
                     
                         const categorizedObject = { ...object, title: title + "_belirsiz" }

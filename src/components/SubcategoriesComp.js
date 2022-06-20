@@ -58,7 +58,9 @@ export default function SubcategoriesComp({ subcategories }) {
           <ListItemButton    href='#' underline="none" key={i} sx={{display:'block'}} onClick={() => handleSubCategoryClick(scat, subCatTotal, regex)} id={i}>
        
 
-                <ListItemText primary={scat} />
+                <ListItemText  sx={{maxWidth:150}}>
+                    {scat}
+                </ListItemText>
     
             </ListItemButton> 
             

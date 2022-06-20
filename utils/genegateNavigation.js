@@ -7,8 +7,6 @@ const { mongoClient, extractNavData } = require('./mongoDb')
 var through = require("through2");
 var jsonArrayStreams = require("json-array-streams");
 
-
-
 async function generateNavigation() {
     const markaNavCollection = await mongoClient({ collectionName: 'marka-nav' })
     const categoryNavCollection = await mongoClient({ collectionName: 'category-nav' })
@@ -33,28 +31,31 @@ async function generateNavigation() {
         const readstream = fs.createReadStream("./api/_files/kadin/data.json")
         const data = fs.readFileSync("./api/_files/kadin/data.json")
         const totalObjects = JSON.parse(data).length
+        console.log('totalObjects',totalObjects)
         let objCounter = 0
         readstream.pipe(jsonArrayStreams.parse())
             .pipe(through.obj(async function (object, enc, cb) {
                 ++objCounter
+                console.log('objCounter...',objCounter)
                 const { title: productTitle } = object
                 const marka = productTitle.substring(0, productTitle.indexOf(" "))
-                const productSubCategories = categoryItems.filter(c => {
+                const productSubCategories = categoryItems.find(c => {
                     const regex = new RegExp(c.regex, "i")
                     const result = regex.test(productTitle.toLowerCase())
                     return result
                 })
-
-
-                if (productSubCategories.length > 0) {
-
-                    for (let d of productSubCategories) {
-                        await updateDatabase({pc:d, marka, markaNavCollection, categoryNavCollection})
-
+           
+                if (productSubCategories !==undefined) {
+                    console.log('productSubCategories',productSubCategories.category)
+                    console.log('productTitle',productTitle)
+                    const regex = new RegExp(productSubCategories.category, "i")
+                    const result = regex.test(productTitle.toLowerCase())
+                    if(result){
+                        console.log('result',result)
+                        await updateDatabase({pc:productSubCategories, marka, markaNavCollection, categoryNavCollection})
                     }
+                      
 
-                   
-               
                     if (objCounter === totalObjects) {
 
                         console.log('end....1')
@@ -76,7 +77,7 @@ async function generateNavigation() {
                     })
 
                     if (findcategory) {
-                        await updateDatabase({pc:{category: findcategory.category,subcategory: 'diğer', regex: 'diğer'}, marka, markaNavCollection, categoryNavCollection})
+                    //    await updateDatabase({pc:{category: findcategory.category,subcategory: 'diğer', regex: 'diğer'}, marka, markaNavCollection, categoryNavCollection})
                     
                     } else {
                         await updateDatabase({pc:{category: 'belirsiz',subcategory: 'belirsiz', regex: 'belirsiz'}, marka, markaNavCollection, categoryNavCollection})
@@ -110,10 +111,10 @@ async function generateNavigation() {
 
         readstream.on('end', async (data) => {
 
-            console.log('closed')
-            await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/src/components/categoryMenu/category-nav.json` })
-            await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/src/components/MarkaMenu/marka-nav.json` })
-            return resolve(true)
+            console.log('end')
+            // await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/src/components/categoryMenu/category-nav.json` })
+            // await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/src/components/MarkaMenu/marka-nav.json` })
+            // return resolve(true)
 
         })
         readstream.on('error', (error) => {
