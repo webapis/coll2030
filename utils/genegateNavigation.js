@@ -39,19 +39,22 @@ async function generateNavigation() {
                 console.log('objCounter...',objCounter)
                 const { title: productTitle } = object
                 const marka = productTitle.substring(0, productTitle.indexOf(" "))
-                const productSubCategories = categoryItems.find(c => {
+                const productSubCategories = categoryItems.filter(c => {
                     const regex = new RegExp(c.regex, "i")
                     const result = regex.test(productTitle.toLowerCase())
                     return result
                 })
            
-                if (productSubCategories !==undefined) {
-                
+                if (productSubCategories.length>0) {
+                    debugger;
                    // const regex = new RegExp(productSubCategories.category, "i")
                    // const result = regex.test(productTitle.toLowerCase())
                   ////  if(result){
-                       
-                        await updateDatabase({pc:productSubCategories, marka, markaNavCollection, categoryNavCollection})
+                       for(let d of productSubCategories){
+                     debugger;
+                        await updateDatabase({pc:d, marka, markaNavCollection, categoryNavCollection})
+                       }
+                   
                     //}
                       
 
