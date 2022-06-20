@@ -52,8 +52,8 @@ async function categorizeData() {
                 })
                 if(subcategorymatch !==undefined){
                     let categoryExistsintitle =  new RegExp(subcategorymatch.category, 'i').test(title)
-                    let category = categoryExistsintitle ? '' : "_" + subcategorymatch.category + "_" 
-                    const categorizedObject = { ...object, title: title + category }
+                   // let category = categoryExistsintitle ? '' : "_" + subcategorymatch.category + "_" 
+                    const categorizedObject = { ...object, title }
                     writeStream.write(JSON.stringify(categorizedObject))
                 } else
                 {
