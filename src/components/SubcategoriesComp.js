@@ -43,7 +43,7 @@ export default function SubcategoriesComp({ subcategories }) {
           <CardMedia
         component="img"
         sx={{ width:150,margin:'0 auto' }}
-        image={`./product-icons/${scat.trim()}.jpg`}
+        image={`./product-icons/${scat}.jpg`}
         alt="Live from space album cover"
       />
       
