@@ -15,7 +15,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { actions } from '../store/breadcrumbSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem } from "@mui/material";
-
+import placeholders from "./imageComponent/placeholders";
 
 const {markas,totalByMarka} = MarkaNav[0]['nav']
 
@@ -79,8 +79,7 @@ function MarkaMenu(props) {
     const markaTabSelected = useSelector(state => state.breadcrumb.markaTabSelected)
     const dispatch = useDispatch()
 
-
-
+  
     function toggle() {
 
         dispatch(actions.selectMarkaTab())
@@ -103,6 +102,7 @@ function MarkaMenu(props) {
 
 function MarkasList({markas,open }) {
 
+ 
 
     return (
         <Collapse in={open} timeout="auto" unmountOnExit>
@@ -141,6 +141,7 @@ function MarkaListItem(props) {
     const dispatch = useDispatch()
     const { render, categories } = props
     const { title, markaTotal } = props
+    const markaIconUrl =placeholders[title].logo
     function toggle() {
         setOpen(!open);
         dispatch(actions.selectMarka({ selectedMarka: title }))
@@ -152,7 +153,8 @@ function MarkaListItem(props) {
                     <ListItemIcon>
                         {!selectedMarka === title ? <ChevronRightIcon /> : <ExpandMore />}
                     </ListItemIcon>
-                    <ListItemText sx={{ textTransform: 'uppercase' }}>{title}</ListItemText>
+                   
+                 <img src={markaIconUrl} width={80}/>
                 </ListItemButton>
             </ListItem>
             {render({ open: selectedMarka === title, categories })}
