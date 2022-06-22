@@ -2,14 +2,6 @@ name: Reusable workflow example
 on:
    workflow_call:
     inputs:
-      start_url:
-        description: 'Start url'
-        required: true
-        type: string
-      order:
-        description: 'order'
-        required: false
-        type: string
       marka:
         description: 'marka'
         required: true
