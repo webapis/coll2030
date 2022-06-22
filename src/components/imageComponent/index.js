@@ -14,10 +14,10 @@ export default function ImageComponent(props) {
      const productTitle =props.title//.substring(props.title.indexOf(" "),props.title.lastIndexOf(" "))
 
     const imageEl = useRef(null);
-    const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
+   // const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
     const imagePlaceholder = placeholders[props.marka].placeholder
     const logo = placeholders[props.marka].logo
-    const imageSource = cloudinary + placeholders[props.marka].imageHost.trim() + props.imageUrl
+    const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl
     const detailHost = placeholders[props.marka].detailHost + props.link+placeholders[props.marka].postfix
     const date2 = props.timestamp
     const date1 = Date.now()

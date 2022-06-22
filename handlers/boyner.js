@@ -1,8 +1,9 @@
-async function handler(page) {
+async function handler(page,context) {
+    const { request: { userData: {  subcategory, category } } } = context
     const url = await page.url()
     await page.waitForSelector('.productList .product-list-item')
 
-    const data = await page.$$eval('.productList .product-list-item', (productCards) => {
+    const data = await page.$$eval('.productList .product-list-item', (productCards,_subcategory, _category) => {
         return productCards.map(productCard => {
 
           const imageUrl = productCard.querySelector('.product-img img').getAttribute('data-original')
@@ -19,11 +20,12 @@ async function handler(page) {
                 imageUrl: imageUrlshort,
                 link,   
                 timestamp: Date.now(),
-                marka:'boyner'
-
+                marka:'boyner',
+                subcategory:_subcategory,
+                category:_category
             }
         }).filter(f => f.imageUrl !== null)
-    })
+    },subcategory, category)
 debugger;
     console.log('data length_____', data.length, 'url:', url)
   
@@ -33,20 +35,21 @@ debugger;
 }
 
 async function getUrls(page) {
-
+debugger;
     await page.waitForSelector('.red-v1 .grey')
     const firstUrl =await page.url()
-    
+    debugger;
     const productCount = await page.$eval('.red-v1 .grey', element => parseInt(element.innerText.replace(/[^0-9]/g,'')))
-    const totalPages = Math.ceil(productCount / 45)
+    const totalPages = Math.ceil(productCount / 90)
+    debugger;
     const pageUrls = []
     let pagesLeft = totalPages
-  const commonURL = firstUrl.substring(0,firstUrl.lastIndexOf('='))
+ 
 
     for (let i = 2; i <= totalPages; i++) {
-        const url = `${commonURL}=${i}`
+        const url = `${firstUrl}/${i}/?dropListingPageSize=90`
 
-      
+      debugger;
         if (pagesLeft >= 1) {
             pageUrls.push(url)
             --pagesLeft

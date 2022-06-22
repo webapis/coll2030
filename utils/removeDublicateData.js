@@ -27,13 +27,19 @@ debugger;
             'timestamp': {
               '$first': '$timestamp'
             },
+            'category': {
+              '$first': '$category'
+            },
+            'subcategory': {
+              '$first': '$subcategory'
+            },
           }
         }, {
           '$unset': '_id'
         }
       ]
 
-    await exportData({ exportPath: `${process.cwd()}/data-unique/data.json`, collectionName: 'data', aggegation })
+    await exportData({ exportPath: `${process.cwd()}/api/_files/kadin/data.json`, collectionName: 'data', aggegation })
     console.log('-------------REMOVING DUBLICATE DATA COMPLETE---------------')
     process.exit(0)
  

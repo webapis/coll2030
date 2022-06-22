@@ -1,7 +1,8 @@
-async function handler(page) {
+async function handler(page,context) {
+    const { request: { userData: {  subcategory, category } } } = context
     const url = await page.url()
     await page.waitForSelector('.product-grid .product-card')
-    const data = await page.evaluate(() => {
+    const data = await page.evaluate((_subcategory, _category) => {
         const items = window.catalogModel.CatalogList.Items
         return items.map(item => {
             const { DefaultOptionImageUrl: imageUrl,
@@ -18,11 +19,13 @@ async function handler(page) {
                 imageUrl: imageUrl.substring(imageUrl.indexOf('https://img-lcwaikiki.mncdn.com/mnresize/600/-/pim/productimages/') + 65),
                 link: ModelUrl.substring(32),
                 timestamp: Date.now(),
-                marka: 'lcwaikiki'
+                marka: 'lcwaikiki',
+                category:_category,
+                subcategory:_subcategory
 
             }
         }).filter(f => f.imageUrl !== null)
-    })
+    },subcategory, category)
     debugger;
 
     console.log('data length_____', data.length, 'url:', url)
@@ -31,18 +34,19 @@ async function handler(page) {
 }
 
 async function getUrls(page) {
-    const param = '&PageIndex='
-    await page.waitForSelector('#root > div > div.product-list-container > div.product-list > div.container-fluid.product-list-heading > div > div > span > p > span:nth-child(2)')
-
+    const param = '?PageIndex='
+    await page.waitForSelector('.product-list-heading__product-count')
+debugger;
     const firstUrl = await page.url()
 
-    const productCount = await page.$eval('#root > div > div.product-list-container > div.product-list > div.container-fluid.product-list-heading > div > div > span > p > span:nth-child(2)', element => parseInt(element.innerText.replace('.', '')))
+    const productCount = await page.$eval('.product-list-heading__product-count p', element => parseInt(element.innerText.replace(/\D/g, '')))
+    debugger;
     const totalPages = Math.ceil(productCount / 96)
     const pageUrls = []
     let pagesLeft = totalPages
     for (let i = 2; i <= totalPages; i++) {
         const url = `${firstUrl}${param}${i}`
-  
+  debugger;
 
         if (pagesLeft > 0) {
             pageUrls.push(url)

@@ -12,23 +12,29 @@ Apify.main(async () => {
 
     const { utils: { log } } = Apify;
     const requestQueue = await Apify.openRequestQueue();
-    const marka = process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
-    await requestQueue.addRequest({ url: process.env.START_URL, userData: { start: true, gender: 'kadin', marka } })
+    const marka = process.env.marka// process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
+    const {urls} = require(`./urls/${marka}`)
+    debugger;
+    for (let obj of urls) {
+        debugger;
+        const { url, category, subcategory } = obj
+debugger;
+        await requestQueue.addRequest({ url, userData: { start: true, category, subcategory } })
+    }
 
-    const sheetDataset = await Apify.openDataset(`categorySheet`);
+
+
     const productsDataset = await Apify.openDataset(`products`);
 
     debugger;
 
-
-
-
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
 
-        const { page, request: { userData: { start, gender, marka } } } = context
-
-        const { handler, getUrls } = require(`./handlers/${marka}`);
+        const { page, request: { userData: { start, subcategory, category } } } = context
+        debugger;
+        const marka = process.env.marka
+        const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
         const { pageUrls, productCount, pageLength } = await getUrls(page)
         process.env.productCount = productCount
 
@@ -36,9 +42,9 @@ Apify.main(async () => {
             let order = 1
             for (let url of pageUrls) {
                 if (pageUrls.length === order) {
-                    requestQueue.addRequest({ url, userData: { start: false, gender, marka } })
+                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category } })
                 } else {
-                    requestQueue.addRequest({ url, userData: { start: false, gender, marka } })
+                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category } })
                 }
                 ++order;
             }
@@ -48,24 +54,19 @@ Apify.main(async () => {
         const mapMarka = dataCollected.map(m => {
             return { ...m, title: marka + ' ' + m.title }
         })
-     
+
 
         await productsDataset.pushData(mapMarka)
 
-
-
-        console.log('uploading to excell complete....', process.env.dataLength)
-
-
         process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
 
-
+        console.log('total collected', process.env.dataLength)
     }
 
     const crawler = new Apify.PuppeteerCrawler({
-        //requestList,
-        requestQueue,
-        maxConcurrency: 10,
+       // requestList,
+       requestQueue,
+        maxConcurrency: 2,
         launchContext: {
             // Chrome with stealth should work for most websites.
             // If it doesn't, feel free to remove this.
@@ -118,13 +119,13 @@ Apify.main(async () => {
     log.info('Starting the crawl.');
     await crawler.run();
     const { items: productItems } = await productsDataset.getData();
-  
+
     await makeDir('data');
-   
+
     if (fs.existsSync(`data/${marka}.json`)) {
         fs.unlinkSync(`data/${marka}.json`)
     }
-  
+
     fs.appendFileSync(`data/${marka}.json`, JSON.stringify(productItems));
 
 

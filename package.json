@@ -41,7 +41,6 @@
     "eject": "react-scripts eject",
     "collection": "node main.js",
     "removeDublicateData": "node utils/removeDublicateData.js",
-    "categorizeData":"node utils/categorizeData.js",
     "generateNavigation": "node utils/genegateNavigation.js",
     "dev": "netlify dev",
     "vercel:dev": "vercel dev",

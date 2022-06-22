@@ -4,11 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import CardHeader from '@mui/material/CardHeader';
+
 import  ListItem  from '@mui/material/ListItem';
 
 import ListItemText from '@mui/material/ListItemText';
-import Avatar from '@mui/material/Avatar';
+
 
 import Chip from '@mui/material/Chip';
 import { actions } from '../store/breadcrumbSlice'
@@ -26,7 +26,7 @@ export default function SubcategoriesComp({ subcategories }) {
     }
 
  
-    const imgplaceholders =scat.split(',')
+
 
     function handleSubCategoryClick(selectedSubcategory, subCatTotal, regex) {
     
@@ -55,7 +55,7 @@ export default function SubcategoriesComp({ subcategories }) {
         
       {
         subcategories.map((m, i) => {
-            const { regex, subCatTotal, subcategory } = m
+            const { subCatTotal, subcategory } = m
             let scat =''
             if(subcategory.indexOf('-')!==-1){
                 scat =subcategory.substring(subcategory.indexOf('-')+1)
@@ -68,7 +68,7 @@ export default function SubcategoriesComp({ subcategories }) {
               }>
 
 
-             <ListItemButton    href='#' underline="" key={i} sx={{display:'block'}} onClick={() => handleSubCategoryClick(scat, subCatTotal, regex)} id={i}>
+             <ListItemButton    href='#' underline="" key={i} sx={{display:'block'}} onClick={() => handleSubCategoryClick(scat, subCatTotal, subcategory)} id={i}>
        
 
                 <ListItemText  sx={{maxWidth:150}}>

@@ -1,9 +1,10 @@
 
-async function handler(page) {
+async function handler(page,context) {
+    const { request: { userData: {  subcategory, category } } } = context
     const url = await page.url()
     await page.waitForSelector('.productGrid .product-item')
    
-    const data = await page.evaluate(() => {
+    const data = await page.evaluate((_subcategory, _category) => {
         const productCards = Array.from(document.querySelectorAll('.productGrid .product-item')).filter(a => a.querySelector('.image img') !== null && a.querySelector('.image img').getAttribute('data-src') !== null)
         return productCards.map(productCard => {
 
@@ -27,11 +28,13 @@ async function handler(page) {
                 imageUrl: imageUrlshort,
                 link:removePostfix,
                 timestamp: Date.now(),
-                marka:'koton'
+                marka:'koton',
+                subcategory:_subcategory,
+                category:_category
             }
         }).filter(f => f.imageUrl !== null)
 
-    })
+    },subcategory, category)
 debugger;
 
     console.log('data length_____', data.length, 'url:', url)

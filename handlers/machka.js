@@ -1,29 +1,18 @@
 const Apify = require('apify');
 
 async function handler(page, context) {
-    const { request: { userData: { start, gender,marka } } } = context
+    const { request: { userData: { start, subcategory, category } } } = context
     const url = await page.url()
-    await page.waitForSelector('.ems-prd-list-wrapper')
+    debugger;
+    await page.waitForSelector('.ems-prd-list-page');
+    debugger;
+    await page.waitForSelector('.ems-prd');
+    debugger;
+    const data = await page.$$eval('.ems-prd', (items, _subcategory, _category) => {
 
-
-    const data = await page.evaluate(() => {
-        function extractPercentage(val1, val2) {
-            const value1ll = parseInt(val1.substring(0, leftLastIndex(val1)).replace('.', ''))
-            const value2ll = parseInt(val2.substring(0, leftLastIndex(val2)).replace('.', ''))
-            const percentage = Math.floor((((value1ll) - (value2ll)) * 100) / (value1ll))
-            return percentage
-        }
-
-        function leftLastIndex(value) {
-            return value.lastIndexOf(',') !== -1 ? value.lastIndexOf(',') : value.length
-        }
-        const items = Array.from(document.querySelectorAll('.ems-prd'))
         return items.map(item => {
-        
             const priceNew = item.querySelector('.ems-prd-price-last') && item.querySelector('.ems-prd-price-last').innerText.replace('₺', '').trim()
    
-
-
             const longlink = item.querySelector('.ems-prd-link.btn-full').href
             const link = longlink.substring(longlink.indexOf('https://www.machka.com.tr/urun/')+31)
             const longImgUrl = item.querySelector('.ems-responsive-item').getAttribute('data-image-src')
@@ -35,32 +24,42 @@ async function handler(page, context) {
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
-                marka: 'machka'
+                marka: 'machka',
+                category: _category,
+                subcategory: _subcategory
             }
-        }).filter(f => f.imageUrl !== null)
-    })
-debugger;
+        })
+    }, subcategory, category);
+
+
+    debugger;
     console.log('data length_____', data.length)
 
+    const isNotHidden = await page.$eval('.btn.btn-size01.load-next', (elem) => {
+        return window.getComputedStyle(elem).getPropertyValue('display') !== 'none'
+    });
+    debugger;
+ 
 
-    const nextPageExists = await page.$('.btn.btn-size01.load-next')
+    if (isNotHidden && start) {
 
-    if (nextPageExists && start) {
-
-
-        const nextPage = `${url}&page=2`
-        const requestQueue = await Apify.openRequestQueue();
-
-        requestQueue.addRequest({ url: nextPage, userData: { start: false, gender,marka } })
-    } else if (nextPageExists && !start) {
-
+        debugger;
         const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
         const pageNumber = parseInt(url.substr(url.lastIndexOf("=") + 1)) + 1
 
         const nextPage = pageUrl + pageNumber
         const requestQueue = await Apify.openRequestQueue();
+        requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory, category } })
+        debugger;
+    } else if (isNotHidden && !start) {
+        debugger;
+        const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
+        const pageNumber = parseInt(url.substr(url.lastIndexOf("=") + 1)) + 1
 
-        requestQueue.addRequest({ url: nextPage, userData: { start: false, gender,marka } })
+        const nextPage = pageUrl + pageNumber
+        const requestQueue = await Apify.openRequestQueue();
+debugger;
+        requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory, category } })
 
     }
 
@@ -69,24 +68,7 @@ debugger;
 
 
 }
-async function autoScroll(page) {
-    await page.evaluate(async () => {
-        await new Promise((resolve, reject) => {
-            var totalHeight = 0;
-            var distance = 100;
-            var timer = setInterval(() => {
-                var scrollHeight = document.body.scrollHeight;
-                window.scrollBy(0, distance);
-                totalHeight += distance;
 
-                if (totalHeight >= scrollHeight) {
-                    clearInterval(timer);
-                    resolve();
-                }
-            }, 300);
-        });
-    });
-}
 async function getUrls(page, param) {
 
     return { pageUrls: [], productCount: 0, pageLength: 0 }

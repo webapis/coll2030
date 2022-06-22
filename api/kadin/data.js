@@ -9,7 +9,7 @@ module.exports = (req, res) => {
   const { subcatregex, categoryregex, page, marka, search } = req.query
   const start = parseInt(page)
   var products = TAFFY(data);
-  const filterBySub = subcatregex === '' ? {} : { title: { regex: new RegExp(subcatregex,"i") } }
+  const filterBySub = subcatregex === '' ? {} : { subcategory: { regex: new RegExp(subcatregex,"i") } }
 
   const filterByCat = categoryregex === '' ? {} : { title: { regex: new RegExp(categoryregex, "i") } }
 
