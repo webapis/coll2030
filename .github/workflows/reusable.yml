@@ -12,7 +12,8 @@ env:
   CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
   CLIENT_ID: ${{secrets.CLIENT_ID}}
   START_URL: ${{inputs.start_url}}
-  marka: ${{inputs.marka}}															
+  marka: ${{inputs.marka}}
+  HEADLESS: true															
 jobs:
   aggregator:
     runs-on: ubuntu-latest

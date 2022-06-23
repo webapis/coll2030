@@ -66,13 +66,13 @@ Apify.main(async () => {
     const crawler = new Apify.PuppeteerCrawler({
        // requestList,
        requestQueue,
-        maxConcurrency: 2,
+        maxConcurrency: 10,
         launchContext: {
             // Chrome with stealth should work for most websites.
             // If it doesn't, feel free to remove this.
             // useChrome: true,
             launchOptions: {
-                headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox', "--disable-web-security",
+                headless: process.env.HEADLESS==='true'?true :false, args: ['--no-sandbox', '--disable-setuid-sandbox', "--disable-web-security",
                     `--window-size=1200,1250`,
                     "--allow-insecure-localhost",
                     //  "--user-data-dir=/tmp/foo",
