@@ -14,11 +14,11 @@ Apify.main(async () => {
     const requestQueue = await Apify.openRequestQueue();
     const marka = process.env.marka// process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
     const {urls} = require(`./urls/${marka}`)
-    debugger;
+    
     for (let obj of urls) {
-        debugger;
+        
         const { url, category, subcategory } = obj
-debugger;
+
         await requestQueue.addRequest({ url, userData: { start: true, category, subcategory } })
     }
 
@@ -26,13 +26,13 @@ debugger;
 
     const productsDataset = await Apify.openDataset(`products`);
 
-    debugger;
+    
 
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
 
         const { page, request: { userData: { start, subcategory, category } } } = context
-        debugger;
+        
         const marka = process.env.marka
         const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
         const { pageUrls, productCount, pageLength } = await getUrls(page)
@@ -72,7 +72,7 @@ debugger;
             // If it doesn't, feel free to remove this.
             // useChrome: true,
             launchOptions: {
-                headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', "--disable-web-security",
+                headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox', "--disable-web-security",
                     `--window-size=1200,1250`,
                     "--allow-insecure-localhost",
                     //  "--user-data-dir=/tmp/foo",

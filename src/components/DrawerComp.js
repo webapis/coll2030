@@ -154,7 +154,7 @@ function MarkaListItem(props) {
                         {!selectedMarka === title ? <ChevronRightIcon /> : <ExpandMore />}
                     </ListItemIcon>
                    
-                 <img src={markaIconUrl} width={80}/>
+                 <img src={markaIconUrl.image} width={markaIconUrl.width} height={markaIconUrl.heigth}/>
                 </ListItemButton>
             </ListItem>
             {render({ open: selectedMarka === title, categories })}

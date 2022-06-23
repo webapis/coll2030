@@ -17,6 +17,7 @@ export default function ImageComponent(props) {
    // const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
     const imagePlaceholder = placeholders[props.marka].placeholder
     const logo = placeholders[props.marka].logo
+    debugger;
     const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl
     const detailHost = placeholders[props.marka].detailHost + props.link+placeholders[props.marka].postfix
     const date2 = props.timestamp
@@ -68,7 +69,7 @@ export default function ImageComponent(props) {
   
         <div>
   
-          <img src={logo} width='35%' />
+          <img src={logo.image}  height={logo.heigth} width={logo.width}/>
   
         </div>
   
