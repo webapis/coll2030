@@ -90,7 +90,7 @@ function MarkaMenu(props) {
                 <ListItemIcon>
                     <CategoryIcon />
                 </ListItemIcon>
-                <ListItemText >MARKALAR({totalByMarka})</ListItemText>
+                <ListItemText >MARKA / TASARIMCI ({totalByMarka})</ListItemText>
                 {markaTabSelected ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             {render({ markas, open: markaTabSelected })}

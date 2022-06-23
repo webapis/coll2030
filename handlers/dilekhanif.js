@@ -25,7 +25,7 @@ async function handler(page, context) {
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
-                marka: 'arzukaprol',
+                marka: 'dilekhanif',
                 subcategory: _subcategory,
                 category: _category
             }

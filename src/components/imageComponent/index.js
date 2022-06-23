@@ -57,11 +57,12 @@ export default function ImageComponent(props) {
 
          
             <img ref={imageEl} data-intersection="true" className="figure"
-              
+         
               src={imagePlaceholder}
               data-src={imageSource.trim()}
               alt={props.title}
               loading="lazy"
+
             />
                </ImageListItem>
           </a>

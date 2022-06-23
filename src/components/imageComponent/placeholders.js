@@ -10,6 +10,7 @@ const placeholders = {
 
     arzukaprol: { logo: { image: './logo/arzukaprol.jpg',width:'40%',height:''  }, imagePrefix: '', placeholder: 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg', imageHost: 'https://cdn.shopify.com/s/files/1/0342/2348/9163/products/', detailHost: 'https://arzukaprol.com/', postfix: '' },
     dilekhanif: { logo: { image: './logo/dilekhanif.jpg',width:'40%',height:''  }, imagePrefix: '', placeholder: 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg', imageHost: 'https://www.dilekhanif.com/Uploads/UrunResimleri/thumb/', detailHost: 'https://www.dilekhanif.com/', postfix: '' },
+    ipekkiramer: { logo: { image: './logo/ipekkiramer.png',width:'40%',height:''  }, imagePrefix: '', placeholder: 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg', imageHost: 'https://ipekkiramer.com/wp-content/uploads/', detailHost: 'https://ipekkiramer.com/', postfix: '' },
 }
 
 export default placeholders
