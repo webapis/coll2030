@@ -13,10 +13,10 @@ Apify.main(async () => {
     const { utils: { log } } = Apify;
     const requestQueue = await Apify.openRequestQueue();
     const marka = process.env.marka// process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
-    const {urls} = require(`./urls/${marka}`)
-    
+    const { urls } = require(`./urls/${marka}`)
+
     for (let obj of urls) {
-        
+
         const { url, category, subcategory } = obj
 
         await requestQueue.addRequest({ url, userData: { start: true, category, subcategory } })
@@ -26,13 +26,13 @@ Apify.main(async () => {
 
     const productsDataset = await Apify.openDataset(`products`);
 
-    
+
 
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
 
         const { page, request: { userData: { start, subcategory, category } } } = context
-        
+
         const marka = process.env.marka
         const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
         const { pageUrls, productCount, pageLength } = await getUrls(page)
@@ -64,15 +64,15 @@ Apify.main(async () => {
     }
 
     const crawler = new Apify.PuppeteerCrawler({
-       // requestList,
-       requestQueue,
+        // requestList,
+        requestQueue,
         maxConcurrency: 10,
         launchContext: {
             // Chrome with stealth should work for most websites.
             // If it doesn't, feel free to remove this.
             // useChrome: true,
             launchOptions: {
-                headless: process.env.HEADLESS==='true'?true :false, args: ['--no-sandbox', '--disable-setuid-sandbox', "--disable-web-security",
+                headless: process.env.HEADLESS === 'true' ? true : false, args: ['--no-sandbox', '--disable-setuid-sandbox', "--disable-web-security",
                     `--window-size=1200,1250`,
                     "--allow-insecure-localhost",
                     //  "--user-data-dir=/tmp/foo",
@@ -121,12 +121,16 @@ Apify.main(async () => {
     const { items: productItems } = await productsDataset.getData();
 
     await makeDir('data');
+    if (productItems.length > 0) {
+        if (fs.existsSync(`data/${marka}.json`)) {
+            fs.unlinkSync(`data/${marka}.json`)
+        }
 
-    if (fs.existsSync(`data/${marka}.json`)) {
-        fs.unlinkSync(`data/${marka}.json`)
+        fs.appendFileSync(`data/${marka}.json`, JSON.stringify(productItems));
+    } else {
+        console.log('UNSUCCESSFUL DATA COLLECTION.......')
     }
 
-    fs.appendFileSync(`data/${marka}.json`, JSON.stringify(productItems));
 
 
     console.log('Crawl finished.');
