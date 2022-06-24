@@ -67,7 +67,7 @@ Apify.main(async () => {
         // requestList,
         requestQueue,
         maxConcurrency: 5,
-        maxRequestRetries:4,
+       // maxRequestRetries:4,
         launchContext: {
             // Chrome with stealth should work for most websites.
             // If it doesn't, feel free to remove this.
@@ -88,7 +88,7 @@ Apify.main(async () => {
 
         },
         handlePageFunction,
-        navigationTimeoutSecs:120,
+      //  navigationTimeoutSecs:120,
         preNavigationHooks: [
             async (crawlingContext, gotoOptions) => {
                 const { page } = crawlingContext;

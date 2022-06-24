@@ -40,10 +40,10 @@ jobs:
     with:
       marka: adl
     secrets: inherit
-  ipekkiramer_job:
+  roman_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: ipekkiramer
+      marka: roman
     secrets: inherit
   penti_job:
     uses: ./.github/workflows/reusable.yml
@@ -52,7 +52,7 @@ jobs:
     secrets: inherit
   generate_nav_job:
     runs-on: ubuntu-latest
-    needs: [defacto_job,machka_job,lcwaikiki_job,boyner_job,koton_job,ipekyol_job,mavi_job,adl_job,ipekkiramer_job,penti_job]
+    needs: [defacto_job,machka_job,lcwaikiki_job,boyner_job,koton_job,ipekyol_job,mavi_job,adl_job,roman_job,penti_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2

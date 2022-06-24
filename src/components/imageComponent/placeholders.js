@@ -11,6 +11,7 @@ const placeholders = {
     dilekhanif: { logo: { image: './logo/dilekhanif.jpg',width:'40%',height:''  }, imagePrefix: 'https://res.cloudinary.com/codergihub/image/fetch/w_500/', placeholder: 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg', imageHost: 'https://www.dilekhanif.com/Uploads/UrunResimleri/thumb/', detailHost: 'https://www.dilekhanif.com/', postfix: '' },
     ipekkiramer: { logo: { image: './logo/ipekkiramer.png',width:'40%',height:''  }, imagePrefix: 'https://res.cloudinary.com/codergihub/image/fetch/w_500/', placeholder: 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg', imageHost: 'https://ipekkiramer.com/wp-content/uploads/', detailHost: 'https://ipekkiramer.com/', postfix: '' },
     penti: { logo: { image: './logo/penti.svg',width:'25%',height:''  }, imagePrefix: '', placeholder: 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg', imageHost: 'https://file-penti.mncdn.com/mnresize/', detailHost: 'https://www.penti.com/tr/', postfix: '' },
+    roman: { logo: { image: './logo/roman.png',width:'25%',height:''  }, imagePrefix: '', placeholder: 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg', imageHost: 'https://romancdn.sysrun.net/Content/ProductImage/Original/', detailHost: 'https://www.roman.com.tr/detay/', postfix: '' },
 }
 
 export default placeholders
