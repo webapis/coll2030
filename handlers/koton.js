@@ -32,7 +32,7 @@ async function handler(page,context) {
                 subcategory:_subcategory,
                 category:_category
             }
-        }).filter(f => f.imageUrl !== null)
+        })//.filter(f => f.imageUrl !== null)
 
     },subcategory, category)
 debugger;

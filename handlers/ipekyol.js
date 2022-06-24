@@ -36,7 +36,7 @@ async function handler(page, context) {
 
 
             }
-        }).filter(f => f.imageUrl !== null)
+        })//.filter(f => f.imageUrl !== null)
     },subcategory, category )
 
     console.log('data length_____', data.length)

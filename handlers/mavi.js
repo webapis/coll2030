@@ -5,7 +5,7 @@ async function handler(page, context) {
     debugger;
     const url = await page.url()
     await page.waitForSelector('.product-list-cards')
-   // await autoScroll(page)
+
     await page.waitForSelector('.product-item')
 
     debugger;
