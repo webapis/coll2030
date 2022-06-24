@@ -5,13 +5,15 @@ async function handler(page, context) {
     debugger;
     const url = await page.url()
     await page.waitForSelector('.product-list-cards')
+   // await autoScroll(page)
     await page.waitForSelector('.product-item')
 
     debugger;
     const data = await page.$$eval('.product-item', (items,_subcategory,_category) => {
 
         return items.map(item => {
-
+            let productTitle =document.querySelector('.product-title').textContent
+            let productDesc=document.querySelector('.product-desc').textContent
             const priceNew = item.querySelector('.price') && item.querySelector('.price').innerText.replace('TL', '').trim()
             const longlink = item.querySelector('.product-card-info') && item.querySelector('.product-card-info').href
             const link =  longlink.substring(longlink.indexOf('https://www.mavi.com/') + 21)
@@ -19,7 +21,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('//sky-static.mavi.com/sys-master/maviTrImages/') + 46)
 
             return {
-                title: item.querySelector('.product-desc').innerText,
+                title: productDesc+' '+productTitle,
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
@@ -62,4 +64,6 @@ async function getUrls(page, param) {
 
             return { pageUrls: [], productCount: 0, pageLength: 0 }
         }
+
+
 module.exports = { handler, getUrls }
