@@ -33,6 +33,9 @@ debugger;
             'subcategory': {
               '$first': '$subcategory'
             },
+            'marka': {
+              '$first': '$marka'
+            },
           }
         }, {
           '$unset': '_id'

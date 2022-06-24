@@ -21,8 +21,8 @@ async function generateNavigation() {
             .pipe(through.obj(async function (object, enc, cb) {
                 ++objCounter
                 console.log('objCounter...',objCounter)
-                const { title: productTitle,category,subcategory } = object
-                const marka = productTitle.substring(0, productTitle.indexOf(" "))
+                const {category,subcategory,marka } = object
+           
                         await updateDatabase({pc:{category,subcategory}, marka, markaNavCollection, categoryNavCollection})
                     if (objCounter === totalObjects) {
                         console.log('end....1')
