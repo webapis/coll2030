@@ -14,6 +14,7 @@ export default function ImageComponent(props) {
      const productTitle =props.title//.substring(props.title.indexOf(" "),props.title.lastIndexOf(" "))
 
     const imageEl = useRef(null);
+
    // const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
     const imagePlaceholder = placeholders[props.marka].placeholder
     const logo = placeholders[props.marka].logo
@@ -43,10 +44,12 @@ export default function ImageComponent(props) {
         window.obz = observer
         window.obz.observe(imageEl.current)
       }
-  
+
     }, []);
   
-
+  function  addDefaultSrc(ev){
+      ev.target.src =placeholders[props.marka].imageHost.trim() + props.imageUrl
+    }
   
     return (
       <div>
@@ -56,7 +59,7 @@ export default function ImageComponent(props) {
             <ImageListItem>
 
          
-            <img ref={imageEl} data-intersection="true" className="figure"
+            <img  onError={addDefaultSrc} ref={imageEl} data-intersection="true" className="figure"
          
               src={imagePlaceholder}
               data-src={imageSource.trim()}
