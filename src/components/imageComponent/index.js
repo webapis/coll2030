@@ -21,7 +21,7 @@ export default function ImageComponent(props) {
     debugger;
     const logo = placeholders[props.marka].logo
     debugger;
-    const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl
+    const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl+placeholders[props.marka].imgPostFix
     const detailHost = placeholders[props.marka].detailHost + props.link+placeholders[props.marka].postfix
     const date2 = props.timestamp
     const date1 = Date.now()
