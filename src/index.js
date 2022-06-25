@@ -86,8 +86,8 @@ export default function HideAppBar(props) {
             <IconButton color="inherit" onClick={() => handleMenuClick({}, { selectTab: 0, selectedTabLabel: 'Ürünler' })}>
               <MenuIcon />
             </IconButton>
-            <Typography fontFamily="'Cinzel Decorative', cursive" variant="h5" gutterBottom component="div">
-              Hanım Kıyafet
+            <Typography  variant="button" display="block" >
+              MODABURADA
             </Typography>
           </Toolbar>
         </AppBar>
