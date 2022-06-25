@@ -3,7 +3,7 @@ function orderData(data) {
     const splittedByMarkaObj = {}
     const spliteed=data
     spliteed.forEach(element => {
-        const marka = element.title.substring(0, element.title.indexOf(" "))
+        const marka = element.marka
         const isArray = Object.prototype.toString.call(splittedByMarkaObj[marka]) === '[object Array]';
      
         if (!isArray) {

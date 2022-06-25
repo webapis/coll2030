@@ -109,6 +109,8 @@ function MarkasList({markas,open }) {
             <List component="div" disablePadding>
                 {Object.entries(markas).map((m, i) => {
                     const  marka= m[0]
+                    debugger;
+                    
                     const  totalByCatory= m[1]['totalByCatory']
                     const categories=m[1]['categories']
                     

@@ -35,7 +35,7 @@ Apify.main(async () => {
 
         const marka = process.env.marka
         const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
-        const { pageUrls, productCount, pageLength } = await getUrls(page)
+        const { pageUrls, productCount } = await getUrls(page)
         process.env.productCount = productCount
 
         if (start) {
@@ -51,12 +51,10 @@ Apify.main(async () => {
         }
 
         const dataCollected = await handler(page, context)
-        const mapMarka = dataCollected.map(m => {
-            return { ...m, title: marka + ' ' + m.title }
-        })
+    
 
 
-        await productsDataset.pushData(mapMarka)
+        await productsDataset.pushData(dataCollected)
 
         process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
 

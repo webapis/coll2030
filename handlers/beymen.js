@@ -13,7 +13,7 @@ async function handler(page, context) {
             const title = productCard.querySelector('.m-productCard__detail .m-productCard__title').textContent
             const desc =productCard.querySelector('.m-productCard__detail .m-productCard__desc').textContent
             const priceNew = productCard.querySelector('.m-productCard__newPrice').textContent.replace('TL','').trim()
-            const longlink = productCard.querySelectorAll('.m-productCard__detail a')[1].href.trim()
+            const longlink = productCard.querySelector('div[data-page] a').href
            const link = longlink.substring(longlink.indexOf("https://www.beymen.com/") + 23)
             const longImgUrl = productCard.querySelectorAll('.m-productImageList [data-src]')[0].getAttribute('data-src').trim()
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.beymen.com/mnresize/") + 32)
@@ -23,7 +23,7 @@ async function handler(page, context) {
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
-                marka: 'roman',
+                marka: 'beymen',
                 subcategory: _subcategory,
                 category: _category
 
@@ -53,7 +53,7 @@ async function getUrls(page) {
 
 
 
-        pageUrls.push(`${url}?p=` + i)
+        pageUrls.push(`${url}?sayfa=` + i)
         --pagesLeft
 
 
