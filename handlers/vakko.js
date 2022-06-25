@@ -7,22 +7,22 @@ async function handler(page, context) {
     await page.waitForSelector('.category__products')
 
 
-    const data = await page.$$eval('.category__products .product__column', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.category__products .product__each', (productCards, _subcategory, _category) => {
         return productCards.map(productCard => {
             const brand = productCard.querySelector('.product__each--brand__name').textContent.replace('\n', '').trim()
-         //   const title = productCard.querySelector('.product__each--name-text').textContent.replace('\n', '').trim()
-          //  const priceNew = productCard.querySelector('.product__each--price__span').textContent.replace('₺','').trim()
-          //  const longlink = productCard.querySelector('.hoverableContainer').href
-          //  const link = longlink.substring(longlink.indexOf("defacto.com.tr/") + 15)
-        //    const longImgUrl = productCard.querySelector('.hoverableContainer [data-lazy]').getAttribute('data-lazy')
-           // const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
+            const title = productCard.querySelector('.product__each--name-text').textContent.replace('\n', '').trim()
+            const priceNew = productCard.querySelector('.product__each--price__span') ? productCard.querySelector('.product__each--price__span').innerHTML.replace('₺', '').trim() : productCard.querySelector('.product__each--price ins').innerHTML.replace('₺', '').trim()
+            const longlink = productCard.querySelector('.hoverableContainer').href
+            const link = longlink.substring(longlink.indexOf("https://www.vakko.com/") + 22)
+            const longImgUrl = productCard.querySelector('.hoverableContainer [data-lazy]').getAttribute('data-lazy')
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://vakko.akinoncdn.com/products/") + 37)
             return {
-                title: brand ,//+ ' ' + title,
+                title: brand + ' ' + title,
 
                 priceNew,
 
-                imageUrl: longImgUrl,
-                link:longlink,
+                imageUrl: imageUrlshort,
+                link,
 
                 timestamp: Date.now(),
 
@@ -37,7 +37,7 @@ async function handler(page, context) {
 
     console.log('data length_____', data.length, 'url:', url)
 
-
+    debugger;
 
     return data
 }

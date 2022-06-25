@@ -1,4 +1,4 @@
-const imageprefix='https://res.cloudinary.com/codergihub/image/fetch/w_500/'
+//const imageprefix='https://res.cloudinary.com/codergihub/image/fetch/w_500/'
 const placeholder ='https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg'
 const placeholders = {
     defacto: { logo: { image: './logo/defacto.svg',width:'25%',height:'' },   imagePrefix: '',  placeholder: 'https://dfcdn.defacto.com.tr/AssetsV2/dist/img/placeholders/placeholder.svg', imageHost: 'https://dfcdn.defacto.com.tr/', detailHost: 'https://www.defacto.com.tr/', postfix: '' },
@@ -12,6 +12,7 @@ const placeholders = {
     penti: { logo: { image: './logo/penti.svg',width:'25%',height:''  },      imagePrefix: '',      placeholder, imageHost: 'https://file-penti.mncdn.com/mnresize/', detailHost: 'https://www.penti.com/tr/', postfix: '' },
     roman: { logo: { image: './logo/roman.png',width:'25%',height:''  },      imagePrefix: '',      placeholder, imageHost: 'https://romancdn.sysrun.net/Content/ProductImage/Original/', detailHost: 'https://www.roman.com.tr/detay/', postfix: '' },
     beymen: { logo: { image: './logo/beymen.svg',width:'45%',height:''  },    imagePrefix: '',    placeholder:'https://cdn.beymen.com/assets/desktop/img/beymen-placeholder.svg', imageHost: 'https://cdn.beymen.com/mnresize/', detailHost: 'https://www.beymen.com/', postfix: '' },
+    vakko: { logo: { image: './logo/vakko.jpg',width:'30%',height:''  },    imagePrefix: '',    placeholder:'https://vakko.akinoncdn.com/static_omnishop/vakko678/assets/img/noimage.png', imageHost: 'https://vakko.akinoncdn.com/products/', detailHost: 'https://www.vakko.com/', postfix: '' },
 }
 
 export default placeholders
