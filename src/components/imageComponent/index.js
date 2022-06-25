@@ -49,9 +49,9 @@ export default function ImageComponent(props) {
 
     }, []);
   
-  function  addDefaultSrc(ev){
-      ev.target.src =placeholders[props.marka].imageHost.trim() + props.imageUrl
-    }
+  // function  addDefaultSrc(ev){
+  //     ev.target.src =placeholders[props.marka].imageHost.trim() + props.imageUrl
+  //   }
   
     return (
       <div>
@@ -61,7 +61,7 @@ export default function ImageComponent(props) {
             <ImageListItem>
 
          
-            <img  onError={addDefaultSrc} ref={imageEl} data-intersection="true" className="figure"
+            <img   ref={imageEl} data-intersection="true" className="figure"
          
               src={imagePlaceholder}
               data-src={imageSource.trim()}
