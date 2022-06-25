@@ -1,4 +1,4 @@
-const imagePrefix='https://res.cloudinary.com/codergihub/image/fetch/w_500/'
+const imagePrefix='https://res.cloudinary.com/codergihub/image/fetch/w_400/'
 const placeholder ='https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg'
 const placeholders = {
     defacto: { logo: { image: './logo/defacto.svg',width:'25%',height:'' },   imagePrefix,  placeholder: 'https://dfcdn.defacto.com.tr/AssetsV2/dist/img/placeholders/placeholder.svg', imageHost: 'https://dfcdn.defacto.com.tr/', detailHost: 'https://www.defacto.com.tr/', postfix: '' },
