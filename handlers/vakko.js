@@ -1,39 +1,38 @@
 
-async function handler(page,context) {
-    const { request: { userData: {  subcategory, category } } } = context
+async function handler(page, context) {
+    const { request: { userData: { subcategory, category } } } = context
 
     const url = await page.url()
 
-    await page.waitForSelector('.catalog-products')
+    await page.waitForSelector('.category__products')
 
 
-    const data = await page.$$eval('.catalog-products .product-card', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.category__products .product__column', (productCards, _subcategory, _category) => {
         return productCards.map(productCard => {
-
-            const imageUrl = productCard.querySelector('.catalog-products .product-card .product-card__image .image-box .product-card__image--item.swiper-slide img').getAttribute('data-srcset')
-            const title = productCard.querySelector('.product-card__title a').getAttribute('title').trim()
-            const priceNew = productCard.querySelector('.product-card__price--new') && productCard.querySelector('.product-card__price--new').textContent.trim().replace('₺', '').replace('TL', '')
-            const longlink = productCard.querySelector('.catalog-products .product-card .product-card__image .image-box a').href
-            const link = longlink.substring(longlink.indexOf("defacto.com.tr/") + 15)
-            const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
-            const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
+            const brand = productCard.querySelector('.product__each--brand__name').textContent.replace('\n', '').trim()
+         //   const title = productCard.querySelector('.product__each--name-text').textContent.replace('\n', '').trim()
+          //  const priceNew = productCard.querySelector('.product__each--price__span').textContent.replace('₺','').trim()
+          //  const longlink = productCard.querySelector('.hoverableContainer').href
+          //  const link = longlink.substring(longlink.indexOf("defacto.com.tr/") + 15)
+        //    const longImgUrl = productCard.querySelector('.hoverableContainer [data-lazy]').getAttribute('data-lazy')
+           // const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
             return {
-                title,
-   
-                priceNew: priceNew ? priceNew.replace(',', '.').trim() : 0,
+                title: brand ,//+ ' ' + title,
 
-                imageUrl: imageUrlshort,
-                link,
+                priceNew,
+
+                imageUrl: longImgUrl,
+                link:longlink,
 
                 timestamp: Date.now(),
- 
-                marka: 'defacto',
-                subcategory:_subcategory,
-                category:_category
+
+                marka: 'vakko',
+                subcategory: _subcategory,
+                category: _category
 
 
             }
-        })//.filter(f => f.imageUrl !== null)
+        })
     }, subcategory, category)
 
     console.log('data length_____', data.length, 'url:', url)
@@ -46,19 +45,19 @@ async function handler(page,context) {
 async function getUrls(page) {
     const url = await page.url()
     debugger;
-    await page.waitForSelector('.catalog__meta--product-count span')
-    const productCount = await page.$eval('.catalog__meta--product-count span', element => parseInt(element.innerHTML))
-    const totalPages = Math.ceil(productCount / 60)
+    await page.waitForSelector('.search-total-count')
+    const productCount = await page.$eval('.search-total-count', element => parseInt(element.innerHTML))
+    const totalPages = Math.ceil(productCount / 48)
     const pageUrls = []
 
     let pagesLeft = totalPages
     for (let i = 2; i <= totalPages; i++) {
 
-     
+
 
         pageUrls.push(`${url}?page=` + i)
         --pagesLeft
-    
+
 
     }
 
