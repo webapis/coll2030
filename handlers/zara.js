@@ -1,40 +1,57 @@
 
-
 async function handler(page, context) {
     const { request: { userData: { subcategory, category, start } } } = context
     debugger;
     const url = await page.url()
-  
+
     debugger;
     await page.waitForSelector('.product-grid-block-dynamic.product-grid-block-dynamic__container')
     await autoScroll(page);
+
     debugger;
+    const data = await page.$$eval('li.product-grid-block-dynamic.product-grid-block-dynamic__container', (list, _subcategory, _category) => {
 
-    await page.waitFor(3000)
-    debugger;
-    const data = await page.$$eval('.product-grid-block-dynamic.product-grid-block-dynamic__container', (productCards, _subcategory, _category) => {
-        return productCards.map(productCard => {
+        let products = []
+        list.forEach(element => {
+
+            const links = Array.from(element.querySelectorAll('a.product-link.product-grid-product__link.link')).map((m) => {
+                const longlink = m.href
+                return longlink.substring(longlink.indexOf('https://www.zara.com/tr/tr/') + 27)
+            })
+            const images = Array.from(element.querySelectorAll('img.media-image__image.media__wrapper--media')).map((m) => {
+                const longimageurl = m.src
+                return longimageurl.substring(longimageurl.indexOf('https://static.zara.net/photos/') + 31)
+            })
+            const titles = Array.from(element.querySelectorAll('img.media-image__image.media__wrapper--media')).map((m) => m.alt)
+            const prices = Array.from(element.querySelectorAll('.price-current__amount')).map((m) => m.textContent.replace("TL", ''))
 
 
-            const title =productCard.querySelector('.product-link._item.product-grid-product-info__name.link span')&& productCard.querySelector('.product-link._item.product-grid-product-info__name.link span').textContent.trim()
-            // const priceNew = productCard.querySelector('.discountPrice span').innerText.replace('₺', '').trim()
-            // const longlink = productCard.querySelector('.detailLink.detailUrl').href
-            // const link = longlink.substring(longlink.indexOf('https://www.dilekhanif.com/') + 27)
-            // const longImgUrl = productCard.querySelector('.productImage.productImageOwlSlider')?productCard.querySelector('.productSliderImage').src : (productCard.querySelector('.resimOrginal').src ?productCard.querySelector('.resimOrginal').src :productCard.querySelector('.resimOrginal').getAttribute('data-original')  )
-            // const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://www.dilekhanif.com/Uploads/UrunResimleri/thumb/') + 55)
-//data-original
-            return {
-              title,
-            //    priceNew,
-             //   imageUrl: imageUrlshort,
-             //   link,
-                timestamp: Date.now(),
-                marka: 'zara',
-                subcategory: _subcategory,
-                category: _category
-            }
+            const items = links.map((m, i) => {
+                return {
+                    title: titles[i],
+
+                    priceNew: prices[i],
+                    imageUrl: images[i],
+                    link: links[i],
+                    timestamp: Date.now(),
+                    marka: 'zara',
+                    subcategory: _subcategory,
+                    category: _category
+                }
+            })
+
+            products.push(...items)
         })
+
+        return products
+
     }, subcategory, category)
+
+    //----------
+
+
+
+    //----------
 
     console.log('data length_____', data.length, 'url:', url)
 
@@ -59,7 +76,7 @@ async function autoScroll(page) {
             let inc = 0
             var timer = setInterval(() => {
                 var scrollHeight = document.body.scrollHeight;
- 
+
                 window.scrollBy(0, distance);
                 totalHeight += distance;
                 inc = inc + 1
@@ -75,7 +92,7 @@ module.exports = { handler, getUrls }
 
 //ul.product-grid-block-dynamic__row
 
-// title .querySelector('.product-link._item.product-grid-product-info__name.link span').textContent 
+// title .querySelector('.product-link._item.product-grid-product-info__name.link span').textContent
 // price .querySelectorAll('.price-current__amount')
 // image .querySelector('.media-image__image.media__wrapper--media').src
 // detail .querySelector('.product-link.product-grid-product__link.link').href
