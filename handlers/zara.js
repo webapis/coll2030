@@ -7,7 +7,7 @@ async function handler(page, context) {
     debugger;
     await page.waitForSelector('.product-grid-block-dynamic.product-grid-block-dynamic__container')
     await autoScroll(page);
-
+  await page.waitFor(3000)
     debugger;
     const data = await page.$$eval('li.product-grid-block-dynamic.product-grid-block-dynamic__container', (list, _subcategory, _category) => {
 
@@ -84,7 +84,7 @@ async function autoScroll(page) {
                     clearInterval(timer);
                     resolve();
                 }
-            }, 50);
+            }, 100);
         });
     });
 }
