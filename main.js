@@ -17,9 +17,9 @@ Apify.main(async () => {
 
     for (let obj of urls) {
 
-        const { url, category, subcategory } = obj
+        const { url, category, subcategory,opts } = obj
 
-        await requestQueue.addRequest({ url, userData: { start: true, category, subcategory } })
+        await requestQueue.addRequest({ url, userData: { start: true, category, subcategory,opts } })
     }
 
 
@@ -31,7 +31,7 @@ Apify.main(async () => {
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
 
-        const { page, request: { userData: { start, subcategory, category } } } = context
+        const { page, request: { userData: { start, subcategory, category,opts } } } = context
 
         const marka = process.env.marka
         const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
@@ -42,9 +42,9 @@ Apify.main(async () => {
             let order = 1
             for (let url of pageUrls) {
                 if (pageUrls.length === order) {
-                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category } })
+                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category,opts } })
                 } else {
-                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category } })
+                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category,opts } })
                 }
                 ++order;
             }
