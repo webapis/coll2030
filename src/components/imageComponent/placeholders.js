@@ -15,8 +15,9 @@ const placeholders = {
     roman: { logo: { image: './logo/roman.png', width: '25%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://romancdn.sysrun.net/Content/ProductImage/Original/', detailHost: 'https://www.roman.com.tr/detay/', postfix: '', imgPostFix: '' },
     beymen: { logo: { image: './logo/beymen.svg', width: '45%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder: 'https://cdn.beymen.com/assets/desktop/img/beymen-placeholder.svg', imageHost: 'https://cdn.beymen.com/mnresize/', detailHost: 'https://www.beymen.com/', postfix: '', imgPostFix: '?tr=w-400' },
     vakko: { logo: { image: './logo/vakko.jpg', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder: 'https://vakko.akinoncdn.com/static_omnishop/vakko678/assets/img/noimage.png', imageHost: 'https://vakko.akinoncdn.com/products/', detailHost: 'https://www.vakko.com/', postfix: '', imgPostFix: '?tr=w-400' },
-    zara: { logo: { image: './logo/zara.jpg', width: '15%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://static.zara.net/photos/', detailHost: 'https://www.zara.com/tr/tr/', postfix: '', imgPostFix: '' },
-    twist: { logo: { image: './logo/twist.svg', width: '15%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img2-twist.mncdn.com/mnresize/800/-//Twist/products/', detailHost: 'https://www.twist.com.tr/', postfix: '', imgPostFix: '' },
+    zara: { logo: { image: './logo/zara.jpg', width: '15%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://static.zara.net/photos/', detailHost: 'https://www.zara.com/tr/tr/', postfix: '', imgPostFix: '?tr=w-400'},
+    twist: { logo: { image: './logo/twist.svg', width: '15%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img2-twist.mncdn.com/mnresize/800/-//Twist/products/', detailHost: 'https://www.twist.com.tr/', postfix: '', imgPostFix: '?tr=w-400'},
+    hm: { logo: { image: './logo/hm.jpg', width: '15%', height: '' }, imagePrefix: '', placeholder:'./placeholder-img/h&m.webp', imageHost: 'http://lp2.hm.com/hmgoepprod?set=source[', detailHost: 'https://www2.hm.com/tr_tr/', postfix: '', imgPostFix: '' },
 }
 
 export default placeholders

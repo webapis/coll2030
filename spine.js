@@ -4,26 +4,27 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require('fs')
-const html = fs.readFileSync('./twist.html').toString()
+const html = fs.readFileSync('./htmls/2.hm.html').toString()
 const dom = new JSDOM(html)
 
 debugger;
 
-const list = Array.from(dom.window.document.querySelectorAll("[data-category-name]"))
+const list = Array.from(dom.window.document.querySelectorAll(".product-item"))
+
 const prods = list.map(element => {
   return {
-    title: element.querySelector('.prd-name').textContent.replace(/[\n]/g,'').trim(),
- 
+    title: element.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim(),
 
-    priceNew:element.querySelector('.urunListe_satisFiyat').innerHTML.replace('₺',''),
 
-   imageUrl: element.querySelector('[data-background]')?element.querySelector('[data-background]').getAttribute('data-background'):element.querySelector('[data-image-src]').getAttribute('data-image-src'),
-   link: element.querySelector('.prd-lnk').href,
+    priceNew: element.querySelector('.price.regular').innerHTML.replace('TL', '').trim(),
+
+    imageUrl: element.querySelector('[data-src]').getAttribute('data-src'),
+    link: element.querySelector('.item-heading a').href,
 
     timestamp: Date.now(),
 
-    marka: 'twist',
-  
+    marka: 'H&M',
+
   }
 })
 
