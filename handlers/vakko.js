@@ -28,7 +28,7 @@ debugger;
                 timestamp: Date.now(),
 
                 marka: 'vakko',
-                subcategory: _opts ? _opts.find((f) => title.includes(f)) : _subcategory,
+                subcategory: _opts ? _opts.find((f) => title.includes(f)).replace('ELBİSE','ELBISE').toLowerCase() : _subcategory,
                 category: _category
 
 

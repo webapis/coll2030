@@ -65,9 +65,14 @@ jobs:
     with:
       marka: zara
     secrets: inherit
+  twist_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: twist
+    secrets: inherit
   generate_nav_job:
     runs-on: ubuntu-latest
-    needs: [defacto_job,machka_job,lcwaikiki_job,boyner_job,koton_job,ipekyol_job,mavi_job,adl_job,roman_job,penti_job,beymen_job,vakko_job,zara_job]
+    needs: [defacto_job,machka_job,lcwaikiki_job,boyner_job,koton_job,ipekyol_job,mavi_job,adl_job,roman_job,penti_job,beymen_job,vakko_job,zara_job,twist_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2

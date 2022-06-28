@@ -91,9 +91,3 @@ async function autoScroll(page) {
 }
 module.exports = { handler, getUrls }
 
-//ul.product-grid-block-dynamic__row
-
-// title .querySelector('.product-link._item.product-grid-product-info__name.link span').textContent
-// price .querySelectorAll('.price-current__amount')
-// image .querySelector('.media-image__image.media__wrapper--media').src
-// detail .querySelector('.product-link.product-grid-product__link.link').href
