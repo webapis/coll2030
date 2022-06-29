@@ -4,26 +4,26 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require('fs')
-const html = fs.readFileSync('./htmls/baqa.html').toString()
+const html = fs.readFileSync('./htmls/beyyoglu.html').toString()
 const dom = new JSDOM(html)
 
 debugger;
 
-const list = Array.from(dom.window.document.querySelectorAll(".ItemOrj.col-3"))
+const list = Array.from(dom.window.document.querySelectorAll(".js-product-wrapper.product-item"))
 
 const prods = list.map(element => {
 
-  const img = element.querySelector('[data-original]').getAttribute('data-original')
-  const title = element.querySelector('.productName.detailUrl a').innerHTML
-  const priceNew =element.querySelector('.discountPrice span').innerHTML.replace('₺', '').trim()
-  const link = element.querySelector('.detailLink.detailUrl').href
+  const img = element.querySelector('.product-item__image.js-product-item-image a img').src
+  const title = element.querySelector('.product-item__image.js-product-item-image a img').alt
+  const priceNew =element.querySelector('pz-price').innerHTML.replace('TL', '').trim()
+  const link = element.querySelector('.product-item__image.js-product-item-image a').href
   return {
     title,
     priceNew,
     imageUrl: img,
     link,
     timestamp: Date.now(),
-    marka: 'baqa',
+    marka: 'beyyoglu',
 
   }
 })

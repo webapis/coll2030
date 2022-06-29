@@ -109,6 +109,14 @@ Apify.main(async () => {
                         req.continue();
                     }
                 });
+                page.on('response',async response=>{
+                    const request = response.request();
+                    if (request.url().includes('desiredrequest.json')){
+                        const text = await response.text();
+                        debugger;
+                        console.log(text);
+                    }
+                })
             },
         ],
         handleFailedRequestFunction: async ({ request: { errorMessages, url, userData: { gender, start } } }) => {
