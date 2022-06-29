@@ -4,26 +4,26 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require('fs')
-const html = fs.readFileSync('./htmls/adidas.html').toString()
+const html = fs.readFileSync('./htmls/baqa.html').toString()
 const dom = new JSDOM(html)
 
 debugger;
 
-const list = Array.from(dom.window.document.querySelectorAll(".grid-item"))
+const list = Array.from(dom.window.document.querySelectorAll(".ItemOrj.col-3"))
 
 const prods = list.map(element => {
 
-  const img = element.querySelector('.glass-product-card__assets-link img').srcset.split('w,')[5].replace('\n', '').replace('766w', '').trim()
-  const title = element.querySelector('.glass-product-card__assets-link img').alt
-  const priceNew =element.querySelector('[ data-auto-id="gl-price-item"] div')&& element.querySelector('[ data-auto-id="gl-price-item"] div').innerHTML.replace('TL', '').trim()
-  const link = element.querySelector('[data-auto-id="glass-hockeycard-link"]').href
+  const img = element.querySelector('[data-original]').getAttribute('data-original')
+  const title = element.querySelector('.productName.detailUrl a').innerHTML
+  const priceNew =element.querySelector('.discountPrice span').innerHTML.replace('₺', '').trim()
+  const link = element.querySelector('.detailLink.detailUrl').href
   return {
     title,
     priceNew,
     imageUrl: img,
     link,
     timestamp: Date.now(),
-    marka: 'adidas',
+    marka: 'baqa',
 
   }
 })
