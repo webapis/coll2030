@@ -18,6 +18,7 @@ const placeholders = {
     zara: { logo: { image: './logo/zara.jpg', width: '15%', height: '' }, imagePrefix: '', placeholder, imageHost: 'https://static.zara.net/photos/', detailHost: 'https://www.zara.com/tr/tr/', postfix: '', imgPostFix: ''},
     twist: { logo: { image: './logo/twist.svg', width: '15%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img2-twist.mncdn.com/mnresize/800/-//Twist/products/', detailHost: 'https://www.twist.com.tr/', postfix: '', imgPostFix: ''},
     hm: { logo: { image: './logo/hm.jpg', width: '15%', height: '' }, imagePrefix: '', placeholder:'./placeholder-img/h&m.webp', imageHost: 'http://lp2.hm.com/hmgoepprod?set=source[', detailHost: 'https://www2.hm.com/tr_tr/', postfix: '', imgPostFix: '' },
+    adidas: { logo: { image: './logo/adidas.jpg', width: '28%', height: '' }, imagePrefix: '', placeholder, imageHost: 'https://assets.adidas.com/images/', detailHost: 'https://www.adidas.com.tr/tr/', postfix: '', imgPostFix: '' },
 }
 
 export default placeholders

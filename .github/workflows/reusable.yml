@@ -6,6 +6,10 @@ on:
         description: 'marka'
         required: true
         type: string
+      maxconcurrency:
+        description: 'page concurrency'
+        required: false
+        default: '10'
 env:
   CLOUD: true
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
@@ -13,7 +17,8 @@ env:
   CLIENT_ID: ${{secrets.CLIENT_ID}}
   START_URL: ${{inputs.start_url}}
   marka: ${{inputs.marka}}
-  HEADLESS: true															
+  HEADLESS: true
+  MAX_CONCURRENCY: ${{inputs.maxconcurrency}}															
 jobs:
   aggregator:
     runs-on: ubuntu-latest

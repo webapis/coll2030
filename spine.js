@@ -4,25 +4,26 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require('fs')
-const html = fs.readFileSync('./htmls/penti.html').toString()
+const html = fs.readFileSync('./htmls/adidas.html').toString()
 const dom = new JSDOM(html)
 
 debugger;
 
-const list = Array.from(dom.window.document.querySelectorAll("[data-page]"))
+const list = Array.from(dom.window.document.querySelectorAll(".grid-item"))
 
 const prods = list.map(element => {
 
-  const obj = JSON.parse(element.querySelector('.prd-link').getAttribute('data-gtm-product'))
-
+  const img = element.querySelector('.glass-product-card__assets-link img').srcset.split('w,')[5].replace('\n', '').replace('766w', '').trim()
+  const title = element.querySelector('.glass-product-card__assets-link img').alt
+  const priceNew =element.querySelector('[ data-auto-id="gl-price-item"] div')&& element.querySelector('[ data-auto-id="gl-price-item"] div').innerHTML.replace('TL', '').trim()
+  const link = element.querySelector('[data-auto-id="glass-hockeycard-link"]').href
   return {
-    title: obj.name,
-    obj,
-    priceNew: obj.price,
-    imageUrl: obj.dimension19,
-    link: element.querySelector('.prd-link').href,
+    title,
+    priceNew,
+    imageUrl: img,
+    link,
     timestamp: Date.now(),
-    marka: 'penti',
+    marka: 'adidas',
 
   }
 })
