@@ -4,26 +4,25 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require('fs')
-const html = fs.readFileSync('./htmls/2.hm.html').toString()
+const html = fs.readFileSync('./htmls/penti.html').toString()
 const dom = new JSDOM(html)
 
 debugger;
 
-const list = Array.from(dom.window.document.querySelectorAll(".product-item"))
+const list = Array.from(dom.window.document.querySelectorAll("[data-page]"))
 
 const prods = list.map(element => {
+
+  const obj = JSON.parse(element.querySelector('.prd-link').getAttribute('data-gtm-product'))
+
   return {
-    title: element.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim(),
-
-
-    priceNew: element.querySelector('.price.regular').innerHTML.replace('TL', '').trim(),
-
-    imageUrl: element.querySelector('[data-src]').getAttribute('data-src'),
-    link: element.querySelector('.item-heading a').href,
-
+    title: obj.name,
+    obj,
+    priceNew: obj.price,
+    imageUrl: obj.dimension19,
+    link: element.querySelector('.prd-link').href,
     timestamp: Date.now(),
-
-    marka: 'H&M',
+    marka: 'penti',
 
   }
 })
