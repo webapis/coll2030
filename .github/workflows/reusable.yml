@@ -9,6 +9,7 @@ on:
       maxconcurrency:
         description: 'page concurrency'
         required: false
+        type: string
         default: '10'
 env:
   CLOUD: true
