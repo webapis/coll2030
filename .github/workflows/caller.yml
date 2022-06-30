@@ -100,12 +100,12 @@ jobs:
       marka: dilvin
       maxconcurrency: '10'
     secrets: inherit
-  dagi_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: dagi
-      maxconcurrency: '1'
-    secrets: inherit
+ # dagi_job:
+ #   uses: ./.github/workflows/reusable.yml
+ #   with:
+ #     marka: dagi
+ #     maxconcurrency: '1'
+ #   secrets: inherit
   colins_job:
     uses: ./.github/workflows/reusable.yml
     with:
