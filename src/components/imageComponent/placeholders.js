@@ -24,6 +24,7 @@ const placeholders = {
     dogo: { logo: { image: './logo/dogo.svg', width: '25%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.dogostore.com/', detailHost: 'https://www.dogostore.com/', postfix: '', imgPostFix:'?tr=w-400' },
     dilvin: { logo: { image: './logo/dilvin.png', width: '25%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://kvyfm6d9dll6.merlincdn.net/productimages/', detailHost: 'https://www.dilvin.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     dagi: { logo: { image: './logo/dagi.png', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img-dagi.mncdn.com/mnpadding/', detailHost: 'https://www.dagi.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    colins: { logo: { image: './logo/colins.png', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img-colinstr.mncdn.com/mnresize/', detailHost: 'https://www.colins.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
 }
 
 export default placeholders

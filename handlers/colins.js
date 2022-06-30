@@ -4,27 +4,26 @@ async function handler(page, context) {
     debugger;
     const url = await page.url()
 
-    await page.waitForSelector('.products.list.items.product-items', { timeout: 200000 })
+    await page.waitForSelector('.module-content.product-list.clearfix')
 
     await autoScroll(page)
     debugger;
 
 
-    const data = await page.$$eval('.item.product.product-item', (productCards, _subcategory, _category, _opts) => {
+    const data = await page.$$eval('.productbox.clearfix.list-item', (productCards, _subcategory, _category, _opts) => {
         return productCards.map(productCard => {
-            const title = productCard.querySelector('.product-item-link').innerHTML
-            const img = productCard.querySelector('.product-image-photo').src
-            const priceNew = productCard.querySelector('.special-price span') ? productCard.querySelector('.special-price span').innerHTML.replace('₺', '') : productCard.querySelector('.price.parent').innerHTML.replace('₺', '')
-            const link = productCard.querySelector('.product-item-info a') && productCard.querySelector('.product-item-info a').href
+            const title = productCard.querySelector('.lazy-image.product-name.track-link').getAttribute('title')
+            const img= productCard.querySelector('.lazy-image.product-name.track-link img').src
+            const priceNew =productCard.querySelector('.product-price')?productCard.querySelector('.product-price').innerHTML.replace('TL','').trim() :productCard.querySelector('.product-new-price').innerHTML.replace('TL','').trim()
+            const link = productCard.querySelector('.lazy-image.product-name.track-link').href
 
             return {
                 title,
-
                 priceNew,
-                imageUrl: img && img.substring(img.indexOf('https://img-dagi.mncdn.com/mnpadding/') + 37),
-                link: link && link.substring(link.indexOf('https://www.dagi.com.tr/') + 24),
+                imageUrl: img.substring(img.indexOf('https://img-colinstr.mncdn.com/mnresize/')+40) ,
+                link:link.substring(link.indexOf('https://www.colins.com.tr/')+26),
                 timestamp: Date.now(),
-                marka: 'dagi',
+                marka: 'colins',
                 subcategory: _subcategory,
                 category: _category
             }
