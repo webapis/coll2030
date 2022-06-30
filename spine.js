@@ -10,70 +10,8 @@ debugger;
 
 
 
-/*
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const fs = require('fs')
-const html = fs.readFileSync('./htmls/dilvin.html').toString()
-const dom = new JSDOM(html)
-
-debugger;
-
-const list = Array.from(dom.window.document.querySelectorAll('.product'))
-debugger;
-const prods = list.map(element => {
-  const title = element.querySelector('.image-hover.hover-nav a').getAttribute('title')
-  const img= element.querySelector('.image-hover.hover-nav a img').src
-  const priceNew =element.querySelector('.price-sales').innerHTML.replace('TL','').trim()
-  const link = element.querySelector('.image-hover.hover-nav a').href
-
-    return {
-    title,
-    priceNew,
-    imageUrl: img,
-    link,
-    timestamp: Date.now(),
-    marka: 'dilvin',
-  }
-})
-
-debugger;
-let products = []
-
-*/
 
 
-/*
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const fs = require('fs')
-const html = fs.readFileSync('./htmls/denizbutik.html').toString()
-const dom = new JSDOM(html)
-
-debugger;
-
-const list = Array.from(dom.window.document.querySelectorAll('.ItemOrj.col-4'))
-debugger;
-const prods = list.map(element => {
-  const title = element.querySelector('.detailLink.detailUrl img').alt
-  const img= element.querySelector('.detailLink.detailUrl img').src
-  const priceNew =element.querySelector('.regularPrice span').innerHTML.replace('\n','').replace('TL','').trim()
-  const link = element.querySelector('.detailLink.detailUrl').href
-
-    return {
-    title,
-    priceNew,
-    imageUrl: img,
-    link,
-    timestamp: Date.now(),
-    marka: 'denizbutik',
-  }
-})
-
-debugger;
-let products = []
-
-*/
 
 
 
