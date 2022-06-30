@@ -4,7 +4,7 @@ async function handler(page, context) {
     debugger;
     const url = await page.url()
 
-    await page.waitForSelector('.products.list.items.product-items', { timeout: 200000 })
+    await page.waitForSelector('.products.list.items.product-items')
 
     await autoScroll(page)
     debugger;
