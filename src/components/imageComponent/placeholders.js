@@ -21,6 +21,7 @@ const placeholders = {
     adidas: { logo: { image: './logo/adidas.jpg', width: '28%', height: '' }, imagePrefix: '', placeholder:'./placeholder-img/adidas.svg', imageHost: 'https://assets.adidas.com/images/', detailHost: 'https://www.adidas.com.tr/tr/', postfix: '', imgPostFix: '' },
     baqa: { logo: { image: './logo/baqa.png', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.baqa.com.tr', detailHost: 'https://www.baqa.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     beyyoglu: { logo: { image: './logo/beyyoglu.svg', width: '45%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://beyyoglu.akinoncdn.com/products/', detailHost: 'https://www.beyyoglu.com/', postfix: '', imgPostFix:'?tr=w-400' },
+    dogo: { logo: { image: './logo/dogo.svg', width: '25%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.dogostore.com/', detailHost: 'https://www.dogostore.com/', postfix: '', imgPostFix:'?tr=w-400' },
 }
 
 export default placeholders

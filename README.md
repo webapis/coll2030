@@ -82,24 +82,4 @@ npm config set proxy http://proxy_host:port
     - cron:  '0 3 * * *'
 
 
-      koton_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      start_url:  https://www.koton.com/tr/kadin/c/M01-C02?text=kadin
-      order: false
-      marka: koton
-    secrets: inherit
-  boyner_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      start_url:  https://www.boyner.com.tr/search?q=kadin&filterIDList=19304&page=1
-      order: false
-      marka: boyner
-    secrets: inherit
-  lcwaikiki_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      start_url:  https://www.lcwaikiki.com/tr-TR/TR/arama?q=kadin
-      order: false
-      marka: lcwaikiki
-    secrets: inherit
+https://www.freeconvert.com/png-to-svg/download
