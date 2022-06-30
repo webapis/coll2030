@@ -8,28 +8,6 @@ const dom = new JSDOM(html)
 
 debugger;
 
-const list = Array.from(dom.window.document.querySelectorAll('.col.col-12.productDetails.loaderWrapper'))
-debugger;
-let PRODUCT_DATA =dom.window.PRODUCT_DATA
-debugger;
-const prods = list.map(element => {
-  const title = element.querySelector('.detailLink').getAttribute('title')
-  const img= element.querySelector('picture img')&& element.querySelector('picture img').getAttribute('data-src')
-  const priceNew =element.querySelector('.currentPrice').replace('TL','').trim()
-  const link = element.querySelector('.detailLink').href
-debugger;
-    return {
-    title,
-    priceNew,
-   imageUrl: img,
-    link,
-    timestamp: Date.now(),
-    marka: 'dilvin',
-  }
-})
-
-debugger;
-let products = []
 
 
 /*
