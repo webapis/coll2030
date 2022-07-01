@@ -27,6 +27,7 @@ const placeholders = {
     colins: { logo: { image: './logo/colins.png', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img-colinstr.mncdn.com/mnresize/', detailHost: 'https://www.colins.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     butigo: { logo: { image: './logo/butigo.jpg', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://floimages.mncdn.com/mnpadding/', detailHost: 'https://www.butigo.com.tr', postfix: '', imgPostFix:'?tr=w-400' },
     faststep: { logo: { image: './logo/faststep.jpg', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.faststep.com.tr?img=catalog/urunresim/', detailHost: 'https://www.faststep.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    fullamoda: { logo: { image: './logo/fullamoda.webp', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://images.farktorcdn.com/img/', detailHost: 'https://www.fullamoda.com/', postfix: '', imgPostFix:'?tr=w-400' },
 }
 
 export default placeholders

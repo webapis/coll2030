@@ -2,6 +2,43 @@
 
 
 
+
+
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const fs = require('fs')
+const html = fs.readFileSync('./htmls/fullamoda.html').toString()
+const dom = new JSDOM(html)
+
+debugger;
+
+const list = Array.from(dom.window.document.querySelectorAll('.productItemLayout'))
+debugger;
+const prods = list.map(element => {
+  const title = element.querySelector('img[title]').getAttribute('title')
+  const img = element.querySelector('img[title]').src
+  const priceNew = element.querySelector('.discountFlashPrice').textContent.replace('TL', '').trim()
+  const link = element.querySelector('img[title]').parentElement.href
+  return {
+    title,
+    priceNew,
+    imageUrl: img,
+    link,
+    timestamp: Date.now(),
+    marka: 'fullamoda',
+  }
+})
+
+debugger;
+let products = []
+
+
+
+
+
+
+
+/*
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require('fs')
@@ -32,7 +69,7 @@ let products = []
 
 
 
-
+*/
 
 
 
