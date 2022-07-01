@@ -1,12 +1,34 @@
 //require('dotenv').config()
 
+
+
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require('fs')
-const html = fs.readFileSync('./htmls/dogo.html').toString()
+const html = fs.readFileSync('./htmls/faststep.html').toString()
 const dom = new JSDOM(html)
 
 debugger;
+
+const list = Array.from(dom.window.document.querySelectorAll('.product-layout'))
+debugger;
+const prods = list.map(element => {
+  const title = element.querySelector('.image a.product-img img').alt.trim()
+  const img= element.querySelectorAll('.image a.product-img img')[0].getAttribute('data-srcset').split('x,')[1].replace('2x','').trim()
+  const priceNew =element.querySelector('.price-tax')?element.querySelector('.price-tax').textContent.replace('TL','').replace('SEPETTE','').trim(): element.querySelector('.price-normal').innerHTML.replace('TL','')
+  const link = element.querySelector('.image a.product-img').href
+  return {
+   title,
+    priceNew,
+    imageUrl: img,
+    link,
+    timestamp: Date.now(),
+    marka: 'dagi',
+  }
+})
+
+debugger;
+let products = []
 
 
 
