@@ -18,7 +18,7 @@ import Divider from '@mui/material/Divider';
 import { Provider } from 'react-redux'
 import store from './store/store'
 import reportWebVitals from './reportWebVitals';
-import FilterResult from './components/FilterResult';
+import Content from './components/Content';
 import { Typography } from '@mui/material';
 import DrawerComp from './components/DrawerComp';
 import BackToTop from './components/BackToTop';
@@ -109,7 +109,7 @@ export default function HideAppBar(props) {
       </HideOnScroll>
       <Container  sx={{ marginTop: 0, paddingTop: 15 }}>
       <BackToTop>
-      <FilterResult  />
+      <Content  />
       </BackToTop>
      
 

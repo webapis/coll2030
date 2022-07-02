@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import ProductImageList from './ProductImageList'
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Container } from '@mui/material';
 
 import SubcategoriesComp from './SubcategoriesComp'
@@ -18,14 +18,20 @@ export default function FilterResult(props) {
     <Box>
       <TabPanel value={selectedTab} index={0} sx={{ display: 'flex', justifyContent: 'center' }}>
         <Container>
-          <Subcategories />
+          Home
         </Container>
 
       </TabPanel>
       <TabPanel value={selectedTab} index={1} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Container>
+          <Subcategories />
+        </Container>
 
       </TabPanel>
-      <TabPanel value={selectedTab} index={2}>
+      <TabPanel value={selectedTab} index={2} sx={{ display: 'flex', justifyContent: 'center' }}>
+
+      </TabPanel>
+      <TabPanel value={selectedTab} index={3}>
         <ProductImageList />
       </TabPanel>
 
@@ -58,12 +64,12 @@ function TabPanel(props) {
 
 function Subcategories() {
   const mobile = useMediaQuery('(max-width:600px)');
- 
 
 
 
 
-  
+
+
   const subcategories = useSelector(state => state.breadcrumb.subcategories)
 
 
@@ -98,18 +104,18 @@ function Subcategories() {
     group[scat].push(product);
     return group;
   }, {});
-  
 
 
-  return <Grid container   
+
+  return <Grid container
   >
 
     {
       groupByCategory && Object.entries(groupByCategory).map((o, i, array) => {
-    
+
         const subcategory = o[0]
         const subcategories = Object.values(o[1])
-    
+
         const previousObj = array[i - 1]
         const currentfirstChar = subcategory.charAt(0).toUpperCase()
 
@@ -118,8 +124,8 @@ function Subcategories() {
 
         if (i === 0) {
           return [
-        
-            <Grid item  key={i}>
+
+            <Grid item key={i}>
               <SubcategoriesComp subcategories={subcategories} />
             </Grid >]
         }
@@ -127,17 +133,17 @@ function Subcategories() {
 
         if (currentfirstChar !== previousChar) {
 
-          return [ 
-          <Grid  item key={i}>
-          <SubcategoriesComp subcategories={subcategories} />
-          </Grid >]
+          return [
+            <Grid item key={i}>
+              <SubcategoriesComp subcategories={subcategories} />
+            </Grid >]
 
         }
         if (currentfirstChar === previousChar) {
           return [
 
-            <Grid item  key={i}>
-            <SubcategoriesComp subcategories={subcategories} />
+            <Grid item key={i}>
+              <SubcategoriesComp subcategories={subcategories} />
             </Grid >,
 
           ]
@@ -147,7 +153,7 @@ function Subcategories() {
 
       })
     }
-  
+
   </Grid>
 
 }
