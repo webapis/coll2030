@@ -15,18 +15,18 @@ customElements.define('product-list', class extends HTMLElement {
       </div></div>`
       this.fetchData(0).then(function (data) {
         var collection = data.data
-    
+
         collection.forEach(function (props) {
-  var element = document.getElementById('products')
-  
-  const imagePlaceholder = placeholders[props.marka].placeholder
-  
-  const logo = placeholders[props.marka].logo
-  
-  const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl+placeholders[props.marka].imgPostFix
-  const detailHost = placeholders[props.marka].detailHost + props.link+placeholders[props.marka].postfix
-  
-  element.insertAdjacentHTML('beforeend', `<div class="col-6 col-sm-4 col-md-3  mb-1"><div class="card" style="">
+          var element = document.getElementById('products')
+
+          const imagePlaceholder = placeholders[props.marka].placeholder
+
+          const logo = placeholders[props.marka].logo
+
+          const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl + placeholders[props.marka].imgPostFix
+          const detailHost = placeholders[props.marka].detailHost + props.link + placeholders[props.marka].postfix
+
+          element.insertAdjacentHTML('beforeend', `<div class="col-6 col-sm-4 col-md-3  mb-1"><div class="card" style="">
               <a href="${detailHost}"   target="_blank" >
                 <img src="${imageSource}" class="card-img-top" alt="${props.title}">
              </a>
@@ -39,7 +39,7 @@ customElements.define('product-list', class extends HTMLElement {
                 <a class="m-1 p-0 nav-link text-secondary"   href="${detailHost}"  target="_blank" style="font-size: 0.8em">${props.title}</a>
                 </div>
               </div></div>`)
-          
+
         })
         console.log(data)
       })
