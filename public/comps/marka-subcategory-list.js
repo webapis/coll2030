@@ -24,7 +24,7 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
                 },[])
              
                 subcategories.forEach(function (m, i) {
-                    debugger;
+                    
                     var subcategory = m.subcategory
                     var total =m.total
               
@@ -48,7 +48,7 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
                         window.location.replace(window.location.href+`?subcategory=${subcategory}`)
                      
                 })
-    debugger;
+    
      
     
             })

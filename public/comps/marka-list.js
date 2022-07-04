@@ -16,14 +16,14 @@ customElements.define('marka-list', class extends HTMLElement {
     
     
                 const markas = Object.entries(data[0].nav.markas)
-                debugger;
+                
                 markas.forEach(function (m, i) {
                     const marka = m[0]
                     if(marka==='faststep'){
-                        debugger;
+                        
                     }
                     const totalByCatory = m[1]['totalByCatory']
-                    debugger;
+                    
                     const div = document.createElement('ul')
                     div.href='#'
                     div.className='col-12 col-sm-6 col-md-4 col-lg-3 mb-1'

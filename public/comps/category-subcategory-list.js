@@ -4,7 +4,7 @@ customElements.define('category-subcategory-list',class extends HTMLElement{
     }
 
     connectedCallback(){
-        debugger;
+        
         var selectedSubcategory =localStorage.getItem('selected-subcategory')
 
         if(selectedSubcategory===null){
@@ -12,14 +12,14 @@ customElements.define('category-subcategory-list',class extends HTMLElement{
             fetch('./category-nav.json').then(function (response) {
                 return response.json()
             }).then(function (data) {
-                debugger;
+                
             
                 var selectedSubcategory =localStorage.getItem('selected-subcategory')
-                debugger;
+                
                 var categories = Object.entries(data[0].nav.categories)//.find(function(m){return m[0]===selectedSubcategory})[1]
-                debugger;
+                
                 var categoriesArray =Object.values(categories)
-                debugger;
+                
                 var subcategories =categoriesArray.reduce(function(prev,curr,i){
                     var subs =Object.entries( curr[1]['subcategories'])
                    
@@ -28,9 +28,9 @@ customElements.define('category-subcategory-list',class extends HTMLElement{
               
                         return [...prev,...mappedsubs]
                 },[])
-             debugger
+             
                 subcategories.forEach(function (m, i) {
-                    debugger;
+                    
                     var subcategory = m.subcategory
                     var total =m.total
               
@@ -54,7 +54,7 @@ customElements.define('category-subcategory-list',class extends HTMLElement{
                         window.location.replace(window.location.href+`?subcategory=${subcategory}`)
                      
                 })
-    debugger;
+    
      
     
             })
