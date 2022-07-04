@@ -8,7 +8,12 @@ customElements.define('bread-crumb', class extends HTMLElement {
         var selectedHomeTab = localStorage.getItem('home-tab')
         var selectedMarka =localStorage.getItem('selected-marka')
         var selectedUrun =localStorage.getItem('selected-urun')
-        this.innerHTML = `<div class="container"><nav aria-label="breadcrumb">
+        this.innerHTML = `<div class="container">
+
+        <a class="navbar-brand" href="/index.html">
+         MODABURADA
+        </a>
+        <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#" id="home-crumb">Home</a></li>
           ${selectedHomeTab==='marka-tab' ? ' <li class="breadcrumb-item"><a href="#" id="marka-crumb">Markalar</a></li>':''}
@@ -17,7 +22,10 @@ customElements.define('bread-crumb', class extends HTMLElement {
           ${selectedUrun  ?  '<li class="breadcrumb-item"><a href="#" id="urun-crumb">'+selectedUrun+'</a></li>' :''}
           <li class="breadcrumb-item active" aria-current="page">Data</li>
         </ol>
-      </nav></div>`
+     
+      </nav>
+ 
+      </div>`
 
         this.querySelectorAll('a').forEach(function (element) {
             element.addEventListener('click', function (e) {
