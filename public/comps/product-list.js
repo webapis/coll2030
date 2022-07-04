@@ -30,13 +30,13 @@ customElements.define('product-list', class extends HTMLElement {
               <a href="${detailHost}"   target="_blank" >
                 <img src="${imageSource}" class="card-img-top" alt="${props.title}">
              </a>
-                <div class="card-body g-0">
-                <div class="">
-                <img src="${logo.image}" class="" alt="${props.title}" style="max-width:40%">
+                <div class="m-0 p-0">
+                <div class="m-1">
+                <img src="${logo.image}" class="" alt="${props.title}" style="max-width:40%;">
                 <span class="m-1 fw-light text-end">${props.priceNew}TL</span>
                 </div>
             
-                <a class="fs-6 nav-link text-secondary"   href="${detailHost}"  target="_blank" >${props.title}</a>
+                <a class="m-1 p-0 fs-6 nav-link text-secondary"   href="${detailHost}"  target="_blank" >${props.title}</a>
                 </div>
               </div></div>`)
           
