@@ -26,8 +26,8 @@ async function generateNavigation() {
                         await updateDatabase({pc:{category,subcategory}, marka, markaNavCollection, categoryNavCollection})
                     if (objCounter === totalObjects) {
                         console.log('end....1')
-                        await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/src/components/categoryMenu/category-nav.json` })
-                        await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/src/components/MarkaMenu/marka-nav.json` })
+                        await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/public/category-nav.json` })
+                        await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/public/marka-nav.json` })
                         return resolve(true)
 
                     }

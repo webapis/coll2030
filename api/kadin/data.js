@@ -6,18 +6,18 @@ const { orderData } = require('./orderData')
 const data = require('../_files/kadin/data.json')
 
 module.exports = (req, res) => {
-  const { subcatregex, categoryregex, page, marka, search } = req.query
-  const start = parseInt(page)
+  const { subcategory, start, marka, search } = req.query
+  const startAt = parseInt(start)
   var products = TAFFY(data);
-  const filterBySub = subcatregex === '' ? {} : { subcategory: { regex: new RegExp(subcatregex,"i") } }
+  const filterBySub = subcategory === '' ? {} : { subcategory }
 
-  const filterByCat = categoryregex === '' ? {} : { title: { regex: new RegExp(categoryregex, "i") } }
+ // const filterByCat = categoryregex === '' ? {} : { title: { regex: new RegExp(categoryregex, "i") } }
 
   debugger;
 
 
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
-  const filterByMarka = marka === '' ? {} : { marka: { regex: new RegExp(marka, 'i') } }
+  const filterByMarka = marka === 'null' ? {} : { marka }
   debugger;
   var filteredData = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).get()
 
@@ -25,17 +25,17 @@ module.exports = (req, res) => {
   var orderedData = orderData(filteredData)
   var orderedDb = TAFFY(orderedData)
   debugger;
-  var d = orderedDb().start(start).limit(100).get()
+  var d = orderedDb().start(startAt).limit(100).get()
   let count = orderedDb().count()
 
 
 
   console.log('data.length', d.length)
   console.log('subcatregex', filterBySub)
-  console.log('categoryregex', filterByCat)
+
   console.log('search', filterBySearch)
   console.log('marka', marka)
-  console.log('page', page)
+  console.log('startAt', startAt)
   console.log('count', count)
   debugger;
   res.status(200).json({ data: d, count })

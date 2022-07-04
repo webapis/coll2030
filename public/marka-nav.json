@@ -3,48 +3,35 @@
         "nav": {
             "totalByMarka": 14362,
             "markas": {
-                "defacto": {
-                    "totalByCatory": 928,
+                "koton": {
+                    "totalByCatory": 1910,
                     "categories": {
-                        "alt-giyim": {
-                            "totalBySubcategory": 405,
+                        "üst-giyim": {
+                            "totalBySubcategory": 1910,
                             "subcategories": {
-                                "pantolon": {
-                                    "count": 405
+                                "elbise": {
+                                    "count": 1910
+                                }
+                            }
+                        }
+                    }
+                },
+                "dilvin": {
+                    "totalByCatory": 597,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 290,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 290
                                 }
                             }
                         },
-                        "üst-giyim": {
-                            "totalBySubcategory": 523,
+                        "alt-giyim": {
+                            "totalBySubcategory": 307,
                             "subcategories": {
-                                "elbise": {
-                                    "count": 523
-                                }
-                            }
-                        }
-                    }
-                },
-                "boyner": {
-                    "totalByCatory": 2091,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 2091,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 2091
-                                }
-                            }
-                        }
-                    }
-                },
-                "ipekyol": {
-                    "totalByCatory": 157,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 157,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 157
+                                "pantolon": {
+                                    "count": 307
                                 }
                             }
                         }
@@ -66,14 +53,22 @@
                         }
                     }
                 },
-                "hm": {
-                    "totalByCatory": 821,
+                "defacto": {
+                    "totalByCatory": 928,
                     "categories": {
+                        "alt-giyim": {
+                            "totalBySubcategory": 405,
+                            "subcategories": {
+                                "pantolon": {
+                                    "count": 405
+                                }
+                            }
+                        },
                         "üst-giyim": {
-                            "totalBySubcategory": 821,
+                            "totalBySubcategory": 523,
                             "subcategories": {
                                 "elbise": {
-                                    "count": 821
+                                    "count": 523
                                 }
                             }
                         }
@@ -87,6 +82,53 @@
                             "subcategories": {
                                 "elbise": {
                                     "count": 2541
+                                }
+                            }
+                        }
+                    }
+                },
+                "boyner": {
+                    "totalByCatory": 2091,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 2091,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 2091
+                                }
+                            }
+                        }
+                    }
+                },
+                "machka": {
+                    "totalByCatory": 88,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 83,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 83
+                                }
+                            }
+                        },
+                        "alt-giyim": {
+                            "totalBySubcategory": 5,
+                            "subcategories": {
+                                "şort": {
+                                    "count": 5
+                                }
+                            }
+                        }
+                    }
+                },
+                "faststep": {
+                    "totalByCatory": 80,
+                    "categories": {
+                        "ayakkabı": {
+                            "totalBySubcategory": 80,
+                            "subcategories": {
+                                "topuklu ayakkabı": {
+                                    "count": 80
                                 }
                             }
                         }
@@ -113,43 +155,14 @@
                         }
                     }
                 },
-                "butigo": {
-                    "totalByCatory": 581,
+                "mavi": {
+                    "totalByCatory": 43,
                     "categories": {
-                        "ayakkabı": {
-                            "totalBySubcategory": 581,
+                        "alt-giyim": {
+                            "totalBySubcategory": 43,
                             "subcategories": {
-                                "bot": {
-                                    "count": 581
-                                }
-                            }
-                        }
-                    }
-                },
-                "koton": {
-                    "totalByCatory": 1910,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 1910,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 1910
-                                }
-                            }
-                        }
-                    }
-                },
-                "vakko": {
-                    "totalByCatory": 154,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 154,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 136
-                                },
-                                "tulum": {
-                                    "count": 18
+                                "şort": {
+                                    "count": 43
                                 }
                             }
                         }
@@ -176,22 +189,56 @@
                         }
                     }
                 },
-                "dilvin": {
-                    "totalByCatory": 597,
+                "butigo": {
+                    "totalByCatory": 581,
                     "categories": {
-                        "alt-giyim": {
-                            "totalBySubcategory": 307,
+                        "ayakkabı": {
+                            "totalBySubcategory": 581,
                             "subcategories": {
-                                "pantolon": {
-                                    "count": 307
+                                "bot": {
+                                    "count": 581
                                 }
                             }
-                        },
+                        }
+                    }
+                },
+                "adidas": {
+                    "totalByCatory": 129,
+                    "categories": {
+                        "ayakkabı": {
+                            "totalBySubcategory": 129,
+                            "subcategories": {
+                                "koşu ayakkabı": {
+                                    "count": 129
+                                }
+                            }
+                        }
+                    }
+                },
+                "hm": {
+                    "totalByCatory": 821,
+                    "categories": {
                         "üst-giyim": {
-                            "totalBySubcategory": 290,
+                            "totalBySubcategory": 821,
                             "subcategories": {
                                 "elbise": {
-                                    "count": 290
+                                    "count": 821
+                                }
+                            }
+                        }
+                    }
+                },
+                "vakko": {
+                    "totalByCatory": 154,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 154,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 136
+                                },
+                                "tulum": {
+                                    "count": 18
                                 }
                             }
                         }
@@ -223,22 +270,92 @@
                         }
                     }
                 },
-                "machka": {
-                    "totalByCatory": 88,
+                "colins": {
+                    "totalByCatory": 97,
                     "categories": {
                         "üst-giyim": {
-                            "totalBySubcategory": 83,
+                            "totalBySubcategory": 97,
                             "subcategories": {
                                 "elbise": {
-                                    "count": 83
+                                    "count": 97
                                 }
                             }
-                        },
-                        "alt-giyim": {
-                            "totalBySubcategory": 5,
+                        }
+                    }
+                },
+                "beyyoglu": {
+                    "totalByCatory": 24,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 24,
                             "subcategories": {
-                                "şort": {
-                                    "count": 5
+                                "elbise": {
+                                    "count": 24
+                                }
+                            }
+                        }
+                    }
+                },
+                "penti": {
+                    "totalByCatory": 88,
+                    "categories": {
+                        "alt-giyim": {
+                            "totalBySubcategory": 88,
+                            "subcategories": {
+                                "tayt": {
+                                    "count": 88
+                                }
+                            }
+                        }
+                    }
+                },
+                "baqa": {
+                    "totalByCatory": 74,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 74,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 74
+                                }
+                            }
+                        }
+                    }
+                },
+                "fullamoda": {
+                    "totalByCatory": 60,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 60,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 60
+                                }
+                            }
+                        }
+                    }
+                },
+                "ipekyol": {
+                    "totalByCatory": 157,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 157,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 157
+                                }
+                            }
+                        }
+                    }
+                },
+                "twist": {
+                    "totalByCatory": 85,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 85,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 85
                                 }
                             }
                         }
@@ -260,123 +377,6 @@
                             "subcategories": {
                                 "elbise": {
                                     "count": 21
-                                }
-                            }
-                        }
-                    }
-                },
-                "penti": {
-                    "totalByCatory": 88,
-                    "categories": {
-                        "alt-giyim": {
-                            "totalBySubcategory": 88,
-                            "subcategories": {
-                                "tayt": {
-                                    "count": 88
-                                }
-                            }
-                        }
-                    }
-                },
-                "adidas": {
-                    "totalByCatory": 129,
-                    "categories": {
-                        "ayakkabı": {
-                            "totalBySubcategory": 129,
-                            "subcategories": {
-                                "koşu ayakkabı": {
-                                    "count": 129
-                                }
-                            }
-                        }
-                    }
-                },
-                "faststep": {
-                    "totalByCatory": 80,
-                    "categories": {
-                        "ayakkabı": {
-                            "totalBySubcategory": 80,
-                            "subcategories": {
-                                "topuklu ayakkabı": {
-                                    "count": 80
-                                }
-                            }
-                        }
-                    }
-                },
-                "twist": {
-                    "totalByCatory": 85,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 85,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 85
-                                }
-                            }
-                        }
-                    }
-                },
-                "fullamoda": {
-                    "totalByCatory": 60,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 60,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 60
-                                }
-                            }
-                        }
-                    }
-                },
-                "baqa": {
-                    "totalByCatory": 74,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 74,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 74
-                                }
-                            }
-                        }
-                    }
-                },
-                "beyyoglu": {
-                    "totalByCatory": 24,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 24,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 24
-                                }
-                            }
-                        }
-                    }
-                },
-                "mavi": {
-                    "totalByCatory": 43,
-                    "categories": {
-                        "alt-giyim": {
-                            "totalBySubcategory": 43,
-                            "subcategories": {
-                                "şort": {
-                                    "count": 43
-                                }
-                            }
-                        }
-                    }
-                },
-                "colins": {
-                    "totalByCatory": 97,
-                    "categories": {
-                        "üst-giyim": {
-                            "totalBySubcategory": 97,
-                            "subcategories": {
-                                "elbise": {
-                                    "count": 97
                                 }
                             }
                         }

@@ -67,7 +67,6 @@ export default function ImageComponent(props) {
               data-src={imageSource.trim()}
               alt={props.title}
               loading="lazy"
-
             />
                </ImageListItem>
           </a>

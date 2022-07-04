@@ -23,10 +23,13 @@ import { Typography } from '@mui/material';
 import DrawerComp from './components/DrawerComp';
 import BackToTop from './components/BackToTop';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <Provider store={store}>
+//     <HideAppBar />
+//   </Provider>
+// );
 root.render(
-  <Provider store={store}>
-    <HideAppBar />
-  </Provider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
