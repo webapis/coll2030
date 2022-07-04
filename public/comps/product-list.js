@@ -9,8 +9,8 @@ customElements.define('product-list', class extends HTMLElement {
   connectedCallback() {
     const selectedSubcategory = localStorage.getItem('selected-subcategory')
     if (selectedSubcategory !== null) {
-      this.innerHTML = `<div class="container">
-      <div id="products" class="row">
+      this.innerHTML = `<div class="container g-1">
+      <div id="products" class="row g-1">
       
       </div></div>`
       this.fetchData(0).then(function (data) {
@@ -35,7 +35,7 @@ customElements.define('product-list', class extends HTMLElement {
                 <img src="${logo.image}" class="" alt="${props.title}" width="${logo.width}">
                 <span class="m-1">${props.priceNew} TL</span>
                 </div>
-                <a class="card-title fs-6  btn "   href="${detailHost}"  target="_blank" >${props.title}</a>
+                <a class="fs-6"   href="${detailHost}"  target="_blank" >${props.title}</a>
                 </div>
               </div></div>`)
           
