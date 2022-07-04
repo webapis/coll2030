@@ -36,7 +36,7 @@ customElements.define('product-list', class extends HTMLElement {
                 <span class="m-1 fw-light text-end">${props.priceNew}TL</span>
                 </div>
             
-                <a class="m-1 p-0 fs-6 nav-link text-secondary"   href="${detailHost}"  target="_blank" >${props.title}</a>
+                <a class="m-1 p-0 nav-link text-secondary"   href="${detailHost}"  target="_blank" style="font-size: 0.8em">${props.title}</a>
                 </div>
               </div></div>`)
           
