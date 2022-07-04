@@ -31,7 +31,7 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
                     var div = document.createElement('ul')
                 
                     div.href='#'
-                    div.className='col-4 mb-1'
+                    div.className='col-12 col-sm-6 col-md-4 col-lg-3 mb-1'
                     div.insertAdjacentHTML('afterbegin', `
                     <li id="${subcategory}" class="list-group-item-action list-group-item d-flex justify-content-between align-items-center">
                      
