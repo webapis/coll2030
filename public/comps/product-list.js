@@ -73,7 +73,7 @@ customElements.define('product-list', class extends HTMLElement {
 
 /*
   async function fetchData(page) {
-
+//
 
     const url = `/api/kadin/data?page=${page}&subcatregex=${selectedRegex}&marka=${selectedMarka}&categoryregex=${selectedCategory}&search=${search}`
     const response = await fetch(url, { cache: 'default' })
