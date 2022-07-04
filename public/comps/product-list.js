@@ -26,7 +26,7 @@ customElements.define('product-list', class extends HTMLElement {
   const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl+placeholders[props.marka].imgPostFix
   const detailHost = placeholders[props.marka].detailHost + props.link+placeholders[props.marka].postfix
   debugger
-  element.insertAdjacentHTML('beforeend', `<div class="col mb-1"><div class="card" style="width: 18rem;">
+  element.insertAdjacentHTML('beforeend', `<div class="col-6 col-sm-4 col-md-3  mb-1"><div class="card" style="width: 18rem;">
               <a href="${detailHost}"   target="_blank" >
                 <img src="${imageSource}" class="card-img-top" alt="${props.title}">
              </a>
