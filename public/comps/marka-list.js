@@ -8,6 +8,9 @@ customElements.define('marka-list', class extends HTMLElement {
     connectedCallback() {
   
         var selectedMarka =localStorage.getItem('selected-marka')
+        if(!window.fetch){
+            alert('fetch is not supported')
+        }
         if(selectedMarka===null){
             this.innerHTML = '<div class="container"><div id="marka-list" class="row"></div></div>'
             fetch('./marka-nav.json').then(function (response) {
