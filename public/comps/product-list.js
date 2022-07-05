@@ -12,7 +12,7 @@ customElements.define('product-list', class extends HTMLElement {
 
     window.addEventListener('scroll', function scroll() {
 
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && window.reachedBottom === false) {
+      if ((window.innerHeight + window.scrollY)+1000 >= document.body.offsetHeight && window.reachedBottom === false) {
         var element = document.getElementById('products')
         element.insertAdjacentHTML('beforeend','<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
         window.reachedBottom = true
