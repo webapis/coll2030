@@ -13,7 +13,8 @@ customElements.define('product-list', class extends HTMLElement {
     window.addEventListener('scroll', function scroll() {
 
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && window.reachedBottom === false) {
-    
+        var element = document.getElementById('products')
+        element.insertAdjacentHTML('beforeend','<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
         window.reachedBottom = true
         fetchNextPage()
         console.log('reached bottom of the page')
@@ -28,7 +29,7 @@ customElements.define('product-list', class extends HTMLElement {
     if (selectedSubcategory !== null) {
       this.innerHTML = '<div class="container g-1"><div id="products" class="row g-1"></div></div>'
       localStorage.setItem('startAt', 0)
-      debugger;
+      
       fetchData(0)
 
     }
@@ -54,7 +55,10 @@ function fetchData(start) {
 
       collection.forEach(function (props) {
         var element = document.getElementById('products')
-
+        if(document.getElementById('scroller')){
+          element.removeChild(document.getElementById('scroller'))
+        }
+        
         var imagePlaceholder = placeholders[props.marka].placeholder
 
         var logo = placeholders[props.marka].logo
@@ -89,7 +93,7 @@ function fetchData(start) {
 function fetchNextPage() {
 
   let startAt = parseInt(localStorage.getItem('startAt'))
-  debugger;
+  
   let nextStartAt = startAt + 100
   localStorage.setItem('startAt', nextStartAt)
   fetchData(nextStartAt)
