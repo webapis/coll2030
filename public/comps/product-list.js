@@ -12,7 +12,7 @@ customElements.define('product-list', class extends HTMLElement {
 
     window.addEventListener('scroll', function scroll() {
 
-      if ((window.innerHeight + window.scrollY) + 1000 >= document.body.offsetHeight && window.reachedBottom === false) {
+      if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight && window.reachedBottom === false) {
 
       
         window.reachedBottom = true
