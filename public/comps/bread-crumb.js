@@ -18,7 +18,7 @@ customElements.define('bread-crumb', class extends HTMLElement {
         (selectedHomeTab==='marka-tab'? '<li class="breadcrumb-item"><a href="#" id="markalar-crumb">Markalar</a></li>':'')  +
         (selectedHomeTab==='urun-tab'?'<li class="breadcrumb-item"><a href="#" id="urun-crumb">Ürünler</a></li>':'')+
         (selectedMarka ?'<li class="breadcrumb-item active"><a href="#" id="marka-crumb">'+selectedMarka+'</a></li>':'')+
-        (selectedSubcategory ?'<li class="breadcrumb-item">'+selectedSubcategory+'</li>':'') +
+        (selectedSubcategory ?'<li class="breadcrumb-item text-black-50">'+selectedSubcategory+'</li>':'') +
  
         '</ol>'+
       '</nav>'+
@@ -51,7 +51,7 @@ customElements.define('bread-crumb', class extends HTMLElement {
                             break;
                     case 'urun-crumb':
                         localStorage.setItem('home-tab','urun-tab')
-                        localStorage.setItem('page','/index.html')
+                        localStorage.setItem('page','/urunler.html')
                         localStorage.removeItem('selected-marka')
                         localStorage.removeItem('selected-subcategory')
                         break;

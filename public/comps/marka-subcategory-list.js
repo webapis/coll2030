@@ -5,8 +5,18 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
 
     connectedCallback(){
         var selectedSubcategory =localStorage.getItem('selected-subcategory')
+        var selectedMarka= localStorage.getItem('selected-marka')
+    
+     
+
+        debugger;
         if(selectedSubcategory===null){
-            this.innerHTML = '<div class="container"><div id="subcategory-list" class="row"></div></div>'
+            this.innerHTML = '<div class="container">'+
+  
+            '<div id="subcategory-list" class="row mt-2"></div>'+
+            '</div>'
+
+
             fetch('./marka-nav.json').then(function (response) {
                 return response.json()
             }).then(function (data) {
