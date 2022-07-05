@@ -9,7 +9,7 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
     
      
 
-        debugger;
+
         if(selectedSubcategory===null){
             this.innerHTML = '<div class="container">'+
   

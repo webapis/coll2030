@@ -4,13 +4,28 @@
 customElements.define('product-list', class extends HTMLElement {
   constructor() {
     super()
+
+
+ 
+    window.onscroll = function(ev) {
+ 
+
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+
+          // you're at the bottom of the page
+        //  fetchNextPage()
+          alert('you are at the bottom of the page')
+          console.log('you are at the bottom of the page')
+      }
+  };
   }
 
   connectedCallback() {
     var selectedSubcategory = localStorage.getItem('selected-subcategory')
     if (selectedSubcategory !== null) {
       this.innerHTML = '<div class="container g-1"><div id="products" class="row g-1"></div></div>'
-      this.fetchData(0).then(function (data) {
+      localStorage.setItem('startAt', 0)
+      fetchData(0).then(function (data) {
         var collection = data.data
 
         collection.forEach(function (props) {
@@ -45,30 +60,32 @@ customElements.define('product-list', class extends HTMLElement {
 
   }
 
-  fetchData(start) {
 
-    var selectedSubcategory = localStorage.getItem('selected-subcategory')
-    var selectedMarka = localStorage.getItem('selected-marka')
-
-    var url = '/api/kadin/data?start='+start+'&subcategory='+selectedSubcategory+'&marka='+selectedMarka
-    return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
-
-
-      return data
-    }).catch(function (err) {
-      console.log('err', err)
-      return err
-    })
-
-
-
-
-  }
 })
 
 
+function fetchData(start) {
 
+  var selectedSubcategory = localStorage.getItem('selected-subcategory')
+  var selectedMarka = localStorage.getItem('selected-marka')
 
+  var url = '/api/kadin/data?start='+start+'&subcategory='+selectedSubcategory+'&marka='+selectedMarka
+  return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
+
+    return data
+  }).catch(function (err) {
+    console.log('err', err)
+    return err
+  })
+
+}
+function fetchNextPage() {
+  debugger;
+  let startAt = parseInt(localStorage.getItem('startAt'))
+  let nextStartAt = startAt + 100
+  localStorage.setItem('startAt', nextStartAt)
+  fetchData(startAt)
+}
 /*
   async function fetchData(page) {
 //

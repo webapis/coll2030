@@ -25,7 +25,6 @@ customElements.define('bread-crumb', class extends HTMLElement {
       '</div>'
 
 
-
         this.querySelectorAll('a').forEach(function (element) {
             element.addEventListener('click', function (e) {
                 e.preventDefault()
