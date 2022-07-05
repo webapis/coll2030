@@ -12,11 +12,20 @@ customElements.define('product-list', class extends HTMLElement {
 
     window.addEventListener('scroll', function scroll() {
 
-      if ((window.innerHeight + window.scrollY)+1000 >= document.body.offsetHeight && window.reachedBottom === false) {
-        var element = document.getElementById('products')
-        element.insertAdjacentHTML('beforeend','<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
+      if ((window.innerHeight + window.scrollY) + 1000 >= document.body.offsetHeight && window.reachedBottom === false) {
+
+      
         window.reachedBottom = true
-        fetchNextPage()
+        var totalSelectedSubcategory = parseInt( localStorage.getItem('total-selected-subcategory'))
+        var totalViewedData =window.totalViewedData
+        debugger;
+        if(totalSelectedSubcategory >totalViewedData ){
+          var element = document.getElementById('products')
+          element.insertAdjacentHTML('beforeend', '<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
+          debugger;
+          fetchNextPage()
+        }
+       
         console.log('reached bottom of the page')
         // you're at the bottom of the page
       }
@@ -25,11 +34,11 @@ customElements.define('product-list', class extends HTMLElement {
 
 
 
-    var selectedSubcategory = localStorage.getItem('selected-subcategory')
+    var selectedSubcategory =  localStorage.getItem('selected-subcategory')
     if (selectedSubcategory !== null) {
       this.innerHTML = '<div class="container g-1"><div id="products" class="row g-1"></div></div>'
       localStorage.setItem('startAt', 0)
-      
+      window.totalViewedData=0
       fetchData(0)
 
     }
@@ -52,13 +61,13 @@ function fetchData(start) {
   })
     .then(function (data) {
       var collection = data.data
-
+      window.totalViewedData = window.totalViewedData + collection.length
       collection.forEach(function (props) {
         var element = document.getElementById('products')
-        if(document.getElementById('scroller')){
+        if (document.getElementById('scroller')) {
           element.removeChild(document.getElementById('scroller'))
         }
-        
+
         var imagePlaceholder = placeholders[props.marka].placeholder
 
         var logo = placeholders[props.marka].logo
@@ -84,16 +93,16 @@ function fetchData(start) {
       window.reachedBottom = false
       console.log(data)
     })
-  .catch(function (err) {
-    console.log('err', err)
-    return err
-  })
+    .catch(function (err) {
+      console.log('err', err)
+      return err
+    })
 
 }
 function fetchNextPage() {
 
   let startAt = parseInt(localStorage.getItem('startAt'))
-  
+
   let nextStartAt = startAt + 100
   localStorage.setItem('startAt', nextStartAt)
   fetchData(nextStartAt)

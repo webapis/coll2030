@@ -54,6 +54,7 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
                     document.getElementById(subcategory).addEventListener('click',function(e){
                         var subcategory =e.currentTarget.id
                         localStorage.setItem('selected-subcategory',subcategory)
+                        localStorage.setItem('total-selected-subcategory',total)
                         window.location.replace(window.location.href+"?subcategory="+subcategory)
                      
                 })
