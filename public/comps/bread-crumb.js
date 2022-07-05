@@ -7,25 +7,24 @@ customElements.define('bread-crumb', class extends HTMLElement {
 
         var selectedHomeTab = localStorage.getItem('home-tab')
         var selectedMarka =localStorage.getItem('selected-marka')
-        var selectedUrun =localStorage.getItem('selected-urun')
-        this.innerHTML = `<div class="container">
-
-        <a class="navbar-brand" href="/index.html">
-         MODABURADA
-        </a>
-        <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#" id="home-crumb">Home</a></li>
-          ${selectedHomeTab==='marka-tab' ? ' <li class="breadcrumb-item"><a href="#" id="marka-crumb">Markalar</a></li>':''}
-          ${selectedHomeTab==='urun-tab' ? '   <li class="breadcrumb-item"><a href="#" id="urun-crumb">Ürünler</a></li>':''}
-          ${selectedMarka  ?  '<li class="breadcrumb-item"><a href="#" id="marka-crumb">'+selectedMarka+'</a></li>' :''}
-          ${selectedUrun  ?  '<li class="breadcrumb-item"><a href="#" id="urun-crumb">'+selectedUrun+'</a></li>' :''}
-          <li class="breadcrumb-item active" aria-current="page">Data</li>
-        </ol>
-     
-      </nav>
+        var selectedSubcategory =localStorage.getItem('selected-subcategory')
+        this.innerHTML= '<div class="container">'+
+        '<a class="navbar-brand" href="/index.html">'+
+         'MODABURADA'+
+        '</a>'+
+        '<nav aria-label="breadcrumb">'+
+        '<ol class="breadcrumb">'+
+        '<li class="breadcrumb-item"><a href="#" id="home-crumb">Anasayfa</a></li>'+
+        (selectedHomeTab==='marka-tab'? '<li class="breadcrumb-item"><a href="#" id="markalar-crumb">Markalar</a></li>':'')  +
+        (selectedHomeTab==='urun-tab'?'<li class="breadcrumb-item"><a href="#" id="urun-crumb">Ürünler</a></li>':'')+
+        (selectedMarka ?'<li class="breadcrumb-item active"><a href="#" id="marka-crumb">'+selectedMarka+'</a></li>':'')+
+        (selectedSubcategory ?'<li class="breadcrumb-item">'+selectedSubcategory+'</li>':'') +
  
-      </div>`
+        '</ol>'+
+      '</nav>'+
+      '</div>'
+
+
 
         this.querySelectorAll('a').forEach(function (element) {
             element.addEventListener('click', function (e) {
@@ -41,9 +40,15 @@ customElements.define('bread-crumb', class extends HTMLElement {
                     case 'marka-crumb':
                         localStorage.setItem('home-tab','marka-tab')
                         localStorage.setItem('page','/index.html')
-                        localStorage.removeItem('selected-marka')
-                        localStorage.removeItem('selected-subcategory')
+                     //   localStorage.removeItem('selected-marka')
+                      localStorage.removeItem('selected-subcategory')
                         break;
+                        case 'markalar-crumb':
+                            localStorage.setItem('home-tab','marka-tab')
+                            localStorage.setItem('page','/index.html')
+                            localStorage.removeItem('selected-marka')
+                            localStorage.removeItem('selected-subcategory')
+                            break;
                     case 'urun-crumb':
                         localStorage.setItem('home-tab','urun-tab')
                         localStorage.setItem('page','/index.html')

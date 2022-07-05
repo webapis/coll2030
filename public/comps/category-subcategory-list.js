@@ -38,28 +38,19 @@ customElements.define('category-subcategory-list',class extends HTMLElement{
                 
                     div.href='#'
                     div.className='col-12 col-sm-6 col-md-4 col-lg-3 mb-1'
-                    div.insertAdjacentHTML('afterbegin', `
-                    <li id="${subcategory}" class="list-group-item-action list-group-item d-flex justify-content-between align-items-center">
-                     
-                      <div>${subcategory}</div>
-                      <span class="badge bg-secondary rounded-pill">${total}</span>
-                    </li>
-                    
-                  `)
+                    div.insertAdjacentHTML('afterbegin', '<li id='+subcategory+' class="list-group-item-action list-group-item d-flex justify-content-between align-items-center">'+
+                      '<div>'+subcategory+'</div>'+
+                      '<span class="badge bg-secondary rounded-pill">'+total+'</span></li>'
+                  )
                 
                     document.getElementById('urun-alt-urun-list').appendChild(div)
-                    document.getElementById(`${subcategory}`).addEventListener('click',function(e){
+                    document.getElementById(subcategory).addEventListener('click',function(e){
                         var subcategory =e.currentTarget.id
                         localStorage.setItem('selected-subcategory',subcategory)
-                        window.location.replace(window.location.href+`?subcategory=${subcategory}`)
-                     
+                        window.location.replace(window.location.href+"?subcategory="+subcategory)
                 })
-    
-     
-    
             })
         })
-
         }
 
     

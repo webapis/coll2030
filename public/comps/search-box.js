@@ -4,13 +4,11 @@ customElements.define('search-box', class extends HTMLElement {
     }
 
     connectedCallback() {
-        this.innerHTML = `<div class="container">
-        <div class="row">
-      
-        <input class="col-6 form-control"/>
+        this.innerHTML = '<div class="container">'+
+        '<div class="row">'+
+        '<input class="col-6 form-control"/>'+
     
-    
-        </div>
-        </div>`
+        '</div>'+
+        '</div>'
     }
 })
