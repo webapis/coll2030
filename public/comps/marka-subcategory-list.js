@@ -15,6 +15,9 @@
     
             
                 var selectedMarka =localStorage.getItem('selected-marka')
+                if(selectedMarka){
+
+             
                 var categories = Object.entries(data[0].nav.markas).find(function(m){return m[0]===selectedMarka})[1]
                 var categoriesArray =Object.entries(categories.categories)
                 var subcategories =categoriesArray.reduce(function(prev,curr,i){
@@ -52,8 +55,9 @@
                 })
     
      
-    
+         
             })
+        }
         })
 
         }

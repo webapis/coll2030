@@ -1,7 +1,7 @@
 
 var selectedHomeTab = localStorage.getItem('home-tab')
 var element =document.getElementById('#bread-crumb-container') 
-debugger;
+
 document.getElementById('navbar').insertAdjacentHTML('beforeend', '<div class="container"><ul class="nav nav-tabs justify-content-center m-2">' +
   '<li class="nav-item">' +
   '<a class="nav-link mtb" aria-current="page" href="/markalar.html" id="marka-tab">Markalar</a>' +

@@ -1,24 +1,33 @@
 
 
+   document.getElementById('content').insertAdjacentHTML('beforeend',  '<div class="container g-1"><div id="products" class="row g-1"></div></div>')
+  var selectedSubcategory =  localStorage.getItem('selected-subcategory')
+  if (selectedSubcategory !== null) {
+   
+    localStorage.setItem('startAt', 0)
+    window.totalViewedData=0
+    fetchData(0)
+
+  }
 
 
     window.reachedBottom = false
   
-
+    var element = document.getElementById('products')
 
     window.addEventListener('scroll', function scroll() {
 
       if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight && window.reachedBottom === false) {
 
-        var element = document.getElementById('products')
+    
         window.reachedBottom = true
         var totalSelectedSubcategory = parseInt( localStorage.getItem('total-selected-subcategory'))
         var totalViewedData =window.totalViewedData
-        debugger;
+        
         if(totalSelectedSubcategory >totalViewedData ){
         
           element.insertAdjacentHTML('beforeend', '<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
-          debugger;
+          
           fetchNextPage()
         }else{
           element.insertAdjacentHTML('beforeend', '<div class="d-flex justify-content-center mb-4">Sayfa sonu. Toplam'+totalViewedData+' ürün görüntilendi</div>')
@@ -32,15 +41,7 @@
 
 
 
-    var selectedSubcategory =  localStorage.getItem('selected-subcategory')
-    if (selectedSubcategory !== null) {
-      document.getElementById('content').insertAdjacentHTML('beforeend',  '<div class="container g-1"><div id="products" class="row g-1"></div></div>')
-      localStorage.setItem('startAt', 0)
-      window.totalViewedData=0
-      fetchData(0)
-
-    }
-
+  
   
 
 
