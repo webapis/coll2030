@@ -1,14 +1,9 @@
-customElements.define('category-subcategory-list',class extends HTMLElement{
-    constructor(){
-        super()
-    }
 
-    connectedCallback(){
         
         var selectedSubcategory =localStorage.getItem('selected-subcategory')
 
         if(selectedSubcategory===null){
-            this.innerHTML = '<div class="container"><div id="urun-alt-urun-list" class="row"></div></div>'
+            document.getElementById('content').insertAdjacentHTML('beforeend',  '<div class="container"><div id="urun-alt-urun-list" class="row"></div></div>')
             fetch('./category-nav.json').then(function (response) {
                 return response.json()
             }).then(function (data) {
@@ -56,7 +51,5 @@ customElements.define('category-subcategory-list',class extends HTMLElement{
 
     
     
-    }
-})
 
 

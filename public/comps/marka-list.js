@@ -1,18 +1,13 @@
 
 
-customElements.define('marka-list', class extends HTMLElement {
-    constructor() {
-        super()
-    }
 
-    connectedCallback() {
   
         var selectedMarka =localStorage.getItem('selected-marka')
         if(!window.fetch){
             alert('fetch is not supported')
         }
         if(selectedMarka===null){
-            this.innerHTML = '<div class="container"><div id="marka-list" class="row"></div></div>'
+            document.getElementById('navbar').insertAdjacentHTML('beforeend','<div class="container"><div id="marka-list" class="row"></div></div>')
             fetch('./marka-nav.json').then(function (response) {
                 return response.json()
             }).then(function (data) {
@@ -51,8 +46,7 @@ customElements.define('marka-list', class extends HTMLElement {
         }
    
 
-    }
-})
+
 
 
 

@@ -1,9 +1,4 @@
-customElements.define('marka-subcategory-list',class extends HTMLElement{
-    constructor(){
-        super()
-    }
 
-    connectedCallback(){
         var selectedSubcategory =localStorage.getItem('selected-subcategory')
         var selectedMarka= localStorage.getItem('selected-marka')
     
@@ -11,10 +6,10 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
 
 
         if(selectedSubcategory===null){
-            this.innerHTML = '<div class="container">'+
+            document.getElementById('content').insertAdjacentHTML('beforeend', '<div class="container">'+
   
             '<div id="subcategory-list" class="row mt-2"></div>'+
-            '</div>'
+            '</div>')
 
 
             fetch('./marka-nav.json').then(function (response) {
@@ -42,7 +37,7 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
                 
                     div.href='#'
                     div.className='col-12 col-sm-6 col-md-4 col-lg-3 mb-1'
-                    div.insertAdjacentHTML('afterbegin', '<li id="'+subcategory+'" class="list-group-item-action list-group-item d-flex justify-content-between align-items-center">'+
+                  document.getElementById('subcategory-list').insertAdjacentHTML('beforeend', '<li id="'+subcategory+'" class="list-group-item-action list-group-item d-flex justify-content-between align-items-center">'+
                      
                       '<div>'+subcategory+'</div>'+
                       '<span class="badge bg-secondary rounded-pill">'+total+'</span>'+
@@ -67,8 +62,7 @@ customElements.define('marka-subcategory-list',class extends HTMLElement{
         }
      
     
-    }
-})
+
 
 
 

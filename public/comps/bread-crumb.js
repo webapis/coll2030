@@ -1,14 +1,11 @@
-customElements.define('bread-crumb', class extends HTMLElement {
-    constructor() {
-        super()
-    }
 
-    connectedCallback() {
-
+//BREAD CRUMB
         var selectedHomeTab = localStorage.getItem('home-tab')
         var selectedMarka =localStorage.getItem('selected-marka')
         var selectedSubcategory =localStorage.getItem('selected-subcategory')
-        this.innerHTML= '<div class="container">'+
+
+
+        document.getElementById('navbar').insertAdjacentHTML('beforeend','<div class="container" id="bread-crumb-container">'+
         '<a class="navbar-brand" href="/index.html">'+
          'MODABURADA'+
         '</a>'+
@@ -22,10 +19,10 @@ customElements.define('bread-crumb', class extends HTMLElement {
  
         '</ol>'+
       '</nav>'+
-      '</div>'
+      '</div>')
 
 
-        this.querySelectorAll('a').forEach(function (element) {
+        document.querySelectorAll('.breadcrumb-item').forEach(function (element) {
             element.addEventListener('click', function (e) {
                 e.preventDefault()
                 var id = e.target.id
@@ -59,7 +56,9 @@ customElements.define('bread-crumb', class extends HTMLElement {
                 window.location.replace(localStorage.getItem('page'))
             })
         })
-    }
+    
 
 
-})
+
+
+
