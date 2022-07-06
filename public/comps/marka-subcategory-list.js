@@ -6,10 +6,7 @@
 
 
         if(selectedSubcategory===null){
-            document.getElementById('content').insertAdjacentHTML('beforeend', '<div class="container">'+
-  
-            '<div id="subcategory-list" class="row mt-2"></div>'+
-            '</div>')
+            document.getElementById('content').insertAdjacentHTML('beforeend', '<div class="container"><div id="subcategory-list" class="row"></div></div>')
 
 
             fetch('./marka-nav.json').then(function (response) {
@@ -37,7 +34,7 @@
                 
                     div.href='#'
                     div.className='col-12 col-sm-6 col-md-4 col-lg-3 mb-1'
-                  document.getElementById('subcategory-list').insertAdjacentHTML('beforeend', '<li id="'+subcategory+'" class="list-group-item-action list-group-item d-flex justify-content-between align-items-center">'+
+                    div.insertAdjacentHTML('afterbegin', '<li id="'+subcategory+'" class="list-group-item-action list-group-item d-flex justify-content-between align-items-center">'+
                      
                       '<div>'+subcategory+'</div>'+
                       '<span class="badge bg-secondary rounded-pill">'+total+'</span>'+
