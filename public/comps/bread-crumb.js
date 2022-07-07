@@ -12,8 +12,8 @@
         '<nav aria-label="breadcrumb">'+
         '<ol class="breadcrumb">'+
         '<li class="breadcrumb-item"><a href="#" id="home-crumb">Anasayfa</a></li>'+
-        (selectedHomeTab==='marka-tab'? '<li class="breadcrumb-item"><a href="#" id="markalar-crumb">Markalar</a></li>':'')  +
-        (selectedHomeTab==='urun-tab'?'<li class="breadcrumb-item"><a href="#" id="urun-crumb">Ürünler</a></li>':'')+
+        (selectedHomeTab==='marka-tab'? '<li class="breadcrumb-item"><a href="#" id="markalar-crumb">Marka</a></li>':'')  +
+        (selectedHomeTab==='urun-tab'?'<li class="breadcrumb-item"><a href="#" id="urun-crumb">Ürün</a></li>':'')+
         (selectedMarka ?'<li class="breadcrumb-item active"><a href="#" id="marka-crumb">'+selectedMarka+'</a></li>':'')+
         (selectedSubcategory ?'<li class="breadcrumb-item text-black-50">'+selectedSubcategory+'</li>':'') +
  
