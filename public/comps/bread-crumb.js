@@ -22,7 +22,7 @@
       '</div>')
 
 
-        document.querySelectorAll('.breadcrumb-item').forEach(function (element) {
+        document.body.querySelectorAll('.breadcrumb-item').forEach(function (element) {
             element.addEventListener('click', function (e) {
                 e.preventDefault()
                 var id = e.target.id
