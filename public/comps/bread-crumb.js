@@ -22,7 +22,7 @@
       '</div>')
 
 
-        document.body.querySelectorAll('.breadcrumb-item').forEach(function (element) {
+        document.getElementById('navbar').querySelectorAll('.breadcrumb-item').forEach(function (element) {
             element.addEventListener('click', function (e) {
                 e.preventDefault()
                 var id = e.target.id
