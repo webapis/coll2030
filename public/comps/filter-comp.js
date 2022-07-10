@@ -14,87 +14,67 @@ if (selectedSubcateogry) {
 </p>
 <div class="collapse" id="collapseFilter">
   <div class="card card-body">
-  <div class="row "  id="filter-container"></div>
+  <div class="row d-flex flex-column flex-wrap" style='height:100vh;overflow:auto;'  id="filter-container"></div>
 
   </div>
 </div>
 </div>
   `)
+let keywordpath =''
+if(selectMarka){
 
-  if (selectMarka) {
-    fetch('/keywords/marka/' + selectMarka + '.json').then(function (response) { return response.json() }).then(function (data) {
-      const subcategories = Object.entries(data[selectedSubcateogry])
-      subcategories.forEach(function (subcategory, i) {
-        const parentKeyword = subcategory[0]
-        const totalParent = subcategory[1][parentKeyword]
-        const keywords = Object.entries(subcategory[1])
-        document.getElementById('filter-container').insertAdjacentHTML('beforeend', `
-       <div class="col-3"> <p>
-  <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample-${i}" role="button" aria-expanded="false" aria-controls="collapseExample-${i}">
-  ${parentKeyword}
-  </a>
+  keywordpath='/keywords/marka/' + selectMarka + '.json'
+} else{
+  keywordpath='/keywords/category/' + selectedSubcateogry + '.json'
 
-</p>
-<div class="collapse" id="collapseExample-${i}">
-  <div class="list-group" id ="card-body-${i}" style="height:200px; overflow: auto;">
- 
-  </div>
-  </div>   
-</div>     
-        `)
+}
 
-
-        keywords.forEach(function(kword){
-          const title =kword[0]
-          const total =kword[1]
-            document.getElementById(`card-body-${i}`).insertAdjacentHTML('beforeend',`
-            
-            <li class="list-group-item-action d-flex justify-content-between align-items-start">
-            <a href="#" class="nav-link">
-             
-             ${title}
-            </a>
-            <span class="badge bg-secondary rounded-pill">${total}</span>
-          </li>
-            
-            `)
-          
-        })
-
-      })
-
-    })
-  } else{
-    fetch('/keywords/category/' + selectedSubcateogry + '.json').then(function (response) { return response.json() }).then(function (data) {
+    fetch(keywordpath).then(function (response) { return response.json() }).then(function (data) {
       
       const subcategories = Object.entries(data)
-      subcategories.forEach(function (subcategory, i) {
+      subcategories.sort(function (a, b) {
+   
+        var textA = a[0].toUpperCase();
+        var textB = b[0].toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      }).forEach(function (subcategory, i) {
         const parentKeyword = subcategory[0]
         const totalParent = subcategory[1][parentKeyword]
         const keywords = Object.entries(subcategory[1])
+        
+        const matchWithPrevious =i >0 && subcategories[i-1][0].charAt(0)===subcategory[0].charAt(0)
+        debugger
+        if(i===0 || !matchWithPrevious){
+          document.getElementById('filter-container').insertAdjacentHTML('beforeend', `
+          <div class="col-12 col-sm-6 col-md-3 col-lg-3"> <p>
+     <span class="badge rounded-pill text-bold bg-secondary" data-bs-toggle="collapse" data-bs-toggle="collapse" href="#collapseExample-${i}" role="button" aria-expanded="false" aria-controls="collapseExample-${i}">
+     ${parentKeyword.charAt(0).toLocaleUpperCase()}
+     </span>
+   </p>
+ 
+   </div>     
+           `)    
+        }
         document.getElementById('filter-container').insertAdjacentHTML('beforeend', `
-       <div class="col-12 col-sm-6 col-md-4 col-lg-3"> <p>
-  <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample-${i}" role="button" aria-expanded="false" aria-controls="collapseExample-${i}">
+       <div class="col-12 col-sm-6 col-md-3 col-lg-3"> <p>
+  <span class="badge rounded-pill text-secondary badge rounded-pill text-bg-info text-capitalize" data-bs-toggle="collapse" data-bs-toggle="collapse" href="#collapseExample-${i}" role="button" aria-expanded="false" aria-controls="collapseExample-${i}">
   ${parentKeyword}
-  </a>
-
+  </span>
 </p>
 <div class="collapse" id="collapseExample-${i}">
-  <div class="list-group border order-success p-2 border-1 rounded-1" id ="card-body-${i}" style="height:200px; overflow: auto;">
+  <div class="list-group border order-success p-2 border-1 rounded-1" id ="card-body-${i}">
  
   </div>
   </div>   
 </div>     
         `)
-
-
         keywords.forEach(function(kword){
           const title =kword[0]
           const total =kword[1]
             document.getElementById(`card-body-${i}`).insertAdjacentHTML('beforeend',`
             
             <li class="list-group-item-action d-flex justify-content-between align-items-start">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" id="${title}">
              
              ${title}
             </a>
@@ -102,6 +82,14 @@ if (selectedSubcateogry) {
           </li>
             
             `)
+
+            document.getElementById(title).addEventListener('click',function(e){
+              var id =e.target.id
+              localStorage.setItem('selected-keyword',id)
+              localStorage.setItem('selected-keyword-total',total)
+              window.location.reload()
+        
+            })
           
         })
 
@@ -110,8 +98,9 @@ if (selectedSubcateogry) {
     })
 
 
-  }
+  
 }
+
 
 
 

@@ -14,12 +14,12 @@ function orderData(data) {
         }
 
     });
-debugger;
+
     const convertToArray = Object.values(splittedByMarkaObj)
     const sortByLongest = convertToArray.sort(function (a, b) {
         return b.length - a.length;
     });
-debugger;
+
     const keys = Object.keys(sortByLongest)
     const longestarr = sortByLongest[0]
     const orderedArray = []
@@ -29,7 +29,7 @@ debugger;
 
         }))
     })
-debugger;
+
     return orderedArray.filter(f => f !== undefined)
 }
 

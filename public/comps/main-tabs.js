@@ -35,6 +35,10 @@ document.getElementById('navbar').querySelectorAll('.nav-link.mtb').forEach(func
     localStorage.setItem('home-tab', e.target.id)
     localStorage.removeItem('selected-marka')
     localStorage.removeItem('selected-subcategory')
+    localStorage.removeItem('total-selected-subcategory')
+    localStorage.removeItem('selected-keyword')
+    localStorage.removeItem('selected-keyword-total')
+
     window.location.replace(e.target.href)
   })
 

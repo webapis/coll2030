@@ -33,16 +33,16 @@ async function generateNavigation() {
                  
                         keywords.forEach(kw => {
 
-                            const match = kw.split(' ').every(function (k) {
-                                let found = title.toLowerCase().trim().split(' ').filter(f => f !== '').filter(f => kw.includes(f))
-                                let kwr = kw.split(' ')
-                                if (found.length === kwr.length) {
-
+                            const match =kw.replace('^','').replace(/\s/g,',').split(',').every(function(keyword){
+                                const fullmatch = kw.indexOf('^')!==-1
+                            
+                                if(fullmatch){
+                                return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword).length>0
+                                }else{
+                                return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword || f.indexOf(keyword)===0  ).length>0
                                 }
-
-                                return title.toLowerCase().includes(k) | found.length === kwr.length
-
-                            })
+                             
+                              })
 
                             if (match) {
                                 if (categoryTree[`${subcategory}`] === undefined) {

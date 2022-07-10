@@ -1,53 +1,36 @@
 //require('dotenv').config()
-
-
-
 const data =require('./api/_files/kadin/data.json')
-const elbiseler =data.filter(f=>f.subcategory==='elbise')//.filter((f,i)=>i<5)
-const {keywords} =require('./keywords/elbise')
-
+const kw ='deri ^'
+const elbiseler =data.filter(f=>f.subcategory==='elbise' && f.title !=='')//.filter((f,i)=>i<5)
 let tree={}
 let mcd=[]
-debugger
-const kwtree= elbiseler.map(m=>m.title).map((title,i)=>{
-
+ elbiseler.map(m=>m.title).map((title,i)=>{
 console.log('title',title)
-if(title){
+  try {
+    const match =kw.replace('^','').replace(/\s/g,',').split(',').every(function(keyword){
+    const fullmatch = kw.indexOf('^')!==-1
 
-  keywords.forEach(kw=>{
-    const match =kw.split(' ').every(function(k){
-        let found =title.toLowerCase().trim().split(' ').filter(f=>f!=='').filter(f=> kw.includes(f))
-        let kwr=kw.split(' ')
-        if(found.length===kwr.length){
-      
-        }
-
-      return title.toLowerCase().includes(k) | found.length===kwr.length
-    
-    })
-
-    if(match){
-   
-      mcd.push(title)
-
-      const rd=  tree[`${kw}`] ===undefined? tree[`${kw}`]=1:tree[`${kw}`]=tree[`${kw}`]+1
-   
+    if(fullmatch){
+    return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword).length>0
+    }else{
+    return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword || f.indexOf(keyword)===0  ).length>0
     }
+  
+
+ 
   })
 
-}
 
 
 
-
+  if(match){
+    mcd.push(title)
+    const rd=  tree[`${kw}`] ===undefined? tree[`${kw}`]=1:tree[`${kw}`]=tree[`${kw}`]+1
+  }
+  } catch (error) {
+    debugger
+  }
 })
-//const product='Kemik Mert Aslan Dantelli Uzun Kollu Midi Boy Elbise'.toLowerCase()
-//const keywordss ='midi dantelli elbise'.toLowerCase().split(' ')
-
-//const result =keywordss.every(function(k){
-//  return product.includes(k) || product.split(' ').find(f=> keywordss.includes(f))
-//})
-
 debugger;
 
 

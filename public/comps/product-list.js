@@ -22,14 +22,24 @@
     
         window.reachedBottom = true
         var totalSelectedSubcategory = parseInt( localStorage.getItem('total-selected-subcategory'))
+        var selectedKeyWordTotal=this.localStorage.getItem('selected-keyword-total')
         var totalViewedData =window.totalViewedData
         
-        if(totalSelectedSubcategory >totalViewedData ){
-        
+        if(selectedKeyWordTotal && selectedKeyWordTotal >totalViewedData ){
+        debugger
           element.insertAdjacentHTML('beforeend', '<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
           
           fetchNextPage()
-        }else{
+        }
+        else if(!selectedKeyWordTotal && totalSelectedSubcategory> totalViewedData){
+          debugger
+          element.insertAdjacentHTML('beforeend', '<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
+          
+          fetchNextPage()
+        }
+        else
+        
+        {
           element.insertAdjacentHTML('beforeend', '<div class="d-flex justify-content-center mb-4">Sayfa sonu. Toplam'+totalViewedData+' ürün görüntilendi</div>')
         }
        
@@ -52,8 +62,9 @@ function fetchData(start) {
 
   var selectedSubcategory = localStorage.getItem('selected-subcategory')
   var selectedMarka = localStorage.getItem('selected-marka')
-
-  var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka
+  var selectedKeyWord=localStorage.getItem('selected-keyword')
+debugger;
+  var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka+'&keyword='+selectedKeyWord
   return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
 
     return data
