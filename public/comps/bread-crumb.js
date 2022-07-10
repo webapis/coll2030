@@ -1,4 +1,7 @@
 
+if(!fetch){
+    alert('fetch is not supported')
+}
 //BREAD CRUMB
         var selectedHomeTab = localStorage.getItem('home-tab')
         var selectedMarka =localStorage.getItem('selected-marka')

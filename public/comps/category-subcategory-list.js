@@ -1,7 +1,10 @@
 
+if(!fetch){
+    alert('fetch is not supported')
+}
         
         var selectedSubcategory =localStorage.getItem('selected-subcategory')
-
+ 
         if(selectedSubcategory===null){
             document.getElementById('content').insertAdjacentHTML('beforeend',  '<div class="container"><div id="urun-alt-urun-list" class="row"></div></div>')
             fetch('./category-nav.json').then(function (response) {
