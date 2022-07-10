@@ -6,11 +6,12 @@ if(!fetch){
         var selectedSubcategory =localStorage.getItem('selected-subcategory')
  
         if(selectedSubcategory===null){
+            alert('selectedSubcategory is null')
             document.getElementById('content').insertAdjacentHTML('beforeend',  '<div class="container"><div id="urun-alt-urun-list" class="row"></div></div>')
             fetch('./category-nav.json').then(function (response) {
                 return response.json()
             }).then(function (data) {
-                
+                alert('data.length:'+data.length)
             
                 var selectedSubcategory =localStorage.getItem('selected-subcategory')
                 
@@ -49,7 +50,12 @@ if(!fetch){
                         window.location.replace(window.location.href+"?subcategory="+subcategory)
                 })
             })
+        }).catch(function(err){
+
+            alert(' fetch err:'+err)
         })
+        }else{
+alert('selectedSubcategory:'+selectedSubcategory)
         }
 
     
