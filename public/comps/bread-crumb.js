@@ -22,59 +22,62 @@
       '</nav>'+
       '</div>')
 
+  var breadcrumbs= document.getElementById('navbar').querySelectorAll('.breadcrumb-item')
+  for(var i=0; i<breadcrumbs.length; i++){
+  var element = breadcrumbs[i]
+  element.addEventListener('click', function (e) {
+    e.preventDefault()
+    var id = e.target.id
+    switch (id) {
+        case 'home-crumb':
+            localStorage.setItem('home-tab','marka-tab')
+            localStorage.setItem('page','/index.html')
+            localStorage.removeItem('selected-marka')
+            localStorage.removeItem('selected-subcategory')
+            localStorage.removeItem('selected-keyword')
+            localStorage.removeItem('selected-keyword-total')
+            localStorage.removeItem('total-selected-subcategory')
+            break;
+        case 'marka-crumb':
+            localStorage.setItem('home-tab','marka-tab')
+            localStorage.setItem('page','/index.html')
+         //   localStorage.removeItem('selected-marka')
+          localStorage.removeItem('selected-subcategory')
+          localStorage.removeItem('selected-keyword')
+          localStorage.removeItem('selected-keyword-total')
+          localStorage.removeItem('total-selected-subcategory')
+            break;
+            case 'markalar-crumb':
+                localStorage.setItem('home-tab','marka-tab')
+                localStorage.setItem('page','/index.html')
+                localStorage.removeItem('selected-marka')
+                localStorage.removeItem('selected-subcategory')
+                localStorage.removeItem('selected-keyword')
+                localStorage.removeItem('selected-keyword-total')
+                localStorage.removeItem('total-selected-subcategory')
+                break;
+        case 'urun-crumb':
+            localStorage.setItem('home-tab','urun-tab')
+            localStorage.setItem('page','/urunler.html')
+            localStorage.removeItem('selected-marka')
+            localStorage.removeItem('selected-subcategory')
+            localStorage.removeItem('selected-keyword')
+            localStorage.removeItem('selected-keyword-total')
+            localStorage.removeItem('total-selected-subcategory')
+            break;
 
-        document.getElementById('navbar').querySelectorAll('.breadcrumb-item').forEach(function (element) {
-            element.addEventListener('click', function (e) {
-                e.preventDefault()
-                var id = e.target.id
-                switch (id) {
-                    case 'home-crumb':
-                        localStorage.setItem('home-tab','marka-tab')
-                        localStorage.setItem('page','/index.html')
-                        localStorage.removeItem('selected-marka')
-                        localStorage.removeItem('selected-subcategory')
-                        localStorage.removeItem('selected-keyword')
-                        localStorage.removeItem('selected-keyword-total')
-                        localStorage.removeItem('total-selected-subcategory')
-                        break;
-                    case 'marka-crumb':
-                        localStorage.setItem('home-tab','marka-tab')
-                        localStorage.setItem('page','/index.html')
-                     //   localStorage.removeItem('selected-marka')
-                      localStorage.removeItem('selected-subcategory')
-                      localStorage.removeItem('selected-keyword')
-                      localStorage.removeItem('selected-keyword-total')
-                      localStorage.removeItem('total-selected-subcategory')
-                        break;
-                        case 'markalar-crumb':
-                            localStorage.setItem('home-tab','marka-tab')
-                            localStorage.setItem('page','/index.html')
-                            localStorage.removeItem('selected-marka')
-                            localStorage.removeItem('selected-subcategory')
-                            localStorage.removeItem('selected-keyword')
-                            localStorage.removeItem('selected-keyword-total')
-                            localStorage.removeItem('total-selected-subcategory')
-                            break;
-                    case 'urun-crumb':
-                        localStorage.setItem('home-tab','urun-tab')
-                        localStorage.setItem('page','/urunler.html')
-                        localStorage.removeItem('selected-marka')
-                        localStorage.removeItem('selected-subcategory')
-                        localStorage.removeItem('selected-keyword')
-                        localStorage.removeItem('selected-keyword-total')
-                        localStorage.removeItem('total-selected-subcategory')
-                        break;
+            case 'subcategory-crumb':
+                localStorage.setItem('home-tab','urun-tab')
+                localStorage.removeItem('selected-keyword')
+                localStorage.removeItem('selected-keyword-total')
+                break;
+        default:
+    }
+    window.location.replace(localStorage.getItem('page'))
+})
 
-                        case 'subcategory-crumb':
-                            localStorage.setItem('home-tab','urun-tab')
-                            localStorage.removeItem('selected-keyword')
-                            localStorage.removeItem('selected-keyword-total')
-                            break;
-                    default:
-                }
-                window.location.replace(localStorage.getItem('page'))
-            })
-        })
+  }
+       
     
 
 

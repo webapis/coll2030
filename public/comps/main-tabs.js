@@ -22,26 +22,31 @@ document.getElementById('navbar').insertAdjacentHTML('beforeend', '<div class="c
   '</li>' +
   '</ul></div>')
 
-  document.getElementById('navbar').querySelectorAll('.nav-link').forEach(function (element) {
-  var id = element.id
-  if (selectedHomeTab === id) {
-    element.classList.add('active')
+  var navlinks = document.getElementById('navbar').querySelectorAll('.nav-link')
+  for(var i=0; i<navlinks.length;i++){
+    var element= navlinks[i]
+    var id = element.id
+    if (selectedHomeTab === id) {
+      element.classList.add('active')
+    }
   }
-})
 
-document.getElementById('navbar').querySelectorAll('.nav-link.mtb').forEach(function (element) {
-  element.addEventListener('click', function (e) {
 
-    localStorage.setItem('home-tab', e.target.id)
-    localStorage.removeItem('selected-marka')
-    localStorage.removeItem('selected-subcategory')
-    localStorage.removeItem('total-selected-subcategory')
-    localStorage.removeItem('selected-keyword')
-    localStorage.removeItem('selected-keyword-total')
+  var mtbElements =document.getElementById('navbar').querySelectorAll('.nav-link.mtb')
+  for(var i=0; i<mtbElements.length; i++){
+    var element= mtbElements[i]
+    element.addEventListener('click', function (e) {
 
-    window.location.replace(e.target.href)
-  })
+      localStorage.setItem('home-tab', e.target.id)
+      localStorage.removeItem('selected-marka')
+      localStorage.removeItem('selected-subcategory')
+      localStorage.removeItem('total-selected-subcategory')
+      localStorage.removeItem('selected-keyword')
+      localStorage.removeItem('selected-keyword-total')
+  
+      window.location.replace(e.target.href)
+    })
+  }
 
-})
 
 //
