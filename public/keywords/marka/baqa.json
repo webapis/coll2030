@@ -1,1 +1,27 @@
-{"elbise":{"gece":{"gece":5,"gece mavisi":1},"beyaz":{"beyaz":4},"gömlek":{"gömlek":1},"desenli":{"desenli":10},"midi":{"midi":2},"çiçekli":{"çiçek desenli":5},"uzun":{"uzun":5,"uzun gece":1}}}
+{
+    "elbise": {
+        "gece": {
+            "gece": 5,
+            "gece mavisi": 1
+        },
+        "beyaz": {
+            "beyaz": 4
+        },
+        "gömlek": {
+            "gömlek": 1
+        },
+        "desenli": {
+            "desenli": 10
+        },
+        "midi": {
+            "midi": 2
+        },
+        "çiçekli": {
+            "çiçek desenli": 5
+        },
+        "uzun": {
+            "uzun": 5,
+            "uzun gece": 1
+        }
+    }
+}

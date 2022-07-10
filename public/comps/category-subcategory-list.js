@@ -1,22 +1,20 @@
 
-if(!fetch){
-    alert('fetch is not supported')
-}
+
         
         var selectedSubcategory =localStorage.getItem('selected-subcategory')
  
         if(selectedSubcategory===null){
-            alert('selectedSubcategory is null')
+          
             document.getElementById('content').insertAdjacentHTML('beforeend',  '<div class="container"><div id="urun-alt-urun-list" class="row"></div></div>')
             fetch('./category-nav.json').then(function (response) {
                 return response.json()
             }).then(function (data) {
-                alert('data.length:'+data.length)
+              
             
                 var selectedSubcategory =localStorage.getItem('selected-subcategory')
                  
                 var categories = Object.entries(data[0].nav.categories)//.find(function(m){return m[0]===selectedSubcategory})[1]
-                debugger
+                
                 var categoriesArray =Object.values(categories)
                 
                 var subcategories =categoriesArray.reduce(function(prev,curr,i){
@@ -54,8 +52,6 @@ if(!fetch){
 
             alert(' fetch err:'+err)
         })
-        }else{
-alert('selectedSubcategory:'+selectedSubcategory)
         }
 
     

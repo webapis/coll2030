@@ -14,6 +14,8 @@ async function generateNavigation() {
     await markaNavCollection.deleteMany({})
     let categoryTree = {}
     let markaTree = {}
+    let markaNavTree={}
+    let categoryNavTree={}
     return new Promise(async (resolve, reject) => {
         const readstream = fs.createReadStream("./api/_files/kadin/data.json")
         const data = fs.readFileSync("./api/_files/kadin/data.json")
@@ -81,6 +83,7 @@ async function generateNavigation() {
                 }
 
                 await updateDatabase({ pc: { category, subcategory }, marka, markaNavCollection, categoryNavCollection })
+               // updateVar({ category, subcategory,markaNavTree,categoryNavTree })
                 if (objCounter === totalObjects) {
                     debugger;
                     const splitCategoryKeywrods = Object.entries(categoryTree)
@@ -152,4 +155,10 @@ async function updateDatabase({ pc, marka, markaNavCollection, categoryNavCollec
     await markaNavCollection.updateOne({}, { $inc: { [`nav.markas.${marka}.categories.${category}.totalBySubcategory`]: 1 } }, { upsert: true })
     //  await markaNavCollection.updateOne({}, { $set: { [`nav.markas.${marka}.categories.${category}.subcategories.${subcategory}.regex`]: regex } }, { upsert: true })
     await markaNavCollection.updateOne({}, { $inc: { [`nav.markas.${marka}.categories.${category}.subcategories.${subcategory}.count`]: 1 } }, { upsert: true })
+}
+
+async function updateVar({ pc, marka, categoryNavTree, markaNavTree }) {
+
+    const { category, subcategory, regex } = pc
+
 }

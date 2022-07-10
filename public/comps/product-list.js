@@ -26,13 +26,13 @@
         var totalViewedData =window.totalViewedData
         
         if(selectedKeyWordTotal && selectedKeyWordTotal >totalViewedData ){
-        debugger
+        
           element.insertAdjacentHTML('beforeend', '<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
           
           fetchNextPage()
         }
         else if(!selectedKeyWordTotal && totalSelectedSubcategory> totalViewedData){
-          debugger
+          
           element.insertAdjacentHTML('beforeend', '<div class="d-flex justify-content-center" id="scroller"> <div class="spinner-border text-primary"  role="status" ><span class="visually-hidden">Loading...</span></div></div>')
           
           fetchNextPage()
@@ -63,7 +63,7 @@ function fetchData(start) {
   var selectedSubcategory = localStorage.getItem('selected-subcategory')
   var selectedMarka = localStorage.getItem('selected-marka')
   var selectedKeyWord=localStorage.getItem('selected-keyword')
-debugger;
+
   var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka+'&keyword='+selectedKeyWord
   return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
 

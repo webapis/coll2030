@@ -1,1 +1,111 @@
-{"elbise":{"uzun":{"uzun":61,"siyah uzun":12,"uzun triko":2,"uzun gömlek":5,"askılı uzun":2,"uzun şifon":4,"uzun yırtmaçlı":5,"beyaz uzun":3,"saten uzun":1,"kırmızı uzun":1},"desenli":{"desenli":67,"desenli şifon":7},"mezuniyet":{"balo":30,"siyah balo":5},"balon":{"balon":30,"balon kol":30},"askılı":{"askılı":46,"askılı mini":14,"askılı siyah":8,"askılı uzun":2,"askılı saten":2,"askılı beyaz":1},"mini":{"mini":122,"dar mini":14,"siyah mini":24,"askılı mini":14,"uzun kollu mini":2,"beyaz mini":6,"dekolte mini":13,"kırmızı mini":1,"mini saten":1},"dantelli ":{"dantelli ":6,"dantel detaylı":4,"dantelli beyaz":1},"volanlı":{"volanlı":35},"midi":{"midi":21,"desenli midi":4,"midi gömlek":4,"kolsuz midi":1,"saten midi":1,"kemerli midi":1,"v yaka midi":1},"gömlek":{"gömlek":29,"gömlek yaka":16,"gömlek uzun":5},"dar":{"dar":14,"dar mini":14,"dar kesim":2,"dar siyah":3},"çizgili":{"çizgili":18},"beyaz":{"beyaz":16,"beyaz dantel":4,"beyaz saten":1,"beyaz gömlek":2,"beyaz midi":2,"beyaz kısa":3,"beyaz mini":6,"beyaz uzun":6,"beyaz şifon":2,"beyaz güpür":1,"beyaz triko":2,"beyaz askılı":1},"gri":{"gri":2},"dekolteli":{"dekolteli":27,"dekolteli mini ":13},"jean":{"jean":3},"fırfırlı":{"fırfırlı":4},"kabarık":{"kabarık":1},"derin yırtmaçlı":{"derin yırtmaçlı":1}}}
+{
+    "elbise": {
+        "uzun": {
+            "uzun": 61,
+            "siyah uzun": 12,
+            "uzun triko": 2,
+            "uzun gömlek": 5,
+            "askılı uzun": 2,
+            "uzun şifon": 4,
+            "uzun yırtmaçlı": 5,
+            "beyaz uzun": 3,
+            "saten uzun": 1,
+            "kırmızı uzun": 1
+        },
+        "desenli": {
+            "desenli": 67,
+            "desenli şifon": 7
+        },
+        "mezuniyet": {
+            "balo": 30,
+            "siyah balo": 5
+        },
+        "balon": {
+            "balon": 30,
+            "balon kol": 30
+        },
+        "askılı": {
+            "askılı": 46,
+            "askılı mini": 14,
+            "askılı siyah": 8,
+            "askılı uzun": 2,
+            "askılı saten": 2,
+            "askılı beyaz": 1
+        },
+        "mini": {
+            "mini": 122,
+            "dar mini": 14,
+            "siyah mini": 24,
+            "askılı mini": 14,
+            "uzun kollu mini": 2,
+            "beyaz mini": 6,
+            "dekolte mini": 13,
+            "kırmızı mini": 1,
+            "mini saten": 1
+        },
+        "dantelli ": {
+            "dantelli ": 6,
+            "dantel detaylı": 4,
+            "dantelli beyaz": 1
+        },
+        "volanlı": {
+            "volanlı": 35
+        },
+        "midi": {
+            "midi": 21,
+            "desenli midi": 4,
+            "midi gömlek": 4,
+            "kolsuz midi": 1,
+            "saten midi": 1,
+            "kemerli midi": 1,
+            "v yaka midi": 1
+        },
+        "gömlek": {
+            "gömlek": 29,
+            "gömlek yaka": 16,
+            "gömlek uzun": 5
+        },
+        "dar": {
+            "dar": 14,
+            "dar mini": 14,
+            "dar kesim": 2,
+            "dar siyah": 3
+        },
+        "çizgili": {
+            "çizgili": 18
+        },
+        "beyaz": {
+            "beyaz": 16,
+            "beyaz dantel": 4,
+            "beyaz saten": 1,
+            "beyaz gömlek": 2,
+            "beyaz midi": 2,
+            "beyaz kısa": 3,
+            "beyaz mini": 6,
+            "beyaz uzun": 6,
+            "beyaz şifon": 2,
+            "beyaz güpür": 1,
+            "beyaz triko": 2,
+            "beyaz askılı": 1
+        },
+        "gri": {
+            "gri": 2
+        },
+        "dekolteli": {
+            "dekolteli": 27,
+            "dekolteli mini ": 13
+        },
+        "jean": {
+            "jean": 3
+        },
+        "fırfırlı": {
+            "fırfırlı": 4
+        },
+        "kabarık": {
+            "kabarık": 1
+        },
+        "derin yırtmaçlı": {
+            "derin yırtmaçlı": 1
+        }
+    }
+}
