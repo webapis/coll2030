@@ -15,22 +15,22 @@
 
 // import BreadcrumbContainer from './components/BreadcrumbsContainer'
 // import Divider from '@mui/material/Divider';
-// import { Provider } from 'react-redux'
-// import store from './store/store'
+import { Provider,useSelector, useDispatch } from 'react-redux'
+
+ import store from './store/store'
 // import reportWebVitals from './reportWebVitals';
 // import Content from './components/Content';
 // import { Typography } from '@mui/material';
 // import DrawerComp from './components/DrawerComp';
 // import BackToTop from './components/BackToTop';
+import App from './App'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <Provider store={store}>
-//     <HideAppBar />
-//   </Provider>
-// );
-root.render(
-""
-);
+ root.render(
+   <Provider store={store}>
+<App/>
+   </Provider> );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

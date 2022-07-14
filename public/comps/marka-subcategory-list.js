@@ -6,7 +6,7 @@
 
 
         if(selectedSubcategory===null){
-            document.getElementById('content').insertAdjacentHTML('beforeend', '<div class="container"><div id="subcategory-list" class="row"></div></div>')
+            document.getElementById('subcategory-content').insertAdjacentHTML('beforeend', '<div class="container"><div id="subcategory-list" class="row"></div></div>')
 
 
             fetch('./marka-nav.json').then(function (response) {

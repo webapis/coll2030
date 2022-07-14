@@ -11,7 +11,7 @@ module.exports = (req, res) => {
   var products = TAFFY(data);
   const filterBySub = subcategory === '' ? {} : { subcategory }
 
-  const filterByKeyword = keyword === 'null' ? function () { return true } : function () {
+  const filterByKeyword = keyword === '' ? function () { return true } : function () {
     const title = this.title
     const match =keyword.replace('^','').replace(/\s/g,',').split(',').every(function(k){
       const fullmatch = keyword.indexOf('^')!==-1

@@ -62,7 +62,7 @@ export default function SubcategoriesComp({ subcategories }) {
             } else{
                 scat =subcategory
             }
-            debugger;
+            
             return <ListItem key={i}   disableGutters disablePadding   secondaryAction={
                     <Chip label={subCatTotal}/>
               }>

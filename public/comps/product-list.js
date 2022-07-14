@@ -1,6 +1,9 @@
 
 
-   document.getElementById('content').insertAdjacentHTML('beforeend',  '<div class="container g-1"><div id="products" class="row g-1"></div></div>')
+   document.getElementById('content').insertAdjacentHTML('beforeend',  `<div class=" row">
+   
+  
+   <div id="products" class="row"></div></div>`)
   var selectedSubcategory =  localStorage.getItem('selected-subcategory')
   if (selectedSubcategory !== null) {
    

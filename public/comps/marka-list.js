@@ -7,7 +7,7 @@
             alert('fetch is not supported')
         }
         if(selectedMarka===null){
-            document.getElementById('content').insertAdjacentHTML('beforeend','<div class="container"><div id="marka-list" class="row"></div></div>')
+            document.getElementById('subcategory-content').insertAdjacentHTML('beforeend','<div class="container"><div id="marka-list" class="row"></div></div>')
             fetch('./marka-nav.json').then(function (response) {
                 return response.json()
             }).then(function (data) {

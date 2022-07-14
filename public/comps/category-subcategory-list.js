@@ -5,7 +5,7 @@
  
         if(selectedSubcategory===null){
           
-            document.getElementById('content').insertAdjacentHTML('beforeend',  '<div class="container"><div id="urun-alt-urun-list" class="row"></div></div>')
+            document.getElementById('subcategory-content').insertAdjacentHTML('beforeend',  '<div class="container"><div id="urun-alt-urun-list" class="row"></div></div>')
             fetch('./category-nav.json').then(function (response) {
                 return response.json()
             }).then(function (data) {

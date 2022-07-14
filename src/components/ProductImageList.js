@@ -74,7 +74,7 @@ export default function ProductImageList(props) {
       <Grid container justifyContent="center" spacing={1} paddingTop={5}
       >
         {products.length > 0 && products.map((item, i) => {
-          debugger;
+          
      
 
           return <Grid item key={item.title} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
