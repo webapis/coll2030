@@ -30,7 +30,7 @@ export default function AccordionSubcategory() {
         <Typography>ÜRÜN KATEGORİSİ {selectedSubcategory !== '' ? ' - ' + selectedSubcategory : ''}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'column',overflowY:'auto' ,height:'100vh' }}>
 
           <MarkaSubcategoryList />
         </div>
