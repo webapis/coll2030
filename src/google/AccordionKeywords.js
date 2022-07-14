@@ -29,7 +29,7 @@ export default function AccordionKeywords() {
                 <Typography>ÜRÜN {selectedKeyword !==''?' - '+selectedKeyword:''}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <div style={{ display: 'flex', flexDirection: 'column' ,overflowY:'auto' ,height:'100vh'}}>
+                <div style={{ display: 'flex', flexDirection: 'column' ,overflow:'scroll' ,height:'100vh' }}>
                     <KeywordsList/>
                 </div>
 
