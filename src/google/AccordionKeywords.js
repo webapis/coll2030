@@ -26,7 +26,7 @@ export default function AccordionKeywords() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <Typography>ÜRÜN {selectedKeyword !==''?' - '+selectedKeyword:''}</Typography>
+                <Typography>ANAHTAR KELEME {selectedKeyword !==''? <span style={{fontWeight:700}}> - {selectedKeyword} {selectedSubcategory} </span>:''}</Typography>
             </AccordionSummary>
             <AccordionDetails>
                

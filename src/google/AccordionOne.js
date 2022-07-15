@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Link from '@mui/material/Link';
 import { actions } from '../store/accordionSlice'
 import { useDispatch, useSelector } from 'react-redux';
-import { Container } from '@mui/material';
+
 export default function SimpleAccordion() {
   const { accordionOneValue, accordionOneIsExpanded } = useSelector(state => state.accordion)
   const dispatch = useDispatch()
@@ -38,10 +38,10 @@ export default function SimpleAccordion() {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
 
           <Link href="#" underline="hover" sx={{ marginBottom: 2 }} onClick={handleAccordion} id="markalar">
-            MARKALAR | Markalara göre arama:  Defacto, Boyner, Koton,...
+            MARKALAR - Defacto, Boyner, Koton,...
           </Link>
           <Link href="#" underline="hover" onClick={handleAccordion} id="ürünler">
-            ÜRÜNLER   | Ürünlere göre arama:  Elbise, Gömlek, Mont,...
+            ÜRÜNLER - Elbise, Gömlek, Mont,...
           </Link>
         </div>
 

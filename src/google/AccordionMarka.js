@@ -27,7 +27,7 @@ export default function AccordionMarka() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <Typography>MARKA {selectedMarka!==''? '- ':''}{selectedMarka}</Typography>
+                <Typography>MARKA {selectedMarka!==''? <span style={{fontWeight:700}}> - {selectedMarka} </span>:''}</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
