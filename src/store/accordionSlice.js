@@ -74,11 +74,29 @@ export const accordionSlice = createSlice({
       state.totalSubcategory = action.payload.totalSubcategory
       state.accordionSubcategoryIsExpanded = false
 
+      state.products=[]
+      state.keywords={}
+      state.totalKeyword=''
+      state.selectedKeyword=''
+      state.accordionKeywordsIsExpanded=true
+
+      state.startAt= 0
+      state.fetching= false
+      state.scrollHandled= false
+
     },
     setSelectedKeyword: (state, action) => {
+      state.products=[]
+   
+      state.startAt= 0
+      state.fetching= false
+      state.scrollHandled= false
+
       state.selectedKeyword = action.payload.keyword
       state.totalKeyword = action.payload.total
       state.accordionKeywordsIsExpanded = false
+
+   
       debugger
     },
     toggleAccordionKeywords: (state, action) => {
