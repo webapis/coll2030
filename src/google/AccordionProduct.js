@@ -1,4 +1,5 @@
 import * as React from 'react';
+import  { useRef, useEffect,useCallback } from "react"
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -12,16 +13,39 @@ export default function SimpleAccordion() {
   const { accordionProductIsExpanded,totalKeyword } = useSelector(state => state.accordion)
   const dispatch = useDispatch()
 
+  const ref = useRef()
+
+  // The scroll listener
+  const handleScroll = useCallback(() => {
+    console.log("scrolling")
+
+    var prevScrollpos = window.pageYOffset;
+
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+   // document.getElementById("navbar").style.top = "0";
+  
+
+  } else {
+  document.getElementById("navbar").style.top = "-260px";
+   document.getElementById("navbar").style.height="120vh"
+  }
+  prevScrollpos = currentScrollPos;
 
 
+  }, [])
 
+  useEffect(() => {
+    const div = ref.current
+    div.addEventListener("scroll", handleScroll)
+  }, [handleScroll])
   function toggleAccordion() {
     dispatch(actions.toggleAccordionOne())
   }
 
   return (
 
-    <Accordion expanded={accordionProductIsExpanded} onChange={toggleAccordion}>
+    <Accordion expanded={accordionProductIsExpanded} onChange={toggleAccordion} >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
@@ -30,9 +54,8 @@ export default function SimpleAccordion() {
         <Typography>Bulunan urunler {totalKeyword}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <div style={{ display: 'flex', flexDirection: 'column'}}>
-
-<ProductList/>
+        <div id="prdt" style={{ display: 'flex', flexDirection: 'column',height:"100vh",overflow:'auto'}} className="scrollableContainer" ref={ref}>
+       <ProductList/>
         </div>
 
       </AccordionDetails>

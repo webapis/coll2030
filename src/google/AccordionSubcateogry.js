@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MarkaSubcategoryList from './MarkaSubcategoryList'
 import { actions } from '../store/accordionSlice'
 import { useDispatch, useSelector } from 'react-redux';
+import { height } from '@mui/system';
 
 export default function AccordionSubcategory() {
   const { accordionSubcategoryIsExpanded, selectedSubcategory } = useSelector(state => state.accordion)
@@ -30,7 +31,7 @@ export default function AccordionSubcategory() {
         <Typography>ÜRÜN KATEGORİSİ {selectedSubcategory !== '' ? ' - ' + selectedSubcategory : ''}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <div style={{ display: 'flex', flexDirection: 'column',overflow:'scroll' ,height:'100vh' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
 
           <MarkaSubcategoryList />
         </div>

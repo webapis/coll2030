@@ -13,7 +13,8 @@ body {
     transition: top 0.3s;
     z-index: 10000;
     background: rgba(252, 252, 252, 1) !important;
-
+    height: 100vh;
+    overflow: auto;
   }
 
 

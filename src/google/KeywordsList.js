@@ -22,6 +22,7 @@ export default function KeywordsList() {
     }, [])
 
     function selectKeyword({keyword,total}){
+   
         dispatch(actions.setSelectedKeyword({keyword,total}))
     }
     return Object.entries(keywords).map((kw,i) => {
@@ -50,6 +51,8 @@ export default function KeywordsList() {
     })
 
 
+
+ 
 
 
 

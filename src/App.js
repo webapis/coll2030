@@ -20,22 +20,22 @@ export default function () {
     } = useSelector(state => state.accordion)
 
     return (
-        <div>
-            <div id="navbar" style={{ paddingBottom: 5 }}>
+        <div >
+            <div id="navbar" style={{ paddingBottom: 50}}>
                 <Breadcrumb />
                 <SearchInput />
                 <Container>
                     <AccordionOne />
                     {accordionOneValue === 'markalar' && <AccordionMarka />}
-                    {selectedMarka !== '' && <AccordionSubcategory />}
+                    {selectedMarka !== '' && <AccordionSubcategory sx={{height:500,overflow:'auto'}}/>}
                     {selectedSubcategory !== '' && <AccordionKeywords />}
-                
+                    {selectedKeyword !== '' && <AccordionProduct />}
                 </Container>
 
             </div>
             <Container >
 
-            {selectedKeyword !== '' && <AccordionProduct />}
+          
             </Container>
           
             <div>
