@@ -7,6 +7,8 @@ import AccordionMarka from './google/AccordionMarka';
 import AccordionSubcategory from './google/AccordionSubcateogry';
 import AccordionKeywords from './google/AccordionKeywords';
 import AccordionProduct from './google/AccordionProduct'
+import Fab from '@mui/material/Fab';
+import HomeIcon from '@mui/icons-material/HomeOutlined';
 import { Container } from '@mui/material';
 export default function () {
     const {
@@ -19,15 +21,22 @@ export default function () {
 
     } = useSelector(state => state.accordion)
 
+    function showNavigation(){
+        document.getElementById('navbar').scrollIntoView();
+    }
     return (
         <div >
-            <div id="navbar" style={{ paddingBottom: 50}}>
+            <div id="navbar" style={{ paddingBottom: 50 }}>
                 <Breadcrumb />
                 <SearchInput />
+                <Fab variant="extended" onClick={showNavigation}  sx={{position:'fixed'}} id="floadingnav">
+                    <HomeIcon />
+                    
+                </Fab>
                 <Container>
                     <AccordionOne />
                     {accordionOneValue === 'markalar' && <AccordionMarka />}
-                    {selectedMarka !== '' && <AccordionSubcategory sx={{height:500,overflow:'auto'}}/>}
+                    {selectedMarka !== '' && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
                     {selectedSubcategory !== '' && <AccordionKeywords />}
                     {selectedKeyword !== '' && <AccordionProduct />}
                 </Container>
@@ -35,9 +44,9 @@ export default function () {
             </div>
             <Container >
 
-          
+
             </Container>
-          
+
             <div>
 
             </div>

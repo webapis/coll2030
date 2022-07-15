@@ -27,8 +27,8 @@ export default function SimpleAccordion() {
   
 
   } else {
-  document.getElementById("navbar").style.top = "-260px";
-   document.getElementById("navbar").style.height="120vh"
+  //document.getElementById("navbar").style.top = "-260px";
+   //document.getElementById("navbar").style.height="120vh"
   }
   prevScrollpos = currentScrollPos;
 
@@ -54,7 +54,7 @@ export default function SimpleAccordion() {
         <Typography>Bulunan urunler {totalKeyword}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <div id="prdt" style={{ display: 'flex', flexDirection: 'column',height:"100vh",overflow:'auto'}} className="scrollableContainer" ref={ref}>
+        <div id="prdt" style={{ display: 'flex', flexDirection: 'column'}} className="scrollableContainer" ref={ref}>
        <ProductList/>
         </div>
 
