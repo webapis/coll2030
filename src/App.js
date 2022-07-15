@@ -9,6 +9,8 @@ import AccordionKeywords from './google/AccordionKeywords';
 import AccordionProduct from './google/AccordionProduct'
 import Fab from '@mui/material/Fab';
 import HomeIcon from '@mui/icons-material/HomeOutlined';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
 export default function () {
     const {
@@ -16,29 +18,37 @@ export default function () {
         accordionOneValue,
         selectedMarka,
         selectedSubcategory,
-        selectedKeyword
+        selectedKeyword, fetching, keywords
 
 
     } = useSelector(state => state.accordion)
 
-    function showNavigation(){
+    function showNavigation() {
         document.getElementById('navbar').scrollIntoView();
+    }
+    if(fetching){
+        debugger
     }
     return (
         <div >
             <div id="navbar" style={{ paddingBottom: 50 }}>
                 <Breadcrumb />
                 <SearchInput />
-                <Fab variant="extended" onClick={showNavigation}  sx={{position:'fixed'}} id="floadingnav">
+                <Fab variant="extended" onClick={showNavigation} sx={{ position: 'fixed' }} id="floadingnav">
                     <HomeIcon />
-                    
+
                 </Fab>
                 <Container>
                     <AccordionOne />
                     {accordionOneValue === 'markalar' && <AccordionMarka />}
                     {selectedMarka !== '' && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
-                    {selectedSubcategory !== '' && <AccordionKeywords />}
-                    {selectedKeyword !== '' && <AccordionProduct />}
+                    {selectedSubcategory !== '' && (<AccordionKeywords />)}
+                    {selectedKeyword !== '' && (fetching && keywords === null ? (
+
+                        <Box sx={{ display: 'flex' }}>
+                            <CircularProgress />
+                        </Box>
+                    ) : <AccordionProduct />)}
                 </Container>
 
             </div>
