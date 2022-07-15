@@ -6,14 +6,14 @@ import Grid from '@mui/material/Grid'
 //import IntersectionObserver from "../intersectObserver";
 import ImageComponent from './imageComponent';
 import CircularProgress from '@mui/material/CircularProgress';
-import { actions } from '../store/productsSlice'
+import { actions } from '../store/accordionSlice'
 import Button from '@mui/material/Button';
 import placeholders from './imageComponent/placeholders';
 
 
 export default function ProductList(props) {
 
-  const { products, startAt, fetching, scrollHandled } = useSelector(state => state.products)
+  const { products, startAt, fetching, scrollHandled } = useSelector(state => state.accordion)
   const { selectedMarka, selectedSubcategory, totalSubcategory, selectedKeyword, selectedKeyWordTotal } = useSelector(state => state.accordion)
 
   //const { selectedMarka, selectedSubcategory, selectedCategory, totalFetchedProducts, subCatTotal, fetching, products, selectedRegex, search } = useSelector(state => state.products)
