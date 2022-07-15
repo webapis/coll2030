@@ -7,31 +7,43 @@ import { actions } from '../store/accordionSlice'
 import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import TreeItem from '@mui/lab/TreeItem';
 export default function KeywordsList() {
-    const { selectedMarka, selectedSubcategory, keywords } = useSelector(state => state.accordion)
+    const { selectedMarka, selectedSubcategory, keywords, fetching } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
 
     useEffect(() => {
-
+        dispatch(actions.setFetchState(true))
         fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
             const keywords = data[selectedSubcategory]
+            debugger
             dispatch(actions.setKeywords(keywords))
         })
 
     }, [])
 
-    function selectKeyword({keyword,total}){
+    function selectKeyword({ keyword, total }) {
 
-        dispatch(actions.setSelectedKeyword({keyword,total}))
+        dispatch(actions.setSelectedKeyword({ keyword, total }))
     }
-    return Object.entries(keywords).map((kw,i) => {
+
+
+    if (fetching && keywords===null)
+
+    return <Box sx={{ display: 'flex' }}>
+        <CircularProgress />
+    </Box>
+    return keywords &&  Object.entries(keywords).map((kw, i) => {
         const parentKeywords = kw[0]
         const childKeywords = Object.entries(kw[1]).map(m => {
             return { keyword: m[0], total: m[1] }
 
         })
 
+    
+        debugger
         return <TreeView
             key={i}
             aria-label="file system navigator"
@@ -39,10 +51,10 @@ export default function KeywordsList() {
             defaultExpandIcon={<ChevronRightIcon />}
             sx={{ flexGrow: 1 }}
         >
-            <TreeItem nodeId="1" label={parentKeywords+" "+ selectedSubcategory}>
-                {childKeywords.map((k,d) => {
-                    const { keyword,total } = k
-                    return <TreeItem key={d} nodeId={d+"ss"} label={keyword} id={keyword}  onClick={()=>selectKeyword({keyword,total})}/>
+            <TreeItem nodeId="1" label={parentKeywords + " " + selectedSubcategory}>
+                {childKeywords.map((k, d) => {
+                    const { keyword, total } = k
+                    return <TreeItem key={d} nodeId={d + "ss"} label={keyword} id={keyword} onClick={() => selectKeyword({ keyword, total })} />
                 })}
 
             </TreeItem>
@@ -52,7 +64,7 @@ export default function KeywordsList() {
 
 
 
- 
+
 
 
 

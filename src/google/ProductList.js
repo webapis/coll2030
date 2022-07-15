@@ -1,14 +1,15 @@
 
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
 //import IntersectionObserver from "../intersectObserver";
 import ImageComponent from './imageComponent';
-import CircularProgress from '@mui/material/CircularProgress';
+
 import { actions } from '../store/accordionSlice'
 import Button from '@mui/material/Button';
 import placeholders from './imageComponent/placeholders';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 
 export default function ProductList(props) {
@@ -82,6 +83,14 @@ export default function ProductList(props) {
         return err
       })
   }
+
+  if(fetching)
+  return (
+
+    <Box sx={{ display: 'flex' }}>
+    <CircularProgress />
+  </Box>
+  )
 
   return (
 

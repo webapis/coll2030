@@ -12,7 +12,7 @@ const initialState = {
   selectedSubcategory: '',
   accordionKeywordsIsExpanded: true,
   selectedKeyword: '',
-  keywords: {},
+  keywords: null,
   totalKeyword: 0,
   accordionProductIsExpanded: true,
 
@@ -20,6 +20,7 @@ const initialState = {
   products: [],
   startAt: 0,
   fetching: false,
+  
   scrollHandled: false
 
 }
@@ -48,20 +49,20 @@ export const accordionSlice = createSlice({
       state.selectedMarka = action.payload
       state.accordionMarkaIsExpanded = false
 
-      state.products=[]
+      state.products = []
 
-      state.totalSubcategory=0
-      state.selectedSubcategory=''
-      state.accordionSubcategoryIsExpanded=true
+      state.totalSubcategory = 0
+      state.selectedSubcategory = ''
+      state.accordionSubcategoryIsExpanded = true
 
-      state.keywords={}
-      state.totalKeyword=''
-      state.selectedKeyword=''
-      state.accordionKeywordsIsExpanded=true
+      state.keywords = null
+      state.totalKeyword = ''
+      state.selectedKeyword = ''
+      state.accordionKeywordsIsExpanded = true
 
-      state.startAt= 0
-      state.fetching= false
-      state.scrollHandled= false
+      state.startAt = 0
+      state.fetching = false
+      state.scrollHandled = false
 
 
     },
@@ -74,29 +75,29 @@ export const accordionSlice = createSlice({
       state.totalSubcategory = action.payload.totalSubcategory
       state.accordionSubcategoryIsExpanded = false
 
-      state.products=[]
-      state.keywords={}
-      state.totalKeyword=''
-      state.selectedKeyword=''
-      state.accordionKeywordsIsExpanded=true
+      state.products = []
+      state.keywords = null
+      state.totalKeyword = ''
+      state.selectedKeyword = ''
+      state.accordionKeywordsIsExpanded = true
 
-      state.startAt= 0
-      state.fetching= false
-      state.scrollHandled= false
+      state.startAt = 0
+      state.fetching = false
+      state.scrollHandled = false
 
     },
     setSelectedKeyword: (state, action) => {
-      state.products=[]
-   
-      state.startAt= 0
-      state.fetching= false
-      state.scrollHandled= false
+      state.products = []
+
+      state.startAt = 0
+      state.fetching = false
+      state.scrollHandled = false
 
       state.selectedKeyword = action.payload.keyword
       state.totalKeyword = action.payload.total
       state.accordionKeywordsIsExpanded = false
 
-   
+
       debugger
     },
     toggleAccordionKeywords: (state, action) => {
@@ -105,6 +106,11 @@ export const accordionSlice = createSlice({
 
     setKeywords: (state, action) => {
       state.keywords = action.payload
+      state.fetching = false
+    },
+
+    setFetchState: (state, action) => {
+      state.fetching = action.payload
     },
 
     //products

@@ -9,7 +9,7 @@ import { actions } from '../store/accordionSlice'
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function AccordionKeywords() {
-    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory,selectedKeyword } = useSelector(state => state.accordion)
+    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory,selectedKeyword,fetching } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
     
 
@@ -29,8 +29,8 @@ export default function AccordionKeywords() {
                 <Typography>ANAHTAR KELEME {selectedKeyword !==''? <span style={{fontWeight:700}}> - {selectedKeyword} {selectedSubcategory} </span>:''}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-               
-                    <KeywordsList/>
+              <KeywordsList/>
+                   
  
 
             </AccordionDetails>
