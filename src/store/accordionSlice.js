@@ -33,6 +33,10 @@ export const accordionSlice = createSlice({
     setAccordionOne: (state, action) => {
       state.accordionOneValue = action.payload
       state.accordionOneIsExpanded = false
+      if (action.payload === 'ürünler'){
+        state.selectedMarka = ''
+      }
+    
     },
 
     setAccordionMarka: (state, action) => {
@@ -99,7 +103,7 @@ export const accordionSlice = createSlice({
       state.accordionKeywordsIsExpanded = false
 
 
-      debugger
+      
     },
     toggleAccordionKeywords: (state, action) => {
       state.accordionKeywordsIsExpanded = !state.accordionKeywordsIsExpanded
@@ -108,7 +112,7 @@ export const accordionSlice = createSlice({
     setKeywords: (state, action) => {
       state.keywords = action.payload
       state.fetchingKeywords = false
-  
+
     },
     setFetchingKeywords: (state, action) => {
       state.fetchingKeywords = action.payload

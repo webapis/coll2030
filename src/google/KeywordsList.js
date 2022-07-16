@@ -1,6 +1,4 @@
 
-
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/accordionSlice'
@@ -11,21 +9,32 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import TreeItem from '@mui/lab/TreeItem';
 import Avatar from '@mui/material/Avatar';
-import ListItemText from '@mui/material/ListItemText';
-import List from '@mui/material/List';
 import Grid from '@mui/material/Grid'
-import ListItemButton from '@mui/material/ListItemButton';
 export default function KeywordsList() {
-    const { selectedMarka, selectedSubcategory, keywords, fetchingKeywords } = useSelector(state => state.accordion)
+    const { selectedMarka, selectedSubcategory, keywords, fetchingKeywords,accordionOneValue } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(actions.setFetchingKeywords(true))
-        fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
-            const keywords = data[selectedSubcategory]
-            debugger
-            dispatch(actions.setKeywords(keywords))
-        })
+        if(selectedMarka.length>0){
+            
+            fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
+                const keywords = data[selectedSubcategory]
+                
+                dispatch(actions.setKeywords(keywords))
+            })
+        }
+
+        else if(selectedMarka==='' && selectedSubcategory.length>0){
+            
+            fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
+            
+                
+                dispatch(actions.setKeywords(data))
+            })
+
+        }
+    
 
     }, [])
 
@@ -75,7 +84,7 @@ export default function KeywordsList() {
         }, {})
 
         const alfabetikArray = keywords && Object.entries(groupAlfabetically)
-        debugger
+        
         return <Grid container>
             {alfabetikArray && alfabetikArray.map((m, a) => {
 
@@ -94,14 +103,14 @@ export default function KeywordsList() {
                             
                             const parentKeyword = mk.parentKeyword
                             const childKeywords = Object.entries(mk.childKeywords)
-                            debugger
-                            debugger
+                            
+                            
                             return (
                                 <TreeItem nodeId={parentKeyword+1} label={parentKeyword + " " + selectedSubcategory} sx={{ padding: 1 }}>
                                     {childKeywords.map((k, d) => {
                                         const keyword = k[0]
                                         const total = k[1]
-                                        debugger
+                                        
                                         return <TreeItem sx={{ padding: 1 }} key={d} nodeId={d + "ss"} label={keyword} id={keyword} onClick={() => selectKeyword({ keyword, total })} />
                                     })}
 
@@ -111,7 +120,7 @@ export default function KeywordsList() {
                     </TreeView>
 
                 </Grid>)
-                debugger
+                
             })}
         </Grid>
 

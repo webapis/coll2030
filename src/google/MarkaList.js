@@ -74,7 +74,7 @@ export default function MarkaList() {
                 </List>
               
             </Grid>)
-     debugger
+     
             })}
     </Grid>
 }

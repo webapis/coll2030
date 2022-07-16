@@ -75,6 +75,7 @@ if(selectedKeyword.length>0){
   function fetchData(start) {
     dispatch(actions.setFetchState(true))
     var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keyword=' + selectedKeyword
+    debugger
     return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
       return data
     })

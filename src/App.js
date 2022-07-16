@@ -27,7 +27,7 @@ export default function () {
         document.getElementById('navbar').scrollIntoView();
     }
     if(fetching){
-        debugger
+        
     }
     return (
         <div >
@@ -41,7 +41,8 @@ export default function () {
                 <Container>
                     <AccordionOne />
                     {accordionOneValue === 'markalar' && <AccordionMarka />}
-                    {selectedMarka !== '' && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
+
+                    {(selectedMarka !== '' || accordionOneValue==='ürünler') && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
                     {selectedSubcategory !== '' && (<AccordionKeywords />)}
                     {selectedKeyword !== '' && (fetchingKeywords && keywords === null ? (
 

@@ -28,11 +28,11 @@ module.exports = (req, res) => {
   }
 
 
-
+debugger
 
 
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
-  const filterByMarka = marka === 'null' ? {} : { marka }
+  const filterByMarka = marka === '' ? {} : { marka }
 
   var filteredData = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByKeyword).get()
 

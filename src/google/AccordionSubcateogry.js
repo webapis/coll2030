@@ -8,11 +8,11 @@ import MarkaSubcategoryList from './MarkaSubcategoryList'
 import { actions } from '../store/accordionSlice'
 import { useDispatch, useSelector } from 'react-redux';
 import { height } from '@mui/system';
-
+import SubcategoryList from './SubcategoryList'
 export default function AccordionSubcategory() {
-  const { accordionSubcategoryIsExpanded, selectedSubcategory } = useSelector(state => state.accordion)
+  const { accordionSubcategoryIsExpanded, selectedSubcategory, accordionOneValue } = useSelector(state => state.accordion)
   const dispatch = useDispatch()
-  
+
 
 
 
@@ -28,12 +28,13 @@ export default function AccordionSubcategory() {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>ÜRÜN KATEGORİ  {selectedSubcategory !== '' ? <span style={{fontWeight:700}}> - {selectedSubcategory} </span> : ''}</Typography>
+        <Typography>ÜRÜN KATEGORİ  {selectedSubcategory !== '' ? <span style={{ fontWeight: 700 }}> - {selectedSubcategory} </span> : ''}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {accordionOneValue === 'markalar' && <MarkaSubcategoryList />}
+          {accordionOneValue === 'ürünler' && <SubcategoryList />}
 
-          <MarkaSubcategoryList />
         </div>
 
       </AccordionDetails>
