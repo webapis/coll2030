@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import TreeItem from '@mui/lab/TreeItem';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid'
+import Chip from '@mui/material/Chip';
 export default function KeywordsList() {
     const { selectedMarka, selectedSubcategory, keywords, fetchingKeywords,accordionOneValue } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
@@ -111,7 +112,7 @@ export default function KeywordsList() {
                                         const keyword = k[0]
                                         const total = k[1]
                                         
-                                        return <TreeItem sx={{ padding: 1 }} key={d} nodeId={d + "ss"} label={keyword} id={keyword} onClick={() => selectKeyword({ keyword, total })} />
+                                        return <TreeItem sx={{ padding: 1 }} key={d} nodeId={d + "ss"} label={<div>{keyword} <Chip label={total} /></div>} id={keyword} onClick={() => selectKeyword({ keyword, total })} />
                                     })}
 
                                 </TreeItem>
