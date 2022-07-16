@@ -18,7 +18,7 @@ export default function () {
         accordionOneValue,
         selectedMarka,
         selectedSubcategory,
-        selectedKeyword, fetching, keywords
+        selectedKeyword, fetching, keywords,fetchingKeywords
 
 
     } = useSelector(state => state.accordion)
@@ -43,7 +43,7 @@ export default function () {
                     {accordionOneValue === 'markalar' && <AccordionMarka />}
                     {selectedMarka !== '' && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
                     {selectedSubcategory !== '' && (<AccordionKeywords />)}
-                    {selectedKeyword !== '' && (fetching && keywords === null ? (
+                    {selectedKeyword !== '' && (fetchingKeywords && keywords === null ? (
 
                         <Box sx={{ display: 'flex' }}>
                             <CircularProgress />

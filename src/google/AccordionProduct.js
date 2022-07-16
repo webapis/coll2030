@@ -10,7 +10,7 @@ import { actions } from '../store/accordionSlice'
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function SimpleAccordion() {
-  const { accordionProductIsExpanded,totalKeyword } = useSelector(state => state.accordion)
+  const { accordionProductIsExpanded,totalKeyword ,fetchingKeywords} = useSelector(state => state.accordion)
   const dispatch = useDispatch()
 
   const ref = useRef()
@@ -55,7 +55,7 @@ export default function SimpleAccordion() {
       </AccordionSummary>
       <AccordionDetails>
         <div id="prdt" style={{ display: 'flex', flexDirection: 'column'}} className="scrollableContainer" ref={ref}>
-       <ProductList/>
+       {fetchingKeywords===false ?<ProductList/>:'Loading'}
         </div>
 
       </AccordionDetails>

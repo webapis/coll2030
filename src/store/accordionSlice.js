@@ -20,8 +20,9 @@ const initialState = {
   products: [],
   startAt: 0,
   fetching: false,
-  
-  scrollHandled: false
+
+  scrollHandled: false,
+  fetchingKeywords: false
 
 }
 
@@ -106,9 +107,12 @@ export const accordionSlice = createSlice({
 
     setKeywords: (state, action) => {
       state.keywords = action.payload
-      state.fetching = false
+      state.fetchingKeywords = false
+  
     },
-
+    setFetchingKeywords: (state, action) => {
+      state.fetchingKeywords = action.payload
+    },
     setFetchState: (state, action) => {
       state.fetching = action.payload
     },

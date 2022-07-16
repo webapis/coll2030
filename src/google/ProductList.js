@@ -66,6 +66,11 @@ export default function ProductList(props) {
 
 
   }, [])
+  useEffect(()=>{
+if(selectedKeyword.length>0){
+  fetchData(startAt)
+}
+  },[selectedKeyword])
 
   function fetchData(start) {
     dispatch(actions.setFetchState(true))

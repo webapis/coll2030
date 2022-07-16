@@ -16,11 +16,11 @@ import List from '@mui/material/List';
 import Grid from '@mui/material/Grid'
 import ListItemButton from '@mui/material/ListItemButton';
 export default function KeywordsList() {
-    const { selectedMarka, selectedSubcategory, keywords, fetching } = useSelector(state => state.accordion)
+    const { selectedMarka, selectedSubcategory, keywords, fetchingKeywords } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(actions.setFetchState(true))
+        dispatch(actions.setFetchingKeywords(true))
         fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
             const keywords = data[selectedSubcategory]
             debugger
@@ -29,13 +29,14 @@ export default function KeywordsList() {
 
     }, [])
 
+    
     function selectKeyword({ keyword, total }) {
 
         dispatch(actions.setSelectedKeyword({ keyword, total }))
     }
 
 
-    if (fetching && keywords === null)
+    if (fetchingKeywords && keywords === null)
 
         return <Box sx={{ display: 'flex' }}>
             <CircularProgress />
