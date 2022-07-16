@@ -10,6 +10,11 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import TreeItem from '@mui/lab/TreeItem';
+import Avatar from '@mui/material/Avatar';
+import ListItemText from '@mui/material/ListItemText';
+import List from '@mui/material/List';
+import Grid from '@mui/material/Grid'
+import ListItemButton from '@mui/material/ListItemButton';
 export default function KeywordsList() {
     const { selectedMarka, selectedSubcategory, keywords, fetching } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
@@ -30,37 +35,88 @@ export default function KeywordsList() {
     }
 
 
-    if (fetching && keywords===null)
+    if (fetching && keywords === null)
 
-    return <Box sx={{ display: 'flex' }}>
-        <CircularProgress />
-    </Box>
-    return keywords &&  Object.entries(keywords).map((kw, i) => {
-        const parentKeywords = kw[0]
-        const childKeywords = Object.entries(kw[1]).map(m => {
-            return { keyword: m[0], total: m[1] }
+        return <Box sx={{ display: 'flex' }}>
+            <CircularProgress />
+        </Box>
 
-        })
 
-    
-        debugger
-        return <TreeView
-            key={i}
-            aria-label="file system navigator"
-            defaultCollapseIcon={<ExpandMoreIcon />}
-            defaultExpandIcon={<ChevronRightIcon />}
-            sx={{ flexGrow: 1 }}
-        >
-            <TreeItem nodeId="1" label={parentKeywords + " " + selectedSubcategory}>
-                {childKeywords.map((k, d) => {
-                    const { keyword, total } = k
-                    return <TreeItem key={d} nodeId={d + "ss"} label={keyword} id={keyword} onClick={() => selectKeyword({ keyword, total })} />
-                })}
+    const sortedArrayKeywords = keywords && Object.entries(keywords).sort(function (a, b) {
 
-            </TreeItem>
-
-        </TreeView>
+        var textA = a[0].toUpperCase();
+        var textB = b[0].toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     })
+
+ 
+        const groupAlfabetically = keywords && sortedArrayKeywords.reduce((prev, curr, i, arr) => {
+            const alfabet = curr[0].charAt(0)
+            const parentKeyword = curr[0]
+            const childKeywords = curr[1]
+
+
+            if (i === 0) {
+                return { ...prev, [alfabet]: [{ parentKeyword, childKeywords }] }
+            } else {
+                if (prev[alfabet] === undefined) {
+                    return { ...prev, [alfabet]: [{ parentKeyword, childKeywords }] }
+                } else {
+                    return { ...prev, [alfabet]: [...prev[alfabet], { parentKeyword, childKeywords }] }
+                }
+
+            }
+
+
+
+
+
+        }, {})
+
+        const alfabetikArray = keywords && Object.entries(groupAlfabetically)
+        debugger
+        return <Grid container>
+            {alfabetikArray && alfabetikArray.map((m, a) => {
+
+                const alfabet = m[0]
+                const keywords = m[1]
+
+                return (<Grid key={a} item xs={12}>
+                    <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar>
+                    <TreeView
+                        key={a}
+                        aria-label="file system navigator"
+                        defaultCollapseIcon={<ExpandMoreIcon />}
+                        defaultExpandIcon={<ChevronRightIcon />}
+                        sx={{ flexGrow: 1 }}>
+                        {keywords.map((mk, i) => {
+                            
+                            const parentKeyword = mk.parentKeyword
+                            const childKeywords = Object.entries(mk.childKeywords)
+                            debugger
+                            debugger
+                            return (
+                                <TreeItem nodeId={parentKeyword+1} label={parentKeyword + " " + selectedSubcategory} sx={{ padding: 1 }}>
+                                    {childKeywords.map((k, d) => {
+                                        const keyword = k[0]
+                                        const total = k[1]
+                                        debugger
+                                        return <TreeItem sx={{ padding: 1 }} key={d} nodeId={d + "ss"} label={keyword} id={keyword} onClick={() => selectKeyword({ keyword, total })} />
+                                    })}
+
+                                </TreeItem>
+                            )
+                        })}
+                    </TreeView>
+
+                </Grid>)
+                debugger
+            })}
+        </Grid>
+
+
+
+  
 
 
 

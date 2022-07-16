@@ -58,7 +58,7 @@ export default function MarkaList() {
             const alfabet =m[0]
             const markaNames =m[1]
 
-            return (<Grid key={a} item xs={4}> 
+            return (<Grid key={a} item xs={12}> 
              <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar>
                 <List>
                     {markaNames.map((mk,i)=>{
