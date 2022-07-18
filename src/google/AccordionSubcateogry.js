@@ -31,7 +31,7 @@ export default function AccordionSubcategory() {
         <Typography>ÜRÜN KATEGORİ  {selectedSubcategory !== '' ? <span style={{ fontWeight: 700 }}> - {selectedSubcategory} </span> : ''}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'column',  maxHeight: '70vh', overflow: 'auto' }}>
           {selectedMainTab === 1 && <MarkaSubcategoryList />}
           {selectedMainTab === 2 && <SubcategoryList />}
 

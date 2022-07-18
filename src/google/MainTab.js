@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/accordionSlice'
 export default function TabsContainer(props) {
     const {selectedMainTab} = useSelector(state => state.accordion)
-debugger
+
     const dispatch = useDispatch()
 
     function onChange(e) {

@@ -3,13 +3,14 @@ window.onscroll = function () {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("navbar").style.top = "0";
-    document.getElementById('static-nav').style.visibility="visible"
-  
-  } else {
 
+   document.getElementById('static-nav').style.visibility="visible"
+
+  } else {
+   
   document.getElementById("navbar").style.top = "-260px";
 
-  document.getElementById('static-nav').style.visibility="hidden"
+ document.getElementById('static-nav').style.visibility="hidden"
   }
   prevScrollpos = currentScrollPos;
 }

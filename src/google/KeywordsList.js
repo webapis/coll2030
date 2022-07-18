@@ -41,7 +41,7 @@ export default function KeywordsList() {
 
     
     function selectKeyword({ keyword, total }) {
-
+      //  document.getElementById("navbar").style.height = "0";
         dispatch(actions.setSelectedKeyword({ keyword, total }))
     }
 

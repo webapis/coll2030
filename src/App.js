@@ -46,7 +46,7 @@ export default function () {
                 </Container>
             </div>
             <div style={{ paddingBottom: 50 }}>
-                <div id="static-nav">
+                <div id="static-nav" style={{zIndex:0}}>
 
                
                 <Breadcrumb />

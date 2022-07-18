@@ -9,9 +9,9 @@ import { actions } from '../store/accordionSlice'
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function AccordionKeywords() {
-    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory,selectedKeyword,fetching } = useSelector(state => state.accordion)
+    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory, selectedKeyword, fetching } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
-    
+
 
     function toggleAccordion() {
         document.getElementById("navbar").style.top = "0";
@@ -26,12 +26,16 @@ export default function AccordionKeywords() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <Typography>ANAHTAR KELEME {selectedKeyword !==''? <span style={{fontWeight:700}}> - {selectedKeyword} {selectedSubcategory} </span>:''}</Typography>
+                <Typography>ANAHTAR KELEME {selectedKeyword !== '' ? <span style={{ fontWeight: 700 }}> - {selectedKeyword} {selectedSubcategory} </span> : ''}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <KeywordsList/>
-                   
- 
+                <div style={{ display: 'flex', flexDirection: 'column', maxHeight: '70vh', overflow: 'auto' }}>
+
+                    <KeywordsList />
+                </div>
+
+
+
 
             </AccordionDetails>
         </Accordion>
