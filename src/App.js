@@ -12,13 +12,14 @@ import HomeIcon from '@mui/icons-material/HomeOutlined';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
+import MainTab from './google/MainTab'
 export default function () {
     const {
 
         accordionOneValue,
         selectedMarka,
         selectedSubcategory,
-        selectedKeyword, fetching, keywords,fetchingKeywords
+        selectedKeyword, fetching, keywords, fetchingKeywords, selectedMainTab
 
 
     } = useSelector(state => state.accordion)
@@ -26,24 +27,39 @@ export default function () {
     function showNavigation() {
         document.getElementById('navbar').scrollIntoView();
     }
-    if(fetching){
-        
+    if (fetching) {
+
     }
     return (
         <div >
-            <div id="navbar" style={{ paddingBottom: 50 }}>
+            <div id="navbar">
                 <Breadcrumb />
                 <SearchInput />
-                <Fab variant="extended" onClick={showNavigation} sx={{ position: 'fixed' }} id="floadingnav">
-                    <HomeIcon />
-
-                </Fab>
+                <MainTab />
                 <Container>
-                    <AccordionOne />
-                    {accordionOneValue === 'markalar' && <AccordionMarka />}
 
-                    {(selectedMarka !== '' || accordionOneValue==='ürünler') && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
+        
+                {selectedMainTab === 1 && <AccordionMarka />}
+
+                {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
+                {selectedSubcategory !== '' && (<AccordionKeywords />)}
+                </Container>
+            </div>
+            <div style={{ paddingBottom: 50 }}>
+                <div id="static-nav">
+
+               
+                <Breadcrumb />
+                <SearchInput />
+                <MainTab />
+           
+
+                    {selectedMainTab === 1 && <AccordionMarka />}
+
+                    {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
                     {selectedSubcategory !== '' && (<AccordionKeywords />)}
+                    </div>
+                    <Container>  
                     {selectedKeyword !== '' && (fetchingKeywords && keywords === null ? (
 
                         <Box sx={{ display: 'flex' }}>

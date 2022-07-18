@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { height } from '@mui/system';
 import SubcategoryList from './SubcategoryList'
 export default function AccordionSubcategory() {
-  const { accordionSubcategoryIsExpanded, selectedSubcategory, accordionOneValue } = useSelector(state => state.accordion)
+  const { accordionSubcategoryIsExpanded, selectedSubcategory, accordionOneValue, selectedMainTab } = useSelector(state => state.accordion)
   const dispatch = useDispatch()
 
 
@@ -32,8 +32,8 @@ export default function AccordionSubcategory() {
       </AccordionSummary>
       <AccordionDetails>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {accordionOneValue === 'markalar' && <MarkaSubcategoryList />}
-          {accordionOneValue === 'ürünler' && <SubcategoryList />}
+          {selectedMainTab === 1 && <MarkaSubcategoryList />}
+          {selectedMainTab === 2 && <SubcategoryList />}
 
         </div>
 

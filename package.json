@@ -48,7 +48,8 @@
     "vercel:dev": "vercel dev",
     "spine": "node spine.js",
     "encryptData": "node encryptData.js",
-    "decryptData": "node decryptData.js"
+    "decryptData": "node decryptData.js",
+    "genKeywords":"node utils/generateKeywords.js"
   },
   "eslintConfig": {
     "extends": [
