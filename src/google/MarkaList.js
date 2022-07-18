@@ -58,7 +58,7 @@ export default function MarkaList() {
 
         setTimeout(()=>{
             dispatch(actions.setMarkas(alfabetikArray))
-        },1000)
+        },500)
      
     },[])
 

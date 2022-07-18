@@ -29,7 +29,7 @@ export default function MarkaSabcategoryList() {
         setTimeout(() => {
 
             dispatch(actions.setSubcategories(sortedsubcategories))
-        }, 1000)
+        }, 500)
 
 
     }, [])

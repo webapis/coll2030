@@ -56,7 +56,7 @@ export default function () {
                         {selectedMainTab === 1 && <AccordionMarka />}
 
                         {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory />}
-                   
+
                         {selectedSubcategory !== '' && (<AccordionKeywords />)}
 
                     </Container>

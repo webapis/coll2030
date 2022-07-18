@@ -11,7 +11,7 @@ import { useEffect } from 'react'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 export default function AccordionKeywords() {
-    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory, selectedKeyword, fetchingKeywords,keywords } = useSelector(state => state.accordion)
+    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory, selectedKeyword, fetchingKeywords, keywords } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
 
 
@@ -20,12 +20,12 @@ export default function AccordionKeywords() {
         if (selectedSubcategory.length > 0) {
             debugger
             dispatch(actions.setFetchingKeywords(true))
-            setTimeout(()=>{
+            setTimeout(() => {
 
                 if (selectedMarka.length > 0) {
                     fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
                         const keywords = data[selectedSubcategory]
-    
+
                         dispatch(actions.setKeywords(keywords))
                     })
                 }
@@ -33,12 +33,12 @@ export default function AccordionKeywords() {
                     fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
                         dispatch(actions.setKeywords(data))
                     })
-    
+
                 }
 
 
-            },1000)
-       
+            }, 500)
+
         }
 
 
@@ -49,11 +49,16 @@ export default function AccordionKeywords() {
         dispatch(actions.toggleAccordionKeywords())
     }
 
-    if (fetchingKeywords && keywords===null) {
-       debugger
+    if (fetchingKeywords && keywords === null) {
+        debugger
 
-            return <CircularProgress />
-           
+        return (
+
+            <Box sx={{ display: 'flex' }}>
+                <CircularProgress />
+            </Box>
+        )
+
     }
 
 
