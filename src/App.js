@@ -38,31 +38,28 @@ export default function () {
                 <MainTab />
                 <Container>
 
-        
-                {selectedMainTab === 1 && <AccordionMarka />}
-
-                {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory  />}
-                {selectedSubcategory !== '' && (<AccordionKeywords />)}
-                </Container>
-            </div>
-            <div style={{ paddingBottom: 50 }}>
-                <div id="static-nav" style={{zIndex:0}}>
-
-                <Container>
-                <Breadcrumb />
-                <SearchInput />
-                <MainTab />
-         
-
-         
 
                     {selectedMainTab === 1 && <AccordionMarka />}
 
-                    {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory  />}
+                    {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory />}
                     {selectedSubcategory !== '' && (<AccordionKeywords />)}
+                </Container>
+            </div>
+            <div style={{ paddingBottom: 50 }}>
+                <div id="static-nav" style={{ zIndex: 0 }}>
+
+                    <Container>
+                        <Breadcrumb />
+                        <SearchInput />
+                        <MainTab />
+
+                        {selectedMainTab === 1 && <AccordionMarka />}
+
+                        {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory />}
+                        {selectedSubcategory !== '' && (<AccordionKeywords />)}
                     </Container>
-                    </div>
-                    <Container>  
+                </div>
+                <Container>
                     {selectedKeyword !== '' && (fetchingKeywords && keywords === null ? (
 
                         <Box sx={{ display: 'flex' }}>

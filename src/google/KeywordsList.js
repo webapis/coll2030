@@ -15,43 +15,41 @@ export default function KeywordsList() {
     const { selectedMarka, selectedSubcategory, keywords, fetchingKeywords,accordionOneValue } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(actions.setFetchingKeywords(true))
-        if(selectedMarka.length>0){
-            
-            fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
-                const keywords = data[selectedSubcategory]
-                
-                dispatch(actions.setKeywords(keywords))
-            })
-        }
 
-        else if(selectedMarka==='' && selectedSubcategory.length>0){
-            
-            fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
-            
-                
-                dispatch(actions.setKeywords(data))
-            })
 
-        }
+    useEffect(()=>{
+
+        if(selectedSubcategory.length>0){
+debugger
+            dispatch(actions.setFetchingKeywords(true))
+            if(selectedMarka.length>0){
+                fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
+                    const keywords = data[selectedSubcategory]
+                    
+                    dispatch(actions.setKeywords(keywords))
+                })
+            }
+            else if(selectedMarka==='' && selectedSubcategory.length>0){
+                fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
+                    dispatch(actions.setKeywords(data))
+                })
     
+            }
+        }
 
-    }, [])
 
+    },[selectedSubcategory])
     
     function selectKeyword({ keyword, total }) {
       //  document.getElementById("navbar").style.height = "0";
         dispatch(actions.setSelectedKeyword({ keyword, total }))
     }
 
-
     if (fetchingKeywords && keywords === null)
 
         return <Box sx={{ display: 'flex' }}>
             <CircularProgress />
         </Box>
-
 
     const sortedArrayKeywords = keywords && Object.entries(keywords).sort(function (a, b) {
 
@@ -60,7 +58,6 @@ export default function KeywordsList() {
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     })
 
- 
         const groupAlfabetically = keywords && sortedArrayKeywords.reduce((prev, curr, i, arr) => {
             const alfabet = curr[0].charAt(0)
             const parentKeyword = curr[0]
@@ -124,15 +121,6 @@ export default function KeywordsList() {
                 
             })}
         </Grid>
-
-
-
-  
-
-
-
-
-
 
 
 }

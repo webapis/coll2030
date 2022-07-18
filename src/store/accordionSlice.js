@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 
-  accordionOneValue: '',
-  accordionOneIsExpanded: true,
+
+
   accordionMarkaValue: '',
   accordionMarkaIsExpanded: true,
   selectedMarka: '',
@@ -30,34 +30,39 @@ export const accordionSlice = createSlice({
   name: 'accordion',
   initialState,
   reducers: {
-    setAccordionOne: (state, action) => {
-      state.accordionOneValue = action.payload
-      state.accordionOneIsExpanded = false
 
-
-    },
     setMainTab: (state, action) => {
       state.selectedMainTab = action.payload
-      
-
+      state.accordionMarkaValue = ''
+      state.accordionMarkaIsExpanded = true
+      state.selectedMarka = ''
+      state.accordionSubcategoryIsExpanded = true
+      state.totalSubcategory = 0
+      state.selectedSubcategory = ''
+      state.accordionKeywordsIsExpanded = true
+      state.selectedKeyword = ''
+      state.keywords = null
+      state.totalKeyword = 0
+      state.accordionProductIsExpanded = true
+      //products
+      state.products = []
+      state.startAt = 0
+      state.fetching = false
+      state.scrollHandled = false
+      state.fetchingKeywords = false
     },
     setAccordionMarka: (state, action) => {
       state.accordionMarkaValue = action.payload
       state.accordionmarkaIsExpanded = false
+    },
 
-    },
-    toggleAccordionOne: (state, action) => {
-      state.accordionOneIsExpanded = !state.accordionOneIsExpanded
-    },
     toggleAccordionMarka: (state, action) => {
       state.accordionMarkaIsExpanded = !state.accordionMarkaIsExpanded
     },
     setMarka: (state, action) => {
       state.selectedMarka = action.payload
       state.accordionMarkaIsExpanded = false
-
       state.products = []
-
       state.totalSubcategory = 0
       state.selectedSubcategory = ''
       state.accordionSubcategoryIsExpanded = true
@@ -78,10 +83,10 @@ export const accordionSlice = createSlice({
     },
 
     setSubcategory: (state, action) => {
+
       state.selectedSubcategory = action.payload.subcategory
       state.totalSubcategory = action.payload.totalSubcategory
       state.accordionSubcategoryIsExpanded = false
-
       state.products = []
       state.keywords = null
       state.totalKeyword = ''
@@ -91,20 +96,15 @@ export const accordionSlice = createSlice({
       state.startAt = 0
       state.fetching = false
       state.scrollHandled = false
-
     },
     setSelectedKeyword: (state, action) => {
       state.products = []
-
       state.startAt = 0
       state.fetching = false
       state.scrollHandled = false
-
       state.selectedKeyword = action.payload.keyword
       state.totalKeyword = action.payload.total
       state.accordionKeywordsIsExpanded = false
-
-
 
     },
     toggleAccordionKeywords: (state, action) => {
