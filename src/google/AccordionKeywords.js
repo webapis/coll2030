@@ -7,16 +7,51 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import KeywordsList from './KeywordsList';
 import { actions } from '../store/accordionSlice'
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useEffect } from 'react'
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 export default function AccordionKeywords() {
-    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory, selectedKeyword, fetching } = useSelector(state => state.accordion)
+    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory, selectedKeyword, fetchingKeywords,keywords } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
 
+
+    useEffect(() => {
+
+        if (selectedSubcategory.length > 0) {
+            debugger
+            dispatch(actions.setFetchingKeywords(true))
+            if (selectedMarka.length > 0) {
+                fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
+                    const keywords = data[selectedSubcategory]
+
+                    dispatch(actions.setKeywords(keywords))
+                })
+            }
+            else if (selectedMarka === '' && selectedSubcategory.length > 0) {
+                fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
+                    dispatch(actions.setKeywords(data))
+                })
+
+            }
+        }
+
+
+    }, [selectedSubcategory])
 
     function toggleAccordion() {
         document.getElementById("navbar").style.top = "0";
         dispatch(actions.toggleAccordionKeywords())
     }
+
+    if (fetchingKeywords && keywords===null) {
+        if (fetchingKeywords && keywords === null)
+
+            return <Box sx={{ display: 'flex' }}>
+                <CircularProgress />
+            </Box>
+
+    }
+
 
     return (
 

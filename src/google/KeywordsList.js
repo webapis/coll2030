@@ -6,7 +6,7 @@ import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+//import Box from '@mui/material/Box';
 import TreeItem from '@mui/lab/TreeItem';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid'
@@ -17,39 +17,39 @@ export default function KeywordsList() {
 
 
 
-    useEffect(()=>{
+//     useEffect(()=>{
 
-        if(selectedSubcategory.length>0){
-debugger
-            dispatch(actions.setFetchingKeywords(true))
-            if(selectedMarka.length>0){
-                fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
-                    const keywords = data[selectedSubcategory]
+//         if(selectedSubcategory.length>0){
+// debugger
+//             dispatch(actions.setFetchingKeywords(true))
+//             if(selectedMarka.length>0){
+//                 fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
+//                     const keywords = data[selectedSubcategory]
                     
-                    dispatch(actions.setKeywords(keywords))
-                })
-            }
-            else if(selectedMarka==='' && selectedSubcategory.length>0){
-                fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
-                    dispatch(actions.setKeywords(data))
-                })
+//                     dispatch(actions.setKeywords(keywords))
+//                 })
+//             }
+//             else if(selectedMarka==='' && selectedSubcategory.length>0){
+//                 fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
+//                     dispatch(actions.setKeywords(data))
+//                 })
     
-            }
-        }
+//             }
+//         }
 
 
-    },[selectedSubcategory])
+//     },[selectedSubcategory])
     
     function selectKeyword({ keyword, total }) {
       //  document.getElementById("navbar").style.height = "0";
         dispatch(actions.setSelectedKeyword({ keyword, total }))
     }
 
-    if (fetchingKeywords && keywords === null)
+    // if (fetchingKeywords && keywords === null)
 
-        return <Box sx={{ display: 'flex' }}>
-            <CircularProgress />
-        </Box>
+    //     return <Box sx={{ display: 'flex' }}>
+    //         <CircularProgress />
+    //     </Box>
 
     const sortedArrayKeywords = keywords && Object.entries(keywords).sort(function (a, b) {
 
