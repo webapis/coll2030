@@ -29,7 +29,7 @@ export default function AccordionKeywords() {
                 <Typography>ANAHTAR KELEME {selectedKeyword !== '' ? <span style={{ fontWeight: 700 }}> - {selectedKeyword} {selectedSubcategory} </span> : ''}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <div style={{ display: 'flex', flexDirection: 'column', maxHeight: '70vh', overflow: 'auto' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', maxHeight: '80vh', overflow: 'auto' }}>
 
                     <KeywordsList />
                 </div>
