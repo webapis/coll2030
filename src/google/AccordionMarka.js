@@ -30,7 +30,7 @@ export default function AccordionMarka() {
                 <Typography>MARKA {selectedMarka!==''? <span style={{fontWeight:700}}> - {selectedMarka} </span>:''}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <div style={{ display: 'flex', flexDirection: 'column', maxHeight:'80vh', overflow:'auto' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', maxHeight:'90vh', overflow:'auto' }}>
 
                     <MarkaList/>
                 </div>

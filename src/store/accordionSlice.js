@@ -24,7 +24,7 @@ const initialState = {
   scrollHandled: false,
   fetchingKeywords: false,
   subcategories: [],
-  markas:[]
+  markas: []
 
 }
 
@@ -32,9 +32,9 @@ export const accordionSlice = createSlice({
   name: 'accordion',
   initialState,
   reducers: {
-    setMarkas:(state,action)=>{
+    setMarkas: (state, action) => {
 
-      state.markas =action.payload
+      state.markas = action.payload
     },
     setSubcategories: (state, action) => {
       state.subcategories = action.payload
@@ -58,8 +58,8 @@ export const accordionSlice = createSlice({
       state.fetching = false
       state.scrollHandled = false
       state.fetchingKeywords = false
-      state.subcategories=[]
-      state.markas=[]
+      state.subcategories = []
+      state.markas = []
     },
     setAccordionMarka: (state, action) => {
       state.accordionMarkaValue = action.payload
@@ -70,22 +70,29 @@ export const accordionSlice = createSlice({
       state.accordionMarkaIsExpanded = !state.accordionMarkaIsExpanded
     },
     setMarka: (state, action) => {
-      state.selectedMarka = action.payload
-      state.accordionMarkaIsExpanded = false
-      state.products = []
-      state.totalSubcategory = 0
-      state.selectedSubcategory = ''
-      state.accordionSubcategoryIsExpanded = true
+      if(state.selectedMarka!==action.payload){
+        state.selectedMarka = action.payload
+        state.accordionMarkaIsExpanded = false
+        state.products = []
+        state.totalSubcategory = 0
+        state.selectedSubcategory = ''
+        state.accordionSubcategoryIsExpanded = true
+  
+        state.keywords = null
+        state.totalKeyword = ''
+        state.selectedKeyword = ''
+        state.accordionKeywordsIsExpanded = true
+        state.subcategories = []
+  
+        state.startAt = 0
+        state.fetching = false
+        state.scrollHandled = false
 
-      state.keywords = null
-      state.totalKeyword = ''
-      state.selectedKeyword = ''
-      state.accordionKeywordsIsExpanded = true
-      state.subcategories=[]
-      state.markas=[]
-      state.startAt = 0
-      state.fetching = false
-      state.scrollHandled = false
+      } else{
+
+        state.accordionMarkaIsExpanded = false
+      }
+
 
 
     },
@@ -94,19 +101,25 @@ export const accordionSlice = createSlice({
     },
 
     setSubcategory: (state, action) => {
+      if (state.selectedSubcategory !== action.payload.subcategory) {
+        state.selectedSubcategory = action.payload.subcategory
+        state.totalSubcategory = action.payload.totalSubcategory
+        state.accordionSubcategoryIsExpanded = false
+        state.products = []
+        state.keywords = null
+        state.totalKeyword = ''
+        state.selectedKeyword = ''
+        state.accordionKeywordsIsExpanded = true
+        state.accordionSubcategoryIsExpanded = false
+        state.startAt = 0
+        state.fetching = false
+        state.scrollHandled = false
 
-      state.selectedSubcategory = action.payload.subcategory
-      state.totalSubcategory = action.payload.totalSubcategory
-      state.accordionSubcategoryIsExpanded = false
-      state.products = []
-      state.keywords = null
-      state.totalKeyword = ''
-      state.selectedKeyword = ''
-      state.accordionKeywordsIsExpanded = true
-      state.accordionSubcategoryIsExpanded = false
-      state.startAt = 0
-      state.fetching = false
-      state.scrollHandled = false
+      } else{
+        state.accordionSubcategoryIsExpanded = false
+
+      }
+
     },
     setSelectedKeyword: (state, action) => {
       state.products = []

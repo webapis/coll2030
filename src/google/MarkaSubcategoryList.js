@@ -15,32 +15,35 @@ export default function MarkaSabcategoryList() {
 
 
     useEffect(() => {
-        const markasArray = Object.entries(markas[selectedMarka]['categories'])
-        const joincategories = markasArray.reduce((prev, curr) => {
-            const arr = Object.entries(curr[1]['subcategories']).map((m) => { return { subcategory: m[0], total: m[1]['count'] } })
-            return [...prev, ...arr]
+        if (selectedMarka.length > 0) {
+            const markasArray = Object.entries(markas[selectedMarka]['categories'])
+            const joincategories = markasArray.reduce((prev, curr) => {
+                const arr = Object.entries(curr[1]['subcategories']).map((m) => { return { subcategory: m[0], total: m[1]['count'] } })
+                return [...prev, ...arr]
 
-        }, [])
+            }, [])
 
-        const sortedsubcategories = joincategories.sort(function (a, b) {
-            var textA = a['subcategory'].toUpperCase();
-            var textB = b['subcategory'].toUpperCase();
-            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-        })
+            const sortedsubcategories = joincategories.sort(function (a, b) {
+                var textA = a['subcategory'].toUpperCase();
+                var textB = b['subcategory'].toUpperCase();
+                return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+            })
 
-        setTimeout(() => {
+            setTimeout(() => {
 
-            dispatch(actions.setSubcategories(sortedsubcategories))
-        }, 500)
+                dispatch(actions.setSubcategories(sortedsubcategories))
+            }, 500)
+        }
 
 
-    }, [])
+
+    }, [selectedMarka])
     function selectSubcategory(subcategory, totalSubcategory) {
 
         dispatch(actions.setSubcategory({ subcategory, totalSubcategory }))
     }
 
-    
+
     if (subcategories.length === 0) {
 
         return (
