@@ -92,7 +92,7 @@ export const accordionSlice = createSlice({
       state.totalKeyword = ''
       state.selectedKeyword = ''
       state.accordionKeywordsIsExpanded = true
-
+      state.accordionSubcategoryIsExpanded = false
       state.startAt = 0
       state.fetching = false
       state.scrollHandled = false

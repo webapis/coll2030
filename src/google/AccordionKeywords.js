@@ -44,12 +44,10 @@ export default function AccordionKeywords() {
     }
 
     if (fetchingKeywords && keywords===null) {
-        if (fetchingKeywords && keywords === null)
+       debugger
 
-            return <Box sx={{ display: 'flex' }}>
-                <CircularProgress />
-            </Box>
-
+            return <CircularProgress />
+           
     }
 
 
