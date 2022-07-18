@@ -8,7 +8,7 @@ window.onscroll = function () {
 
   } else {
    
-  document.getElementById("navbar").style.top = "-260px";
+  document.getElementById("navbar").style.top = "-400px";
 
  document.getElementById('static-nav').style.visibility="hidden"
   }
