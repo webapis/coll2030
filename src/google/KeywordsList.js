@@ -95,7 +95,7 @@ export default function KeywordsList() {
                 return (<Grid key={a} item xs={12}>
                     <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar>
                     <TreeView
-                        key={a}
+                    
                         aria-label="file system navigator"
                         defaultCollapseIcon={<ExpandMoreIcon />}
                         defaultExpandIcon={<ChevronRightIcon />}
@@ -107,12 +107,12 @@ export default function KeywordsList() {
                             
                             
                             return (
-                                <TreeItem nodeId={parentKeyword+1} label={parentKeyword + " " + selectedSubcategory} sx={{ padding: 1 }}>
+                                <TreeItem key={i} nodeId={parentKeyword+1} label={parentKeyword + " " + selectedSubcategory} sx={{ padding: 1 }}>
                                     {childKeywords.map((k, d) => {
                                         const keyword = k[0]
                                         const total = k[1]
                                         
-                                        return <TreeItem sx={{ padding: 1 }} key={d} nodeId={d + "ss"} label={<div>{keyword} <Chip label={total} /></div>} id={keyword} onClick={() => selectKeyword({ keyword, total })} />
+                                        return <TreeItem  sx={{ padding: 1 }} key={d} nodeId={d + "ss"} label={<div>{keyword} <Chip label={total} /></div>} id={keyword} onClick={() => selectKeyword({ keyword, total })} />
                                     })}
 
                                 </TreeItem>

@@ -15,7 +15,7 @@ const initialState = {
   keywords: null,
   totalKeyword: 0,
   accordionProductIsExpanded: true,
-  selectedMainTab: 10,
+  selectedMainTab: 0,
   //products
   products: [],
   startAt: 0,

@@ -41,23 +41,26 @@ export default function () {
         
                 {selectedMainTab === 1 && <AccordionMarka />}
 
-                {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
+                {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory  />}
                 {selectedSubcategory !== '' && (<AccordionKeywords />)}
                 </Container>
             </div>
             <div style={{ paddingBottom: 50 }}>
                 <div id="static-nav" style={{zIndex:0}}>
 
-               
+                <Container>
                 <Breadcrumb />
                 <SearchInput />
                 <MainTab />
-           
+         
+
+         
 
                     {selectedMainTab === 1 && <AccordionMarka />}
 
-                    {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory sx={{ height: 500, overflow: 'auto' }} />}
+                    {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory  />}
                     {selectedSubcategory !== '' && (<AccordionKeywords />)}
+                    </Container>
                     </div>
                     <Container>  
                     {selectedKeyword !== '' && (fetchingKeywords && keywords === null ? (
