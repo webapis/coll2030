@@ -23,7 +23,8 @@ const initialState = {
 
   scrollHandled: false,
   fetchingKeywords: false,
-  subcategories: []
+  subcategories: [],
+  markas:[]
 
 }
 
@@ -31,6 +32,10 @@ export const accordionSlice = createSlice({
   name: 'accordion',
   initialState,
   reducers: {
+    setMarkas:(state,action)=>{
+
+      state.markas =action.payload
+    },
     setSubcategories: (state, action) => {
       state.subcategories = action.payload
     },
@@ -54,6 +59,7 @@ export const accordionSlice = createSlice({
       state.scrollHandled = false
       state.fetchingKeywords = false
       state.subcategories=[]
+      state.markas=[]
     },
     setAccordionMarka: (state, action) => {
       state.accordionMarkaValue = action.payload
@@ -76,6 +82,7 @@ export const accordionSlice = createSlice({
       state.selectedKeyword = ''
       state.accordionKeywordsIsExpanded = true
       state.subcategories=[]
+      state.markas=[]
       state.startAt = 0
       state.fetching = false
       state.scrollHandled = false

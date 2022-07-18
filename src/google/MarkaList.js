@@ -11,41 +11,56 @@ import Avatar from '@mui/material/Avatar';
 import { actions } from '../store/accordionSlice'
 import Link from '@mui/material/Link';
 import ListItemText from '@mui/material/ListItemText';
-const { nav: { markas, totalByMarka } } = markajson[0]
-console.log('markajson', markas)
+import { useEffect } from 'react';
+
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+const { nav: { markas:mkas, totalByMarka } } = markajson[0]
+
 
 export default function MarkaList() {
     const dispatch = useDispatch()
-    const markasArray = Object.entries(markas)
-    const sortedmarkasArray = markasArray.sort(function (a, b) {
+ const {markas} =useSelector(state=> state.accordion)
+  
 
-        var textA = a[0].toUpperCase();
-        var textB = b[0].toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    })
 
-    const groupAlfabetically = sortedmarkasArray.reduce((prev, curr, i, arr) => {
-        const alfabet = curr[0].charAt(0)
-        const marka = curr[0]
-        const total = curr[1]['totalByCatory']
-
-        if (i === 0) {
-            return { ...prev, [alfabet]: [{ marka, total }] }
-        } else {
-            if (prev[alfabet] === undefined) {
+    useEffect(()=>{
+        const markasArray = Object.entries(mkas)
+        const sortedmarkasArray = markasArray.sort(function (a, b) {
+    
+            var textA = a[0].toUpperCase();
+            var textB = b[0].toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        })
+    
+        const groupAlfabetically = sortedmarkasArray.reduce((prev, curr, i, arr) => {
+            const alfabet = curr[0].charAt(0)
+            const marka = curr[0]
+            const total = curr[1]['totalByCatory']
+    
+            if (i === 0) {
                 return { ...prev, [alfabet]: [{ marka, total }] }
             } else {
-                return { ...prev, [alfabet]: [...prev[alfabet], { marka, total }] }
+                if (prev[alfabet] === undefined) {
+                    return { ...prev, [alfabet]: [{ marka, total }] }
+                } else {
+                    return { ...prev, [alfabet]: [...prev[alfabet], { marka, total }] }
+                }
+    
             }
+    
+    
+        
+    
+        }, {})
 
-        }
+        const alfabetikArray =Object.entries(groupAlfabetically)
 
-
-
-
-
-    }, {})
-    const alfabetikArray =Object.entries(groupAlfabetically)
+        setTimeout(()=>{
+            dispatch(actions.setMarkas(alfabetikArray))
+        },1000)
+     
+    },[])
 
     function selectMarka(e) {
         const { id } = e.currentTarget
@@ -53,8 +68,18 @@ export default function MarkaList() {
         dispatch(actions.setMarka(id))
     }
 
+    
+    if (markas.length === 0) {
+
+        return (
+
+            <Box sx={{ display: 'flex' }}>
+                <CircularProgress />
+            </Box>
+        )
+    }
     return <Grid container>
-        {alfabetikArray.map((m, a) => {
+        {markas.map((m, a) => {
             const alfabet =m[0]
             const markaNames =m[1]
 
