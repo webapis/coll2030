@@ -20,7 +20,7 @@ export default function KeywordsList() {
 //     useEffect(()=>{
 
 //         if(selectedSubcategory.length>0){
-// debugger
+// 
 //             dispatch(actions.setFetchingKeywords(true))
 //             if(selectedMarka.length>0){
 //                 fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {

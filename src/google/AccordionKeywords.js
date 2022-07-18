@@ -18,7 +18,7 @@ export default function AccordionKeywords() {
     useEffect(() => {
 
         if (selectedSubcategory.length > 0) {
-            debugger
+            
             dispatch(actions.setFetchingKeywords(true))
             setTimeout(() => {
 
@@ -50,7 +50,7 @@ export default function AccordionKeywords() {
     }
 
     if (fetchingKeywords && keywords === null) {
-        debugger
+        
 
         return (
 

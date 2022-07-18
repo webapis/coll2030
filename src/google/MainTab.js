@@ -30,7 +30,7 @@ export default function TabsContainer(props) {
         <Container sx={{ display: 'flex', justifyContent: 'center' }}>
             <Tabs value={selectedMainTab} onChange={onChange} variant="scrollable"
                 scrollButtons="auto" allowScrollButtonsMobile textColor="inherit" >
-                <Tab label="Anasayfa" id="Anasayfa" />
+                <Tab label="Anasayfa" id="Anasayfa"  sx={{display:'none'}}/>
                 <Tab label="Markalar" id="Markalar" />
                 <Tab label="Ürünler" id="Ürünler" />
             </Tabs>
