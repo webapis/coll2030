@@ -3,32 +3,56 @@ import Chip from '@mui/material/Chip';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid'
 import CategoryNav from '../category-nav.json'
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { actions } from '../store/accordionSlice'
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 const { categories, totalByMarka } = CategoryNav[0]['nav']
 export default function MarkaSabcategoryList() {
-    const { selectedMarka } = useSelector(state => state.accordion)
+    const { selectedMarka, subcategories } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
-    const categoriesArray = Object.entries(categories)
-    const joincategories = categoriesArray.reduce((prev, curr) => {
-        const arr = Object.entries(curr[1]['subcategories']).map((m) => { return { subcategory: m[0], total: m[1]['count'] } })
-        return [...prev, ...arr]
+
+
+    useEffect(() => {
+        const categoriesArray = Object.entries(categories)
+        const joincategories = categoriesArray.reduce((prev, curr) => {
+            const arr = Object.entries(curr[1]['subcategories']).map((m) => { return { subcategory: m[0], total: m[1]['count'] } })
+            return [...prev, ...arr]
+
+        }, [])
+        const sortedsubcategories = joincategories.sort(function (a, b) {
+            var textA = a['subcategory'].toUpperCase();
+            var textB = b['subcategory'].toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        })
+        setTimeout(() => {
+
+            dispatch(actions.setSubcategories(sortedsubcategories))
+        }, 1000)
+
 
     }, [])
-    
-    const sortedsubcategories = joincategories.sort(function (a, b) {
-        var textA = a['subcategory'].toUpperCase();
-        var textB = b['subcategory'].toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    })
+
+
 
     function selectSubcategory(subcategory, totalSubcategory) {
 
         dispatch(actions.setSubcategory({ subcategory, totalSubcategory }))
     }
 
+    if (subcategories.length === 0) {
+
+        return (
+
+            <Box sx={{ display: 'flex' }}>
+                <CircularProgress />
+            </Box>
+        )
+    }
+
     return <Grid container>
-        {sortedsubcategories.map((m, i) => {
+        {subcategories.map((m, i) => {
             const subcategory = m['subcategory']
             const total = m['total']
             const currentChar = subcategory.charAt(0)
@@ -40,7 +64,7 @@ export default function MarkaSabcategoryList() {
                 ]
             }
             else {
-                const prevChar = sortedsubcategories[i - 1]['subcategory'].charAt(0)
+                const prevChar = subcategories[i - 1]['subcategory'].charAt(0)
                 if (prevChar === currentChar) {
                     return <Grid key={subcategory} item sx={{ margin: 1 }}> <Chip key={i} onClick={() => selectSubcategory(subcategory, total)} label={subcategory} id={subcategory} /></Grid>
                 } else {

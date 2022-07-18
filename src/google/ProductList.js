@@ -74,20 +74,26 @@ if(selectedKeyword.length>0){
 
   function fetchData(start) {
     dispatch(actions.setFetchState(true))
-    var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keyword=' + selectedKeyword
+
+    setTimeout(()=>{
+      var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keyword=' + selectedKeyword
     
-    return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
-      return data
-    })
-      .then(function (data) {
-        var collection = data.data
-        const fetchAllComplete = [...products, ...collection].length === totalSubcategory
-        dispatch(actions.productsFetched({ products: collection, fetchAllComplete }))
+      return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
+        return data
       })
-      .catch(function (err) {
-        console.log('err', err)
-        return err
-      })
+        .then(function (data) {
+          var collection = data.data
+          const fetchAllComplete = [...products, ...collection].length === totalSubcategory
+          dispatch(actions.productsFetched({ products: collection, fetchAllComplete }))
+        })
+        .catch(function (err) {
+          console.log('err', err)
+          return err
+        })
+
+
+    },1000)
+
   }
 
   if(fetching)

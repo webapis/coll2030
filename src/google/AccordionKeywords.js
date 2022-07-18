@@ -20,19 +20,25 @@ export default function AccordionKeywords() {
         if (selectedSubcategory.length > 0) {
             debugger
             dispatch(actions.setFetchingKeywords(true))
-            if (selectedMarka.length > 0) {
-                fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
-                    const keywords = data[selectedSubcategory]
+            setTimeout(()=>{
 
-                    dispatch(actions.setKeywords(keywords))
-                })
-            }
-            else if (selectedMarka === '' && selectedSubcategory.length > 0) {
-                fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
-                    dispatch(actions.setKeywords(data))
-                })
+                if (selectedMarka.length > 0) {
+                    fetch(`/keywords/marka/${selectedMarka}.json`).then((response) => { return response.json() }).then((data) => {
+                        const keywords = data[selectedSubcategory]
+    
+                        dispatch(actions.setKeywords(keywords))
+                    })
+                }
+                else if (selectedMarka === '' && selectedSubcategory.length > 0) {
+                    fetch(`/keywords/category/${selectedSubcategory}.json`).then((response) => { return response.json() }).then((data) => {
+                        dispatch(actions.setKeywords(data))
+                    })
+    
+                }
 
-            }
+
+            },1000)
+       
         }
 
 

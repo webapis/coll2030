@@ -32,6 +32,7 @@ export default function () {
     }
     return (
         <div >
+
             <div id="navbar">
                 <Breadcrumb />
                 <SearchInput />
@@ -40,7 +41,6 @@ export default function () {
 
 
                     {selectedMainTab === 1 && <AccordionMarka />}
-
                     {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory />}
                     {selectedSubcategory !== '' && (<AccordionKeywords />)}
                 </Container>
@@ -56,7 +56,9 @@ export default function () {
                         {selectedMainTab === 1 && <AccordionMarka />}
 
                         {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory />}
+                   
                         {selectedSubcategory !== '' && (<AccordionKeywords />)}
+
                     </Container>
                 </div>
                 <Container>

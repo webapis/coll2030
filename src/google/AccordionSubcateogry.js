@@ -17,6 +17,7 @@ export default function AccordionSubcategory() {
 
 
   function toggleAccordion() {
+
     dispatch(actions.toggleAccordionSubcategory())
   }
 
