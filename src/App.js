@@ -1,7 +1,7 @@
 
 import { useSelector, useDispatch } from 'react-redux'
 import SearchInput from './comp/SearchInput'
-import Breadcrumb from './comp/Breadcrumb';
+import Breadcrumb from './google/Breadcrumb';
 import AccordionOne from './google/AccordionOne';
 import AccordionMarka from './google/AccordionMarka';
 import AccordionSubcategory from './google/AccordionSubcateogry';
@@ -34,8 +34,9 @@ export default function () {
         <div >
 
             <div id="navbar">
+                
                 <Breadcrumb />
-                <SearchInput />
+           
                 <MainTab />
                 <Container>
 
@@ -50,7 +51,7 @@ export default function () {
 
                     <Container>
                         <Breadcrumb />
-                        <SearchInput />
+               
                         <MainTab />
 
                         {selectedMainTab === 1 && <AccordionMarka />}

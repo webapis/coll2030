@@ -7,34 +7,32 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../store/breadcrumbSlice'
 import { Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
 export default function BreadcrumbsContainer(props) {
-  const {selectedMarka,selectedSubcategory } = useSelector(state => state.maintab)
+  const { selectedMarka, selectedSubcategory } = useSelector(state => state.maintab)
   const dispatch = useDispatch()
   function handleCategoryClick() {
-   
+
 
   }
 
   function handleTopBreadClick() {
- 
+
   }
 
   return (
-    <Container>
-        <Link  href="#">
-         MODABURADA
-        </Link>
+    <Container sx={{display:'flex', justifyContent:'space-between'}}>
+      <Link href="#">
+        MODABURADA
+      </Link>
+      <div>
+      <IconButton>
+        <SearchIcon />
+      </IconButton>
+      </div>
+  
 
-    <Breadcrumbs aria-label="breadcrumb" sx={{marginTop:1}}>
-      <Link href="/Home.html"   underline="hover"
-          sx={{ display: 'flex', alignItems: 'center' }}
-          color="inherit"
-          > <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />Anasayfa</Link >
-      {selectedMarka && <Link onClick={handleTopBreadClick} underline="hover" href="#"   color="inherit" id="">Markalar</Link >}
-      {selectedMarka && <Link onClick={handleTopBreadClick} underline="hover" href="#"   color="inherit">{selectedMarka}</Link >}
-      {selectedSubcategory && <Typography  color="inherit">{selectedSubcategory}</Typography >}
-
-    </Breadcrumbs>
     </Container>
   )
 }
