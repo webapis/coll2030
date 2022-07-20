@@ -8,14 +8,15 @@ import ImageComponent from './imageComponent';
 import { actions } from '../store/accordionSlice'
 import Button from '@mui/material/Button';
 import placeholders from './imageComponent/placeholders';
+import Chip from '@mui/material/Chip';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-
+import Stack from '@mui/material/Stack';
 
 export default function ProductList(props) {
 
   const { products, startAt, fetching, scrollHandled } = useSelector(state => state.accordion)
-  const { selectedMarka, selectedSubcategory, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal } = useSelector(state => state.accordion)
+  const { selectedMarka, selectedSubcategory, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords } = useSelector(state => state.accordion)
 
   //const { selectedMarka, selectedSubcategory, selectedCategory, totalFetchedProducts, subCatTotal, fetching, products, selectedRegex, search } = useSelector(state => state.products)
   const dispatch = useDispatch()
@@ -108,6 +109,28 @@ export default function ProductList(props) {
 
     <Grid container justifyContent="center" spacing={1} paddingTop={5}
     >
+      <Grid item   xs={6} sm={4} md={3} sx={{ }}>
+        <Stack direction="column" spacing={1} style={{padding:0}}>
+
+      
+        {childkeywords && childkeywords.filter(f=> f[0] !==parentKeyword).sort(function (a, b) {
+
+var textA = a[0].toUpperCase();
+var textB = b[0].toUpperCase();
+return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+}).map((m,i) => {
+          const kword = m[0]
+          const kwtotal = m[1]
+       
+          return <Chip onClick={() => { }} 
+            label={<div style={{display:'flex', justifyContent:'space-between'}}><span>{kword}</span><span style={{fontWeight:500,color:'#9e9e9e', marginLeft:5}}> - {kwtotal}</span></div>}
+
+            deleteIcon={<div>{kwtotal}</div>}
+            variant="outlined"
+          />
+        })}
+  </Stack>
+      </Grid>
       {products.length > 0 && products.map((item, i) => {
 
         return <Grid item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>

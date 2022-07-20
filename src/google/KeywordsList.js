@@ -24,9 +24,9 @@ export default function KeywordsList() {
 
 
 
-    function selectKeyword({ keyword, total }) {
+    function selectKeyword({ keyword, total,childkeywords }) {
         //  document.getElementById("navbar").style.height = "0";
-        dispatch(actions.setSelectedKeyword({ keyword, parentKeyword: keyword, total }))
+        dispatch(actions.setSelectedKeyword({ keyword, parentKeyword: keyword, total,childkeywords }))
     }
 
 
@@ -81,11 +81,12 @@ export default function KeywordsList() {
 
                         const keyword = mk.parentKeyword
                         const total = mk.childKeywords[keyword]
-                        debugger
+                        const childkeywords= Object.entries(mk.childKeywords)
+                  
 
                         return [
                             <ListItem key={i} component="div" disablePadding>
-                                <ListItemButton onClick={() => selectKeyword({ keyword, total })}>
+                                <ListItemButton onClick={() => selectKeyword({ keyword, total,childkeywords })}>
                                     <ListItemText primary={<div style={{display:'flex'}}><span style={{minWidth:150}}>{keyword}</span><span style={{backgroundColor:'#eceff1', borderRadius:20, padding:2, fontSize:14}}>{total}</span></div>} />
                                 </ListItemButton>
                             </ListItem>,

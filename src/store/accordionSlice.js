@@ -25,7 +25,8 @@ const initialState = {
   fetchingKeywords: false,
   parentKeyword: null,
   subcategories: [],
-  markas: []
+  markas: [],
+  childkeywords:[]
 
 }
 
@@ -52,6 +53,7 @@ export const accordionSlice = createSlice({
       state.selectedKeyword = ''
       state.keywords = null
       state.parentKeyword = null
+      state.childkeywords=[]
       state.totalKeyword = 0
       state.accordionProductIsExpanded = true
       //products
@@ -82,6 +84,7 @@ export const accordionSlice = createSlice({
 
         state.keywords = null
         state.parentKeyword = null
+        state.childkeywords=[]
         state.totalKeyword = ''
         state.selectedKeyword = ''
         state.accordionKeywordsIsExpanded = true
@@ -111,6 +114,7 @@ export const accordionSlice = createSlice({
         state.products = []
         state.keywords = null
         state.parentKeyword = null
+        state.childkeywords=[]
         state.totalKeyword = ''
         state.selectedKeyword = ''
         state.accordionKeywordsIsExpanded = true
@@ -132,9 +136,10 @@ export const accordionSlice = createSlice({
       state.scrollHandled = false
       state.selectedKeyword = action.payload.keyword
       state.parentKeyword = action.payload.parentKeyword
+      state.childkeywords=action.payload.childkeywords
       state.totalKeyword = action.payload.total
       state.accordionKeywordsIsExpanded = false
-
+debugger
     },
     toggleAccordionKeywords: (state, action) => {
       state.accordionKeywordsIsExpanded = !state.accordionKeywordsIsExpanded
