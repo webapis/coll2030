@@ -56,7 +56,7 @@ export default function ImageComponent(props) {
     return (
       <div>
         <div style={{ position: 'relative', margin: 'auto' }}>
-          <Typography variant="h6" style={{ textAlign: 'right', position: 'absolute', bottom: -20, right: 2 }}>{props.price} <span style={{ fontSize: 10 }}>TL</span></Typography>
+          <Typography variant="h6" style={{ textAlign: 'right', position: 'absolute', bottom: -25, right: 2 }}>{props.price} <span style={{ fontSize: 10 }}>TL</span></Typography>
           <a href={detailHost} target="_blank" >
             <ImageListItem>
 
