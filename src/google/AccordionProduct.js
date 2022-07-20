@@ -53,7 +53,7 @@ export default function SimpleAccordion() {
       >
         <Typography>Bulunan urunler {totalKeyword}</Typography>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails sx={{ paddingLeft:0}}>
         <div id="prdt" style={{ display: 'flex', flexDirection: 'column'}} className="scrollableContainer" ref={ref}>
        {fetchingKeywords===false ?<ProductList/>:'Loading'}
         </div>

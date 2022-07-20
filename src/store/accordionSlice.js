@@ -139,7 +139,7 @@ export const accordionSlice = createSlice({
       state.childkeywords=action.payload.childkeywords
       state.totalKeyword = action.payload.total
       state.accordionKeywordsIsExpanded = false
-debugger
+
     },
     toggleAccordionKeywords: (state, action) => {
       state.accordionKeywordsIsExpanded = !state.accordionKeywordsIsExpanded

@@ -38,7 +38,7 @@ export default function () {
                 <Breadcrumb />
            
                 <MainTab />
-                <Container>
+                <Container  sx={{paddingLeft:0, paddingRight:0}}>
 
 
                     {selectedMainTab === 1 && <AccordionMarka />}
@@ -46,10 +46,10 @@ export default function () {
                     {selectedSubcategory !== '' && (<AccordionKeywords />)}
                 </Container>
             </div>
-            <div style={{ paddingBottom: 50 }}>
+            <div style={{ paddingBottom: 50}}>
                 <div id="static-nav" style={{ zIndex: 0 }}>
 
-                    <Container>
+                    <Container  sx={{paddingLeft:0, paddingRight:0}}>
                         <Breadcrumb />
                
                         <MainTab />
@@ -62,20 +62,19 @@ export default function () {
 
                     </Container>
                 </div>
-                <Container>
+           <Container sx={{paddingLeft:0, paddingRight:0}}>
+
+       
                     {selectedKeyword !== '' && (fetchingKeywords && keywords === null ? (
 
                         <Box sx={{ display: 'flex' }}>
                             <CircularProgress />
                         </Box>
                     ) : <AccordionProduct />)}
-                </Container>
+                  </Container>
 
             </div>
-            <Container >
-
-
-            </Container>
+         
 
             <div>
 

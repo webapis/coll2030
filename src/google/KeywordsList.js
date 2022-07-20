@@ -71,12 +71,7 @@ export default function KeywordsList() {
 
             return (<Grid key={a} item xs={12}>
                 <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar>
-                <TreeView
-
-                    aria-label="file system navigator"
-                    defaultCollapseIcon={<ExpandMoreIcon />}
-                    defaultExpandIcon={<ChevronRightIcon />}
-                    sx={{ flexGrow: 1 }}>
+           
                     {keywords.map((mk, i) => {
 
                         const keyword = mk.parentKeyword
@@ -93,7 +88,7 @@ export default function KeywordsList() {
                             <Divider variant="middle" />
                         ]
                     })}
-                </TreeView>
+             
 
             </Grid>)
 
