@@ -5,6 +5,7 @@ const { mongoClient, extractNavData } = require('./mongoDb')
 var through = require("through2");
 const makeDir = require('make-dir');
 const path = require('path')
+const { productTitleMatch } = require('./productTitleMatch')
 var jsonArrayStreams = require("json-array-streams");
 
 async function generateNavigation() {
@@ -14,8 +15,7 @@ async function generateNavigation() {
     await markaNavCollection.deleteMany({})
     let categoryTree = {}
     let markaTree = {}
-    let markaNavTree={}
-    let categoryNavTree={}
+ 
     return new Promise(async (resolve, reject) => {
         const readstream = fs.createReadStream("./api/_files/kadin/data.json")
         const data = fs.readFileSync("./api/_files/kadin/data.json")
@@ -27,63 +27,67 @@ async function generateNavigation() {
                 ++objCounter
                 console.log('objCounter...', objCounter)
                 const { category, subcategory, marka, title } = object
-                const keywordsCollection = fs.existsSync(`${process.cwd()}/keywords/${subcategory}.js`) && require(`../keywords/${subcategory}`)
-                if (keywordsCollection) {
-                    keywordsCollection.forEach(keywords => {
+                const keywordsCollection = fs.existsSync(`${process.cwd()}/search-keywords/${subcategory}.json`) && require(`../search-keywords/${subcategory}.json`)
 
-                        let parentKeyWord = keywords[0]
-                 
-                        keywords.forEach(kw => {
+                for (let key in keywordsCollection) {
+                    const current = keywordsCollection[key]
+                    const keywords = current.childkeywords
 
-                            const match =kw.replace('^','').replace(/\s/g,',').split(',').every(function(keyword){
-                                const fullmatch = kw.indexOf('^')!==-1
-                            
-                                if(fullmatch){
-                                return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword).length>0
-                                }else{
-                                return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword || f.indexOf(keyword)===0  ).length>0
-                                }
-                             
-                              })
+                    if (keywords.length > 0) {
+
+                        keywords.forEach(kws => {
+
+                            let parentKeyWord = kws.parentkey
+                            let exactmatch = kws.exactmatch
+                            let negwords = kws.negwords
+                            let nws = []
+                            if (negwords) {
+                                nws = negwords.split(',')
+
+                            }
+
+                            const kw = kws.keyword
+                            const match = productTitleMatch({ kw, title, exactmatch, nws })
+
 
                             if (match) {
                                 if (categoryTree[`${subcategory}`] === undefined) {
-                                  
+
                                     categoryTree[`${subcategory}`] = {}
                                 }
                                 if (categoryTree[`${subcategory}`][`${parentKeyWord}`] === undefined) {
-                            
+
                                     categoryTree[`${subcategory}`][`${parentKeyWord}`] = {}
                                 }
-                             
+
                                 if (markaTree[`${marka}`] === undefined) {
 
                                     markaTree[`${marka}`] = {}
 
-                                  
+
                                 }
                                 if (markaTree[`${marka}`][`${subcategory}`] === undefined) {
-                                 
+
                                     markaTree[`${marka}`][`${subcategory}`] = {}
                                 }
                                 if (markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] === undefined) {
-                                 
+
                                     markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] = {}
                                 }
-                                 
-                                   
-                               
-                                categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] === undefined ?  categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`]  = 1 :  categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`]  =  categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`]  + 1
-                                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] === undefined ? markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`]= 1 : markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`]= markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] + 1
+
+
+
+                                categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] === undefined ? categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] = 1 : categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] = categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] + 1
+                                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] === undefined ? markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] = 1 : markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] = markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] + 1
 
 
                             }
-                        })
-                    })
-                }
 
+                        })
+                    }
+                }
                 await updateDatabase({ pc: { category, subcategory }, marka, markaNavCollection, categoryNavCollection })
-               // updateVar({ category, subcategory,markaNavTree,categoryNavTree })
+                // updateVar({ category, subcategory,markaNavTree,categoryNavTree })
                 if (objCounter === totalObjects) {
                     debugger;
                     const splitCategoryKeywrods = Object.entries(categoryTree)

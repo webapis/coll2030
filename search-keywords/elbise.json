@@ -1,0 +1,96 @@
+{
+    "abiye elbise": {
+        "title": "abiye elbise",
+        "childkeywords": [
+            {
+                "keyword": "abiye",
+                "parentorchild": "parent",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            },
+            {
+                "keyword": "abiye kısa",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            },
+            {
+                "keyword": "abiye tesettür",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            },
+            {
+                "keyword": "abiye uzun",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise",
+                "negwords": "Uzun Kollu"
+            },
+            {
+                "keyword": "abiye gece",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            },
+            {
+                "keyword": "abiye hamile",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            },
+            {
+                "keyword": "abiye midi",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            },
+            {
+                "keyword": "abiye mini",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            },
+            {
+                "keyword": "abiye nişan",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            },
+            {
+                "keyword": "abiye şifon",
+                "parentorchild": "child",
+                "parentkey": "abiye elbise",
+                "title": "abiye elbise"
+            }
+        ]
+    },
+    "açık elbise": {
+        "title": "açık renk elbise",
+        "childkeywords": [
+            {
+                "keyword": "açık",
+                "parentorchild": "parent",
+                "parentkey": "açık elbise",
+                "title": "açık renk elbise"
+            },
+            {
+                "keyword": "açık mavi",
+                "parentorchild": "child",
+                "parentkey": "açık elbise",
+                "title": "açık renk elbise"
+            }
+        ]
+    },
+    "after party elbise": {
+        "title": "after party elbise",
+        "childkeywords": [
+            {
+                "keyword": "after party",
+                "parentorchild": "parent",
+                "parentkey": "after party elbise",
+                "title": "after party elbise"
+            }
+        ]
+    }
+}
