@@ -96,7 +96,7 @@ export default function ProductList(props) {
     }, 1000)
 
   }
-
+//
   if (fetching)
     return (
 
