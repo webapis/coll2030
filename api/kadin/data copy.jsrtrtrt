@@ -1,37 +1,34 @@
 require('dotenv').config()
 var TAFFY = require('taffy');
-const { productTitleMatch } = require('./productTitleMatch')
+
 const { orderData } = require('./orderData')
 // Create a new database a single object (first record)
 const data = require('../_files/kadin/data.json')
-const fs = require('fs')
+
 module.exports = (req, res) => {
-  const { subcategory, start, marka, search, keyword, parentKeyword } = req.query
+  const { subcategory, start, marka, search, keyword } = req.query
   const startAt = parseInt(start)
   var products = TAFFY(data);
   const filterBySub = subcategory === '' ? {} : { subcategory }
 
   const filterByKeyword = keyword === '' ? function () { return true } : function () {
     const title = this.title
-    const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
-    const kws = allkeywords[subcategory][parentKeyword].childkeywords.find(f => f.keyword === keyword)
-    debugger
+    const match =keyword.replace('^','').replace(/\s/g,',').split(',').every(function(k){
+      const fullmatch = keyword.indexOf('^')!==-1
+  
+      if(fullmatch){
+      return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===k).length>0
+      }else{
+      return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===k || f.indexOf(k)===0  ).length>0
+      }
+   
+    })
 
-    let exactmatch = kws.exactmatch
-    let negwords = kws.negwords
-    let nws = []
-    if (negwords) {
-      nws = negwords.split(',')
-
-    }
-
-    const kw = kws.keyword
-    const match = productTitleMatch({ kw, title, exactmatch, nws })
     return match
   }
 
 
-
+debugger
 
 
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
@@ -39,7 +36,7 @@ module.exports = (req, res) => {
 
   var filteredData = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByKeyword).get()
 
-  debugger
+debugger
   var orderedData = orderData(filteredData)
   var orderedDb = TAFFY(orderedData)
 

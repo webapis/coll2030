@@ -23,6 +23,7 @@ const initialState = {
 
   scrollHandled: false,
   fetchingKeywords: false,
+  parentKeyword: null,
   subcategories: [],
   markas: []
 
@@ -50,6 +51,7 @@ export const accordionSlice = createSlice({
       state.accordionKeywordsIsExpanded = true
       state.selectedKeyword = ''
       state.keywords = null
+      state.parentKeyword = null
       state.totalKeyword = 0
       state.accordionProductIsExpanded = true
       //products
@@ -70,25 +72,26 @@ export const accordionSlice = createSlice({
       state.accordionMarkaIsExpanded = !state.accordionMarkaIsExpanded
     },
     setMarka: (state, action) => {
-      if(state.selectedMarka!==action.payload){
+      if (state.selectedMarka !== action.payload) {
         state.selectedMarka = action.payload
         state.accordionMarkaIsExpanded = false
         state.products = []
         state.totalSubcategory = 0
         state.selectedSubcategory = ''
         state.accordionSubcategoryIsExpanded = true
-  
+
         state.keywords = null
+        state.parentKeyword = null
         state.totalKeyword = ''
         state.selectedKeyword = ''
         state.accordionKeywordsIsExpanded = true
         state.subcategories = []
-  
+
         state.startAt = 0
         state.fetching = false
         state.scrollHandled = false
 
-      } else{
+      } else {
 
         state.accordionMarkaIsExpanded = false
       }
@@ -107,6 +110,7 @@ export const accordionSlice = createSlice({
         state.accordionSubcategoryIsExpanded = false
         state.products = []
         state.keywords = null
+        state.parentKeyword = null
         state.totalKeyword = ''
         state.selectedKeyword = ''
         state.accordionKeywordsIsExpanded = true
@@ -115,7 +119,7 @@ export const accordionSlice = createSlice({
         state.fetching = false
         state.scrollHandled = false
 
-      } else{
+      } else {
         state.accordionSubcategoryIsExpanded = false
 
       }
@@ -127,6 +131,7 @@ export const accordionSlice = createSlice({
       state.fetching = false
       state.scrollHandled = false
       state.selectedKeyword = action.payload.keyword
+      state.parentKeyword = action.payload.parentKeyword
       state.totalKeyword = action.payload.total
       state.accordionKeywordsIsExpanded = false
 

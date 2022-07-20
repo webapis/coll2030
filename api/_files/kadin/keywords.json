@@ -1,0 +1,228 @@
+{
+    "elbise": {
+        "abiye": {
+            "title": "abiye elbise",
+            "childkeywords": [
+                {
+                    "keyword": "abiye",
+                    "parentorchild": "parent",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye kısa",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye tesettür",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye uzun",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise",
+                    "negwords": "Uzun Kollu"
+                },
+                {
+                    "keyword": "abiye uzun kollu",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye gece",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye hamile",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye midi",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye mini",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye nişan",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                },
+                {
+                    "keyword": "abiye şifon",
+                    "parentorchild": "child",
+                    "parentkey": "abiye",
+                    "title": "abiye elbise"
+                }
+            ]
+        },
+        "açık": {
+            "title": "açık renk elbise",
+            "childkeywords": [
+                {
+                    "keyword": "açık",
+                    "parentorchild": "parent",
+                    "parentkey": "açık",
+                    "title": "açık renk elbise"
+                },
+                {
+                    "keyword": "açık mavi",
+                    "parentorchild": "child",
+                    "parentkey": "açık",
+                    "title": "açık renk elbise"
+                }
+            ]
+        },
+        "after party": {
+            "title": "after party elbise",
+            "childkeywords": [
+                {
+                    "keyword": "after party",
+                    "parentorchild": "parent",
+                    "parentkey": "after party",
+                    "title": "after party elbise"
+                }
+            ]
+        }
+    },
+    "etek": {
+        "yazlık": {
+            "title": "yazlık etek",
+            "childkeywords": [
+                {
+                    "keyword": "yazlık",
+                    "parentorchild": "parent",
+                    "parentkey": "yazlık",
+                    "title": "yazlık etek"
+                }
+            ]
+        },
+        "basma": {
+            "title": "basma etek",
+            "childkeywords": [
+                {
+                    "keyword": "basma",
+                    "parentorchild": "parent",
+                    "parentkey": "basma",
+                    "title": "basma etek"
+                }
+            ]
+        },
+        "şort": {
+            "title": "şort etek",
+            "childkeywords": [
+                {
+                    "keyword": "şort",
+                    "parentorchild": "parent",
+                    "parentkey": "şort",
+                    "title": "şort etek"
+                }
+            ]
+        },
+        "pantolon": {
+            "title": "pantolon etek",
+            "childkeywords": [
+                {
+                    "keyword": "pantolon",
+                    "parentorchild": "parent",
+                    "parentkey": "pantolon",
+                    "title": "pantolon etek"
+                }
+            ]
+        },
+        "tennis": {
+            "title": "tennis etek",
+            "childkeywords": [
+                {
+                    "keyword": "tenis",
+                    "parentorchild": "parent",
+                    "parentkey": "tennis",
+                    "title": "tennis etek"
+                }
+            ]
+        },
+        "patırtı": {
+            "title": "patırtı etek",
+            "childkeywords": [
+                {
+                    "keyword": "patırtı",
+                    "parentorchild": "parent",
+                    "parentkey": "patırtı",
+                    "title": "patırtı etek"
+                }
+            ]
+        },
+        "tütü": {
+            "title": "tütü etek",
+            "childkeywords": [
+                {
+                    "keyword": "tütü",
+                    "parentorchild": "parent",
+                    "parentkey": "tütü",
+                    "title": "tütü etek"
+                }
+            ]
+        },
+        "uzun": {
+            "title": "uzun etek",
+            "childkeywords": [
+                {
+                    "keyword": "uzun kalem",
+                    "parentorchild": "child",
+                    "parentkey": "uzun",
+                    "title": "uzun etek"
+                },
+                {
+                    "keyword": "uzun",
+                    "parentorchild": "parent",
+                    "parentkey": "uzun",
+                    "title": "uzun etek"
+                },
+                {
+                    "keyword": "uzun deri",
+                    "parentorchild": "child",
+                    "parentkey": "uzun",
+                    "title": "uzun etek"
+                }
+            ]
+        },
+        "yüksek bel": {
+            "title": "yüksek bel etek",
+            "childkeywords": [
+                {
+                    "keyword": "yüksek bel",
+                    "parentorchild": "parent",
+                    "parentkey": "yüksek bel",
+                    "title": "yüksek bel etek"
+                }
+            ]
+        },
+        "deri": {
+            "title": "deri etek",
+            "childkeywords": [
+                {
+                    "keyword": "deri",
+                    "parentorchild": "parent",
+                    "parentkey": "deri",
+                    "title": "deri etek"
+                }
+            ]
+        }
+    }
+}

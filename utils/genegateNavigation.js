@@ -5,7 +5,7 @@ const { mongoClient, extractNavData } = require('./mongoDb')
 var through = require("through2");
 const makeDir = require('make-dir');
 const path = require('path')
-const { productTitleMatch } = require('./productTitleMatch')
+const { productTitleMatch } = require('../api/kadin/productTitleMatch')
 var jsonArrayStreams = require("json-array-streams");
 
 async function generateNavigation() {
@@ -27,8 +27,9 @@ async function generateNavigation() {
                 ++objCounter
                 console.log('objCounter...', objCounter)
                 const { category, subcategory, marka, title } = object
-                const keywordsCollection = fs.existsSync(`${process.cwd()}/search-keywords/${subcategory}.json`) && require(`../search-keywords/${subcategory}.json`)
-
+                const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
+                const keywordsCollection= allkeywords[subcategory]
+debugger
                 for (let key in keywordsCollection) {
                     const current = keywordsCollection[key]
                     const keywords = current.childkeywords

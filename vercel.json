@@ -3,7 +3,7 @@
 
     
     "api/kadin/data.js": {
-        "includeFiles": "_files/kadin/data.json"
+        "includeFiles": "_files/kadin/*.json"
     }
   
  

@@ -15,7 +15,7 @@ import Box from '@mui/material/Box';
 export default function ProductList(props) {
 
   const { products, startAt, fetching, scrollHandled } = useSelector(state => state.accordion)
-  const { selectedMarka, selectedSubcategory, totalSubcategory, selectedKeyword, selectedKeyWordTotal } = useSelector(state => state.accordion)
+  const { selectedMarka, selectedSubcategory, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal } = useSelector(state => state.accordion)
 
   //const { selectedMarka, selectedSubcategory, selectedCategory, totalFetchedProducts, subCatTotal, fetching, products, selectedRegex, search } = useSelector(state => state.products)
   const dispatch = useDispatch()
@@ -29,7 +29,7 @@ export default function ProductList(props) {
       if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight) {
 
 
-     
+
 
         console.log('reached bottom of the page')
         // you're at the bottom of the page
@@ -66,18 +66,18 @@ export default function ProductList(props) {
 
 
   }, [])
-  useEffect(()=>{
-if(selectedKeyword.length>0){
-  fetchData(startAt)
-}
-  },[selectedKeyword])
+  useEffect(() => {
+    if (selectedKeyword.length > 0) {
+      fetchData(startAt)
+    }
+  }, [selectedKeyword])
 
   function fetchData(start) {
     dispatch(actions.setFetchState(true))
 
-    setTimeout(()=>{
-      var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keyword=' + selectedKeyword
-    
+    setTimeout(() => {
+      var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keyword=' + selectedKeyword + '&parentKeyword=' + parentKeyword
+
       return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
         return data
       })
@@ -92,17 +92,17 @@ if(selectedKeyword.length>0){
         })
 
 
-    },1000)
+    }, 1000)
 
   }
 
-  if(fetching)
-  return (
+  if (fetching)
+    return (
 
-    <Box sx={{ display: 'flex' }}>
-    <CircularProgress />
-  </Box>
-  )
+      <Box sx={{ display: 'flex' }}>
+        <CircularProgress />
+      </Box>
+    )
 
   return (
 

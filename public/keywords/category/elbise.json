@@ -1,15 +1,1 @@
-{
-    "abiye elbise": {
-        "abiye": 560,
-        "abiye mini": 72,
-        "abiye midi": 54,
-        "abiye şifon": 23,
-        "abiye gece": 1,
-        "abiye kısa": 21,
-        "abiye uzun": 13
-    },
-    "açık elbise": {
-        "açık": 137,
-        "açık mavi": 15
-    }
-}
+{"abiye":{"abiye":560,"abiye mini":72,"abiye midi":54,"abiye uzun kollu":21,"abiye şifon":23,"abiye gece":1,"abiye kısa":21,"abiye uzun":13},"açık":{"açık":137,"açık mavi":15}}
