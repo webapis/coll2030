@@ -13,6 +13,13 @@ window.onscroll = function () {
  document.getElementById('static-nav').style.visibility="hidden"
   }
   prevScrollpos = currentScrollPos;
+
+var myButtom =document.getElementById('nav-top-btn')
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    myButtom.style.display = "block";
+  } else {
+    myButtom.style.display = "none";
+  }
 }
 
 

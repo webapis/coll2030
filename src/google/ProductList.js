@@ -6,8 +6,8 @@ import Grid from '@mui/material/Grid'
 import ImageComponent from './imageComponent';
 
 import { actions } from '../store/accordionSlice'
-import Button from '@mui/material/Button';
-import placeholders from './imageComponent/placeholders';
+import Fab from '@mui/material/Fab';
+import NavigationIcon from '@mui/icons-material/Navigation';
 import Chip from '@mui/material/Chip';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
@@ -105,13 +105,19 @@ export default function ProductList(props) {
       </Box>
     )
 
+    function moveToTop(){
+      document.body.scrollTop = 0;document.documentElement.scrollTop = 0;
+    }
   return (
 
     <Grid container justifyContent="center" spacing={1} margin={0} padding={0}
     >
       <Grid item xs={6} sm={4} md={3} margin={0} padding={0}>
         <Stack direction="column" spacing={1} style={{ padding: 0 }}>
-
+        <Fab   id="nav-top-btn" onClick={moveToTop} color="secondary" variant="extended" sx ={{ mr: 1, position:'fixed', bottom:10, right:5,display:'none' }}>
+        <NavigationIcon  />
+      
+      </Fab>
 
           {childkeywords && childkeywords.filter(f => f[0] !== parentKeyword).sort(function (a, b) {
 
