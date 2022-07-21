@@ -71,7 +71,7 @@ export default function AccordionKeywords() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <Typography variant="h6"  component="div">ANAHTAR KELEME: {selectedKeyword !== '' ? <span style={{ fontWeight: 700 }}> - {selectedKeyword} {selectedSubcategory} </span> : ''}</Typography>
+                <div  component="div"><Typography variant="overline" >ANAHTAR KELEME: </Typography>{selectedKeyword !== '' ? <span style={{ fontWeight: 700 }}> - {selectedKeyword} {selectedSubcategory} </span> : ''}</div>
             </AccordionSummary>
             <AccordionDetails>
                 <div style={{ display: 'flex', flexDirection: 'column', maxHeight: '90vh', overflow: 'auto' }}>

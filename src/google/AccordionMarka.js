@@ -28,7 +28,7 @@ export default function AccordionMarka() {
                 id="panel1a-header"
               
             >
-                <Typography variant="h6"  component="div">MARKA: {selectedMarka!==''? <span style={{fontWeight:700}}> - {selectedMarka} </span>:''}</Typography>
+                <div  component="div"><Typography variant="overline">MARKA: </Typography>{selectedMarka!==''? <span style={{fontWeight:700}}> - {selectedMarka} </span>:''}</div>
             </AccordionSummary>
             <AccordionDetails   >
                 <div style={{ display: 'flex', flexDirection: 'column', maxHeight:'90vh', overflow:'auto' }}>
