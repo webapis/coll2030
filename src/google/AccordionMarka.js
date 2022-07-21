@@ -26,10 +26,11 @@ export default function AccordionMarka() {
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
+              
             >
-                <Typography>MARKA {selectedMarka!==''? <span style={{fontWeight:700}}> - {selectedMarka} </span>:''}</Typography>
+                <Typography variant="h6"  component="div">MARKA: {selectedMarka!==''? <span style={{fontWeight:700}}> - {selectedMarka} </span>:''}</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails   >
                 <div style={{ display: 'flex', flexDirection: 'column', maxHeight:'90vh', overflow:'auto' }}>
 
                     <MarkaList/>

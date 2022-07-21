@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+
 export default function AccordionKeywords() {
     const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory, selectedKeyword, fetchingKeywords, keywords } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
@@ -70,7 +71,7 @@ export default function AccordionKeywords() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <Typography>ANAHTAR KELEME {selectedKeyword !== '' ? <span style={{ fontWeight: 700 }}> - {selectedKeyword} {selectedSubcategory} </span> : ''}</Typography>
+                <Typography variant="h6"  component="div">ANAHTAR KELEME: {selectedKeyword !== '' ? <span style={{ fontWeight: 700 }}> - {selectedKeyword} {selectedSubcategory} </span> : ''}</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <div style={{ display: 'flex', flexDirection: 'column', maxHeight: '90vh', overflow: 'auto' }}>

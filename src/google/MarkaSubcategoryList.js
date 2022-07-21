@@ -1,6 +1,6 @@
 
-import Chip from '@mui/material/Chip';
-import Avatar from '@mui/material/Avatar';
+
+
 import Grid from '@mui/material/Grid'
 import MarkaNav from '../marka-nav.json'
 import { useEffect } from 'react';
@@ -8,6 +8,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { actions } from '../store/accordionSlice'
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import Avatar from '@mui/material/Avatar';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Typography from '@mui/material/Typography';
 const { markas, totalByMarka } = MarkaNav[0]['nav']
 export default function MarkaSabcategoryList() {
     const { selectedMarka, subcategories } = useSelector(state => state.accordion)
@@ -62,18 +70,65 @@ export default function MarkaSabcategoryList() {
 
             if (i === 0) {
 
-                return [<Grid key={currentChar} item sx={{ margin: 2 }} xs={12}> <Avatar sx={{ width: 24, height: 24 }} key={i} onClick={() => { }}  >{subcategory.charAt(0).toUpperCase()}</Avatar></Grid>,
-                <Grid key={subcategory} item sx={{ margin: 1 }}> <Chip key={i} onClick={() => selectSubcategory(subcategory, total)} label={subcategory} id={subcategory} /></Grid>
+                return [<Grid key={currentChar} item  xs={12}>
+                    <ListItem key={i} component="div" >
+                        <ListItemAvatar>
+                            <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }}>
+                                <Typography variant="overline" > {subcategory.charAt(0).toUpperCase()}</Typography>
+
+                            </Avatar>
+                        </ListItemAvatar>
+
+
+                    </ListItem>
+                </Grid>,
+                <Grid key={subcategory} item xs={12}>
+                    <ListItem key={i} component="div" disablePadding>
+                        <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
+                            <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 250 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
+                        </ListItemButton>
+                    </ListItem>
+                    <Divider variant="middle" />
+                </Grid>
                 ]
             }
             else {
                 const prevChar = subcategories[i - 1]['subcategory'].charAt(0)
                 if (prevChar === currentChar) {
-                    return <Grid key={subcategory} item sx={{ margin: 1 }}> <Chip key={i} onClick={() => selectSubcategory(subcategory, total)} label={subcategory} id={subcategory} /></Grid>
+                    return <Grid key={subcategory} item xs={12}>
+
+                        <ListItem key={i} component="div" disablePadding>
+                            <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
+                                <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 250 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
+                            </ListItemButton>
+                        </ListItem>
+                        <Divider variant="middle" />
+                    </Grid>
                 } else {
 
-                    return [<Grid key={currentChar} sx={{ margin: 2 }} item xs={12}> <Avatar sx={{ width: 24, height: 24 }} key={i} onClick={() => { }}  >{subcategory.charAt(0).toUpperCase()}</Avatar></Grid>,
-                    <Grid key={subcategory} item sx={{ margin: 1 }}> <Chip key={i} onClick={() => selectSubcategory(subcategory, total)} label={subcategory} id={subcategory} /></Grid>]
+                    return [<Grid key={currentChar} item xs={12}>
+                        <ListItem key={i} component="div" >
+                            <ListItemAvatar>
+                                <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }}>
+                                    <Typography variant="overline" > {subcategory.charAt(0).toUpperCase()}</Typography>
+
+                                </Avatar>
+                            </ListItemAvatar>
+
+
+                        </ListItem>
+                    </Grid>,
+                    <Grid key={subcategory} item xs={12}>
+
+                        <ListItem key={i} component="div" disablePadding>
+                            <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
+                                <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 250 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
+                            </ListItemButton>
+                        </ListItem>
+                        <Divider variant="middle" />
+
+
+                    </Grid>]
                 }
             }
         })
