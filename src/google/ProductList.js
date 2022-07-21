@@ -16,7 +16,7 @@ import Stack from '@mui/material/Stack';
 export default function ProductList(props) {
 
 
-  const {  products, startAt, fetching,selectedMarka, selectedSubcategory, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords,fetchAllComplete } = useSelector(state => state.accordion)
+  const {  products, startAt, fetching,selectedMarka, selectedSubcategory,totalKeyword, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords,fetchAllComplete } = useSelector(state => state.accordion)
 
   const dispatch = useDispatch()
 
@@ -43,7 +43,8 @@ export default function ProductList(props) {
 
   useEffect(() => {
     if(fetchAllComplete===false){
-      fetchData(startAt)
+      debugger
+     fetchData(startAt)
     }
  
   }, [fetchAllComplete]);
@@ -86,7 +87,7 @@ export default function ProductList(props) {
       })
         .then(function (data) {
           var collection = data.data
-          const fetchAllComplete = [...products, ...collection].length === totalSubcategory
+          const fetchAllComplete = [...products, ...collection].length === totalKeyword
           debugger
           dispatch(actions.productsFetched({ products: collection, fetchAllComplete }))
         })
