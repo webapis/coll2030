@@ -56,7 +56,7 @@ export default function ImageComponent(props) {
     return (
       <div>
         <div style={{ position: 'relative', margin: 'auto' }}>
-          <Typography variant="h6" style={{ textAlign: 'right', position: 'absolute', bottom: -25, right: 2 }}>{props.price} <span style={{ fontSize: 10 }}>TL</span></Typography>
+      
           <a href={detailHost} target="_blank" >
             <ImageListItem>
 
@@ -72,11 +72,12 @@ export default function ImageComponent(props) {
           </a>
         </div>
   
-        <div>
-  
+       <div style={{display:'flex', justifyContent:'space-between'}}>
+
+     
           <img src={logo.image}  height={logo.heigth} width={logo.width}/>
-  
-        </div>
+          <Typography variant="h6" style={{ textAlign: 'right', right: 2 }}>{props.price} <span style={{ fontSize: 10 }}>TL</span></Typography>
+          </div>
   
         <Typography variant="caption" display="block" gutterBottom>
      
