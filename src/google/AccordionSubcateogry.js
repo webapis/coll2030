@@ -31,7 +31,7 @@ export default function AccordionSubcategory() {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <div component="div"><Typography variant="overline"  >ÜRÜN KATEGORİSİ:</Typography>  {selectedSubcategory !== '' ? <span style={{ fontWeight: 700 }}> - {selectedSubcategory.toUpperCase()} </span> : ''}</div>
+        <div component="div"><Typography variant="overline"  >ÜRÜN KATEGORİSİ:</Typography>  {selectedSubcategory !== '' ? <span style={{fontWeight:800,fontSize:12}}> - {selectedSubcategory.toUpperCase()} </span> : ''}</div>
       </AccordionSummary>
       <AccordionDetails>
         <div style={{ display: 'flex', flexDirection: 'column',  maxHeight: '90vh', overflow: 'auto' }}>
