@@ -15,10 +15,9 @@ import Stack from '@mui/material/Stack';
 
 export default function ProductList(props) {
 
-  const { products, startAt, fetching, scrollHandled } = useSelector(state => state.accordion)
-  const { selectedMarka, selectedSubcategory, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords } = useSelector(state => state.accordion)
 
-  //const { selectedMarka, selectedSubcategory, selectedCategory, totalFetchedProducts, subCatTotal, fetching, products, selectedRegex, search } = useSelector(state => state.products)
+  const {  products, startAt, fetching,selectedMarka, selectedSubcategory, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords,fetchAllComplete } = useSelector(state => state.accordion)
+
   const dispatch = useDispatch()
 
 
@@ -43,8 +42,11 @@ export default function ProductList(props) {
 
 
   useEffect(() => {
-    fetchData(startAt)
-  }, []);
+    if(fetchAllComplete===false){
+      fetchData(startAt)
+    }
+ 
+  }, [fetchAllComplete]);
 
 
   useEffect(() => {
@@ -85,18 +87,17 @@ export default function ProductList(props) {
         .then(function (data) {
           var collection = data.data
           const fetchAllComplete = [...products, ...collection].length === totalSubcategory
+          debugger
           dispatch(actions.productsFetched({ products: collection, fetchAllComplete }))
         })
         .catch(function (err) {
           console.log('err', err)
           return err
         })
-
-
     }, 1000)
 
   }
-//
+
   if (fetching)
     return (
 
