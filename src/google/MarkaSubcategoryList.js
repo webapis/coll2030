@@ -85,7 +85,7 @@ export default function MarkaSabcategoryList() {
                 <Grid key={subcategory} item xs={12}>
                     <ListItem key={i} component="div" disablePadding>
                         <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
-                            <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 250 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
+                            <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 150 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
                         </ListItemButton>
                     </ListItem>
                     <Divider variant="middle" />
@@ -99,7 +99,7 @@ export default function MarkaSabcategoryList() {
 
                         <ListItem key={i} component="div" disablePadding>
                             <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
-                                <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 250 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
+                                <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 150 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
                             </ListItemButton>
                         </ListItem>
                         <Divider variant="middle" />
@@ -122,7 +122,7 @@ export default function MarkaSabcategoryList() {
 
                         <ListItem key={i} component="div" disablePadding>
                             <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
-                                <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 250 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
+                                <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ minWidth: 150 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
                             </ListItemButton>
                         </ListItem>
                         <Divider variant="middle" />
