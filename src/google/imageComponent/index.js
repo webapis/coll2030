@@ -74,11 +74,11 @@ export default function ImageComponent(props) {
 
       <div style={{ display: 'flex', justifyContent: 'space-between',  }}>
 
-        <div>
-          <img src={logo.image} height={logo.heigth} width={logo.width} />
-        </div>
+     
+          <img src={logo.image} height={logo.heigth} width={logo.width} style={{minWidth:'35%', maxHeight:20}}/>
+       
 <div>
-<Typography variant="caption" style={{ textAlign: 'right', right: 2 }}>{props.price}TL</Typography>
+<Typography variant="caption" style={{ textAlign: 'right', right: 2,flex:5 }}>{props.price}TL</Typography>
 </div>
       
       </div>
