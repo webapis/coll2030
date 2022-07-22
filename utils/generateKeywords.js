@@ -17,7 +17,7 @@
     }
     fs.appendFileSync(`${process.cwd()}/api/_files/kadin/keywords.json`, JSON.stringify({ elbise, etek }))
     process.exit(0)
-  
+
 })()
 
 
@@ -32,7 +32,7 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
         const title = value[3]
         const negwords = value[4]
         const exactmatch = value[5]
-
+        console.log('exactmatch...', exactmatch, keyword)
         categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch })
     }
     const groupByParentKey = categoryItems.filter(f => f.parentorchild === 'parent').reduce((prev, curr) => {

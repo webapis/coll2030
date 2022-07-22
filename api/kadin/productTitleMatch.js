@@ -1,17 +1,21 @@
 
 function productTitleMatch({ kw, title, exactmatch, nws }) {
+    if(title){
+
+    
+ 
     const match = kw.replace('^', '').replace(/\s/g, ',').split(',').every(function (keyword) {
 
         if (nws.length > 0) {
             if (nws.filter((f) => title.indexOf(f) !== -1).length > 0) {
 
 
-                debugger
+            
                 return false
             } else {
 
                 if (exactmatch) {
-                    debugger
+         
                     return title.toLowerCase().replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
                 } else {
 
@@ -33,7 +37,10 @@ function productTitleMatch({ kw, title, exactmatch, nws }) {
 
 
     return match
-
+} else{
+    debugger
+    return false
+}
 }
 
 

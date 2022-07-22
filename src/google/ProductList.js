@@ -67,7 +67,7 @@ export default function ProductList(props) {
 
   useEffect(() => {
     if(fetchAllComplete===false){
-      debugger
+      
      fetchData(startAt)
     }
  
@@ -105,14 +105,14 @@ export default function ProductList(props) {
 
     setTimeout(() => {
       var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keyword=' + selectedKeyword + '&parentKeyword=' + parentKeyword
-
+debugger
       return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
         return data
       })
         .then(function (data) {
           var collection = data.data
           const fetchAllComplete = [...products, ...collection].length === totalKeyword
-          debugger
+          
           dispatch(actions.productsFetched({ products: collection, fetchAllComplete }))
         })
         .catch(function (err) {

@@ -15,7 +15,7 @@ module.exports = (req, res) => {
     const title = this.title
     const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
     const kws = allkeywords[subcategory][parentKeyword].childkeywords.find(f => f.keyword === keyword)
-    debugger
+
 
     let exactmatch = kws.exactmatch
     let negwords = kws.negwords
@@ -26,12 +26,17 @@ module.exports = (req, res) => {
     }
 
     const kw = kws.keyword
+    if (title) {
+
+    } else {
+      debugger
+    }
     const match = productTitleMatch({ kw, title, exactmatch, nws })
     return match
   }
 
 
-
+  debugger
 
 
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
