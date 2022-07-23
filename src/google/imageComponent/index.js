@@ -2,16 +2,26 @@
 import React, { useEffect, useRef } from 'react';
 import placeholders from './placeholders'
 import Typography from '@mui/material/Typography';
-
+import { useSelector, useDispatch } from 'react-redux';
 import Highlighter from "react-highlight-words";
 import { ImageListItem } from '@mui/material';
 import './hl.css'
-
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 export default function ImageComponent(props) {
+  const { products, startAt, fetching, selectedMarka, totalKeyword, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords, fetchAllComplete } = useSelector(state => state.accordion)
 
   const { selectedSubcategory } = props
-  const splitterwords = selectedSubcategory.split(' ')
-  const productTitle = props.title//.substring(props.title.indexOf(" "),props.title.lastIndexOf(" "))
+  const splitterwords =[...new Set( [...selectedKeyword.split(' '), ...parentKeyword.split(' '), ...selectedSubcategory.split(' ')])].map(m=> capitalizeFirstLetter(m));
+let refactoredTitle =props.title
+splitterwords.forEach(word=>{
+  var re = new RegExp(word, "gi");
+  refactoredTitle=  refactoredTitle.replace(re, '')
+
+})
+
+  const productTitle =  refactoredTitle  //.substring(props.title.indexOf(" "),props.title.lastIndexOf(" "))
 
   const imageEl = useRef(null);
 
@@ -72,27 +82,22 @@ export default function ImageComponent(props) {
         </a>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between',  }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', }}>
 
-     
-          <img src={logo.image} height={logo.heigth} width={logo.width} style={{minWidth:'35%', maxHeight:20}}/>
-       
-<div>
-<Typography variant="caption" style={{ textAlign: 'right', right: 2,flex:5 }}>{props.price}TL</Typography>
-</div>
-      
+
+        <img src={logo.image} height={logo.heigth} width={logo.width} style={{ minWidth: '35%', maxHeight: 20 }} />
+
+        <div>
+          <Typography variant="caption" style={{ textAlign: 'right', right: 2, flex: 5 }}>{props.price}TL</Typography>
+        </div>
+
       </div>
 
       <Typography variant="caption" display="block" gutterBottom>
 
-        <Highlighter
-
-          highlightClassName="regexColor"
-          searchWords={splitterwords}
-          autoEscape={true}
-          textToHighlight={productTitle}
-        />
+{productTitle} <span style={{ fontWeight:'800'}}>{splitterwords.join(' ')}</span>
       </Typography>
+
       <Typography color='#9e9e9e' style={{ textAlign: 'right', fontSize: 9 }} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
     </div>
 

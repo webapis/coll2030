@@ -16,7 +16,7 @@ import Stack from '@mui/material/Stack';
 export default function ProductList(props) {
 
 
-  const {  products, startAt, fetching,selectedMarka, selectedSubcategory,totalKeyword, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords,fetchAllComplete } = useSelector(state => state.accordion)
+  const { products, startAt, fetching, selectedMarka, selectedSubcategory, totalKeyword, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords, fetchAllComplete } = useSelector(state => state.accordion)
 
   const dispatch = useDispatch()
 
@@ -29,18 +29,18 @@ export default function ProductList(props) {
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0";
-    
-       document.getElementById('static-nav').style.visibility="visible"
-    
+
+        document.getElementById('static-nav').style.visibility = "visible"
+
       } else {
-       
-      document.getElementById("navbar").style.top = "-260px";
-    
-     document.getElementById('static-nav').style.visibility="hidden"
+
+        document.getElementById("navbar").style.top = "-260px";
+
+        document.getElementById('static-nav').style.visibility = "hidden"
       }
       prevScrollpos = currentScrollPos;
-    
-    var myButtom =document.getElementById('nav-top-btn')
+
+      var myButtom = document.getElementById('nav-top-btn')
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         myButtom.style.display = "block";
       } else {
@@ -66,11 +66,11 @@ export default function ProductList(props) {
 
 
   useEffect(() => {
-    if(fetchAllComplete===false){
-      
-     fetchData(startAt)
+    if (fetchAllComplete === false) {
+
+      fetchData(startAt)
     }
- 
+
   }, [fetchAllComplete]);
 
 
@@ -105,14 +105,14 @@ export default function ProductList(props) {
 
     setTimeout(() => {
       var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keyword=' + selectedKeyword + '&parentKeyword=' + parentKeyword
-debugger
+      debugger
       return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
         return data
       })
         .then(function (data) {
           var collection = data.data
           const fetchAllComplete = [...products, ...collection].length === totalKeyword
-          
+
           dispatch(actions.productsFetched({ products: collection, fetchAllComplete }))
         })
         .catch(function (err) {
@@ -131,21 +131,29 @@ debugger
       </Box>
     )
 
-    function moveToTop(){
-      document.body.scrollTop = 0;document.documentElement.scrollTop = 0;
-    }
+  function moveToTop() {
+    document.body.scrollTop = 0; document.documentElement.scrollTop = 0;
+  }
+
+
+  function selectKeyword({ keyword, total }) {
+    //  document.getElementById("navbar").style.height = "0";
+   
+    dispatch(actions.setSelectedKeyword({ keyword, parentKeyword, total, childkeywords }))
+  }
+
   return (
 
     <Grid container justifyContent="center" spacing={1} margin={0} padding={0}
     >
       <Grid item xs={6} sm={4} md={3} margin={0} padding={0}>
         <Stack direction="column" spacing={1} style={{ padding: 0 }}>
-        <Fab   id="nav-top-btn" onClick={moveToTop} color="secondary" variant="extended" sx ={{ mr: 1, position:'fixed', bottom:10, right:5,display:'none' }}>
-        <NavigationIcon  />
-      
-      </Fab>
+          <Fab id="nav-top-btn" onClick={moveToTop} color="secondary" variant="extended" sx={{ mr: 1, position: 'fixed', bottom: 10, right: 5, display: 'none' }}>
+            <NavigationIcon />
 
-          {childkeywords && childkeywords.filter(f => f[0] !== parentKeyword).sort(function (a, b) {
+          </Fab>
+
+          {childkeywords && childkeywords.filter(f => f[0] !== parentKeyword && f[0]!==selectedKeyword).sort(function (a, b) {
 
             var textA = a[0].toUpperCase();
             var textB = b[0].toUpperCase();
@@ -154,7 +162,7 @@ debugger
             const kword = m[0]
             const kwtotal = m[1]
 
-            return <Chip key={a} onClick={() => { }}
+            return <Chip key={a} onClick={() => selectKeyword({ keyword: kword, total: kwtotal })}
               label={<div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{kword}</span><span style={{ fontWeight: 500, color: '#9e9e9e', marginLeft: 5 }}> - {kwtotal}</span></div>}
 
               deleteIcon={<div>{kwtotal}</div>}
