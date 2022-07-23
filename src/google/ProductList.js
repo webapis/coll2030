@@ -153,7 +153,7 @@ export default function ProductList(props) {
 
           </Fab>
 
-          {childkeywords && childkeywords.filter(f => f[0] !== parentKeyword && f[0]!==selectedKeyword).sort(function (a, b) {
+          {childkeywords.length>1 && childkeywords.filter(f => f[0] !== parentKeyword && f[0]!==selectedKeyword).sort(function (a, b) {
 
             var textA = a[0].toUpperCase();
             var textB = b[0].toUpperCase();

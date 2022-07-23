@@ -9,19 +9,29 @@ import './hl.css'
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
 export default function ImageComponent(props) {
-  const {  selectedKeyword, parentKeyword } = useSelector(state => state.accordion)
+  const { selectedKeyword, parentKeyword } = useSelector(state => state.accordion)
 
   const { selectedSubcategory } = props
-  const splitterwords =[...new Set( [...selectedKeyword.split(' '), ...parentKeyword.split(' '), ...selectedSubcategory.split(' ')])].map(m=> capitalizeFirstLetter(m));
-let refactoredTitle =props.title
-splitterwords.forEach(word=>{
-  var re = new RegExp(word, "gi");
-  refactoredTitle=  refactoredTitle.replace(re, '')
+  const splitterwords = [...new Set([...selectedKeyword.split(' '), ...parentKeyword.split(' '), ...selectedSubcategory.split(' ')])].map(m => capitalizeFirstLetter(m));
+  let refactoredTitle = props.title
+  splitterwords.forEach(word => {
+    var re = new RegExp(word, "gi");
+    refactoredTitle = refactoredTitle.replace(re, '')
 
-})
+  })
 
-  const productTitle =  refactoredTitle  //.substring(props.title.indexOf(" "),props.title.lastIndexOf(" "))
+  const productTitle =props.title.split(' ').map(t=>t.trim()).map((m)=>{
+    
+    const selectedKeywordMatch =selectedKeyword.includes(m.toLowerCase())|| selectedKeyword.split(' ').map(t=>t.trim()).find(s=>m.toLowerCase().includes(s))
+    const selectedSubcategoryMatch =selectedSubcategory.includes(m.toLowerCase()) ||m.toLowerCase().includes(selectedSubcategory)
+    const parentKeywordMatch =parentKeyword.includes(m.toLowerCase())|| parentKeyword.split(' ').map(t=>t.trim()).find(s=>m.toLowerCase().includes(s))
+    debugger
+ return <span style={{fontWeight: (selectedKeywordMatch||selectedSubcategoryMatch ||parentKeywordMatch)? 800:300 }}>{m}{` `}
+  
+  
+  </span>}) //refactoredTitle  //.substring(props.title.indexOf(" "),props.title.lastIndexOf(" "))
 
   const imageEl = useRef(null);
 
@@ -95,7 +105,7 @@ splitterwords.forEach(word=>{
 
       <Typography variant="caption" display="block" gutterBottom>
 
-{productTitle} <span style={{ fontWeight:'800'}}>{splitterwords.join(' ')}</span>
+        {productTitle}
       </Typography>
 
       <Typography color='#9e9e9e' style={{ textAlign: 'right', fontSize: 9 }} variant="caption" display="block" gutterBottom>{minutes <= 59 ? minutes + ' dakika önce' : hour <= 24 ? hour + ' saat önce' : days <= 31 ? days + 'gün önce' : month + 'ay önce'}</Typography>
