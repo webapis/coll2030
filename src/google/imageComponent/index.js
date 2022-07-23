@@ -2,15 +2,15 @@
 import React, { useEffect, useRef } from 'react';
 import placeholders from './placeholders'
 import Typography from '@mui/material/Typography';
-import { useSelector, useDispatch } from 'react-redux';
-import Highlighter from "react-highlight-words";
+import { useSelector } from 'react-redux';
+
 import { ImageListItem } from '@mui/material';
 import './hl.css'
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 export default function ImageComponent(props) {
-  const { products, startAt, fetching, selectedMarka, totalKeyword, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords, fetchAllComplete } = useSelector(state => state.accordion)
+  const {  selectedKeyword, parentKeyword } = useSelector(state => state.accordion)
 
   const { selectedSubcategory } = props
   const splitterwords =[...new Set( [...selectedKeyword.split(' '), ...parentKeyword.split(' '), ...selectedSubcategory.split(' ')])].map(m=> capitalizeFirstLetter(m));
