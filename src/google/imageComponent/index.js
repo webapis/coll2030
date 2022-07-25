@@ -37,7 +37,7 @@ export default function ImageComponent(props) {
 
   // const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
 
-  const imagePlaceholder = placeholders[props.marka].placeholder
+  const imagePlaceholder = !props.icon ? placeholders[props.marka].placeholder :`/dressicons/${parentKeyword}.jpg`
 
   const logo = placeholders[props.marka].logo
 
@@ -51,21 +51,25 @@ export default function ImageComponent(props) {
   var days = Math.floor(minutesdiff / (1000 * 60 * 60 * 24));
   var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
   useEffect(() => {
+    if(!props.icon){
 
-    if (window.IntersectionObserver) {
+      if (window.IntersectionObserver) {
 
-      let observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
+        let observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+  
+              entry.target.src = entry.target.dataset.src;
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        window.obz = observer
+        window.obz.observe(imageEl.current)
+      }
 
-            entry.target.src = entry.target.dataset.src;
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      window.obz = observer
-      window.obz.observe(imageEl.current)
     }
+
 
   }, []);
 
@@ -95,7 +99,7 @@ export default function ImageComponent(props) {
       <div style={{ display: 'flex', justifyContent: 'space-between', }}>
 
 
-        <img src={logo.image} height={logo.heigth} width={logo.width} style={{ minWidth: '35%', maxHeight: 20 }} />
+        <img src={logo.image} height={logo.heigth} width={logo.width}  />
 
         <div>
           <Typography variant="caption" style={{ textAlign: 'right', right: 2, flex: 5 }}>{props.price}TL</Typography>

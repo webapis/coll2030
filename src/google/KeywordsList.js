@@ -26,7 +26,8 @@ export default function KeywordsList() {
 
 
     function selectKeyword({ keyword, total,childkeywords,title }) {
-        //  document.getElementById("navbar").style.height = "0";
+       //   document.getElementById("navbar").style.height = "0";
+       document.getElementById('static-nav').style.visibility="visible"
         dispatch(actions.setSelectedKeyword({ keyword, parentKeyword: keyword, total,childkeywords,title }))
     }
 
@@ -76,12 +77,12 @@ export default function KeywordsList() {
                 {/* <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar> */}
       
                     {keywords.map((mk, i) => {
-debugger
+
                         const keyword = mk.parentKeyword
                         const title =mk.title
                         const total = mk.childKeywords[keyword]
                         const childkeywords= Object.entries(mk.childKeywords)
-                  debugger
+                  
 
                         return [
                             <ListItem key={i} component="div" disablePadding>

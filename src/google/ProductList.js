@@ -17,7 +17,7 @@ export default function ProductList(props) {
 
 
   const { products, startAt, fetching, selectedMarka, selectedSubcategory, totalKeyword, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords, fetchAllComplete } = useSelector(state => state.accordion)
-
+  debugger
   const dispatch = useDispatch()
 
 
@@ -136,10 +136,10 @@ export default function ProductList(props) {
   }
 
 
-  function selectKeyword({ keyword, total,kword }) {
+  function selectKeyword({ keyword, total, kword }) {
     //  document.getElementById("navbar").style.height = "0";
-   
-    dispatch(actions.setSelectedKeyword({ keyword, parentKeyword, total, childkeywords,title:keyword }))
+
+    dispatch(actions.setSelectedKeyword({ keyword, parentKeyword, total, childkeywords, title: keyword }))
   }
 
   return (
@@ -153,7 +153,7 @@ export default function ProductList(props) {
 
           </Fab>
 
-          {childkeywords.length>1 && childkeywords.filter(f => f[0] !== parentKeyword && f[0]!==selectedKeyword).sort(function (a, b) {
+          {childkeywords.length > 1 && childkeywords.filter(f => f[0] !== parentKeyword && f[0] !== selectedKeyword).sort(function (a, b) {
 
             var textA = a[0].toUpperCase();
             var textB = b[0].toUpperCase();
@@ -171,6 +171,8 @@ export default function ProductList(props) {
           })}
         </Stack>
       </Grid>
+
+
       {products.length > 0 && products.map((item, i) => {
 
         return <Grid margin={0} padding={0} item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
