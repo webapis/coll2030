@@ -72,9 +72,7 @@ export default function KeywordsList() {
 
             return (<Grid key={a} item xs={12}>
                 {/* <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar> */}
-                <Divider variant="middle" />
-                <Divider variant="middle" />
-                <Divider variant="middle" />
+      
                     {keywords.map((mk, i) => {
 
                         const keyword = mk.parentKeyword
@@ -85,7 +83,7 @@ export default function KeywordsList() {
                         return [
                             <ListItem key={i} component="div" disablePadding>
                                 <ListItemButton onClick={() => selectKeyword({ keyword, total,childkeywords })}>
-                                    <ListItemText primary={<div style={{display:'flex'}}> <Typography variant="overline" style={{minWidth:150}}>{keyword.substring(0).toUpperCase()}</Typography><span style={{backgroundColor:'#eceff1', borderRadius:20, padding:2, fontSize:14}}>{total}</span></div>} />
+                                    <ListItemText primary={<div style={{display:'flex'}}> <Typography variant="overline" style={{minWidth:150,flex:2}}>{keyword.substring(0).toUpperCase()}</Typography><span style={{color: '#9e9e9e', padding:2, fontSize:14}}>{total}</span></div>} />
                                 </ListItemButton>
                             </ListItem>,
                             <Divider variant="middle" />
