@@ -16,6 +16,7 @@ import Grid from '@mui/material/Grid'
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 export default function KeywordsList() {
     const { selectedMarka, selectedSubcategory, keywords, fetchingKeywords, accordionOneValue } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
@@ -70,8 +71,10 @@ export default function KeywordsList() {
             const keywords = m[1]
 
             return (<Grid key={a} item xs={12}>
-                <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar>
-           
+                {/* <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar> */}
+                <Divider variant="middle" />
+                <Divider variant="middle" />
+                <Divider variant="middle" />
                     {keywords.map((mk, i) => {
 
                         const keyword = mk.parentKeyword
@@ -82,7 +85,7 @@ export default function KeywordsList() {
                         return [
                             <ListItem key={i} component="div" disablePadding>
                                 <ListItemButton onClick={() => selectKeyword({ keyword, total,childkeywords })}>
-                                    <ListItemText primary={<div style={{display:'flex'}}><span style={{minWidth:150}}>{keyword}</span><span style={{backgroundColor:'#eceff1', borderRadius:20, padding:2, fontSize:14}}>{total}</span></div>} />
+                                    <ListItemText primary={<div style={{display:'flex'}}> <Typography variant="overline" style={{minWidth:150}}>{keyword.substring(0).toUpperCase()}</Typography><span style={{backgroundColor:'#eceff1', borderRadius:20, padding:2, fontSize:14}}>{total}</span></div>} />
                                 </ListItemButton>
                             </ListItem>,
                             <Divider variant="middle" />

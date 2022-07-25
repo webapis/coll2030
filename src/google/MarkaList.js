@@ -12,8 +12,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import Avatar from '@mui/material/Avatar';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
+// import Avatar from '@mui/material/Avatar';
+// import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -87,7 +87,7 @@ export default function MarkaList() {
             const markaNames = m[1]
 
             return (<Grid key={a} item xs={12}>
-                <ListItem component="div" >
+                {/* <ListItem component="div" >
                     <ListItemAvatar>
                         <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }}>
                             <Typography variant="overline" > {alfabet}</Typography>
@@ -95,9 +95,13 @@ export default function MarkaList() {
                         </Avatar>
                     </ListItemAvatar>
 
-                </ListItem>
+                </ListItem> */}
+                        
+         
+                
+
             
-                <List>
+             
                     {markaNames.map((mk, i) => {
                         const markaName = mk.marka
 
@@ -112,7 +116,7 @@ export default function MarkaList() {
 
                         ]
                     })}
-                </List>
+               
                 
             </Grid>)
 

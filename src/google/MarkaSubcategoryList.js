@@ -70,18 +70,20 @@ export default function MarkaSabcategoryList() {
 
             if (i === 0) {
 
-                return [<Grid key={currentChar} item  xs={12}>
-                    <ListItem key={i} component="div" >
-                        <ListItemAvatar>
-                            <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }}>
-                                <Typography variant="overline" > {subcategory.charAt(0).toUpperCase()}</Typography>
+                return [
+                
+                // <Grid key={currentChar} item  xs={12}>
+                //     <ListItem key={i} component="div" >
+                //         <ListItemAvatar>
+                //             <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }}>
+                //                 <Typography variant="overline" > {subcategory.charAt(0).toUpperCase()}</Typography>
 
-                            </Avatar>
-                        </ListItemAvatar>
+                //             </Avatar>
+                //         </ListItemAvatar>
 
 
-                    </ListItem>
-                </Grid>,
+                //     </ListItem>
+                // </Grid>,
                 <Grid key={subcategory} item xs={12}>
                     <ListItem key={i} component="div" disablePadding>
                         <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
@@ -106,18 +108,19 @@ export default function MarkaSabcategoryList() {
                     </Grid>
                 } else {
 
-                    return [<Grid key={currentChar} item xs={12}>
-                        <ListItem key={i} component="div" >
-                            <ListItemAvatar>
-                                <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }}>
-                                    <Typography variant="overline" > {subcategory.charAt(0).toUpperCase()}</Typography>
+                    return [
+                    // <Grid key={currentChar} item xs={12}>
+                    //     <ListItem key={i} component="div" >
+                    //         <ListItemAvatar>
+                    //             <Avatar alt="Remy Sharp" sx={{ width: 24, height: 24 }}>
+                    //                 <Typography variant="overline" > {subcategory.charAt(0).toUpperCase()}</Typography>
 
-                                </Avatar>
-                            </ListItemAvatar>
+                    //             </Avatar>
+                    //         </ListItemAvatar>
 
 
-                        </ListItem>
-                    </Grid>,
+                    //     </ListItem>
+                    // </Grid>,
                     <Grid key={subcategory} item xs={12}>
 
                         <ListItem key={i} component="div" disablePadding>
