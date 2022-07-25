@@ -136,10 +136,10 @@ export default function ProductList(props) {
   }
 
 
-  function selectKeyword({ keyword, total }) {
+  function selectKeyword({ keyword, total,kword }) {
     //  document.getElementById("navbar").style.height = "0";
    
-    dispatch(actions.setSelectedKeyword({ keyword, parentKeyword, total, childkeywords }))
+    dispatch(actions.setSelectedKeyword({ keyword, parentKeyword, total, childkeywords,title:keyword }))
   }
 
   return (

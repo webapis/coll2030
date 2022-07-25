@@ -12,7 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 export default function AccordionKeywords() {
-    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory, selectedKeyword, fetchingKeywords, keywords } = useSelector(state => state.accordion)
+    const { accordionKeywordsIsExpanded, selectedMarka, selectedSubcategory, selectedKeyword, fetchingKeywords, keywords,selectedKeywordTitle } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
 
 
@@ -71,7 +71,7 @@ export default function AccordionKeywords() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
-                <div  component="div"><Typography variant="overline" >ANAHTAR KELEME: </Typography>{selectedKeyword !== '' ? <span style={{ fontWeight: 700 }}> - {selectedKeyword} {selectedSubcategory} </span> : ''}</div>
+                <div  component="div"><Typography variant="overline" >ANAHTAR KELEME: </Typography>{selectedKeywordTitle !== '' ? <span style={{ fontWeight: 700 }}> - {selectedKeywordTitle} {selectedSubcategory} </span> : ''}</div>
             </AccordionSummary>
             <AccordionDetails>
                 <div style={{ display: 'flex', flexDirection: 'column', maxHeight: '90vh', overflow: 'auto' }}>

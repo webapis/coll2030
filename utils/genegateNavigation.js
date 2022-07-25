@@ -75,12 +75,13 @@ async function genNav() {
         if (keywords.length > 0) {
 
 
-    
+
           keywords.forEach((kws, i) => {
 
             let parentKeyWord = kws.parentkey
             let exactmatch = kws.exactmatch
             let negwords = kws.negwords
+            let keywordTitle = kws.title
             let nws = []
             if (negwords) {
               nws = negwords.split(',')
@@ -93,24 +94,24 @@ async function genNav() {
 
             if (match) {
               matchfound = true
-             
-              if (categoryTree[`${subcategory}`][`${parentKeyWord}`] === undefined) {
 
-                categoryTree[`${subcategory}`][`${parentKeyWord}`] = {}
+              if (categoryTree[`${subcategory}`][`${parentKeyWord}`] === undefined) {
+                categoryTree[`${subcategory}`][`${parentKeyWord}`] = { keywords: {} }
+                categoryTree[`${subcategory}`][`${parentKeyWord}`].title = keywordTitle && keywordTitle
               }
 
 
               if (markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] === undefined) {
-
-                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] = {}
+                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] = { keywords: {} }
+                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].title = keywordTitle && keywordTitle
               }
 
 
-              categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] === undefined ? categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] = 1 : categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] = categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] + 1
-              markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] === undefined ? markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] = 1 : markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] = markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] + 1
+              categoryTree[`${subcategory}`][`${parentKeyWord}`].keywords[`${kw}`] === undefined ? categoryTree[`${subcategory}`][`${parentKeyWord}`].keywords[`${kw}`] = 1 : categoryTree[`${subcategory}`][`${parentKeyWord}`].keywords[`${kw}`] = categoryTree[`${subcategory}`][`${parentKeyWord}`].keywords[`${kw}`] + 1
+              markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].keywords[`${kw}`] === undefined ? markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].keywords[`${kw}`] = 1 : markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].keywords[`${kw}`] = markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].keywords[`${kw}`] + 1
 
 
-            } 
+            }
 
           })
         }
@@ -122,22 +123,21 @@ async function genNav() {
       if (matchfound === false) {
         if (categoryTree[`${subcategory}`].diğer === undefined) {
 
-          categoryTree[`${subcategory}`].diğer = {}
+          categoryTree[`${subcategory}`].diğer = { keywords: {} }
         }
 
 
         if (markaTree[`${marka}`][`${subcategory}`].diğer === undefined) {
 
-          markaTree[`${marka}`][`${subcategory}`].diğer = {}
+          markaTree[`${marka}`][`${subcategory}`].diğer = { keywords: {} }
         }
-        categoryTree[`${subcategory}`].diğer.diğer === undefined ? categoryTree[`${subcategory}`].diğer.diğer = 1 : categoryTree[`${subcategory}`].diğer.diğer = categoryTree[`${subcategory}`].diğer.diğer + 1
-        markaTree[`${marka}`][`${subcategory}`].diğer.diğer === undefined ? markaTree[`${marka}`][`${subcategory}`].diğer.diğer = 1 : markaTree[`${marka}`][`${subcategory}`].diğer.diğer = markaTree[`${marka}`][`${subcategory}`].diğer.diğer + 1
+        categoryTree[`${subcategory}`].diğer.keywords.diğer === undefined ? categoryTree[`${subcategory}`].diğer.keywords.diğer = 1 : categoryTree[`${subcategory}`].diğer.keywords.diğer = categoryTree[`${subcategory}`].diğer.keywords.diğer + 1
+        markaTree[`${marka}`][`${subcategory}`].diğer.keywords.diğer === undefined ? markaTree[`${marka}`][`${subcategory}`].diğer.keywords.diğer = 1 : markaTree[`${marka}`][`${subcategory}`].diğer.keywords.diğer = markaTree[`${marka}`][`${subcategory}`].diğer.keywords.diğer + 1
         await dataCollection.updateOne({ _id }, { $set: { title: title + ' ' + 'diğer' } })
       }
       updateDatabase({ pc: { category, subcategory }, marka, markaNavCollection, categoryNavCollection, categoryNav, markaNav })
       // updateVar({ category, subcategory,markaNavTree,categoryNavTree })
-
-
+      
 
     }
   })//end

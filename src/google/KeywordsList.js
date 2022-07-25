@@ -25,9 +25,9 @@ export default function KeywordsList() {
 
 
 
-    function selectKeyword({ keyword, total,childkeywords }) {
+    function selectKeyword({ keyword, total,childkeywords,title }) {
         //  document.getElementById("navbar").style.height = "0";
-        dispatch(actions.setSelectedKeyword({ keyword, parentKeyword: keyword, total,childkeywords }))
+        dispatch(actions.setSelectedKeyword({ keyword, parentKeyword: keyword, total,childkeywords,title }))
     }
 
 
@@ -42,16 +42,18 @@ export default function KeywordsList() {
     const groupAlfabetically = keywords && sortedArrayKeywords.reduce((prev, curr, i, arr) => {
         const alfabet = curr[0].charAt(0)
         const parentKeyword = curr[0]
-        const childKeywords = curr[1]
+        const childKeywords = curr[1]['keywords']
+        const title = curr[1]['title'] ? curr[1]['title'] : parentKeyword
+    
 
 
         if (i === 0) {
-            return { ...prev, [alfabet]: [{ parentKeyword, childKeywords }] }
+            return { ...prev, [alfabet]: [{ parentKeyword, childKeywords,title }] }
         } else {
             if (prev[alfabet] === undefined) {
-                return { ...prev, [alfabet]: [{ parentKeyword, childKeywords }] }
+                return { ...prev, [alfabet]: [{ parentKeyword, childKeywords,title }] }
             } else {
-                return { ...prev, [alfabet]: [...prev[alfabet], { parentKeyword, childKeywords }] }
+                return { ...prev, [alfabet]: [...prev[alfabet], { parentKeyword, childKeywords,title }] }
             }
 
         }
@@ -69,21 +71,22 @@ export default function KeywordsList() {
 
             const alfabet = m[0]
             const keywords = m[1]
-
+   
             return (<Grid key={a} item xs={12}>
                 {/* <Avatar sx={{ width: 24, height: 24 }}  >{alfabet}</Avatar> */}
       
                     {keywords.map((mk, i) => {
-
+debugger
                         const keyword = mk.parentKeyword
+                        const title =mk.title
                         const total = mk.childKeywords[keyword]
                         const childkeywords= Object.entries(mk.childKeywords)
-                  
+                  debugger
 
                         return [
                             <ListItem key={i} component="div" disablePadding>
-                                <ListItemButton onClick={() => selectKeyword({ keyword, total,childkeywords })}>
-                                    <ListItemText primary={<div style={{display:'flex'}}> <Typography variant="overline" style={{minWidth:150,flex:2}}>{keyword.substring(0).toUpperCase()}</Typography><span style={{color: '#9e9e9e', padding:2, fontSize:14}}>{total}</span></div>} />
+                                <ListItemButton onClick={() => selectKeyword({ keyword, total,childkeywords,title })}>
+                                    <ListItemText primary={<div style={{display:'flex'}}> <Typography variant="overline" style={{minWidth:150,flex:2}}>{title.substring(0).toUpperCase()}</Typography><span style={{color: '#9e9e9e', padding:2, fontSize:14}}>{total}</span></div>} />
                                 </ListItemButton>
                             </ListItem>,
                             <Divider variant="middle" />
