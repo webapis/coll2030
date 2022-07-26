@@ -9,8 +9,8 @@
     const path = require('path')
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
-    const elbise = await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:G' })
-    const etek = await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:G' })
+    const elbise = await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:H' })
+    const etek = await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:H' })
     await makeDir('api/_files/kadin')
     if (fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`)) {
         fs.unlinkSync(`${process.cwd()}/api/_files/kadin/keywords.json`)
@@ -33,10 +33,12 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
         const negwords = value[4]
         const exactmatch = value[5]
         const state = value[6]
+        const group =value[7]
+        debugger
         console.log('exactmatch...', exactmatch, keyword)
-        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch,state })
+        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch,state,group })
     }
-    const groupByParentKey = categoryItems.filter(f => f.state === undefined).filter(f => f.parentorchild === 'parent').reduce((prev, curr) => {
+    const groupByParentKey = categoryItems.filter(f => f.state === undefined || f.state !=='FALSE').filter(f => f.parentorchild === 'parent').reduce((prev, curr) => {
         return { ...prev, [curr.parentkey]: { title: curr.title, childkeywords: categoryItems.filter((f) => f.parentkey === curr.parentkey) } }
 
     }, {})

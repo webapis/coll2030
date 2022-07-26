@@ -1,83 +1,16 @@
+import AppBar from "./drawer/AppBar"
+import TemporaryDrawer from "./drawer/TemporaryDrawer"
+import KeywordsList from "./drawer/KeywordsList"
+import {useSelector} from 'react-redux'
+import {actions} from './store/accordionSlice'
+import ProductList from './drawer/ProductList'
+export default function App() {
+    const {selectedSubcategory,parentKeyword,selectedKeyword} =useSelector(state=> state.accordion)
 
-import { useSelector, useDispatch } from 'react-redux'
-
-import Breadcrumb from './google/Breadcrumb';
-
-import AccordionMarka from './google/AccordionMarka';
-import AccordionSubcategory from './google/AccordionSubcateogry';
-import AccordionKeywords from './google/AccordionKeywords';
-import AccordionProduct from './google/AccordionProduct'
-
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-import { Container } from '@mui/material';
-import MainTab from './google/MainTab'
-export default function () {
-    const {
-
-       
-        selectedMarka,
-        selectedSubcategory,
-        selectedKeyword, fetching, keywords, fetchingKeywords, selectedMainTab
-
-
-    } = useSelector(state => state.accordion)
-
-    function showNavigation() {
-        document.getElementById('navbar').scrollIntoView();
-    }
-    if (fetching) {
-
-    }
-    return (
-        <div >
-
-            <div id="navbar">
-                
-                <Breadcrumb />
-           
-                <MainTab />
-                <Container  sx={{paddingLeft:0, paddingRight:0}}>
-
-
-                    {selectedMainTab === 1 && <AccordionMarka />}
-                    {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory />}
-                    {selectedSubcategory !== '' && (<AccordionKeywords />)}
-                </Container>
-            </div>
-            <div style={{ paddingBottom: 50}}>
-                <div id="static-nav" style={{ zIndex: 0 }}>
-
-                    <Container  sx={{paddingLeft:0, paddingRight:0}}>
-                        <Breadcrumb />
-               
-                        <MainTab />
-
-                        {selectedMainTab === 1 && <AccordionMarka />}
-
-                        {(selectedMarka !== '' || selectedMainTab === 2) && <AccordionSubcategory />}
-
-                        {selectedSubcategory !== '' && (<AccordionKeywords />)}
-
-                    </Container>
-                </div>
-           <Container sx={{paddingLeft:0, paddingRight:0}}>
-
-       
-                    {selectedKeyword !== '' && (fetchingKeywords && keywords === null ? (
-
-                        <Box sx={{ display: 'flex' }}>
-                            <CircularProgress />
-                        </Box>
-                    ) : <AccordionProduct />)}
-                  </Container>
-
-            </div>
-         
-
-            <div>
-
-            </div>
-        </div>
-    )
+    return <>
+        <AppBar />
+        <TemporaryDrawer />
+       {selectedSubcategory  && !parentKeyword &&<KeywordsList/> }
+       {parentKeyword && selectedKeyword  && <ProductList/>}
+    </>
 }

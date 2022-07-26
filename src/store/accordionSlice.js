@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
 
 
-
+  drawerOpen: false,
   accordionMarkaValue: '',
   accordionMarkaIsExpanded: true,
   selectedMarka: '',
@@ -35,6 +35,10 @@ export const accordionSlice = createSlice({
   name: 'accordion',
   initialState,
   reducers: {
+    toggleDrawer: (state, action) => {
+
+      state.drawerOpen = !state.drawerOpen
+  },
     setMarkas: (state, action) => {
 
       state.markas = action.payload
@@ -110,7 +114,7 @@ export const accordionSlice = createSlice({
     },
 
     setSubcategory: (state, action) => {
-      if (state.selectedSubcategory !== action.payload.subcategory) {
+      state.drawerOpen = !state.drawerOpen
         state.selectedSubcategory = action.payload.subcategory
         state.totalSubcategory = action.payload.totalSubcategory
         state.accordionSubcategoryIsExpanded = false
@@ -127,10 +131,7 @@ export const accordionSlice = createSlice({
         state.fetching = false
         state.scrollHandled = false
 
-      } else {
-        state.accordionSubcategoryIsExpanded = false
-
-      }
+      
 
     },
     setSelectedKeyword: (state, action) => {

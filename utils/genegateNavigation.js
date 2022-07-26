@@ -82,6 +82,8 @@ async function genNav() {
             let exactmatch = kws.exactmatch
             let negwords = kws.negwords
             let keywordTitle = kws.title
+            let group =kws.group
+            debugger
             let nws = []
             if (negwords) {
               nws = negwords.split(',')
@@ -98,12 +100,14 @@ async function genNav() {
               if (categoryTree[`${subcategory}`][`${parentKeyWord}`] === undefined) {
                 categoryTree[`${subcategory}`][`${parentKeyWord}`] = { keywords: {} }
                 categoryTree[`${subcategory}`][`${parentKeyWord}`].title = keywordTitle && keywordTitle
+                categoryTree[`${subcategory}`][`${parentKeyWord}`].group=group && group
               }
 
 
               if (markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] === undefined) {
                 markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] = { keywords: {} }
                 markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].title = keywordTitle && keywordTitle
+                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].group=group && group
               }
 
 
@@ -124,12 +128,14 @@ async function genNav() {
         if (categoryTree[`${subcategory}`].diğer === undefined) {
 
           categoryTree[`${subcategory}`].diğer = { keywords: {} }
+          categoryTree[`${subcategory}`].group = 'diğer'
         }
 
 
         if (markaTree[`${marka}`][`${subcategory}`].diğer === undefined) {
 
           markaTree[`${marka}`][`${subcategory}`].diğer = { keywords: {} }
+          markaTree[`${marka}`][`${subcategory}`].group = 'diğer'
         }
         categoryTree[`${subcategory}`].diğer.keywords.diğer === undefined ? categoryTree[`${subcategory}`].diğer.keywords.diğer = 1 : categoryTree[`${subcategory}`].diğer.keywords.diğer = categoryTree[`${subcategory}`].diğer.keywords.diğer + 1
         markaTree[`${marka}`][`${subcategory}`].diğer.keywords.diğer === undefined ? markaTree[`${marka}`][`${subcategory}`].diğer.keywords.diğer = 1 : markaTree[`${marka}`][`${subcategory}`].diğer.keywords.diğer = markaTree[`${marka}`][`${subcategory}`].diğer.keywords.diğer + 1

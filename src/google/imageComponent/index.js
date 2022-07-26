@@ -27,7 +27,7 @@ export default function ImageComponent(props) {
     const selectedKeywordMatch =selectedKeyword.includes(m.toLowerCase())|| selectedKeyword.split(' ').map(t=>t.trim()).find(s=>m.toLowerCase().includes(s))
     const selectedSubcategoryMatch =selectedSubcategory.includes(m.toLowerCase()) ||m.toLowerCase().includes(selectedSubcategory)
     const parentKeywordMatch =parentKeyword.includes(m.toLowerCase())|| parentKeyword.split(' ').map(t=>t.trim()).find(s=>m.toLowerCase().includes(s))
-    debugger
+    
  return <span style={{fontWeight: (selectedKeywordMatch||selectedSubcategoryMatch ||parentKeywordMatch)? 800:300 }}>{m}{` `}
   
   
