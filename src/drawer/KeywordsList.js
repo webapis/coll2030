@@ -124,20 +124,20 @@ export default function KeywordsList() {
             const group = mk[0]
             const parentKeys = Object.entries(mk[1])
 
-            return <Grid item xs={12}>
+            return <Grid item xs={12} key={i}>
                 <Divider textAlign="center"><Typography variant='overline'>{group.toUpperCase()}</Typography></Divider>
                 <Card >
                     <div>
 
                         <div >
-                            {parentKeys.map((m) => {
+                            {parentKeys.map((m,b) => {
                                 const parentKeyword = m[0]
                                 const childkeywords = m[1]['childKeywords']
                                 const title = m[1]['title']
                                 const total = Object.entries(childkeywords).find(f => f[0] === parentKeyword)[1]
 
 
-                                return <Chip size="small" onClick={() => selectKeyword({ keyword: parentKeyword, total, childkeywords, title })} sx={{ margin: 1 }} label={<div><Typography variant='caption' sx={{color:'#546e7a'}}>{parentKeyword} - </Typography><Typography variant='caption' style={{marginLeft:2,color:'#607d8b'}}>{total}</Typography></div>}  />
+                                return <Chip key={b} size="small" onClick={() => selectKeyword({ keyword: parentKeyword, total, childkeywords, title })} sx={{ margin: 1 }} label={<div><Typography variant='caption' sx={{color:'#546e7a'}}>{parentKeyword} - </Typography><Typography variant='caption' style={{marginLeft:2,color:'#607d8b'}}>{total}</Typography></div>}  />
                             })}
 
                         </div>
