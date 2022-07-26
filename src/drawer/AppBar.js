@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDispatch } from 'react-redux';
 import { actions } from '../store/accordionSlice'
+
 export default function AppBarContainer() {
     const dispatch = useDispatch()
     function handleClick() {
@@ -15,8 +16,9 @@ export default function AppBarContainer() {
         dispatch(actions.toggleDrawer())
     }
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position='fixed'>
+
+     <Box sx={{ flexGrow: 1 }} >
+            <AppBar >
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -35,5 +37,7 @@ export default function AppBarContainer() {
                 </Toolbar>
             </AppBar>
         </Box>
+    
+   
     );
 }
