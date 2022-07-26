@@ -72,7 +72,7 @@ export default function HideAppBar(props) {
       </HideOnScroll>
       <Toolbar />
       <Container>
-        <Box sx={{ my: 2 }}>
+        <Box >
         <TemporaryDrawer />
                     {selectedSubcategory && !parentKeyword && <KeywordsList />}
                     {parentKeyword && selectedKeyword && <ProductList />}
@@ -84,39 +84,3 @@ export default function HideAppBar(props) {
 
 
 
-/*
-import * as React from 'react';
-
-import Toolbar from '@mui/material/Toolbar';
-import AppBarContainer from "./drawer/AppBar"
-import TemporaryDrawer from "./drawer/TemporaryDrawer"
-import KeywordsList from "./drawer/KeywordsList"
-import { useSelector } from 'react-redux'
-import { actions } from './store/accordionSlice'
-import ProductList from './drawer/ProductList'
-import HideOnScroll from "./drawer/HideOnScroll"
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-export default function App(props) {
-    const { selectedSubcategory, parentKeyword, selectedKeyword } = useSelector(state => state.accordion)
-
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <HideOnScroll {...props}>
-                <AppBarContainer/>
-            </HideOnScroll>
-            <Toolbar />
-            <Container>
-                <Box sx={{ my: 2 }}>
-                    <TemporaryDrawer />
-                    {selectedSubcategory && !parentKeyword && <KeywordsList />}
-                    {parentKeyword && selectedKeyword && <ProductList />}
-                </Box>
-            </Container>
-        </React.Fragment>
-    );
-}
-*/

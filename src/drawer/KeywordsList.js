@@ -125,9 +125,10 @@ export default function KeywordsList() {
             const parentKeys = Object.entries(mk[1])
 
             return <Grid item xs={12}>
+                   <Divider textAlign="center"><Typography variant='overline'>{group.toUpperCase()}</Typography></Divider>
                 <Card >
-                    <CardContent>
-                        <Divider textAlign="left">{group}</Divider>
+                    <div>
+                     
                         <div >
                             {parentKeys.map((m) => {
                                 const parentKeyword = m[0]
@@ -136,12 +137,12 @@ export default function KeywordsList() {
                               const total =Object.entries(childkeywords).find(f=>f[0]===parentKeyword)[1]
 
             
-                                return <Chip onClick={()=>selectKeyword({ keyword:parentKeyword, total, childkeywords, title })} sx={{ margin: 1 }} label={parentKeyword} />
+                                return <Chip size="small" onClick={()=>selectKeyword({ keyword:parentKeyword, total, childkeywords, title })} sx={{ margin: 1 }} label={parentKeyword} />
                             })}
                           
                         </div>
                 
-                    </CardContent>
+                    </div>
 
                 </Card >
             </Grid>
