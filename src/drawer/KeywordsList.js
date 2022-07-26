@@ -57,7 +57,7 @@ export default function KeywordsList() {
 
     function selectKeyword({ keyword, total, childkeywords, title }) {
         //   document.getElementById("navbar").style.height = "0";
-      //  document.getElementById('static-nav').style.visibility = "visible"
+        //  document.getElementById('static-nav').style.visibility = "visible"
         dispatch(actions.setSelectedKeyword({ keyword, parentKeyword: keyword, total, childkeywords, title }))
     }
 
@@ -125,23 +125,23 @@ export default function KeywordsList() {
             const parentKeys = Object.entries(mk[1])
 
             return <Grid item xs={12}>
-                   <Divider textAlign="center"><Typography variant='overline'>{group.toUpperCase()}</Typography></Divider>
+                <Divider textAlign="center"><Typography variant='overline'>{group.toUpperCase()}</Typography></Divider>
                 <Card >
                     <div>
-                     
+
                         <div >
                             {parentKeys.map((m) => {
                                 const parentKeyword = m[0]
                                 const childkeywords = m[1]['childKeywords']
                                 const title = m[1]['title']
-                              const total =Object.entries(childkeywords).find(f=>f[0]===parentKeyword)[1]
+                                const total = Object.entries(childkeywords).find(f => f[0] === parentKeyword)[1]
 
-            
-                                return <Chip size="small" onClick={()=>selectKeyword({ keyword:parentKeyword, total, childkeywords, title })} sx={{ margin: 1 }} label={parentKeyword} />
+
+                                return <Chip size="small" onClick={() => selectKeyword({ keyword: parentKeyword, total, childkeywords, title })} sx={{ margin: 1 }} label={<div><Typography variant='caption' sx={{color:'#546e7a'}}>{parentKeyword} - </Typography><Typography variant='caption' style={{marginLeft:2,color:'#607d8b'}}>{total}</Typography></div>}  />
                             })}
-                          
+
                         </div>
-                
+
                     </div>
 
                 </Card >
