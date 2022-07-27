@@ -2,9 +2,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/accordionSlice'
-//import TreeView from '@mui/lab/TreeView';
-//import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-//import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Container from '@mui/material/Container'
 import CircularProgress from '@mui/material/CircularProgress';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
@@ -118,40 +116,73 @@ export default function KeywordsList() {
 
     }
 
-    return <Grid container spacing={1}>{reduceByGroup && Object.entries(reduceByGroup).map((mk, i) => {
+    return <Container><Grid container spacing={1}>{reduceByGroup && Object.entries(reduceByGroup).sort(function (a, b) {
+
+        var textA = a[0].toUpperCase();
+        var textB = b[0].toUpperCase();
+
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    }).map((mk, i) => {
         try {
 
             const group = mk[0]
+
             const parentKeys = Object.entries(mk[1])
 
-            return <Grid item xs={12} key={i}>
-                <Divider textAlign="center"><Typography variant='overline'>{group.toUpperCase()}</Typography></Divider>
-                <Card >
-                    <div>
+            return [
 
-                        <div >
-                            {parentKeys.map((m,b) => {
-                                const parentKeyword = m[0]
-                                const childkeywords = m[1]['childKeywords']
-                                const title = m[1]['title']
-                                const total = Object.entries(childkeywords).find(f => f[0] === parentKeyword)[1]
+                <Grid item xs={0} sm={3}></Grid>,
+                <Grid item xs={12} sm={6} key={i}>
+                    <Divider textAlign="center"><Typography variant='overline'>{group.toUpperCase()}</Typography></Divider>
+                    <Card >
+                        <div>
+
+                            <div >
+                                {parentKeys.map((m, b) => {
+                                    try {
+
+                                        const parentKeyword = m[0].trim()
+                                        console.log('parentKeyword', parentKeyword)
+                                        const childkeywords = m[1]['childKeywords']
+                                        console.log('childkeywords', childkeywords)
+                                        const title = m[1]['title']
+                                        console.log('title', title)
+                                        if (group === 'group') {
+                                            return
+                                        }
+
+                                        const total = Object.entries(childkeywords).find(f => {
+                                            if (f[0] === 'kamuflaj desen') {
+                                                debugger
+                                            }
+                                            return f[0] === parentKeyword
+                                        })[1]
 
 
-                                return <Chip key={b} size="small" onClick={() => selectKeyword({ keyword: parentKeyword, total, childkeywords, title })} sx={{ margin: 1 }} label={<div><Typography variant='caption' sx={{color:'#546e7a'}}>{parentKeyword} - </Typography><Typography variant='caption' style={{marginLeft:2,color:'#607d8b'}}>{total}</Typography></div>}  />
-                            })}
+
+                                        //console.log('total',total)
+
+                                        return <Chip key={b} size="small" onClick={() => selectKeyword({ keyword: parentKeyword, total, childkeywords, title })} sx={{ margin: 1 }} label={<div><Typography variant='caption' sx={{ color: '#546e7a' }}>{title} - </Typography><Typography variant='caption' style={{ marginLeft: 2, color: '#607d8b' }}>{total}</Typography></div>} />
+                                    }
+                                    catch (error) {
+
+                                        debugger
+                                    }
+
+                                })}
+
+                            </div>
 
                         </div>
 
-                    </div>
-
-                </Card >
-            </Grid>
+                    </Card >
+                </Grid>, <Grid item xs={0} sm={3}></Grid>]
 
 
         } catch (error) {
 
         }
-    })}</Grid>
+    })}</Grid></Container>
 
 
 

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Grid from '@mui/material/Grid'
 //import IntersectionObserver from "../intersectObserver";
 import ImageComponent from '../google/imageComponent';
-
+import  Container  from '@mui/material/Container';
 import { actions } from '../store/accordionSlice'
 import Fab from '@mui/material/Fab';
 import NavigationIcon from '@mui/icons-material/Navigation';
@@ -143,7 +143,7 @@ export default function ProductList(props) {
   }
 
   return (
-
+<Container>
     <Grid container justifyContent="center" spacing={1} margin={0} padding={0}
     >
       <Grid item xs={6} sm={4} md={3} margin={0} padding={0}>
@@ -184,7 +184,7 @@ export default function ProductList(props) {
 
 
     </Grid>
-
+</Container>
 
   );
 }
