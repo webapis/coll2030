@@ -1,6 +1,6 @@
 const urls = [
   
-    { url: 'https://www.dogostore.com/kadin-bot', subcategory: 'bot', category: 'ayakkabı' },
+  //  { url: 'https://www.dogostore.com/kadin-bot', subcategory: 'bot', category: 'ayakkabı' },
  
   
 ]

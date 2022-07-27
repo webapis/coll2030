@@ -1,6 +1,6 @@
 const urls = [
   
-    { url: 'https://www.butigo.com.tr/bot', subcategory: 'bot', category: 'ayakkabı' },
+   // { url: 'https://www.butigo.com.tr/bot', subcategory: 'bot', category: 'ayakkabı' },
  
   
 ]
