@@ -1,20 +1,26 @@
 
 async function handler(page, context) {
     const { request: { userData: { subcategory, category } } } = context
-    debugger;
+
     const url = await page.url()
 
     await page.waitForSelector('.products-listing.small')
+    // onetrust-accept-btn-handler
 
-    debugger;
+    const acceptcookies = await page.$('#onetrust-accept-btn-handler')
+    if (acceptcookies) {
+        await page.click('#onetrust-accept-btn-handler')
+    }
+
     return new Promise((resolve, reject) => {
         try {
             let inv = setInterval(async () => {
-                const { loaded, remained } = await page.$eval('.load-more-heading', el => {
-                    return { loaded: parseInt(el.getAttribute('data-items-shown')), remained: parseInt(el.getAttribute('data-total')) }
-                })
+                // const { loaded, remained } = await page.$eval('.load-more-heading', el => {
+                //     return { loaded: parseInt(el.getAttribute('data-items-shown')), remained: parseInt(el.getAttribute('data-total')) }
+                // })
+                const nextPageExists = await page.evaluate(() => document.querySelector('.button.js-load-more').style['display'] === '')
 
-                if (loaded < remained) {
+                if (nextPageExists) {
                     debugger;
                     await page.click('.button.js-load-more')
                     await manualScroll(page)
