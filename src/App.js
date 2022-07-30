@@ -86,7 +86,7 @@ export default function HideAppBar(props) {
           </Grid>
           <Grid item xs={10}>
 
-            {true && <ProductList sx={{ height: 500, overflow: 'auto' }} />}
+            {false && <ProductList sx={{ height: 500, overflow: 'auto' }} />}
           </Grid>
 
         </Grid>

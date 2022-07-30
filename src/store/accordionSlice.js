@@ -28,8 +28,9 @@ const initialState = {
   subcategories: [],
   markas: [],
   childkeywords: [], fetchAllComplete: '',
-  navKeywords: []
-
+  navKeywords: [],
+  selectedNavIndex: '',
+  navMatch: []
 }
 
 export const accordionSlice = createSlice({
@@ -37,8 +38,13 @@ export const accordionSlice = createSlice({
   initialState,
   reducers: {
     setNavkeywords: (state, action) => {
-     
-      state.navKeywords = action.payload
+
+      state.navKeywords = action.payload.navKeywords
+      state.navMatch = action.payload.navMatch
+    },
+    setSelectedNavIndex: (state, action) => {
+      state.selectedNavIndex = action.payload
+      debugger
     },
     toggleDrawer: (state, action) => {
 
