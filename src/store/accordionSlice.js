@@ -43,8 +43,28 @@ export const accordionSlice = createSlice({
       state.navMatch = action.payload.navMatch
     },
     setSelectedNavIndex: (state, action) => {
-      state.selectedNavIndex = action.payload
-      debugger
+      if (state.selectedNavIndex.length > 0) {
+    
+        const payload = parseInt(action.payload.replace('-'))
+        const array = state.selectedNavIndex.split('-').filter(f=>f!=="")
+   
+        if (array.length === 1) {
+          state.selectedNavIndex = payload > parseInt(array[0]) ? `${parseInt(array[0])}-${payload}-` : `${payload}-${parseInt(array[0])}-`
+
+        }
+        else if (array.length > 0) {
+         const index =array.findIndex(f =>parseInt(f)>payload)
+          
+          debugger
+        }
+
+      } else {
+
+        state.selectedNavIndex = action.payload
+      }
+
+
+
     },
     toggleDrawer: (state, action) => {
 

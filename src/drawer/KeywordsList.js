@@ -18,12 +18,16 @@ export default function KeywordsList() {
     }, [])
 useEffect(()=>{
 if(selectedNavIndex.length>0){
-    fetchNavKeywords(selectedNavIndex)
+  
+        fetchNavKeywords(selectedNavIndex)
+    
+   
 }
 
 },[selectedNavIndex])
 
 function fetchNavKeywords(selectedNavKeyword){
+    debugger
     fetch(`./nav-keywords/${selectedNavKeyword}.json`).then((response) => response.json()).then(data => {
         const { keywords, navMatch } = data
         debugger

@@ -1,21 +1,4 @@
 {
-    "navMatch": [
-        {
-            "keyword": "askılı",
-            "group": "askılı",
-            "index": "1-"
-        },
-        {
-            "keyword": "uzun",
-            "group": "boyu  ",
-            "index": "18-"
-        },
-        {
-            "keyword": "jakar",
-            "group": "kumaş",
-            "index": "78-"
-        }
-    ],
     "keywords": {
         "askılı": {
             "count": 1256,

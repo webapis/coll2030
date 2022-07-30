@@ -54,9 +54,12 @@ export default function NestedList({ groupName, keywords }) {
 
 function RenderRow(props) {
     const dispatch = useDispatch()
-    const { selectedNavIndex } = useSelector(state => state.accordion)
+    const { selectedNavIndex,navMatch } = useSelector(state => state.accordion)
     const { keyword, index, count } = props;
-
+  const matchfound =selectedNavIndex.split('-').find(f=>f===index.replace('-','') ) ? true :false
+if(matchfound){
+   
+}
     function handleClick(e) {
         const { id, name } = e.currentTarget
         dispatch(actions.setSelectedNavIndex(id))
@@ -73,7 +76,7 @@ function RenderRow(props) {
                 <ListItemIcon>
                     <Checkbox
                         edge="start"
-                        checked={selectedNavIndex === index}
+                        checked={matchfound}
                         tabIndex={-1}
                         disableRipple
                         inputProps={{ 'aria-labelledby': "" }}

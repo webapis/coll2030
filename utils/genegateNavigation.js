@@ -59,7 +59,7 @@ async function genNav() {
 
           if (navKeys[comb] === undefined) {
 
-            navKeys[comb] = { navMatch, keywords: {} }
+            navKeys[comb] = { keywords: {} }
           }
           navMatch.forEach(nm => {
             const { keyword, group, index } = nm
