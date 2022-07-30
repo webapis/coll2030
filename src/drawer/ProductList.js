@@ -3,15 +3,15 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Grid from '@mui/material/Grid'
 //import IntersectionObserver from "../intersectObserver";
-import ImageComponent from '../google/imageComponent';
+import ImageComponent from './imageComponent';
 import  Container  from '@mui/material/Container';
 import { actions } from '../store/accordionSlice'
-import Fab from '@mui/material/Fab';
-import NavigationIcon from '@mui/icons-material/Navigation';
+
 import Chip from '@mui/material/Chip';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import SearchBox from './SearchBox';
 
 export default function ProductList(props) {
 
@@ -95,10 +95,10 @@ export default function ProductList(props) {
 
   }, [])
   useEffect(() => {
-    if (selectedKeyword.length > 0) {
+    //if (selectedKeyword.length > 0) {
       fetchData(startAt)
-    }
-  }, [selectedKeyword])
+    //}
+  }, [])
 
   function fetchData(start) {
     dispatch(actions.setFetchState(true))
@@ -143,15 +143,14 @@ export default function ProductList(props) {
   }
 
   return (
-<Container>
-    <Grid container justifyContent="center" spacing={1} margin={0} padding={0}
-    >
+<Container style={{height:"100vh", overflowY:'scroll'}} >
+
+
+<Grid  container justifyContent="center" spacing={1} margin={0} padding={0}>
+      <SearchBox/>
       <Grid item xs={6} sm={4} md={3} margin={0} padding={0}>
         <Stack direction="column" spacing={1} style={{ padding: 0 }}>
-          <Fab id="nav-top-btn" onClick={moveToTop} color="secondary" variant="extended" sx={{ mr: 1, position: 'fixed', bottom: 10, right: 5, display: 'none' }}>
-            <NavigationIcon />
-
-          </Fab>
+ 
 
           {childkeywords.length > 1 && childkeywords.filter(f => f[0] !== parentKeyword && f[0] !== selectedKeyword).sort(function (a, b) {
 
@@ -184,6 +183,9 @@ export default function ProductList(props) {
 
 
     </Grid>
+
+
+ 
 </Container>
 
   );

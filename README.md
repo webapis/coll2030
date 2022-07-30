@@ -85,3 +85,7 @@ npm config set proxy http://proxy_host:port
 https://www.freeconvert.com/png-to-svg/download
 
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_navbar_hide_scroll
+
+
+https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
+

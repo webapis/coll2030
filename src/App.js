@@ -8,13 +8,16 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
-import { useSelector,useDispatch } from 'react-redux'
-import KeywordsList from "./drawer/KeywordsList"
+import { useSelector, useDispatch } from 'react-redux'
+
 import { actions } from './store/accordionSlice'
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
 import ProductList from './drawer/ProductList'
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
+import KeywordsList from './drawer/KeywordsList';
+import Grid from '@mui/material/Grid'
+import { Stack } from '@mui/material';
 function HideOnScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -41,43 +44,54 @@ HideOnScroll.propTypes = {
 };
 
 export default function HideAppBar(props) {
-    const { selectedSubcategory, parentKeyword, selectedKeyword } = useSelector(state => state.accordion)
+  const { selectedSubcategory, parentKeyword, selectedKeyword } = useSelector(state => state.accordion)
 
-    const dispatch = useDispatch()
-    function handleClick() {
-   
-        dispatch(actions.toggleDrawer())
-    }
+  const dispatch = useDispatch()
+  function handleClick() {
+
+    dispatch(actions.toggleDrawer())
+  }
   return (
     <React.Fragment>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar>
-          <Toolbar>
-          <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                        onClick={handleClick}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-            <Typography variant="h6" component="div">
-              MODABURADA
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <div>
+          <AppBar color="" >
+            <Toolbar>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+                onClick={handleClick}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" component="div">
+                MODABURADA
+              </Typography>
+            </Toolbar>
+
+          </AppBar>
+
+        </div>
       </HideOnScroll>
       <Toolbar />
-      <Container>
-        <Box >
+      <div >
         <TemporaryDrawer />
-                    {selectedSubcategory && !parentKeyword && <KeywordsList />}
-                    {parentKeyword && selectedKeyword && <ProductList />}
-        </Box>
-      </Container>
+        <Grid container>
+          <Grid item xs={2}>
+            <KeywordsList style={{ height: 500, overflow: 'auto' }} />
+          </Grid>
+          <Grid item xs={10}>
+
+            {true && <ProductList sx={{ height: 500, overflow: 'auto' }} />}
+          </Grid>
+
+        </Grid>
+
+      </div>
     </React.Fragment>
   );
 }

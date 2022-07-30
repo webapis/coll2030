@@ -38,7 +38,7 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
         console.log('exactmatch...', exactmatch, keyword)
         categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group })
         if (parentorchild === 'parent') {
-            categoryItems.push({ keyword, parentorchild: 'child', parentkey, title, negwords, exactmatch, state, group })
+          //  categoryItems.push({ keyword, parentorchild: 'child', parentkey, title, negwords, exactmatch, state, group })
         }
     }
     const groupByParentKey = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent').reduce((prev, curr) => {

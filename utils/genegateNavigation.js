@@ -31,9 +31,12 @@ async function genNav() {
   const dataCollection = await mongoClient({ collectionName: 'data' })
   await categoryNavCollection.deleteMany({})
   await markaNavCollection.deleteMany({})
-
+  const navKeywords = require('../nav-keys/nav-keywords.json')
+  const { getCombinations } = require('../nav-keys/combination')
+  debugger
   let categoryTree = {}
   let markaTree = {}
+  let navKeys = { start: { navMatch: [], keywords: {} } }
   let categoryNav = {
     nav: { totalByCategory: 1, categories: {} }
   }
@@ -47,7 +50,49 @@ async function genNav() {
 
     if (title) {
 
+      const navMatch = navKeywords.map((m, i) => { return { ...m, index: i.toString() + '-' } }).filter((f) => title.toLowerCase().includes(f.keyword))
 
+      if (navMatch.length > 0) {
+
+        const possibleCombination = getCombinations(navMatch.map((m) => m.index))
+        possibleCombination.forEach(comb => {
+
+          if (navKeys[comb] === undefined) {
+
+            navKeys[comb] = { navMatch, keywords: {} }
+          }
+          navMatch.forEach(nm => {
+            const { keyword, group, index } = nm
+
+            if (navKeys[comb].keywords[keyword] === undefined) {
+
+              navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index }
+            }
+            else {
+              const count = navKeys[comb].keywords[keyword].count
+              navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index }
+            }
+
+          })
+
+
+
+        })
+        navMatch.forEach(nm => {
+          const { keyword, group, index } = nm
+
+          if (navKeys.start.keywords[keyword] === undefined) {
+
+            navKeys.start.keywords[keyword] = { count: 1, group: group.trim(), index }
+          }
+          else {
+            const count = navKeys.start.keywords[keyword].count
+            navKeys.start.keywords[keyword] = { count: count + 1, group: group.trim(), index }
+          }
+
+        })
+        debugger
+      }
       let matchfound = false
       const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
       const keywordsCollection = allkeywords[subcategory]
@@ -68,7 +113,7 @@ async function genNav() {
       }
       for (let key in keywordsCollection) {
 
-        debugger
+
         const current = keywordsCollection[key]
         const keywords = current.childkeywords
 
@@ -82,8 +127,8 @@ async function genNav() {
             let exactmatch = kws.exactmatch
             let negwords = kws.negwords
             let keywordTitle = kws.title
-            let group =kws.group
-            debugger
+            let group = kws.group
+
             let nws = []
             if (negwords) {
               nws = negwords.split(',')
@@ -95,19 +140,21 @@ async function genNav() {
 
 
             if (match) {
+
+
               matchfound = true
 
               if (categoryTree[`${subcategory}`][`${parentKeyWord}`] === undefined) {
                 categoryTree[`${subcategory}`][`${parentKeyWord}`] = { keywords: {} }
                 categoryTree[`${subcategory}`][`${parentKeyWord}`].title = keywordTitle && keywordTitle
-                categoryTree[`${subcategory}`][`${parentKeyWord}`].group=group && group
+                categoryTree[`${subcategory}`][`${parentKeyWord}`].group = group && group
               }
 
 
               if (markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] === undefined) {
                 markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] = { keywords: {} }
                 markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].title = keywordTitle && keywordTitle
-                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].group=group && group
+                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`].group = group && group
               }
 
 
@@ -143,12 +190,12 @@ async function genNav() {
       }
       updateDatabase({ pc: { category, subcategory }, marka, markaNavCollection, categoryNavCollection, categoryNav, markaNav })
       // updateVar({ category, subcategory,markaNavTree,categoryNavTree })
-      
+
 
     }
   })//end
 
-  debugger
+
 
   const splitCategoryKeywrods = Object.entries(categoryTree)
   const splitMarkaKeywords = Object.entries(markaTree)
@@ -187,6 +234,19 @@ async function genNav() {
     fs.unlinkSync(`${process.cwd()}/src/marka-nav.json`)
   }
   fs.appendFileSync(`${process.cwd()}/src/marka-nav.json`, JSON.stringify([markaNav]));
+
+  debugger
+  await makeDir('public/nav-keywords')
+  for (let nk in navKeys) {
+    const current = navKeys[nk]
+    if (fs.existsSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)) {
+      fs.unlinkSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)
+    }
+    fs.appendFileSync(`${process.cwd()}/public/nav-keywords/${nk}.json`, JSON.stringify(current));
+
+    debugger
+  }
+  debugger
   console.log('end....1')
   // await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/src/category-nav.json` })
   // await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/src/marka-nav.json` })

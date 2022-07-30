@@ -9,6 +9,7 @@ module.exports = (req, res) => {
   const { subcategory, start, marka, search, keyword, parentKeyword } = req.query
   const startAt = parseInt(start)
   var products = TAFFY(data);
+  debugger
   const filterBySub = subcategory === '' ? {} : { subcategory }
 
   const filterByKeyword = keyword === '' ? function () { return true } : function () {

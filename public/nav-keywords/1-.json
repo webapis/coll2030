@@ -1,0 +1,466 @@
+{
+    "navMatch": [
+        {
+            "keyword": "askılı",
+            "group": "askılı",
+            "index": "1-"
+        },
+        {
+            "keyword": "uzun",
+            "group": "boyu  ",
+            "index": "18-"
+        },
+        {
+            "keyword": "jakar",
+            "group": "kumaş",
+            "index": "78-"
+        }
+    ],
+    "keywords": {
+        "askılı": {
+            "count": 1256,
+            "group": "askılı",
+            "index": "1-"
+        },
+        "uzun": {
+            "count": 83,
+            "group": "boyu",
+            "index": "18-"
+        },
+        "jakar": {
+            "count": 11,
+            "group": "kumaş",
+            "index": "78-"
+        },
+        "poplin": {
+            "count": 68,
+            "group": "kumaş",
+            "index": "90-"
+        },
+        "yeşil": {
+            "count": 55,
+            "group": "renk",
+            "index": "126-"
+        },
+        "beyaz": {
+            "count": 22,
+            "group": "renk",
+            "index": "113-"
+        },
+        "siyah": {
+            "count": 126,
+            "group": "renk",
+            "index": "125-"
+        },
+        "mini": {
+            "count": 266,
+            "group": "boyu",
+            "index": "17-"
+        },
+        "fuşya": {
+            "count": 19,
+            "group": "renk",
+            "index": "127-"
+        },
+        "leopar": {
+            "count": 6,
+            "group": "desen",
+            "index": "40-"
+        },
+        "şifon": {
+            "count": 10,
+            "group": "kumaş",
+            "index": "93-"
+        },
+        "v yaka": {
+            "count": 102,
+            "group": "yaka",
+            "index": "149-"
+        },
+        "sarı": {
+            "count": 27,
+            "group": "renk",
+            "index": "124-"
+        },
+        "sırt dekolte": {
+            "count": 4,
+            "group": "dekolte",
+            "index": "25-"
+        },
+        "kare yaka": {
+            "count": 167,
+            "group": "yaka",
+            "index": "138-"
+        },
+        "turuncu": {
+            "count": 22,
+            "group": "renk",
+            "index": "133-"
+        },
+        "midi": {
+            "count": 132,
+            "group": "boyu",
+            "index": "16-"
+        },
+        "saten": {
+            "count": 47,
+            "group": "kumaş",
+            "index": "92-"
+        },
+        "krep": {
+            "count": 4,
+            "group": "kumaş",
+            "index": "83-"
+        },
+        "kırmızı": {
+            "count": 21,
+            "group": "renk",
+            "index": "119-"
+        },
+        "mavi": {
+            "count": 36,
+            "group": "renk",
+            "index": "129-"
+        },
+        "gri": {
+            "count": 9,
+            "group": "renk",
+            "index": "116-"
+        },
+        "pembe": {
+            "count": 11,
+            "group": "renk",
+            "index": "131-"
+        },
+        "keten": {
+            "count": 20,
+            "group": "kumaş",
+            "index": "81-"
+        },
+        "tek omuz": {
+            "count": 4,
+            "group": "omuz",
+            "index": "110-"
+        },
+        "maksi": {
+            "count": 9,
+            "group": "boyu",
+            "index": "14-"
+        },
+        "siyah beyaz": {
+            "count": 1,
+            "group": "renk",
+            "index": "136-"
+        },
+        "lacivert": {
+            "count": 13,
+            "group": "renk",
+            "index": "121-"
+        },
+        "dik yaka": {
+            "count": 4,
+            "group": "yaka",
+            "index": "145-"
+        },
+        "çiçekli": {
+            "count": 83,
+            "group": "desen",
+            "index": "30-"
+        },
+        "bisiklet yaka": {
+            "count": 115,
+            "group": "yaka",
+            "index": "142-"
+        },
+        "mor": {
+            "count": 3,
+            "group": "renk",
+            "index": "123-"
+        },
+        "bej": {
+            "count": 8,
+            "group": "renk",
+            "index": "112-"
+        },
+        "lila": {
+            "count": 9,
+            "group": "renk",
+            "index": "122-"
+        },
+        "kolsuz": {
+            "count": 16,
+            "group": "kol boyu",
+            "index": "53-"
+        },
+        "pötikare": {
+            "count": 3,
+            "group": "desen",
+            "index": "41-"
+        },
+        "kadife": {
+            "count": 3,
+            "group": "kumaş",
+            "index": "79-"
+        },
+        "ekru": {
+            "count": 12,
+            "group": "renk",
+            "index": "115-"
+        },
+        "denim": {
+            "count": 1,
+            "group": "kumaş",
+            "index": "106-"
+        },
+        "zebra desen": {
+            "count": 3,
+            "group": "desen",
+            "index": "44-"
+        },
+        "keten görünümlü": {
+            "count": 4,
+            "group": "kumaş",
+            "index": "82-"
+        },
+        "viskon": {
+            "count": 104,
+            "group": "kumaş",
+            "index": "105-"
+        },
+        "maxi": {
+            "count": 14,
+            "group": "boyu",
+            "index": "15-"
+        },
+        "çiçek desen": {
+            "count": 12,
+            "group": "desen",
+            "index": "29-"
+        },
+        "kısa": {
+            "count": 103,
+            "group": "boyu",
+            "index": "13-"
+        },
+        "kısa kollu": {
+            "count": 95,
+            "group": "kol boyu",
+            "index": "52-"
+        },
+        "uzun kollu": {
+            "count": 50,
+            "group": "kol boyu",
+            "index": "55-"
+        },
+        "gömlek yaka": {
+            "count": 7,
+            "group": "yaka",
+            "index": "147-"
+        },
+        "maroken": {
+            "count": 9,
+            "group": "kumaş",
+            "index": "86-"
+        },
+        "göbek dekolte": {
+            "count": 1,
+            "group": "dekolte",
+            "index": "20-"
+        },
+        "hamile": {
+            "count": 46,
+            "group": "konsept",
+            "index": "63-"
+        },
+        "degaje yaka": {
+            "count": 10,
+            "group": "yaka",
+            "index": "144-"
+        },
+        "kaşkorse": {
+            "count": 4,
+            "group": "kumaş",
+            "index": "80-"
+        },
+        "pamuk": {
+            "count": 81,
+            "group": "kumaş",
+            "index": "102-"
+        },
+        "dokulu": {
+            "count": 2,
+            "group": "kumaş",
+            "index": "74-"
+        },
+        "gofre": {
+            "count": 6,
+            "group": "kumaş",
+            "index": "76-"
+        },
+        "plaj": {
+            "count": 1,
+            "group": "konsept",
+            "index": "70-"
+        },
+        "puantiye": {
+            "count": 12,
+            "group": "desen",
+            "index": "42-"
+        },
+        "kalp yaka": {
+            "count": 82,
+            "group": "yaka",
+            "index": "137-"
+        },
+        "balon kol": {
+            "count": 1,
+            "group": "kol boyu",
+            "index": "48-"
+        },
+        "carmen yaka": {
+            "count": 2,
+            "group": "yaka",
+            "index": "143-"
+        },
+        "bel dekolte": {
+            "count": 1,
+            "group": "dekolte",
+            "index": "19-"
+        },
+        "tül": {
+            "count": 5,
+            "group": "kumaş",
+            "index": "96-"
+        },
+        "kruvaze yaka": {
+            "count": 3,
+            "group": "yaka",
+            "index": "139-"
+        },
+        "krinkle": {
+            "count": 16,
+            "group": "kumaş",
+            "index": "84-"
+        },
+        "bordo": {
+            "count": 3,
+            "group": "renk",
+            "index": "114-"
+        },
+        "kiremit": {
+            "count": 2,
+            "group": "renk",
+            "index": "118-"
+        },
+        "haki": {
+            "count": 11,
+            "group": "renk",
+            "index": "117-"
+        },
+        "geometrik desen": {
+            "count": 1,
+            "group": "desen",
+            "index": "36-"
+        },
+        "etnik": {
+            "count": 2,
+            "group": "desen",
+            "index": "35-"
+        },
+        "şal desen": {
+            "count": 1,
+            "group": "desen",
+            "index": "43-"
+        },
+        "bağcıklı": {
+            "count": 1,
+            "group": "bağcıklı",
+            "index": "8-"
+        },
+        "yakası bağcıklı": {
+            "count": 1,
+            "group": "bağcıklı",
+            "index": "9-"
+        },
+        "açık": {
+            "count": 4,
+            "group": "renk",
+            "index": "111-"
+        },
+        "pudra": {
+            "count": 1,
+            "group": "renk",
+            "index": "132-"
+        },
+        "fıstık yeşili": {
+            "count": 1,
+            "group": "renk",
+            "index": "134-"
+        },
+        "düşük omuz": {
+            "count": 1,
+            "group": "omuz",
+            "index": "109-"
+        },
+        "dökümlü yaka": {
+            "count": 14,
+            "group": "yaka",
+            "index": "146-"
+        },
+        "anne": {
+            "count": 3,
+            "group": "konsept",
+            "index": "60-"
+        },
+        "skuba": {
+            "count": 2,
+            "group": "kumaş",
+            "index": "94-"
+        },
+        "gabardin": {
+            "count": 5,
+            "group": "kumaş",
+            "index": "75-"
+        },
+        "müslin": {
+            "count": 1,
+            "group": "kumaş",
+            "index": "87-"
+        },
+        "fitilli": {
+            "count": 1,
+            "group": "kumaş",
+            "index": "100-"
+        },
+        "lyocell": {
+            "count": 1,
+            "group": "kumaş",
+            "index": "85-"
+        },
+        "belmando": {
+            "count": 1,
+            "group": "kumaş",
+            "index": "73-"
+        },
+        "vual": {
+            "count": 1,
+            "group": "kumaş",
+            "index": "98-"
+        },
+        "havlu": {
+            "count": 1,
+            "group": "kumaş",
+            "index": "77-"
+        },
+        "günlük": {
+            "count": 2,
+            "group": "konsept",
+            "index": "62-"
+        },
+        "krem": {
+            "count": 2,
+            "group": "renk",
+            "index": "120-"
+        }
+    }
+}
