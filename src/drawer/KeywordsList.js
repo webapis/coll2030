@@ -18,7 +18,7 @@ export default function KeywordsList() {
     }, [])
 useEffect(()=>{
 if(selectedNavIndex.length>0){
-  
+  debugger
         fetchNavKeywords(selectedNavIndex)
     
    

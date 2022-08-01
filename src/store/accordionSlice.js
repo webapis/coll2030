@@ -30,7 +30,7 @@ const initialState = {
   childkeywords: [], fetchAllComplete: '',
   navKeywords: [],
   selectedNavIndex: '',
-  navMatch: []
+  selectedKeywords:[]
 }
 
 export const accordionSlice = createSlice({
@@ -40,27 +40,39 @@ export const accordionSlice = createSlice({
     setNavkeywords: (state, action) => {
 
       state.navKeywords = action.payload.navKeywords
-      state.navMatch = action.payload.navMatch
+   
     },
     setSelectedNavIndex: (state, action) => {
+      const payload = parseInt(action.payload.index.replace('-'))
       if (state.selectedNavIndex.length > 0) {
     
-        const payload = parseInt(action.payload.replace('-'))
+   
         const array = state.selectedNavIndex.split('-').filter(f=>f!=="")
    
-        if (array.length === 1) {
+        if (array.length === 1) { 
           state.selectedNavIndex = payload > parseInt(array[0]) ? `${parseInt(array[0])}-${payload}-` : `${payload}-${parseInt(array[0])}-`
-
+          state.selectedKeywords=[action.payload.keyword]
         }
         else if (array.length > 0) {
          const index =array.findIndex(f =>parseInt(f)>payload)
-          
+          if(index===0){
+            debugger
+            array.unshift(payload)
+           state.selectedNavIndex= array.map(m=> m.toString()+'-').join('')
+           state.selectedKeywords=[...state.selectedKeywords,action.payload.keyword]
+           debugger
+          } else{
+            debugger
+            array.splice(index-1,0,payload)
+            state.selectedNavIndex= array.map(m=> m.toString()+'-').join()
+            state.selectedKeywords=[...state.selectedKeywords,action.payload.keyword]
+          }
           debugger
         }
 
       } else {
-
-        state.selectedNavIndex = action.payload
+        debugger
+        state.selectedNavIndex = action.payload.index
       }
 
 

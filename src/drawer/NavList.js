@@ -38,7 +38,7 @@ export default function NestedList({ groupName, keywords }) {
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding sx={{ paddingLeft: 5, height: 200, overflowY: 'scroll' }}>
+                <List component="div" disablePadding sx={{ paddingLeft: 0, maxHeight: 200, overflowY: 'scroll' }}>
                     {keywords && keywords.map((m) => {
                         const { keyword, index, count } = m;
 
@@ -54,15 +54,15 @@ export default function NestedList({ groupName, keywords }) {
 
 function RenderRow(props) {
     const dispatch = useDispatch()
-    const { selectedNavIndex,navMatch } = useSelector(state => state.accordion)
+    const { selectedNavIndex, navMatch } = useSelector(state => state.accordion)
     const { keyword, index, count } = props;
-  const matchfound =selectedNavIndex.split('-').find(f=>f===index.replace('-','') ) ? true :false
-if(matchfound){
-   
-}
-    function handleClick(e) {
-        const { id, name } = e.currentTarget
-        dispatch(actions.setSelectedNavIndex(id))
+    const matchfound = selectedNavIndex.split('-').find(f => f === index.replace('-', '')) ? true : false
+    if (matchfound) {
+
+    }
+    function handleClick({ index, keyword }) {
+
+        dispatch(actions.setSelectedNavIndex({ index, keyword }))
     }
     return (
         <ListItem
@@ -72,7 +72,7 @@ if(matchfound){
             }
             disablePadding
         >
-            <ListItemButton onClick={handleClick} dense id={index} name={keyword}>
+            <ListItemButton onClick={() => handleClick({ index, keyword })} dense id={index} name={keyword}>
                 <ListItemIcon>
                     <Checkbox
                         edge="start"

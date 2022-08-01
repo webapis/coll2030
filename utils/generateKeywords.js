@@ -9,13 +9,13 @@
     const path = require('path')
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
-    const elbise = await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:H' })
-    const etek = await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:H' })
+    const elbise = await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:I' })
+  //  const etek = await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:I' })
     await makeDir('api/_files/kadin')
     if (fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`)) {
         fs.unlinkSync(`${process.cwd()}/api/_files/kadin/keywords.json`)
     }
-    fs.appendFileSync(`${process.cwd()}/api/_files/kadin/keywords.json`, JSON.stringify({ elbise, etek }))
+    fs.appendFileSync(`${process.cwd()}/api/_files/kadin/keywords.json`, JSON.stringify({ elbise }))
     process.exit(0)
 
 })()
@@ -34,17 +34,18 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
         const exactmatch = value[5]
         const state = value[6]
         const group = value[7]
+        const index =value[8]
         debugger
         console.log('exactmatch...', exactmatch, keyword)
-        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group })
+        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group,index })
         if (parentorchild === 'parent') {
           //  categoryItems.push({ keyword, parentorchild: 'child', parentkey, title, negwords, exactmatch, state, group })
         }
     }
-    const groupByParentKey = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent').reduce((prev, curr) => {
-        return { ...prev, [curr.parentkey]: { title: curr.title, childkeywords: categoryItems.filter((f) => f.parentkey === curr.parentkey) } }
+    const groupByParentKey = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')//.reduce((prev, curr) => {
+     //   return { ...prev, [curr.parentkey]: { title: curr.title, childkeywords: categoryItems.filter((f) => f.parentkey === curr.parentkey) } }
 
-    }, {})
+ //   }, {})
 
     return groupByParentKey
 

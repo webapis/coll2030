@@ -38,7 +38,7 @@ function productTitleMatch({ kw, title, exactmatch, nws }) {
 
     return match
 } else{
-    debugger
+    
     return false
 }
 }

@@ -16,7 +16,7 @@ import SearchBox from './SearchBox';
 export default function ProductList(props) {
 
 
-  const { products, startAt, fetching, selectedMarka, selectedSubcategory, totalKeyword, totalSubcategory, selectedKeyword, parentKeyword, selectedKeyWordTotal, childkeywords, fetchAllComplete } = useSelector(state => state.accordion)
+  const { products, startAt, fetching, selectedMarka, selectedSubcategory, totalKeyword, navKeywords, selectedKeyword, parentKeyword, selectedKeywords, childkeywords, fetchAllComplete } = useSelector(state => state.accordion)
   
   const dispatch = useDispatch()
 
@@ -65,13 +65,13 @@ export default function ProductList(props) {
 
 
 
-  useEffect(() => {
-    if (fetchAllComplete === false) {
+  // useEffect(() => {
+  //   if (fetchAllComplete === false) {
 
-      fetchData(startAt)
-    }
+  //     fetchData(startAt)
+  //   }
 
-  }, [fetchAllComplete]);
+  // }, [fetchAllComplete]);
 
 
   useEffect(() => {
@@ -94,17 +94,32 @@ export default function ProductList(props) {
 
 
   }, [])
-  useEffect(() => {
-    //if (selectedKeyword.length > 0) {
+
+  useEffect(()=>{
+debugger
+    
       fetchData(startAt)
-    //}
-  }, [])
+    
+  },
+  
+  [])
+
+  useEffect(()=>{
+    debugger
+
+    fetchData(startAt)
+  },[navKeywords])
+  // useEffect(() => {
+  //   //if (selectedKeyword.length > 0) {
+  //     fetchData(startAt)
+  //   //}
+  // }, [])
 
   function fetchData(start) {
     dispatch(actions.setFetchState(true))
-
+    debugger
     setTimeout(() => {
-      var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keyword=' + selectedKeyword + '&parentKeyword=' + parentKeyword
+      var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keywords=' + JSON.stringify( selectedKeywords) + '&parentKeyword=' + parentKeyword
   
       return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
         return data

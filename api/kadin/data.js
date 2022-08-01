@@ -6,33 +6,37 @@ const { orderData } = require('./orderData')
 const data = require('../_files/kadin/data.json')
 const fs = require('fs')
 module.exports = (req, res) => {
-  const { subcategory, start, marka, search, keyword, parentKeyword } = req.query
+  const { subcategory, start, marka, search, keywords, parentKeyword } = req.query
   const startAt = parseInt(start)
   var products = TAFFY(data);
   debugger
   const filterBySub = subcategory === '' ? {} : { subcategory }
-
-  const filterByKeyword = keyword === '' ? function () { return true } : function () {
+  const navkeywords = JSON.parse(keywords)
+  debugger
+  const filterByKeyword = navkeywords.length === 0 ? function () { return true } : function () {
     const title = this.title
     const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
-    const kws = allkeywords[subcategory][parentKeyword].childkeywords.find(f => f.keyword === keyword)
+    const kwsopt = allkeywords[subcategory].filter(f => f.keyword === keyword)
 
+    const match = kwsopt.filter(kws => {
+      let exactmatch = kws.exactmatch
+      let negwords = kws.negwords
+      let nws = []
+      if (negwords) {
+        nws = negwords.split(',')
 
-    let exactmatch = kws.exactmatch
-    let negwords = kws.negwords
-    let nws = []
-    if (negwords) {
-      nws = negwords.split(',')
+      }
+debugger
+      const kw = kws.keyword
+      return productTitleMatch({ kw, title, exactmatch, nws })
+    })
 
-    }
-
-    const kw = kws.keyword
     if (title) {
 
     } else {
       debugger
     }
-    const match = productTitleMatch({ kw, title, exactmatch, nws })
+
     return match
   }
 
