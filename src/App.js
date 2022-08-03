@@ -33,7 +33,7 @@ export default function HideAppBar(props) {
     <React.Fragment>
 
 
-      <div>
+  
         <AppBar color="" position='static'>
           <Toolbar>
             <IconButton
@@ -53,9 +53,8 @@ export default function HideAppBar(props) {
 
         </AppBar>
 
-      </div>
+    
 
-      <Toolbar />
       <div >
         <TemporaryDrawer />
         {matchedesktop && selectedSubcategory && <Grid container>
