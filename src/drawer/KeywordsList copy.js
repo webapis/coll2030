@@ -24,9 +24,9 @@ export default function KeywordsList() {
     const [contentHeight, setContentHeight] = useState(80)
 
     useEffect(() => {
-debugger
+
         if (selectedSubcategory.length > 0) {
-debugger
+
             dispatch(actions.setFetchingKeywords(true))
             setTimeout(() => {
 
@@ -153,7 +153,7 @@ debugger
 
                                         const total = Object.entries(childkeywords).find(f => {
                                             if (f[0] === 'kamuflaj desen') {
-                                                debugger
+                                                
                                             }
                                             return f[0] === parentKeyword
                                         })[1]
@@ -166,7 +166,7 @@ debugger
                                     }
                                     catch (error) {
 
-                                        debugger
+                                        
                                     }
 
                                 })}

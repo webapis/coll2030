@@ -53,10 +53,10 @@ export default function HideAppBar(props) {
   }
   return (
     <React.Fragment>
-      <CssBaseline />
-      <HideOnScroll {...props}>
+ 
+
         <div>
-          <AppBar color="" >
+          <AppBar color="" position='static'>
             <Toolbar>
               <IconButton
                 size="large"
@@ -76,17 +76,17 @@ export default function HideAppBar(props) {
           </AppBar>
 
         </div>
-      </HideOnScroll>
+   
       <Toolbar />
       <div >
         <TemporaryDrawer />
         <Grid container>
           <Grid item xs={2}>
-            <KeywordsList style={{ height: 500, overflow: 'auto' }} />
+            <KeywordsList />
           </Grid>
           <Grid item xs={10}>
 
-            {true && <ProductList sx={{ height: 500, overflow: 'auto' }} />}
+            {true && <ProductList  />}
           </Grid>
 
         </Grid>

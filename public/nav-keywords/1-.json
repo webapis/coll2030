@@ -1,1 +1,24 @@
-{"keywords":{"diz üstü":{"count":3,"group":"BOYU","index":"1-"},"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"düz":{"count":2,"group":"MODEL","index":"84-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"}}}
+{
+    "keywords": {
+        "diz üstü": {
+            "count": 3,
+            "group": "BOYU",
+            "index": "1-"
+        },
+        "kolsuz": {
+            "count": 1,
+            "group": "KOLU",
+            "index": "30-"
+        },
+        "düz": {
+            "count": 2,
+            "group": "MODEL",
+            "index": "84-"
+        },
+        "uzun kollu": {
+            "count": 1,
+            "group": "KOLU",
+            "index": "32-"
+        }
+    }
+}
