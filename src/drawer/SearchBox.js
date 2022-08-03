@@ -8,11 +8,13 @@ import ViewComfyIcon from '@mui/icons-material/ViewComfy';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { actions } from '../store/accordionSlice';
 import { useDispatch } from 'react-redux';
+import useMediaQuery from '@mui/material/useMediaQuery';
 export default function SearchBox() {
-
+  const matchedesktop = useMediaQuery('(min-width:600px)');
   const dispatch =useDispatch()
   
-  function showFilter(){
+  function showFilter(e){
+    e.preventDefault()
     dispatch(actions.setDisplayFilter(true))
   }
   return (
@@ -26,12 +28,14 @@ export default function SearchBox() {
         placeholder="Ürün ara"
         inputProps={{ 'aria-label': 'search google maps' }}
       />
+   
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={showFilter}>
+      {!matchedesktop &&    <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={showFilter}>
         <FilterListIcon />
-      </IconButton>
+      </IconButton>}
+   
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
         <ViewComfyIcon />
       </IconButton>
