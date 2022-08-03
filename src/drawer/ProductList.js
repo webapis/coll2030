@@ -155,7 +155,7 @@ export default function ProductList(props) {
   }
 
   return (
-    <Container >
+    <Container sx={{paddingLeft:0}}>
 
       <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
         <SearchBox />

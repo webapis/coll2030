@@ -14,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-import Drawer from '@mui/material/Drawer';
+
 
 
 export default function HideAppBar(props) {
@@ -57,19 +57,20 @@ export default function HideAppBar(props) {
       <Toolbar />
       <div >
         <TemporaryDrawer />
-        <Grid container>
-          {matchedesktop && selectedSubcategory && <Grid item xs={2}>
+        {matchedesktop && selectedSubcategory &&     <Grid container>
+          <Grid item xs={2}>
             <KeywordsList />
-          </Grid>}
-          <KeywordListDrawer />
+          </Grid>
+  
 
           <Grid item xs={10}>
 
             <ProductList />
           </Grid>
 
-        </Grid>
-
+        </Grid>}
+     
+{!matchedesktop  &&  ([<KeywordListDrawer />,<ProductList />])}
       </div>
     </React.Fragment>
   );

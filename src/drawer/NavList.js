@@ -14,6 +14,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import Checkbox from '@mui/material/Checkbox';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/accordionSlice'
+import { Typography } from '@mui/material';
 export default function NestedList({ groupName, keywords }) {
 
     const [open, setOpen] = React.useState(true);
@@ -34,7 +35,7 @@ export default function NestedList({ groupName, keywords }) {
                 <ListItemIcon>
                     <InboxIcon />
                 </ListItemIcon>
-                <ListItemText sx={{ fontWeigth: 800 }} primary={groupName.toUpperCase()} />
+                <ListItemText  primary={<Typography sx={{fontWeight:700}}>{groupName.toUpperCase()}</Typography>} />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
