@@ -6,6 +6,7 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import { useState } from 'react';
 
+
 import NavList from './NavList';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -26,7 +27,10 @@ export default function KeywordsList() {
         }
 
     }, [selectedNavIndex])
+    function handleRemoveIndex({ index, keyword }) {
 
+        dispatch(actions.setSelectedNavIndex({ index, keyword }))
+    }
     function fetchNavKeywords(selectedNavKeyword) {
 
         fetch(`./nav-keywords/${selectedNavKeyword}.json`).then((response) => response.json()).then(data => {
@@ -60,8 +64,9 @@ export default function KeywordsList() {
         subheader={
             <ListSubheader component="div" id="nested-list-subheader">
                 <Stack direction="row" spacing={1}>
-                    {selectedKeywords.map((m, i) => <Chip key={i} label={m} id={m} onDelete={() => { }} />)}
-
+                    {selectedKeywords.map((m, i) => {
+                        const {index,keyword}=m
+                    return <Chip key={i} label={m.keyword} onDelete={() => handleRemoveIndex({ index, keyword })} />})}
                 </Stack>
             </ListSubheader>
         }
@@ -70,9 +75,6 @@ export default function KeywordsList() {
                 const groupName = m[0]
                 const keywords = m[1]['keywords']
                 return <NavList key={i} groupName={groupName} keywords={keywords} />
-
-
-
             })
 
         }</List>
