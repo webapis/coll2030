@@ -4,16 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/accordionSlice'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
-import { useState } from 'react';
+
 
 
 import NavList from './NavList';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 export default function KeywordsList() {
-    const { selectedMarka, selectedSubcategory, keywords, fetchingKeywords, accordionOneValue, navKeywords, selectedNavIndex, selectedKeywords } = useSelector(state => state.accordion)
+    const {  navKeywords, selectedNavIndex, selectedKeywords } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
-    const [contentHeight, setContentHeight] = useState(80)
+  
 
     useEffect(() => {
         fetchNavKeywords(`start`)

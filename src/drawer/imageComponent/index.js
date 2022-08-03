@@ -6,21 +6,13 @@ import { useSelector } from 'react-redux';
 
 import { ImageListItem } from '@mui/material';
 import './hl.css'
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+
 
 export default function ImageComponent(props) {
   const { selectedKeywords, parentKeyword } = useSelector(state => state.accordion)
 
   const { selectedSubcategory } = props
-//  const splitterwords = [...new Set([...selectedKeyword.split(' '), ...parentKeyword.split(' '), ...selectedSubcategory.split(' ')])].map(m => capitalizeFirstLetter(m));
-  let refactoredTitle = props.title
-  // splitterwords.forEach(word => {
-  //   var re = new RegExp(word, "gi");
-  //   refactoredTitle = refactoredTitle.replace(re, '')
 
-  // })
 
   const productTitle =props.title.split(' ').map(t=>t.trim()).map((m,i)=>{
     
@@ -51,7 +43,7 @@ export default function ImageComponent(props) {
   var days = Math.floor(minutesdiff / (1000 * 60 * 60 * 24));
   var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
   useEffect(() => {
-    if(!props.icon){
+   
 
       if (window.IntersectionObserver) {
 
@@ -68,7 +60,7 @@ export default function ImageComponent(props) {
         window.obz.observe(imageEl.current)
       }
 
-    }
+    
 
 
   }, []);
@@ -81,7 +73,7 @@ export default function ImageComponent(props) {
     <div>
       <div style={{ position: 'relative', margin: 'auto' }}>
 
-        <a href={detailHost} target="_blank" >
+        <a href={detailHost} target="_blank" rel="noreferrer">
           <ImageListItem>
 
 
@@ -99,7 +91,7 @@ export default function ImageComponent(props) {
       <div style={{ display: 'flex', justifyContent: 'space-between', }}>
 
 
-        <img src={logo.image} height={logo.heigth} width={logo.width}  />
+        <img src={logo.image} height={logo.heigth} width={logo.width}  alt={props.title} />
 
         <div>
           <Typography variant="caption" style={{ textAlign: 'right', right: 2, flex: 5 }}>{props.price}TL</Typography>

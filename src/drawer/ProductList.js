@@ -17,7 +17,7 @@ import Fab from '@mui/material/Fab';
 export default function ProductList(props) {
 
 
-  const { products, startAt, fetching, selectedMarka, selectedSubcategory, totalKeyword, navKeywords, selectedKeyword, parentKeyword, selectedKeywords, childkeywords, fetchAllComplete,selectedNavIndex } = useSelector(state => state.accordion)
+  const { products, startAt, fetching, selectedMarka, selectedSubcategory, totalKeyword,  selectedKeyword, parentKeyword, childkeywords,selectedNavIndex } = useSelector(state => state.accordion)
   
   const dispatch = useDispatch()
 
@@ -64,17 +64,6 @@ export default function ProductList(props) {
   }, [])
 
 
-
-
-  // useEffect(() => {
-  //   if (fetchAllComplete === false) {
-
-  //     fetchData(startAt)
-  //   }
-
-  // }, [fetchAllComplete]);
-
-
   useEffect(() => {
     // if (state.length > 0) {
     //   let items = document.querySelectorAll(".figure[data-intersection=true]");
@@ -96,28 +85,7 @@ export default function ProductList(props) {
 
   }, [])
 
-  useEffect(()=>{
 
-    
-      fetchData(startAt)
-    
-  },
-  
-  [])
-
-  useEffect(()=>{
-    
-
-      fetchData(startAt)
-    
-
-  
-  },[selectedNavIndex])
-  // useEffect(() => {
-  //   //if (selectedKeyword.length > 0) {
-  //     fetchData(startAt)
-  //   //}
-  // }, [])
 
   function fetchData(start) {
     dispatch(actions.setFetchState(true))
@@ -125,7 +93,7 @@ export default function ProductList(props) {
     setTimeout(() => {
       
       var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
-      //`/nav-data/${selectedSubcategory}/${selectedNavIndex}.json`
+  
       return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
         return data
       })
@@ -144,6 +112,27 @@ export default function ProductList(props) {
 
   }
 
+  useEffect(()=>{
+
+    
+    fetchData(startAt)
+  
+},
+
+[])
+
+useEffect(()=>{
+  
+
+    fetchData(startAt)
+  
+
+
+},[selectedNavIndex])
+
+
+
+  
   if (fetching)
     return (
 
@@ -152,9 +141,7 @@ export default function ProductList(props) {
       </Box>
     )
 
-  function moveToTop() {
-    document.body.scrollTop = 0; document.documentElement.scrollTop = 0;
-  }
+
 
 
   function selectKeyword({ keyword, total, kword }) {

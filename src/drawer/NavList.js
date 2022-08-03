@@ -53,7 +53,7 @@ export default function NestedList({ groupName, keywords }) {
 
 function RenderRow(props) {
     const dispatch = useDispatch()
-    const { selectedNavIndex, navMatch } = useSelector(state => state.accordion)
+    const { selectedNavIndex } = useSelector(state => state.accordion)
     const { keyword, index, count } = props;
     const matchfound = selectedNavIndex.split('-').find(f => f === index.replace('-', '')) ? true : false
     if (matchfound) {

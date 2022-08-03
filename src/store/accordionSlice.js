@@ -207,9 +207,6 @@ export const accordionSlice = createSlice({
     emptyProducts: (state, action) => {
       state.products = []
     },
-    setFetchState: (state, action) => {
-      state.fetching = action.payload
-    },
     setScrollHandled: (state, action) => {
       state.scrollHandled = action.payload
     }

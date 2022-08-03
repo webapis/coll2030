@@ -1,4 +1,4 @@
-const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_400/'
+//const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_400/'
 const imagePrefixImageKit = 'https://ik.imagekit.io/mumrjdehaou/'
 
 const placeholder = 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg'
