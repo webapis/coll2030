@@ -39,9 +39,9 @@ export default function NestedList({ groupName, keywords }) {
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding sx={{ paddingLeft: 0, maxHeight: 200, overflowY: 'auto' }}>
-                    {keywords && keywords.map((m) => {
+                    {keywords && keywords.map((m, i) => {
                         const { keyword, index, count } = m;
-                        return <RenderRow keyword={keyword} index={index} count={count} />
+                        return <RenderRow key={i} keyword={keyword} index={index} count={count} />
                     })}
                 </List>
             </Collapse>

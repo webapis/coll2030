@@ -11,7 +11,7 @@ function capitalizeFirstLetter(string) {
 }
 
 export default function ImageComponent(props) {
-  const { selectedKeyword, parentKeyword } = useSelector(state => state.accordion)
+  const { selectedKeywords, parentKeyword } = useSelector(state => state.accordion)
 
   const { selectedSubcategory } = props
 //  const splitterwords = [...new Set([...selectedKeyword.split(' '), ...parentKeyword.split(' '), ...selectedSubcategory.split(' ')])].map(m => capitalizeFirstLetter(m));
@@ -22,13 +22,13 @@ export default function ImageComponent(props) {
 
   // })
 
-  const productTitle =props.title.split(' ').map(t=>t.trim()).map((m)=>{
+  const productTitle =props.title.split(' ').map(t=>t.trim()).map((m,i)=>{
     
-    const selectedKeywordMatch =selectedKeyword.includes(m.toLowerCase())|| selectedKeyword.split(' ').map(t=>t.trim()).find(s=>m.toLowerCase().includes(s))
+    const selectedKeywordMatch =selectedKeywords.find(f=>f.keyword.includes(m.toLowerCase()))|| selectedKeywords.map(t=>{ return{...t, keyword: t.keyword.trim()}}).find(s=>m.toLowerCase().includes(s))
     const selectedSubcategoryMatch =selectedSubcategory.includes(m.toLowerCase()) ||m.toLowerCase().includes(selectedSubcategory)
-    const parentKeywordMatch = parentKeyword && parentKeyword.includes(m.toLowerCase())|| parentKeyword && parentKeyword.split(' ').map(t=>t.trim()).find(s=>m.toLowerCase().includes(s))
+
     
- return <span style={{fontWeight: (selectedKeywordMatch||selectedSubcategoryMatch ||parentKeywordMatch)? 800:300 }}>{m}{` `}
+ return <span key={i} style={{fontWeight: (selectedKeywordMatch||selectedSubcategoryMatch)? 800:300 }}>{m}{` `}
   
   
   </span>}) //refactoredTitle  //.substring(props.title.indexOf(" "),props.title.lastIndexOf(" "))
