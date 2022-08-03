@@ -16,9 +16,12 @@ export default function KeywordsList() {
   
 
     useEffect(() => {
+
+
         fetchNavKeywords(`start`)
     }, [])
     useEffect(() => {
+
         
         if(selectedNavIndex===''){
             fetchNavKeywords(`start`)
@@ -38,7 +41,7 @@ export default function KeywordsList() {
         dispatch(actions.setSelectedNavIndex({ index, keyword }))
     }
     function fetchNavKeywords(selectedNavKeyword) {
-
+         dispatch(actions.setFetchingKeywords(true))
         fetch(`./nav-keywords/${selectedNavKeyword}.json`).then((response) => response.json()).then(data => {
             const { keywords, navMatch } = data
 

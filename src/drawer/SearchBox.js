@@ -36,12 +36,7 @@ export default function SearchBox() {
         <FilterListIcon />
       </IconButton>}
    
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-        <ViewComfyIcon />
-      </IconButton>
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-        <ViewModuleIcon />
-      </IconButton>
+ 
     </Paper>
   );
 }

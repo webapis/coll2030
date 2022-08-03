@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions } from '../store/accordionSlice'
+import { actions } from '../src/store/accordionSlice'
 import Container from '@mui/material/Container'
 import CircularProgress from '@mui/material/CircularProgress';
 import Divider from '@mui/material/Divider';

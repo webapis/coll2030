@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 import { useSelector, useDispatch } from 'react-redux'
-import  KeywordListDrawer  from './drawer/KeywordListDrawer'
+import KeywordListDrawer from './drawer/KeywordListDrawer'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { actions } from './store/accordionSlice'
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
@@ -14,11 +14,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-
-
-
+import SearchBox from './drawer/SearchBox'
+import Dialog from '@mui/material/Dialog';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 export default function HideAppBar(props) {
-  const { selectedSubcategory, displayFilter } = useSelector(state => state.accordion)
+  const { selectedSubcategory, displayFilter,products,fetching,fetchingKeywords } = useSelector(state => state.accordion)
 
   const matchedesktop = useMediaQuery('(min-width:600px)');
 
@@ -57,11 +58,11 @@ export default function HideAppBar(props) {
       <Toolbar />
       <div >
         <TemporaryDrawer />
-        {matchedesktop && selectedSubcategory &&     <Grid container>
+        {matchedesktop && selectedSubcategory && <Grid container>
           <Grid item xs={2}>
             <KeywordsList />
           </Grid>
-  
+
 
           <Grid item xs={10}>
 
@@ -69,8 +70,12 @@ export default function HideAppBar(props) {
           </Grid>
 
         </Grid>}
-     
-{!matchedesktop  &&  ([<KeywordListDrawer />,<ProductList />])}
+
+        {!matchedesktop && ([<KeywordListDrawer />, <ProductList />])}
+        {!products.length>0  && !fetching && <Grid container sx={{display:'flex',justifyContent:'center'}}><Grid item xs={12} sm={6}> <SearchBox /></Grid></Grid>}
+        <Dialog open={fetching  || fetchingKeywords}> <Box sx={{ display: 'block' }}>
+      <CircularProgress />
+    </Box></Dialog>
       </div>
     </React.Fragment>
   );

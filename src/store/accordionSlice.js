@@ -42,7 +42,7 @@ export const accordionSlice = createSlice({
       state.displayFilter = action.payload
     },
     setNavkeywords: (state, action) => {
-
+      state.fetchingKeywords = false
       state.navKeywords = action.payload.navKeywords
 
     },
@@ -97,6 +97,7 @@ export const accordionSlice = createSlice({
       state.products = []
       state.startAt = 0
       state.fetching = false
+    
       state.scrollHandled = false
       state.fetchingKeywords = false
       state.subcategories = []
@@ -145,22 +146,28 @@ export const accordionSlice = createSlice({
     },
 
     setSubcategory: (state, action) => {
-      state.drawerOpen = !state.drawerOpen
-      state.selectedSubcategory = action.payload.subcategory
-      state.totalSubcategory = action.payload.totalSubcategory
-      state.accordionSubcategoryIsExpanded = false
-      state.products = []
-      state.keywords = null
-      state.parentKeyword = null
-      state.childkeywords = []
-      state.totalKeyword = ''
-      state.selectedKeyword = ''
-      state.selectedKeywordTitle = ''
-      state.accordionKeywordsIsExpanded = true
-      state.accordionSubcategoryIsExpanded = false
-      state.startAt = 0
-      state.fetching = false
-      state.scrollHandled = false
+      if(state.selectedSubcategory!==action.payload.subcategory){
+
+        state.drawerOpen = !state.drawerOpen
+        state.selectedSubcategory = action.payload.subcategory
+        state.totalSubcategory = action.payload.totalSubcategory
+        state.accordionSubcategoryIsExpanded = false
+        state.products = []
+        state.keywords = null
+        state.parentKeyword = null
+        state.childkeywords = []
+        state.totalKeyword = ''
+        state.selectedKeyword = ''
+        state.selectedKeywordTitle = ''
+        state.accordionKeywordsIsExpanded = true
+        state.accordionSubcategoryIsExpanded = false
+        state.startAt = 0
+        state.fetching = false
+        state.scrollHandled = false
+      } else{
+        state.drawerOpen = !state.drawerOpen
+      }
+    
 
 
 
@@ -187,6 +194,7 @@ export const accordionSlice = createSlice({
       state.fetchingKeywords = false
 
     },
+    
     setFetchingKeywords: (state, action) => {
       state.fetchingKeywords = action.payload
     },

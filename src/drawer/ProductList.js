@@ -108,7 +108,7 @@ export default function ProductList(props) {
           console.log('err', err)
           return err
         })
-    }, 1000)
+    }, 100)
 
   }
 
@@ -134,12 +134,7 @@ export default function ProductList(props) {
 
 
   if (fetching)
-    return (
-
-      <Box sx={{ display: 'flex' }}>
-        <CircularProgress />
-      </Box>
-    )
+    return ''
 
 
 
