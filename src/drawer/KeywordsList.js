@@ -11,15 +11,19 @@ import NavList from './NavList';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 export default function KeywordsList() {
-    const {  navKeywords, selectedNavIndex, selectedKeywords } = useSelector(state => state.accordion)
+    const {  navKeywords, selectedNavIndex, selectedKeywords,fetchingKeywords } = useSelector(state => state.accordion)
     const dispatch = useDispatch()
   
+    useEffect(()=>{
+        dispatch(actions.setFetchingKeywords(true))
 
-    useEffect(() => {
+    },[])
+
+    // useEffect(() => {
 
 
-        fetchNavKeywords(`start`)
-    }, [])
+    //     fetchNavKeywords(`start`)
+    // }, [])
     useEffect(() => {
 
         
@@ -35,13 +39,13 @@ export default function KeywordsList() {
 
         
 
-    }, [selectedNavIndex])
+    }, [fetchingKeywords])
     function handleRemoveIndex({ index, keyword }) {
 
         dispatch(actions.setSelectedNavIndex({ index, keyword }))
     }
     function fetchNavKeywords(selectedNavKeyword) {
-         dispatch(actions.setFetchingKeywords(true))
+      
          setTimeout(()=>{
             fetch(`./nav-keywords/${selectedNavKeyword}.json`).then((response) => response.json()).then(data => {
                 const { keywords, navMatch } = data

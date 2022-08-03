@@ -61,7 +61,7 @@ export const accordionSlice = createSlice({
 
       debugger
 
-
+      state.fetchingKeywords = true
       state.startAt = 0
       state.products = []
 
