@@ -66,7 +66,7 @@ export default function KeywordsList() {
     
             })
 
-         },1000)
+         },2000)
   
 
     }
