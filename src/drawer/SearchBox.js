@@ -6,7 +6,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import ViewComfyIcon from '@mui/icons-material/ViewComfy';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
+import { actions } from '../store/accordionSlice';
+import { useDispatch } from 'react-redux';
 export default function SearchBox() {
+
+  const dispatch =useDispatch()
+  
+  function showFilter(){
+    dispatch(actions.setDisplayFilter(true))
+  }
   return (
     <Paper
       component="form"
@@ -21,7 +29,7 @@ export default function SearchBox() {
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon />
       </IconButton>
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={showFilter}>
         <FilterListIcon />
       </IconButton>
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">

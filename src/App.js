@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
 import { useSelector, useDispatch } from 'react-redux'
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { actions } from './store/accordionSlice'
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
 import ProductList from './drawer/ProductList'
@@ -17,7 +17,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-import { Stack } from '@mui/material';
+import Drawer from '@mui/material/Drawer';
 function HideOnScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -44,7 +44,10 @@ HideOnScroll.propTypes = {
 };
 
 export default function HideAppBar(props) {
-  const { selectedSubcategory, parentKeyword, selectedKeyword } = useSelector(state => state.accordion)
+  const { selectedSubcategory, parentKeyword, selectedKeyword,displayFilter } = useSelector(state => state.accordion)
+
+  const matchedesktop = useMediaQuery('(min-width:600px)');
+
 
   const dispatch = useDispatch()
   function handleClick() {
@@ -81,9 +84,12 @@ export default function HideAppBar(props) {
       <div >
         <TemporaryDrawer />
         <Grid container>
-          <Grid item xs={2}>
+          {matchedesktop &&  <Grid item xs={2}>
             <KeywordsList />
-          </Grid>
+          </Grid>}
+          {!matchedesktop &&  <Drawer open={displayFilter} onClose={()=>{ dispatch(actions.setDisplayFilter(false))}}>
+            <KeywordsList />
+          </Drawer>}
           <Grid item xs={10}>
 
             {true && <ProductList  />}

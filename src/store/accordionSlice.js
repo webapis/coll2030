@@ -30,13 +30,17 @@ const initialState = {
   childkeywords: [], fetchAllComplete: '',
   navKeywords: [],
   selectedNavIndex: '',
-  selectedKeywords: []
+  selectedKeywords: [],
+  displayFilter: false
 }
 
 export const accordionSlice = createSlice({
   name: 'accordion',
   initialState,
   reducers: {
+    setDisplayFilter: (state, action) => {
+      state.displayFilter = action.payload
+    },
     setNavkeywords: (state, action) => {
 
       state.navKeywords = action.payload.navKeywords
