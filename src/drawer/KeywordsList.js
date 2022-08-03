@@ -42,28 +42,32 @@ export default function KeywordsList() {
     }
     function fetchNavKeywords(selectedNavKeyword) {
          dispatch(actions.setFetchingKeywords(true))
-        fetch(`./nav-keywords/${selectedNavKeyword}.json`).then((response) => response.json()).then(data => {
-            const { keywords, navMatch } = data
-
-            const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
-
-            const navKeywords = map.reduce((prev, curr) => {
-
-                if (prev[curr.group] === undefined) {
-                    return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count }] } }
-                } else {
-
-
-                    return {
-                        ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count }] }
+         setTimeout(()=>{
+            fetch(`./nav-keywords/${selectedNavKeyword}.json`).then((response) => response.json()).then(data => {
+                const { keywords, navMatch } = data
+    
+                const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
+    
+                const navKeywords = map.reduce((prev, curr) => {
+    
+                    if (prev[curr.group] === undefined) {
+                        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count }] } }
+                    } else {
+    
+    
+                        return {
+                            ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count }] }
+                        }
                     }
-                }
+    
+                }, {})
+    
+                dispatch(actions.setNavkeywords({ navKeywords, navMatch }))
+    
+            })
 
-            }, {})
-
-            dispatch(actions.setNavkeywords({ navKeywords, navMatch }))
-
-        })
+         },1000)
+  
 
     }
     return <List
