@@ -22,6 +22,12 @@
 
 
 async function genNav() {
+
+  var promiseLimit = require('promise-limit')
+
+  var limit = promiseLimit(2)
+  var input = []
+  const { workerPromise } = require('../temp/workerPromise')
   var TAFFY = require('taffy');
   const fs = require('fs')
   const { mongoClient, extractNavData } = require('./mongoDb')
@@ -35,7 +41,7 @@ async function genNav() {
   var products = TAFFY(data);
   const { getCombinations } = require('../nav-keys/combination')
   debugger
-
+  const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
   let navKeys = { start: { navMatch: [], keywords: {} } }
 
   let objCounter = 0
@@ -44,11 +50,11 @@ async function genNav() {
     ++objCounter
     console.log('objCounter...', objCounter)
     const { subcategory, title } = object
-
+    let navMatchCollection = []
     if (title) {
 
       let matchfound = false
-      const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
+
       const keywords = allkeywords[subcategory]
 
 
@@ -77,15 +83,13 @@ async function genNav() {
         })
 
         if (navMatch.length > 0) {
-
+          navMatchCollection.push(navMatch)
 
           const possibleCombination = getCombinations(navMatch.map((m) => m.index))
 
-          possibleCombination.forEach(async(comb) => {
+          possibleCombination.forEach(async (comb) => {
 
             if (navKeys[comb] === undefined) {
-
-
               navKeys[comb] = { keywords: {} }
             }
             navMatch.forEach(nm => {
@@ -101,6 +105,8 @@ async function genNav() {
               }
 
             })
+
+            //await workerPromise({ navMatch, title })
 
             //querydata
 
@@ -128,11 +134,17 @@ async function genNav() {
 
             //   }
 
-            //   return matchfound.length > 0
+            //   return matchfound.length === navMatch.length
             // }).get()
 
-       
-       
+            //  await makeDir(`public/nav-data/${subcategory}`)
+            //  if (fs.existsSync(`public/nav-data/${subcategory}/${comb}.json`)) {
+            //    fs.unlinkSync(`public/nav-data/${subcategory}/${comb}.json`)
+            //  }
+            // fs.appendFile(`public/nav-data/${subcategory}/${comb}.json`, JSON.stringify(filteredData)).then(() => {
+            //   console.log('done')
+            // })
+
           })
 
           navMatch.forEach(nm => {
@@ -151,13 +163,25 @@ async function genNav() {
 
         }
 
+
       }
+
+    //  input.push({ navMatchCollection, title,subcategory })
+
+
+
 
 
     }
   })//end
 
+  fs.rmSync(`${process.cwd()}/public/nav-data`, { recursive: true, force: true });
 
+// await  Promise.all(input.map(({ navMatchCollection, title,subcategory }) => {
+
+//     return limit(() => workerPromise({ navMatchCollection, title,subcategory }))
+//   }))
+console.log('nav gen complete')
   debugger
 
   for (let nk in navKeys) {

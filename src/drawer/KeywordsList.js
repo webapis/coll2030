@@ -18,7 +18,7 @@ export default function KeywordsList() {
     }, [])
 useEffect(()=>{
 if(selectedNavIndex.length>0){
-  debugger
+
         fetchNavKeywords(selectedNavIndex)
     
    
@@ -27,10 +27,10 @@ if(selectedNavIndex.length>0){
 },[selectedNavIndex])
 
 function fetchNavKeywords(selectedNavKeyword){
-    debugger
+  
     fetch(`./nav-keywords/${selectedNavKeyword}.json`).then((response) => response.json()).then(data => {
         const { keywords, navMatch } = data
-        debugger
+    
         const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
 
         const navKeywords = map.reduce((prev, curr) => {
@@ -53,7 +53,7 @@ function fetchNavKeywords(selectedNavKeyword){
 
 }
     return <List
-        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' ,  height:'100vh',overflowY:'auto'}}
+        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={

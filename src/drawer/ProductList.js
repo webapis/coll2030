@@ -16,7 +16,7 @@ import SearchBox from './SearchBox';
 export default function ProductList(props) {
 
 
-  const { products, startAt, fetching, selectedMarka, selectedSubcategory, totalKeyword, navKeywords, selectedKeyword, parentKeyword, selectedKeywords, childkeywords, fetchAllComplete } = useSelector(state => state.accordion)
+  const { products, startAt, fetching, selectedMarka, selectedSubcategory, totalKeyword, navKeywords, selectedKeyword, parentKeyword, selectedKeywords, childkeywords, fetchAllComplete,selectedNavIndex } = useSelector(state => state.accordion)
   
   const dispatch = useDispatch()
 
@@ -96,7 +96,7 @@ export default function ProductList(props) {
   }, [])
 
   useEffect(()=>{
-debugger
+
     
       fetchData(startAt)
     
@@ -105,10 +105,12 @@ debugger
   [])
 
   useEffect(()=>{
-    debugger
-
-    fetchData(startAt)
-  },[navKeywords])
+    
+    if(selectedNavIndex.length>0){
+      fetchData(startAt)
+    }
+  
+  },[selectedNavIndex])
   // useEffect(() => {
   //   //if (selectedKeyword.length > 0) {
   //     fetchData(startAt)
@@ -117,15 +119,17 @@ debugger
 
   function fetchData(start) {
     dispatch(actions.setFetchState(true))
-    debugger
+    
     setTimeout(() => {
-      var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&keywords=' + JSON.stringify( selectedKeywords) + '&parentKeyword=' + parentKeyword
-  
+      
+      var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
+      //`/nav-data/${selectedSubcategory}/${selectedNavIndex}.json`
       return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
         return data
       })
         .then(function (data) {
           var collection = data.data
+          
           const fetchAllComplete = [...products, ...collection].length === totalKeyword
 
           dispatch(actions.productsFetched({ products: collection, fetchAllComplete }))
@@ -158,7 +162,7 @@ debugger
   }
 
   return (
-<Container style={{height:"100vh", overflowY:'scroll'}} >
+<Container >
 
 
 <Grid  container justifyContent="center" spacing={1} margin={0} padding={0}>

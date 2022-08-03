@@ -30,7 +30,7 @@ const initialState = {
   childkeywords: [], fetchAllComplete: '',
   navKeywords: [],
   selectedNavIndex: '',
-  selectedKeywords:[]
+  selectedKeywords: []
 }
 
 export const accordionSlice = createSlice({
@@ -40,42 +40,24 @@ export const accordionSlice = createSlice({
     setNavkeywords: (state, action) => {
 
       state.navKeywords = action.payload.navKeywords
-   
+
     },
     setSelectedNavIndex: (state, action) => {
-      const payload = parseInt(action.payload.index.replace('-'))
-      if (state.selectedNavIndex.length > 0) {
-    
-   
-        const array = state.selectedNavIndex.split('-').filter(f=>f!=="")
-   
-        if (array.length === 1) { 
-          state.selectedNavIndex = payload > parseInt(array[0]) ? `${parseInt(array[0])}-${payload}-` : `${payload}-${parseInt(array[0])}-`
-          state.selectedKeywords=[action.payload.keyword]
-        }
-        else if (array.length > 0) {
-         const index =array.findIndex(f =>parseInt(f)>payload)
-          if(index===0){
-            debugger
-            array.unshift(payload)
-           state.selectedNavIndex= array.map(m=> m.toString()+'-').join('')
-           state.selectedKeywords=[...state.selectedKeywords,action.payload.keyword]
-           debugger
-          } else{
-            debugger
-            array.splice(index-1,0,payload)
-            state.selectedNavIndex= array.map(m=> m.toString()+'-').join()
-            state.selectedKeywords=[...state.selectedKeywords,action.payload.keyword]
-          }
-          debugger
-        }
-
-      } else {
+      const indexExist = state.selectedNavIndex.split('-').find(f => action.payload.index !== "" && action.payload.index.replace('-', "") === f)
+      if (indexExist) {
         debugger
-        state.selectedNavIndex = action.payload.index
+        state.selectedNavIndex = state.selectedNavIndex.split('-').filter(f => f !== "" && f!==indexExist).map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
+      }
+      else {
+        debugger
+        state.selectedNavIndex = state.selectedNavIndex.concat(action.payload.index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
       }
 
+      debugger
 
+
+      state.startAt = 0
+      state.products = []
 
     },
     toggleDrawer: (state, action) => {

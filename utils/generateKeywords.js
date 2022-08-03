@@ -46,8 +46,5 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
      //   return { ...prev, [curr.parentkey]: { title: curr.title, childkeywords: categoryItems.filter((f) => f.parentkey === curr.parentkey) } }
 
  //   }, {})
-
     return groupByParentKey
-
-
 }
