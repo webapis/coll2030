@@ -63,7 +63,7 @@ function RenderRow(props) {
     function handleClick({ index, keyword }) {
     setTimeout(()=>{
         dispatch(actions.setSelectedNavIndex({ index, keyword }))
-    },0)
+    },500)
      
     }
     return (
