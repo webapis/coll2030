@@ -46,11 +46,13 @@ export const accordionSlice = createSlice({
       const indexExist = state.selectedNavIndex.split('-').find(f => action.payload.index !== "" && action.payload.index.replace('-', "") === f)
       if (indexExist) {
         debugger
-        state.selectedNavIndex = state.selectedNavIndex.split('-').filter(f => f !== "" && f!==indexExist).map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
+        state.selectedNavIndex = state.selectedNavIndex.split('-').filter(f => f !== "" && f !== indexExist).map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
+        state.selectedKeywords = state.selectedKeywords.filter(f => f !== action.payload.keyword)
       }
       else {
         debugger
         state.selectedNavIndex = state.selectedNavIndex.concat(action.payload.index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
+        state.selectedKeywords = [...state.selectedKeywords, action.payload.keyword]
       }
 
       debugger

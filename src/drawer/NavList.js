@@ -38,10 +38,9 @@ export default function NestedList({ groupName, keywords }) {
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding sx={{ paddingLeft: 0, maxHeight: 200, overflowY: 'scroll' }}>
+                <List component="div" disablePadding sx={{ paddingLeft: 0, maxHeight: 200, overflowY: 'auto' }}>
                     {keywords && keywords.map((m) => {
                         const { keyword, index, count } = m;
-
                         return <RenderRow keyword={keyword} index={index} count={count} />
                     })}
                 </List>
