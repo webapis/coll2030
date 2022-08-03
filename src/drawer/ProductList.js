@@ -106,9 +106,10 @@ export default function ProductList(props) {
 
   useEffect(()=>{
     
-    if(selectedNavIndex.length>0){
+
       fetchData(startAt)
-    }
+    
+
   
   },[selectedNavIndex])
   // useEffect(() => {

@@ -19,12 +19,18 @@ export default function KeywordsList() {
         fetchNavKeywords(`start`)
     }, [])
     useEffect(() => {
-        if (selectedNavIndex.length > 0) {
-
-            fetchNavKeywords(selectedNavIndex)
-
-
+        
+        if(selectedNavIndex===''){
+            fetchNavKeywords(`start`)
         }
+        else{
+            fetchNavKeywords(selectedNavIndex)
+        }
+
+      
+
+
+        
 
     }, [selectedNavIndex])
     function handleRemoveIndex({ index, keyword }) {
