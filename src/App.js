@@ -84,7 +84,7 @@ export default function HideAppBar(props) {
       <div >
         <TemporaryDrawer />
         <Grid container>
-          {matchedesktop &&  <Grid item xs={2}>
+          {matchedesktop  && selectedSubcategory &&  <Grid item xs={2}>
             <KeywordsList />
           </Grid>}
           {!matchedesktop &&  <Drawer open={displayFilter} onClose={()=>{ dispatch(actions.setDisplayFilter(false))}}>
@@ -92,7 +92,7 @@ export default function HideAppBar(props) {
           </Drawer>}
           <Grid item xs={10}>
 
-            {true && <ProductList  />}
+            {selectedSubcategory && <ProductList  />}
           </Grid>
 
         </Grid>

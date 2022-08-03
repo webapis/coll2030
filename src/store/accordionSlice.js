@@ -9,7 +9,7 @@ const initialState = {
   selectedMarka: '',
   accordionSubcategoryIsExpanded: true,
   totalSubcategory: 0,
-  selectedSubcategory: 'elbise',
+  selectedSubcategory: '',
   accordionKeywordsIsExpanded: true,
   selectedKeyword: '',
   selectedKeywordTitle: '',

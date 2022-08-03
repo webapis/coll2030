@@ -12,7 +12,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import SearchBox from './SearchBox';
-
+import NavigationIcon from '@mui/icons-material/Navigation';
+import Fab from '@mui/material/Fab';
 export default function ProductList(props) {
 
 
@@ -22,45 +23,45 @@ export default function ProductList(props) {
 
 
 
-  // useEffect(() => {
-  //   var prevScrollpos = window.pageYOffset;
-  //   window.addEventListener('scroll', function scroll() {
+  useEffect(() => {
+    var prevScrollpos = window.pageYOffset;
+    window.addEventListener('scroll', function scroll() {
 
-  //     var currentScrollPos = window.pageYOffset;
-  //     if (prevScrollpos > currentScrollPos) {
-  //      //  document.getElementById("navbar").style.top = "0";
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+       //  document.getElementById("navbar").style.top = "0";
 
-  //       // document.getElementById('static-nav').style.visibility = "visible"
+        // document.getElementById('static-nav').style.visibility = "visible"
 
-  //     } else {
+      } else {
 
-  //       //document.getElementById("navbar").style.top = "-260px";
+        //document.getElementById("navbar").style.top = "-260px";
 
-  //       // document.getElementById('static-nav').style.visibility = "hidden"
-  //     }
-  //     prevScrollpos = currentScrollPos;
+        // document.getElementById('static-nav').style.visibility = "hidden"
+      }
+      prevScrollpos = currentScrollPos;
 
-  //     var myButtom = document.getElementById('nav-top-btn')
-  //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-  //       myButtom.style.display = "block";
-  //     } else {
-  //       myButtom.style.display = "none";
-  //     }
+      var myButtom = document.getElementById('nav-top-btn')
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        myButtom.style.display = "block";
+      } else {
+        myButtom.style.display = "none";
+      }
 
-  //     if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight) {
-
-
-
-
-  //       console.log('reached bottom of the page')
-  //       // you're at the bottom of the page
-  //     }
+      if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight) {
 
 
 
 
-  //   })
-  // }, [])
+        console.log('reached bottom of the page')
+        // you're at the bottom of the page
+      }
+
+
+
+
+    })
+  }, [])
 
 
 
@@ -205,7 +206,9 @@ export default function ProductList(props) {
     </Grid>
 
 
- 
+    <Fab id="nav-top-btn" variant="extended" sx={{position:'fixed',bottom:5,right:5,display:'none'}} color="primary" onClick={()=>{window.scrollTo({ top: 0 });}}>
+        <NavigationIcon  />
+      </Fab>
 </Container>
 
   );
