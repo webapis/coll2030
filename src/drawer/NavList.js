@@ -22,7 +22,7 @@ const matchedesktop = useMediaQuery('(min-width:600px)');
     function handleClick({ index, keyword }) {
         setTimeout(()=>{
             dispatch(actions.setSelectedNavIndex({ index, keyword,displayFilter:!matchedesktop ?false:true }))
-        },0)
+        },500)
          
         }
 
