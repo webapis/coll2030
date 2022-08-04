@@ -76,7 +76,8 @@ export default function HideAppBar(props) {
         </Grid>
         </Stack>
         }
-         <KeywordListDrawer style={{display:matchedesktop? 'none':'block', with:'80%' }}/>
+   
+         {!matchedesktop && <KeywordListDrawer />}
         {!matchedesktop && <ProductList />}
         {!products.length>0  && !fetching && <Grid container sx={{display:'flex',justifyContent:'center'}}><Grid item xs={12} sm={6}> <SearchBox /></Grid></Grid>}
      

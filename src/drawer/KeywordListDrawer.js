@@ -10,7 +10,7 @@ export default function KeywordListDrawer() {
     const { displayFilter } = useSelector(state => state.accordion)
     const dispatch =useDispatch()
 
-    return <Drawer sx={{width:400}}   open={displayFilter} onClose={() => { dispatch(actions.setDisplayFilter(false)) }}>
-        <KeywordsList />
+    return <Drawer sx={{width:400,display:'flex'}}   open={displayFilter} onClose={() => { dispatch(actions.setDisplayFilter(false)) }}>
+        <KeywordsList style={{flex:1}}/>
     </Drawer>
 }
