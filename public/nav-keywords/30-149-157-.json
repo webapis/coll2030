@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"haki":{"count":1,"group":"RENK","index":"149-"},"siyah":{"count":1,"group":"RENK","index":"157-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"haki","index":"149-","count":1},{"keyword":"siyah","index":"157-","count":1}]}]

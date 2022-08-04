@@ -1,1 +1,1 @@
-{"keywords":{"etnik":{"count":3,"group":"DESENLI","index":"14-"},"viskon":{"count":3,"group":"KUMAŞ","index":"69-"},"v yaka":{"count":3,"group":"YAKASI","index":"182-"},"kısa kollu":{"count":2,"group":"KOLU","index":"29-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"etnik","index":"14-","count":3}]},{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"viskon","index":"69-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":3}]}]

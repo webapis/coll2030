@@ -1,1 +1,1 @@
-{"keywords":{"çiçekli":{"count":1,"group":"DESENLI","index":"9-"},"tül":{"count":2,"group":"KUMAŞ","index":"60-"},"kırmızı":{"count":2,"group":"RENK","index":"151-"},"mini":{"count":1,"group":"BOYU","index":"6-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":1}]},{"groupName":"DESENLI","keywords":[{"keyword":"çiçekli","index":"9-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"tül","index":"60-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"kırmızı","index":"151-","count":2}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"uzun":{"count":1,"group":"BOYU","index":"7-"},"keten":{"count":1,"group":"KUMAŞ","index":"44-"},"yeşil":{"count":1,"group":"RENK","index":"158-"},"fıstık yeşili":{"count":1,"group":"RENK","index":"166-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"uzun","index":"7-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"keten","index":"44-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"fıstık yeşili","index":"166-","count":1},{"keyword":"yeşil","index":"158-","count":1}]}]

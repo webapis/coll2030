@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"belmando":{"count":1,"group":"KUMAŞ","index":"36-"},"gömlek yaka":{"count":1,"group":"YAKASI","index":"179-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"belmando","index":"36-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":1}]}]

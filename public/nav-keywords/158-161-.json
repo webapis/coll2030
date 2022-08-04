@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":1,"group":"BOYU","index":"6-"},"yeşil":{"count":5,"group":"RENK","index":"158-"},"mavi":{"count":5,"group":"RENK","index":"161-"},"midi":{"count":3,"group":"BOYU","index":"5-"},"maksi":{"count":1,"group":"BOYU","index":"3-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maksi","index":"3-","count":1},{"keyword":"midi","index":"5-","count":3},{"keyword":"mini","index":"6-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"mavi","index":"161-","count":5},{"keyword":"yeşil","index":"158-","count":5}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"siyah":{"count":1,"group":"RENK","index":"157-"},"siyah beyaz":{"count":1,"group":"RENK","index":"168-"},"kare yaka":{"count":1,"group":"YAKASI","index":"170-"},"v yaka":{"count":1,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"RENK","keywords":[{"keyword":"siyah","index":"157-","count":1},{"keyword":"siyah beyaz","index":"168-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"kare yaka","index":"170-","count":1},{"keyword":"v yaka","index":"182-","count":1}]}]

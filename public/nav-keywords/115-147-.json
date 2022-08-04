@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":2,"group":"BOYU","index":"6-"},"nakışlı":{"count":2,"group":"MODEL","index":"115-"},"ekru":{"count":2,"group":"RENK","index":"147-"},"kolsuz":{"count":1,"group":"KOLU","index":"30-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":2}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"nakışlı","index":"115-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"ekru","index":"147-","count":2}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"çiçekli":{"count":1,"group":"DESENLI","index":"9-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"açık":{"count":1,"group":"RENK","index":"143-"},"mavi":{"count":1,"group":"RENK","index":"161-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"çiçekli","index":"9-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"açık","index":"143-","count":1},{"keyword":"mavi","index":"161-","count":1}]}]

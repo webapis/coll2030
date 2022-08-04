@@ -1,1 +1,1 @@
-{"keywords":{"kısa kollu":{"count":2,"group":"KOLU","index":"29-"},"cep detaylı":{"count":2,"group":"MODEL","index":"81-"},"gömlek yaka":{"count":2,"group":"YAKASI","index":"179-"},"düz":{"count":1,"group":"MODEL","index":"84-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"cep detaylı","index":"81-","count":2},{"keyword":"düz","index":"84-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":2}]}]

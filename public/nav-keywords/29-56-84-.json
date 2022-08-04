@@ -1,1 +1,1 @@
-{"keywords":{"kısa kollu":{"count":2,"group":"KOLU","index":"29-"},"saten":{"count":2,"group":"KUMAŞ","index":"56-"},"düz":{"count":2,"group":"MODEL","index":"84-"},"v yaka":{"count":2,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"saten","index":"56-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":2}]}]

@@ -5,8 +5,8 @@ import { actions } from '../store/accordionSlice'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 
-
-
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import NavList from './NavList';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -15,66 +15,53 @@ export default function KeywordsList() {
     const dispatch = useDispatch()
   
     useEffect(()=>{
+        debugger
         dispatch(actions.setFetchingKeywords(true))
 
     },[])
 
-    // useEffect(() => {
-
-
-    //     fetchNavKeywords(`start`)
-    // }, [])
+  
     useEffect(() => {
-
-        
-        if(selectedNavIndex===''){
-            fetchNavKeywords(`start`)
+       
+        if(fetchingKeywords){
+            debugger
+            if(selectedNavIndex===''){
+                fetchNavKeywords(`start`)
+            }
+            else{
+                fetchNavKeywords(selectedNavIndex)
+            }
         }
-        else{
-            fetchNavKeywords(selectedNavIndex)
-        }
-
-      
-
-
-        
+     
 
     }, [fetchingKeywords])
     function handleRemoveIndex({ index, keyword }) {
 
         dispatch(actions.setSelectedNavIndex({ index, keyword }))
     }
-    function fetchNavKeywords(selectedNavKeyword) {
+    function fetchNavKeywords(selectedNavIndex) {
       
          setTimeout(()=>{
-            fetch(`./nav-keywords/${selectedNavKeyword}.json`).then((response) => response.json()).then(data => {
-                const { keywords, navMatch } = data
-    
-                const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
-    
-                const navKeywords = map.reduce((prev, curr) => {
-    
-                    if (prev[curr.group] === undefined) {
-                        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count }] } }
-                    } else {
-    
-    
-                        return {
-                            ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count }] }
-                        }
-                    }
-    
-                }, {})
-    
-                dispatch(actions.setNavkeywords({ navKeywords, navMatch }))
+            var url = `/api/kadin/nav?navindex=${selectedNavIndex}`
+            debugger
+            fetch(url).then((response) => response.json()).then(navKeywords => {
+                
+    debugger
+                dispatch(actions.setNavkeywords({ navKeywords }))
     
             })
 
-         },2000)
+         },0)
   
 
     }
-    return <List
+
+  
+    return <div style={{position:'relative'}}>
+        {fetchingKeywords&& <div style={{width:'100%', height:'100vh', backgroundColor:'#fafafa', position:'absolute', top:0,bottom:0, zIndex:10, opacity:0.7, color:'secondary'}}>  <Box sx={{ display: 'flex', height:'100%', justifyContent:'center',alignItems:'center' }}>
+      <CircularProgress color="inherit"/>
+    </Box></div>}
+        <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         component="nav"
         aria-labelledby="nested-list-subheader"
@@ -83,18 +70,18 @@ export default function KeywordsList() {
                 <Stack direction="row" spacing={1}>
                     {selectedKeywords.map((m, i) => {
                         const {index,keyword}=m
-                    return <Chip key={i} label={m.keyword} onDelete={() => handleRemoveIndex({ index, keyword })} />})}
+                    return <Chip  key={i} label={m.keyword} onDelete={() => handleRemoveIndex({ index, keyword })} />})}
                 </Stack>
             </ListSubheader>
         }
     >{
-            navKeywords && Object.entries(navKeywords).map((m, i) => {
-                const groupName = m[0]
-                const keywords = m[1]['keywords']
+            navKeywords && navKeywords.map((m, i) => {
+                const {groupName,keywords} = m
+            
                 return <NavList key={i} groupName={groupName} keywords={keywords} />
             })
 
-        }</List>
+        }</List></div>
 
 
 }

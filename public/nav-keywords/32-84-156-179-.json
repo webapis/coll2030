@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"düz":{"count":1,"group":"MODEL","index":"84-"},"sarı":{"count":1,"group":"RENK","index":"156-"},"gömlek yaka":{"count":1,"group":"YAKASI","index":"179-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"sarı","index":"156-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":1}]}]

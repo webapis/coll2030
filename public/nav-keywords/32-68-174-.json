@@ -1,1 +1,1 @@
-{"keywords":{"maxi":{"count":1,"group":"BOYU","index":"4-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"tafta":{"count":1,"group":"KUMAŞ","index":"68-"},"bisiklet yaka":{"count":1,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maxi","index":"4-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"tafta","index":"68-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":1}]}]

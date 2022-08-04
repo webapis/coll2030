@@ -1,1 +1,1 @@
-{"keywords":{"kısa kollu":{"count":1,"group":"KOLU","index":"29-"},"twill":{"count":1,"group":"KUMAŞ","index":"61-"},"gömlek yaka":{"count":1,"group":"YAKASI","index":"179-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"twill","index":"61-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":1}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"cep detaylı":{"count":8,"group":"MODEL","index":"81-"},"siyah":{"count":8,"group":"RENK","index":"157-"},"jean":{"count":2,"group":"MODEL","index":"100-"},"kısa kollu":{"count":1,"group":"KOLU","index":"29-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"cep detaylı","index":"81-","count":8},{"keyword":"jean","index":"100-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"siyah","index":"157-","count":8}]}]

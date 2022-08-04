@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":2,"group":"BOYU","index":"5-"},"turuncu":{"count":2,"group":"RENK","index":"165-"},"dik yaka":{"count":2,"group":"YAKASI","index":"177-"},"pembe":{"count":1,"group":"RENK","index":"163-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"pembe","index":"163-","count":1},{"keyword":"turuncu","index":"165-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"dik yaka","index":"177-","count":2}]}]

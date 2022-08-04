@@ -1,1 +1,1 @@
-{"keywords":{"maxi":{"count":3,"group":"BOYU","index":"4-"},"saten":{"count":1,"group":"KUMAŞ","index":"56-"},"lacivert":{"count":3,"group":"RENK","index":"153-"},"maksi":{"count":1,"group":"BOYU","index":"3-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maksi","index":"3-","count":1},{"keyword":"maxi","index":"4-","count":3}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"saten","index":"56-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"lacivert","index":"153-","count":3}]}]

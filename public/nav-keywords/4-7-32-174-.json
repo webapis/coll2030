@@ -1,1 +1,1 @@
-{"keywords":{"maxi":{"count":3,"group":"BOYU","index":"4-"},"uzun":{"count":3,"group":"BOYU","index":"7-"},"uzun kollu":{"count":3,"group":"KOLU","index":"32-"},"bisiklet yaka":{"count":3,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maxi","index":"4-","count":3},{"keyword":"uzun","index":"7-","count":3}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":3}]}]

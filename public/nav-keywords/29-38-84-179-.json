@@ -1,1 +1,1 @@
-{"keywords":{"kısa kollu":{"count":1,"group":"KOLU","index":"29-"},"gabardin":{"count":1,"group":"KUMAŞ","index":"38-"},"düz":{"count":1,"group":"MODEL","index":"84-"},"gömlek yaka":{"count":1,"group":"YAKASI","index":"179-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"gabardin","index":"38-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":1}]}]

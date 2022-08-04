@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":2,"group":"KOLU","index":"30-"},"kadife":{"count":2,"group":"KUMAŞ","index":"42-"},"haki":{"count":1,"group":"RENK","index":"149-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"kadife","index":"42-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"haki","index":"149-","count":1}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":1,"group":"BOYU","index":"5-"},"cep detaylı":{"count":1,"group":"MODEL","index":"81-"},"jean":{"count":1,"group":"MODEL","index":"100-"},"gömlek yaka":{"count":1,"group":"YAKASI","index":"179-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"cep detaylı","index":"81-","count":1},{"keyword":"jean","index":"100-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":1}]}]

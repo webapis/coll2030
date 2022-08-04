@@ -1,1 +1,1 @@
-{"keywords":{"kısa":{"count":1,"group":"BOYU","index":"2-"},"kadife":{"count":1,"group":"KUMAŞ","index":"42-"},"v yaka":{"count":1,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"kısa","index":"2-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"kadife","index":"42-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":1}]}]

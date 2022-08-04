@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":3,"group":"KOLU","index":"30-"},"saten":{"count":3,"group":"KUMAŞ","index":"56-"},"düz":{"count":3,"group":"MODEL","index":"84-"},"halter yaka":{"count":3,"group":"YAKASI","index":"181-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":3}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"saten","index":"56-","count":3}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"halter yaka","index":"181-","count":3}]}]

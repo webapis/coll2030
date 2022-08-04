@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":2,"group":"BOYU","index":"5-"},"triko":{"count":2,"group":"MODEL","index":"134-"},"kırmızı":{"count":2,"group":"RENK","index":"151-"},"kolsuz":{"count":1,"group":"KOLU","index":"30-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":2}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"triko","index":"134-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"kırmızı","index":"151-","count":2}]}]

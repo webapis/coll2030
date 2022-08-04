@@ -1,1 +1,1 @@
-{"keywords":{"uzun":{"count":1,"group":"BOYU","index":"7-"},"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"siyah":{"count":1,"group":"RENK","index":"157-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"uzun","index":"7-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"siyah","index":"157-","count":1}]}]

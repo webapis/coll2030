@@ -1,1 +1,1 @@
-{"keywords":{"çiçek desen":{"count":1,"group":"DESENLI","index":"8-"},"kaftan":{"count":1,"group":"MODEL","index":"103-"},"krem":{"count":1,"group":"RENK","index":"152-"},"turuncu":{"count":1,"group":"RENK","index":"165-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"çiçek desen","index":"8-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"kaftan","index":"103-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"krem","index":"152-","count":1},{"keyword":"turuncu","index":"165-","count":1}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"maxi":{"count":1,"group":"BOYU","index":"4-"},"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"kaşkorse":{"count":1,"group":"KUMAŞ","index":"43-"},"kare yaka":{"count":1,"group":"YAKASI","index":"170-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maxi","index":"4-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"kaşkorse","index":"43-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"kare yaka","index":"170-","count":1}]}]

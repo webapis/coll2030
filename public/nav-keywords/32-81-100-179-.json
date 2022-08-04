@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":3,"group":"KOLU","index":"32-"},"cep detaylı":{"count":3,"group":"MODEL","index":"81-"},"jean":{"count":3,"group":"MODEL","index":"100-"},"gömlek yaka":{"count":3,"group":"YAKASI","index":"179-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":3}]},{"groupName":"MODEL","keywords":[{"keyword":"cep detaylı","index":"81-","count":3},{"keyword":"jean","index":"100-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":3}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"viskon":{"count":1,"group":"KUMAŞ","index":"69-"},"kruvaze yaka":{"count":1,"group":"YAKASI","index":"171-"},"v yaka":{"count":1,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"viskon","index":"69-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"kruvaze yaka","index":"171-","count":1},{"keyword":"v yaka","index":"182-","count":1}]}]

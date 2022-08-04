@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":3,"group":"BOYU","index":"6-"},"çiçek desen":{"count":3,"group":"DESENLI","index":"8-"},"kırmızı":{"count":3,"group":"RENK","index":"151-"},"kolsuz":{"count":1,"group":"KOLU","index":"30-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":3}]},{"groupName":"DESENLI","keywords":[{"keyword":"çiçek desen","index":"8-","count":3}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"kırmızı","index":"151-","count":3}]}]

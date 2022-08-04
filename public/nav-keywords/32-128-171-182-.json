@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":3,"group":"KOLU","index":"32-"},"pul payet":{"count":3,"group":"MODEL","index":"128-"},"kruvaze yaka":{"count":3,"group":"YAKASI","index":"171-"},"v yaka":{"count":3,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":3}]},{"groupName":"MODEL","keywords":[{"keyword":"pul payet","index":"128-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"kruvaze yaka","index":"171-","count":3},{"keyword":"v yaka","index":"182-","count":3}]}]

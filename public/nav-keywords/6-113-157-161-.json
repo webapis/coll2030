@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":2,"group":"BOYU","index":"6-"},"kokteyl":{"count":2,"group":"MODEL","index":"113-"},"siyah":{"count":2,"group":"RENK","index":"157-"},"mavi":{"count":2,"group":"RENK","index":"161-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"kokteyl","index":"113-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"mavi","index":"161-","count":2},{"keyword":"siyah","index":"157-","count":2}]}]

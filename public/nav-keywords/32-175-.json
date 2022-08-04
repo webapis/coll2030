@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":1,"group":"BOYU","index":"5-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"pamuk":{"count":1,"group":"KUMAŞ","index":"66-"},"carmen yaka":{"count":1,"group":"YAKASI","index":"175-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"pamuk","index":"66-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"carmen yaka","index":"175-","count":1}]}]

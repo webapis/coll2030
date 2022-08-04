@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":1,"group":"BOYU","index":"5-"},"pamuk":{"count":2,"group":"KUMAŞ","index":"66-"},"kat kat":{"count":1,"group":"MODEL","index":"107-"},"fuşya":{"count":2,"group":"RENK","index":"159-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"pamuk","index":"66-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"kat kat","index":"107-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"fuşya","index":"159-","count":2}]}]

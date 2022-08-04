@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":2,"group":"BOYU","index":"5-"},"krem":{"count":2,"group":"RENK","index":"152-"},"turuncu":{"count":2,"group":"RENK","index":"165-"},"çiçek desen":{"count":1,"group":"DESENLI","index":"8-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":2}]},{"groupName":"DESENLI","keywords":[{"keyword":"çiçek desen","index":"8-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"krem","index":"152-","count":2},{"keyword":"turuncu","index":"165-","count":2}]}]

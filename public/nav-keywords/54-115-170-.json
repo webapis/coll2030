@@ -1,1 +1,1 @@
-{"keywords":{"poplin":{"count":4,"group":"KUMAŞ","index":"54-"},"nakışlı":{"count":4,"group":"MODEL","index":"115-"},"kare yaka":{"count":4,"group":"YAKASI","index":"170-"},"kolsuz":{"count":1,"group":"KOLU","index":"30-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"poplin","index":"54-","count":4}]},{"groupName":"MODEL","keywords":[{"keyword":"nakışlı","index":"115-","count":4}]},{"groupName":"YAKASI","keywords":[{"keyword":"kare yaka","index":"170-","count":4}]}]

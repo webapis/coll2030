@@ -49,21 +49,21 @@ export const accordionSlice = createSlice({
     setSelectedNavIndex: (state, action) => {
       const indexExist = state.selectedNavIndex.split('-').find(f => action.payload.index !== "" && action.payload.index.replace('-', "") === f)
       if (indexExist) {
-        debugger
+        
         state.selectedNavIndex = state.selectedNavIndex.split('-').filter(f => f !== "" && f !== indexExist).map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
         state.selectedKeywords = state.selectedKeywords.filter(f => f.index !== action.payload.index)
       }
       else {
-        debugger
+        
         state.selectedNavIndex = state.selectedNavIndex.concat(action.payload.index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
         state.selectedKeywords = [...state.selectedKeywords, { keyword: action.payload.keyword, index: action.payload.index }]
       }
 
-      debugger
+      
 
       state.fetchingKeywords = true
       state.startAt = 0
-      state.products = []
+     
 
     },
     toggleDrawer: (state, action) => {
@@ -77,73 +77,73 @@ export const accordionSlice = createSlice({
     setSubcategories: (state, action) => {
       state.subcategories = action.payload
     },
-    setMainTab: (state, action) => {
-      state.selectedMainTab = action.payload
-      state.accordionMarkaValue = ''
-      state.accordionMarkaIsExpanded = true
-      state.selectedMarka = ''
-      state.accordionSubcategoryIsExpanded = true
-      state.totalSubcategory = 0
-      state.selectedSubcategory = ''
-      state.accordionKeywordsIsExpanded = true
-      state.selectedKeyword = ''
-      state.selectedKeywordTitle = ''
-      state.keywords = null
-      state.parentKeyword = null
-      state.childkeywords = []
-      state.totalKeyword = 0
-      state.accordionProductIsExpanded = true
-      //products
-      state.products = []
-      state.startAt = 0
-      state.fetching = false
+    // setMainTab: (state, action) => {
+    //   state.selectedMainTab = action.payload
+    //   state.accordionMarkaValue = ''
+    //   state.accordionMarkaIsExpanded = true
+    //   state.selectedMarka = ''
+    //   state.accordionSubcategoryIsExpanded = true
+    //   state.totalSubcategory = 0
+    //   state.selectedSubcategory = ''
+    //   state.accordionKeywordsIsExpanded = true
+    //   state.selectedKeyword = ''
+    //   state.selectedKeywordTitle = ''
+    //   state.keywords = null
+    //   state.parentKeyword = null
+    //   state.childkeywords = []
+    //   state.totalKeyword = 0
+    //   state.accordionProductIsExpanded = true
+    //   //products
+    //   state.products = []
+    //   state.startAt = 0
+    //   state.fetching = false
     
-      state.scrollHandled = false
-      state.fetchingKeywords = false
-      state.subcategories = []
-      state.markas = []
-    },
-    setAccordionMarka: (state, action) => {
-      state.accordionMarkaValue = action.payload
-      state.accordionmarkaIsExpanded = false
-    },
+    //   state.scrollHandled = false
+    //   state.fetchingKeywords = false
+    //   state.subcategories = []
+    //   state.markas = []
+    // },
+    // setAccordionMarka: (state, action) => {
+    //   state.accordionMarkaValue = action.payload
+    //   state.accordionmarkaIsExpanded = false
+    // },
 
-    toggleAccordionMarka: (state, action) => {
-      state.accordionMarkaIsExpanded = !state.accordionMarkaIsExpanded
-    },
-    setMarka: (state, action) => {
-      if (state.selectedMarka !== action.payload) {
-        state.selectedMarka = action.payload
-        state.accordionMarkaIsExpanded = false
-        state.products = []
-        state.totalSubcategory = 0
-        state.selectedSubcategory = ''
-        state.accordionSubcategoryIsExpanded = true
+    // toggleAccordionMarka: (state, action) => {
+    //   state.accordionMarkaIsExpanded = !state.accordionMarkaIsExpanded
+    // },
+    // setMarka: (state, action) => {
+    //   if (state.selectedMarka !== action.payload) {
+    //     state.selectedMarka = action.payload
+    //     state.accordionMarkaIsExpanded = false
+    //     state.products = []
+    //     state.totalSubcategory = 0
+    //     state.selectedSubcategory = ''
+    //     state.accordionSubcategoryIsExpanded = true
 
-        state.keywords = null
-        state.parentKeyword = null
-        state.childkeywords = []
-        state.totalKeyword = ''
-        state.selectedKeyword = ''
-        state.selectedKeywordTitle = ''
-        state.accordionKeywordsIsExpanded = true
-        state.subcategories = []
+    //     state.keywords = null
+    //     state.parentKeyword = null
+    //     state.childkeywords = []
+    //     state.totalKeyword = ''
+    //     state.selectedKeyword = ''
+    //     state.selectedKeywordTitle = ''
+    //     state.accordionKeywordsIsExpanded = true
+    //     state.subcategories = []
 
-        state.startAt = 0
-        state.fetching = false
-        state.scrollHandled = false
+    //     state.startAt = 0
+    //     state.fetching = false
+    //     state.scrollHandled = false
 
-      } else {
+    //   } else {
 
-        state.accordionMarkaIsExpanded = false
-      }
+    //     state.accordionMarkaIsExpanded = false
+    //   }
 
 
 
-    },
-    toggleAccordionSubcategory: (state, action) => {
-      state.accordionSubcategoryIsExpanded = !state.accordionSubcategoryIsExpanded
-    },
+    // },
+    // toggleAccordionSubcategory: (state, action) => {
+    //   state.accordionSubcategoryIsExpanded = !state.accordionSubcategoryIsExpanded
+    // },
 
     setSubcategory: (state, action) => {
       if(state.selectedSubcategory!==action.payload.subcategory){
@@ -185,9 +185,9 @@ export const accordionSlice = createSlice({
       state.accordionKeywordsIsExpanded = false
 
     },
-    toggleAccordionKeywords: (state, action) => {
-      state.accordionKeywordsIsExpanded = !state.accordionKeywordsIsExpanded
-    },
+    // toggleAccordionKeywords: (state, action) => {
+    //   state.accordionKeywordsIsExpanded = !state.accordionKeywordsIsExpanded
+    // },
 
     setKeywords: (state, action) => {
       state.keywords = action.payload
@@ -199,13 +199,20 @@ export const accordionSlice = createSlice({
       state.fetchingKeywords = action.payload
     },
     setFetchState: (state, action) => {
+   
       state.fetching = action.payload
     },
 
     //products
 
     productsFetched: (state, action) => {
-      state.products = [...state.products, ...action.payload.products]
+      if( state.startAt===0){
+        state.products = [...action.payload.products]
+      } else{
+
+        state.products = [...state.products, ...action.payload.products]
+      }
+     
       state.startAt = state.startAt + 100
       state.fetchAllComplete = action.payload.fetchAllComplete
       state.scrollHandled = false

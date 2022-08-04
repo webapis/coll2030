@@ -1,1 +1,1 @@
-{"keywords":{"kısa kollu":{"count":1,"group":"KOLU","index":"29-"},"poplin":{"count":1,"group":"KUMAŞ","index":"54-"},"pamuk":{"count":1,"group":"KUMAŞ","index":"66-"},"mavi":{"count":1,"group":"RENK","index":"161-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"pamuk","index":"66-","count":1},{"keyword":"poplin","index":"54-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"mavi","index":"161-","count":1}]}]

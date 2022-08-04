@@ -1,1 +1,1 @@
-{"keywords":{"çiçekli":{"count":2,"group":"DESENLI","index":"9-"},"uzun kollu":{"count":2,"group":"KOLU","index":"32-"},"belmando":{"count":2,"group":"KUMAŞ","index":"36-"},"bisiklet yaka":{"count":2,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"çiçekli","index":"9-","count":2}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"belmando","index":"36-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":2}]}]

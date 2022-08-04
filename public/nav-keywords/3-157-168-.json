@@ -1,1 +1,1 @@
-{"keywords":{"maksi":{"count":7,"group":"BOYU","index":"3-"},"siyah":{"count":7,"group":"RENK","index":"157-"},"siyah beyaz":{"count":7,"group":"RENK","index":"168-"},"v yaka":{"count":1,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maksi","index":"3-","count":7}]},{"groupName":"RENK","keywords":[{"keyword":"siyah","index":"157-","count":7},{"keyword":"siyah beyaz","index":"168-","count":7}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":1}]}]

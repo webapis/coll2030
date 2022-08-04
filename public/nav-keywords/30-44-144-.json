@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"keten":{"count":1,"group":"KUMAŞ","index":"44-"},"bej":{"count":1,"group":"RENK","index":"144-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"keten","index":"44-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"bej","index":"144-","count":1}]}]

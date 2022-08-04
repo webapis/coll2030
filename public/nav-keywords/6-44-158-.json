@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":4,"group":"BOYU","index":"6-"},"keten":{"count":4,"group":"KUMAŞ","index":"44-"},"yeşil":{"count":4,"group":"RENK","index":"158-"},"kloş":{"count":1,"group":"MODEL","index":"112-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":4}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"keten","index":"44-","count":4}]},{"groupName":"MODEL","keywords":[{"keyword":"kloş","index":"112-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"yeşil","index":"158-","count":4}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":2,"group":"BOYU","index":"6-"},"kolsuz":{"count":2,"group":"KOLU","index":"30-"},"pembe":{"count":2,"group":"RENK","index":"163-"},"triko":{"count":1,"group":"MODEL","index":"134-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":2}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"triko","index":"134-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"pembe","index":"163-","count":2}]}]

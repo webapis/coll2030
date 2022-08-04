@@ -1,1 +1,1 @@
-{"keywords":{"maxi":{"count":5,"group":"BOYU","index":"4-"},"turuncu":{"count":5,"group":"RENK","index":"165-"},"sarı":{"count":1,"group":"RENK","index":"156-"},"maksi":{"count":1,"group":"BOYU","index":"3-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maksi","index":"3-","count":1},{"keyword":"maxi","index":"4-","count":5}]},{"groupName":"RENK","keywords":[{"keyword":"sarı","index":"156-","count":1},{"keyword":"turuncu","index":"165-","count":5}]}]

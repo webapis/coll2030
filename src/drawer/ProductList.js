@@ -7,13 +7,11 @@ import ImageComponent from './imageComponent';
 import Container from '@mui/material/Container';
 import { actions } from '../store/accordionSlice'
 
-import Chip from '@mui/material/Chip';
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 import SearchBox from './SearchBox';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import Fab from '@mui/material/Fab';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 export default function ProductList(props) {
 
 
@@ -94,6 +92,7 @@ export default function ProductList(props) {
 
       var url = '/api/kadin/data?start=' + start + '&subcategory=' + selectedSubcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
 
+      
       return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
         return data
       })
@@ -133,49 +132,26 @@ export default function ProductList(props) {
 
 
 
-  if (fetching)
-    return ''
 
 
 
-
-  function selectKeyword({ keyword, total }) {
-
-
-    dispatch(actions.setSelectedKeyword({ keyword, parentKeyword, total, childkeywords, title: keyword }))
-  }
 
   if(!selectedSubcategory){
     return 
   }
 
   return (
-    <Container sx={{paddingLeft:0, marginTop:2}}>
+    <div style={{position:'relative'}}>
 
+{fetching&& <div style={{width:'100%', height:'100vh', backgroundColor:'#fafafa', position:'absolute', top:0,bottom:0, zIndex:10, opacity:0.7, color:'secondary'}}>  <Box sx={{ display: 'flex', height:'100%', justifyContent:'center',alignItems:'center' }}>
+      <CircularProgress color="inherit"/>
+    </Box></div>}
+  
+    <Container sx={{paddingLeft:0, marginTop:2}}>
+   
       <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
         <SearchBox />
-        <Grid item xs={6} sm={4} md={3} margin={0} padding={0}>
-          <Stack direction="column" spacing={1} style={{ padding: 0 }}>
-
-
-            {childkeywords.length > 1 && childkeywords.filter(f => f[0] !== parentKeyword && f[0] !== selectedKeyword).sort(function (a, b) {
-
-              var textA = a[0].toUpperCase();
-              var textB = b[0].toUpperCase();
-              return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-            }).map((m, a) => {
-              const kword = m[0]
-              const kwtotal = m[1]
-
-              return <Chip key={a} onClick={() => selectKeyword({ keyword: kword, total: kwtotal })}
-                label={<div style={{ display: 'flex', justifyContent: 'space-between' }}><span>{kword}</span><span style={{ fontWeight: 500, color: '#9e9e9e', marginLeft: 5 }}> - {kwtotal}</span></div>}
-
-                deleteIcon={<div>{kwtotal}</div>}
-                variant="outlined"
-              />
-            })}
-          </Stack>
-        </Grid>
+  
 
 
         {products.length > 0 && products.map((item, i) => {
@@ -195,7 +171,7 @@ export default function ProductList(props) {
         <NavigationIcon />
       </Fab>
     </Container>
-
+    </div>
   );
 }
 

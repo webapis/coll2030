@@ -1,1 +1,1 @@
-{"keywords":{"maksi":{"count":2,"group":"BOYU","index":"3-"},"saten":{"count":2,"group":"KUMAŞ","index":"56-"},"gri":{"count":1,"group":"RENK","index":"148-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maksi","index":"3-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"saten","index":"56-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"gri","index":"148-","count":1}]}]

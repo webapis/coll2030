@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":1,"group":"BOYU","index":"5-"},"beyaz":{"count":1,"group":"RENK","index":"145-"},"kruvaze yaka":{"count":1,"group":"YAKASI","index":"171-"},"gömlek yaka":{"count":1,"group":"YAKASI","index":"179-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"beyaz","index":"145-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":1},{"keyword":"kruvaze yaka","index":"171-","count":1}]}]

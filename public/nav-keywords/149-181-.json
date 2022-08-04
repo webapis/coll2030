@@ -1,1 +1,1 @@
-{"keywords":{"haki":{"count":3,"group":"RENK","index":"149-"},"halter yaka":{"count":3,"group":"YAKASI","index":"181-"},"midi":{"count":1,"group":"BOYU","index":"5-"},"kısa":{"count":1,"group":"BOYU","index":"2-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"kısa","index":"2-","count":1},{"keyword":"midi","index":"5-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"haki","index":"149-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"halter yaka","index":"181-","count":3}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"kısa kollu":{"count":3,"group":"KOLU","index":"29-"},"fitilli":{"count":3,"group":"KUMAŞ","index":"64-"},"düz":{"count":3,"group":"MODEL","index":"84-"},"bisiklet yaka":{"count":3,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":3}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"fitilli","index":"64-","count":3}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":3}]}]

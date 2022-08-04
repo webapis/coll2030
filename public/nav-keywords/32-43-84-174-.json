@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":9,"group":"KOLU","index":"32-"},"kaşkorse":{"count":9,"group":"KUMAŞ","index":"43-"},"düz":{"count":9,"group":"MODEL","index":"84-"},"bisiklet yaka":{"count":9,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":9}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"kaşkorse","index":"43-","count":9}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":9}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":9}]}]

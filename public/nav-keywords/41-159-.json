@@ -1,1 +1,1 @@
-{"keywords":{"uzun":{"count":1,"group":"BOYU","index":"7-"},"jakar":{"count":3,"group":"KUMAŞ","index":"41-"},"fuşya":{"count":3,"group":"RENK","index":"159-"},"mini":{"count":2,"group":"BOYU","index":"6-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":2},{"keyword":"uzun","index":"7-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"jakar","index":"41-","count":3}]},{"groupName":"RENK","keywords":[{"keyword":"fuşya","index":"159-","count":3}]}]

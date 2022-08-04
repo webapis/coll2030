@@ -1,1 +1,1 @@
-{"keywords":{"fitilli":{"count":2,"group":"KUMAŞ","index":"64-"},"pamuk":{"count":2,"group":"KUMAŞ","index":"66-"},"mavi":{"count":2,"group":"RENK","index":"161-"},"midi":{"count":1,"group":"BOYU","index":"5-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"fitilli","index":"64-","count":2},{"keyword":"pamuk","index":"66-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"mavi","index":"161-","count":2}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":2,"group":"BOYU","index":"5-"},"denim":{"count":2,"group":"KUMAŞ","index":"70-"},"mavi":{"count":2,"group":"RENK","index":"161-"},"kalp yaka":{"count":1,"group":"YAKASI","index":"169-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"denim","index":"70-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"mavi","index":"161-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"kalp yaka","index":"169-","count":1}]}]

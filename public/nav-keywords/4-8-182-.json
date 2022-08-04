@@ -1,1 +1,1 @@
-{"keywords":{"maxi":{"count":2,"group":"BOYU","index":"4-"},"çiçek desen":{"count":2,"group":"DESENLI","index":"8-"},"v yaka":{"count":2,"group":"YAKASI","index":"182-"},"çiçekli":{"count":1,"group":"DESENLI","index":"9-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maxi","index":"4-","count":2}]},{"groupName":"DESENLI","keywords":[{"keyword":"çiçek desen","index":"8-","count":2},{"keyword":"çiçekli","index":"9-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":2}]}]

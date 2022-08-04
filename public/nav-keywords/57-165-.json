@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"şifon":{"count":2,"group":"KUMAŞ","index":"57-"},"turuncu":{"count":2,"group":"RENK","index":"165-"},"maksi":{"count":1,"group":"BOYU","index":"3-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maksi","index":"3-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"şifon","index":"57-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"turuncu","index":"165-","count":2}]}]

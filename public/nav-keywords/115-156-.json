@@ -1,1 +1,1 @@
-{"keywords":{"nakışlı":{"count":3,"group":"MODEL","index":"115-"},"sarı":{"count":3,"group":"RENK","index":"156-"},"mini":{"count":2,"group":"BOYU","index":"6-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"nakışlı","index":"115-","count":3}]},{"groupName":"RENK","keywords":[{"keyword":"sarı","index":"156-","count":3}]}]

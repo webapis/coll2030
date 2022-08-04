@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":2,"group":"BOYU","index":"5-"},"kiremit":{"count":2,"group":"RENK","index":"150-"},"v yaka":{"count":2,"group":"YAKASI","index":"182-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":2}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"kiremit","index":"150-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":2}]}]

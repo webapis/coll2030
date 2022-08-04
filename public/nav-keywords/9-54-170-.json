@@ -1,1 +1,1 @@
-{"keywords":{"çiçekli":{"count":8,"group":"DESENLI","index":"9-"},"poplin":{"count":8,"group":"KUMAŞ","index":"54-"},"kare yaka":{"count":8,"group":"YAKASI","index":"170-"},"kısa kollu":{"count":2,"group":"KOLU","index":"29-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"çiçekli","index":"9-","count":8}]},{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"poplin","index":"54-","count":8}]},{"groupName":"YAKASI","keywords":[{"keyword":"kare yaka","index":"170-","count":8}]}]

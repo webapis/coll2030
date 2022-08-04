@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":4,"group":"KOLU","index":"32-"},"krep":{"count":4,"group":"KUMAŞ","index":"46-"},"düz":{"count":4,"group":"MODEL","index":"84-"},"dik yaka":{"count":3,"group":"YAKASI","index":"177-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":4}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"krep","index":"46-","count":4}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":4}]},{"groupName":"YAKASI","keywords":[{"keyword":"dik yaka","index":"177-","count":3}]}]

@@ -11,10 +11,10 @@ module.exports = (req, res) => {
   const { subcategory, start, marka, search, selectedNavIndex } = req.query
   const startAt = parseInt(start)
   var products = TAFFY(data);
-  debugger
+  
   const filterBySub = subcategory === '' ? {} : { subcategory }
 
-debugger
+
   const filterByKeyword = selectedNavIndex === '' ? function () { return true } : function filterByKeyword() {
    
     let splittedKeywordsIndex = selectedNavIndex.split('-')
@@ -37,7 +37,7 @@ debugger
   }
 
 
-  debugger
+  
 
 
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
@@ -45,7 +45,7 @@ debugger
 
   var filteredData = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByKeyword).get()
 
-  debugger
+  
   var orderedData = orderData(filteredData)
   var orderedDb = TAFFY(orderedData)
 
@@ -61,7 +61,7 @@ debugger
   console.log('marka', marka)
   console.log('startAt', startAt)
   console.log('count1', count)
-  debugger;
+  ;
   res.status(200).json({ data: d, count })
 }
 
@@ -70,7 +70,7 @@ debugger
   // for (let f in filterBySub) {
     //     const current = filterBySub[f]
     //     if (current === 'null') {
-    //         debugger;
+    //         ;
     //         delete filterBySub[f]
     //     }
     // }

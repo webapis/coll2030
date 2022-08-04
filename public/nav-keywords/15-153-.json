@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":1,"group":"BOYU","index":"6-"},"geometrik desen":{"count":2,"group":"DESENLI","index":"15-"},"lacivert":{"count":2,"group":"RENK","index":"153-"},"midi":{"count":1,"group":"BOYU","index":"5-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1},{"keyword":"mini","index":"6-","count":1}]},{"groupName":"DESENLI","keywords":[{"keyword":"geometrik desen","index":"15-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"lacivert","index":"153-","count":2}]}]

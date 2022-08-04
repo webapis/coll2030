@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":2,"group":"KOLU","index":"32-"},"kadife":{"count":2,"group":"KUMAŞ","index":"42-"},"nakışlı":{"count":1,"group":"MODEL","index":"115-"},"v yaka":{"count":2,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"kadife","index":"42-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"nakışlı","index":"115-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":2}]}]

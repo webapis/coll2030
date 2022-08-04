@@ -1,1 +1,1 @@
-{"keywords":{"kısa kollu":{"count":2,"group":"KOLU","index":"29-"},"düz":{"count":3,"group":"MODEL","index":"84-"},"jean":{"count":3,"group":"MODEL","index":"100-"},"v yaka":{"count":3,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":3},{"keyword":"jean","index":"100-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":3}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":4,"group":"BOYU","index":"6-"},"kısa kollu":{"count":4,"group":"KOLU","index":"29-"},"kalp yaka":{"count":4,"group":"YAKASI","index":"169-"},"poplin":{"count":1,"group":"KUMAŞ","index":"54-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":4}]},{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":4}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"poplin","index":"54-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"kalp yaka","index":"169-","count":4}]}]

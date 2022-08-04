@@ -1,1 +1,1 @@
-{"keywords":{"maxi":{"count":1,"group":"BOYU","index":"4-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"maroken":{"count":2,"group":"KUMAŞ","index":"50-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maxi","index":"4-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"maroken","index":"50-","count":2}]}]

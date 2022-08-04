@@ -1,1 +1,1 @@
-{"keywords":{"kısa kollu":{"count":2,"group":"KOLU","index":"29-"},"şifon":{"count":2,"group":"KUMAŞ","index":"57-"},"kruvaze yaka":{"count":2,"group":"YAKASI","index":"171-"},"puantiye":{"count":1,"group":"DESENLI","index":"21-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"puantiye","index":"21-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"şifon","index":"57-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"kruvaze yaka","index":"171-","count":2}]}]

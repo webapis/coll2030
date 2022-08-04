@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":1,"group":"BOYU","index":"6-"},"kısa kollu":{"count":4,"group":"KOLU","index":"29-"},"carmen yaka":{"count":4,"group":"YAKASI","index":"175-"},"midi":{"count":3,"group":"BOYU","index":"5-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":3},{"keyword":"mini","index":"6-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":4}]},{"groupName":"YAKASI","keywords":[{"keyword":"carmen yaka","index":"175-","count":4}]}]

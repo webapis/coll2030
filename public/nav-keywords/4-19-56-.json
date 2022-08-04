@@ -1,1 +1,1 @@
-{"keywords":{"maxi":{"count":1,"group":"BOYU","index":"4-"},"leopar":{"count":1,"group":"DESENLI","index":"19-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"saten":{"count":1,"group":"KUMAŞ","index":"56-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maxi","index":"4-","count":1}]},{"groupName":"DESENLI","keywords":[{"keyword":"leopar","index":"19-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"saten","index":"56-","count":1}]}]

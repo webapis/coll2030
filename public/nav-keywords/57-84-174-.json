@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":3,"group":"KOLU","index":"32-"},"şifon":{"count":3,"group":"KUMAŞ","index":"57-"},"düz":{"count":3,"group":"MODEL","index":"84-"},"bisiklet yaka":{"count":3,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":3}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"şifon","index":"57-","count":3}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":3}]}]

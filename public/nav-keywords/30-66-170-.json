@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":2,"group":"KOLU","index":"30-"},"pamuk":{"count":2,"group":"KUMAŞ","index":"66-"},"düz":{"count":2,"group":"MODEL","index":"84-"},"kare yaka":{"count":2,"group":"YAKASI","index":"170-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"pamuk","index":"66-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"kare yaka","index":"170-","count":2}]}]

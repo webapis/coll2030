@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":1,"group":"BOYU","index":"5-"},"etnik":{"count":2,"group":"DESENLI","index":"14-"},"kırmızı":{"count":2,"group":"RENK","index":"151-"},"mini":{"count":1,"group":"BOYU","index":"6-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1},{"keyword":"mini","index":"6-","count":1}]},{"groupName":"DESENLI","keywords":[{"keyword":"etnik","index":"14-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"kırmızı","index":"151-","count":2}]}]

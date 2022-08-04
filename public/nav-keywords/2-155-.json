@@ -1,1 +1,1 @@
-{"keywords":{"kısa":{"count":2,"group":"BOYU","index":"2-"},"mor":{"count":2,"group":"RENK","index":"155-"},"dik yaka":{"count":1,"group":"YAKASI","index":"177-"},"bisiklet yaka":{"count":1,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"kısa","index":"2-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"mor","index":"155-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":1},{"keyword":"dik yaka","index":"177-","count":1}]}]

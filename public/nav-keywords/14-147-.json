@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":1,"group":"BOYU","index":"6-"},"etnik":{"count":2,"group":"DESENLI","index":"14-"},"ekru":{"count":2,"group":"RENK","index":"147-"},"pembe":{"count":1,"group":"RENK","index":"163-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":1}]},{"groupName":"DESENLI","keywords":[{"keyword":"etnik","index":"14-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"ekru","index":"147-","count":2},{"keyword":"pembe","index":"163-","count":1}]}]

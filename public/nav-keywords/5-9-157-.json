@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":3,"group":"BOYU","index":"5-"},"çiçekli":{"count":3,"group":"DESENLI","index":"9-"},"siyah":{"count":3,"group":"RENK","index":"157-"},"çiçek desen":{"count":1,"group":"DESENLI","index":"8-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":3}]},{"groupName":"DESENLI","keywords":[{"keyword":"çiçek desen","index":"8-","count":1},{"keyword":"çiçekli","index":"9-","count":3}]},{"groupName":"RENK","keywords":[{"keyword":"siyah","index":"157-","count":3}]}]

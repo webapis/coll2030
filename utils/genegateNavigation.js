@@ -166,7 +166,7 @@ async function genNav() {
 
       }
 
-    //  input.push({ navMatchCollection, title,subcategory })
+      //  input.push({ navMatchCollection, title,subcategory })
 
 
 
@@ -177,22 +177,62 @@ async function genNav() {
 
   fs.rmSync(`${process.cwd()}/public/nav-data`, { recursive: true, force: true });
 
-// await  Promise.all(input.map(({ navMatchCollection, title,subcategory }) => {
+  // await  Promise.all(input.map(({ navMatchCollection, title,subcategory }) => {
 
-//     return limit(() => workerPromise({ navMatchCollection, title,subcategory }))
-//   }))
-console.log('nav gen complete')
+  //     return limit(() => workerPromise({ navMatchCollection, title,subcategory }))
+  //   }))
+  console.log('nav gen complete')
   debugger
-
+  let regrouped = []
   for (let nk in navKeys) {
-    const current = navKeys[nk]
+    const { keywords } = navKeys[nk]
+    debugger
+    const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
+    debugger
+    const navKeywords = map.reduce((prev, curr) => {
+
+      if (prev[curr.group] === undefined) {
+        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count }] } }
+      } else {
+
+
+        return {
+          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count }] }
+        }
+      }
+
+    }, {})
+
+    const sorted = Object.entries(navKeywords).map((m, i) => {
+      const groupName = m[0]
+      debugger
+      const keywords = m[1]['keywords'].sort(function (a, b) {
+        var textA = a.keyword.toUpperCase();
+        var textB = b.keyword.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      })
+
+      return { groupName, keywords }
+    }).sort(function (a, b) {
+      var textA = a.groupName.toUpperCase();
+      var textB = b.groupName.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    })
+
+    regrouped.push({ index: nk, keywords: sorted })
+    debugger
     if (fs.existsSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)) {
       fs.unlinkSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)
     }
-    fs.appendFileSync(`${process.cwd()}/public/nav-keywords/${nk}.json`, JSON.stringify(current));
+    fs.appendFileSync(`${process.cwd()}/public/nav-keywords/${nk}.json`, JSON.stringify(sorted));
 
     debugger
   }
+
+  if (fs.existsSync(`${process.cwd()}/api/_files/kadin/nav-keywords.json`)) {
+    fs.unlinkSync(`${process.cwd()}/api/_files/kadin/nav-keywords.json`)
+  }
+  fs.appendFileSync(`${process.cwd()}/api/_files/kadin/nav-keywords.json`, JSON.stringify({regrouped}));
   debugger
   console.log('end....1')
 

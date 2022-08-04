@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":5,"group":"BOYU","index":"6-"},"kokteyl":{"count":5,"group":"MODEL","index":"113-"},"kırmızı":{"count":5,"group":"RENK","index":"151-"},"çiçekli":{"count":1,"group":"DESENLI","index":"9-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":5}]},{"groupName":"DESENLI","keywords":[{"keyword":"çiçekli","index":"9-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"kokteyl","index":"113-","count":5}]},{"groupName":"RENK","keywords":[{"keyword":"kırmızı","index":"151-","count":5}]}]

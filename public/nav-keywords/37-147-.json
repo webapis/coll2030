@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":1,"group":"BOYU","index":"6-"},"dokulu":{"count":3,"group":"KUMAŞ","index":"37-"},"havlu":{"count":1,"group":"KUMAŞ","index":"40-"},"ekru":{"count":3,"group":"RENK","index":"147-"},"midi":{"count":1,"group":"BOYU","index":"5-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1},{"keyword":"mini","index":"6-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"dokulu","index":"37-","count":3},{"keyword":"havlu","index":"40-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"ekru","index":"147-","count":3}]}]

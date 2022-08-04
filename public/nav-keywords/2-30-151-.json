@@ -1,1 +1,1 @@
-{"keywords":{"kısa":{"count":1,"group":"BOYU","index":"2-"},"kolsuz":{"count":1,"group":"KOLU","index":"30-"},"kırmızı":{"count":1,"group":"RENK","index":"151-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"kısa","index":"2-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"kırmızı","index":"151-","count":1}]}]

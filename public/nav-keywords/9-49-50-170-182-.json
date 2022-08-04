@@ -1,1 +1,1 @@
-{"keywords":{"çiçekli":{"count":3,"group":"DESENLI","index":"9-"},"maroken":{"count":6,"group":"KUMAŞ","index":"50-"},"kare yaka":{"count":3,"group":"YAKASI","index":"170-"},"v yaka":{"count":3,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"çiçekli","index":"9-","count":3}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"maroken","index":"50-","count":6}]},{"groupName":"YAKASI","keywords":[{"keyword":"kare yaka","index":"170-","count":3},{"keyword":"v yaka","index":"182-","count":3}]}]

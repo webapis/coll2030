@@ -1,1 +1,1 @@
-{"keywords":{"puantiye":{"count":2,"group":"DESENLI","index":"21-"},"uzun kollu":{"count":2,"group":"KOLU","index":"32-"},"maroken":{"count":4,"group":"KUMAŞ","index":"50-"},"dik yaka":{"count":2,"group":"YAKASI","index":"177-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"puantiye","index":"21-","count":2}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"maroken","index":"50-","count":4}]},{"groupName":"YAKASI","keywords":[{"keyword":"dik yaka","index":"177-","count":2}]}]

@@ -72,9 +72,7 @@ export default function HideAppBar(props) {
 
         {!matchedesktop && ([<KeywordListDrawer />, <ProductList />])}
         {!products.length>0  && !fetching && <Grid container sx={{display:'flex',justifyContent:'center'}}><Grid item xs={12} sm={6}> <SearchBox /></Grid></Grid>}
-        <Dialog  open={fetching  || fetchingKeywords}> <Box sx={{ display: 'flex',width:80,height:80 ,justifyContent:'center',alignItems:'center' }}>
-      <CircularProgress />
-    </Box></Dialog>
+     
       </div>
     </React.Fragment>
   );

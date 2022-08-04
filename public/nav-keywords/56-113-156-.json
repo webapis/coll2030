@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":1,"group":"BOYU","index":"5-"},"saten":{"count":1,"group":"KUMAŞ","index":"56-"},"kokteyl":{"count":1,"group":"MODEL","index":"113-"},"sarı":{"count":1,"group":"RENK","index":"156-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"saten","index":"56-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"kokteyl","index":"113-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"sarı","index":"156-","count":1}]}]

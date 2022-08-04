@@ -1,1 +1,1 @@
-{"keywords":{"çiçek desen":{"count":1,"group":"DESENLI","index":"8-"},"çiçekli":{"count":1,"group":"DESENLI","index":"9-"},"boyundan bağlamalı":{"count":1,"group":"MODEL","index":"78-"},"pembe":{"count":1,"group":"RENK","index":"163-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"çiçek desen","index":"8-","count":1},{"keyword":"çiçekli","index":"9-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"boyundan bağlamalı","index":"78-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"pembe","index":"163-","count":1}]}]

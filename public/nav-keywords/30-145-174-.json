@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":3,"group":"KOLU","index":"30-"},"beyaz":{"count":3,"group":"RENK","index":"145-"},"bisiklet yaka":{"count":3,"group":"YAKASI","index":"174-"},"uzun":{"count":1,"group":"BOYU","index":"7-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"uzun","index":"7-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":3}]},{"groupName":"RENK","keywords":[{"keyword":"beyaz","index":"145-","count":3}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":3}]}]

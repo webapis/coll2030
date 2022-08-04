@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":2,"group":"KOLU","index":"32-"},"gabardin":{"count":2,"group":"KUMAŞ","index":"38-"},"bisiklet yaka":{"count":2,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"gabardin","index":"38-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":2}]}]

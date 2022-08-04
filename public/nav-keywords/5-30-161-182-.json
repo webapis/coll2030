@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":2,"group":"BOYU","index":"5-"},"kolsuz":{"count":2,"group":"KOLU","index":"30-"},"mavi":{"count":2,"group":"RENK","index":"161-"},"v yaka":{"count":2,"group":"YAKASI","index":"182-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":2}]},{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"mavi","index":"161-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"v yaka","index":"182-","count":2}]}]

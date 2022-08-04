@@ -1,1 +1,1 @@
-{"keywords":{"deniz kabuğu":{"count":1,"group":"DESENLI","index":"13-"},"twill":{"count":1,"group":"KUMAŞ","index":"61-"},"ipek":{"count":1,"group":"KUMAŞ","index":"65-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"deniz kabuğu","index":"13-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"ipek","index":"65-","count":1},{"keyword":"twill","index":"61-","count":1}]}]

@@ -1,1 +1,1 @@
-{"keywords":{"uzun":{"count":2,"group":"BOYU","index":"7-"},"kloş":{"count":2,"group":"MODEL","index":"112-"},"kadife":{"count":1,"group":"KUMAŞ","index":"42-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"uzun","index":"7-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"kadife","index":"42-","count":1}]},{"groupName":"MODEL","keywords":[{"keyword":"kloş","index":"112-","count":2}]}]

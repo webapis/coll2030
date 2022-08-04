@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":17,"group":"BOYU","index":"6-"},"kahverengi":{"count":17,"group":"RENK","index":"160-"},"dokulu":{"count":2,"group":"KUMAŞ","index":"37-"},"triko":{"count":1,"group":"MODEL","index":"134-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":17}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"dokulu","index":"37-","count":2}]},{"groupName":"MODEL","keywords":[{"keyword":"triko","index":"134-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"kahverengi","index":"160-","count":17}]}]

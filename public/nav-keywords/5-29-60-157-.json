@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":1,"group":"BOYU","index":"5-"},"kısa kollu":{"count":1,"group":"KOLU","index":"29-"},"tül":{"count":1,"group":"KUMAŞ","index":"60-"},"siyah":{"count":1,"group":"RENK","index":"157-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"tül","index":"60-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"siyah","index":"157-","count":1}]}]

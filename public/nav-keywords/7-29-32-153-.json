@@ -1,1 +1,1 @@
-{"keywords":{"uzun":{"count":1,"group":"BOYU","index":"7-"},"kısa kollu":{"count":1,"group":"KOLU","index":"29-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"lacivert":{"count":1,"group":"RENK","index":"153-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"uzun","index":"7-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"kısa kollu","index":"29-","count":1},{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"lacivert","index":"153-","count":1}]}]

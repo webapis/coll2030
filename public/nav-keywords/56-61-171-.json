@@ -1,1 +1,1 @@
-{"keywords":{"midi":{"count":1,"group":"BOYU","index":"5-"},"saten":{"count":1,"group":"KUMAŞ","index":"56-"},"twill":{"count":1,"group":"KUMAŞ","index":"61-"},"kruvaze yaka":{"count":1,"group":"YAKASI","index":"171-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"midi","index":"5-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"saten","index":"56-","count":1},{"keyword":"twill","index":"61-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"kruvaze yaka","index":"171-","count":1}]}]

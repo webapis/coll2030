@@ -1,1 +1,1 @@
-{"keywords":{"çiçekli":{"count":1,"group":"DESENLI","index":"9-"},"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"şifon":{"count":1,"group":"KUMAŞ","index":"57-"},"dik yaka":{"count":1,"group":"YAKASI","index":"177-"}}}
+[{"groupName":"DESENLI","keywords":[{"keyword":"çiçekli","index":"9-","count":1}]},{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"şifon","index":"57-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"dik yaka","index":"177-","count":1}]}]

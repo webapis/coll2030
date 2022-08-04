@@ -4,7 +4,9 @@
     
     "api/kadin/data.js": {
         "includeFiles": "_files/kadin/*.json"
-    }
+    },
   
- 
+    "api/kadin/nav.js": {
+        "includeFiles": "_files/nav/*.json"
+    }
 }}

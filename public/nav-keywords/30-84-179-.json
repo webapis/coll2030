@@ -1,1 +1,1 @@
-{"keywords":{"kolsuz":{"count":4,"group":"KOLU","index":"30-"},"düz":{"count":4,"group":"MODEL","index":"84-"},"jean":{"count":1,"group":"MODEL","index":"100-"},"gömlek yaka":{"count":4,"group":"YAKASI","index":"179-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"kolsuz","index":"30-","count":4}]},{"groupName":"MODEL","keywords":[{"keyword":"düz","index":"84-","count":4},{"keyword":"jean","index":"100-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"gömlek yaka","index":"179-","count":4}]}]

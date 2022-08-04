@@ -1,1 +1,1 @@
-{"keywords":{"mini":{"count":2,"group":"BOYU","index":"6-"},"fuşya":{"count":2,"group":"RENK","index":"159-"},"kalp yaka":{"count":2,"group":"YAKASI","index":"169-"},"keten":{"count":1,"group":"KUMAŞ","index":"44-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"mini","index":"6-","count":2}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"keten","index":"44-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"fuşya","index":"159-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"kalp yaka","index":"169-","count":2}]}]

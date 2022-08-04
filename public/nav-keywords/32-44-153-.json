@@ -1,1 +1,1 @@
-{"keywords":{"uzun kollu":{"count":1,"group":"KOLU","index":"32-"},"keten":{"count":1,"group":"KUMAŞ","index":"44-"},"lacivert":{"count":1,"group":"RENK","index":"153-"}}}
+[{"groupName":"KOLU","keywords":[{"keyword":"uzun kollu","index":"32-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"keten","index":"44-","count":1}]},{"groupName":"RENK","keywords":[{"keyword":"lacivert","index":"153-","count":1}]}]

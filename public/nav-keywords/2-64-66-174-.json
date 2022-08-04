@@ -1,1 +1,1 @@
-{"keywords":{"kısa":{"count":1,"group":"BOYU","index":"2-"},"fitilli":{"count":1,"group":"KUMAŞ","index":"64-"},"pamuk":{"count":1,"group":"KUMAŞ","index":"66-"},"bisiklet yaka":{"count":1,"group":"YAKASI","index":"174-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"kısa","index":"2-","count":1}]},{"groupName":"KUMAŞ","keywords":[{"keyword":"fitilli","index":"64-","count":1},{"keyword":"pamuk","index":"66-","count":1}]},{"groupName":"YAKASI","keywords":[{"keyword":"bisiklet yaka","index":"174-","count":1}]}]

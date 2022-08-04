@@ -1,1 +1,1 @@
-{"keywords":{"kısa":{"count":2,"group":"BOYU","index":"2-"},"sarı":{"count":2,"group":"RENK","index":"156-"},"v yaka":{"count":1,"group":"YAKASI","index":"182-"},"kare yaka":{"count":1,"group":"YAKASI","index":"170-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"kısa","index":"2-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"sarı","index":"156-","count":2}]},{"groupName":"YAKASI","keywords":[{"keyword":"kare yaka","index":"170-","count":1},{"keyword":"v yaka","index":"182-","count":1}]}]

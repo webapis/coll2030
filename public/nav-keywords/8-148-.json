@@ -1,1 +1,1 @@
-{"keywords":{"maksi":{"count":1,"group":"BOYU","index":"3-"},"çiçek desen":{"count":2,"group":"DESENLI","index":"8-"},"gri":{"count":2,"group":"RENK","index":"148-"},"mini":{"count":1,"group":"BOYU","index":"6-"}}}
+[{"groupName":"BOYU","keywords":[{"keyword":"maksi","index":"3-","count":1},{"keyword":"mini","index":"6-","count":1}]},{"groupName":"DESENLI","keywords":[{"keyword":"çiçek desen","index":"8-","count":2}]},{"groupName":"RENK","keywords":[{"keyword":"gri","index":"148-","count":2}]}]
