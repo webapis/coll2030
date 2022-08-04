@@ -62,7 +62,7 @@ export default function KeywordsList() {
       <CircularProgress color="inherit"/>
     </Box></div>}
         <List
-        sx={{ width: '100%', width: 250, bgcolor: 'background.paper' }}
+        sx={{ width: '100%', bgcolor: 'background.paper', marginTop:2 }}
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={

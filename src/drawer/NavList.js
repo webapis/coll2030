@@ -1,16 +1,14 @@
 import * as React from 'react';
-
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Checkbox from '@mui/material/Checkbox';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/accordionSlice'
@@ -19,34 +17,26 @@ export default function NestedList({ groupName, keywords }) {
 
     const [open, setOpen] = React.useState(true);
 
-    const handleClick = () => {
-        setOpen(!open);
-    };
 
     return (
-        <List
-
-            component="nav"
-            aria-labelledby="nested-list-subheader"
-
+        <Accordion sx={{width:250,overflow:'auto'}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
         >
-
-            <ListItemButton onClick={handleClick}>
-                <ListItemIcon>
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText  primary={<Typography sx={{fontWeight:700}}>{groupName.toUpperCase()}</Typography>} />
-                {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding sx={{ paddingLeft: 0, maxHeight: 200, overflowY: 'auto' }}>
+          <Typography sx={{width:'100%'}}>{groupName}</Typography>
+      
+        </AccordionSummary>
+        <AccordionDetails>
+        <List component="div" disablePadding sx={{ paddingLeft: 0,overflowY: 'auto', maxHeight:300,overflow:'auto' }}>
                     {keywords && keywords.map((m, i) => {
                         const { keyword, index, count } = m;
                         return <RenderRow key={i} keyword={keyword} index={index} count={count} />
                     })}
                 </List>
-            </Collapse>
-        </List>
+        </AccordionDetails>
+      </Accordion>
     );
 }
 
