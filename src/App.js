@@ -15,10 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
 import SearchBox from './drawer/SearchBox'
-import Dialog from '@mui/material/Dialog';
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-import { Container } from '@mui/system';
+import SearchIcon from '@mui/icons-material/Search';
 import { Stack } from '@mui/material';
 export default function HideAppBar(props) {
   const { selectedSubcategory, displayFilter,products,fetching,fetchingKeywords } = useSelector(state => state.accordion)
@@ -51,6 +48,9 @@ export default function HideAppBar(props) {
             <Typography variant="h6" component="div">
               MODABURADA
             </Typography>
+            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+        <SearchIcon />
+      </IconButton>
           </Toolbar>
 
         </AppBar>

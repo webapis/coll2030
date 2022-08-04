@@ -4,8 +4,7 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
-import ViewComfyIcon from '@mui/icons-material/ViewComfy';
-import ViewModuleIcon from '@mui/icons-material/ViewModule';
+
 import { actions } from '../store/accordionSlice';
 import { useDispatch } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';

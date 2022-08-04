@@ -14,9 +14,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/accordionSlice'
 import { Typography } from '@mui/material';
 export default function NestedList({ groupName, keywords }) {
-
-    const [open, setOpen] = React.useState(true);
-
+    const dispatch = useDispatch()
+    
+    function handleClick({ index, keyword }) {
+        setTimeout(()=>{
+            dispatch(actions.setSelectedNavIndex({ index, keyword }))
+        },500)
+         
+        }
 
     return (
         <Accordion sx={{width:'100%',overflow:'auto'}}>
@@ -32,7 +37,7 @@ export default function NestedList({ groupName, keywords }) {
         <List component="div" disablePadding sx={{ paddingLeft: 0,overflowY: 'auto', maxHeight:300,overflow:'auto' }}>
                     {keywords && keywords.map((m, i) => {
                         const { keyword, index, count } = m;
-                        return <RenderRow key={i} keyword={keyword} index={index} count={count} />
+                        return <RenderRow handleClick={handleClick} key={i} keyword={keyword} index={index} count={count} />
                     })}
                 </List>
         </AccordionDetails>
@@ -43,19 +48,15 @@ export default function NestedList({ groupName, keywords }) {
 
 
 function RenderRow(props) {
-    const dispatch = useDispatch()
+
+    const {handleClick}=props
     const { selectedNavIndex } = useSelector(state => state.accordion)
     const { keyword, index, count } = props;
     const matchfound = selectedNavIndex.split('-').find(f => f === index.replace('-', '')) ? true : false
     if (matchfound) {
 
     }
-    function handleClick({ index, keyword }) {
-    setTimeout(()=>{
-        dispatch(actions.setSelectedNavIndex({ index, keyword }))
-    },500)
-     
-    }
+  
     return (
         <ListItem
             key={index}
