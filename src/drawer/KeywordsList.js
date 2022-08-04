@@ -15,7 +15,7 @@ export default function KeywordsList() {
     const dispatch = useDispatch()
   
     useEffect(()=>{
-        debugger
+        
         dispatch(actions.setFetchingKeywords(true))
 
     },[])
@@ -24,7 +24,7 @@ export default function KeywordsList() {
     useEffect(() => {
        
         if(fetchingKeywords){
-            debugger
+            
             if(selectedNavIndex===''){
                 fetchNavKeywords(`start`)
             }
@@ -43,10 +43,10 @@ export default function KeywordsList() {
       
          setTimeout(()=>{
             var url = `/api/kadin/nav?navindex=${selectedNavIndex}`
-            debugger
+            
             fetch(url).then((response) => response.json()).then(navKeywords => {
                 
-    debugger
+    
                 dispatch(actions.setNavkeywords({ navKeywords }))
     
             })
@@ -58,11 +58,11 @@ export default function KeywordsList() {
 
   
     return <div style={{position:'relative'}}>
-        {fetchingKeywords&& <div style={{width:'100%', height:'100vh', backgroundColor:'#fafafa', position:'absolute', top:0,bottom:0, zIndex:10, opacity:0.7, color:'secondary'}}>  <Box sx={{ display: 'flex', height:'100%', justifyContent:'center',alignItems:'center' }}>
+        {fetchingKeywords&& <div style={{width:'100%', height:'100vh', backgroundColor:'#fafafa', position:'absolute', top:0,bottom:0, zIndex:10, opacity:0.7, color:'white'}}>  <Box sx={{ display: 'flex', height:'100%', justifyContent:'center',alignItems:'center' }}>
       <CircularProgress color="inherit"/>
     </Box></div>}
         <List
-        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+        sx={{ width: '100%', width: 250, bgcolor: 'background.paper' }}
         component="nav"
         aria-labelledby="nested-list-subheader"
         subheader={

@@ -80,7 +80,7 @@ function RenderRow(props) {
                         edge="start"
                         checked={matchfound}
                         tabIndex={-1}
-                        disableRipple
+             
                         inputProps={{ 'aria-labelledby': "" }}
                     />
                 </ListItemIcon>

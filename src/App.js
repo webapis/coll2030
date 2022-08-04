@@ -18,6 +18,8 @@ import SearchBox from './drawer/SearchBox'
 import Dialog from '@mui/material/Dialog';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import { Container } from '@mui/system';
+import { Stack } from '@mui/material';
 export default function HideAppBar(props) {
   const { selectedSubcategory, displayFilter,products,fetching,fetchingKeywords } = useSelector(state => state.accordion)
 
@@ -57,18 +59,23 @@ export default function HideAppBar(props) {
 
       <div >
         <TemporaryDrawer />
-        {matchedesktop && selectedSubcategory && <Grid container>
-          <Grid item xs={2}>
+        {matchedesktop && selectedSubcategory &&     
+         <Stack>
+           <Grid container>
+
+          <Grid item xs={1} sx={{paddingLeft:5}}>
             <KeywordsList />
           </Grid>
 
 
-          <Grid item xs={10}>
+          <Grid item xs={11}>
 
             <ProductList />
           </Grid>
 
-        </Grid>}
+        </Grid>
+        </Stack>
+        }
 
         {!matchedesktop && ([<KeywordListDrawer />, <ProductList />])}
         {!products.length>0  && !fetching && <Grid container sx={{display:'flex',justifyContent:'center'}}><Grid item xs={12} sm={6}> <SearchBox /></Grid></Grid>}
