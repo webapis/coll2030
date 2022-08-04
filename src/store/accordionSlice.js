@@ -60,7 +60,7 @@ export const accordionSlice = createSlice({
       }
 
       
-
+      state.displayFilter = action.payload.displayFilter
       state.fetchingKeywords = true
       state.startAt = 0
      
@@ -77,73 +77,7 @@ export const accordionSlice = createSlice({
     setSubcategories: (state, action) => {
       state.subcategories = action.payload
     },
-    // setMainTab: (state, action) => {
-    //   state.selectedMainTab = action.payload
-    //   state.accordionMarkaValue = ''
-    //   state.accordionMarkaIsExpanded = true
-    //   state.selectedMarka = ''
-    //   state.accordionSubcategoryIsExpanded = true
-    //   state.totalSubcategory = 0
-    //   state.selectedSubcategory = ''
-    //   state.accordionKeywordsIsExpanded = true
-    //   state.selectedKeyword = ''
-    //   state.selectedKeywordTitle = ''
-    //   state.keywords = null
-    //   state.parentKeyword = null
-    //   state.childkeywords = []
-    //   state.totalKeyword = 0
-    //   state.accordionProductIsExpanded = true
-    //   //products
-    //   state.products = []
-    //   state.startAt = 0
-    //   state.fetching = false
-    
-    //   state.scrollHandled = false
-    //   state.fetchingKeywords = false
-    //   state.subcategories = []
-    //   state.markas = []
-    // },
-    // setAccordionMarka: (state, action) => {
-    //   state.accordionMarkaValue = action.payload
-    //   state.accordionmarkaIsExpanded = false
-    // },
 
-    // toggleAccordionMarka: (state, action) => {
-    //   state.accordionMarkaIsExpanded = !state.accordionMarkaIsExpanded
-    // },
-    // setMarka: (state, action) => {
-    //   if (state.selectedMarka !== action.payload) {
-    //     state.selectedMarka = action.payload
-    //     state.accordionMarkaIsExpanded = false
-    //     state.products = []
-    //     state.totalSubcategory = 0
-    //     state.selectedSubcategory = ''
-    //     state.accordionSubcategoryIsExpanded = true
-
-    //     state.keywords = null
-    //     state.parentKeyword = null
-    //     state.childkeywords = []
-    //     state.totalKeyword = ''
-    //     state.selectedKeyword = ''
-    //     state.selectedKeywordTitle = ''
-    //     state.accordionKeywordsIsExpanded = true
-    //     state.subcategories = []
-
-    //     state.startAt = 0
-    //     state.fetching = false
-    //     state.scrollHandled = false
-
-    //   } else {
-
-    //     state.accordionMarkaIsExpanded = false
-    //   }
-
-
-
-    // },
-    // toggleAccordionSubcategory: (state, action) => {
-    //   state.accordionSubcategoryIsExpanded = !state.accordionSubcategoryIsExpanded
-    // },
 
     setSubcategory: (state, action) => {
       if(state.selectedSubcategory!==action.payload.subcategory){
@@ -185,9 +119,8 @@ export const accordionSlice = createSlice({
       state.accordionKeywordsIsExpanded = false
 
     },
-    // toggleAccordionKeywords: (state, action) => {
-    //   state.accordionKeywordsIsExpanded = !state.accordionKeywordsIsExpanded
-    // },
+
+    
 
     setKeywords: (state, action) => {
       state.keywords = action.payload

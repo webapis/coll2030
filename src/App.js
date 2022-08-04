@@ -18,7 +18,7 @@ import SearchBox from './drawer/SearchBox'
 import SearchIcon from '@mui/icons-material/Search';
 import { Stack } from '@mui/material';
 export default function HideAppBar(props) {
-  const { selectedSubcategory, displayFilter,products,fetching,fetchingKeywords } = useSelector(state => state.accordion)
+  const { selectedSubcategory,products,fetching } = useSelector(state => state.accordion)
 
   const matchedesktop = useMediaQuery('(min-width:600px)');
 
@@ -77,7 +77,7 @@ export default function HideAppBar(props) {
         </Stack>
         }
 
-        {!matchedesktop && ([<KeywordListDrawer />, <ProductList />])}
+        {!matchedesktop && ([<KeywordListDrawer style={{width:300}}/>, <ProductList />])}
         {!products.length>0  && !fetching && <Grid container sx={{display:'flex',justifyContent:'center'}}><Grid item xs={12} sm={6}> <SearchBox /></Grid></Grid>}
      
       </div>

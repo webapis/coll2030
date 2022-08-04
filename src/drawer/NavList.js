@@ -13,12 +13,15 @@ import Checkbox from '@mui/material/Checkbox';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../store/accordionSlice'
 import { Typography } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 export default function NestedList({ groupName, keywords }) {
+const matchedesktop = useMediaQuery('(min-width:600px)');
+
     const dispatch = useDispatch()
     
     function handleClick({ index, keyword }) {
         setTimeout(()=>{
-            dispatch(actions.setSelectedNavIndex({ index, keyword }))
+            dispatch(actions.setSelectedNavIndex({ index, keyword,displayFilter:!matchedesktop ?false:true }))
         },500)
          
         }
