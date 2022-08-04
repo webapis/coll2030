@@ -42,28 +42,30 @@ export default function ImageComponent(props) {
   var minutes = Math.floor((minutesdiff / 1000) / 60);
   var days = Math.floor(minutesdiff / (1000 * 60 * 60 * 24));
   var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
-  useEffect(() => {
+  // useEffect(() => {
    
 
-      if (window.IntersectionObserver) {
+  //     if (window.IntersectionObserver) {
 
-        let observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
+  //       let observer = new IntersectionObserver((entries, observer) => {
+  //         entries.forEach(entry => {
+  //           if (entry.isIntersecting) {
   
-              entry.target.src = entry.target.dataset.src;
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        window.obz = observer
-        window.obz.observe(imageEl.current)
-      }
+  //             entry.target.src = entry.target.dataset.src;
+  //             observer.unobserve(entry.target);
+  //           }
+  //         });
+  //       }, { threshold: 0.1 });
+  //       window.obz = observer
+  //       window.obz.observe(imageEl.current)
+  //     }
 
     
 
 
-  }, []);
+  // }, []);
+  
+
 
   // function  addDefaultSrc(ev){
   //     ev.target.src =placeholders[props.marka].imageHost.trim() + props.imageUrl
