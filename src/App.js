@@ -63,12 +63,12 @@ export default function HideAppBar(props) {
          <Stack>
            <Grid container>
 
-          <Grid item xs={1} sx={{paddingLeft:5}}>
+          <Grid item xs={2} sx={{paddingLeft:5}}>
             <KeywordsList />
           </Grid>
 
 
-          <Grid item xs={11}>
+          <Grid item xs={10}>
 
             <ProductList />
           </Grid>

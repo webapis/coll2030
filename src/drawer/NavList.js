@@ -19,13 +19,13 @@ export default function NestedList({ groupName, keywords }) {
 
 
     return (
-        <Accordion sx={{width:250,overflow:'auto'}}>
+        <Accordion sx={{width:'100%',overflow:'auto'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography sx={{width:'100%'}}>{groupName}</Typography>
+          <Typography  variant="button" sx={{width:'100%', fontWeight:700}}>{groupName}</Typography>
       
         </AccordionSummary>
         <AccordionDetails>
