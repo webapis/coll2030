@@ -14,11 +14,13 @@ import Grid from '@mui/material/Grid'
 import SearchBox from './drawer/SearchBox'
 import { Stack } from '@mui/material';
 const { categories } = CategoryNav[0]['nav']
+
 export const AppContext = React.createContext();
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
+    
+     
     this.toggleDrawer = (open) => {
       this.setState(state => ({
         open: !state.open
@@ -54,7 +56,7 @@ export default class App extends React.Component {
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
-      matchedesktop: true,
+      matchedesktop: (600< window.innerWidth ) ,
       open: false,
       toggleDrawer: this.toggleDrawer,
       subcategories: [], selectSubcategory: this.selectSubcategory,
@@ -82,7 +84,8 @@ export default class App extends React.Component {
     }
 
     if ( (selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
-      this.setState((state) => ({ ...state, fetchingProduct: true, fetchingKeywords: true }))
+      
+      this.setState((state) => ({ ...state, fetchingProduct: true,products:[], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       this.fetchNavKeywords(selectedNavIndex)
     }
@@ -107,18 +110,18 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    debugger
-    const { selectSubcategory: { subcategory}, selectedMarka, selectedNavIndex } = this.state
-    debugger
+    
+    const { selectedSubcategory: { subcategory}, selectedMarka, selectedNavIndex } = this.state
+    
     var url = '/api/kadin/data?start=' + start + '&subcategory=' + subcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
-    debugger
-debugger
+    
+
     return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
       return data
     })
       .then((data) => {
         var products = data.data
-        debugger
+        
         //const fetchAllComplete = [...products, ...collection].length === totalKeyword
         this.setState(state => ({
           ...state, products: state.startAt === 0 ? products : [...state.products, products], fetchingProduct: false
@@ -126,7 +129,7 @@ debugger
 
       })
       .catch(function (err) {
-        debugger
+        
         console.log('err', err)
         return err
       })
@@ -141,7 +144,7 @@ debugger
 
     fetch(url).then((response) => response.json()).then(navKeywords => {
 
-      debugger
+      
       this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords }))
 
     })
@@ -156,7 +159,7 @@ debugger
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
 
-      <div >
+      <div>
         <TemporaryDrawer />
         {matchedesktop && selectedSubcategory &&
           <Stack>
@@ -177,7 +180,7 @@ debugger
         }
 
         {!matchedesktop && ([<KeywordListDrawer style={{ width: 300 }} />, <ProductList />])}
-        {!products.length > 0 && !fetching && <Grid container sx={{ display: 'flex', justifyContent: 'center' }}><Grid item xs={12} sm={6}> <SearchBox /></Grid></Grid>}
+
 
       </div>
     </AppContext.Provider>)

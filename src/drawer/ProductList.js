@@ -64,7 +64,7 @@ export default function ProductList(props) {
 
   return (
     <AppContext.Consumer>
-      {({ fetchingProducts, products,selectedSubcategory:{subcategory} }) => {
+      {({ fetchingProducts, products,selectedSubcategory}) => {
         return <div style={{ position: 'relative' }}>
 
           {fetchingProducts && <div style={{ width: '100%', height: '100vh', backgroundColor: '#fafafa', position: 'absolute', top: 0, bottom: 0, zIndex: 10, opacity: 0.7, color: 'white' }}>  <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
@@ -82,7 +82,7 @@ export default function ProductList(props) {
 
                 return <Grid margin={0} padding={0} item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
 
-                  <ImageComponent selectedSubcategory={subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
+                  <ImageComponent selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 
                 </Grid>
               })}

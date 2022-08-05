@@ -12,8 +12,7 @@ import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import App, { AppContext } from '../App';
 export default function KeywordsList() {
-    const { navKeywords, selectedNavIndex, selectedKeywords, fetchingKeywords } = useSelector(state => state.accordion)
-    const dispatch = useDispatch()
+
 
     // useEffect(() => {
 
@@ -41,7 +40,7 @@ export default function KeywordsList() {
     // }, [fetchingKeywords])
     function handleRemoveIndex({ index, keyword }) {
 
-        dispatch(actions.setSelectedNavIndex({ index, keyword }))
+       // dispatch(actions.setSelectedNavIndex({ index, keyword }))
     }
     // function fetchNavKeywords(selectedNavIndex) {
 
@@ -67,12 +66,12 @@ export default function KeywordsList() {
     // }
 
     return <AppContext.Consumer>{
-        (({ navKeywords, selectedKeywords }) => {
+        (({ navKeywords, selectedKeywords,fetchingKeywords }) => {
             if(navKeywords.length>0){
-                debugger
+                
             }
             if(selectedKeywords.length>0){
-                debugger
+                
             }
          
             return <div style={{ position: 'relative' }}>
