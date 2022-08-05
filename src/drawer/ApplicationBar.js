@@ -6,12 +6,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { AppContext } from '../App';
+import FilterListIcon from '@mui/icons-material/FilterList';
 export default function AppBarContainer() {
 
     return (
 
 <AppContext.Consumer>
-{(({toggleDrawer})=>{
+{(({toggleDrawer,toggleFilterDrawer})=>{
   return  <AppBar color="" position='static'>
   <Toolbar>
     <IconButton
@@ -30,6 +31,10 @@ export default function AppBarContainer() {
     <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
       <SearchIcon />
     </IconButton>
+    <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
+          <FilterListIcon />
+        </IconButton>
+
   </Toolbar>
 
 </AppBar>

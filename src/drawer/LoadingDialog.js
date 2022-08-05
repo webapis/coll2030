@@ -6,7 +6,7 @@ export default function LoadingDialog(props) {
 
 
 
-    return <div style={{ width: '100%', height: '100%', backgroundColor: '#546e7a', opacity: 0.7,color:'white' }}>
+    return <div style={{ width: '100%', height: '100vh', backgroundColor: '#fafafa', opacity: 0.7,color:'white',display:'flex',justifyContent:'center',alignItems:'center' }}>
         <Box>
         <CircularProgress />
         </Box>

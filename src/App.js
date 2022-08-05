@@ -7,6 +7,7 @@ import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
 import { Stack } from '@mui/material';
+import LoadingDialog from './drawer/LoadingDialog';
 const { categories } = CategoryNav[0]['nav']
 
 export const AppContext = React.createContext();
@@ -48,7 +49,7 @@ export default class App extends React.Component {
           selectedNavIndex = state.selectedNavIndex.concat(index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
           selectedKeywords = [...state.selectedKeywords, { keyword, index }]
         }
-        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords,fetchingKeywords:true }
+        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true }
       })
     }
 
@@ -87,7 +88,10 @@ export default class App extends React.Component {
       if (selectedNavIndex === '') {
         this.fetchNavKeywords('start')
       } else {
-        this.fetchNavKeywords(selectedNavIndex)
+        setTimeout(() => {
+          this.fetchNavKeywords(selectedNavIndex)
+        }, 100)
+
       }
 
     }
@@ -156,24 +160,26 @@ export default class App extends React.Component {
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory } = this.state
+    const { matchedesktop, selectedSubcategory,fetchingKeywords,fetchingProduct } = this.state
 
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-        {matchedesktop && selectedSubcategory &&
-          <Stack>
-            <Grid container>
-              <Grid item xs={2} sx={{ paddingLeft: 5 }}>
-                <KeywordsList />
-              </Grid>
-              <Grid item xs={10}>
-                <ProductList />
-              </Grid>
+      {matchedesktop && selectedSubcategory &&
+        <Stack>
+          <Grid container>
+            <Grid item xs={2} sx={{ paddingLeft: 5 }}>
+              <KeywordsList />
             </Grid>
-          </Stack>
-        }
-        {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} />, <ProductList /></div>)}    
+            <Grid item xs={10}>
+              <ProductList />
+            </Grid>
+          </Grid>
+        </Stack>
+      }
+      {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
+      {fetchingProduct || fetchingKeywords &&  <LoadingDialog loading={true} /> }
+     
     </AppContext.Provider>)
   }
 }
