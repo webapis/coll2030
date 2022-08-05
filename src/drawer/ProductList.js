@@ -67,9 +67,9 @@ export default function ProductList(props) {
       {({ fetchingProducts, products,selectedSubcategory}) => {
         return <div style={{ position: 'relative' }}>
 
-          {fetchingProducts && <div style={{ width: '100%', height: '100vh', backgroundColor: '#fafafa', position: 'absolute', top: 0, bottom: 0, zIndex: 10, opacity: 0.7, color: 'white' }}>  <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ display: fetchingProducts ? 'block' : 'none', width: '100%', height: '100vh', backgroundColor: '#fafafa', position: 'absolute', top: 0, bottom: 0, zIndex: 10, opacity: 0.7, color: 'white' }}>  <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
             <CircularProgress color="inherit" />
-          </Box></div>}
+          </Box></div>
 
           <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
 

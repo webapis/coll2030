@@ -48,7 +48,7 @@ export default class App extends React.Component {
           selectedNavIndex = state.selectedNavIndex.concat(index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
           selectedKeywords = [...state.selectedKeywords, { keyword, index }]
         }
-        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords }
+        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords,fetchingKeywords:true }
       })
     }
 
@@ -76,7 +76,7 @@ export default class App extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     const { selectedSubcategory, selectedNavIndex, startAt } = this.state
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
-      this.setState((state) => ({ ...state, fetchingProduct: true, fetchingKeywords: true }))
+      this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('start')
     }
