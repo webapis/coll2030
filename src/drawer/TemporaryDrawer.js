@@ -3,11 +3,10 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 
 import { useSelector } from 'react-redux';
-
+import { AppContext } from '../App';
 import SubcategoryList from './SubcategoryList'
 export default function TemporaryDrawer() {
 
-  const drawerOpen = useSelector(state => state.accordion.drawerOpen)
 
 
 
@@ -22,23 +21,22 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div>
-      {
-        <React.Fragment>
+    <AppContext.Consumer>
+      {({ open, toggleDrawer }) => {
+        return <React.Fragment>
 
           <Drawer
 
-            open={drawerOpen}
+            open={open}
 
-            onClose={() => {
-              
-              
-            }}
+            onClose={toggleDrawer}
           >
             {list()}
           </Drawer>
         </React.Fragment>
       }
-    </div>
+
+      }
+    </AppContext.Consumer>
   );
 }

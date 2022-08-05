@@ -9,10 +9,11 @@ const data = require('../_files/kadin/data.json')
 const allkeywords = require(`${process.cwd()}/api/_files/kadin/keywords.json`)
 module.exports = (req, res) => {
   const { subcategory, start, marka, search, selectedNavIndex } = req.query
+  debugger
   const startAt = parseInt(start)
   var products = TAFFY(data);
   
-  const filterBySub = subcategory === '' ? {} : { subcategory }
+  const filterBySub = subcategory === 'undefined' ? {} : { subcategory }
 
 
   const filterByKeyword = selectedNavIndex === '' ? function () { return true } : function filterByKeyword() {
