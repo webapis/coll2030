@@ -4,24 +4,20 @@ const initialState = {
 
 
   drawerOpen: false,
-  accordionMarkaValue: '',
-  accordionMarkaIsExpanded: true,
+
   selectedMarka: '',
-  accordionSubcategoryIsExpanded: true,
+
   totalSubcategory: 0,
   selectedSubcategory: '',
-  accordionKeywordsIsExpanded: true,
   selectedKeyword: '',
   selectedKeywordTitle: '',
   keywords: null,
   totalKeyword: 0,
-  accordionProductIsExpanded: true,
   selectedMainTab: 0,
   //products
   products: [],
   startAt: 0,
   fetching: false,
-
   scrollHandled: false,
   fetchingKeywords: false,
   parentKeyword: null,
@@ -85,7 +81,6 @@ export const accordionSlice = createSlice({
         state.drawerOpen = !state.drawerOpen
         state.selectedSubcategory = action.payload.subcategory
         state.totalSubcategory = action.payload.totalSubcategory
-        state.accordionSubcategoryIsExpanded = false
         state.products = []
         state.keywords = null
         state.parentKeyword = null
@@ -93,8 +88,6 @@ export const accordionSlice = createSlice({
         state.totalKeyword = ''
         state.selectedKeyword = ''
         state.selectedKeywordTitle = ''
-        state.accordionKeywordsIsExpanded = true
-        state.accordionSubcategoryIsExpanded = false
         state.startAt = 0
         state.fetching = false
         state.scrollHandled = false
@@ -106,20 +99,7 @@ export const accordionSlice = createSlice({
 
 
     },
-    setSelectedKeyword: (state, action) => {
-      state.products = []
-      state.startAt = 0
-      state.fetching = false
-      state.scrollHandled = false
-      state.selectedKeyword = action.payload.keyword
-      state.selectedKeywordTitle = action.payload.title
-      state.parentKeyword = action.payload.parentKeyword
-      state.childkeywords = action.payload.childkeywords
-      state.totalKeyword = action.payload.total
-      state.accordionKeywordsIsExpanded = false
-
-    },
-
+ 
     
 
     setKeywords: (state, action) => {
@@ -132,7 +112,9 @@ export const accordionSlice = createSlice({
       state.fetchingKeywords = action.payload
     },
     setFetchState: (state, action) => {
-   
+        if(state.startAt==0){
+          state.products=[]
+        }
       state.fetching = action.payload
     },
 
