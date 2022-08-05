@@ -8,34 +8,38 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { actions } from '../store/accordionSlice';
 import { useDispatch } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { AppContext } from '../App';
 export default function SearchBox() {
   const matchedesktop = useMediaQuery('(min-width:600px)');
-  const dispatch =useDispatch()
-  
-  function showFilter(e){
+  const dispatch = useDispatch()
+
+  function showFilter(e) {
     e.preventDefault()
     dispatch(actions.setDisplayFilter(true))
   }
   return (
-    <Paper
-      component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:'100%' }}
-    >
+    <AppContext.Consumer>{({ toggleFilterDrawer }) => {
+      return <Paper
+        component="form"
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' }}
+      >
 
-      <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder="Ürün ara"
-        inputProps={{ 'aria-label': 'search google maps' }}
-      />
-   
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-      {!matchedesktop &&    <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={showFilter}>
-        <FilterListIcon />
-      </IconButton>}
-   
- 
-    </Paper>
+        <InputBase
+          sx={{ ml: 1, flex: 1 }}
+          placeholder="Ürün ara"
+          inputProps={{ 'aria-label': 'search google maps' }}
+        />
+
+        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+          <SearchIcon />
+        </IconButton>
+        {!matchedesktop && <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
+          <FilterListIcon />
+        </IconButton>}
+
+
+      </Paper>
+    }}</AppContext.Consumer>
+
   );
 }

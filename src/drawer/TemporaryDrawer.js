@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-
-import { useSelector } from 'react-redux';
 import { AppContext } from '../App';
 import SubcategoryList from './SubcategoryList'
 export default function TemporaryDrawer() {

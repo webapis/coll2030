@@ -10,13 +10,13 @@ import ListItemText from '@mui/material/ListItemText';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Checkbox from '@mui/material/Checkbox';
-import { useDispatch, useSelector } from 'react-redux';
+
 
 import { Typography } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
+
 import { AppContext } from '../App';
 export default function NestedList({ groupName, keywords }) {
-    const matchedesktop = useMediaQuery('(min-width:600px)');
+
 
 
 
@@ -34,7 +34,7 @@ export default function NestedList({ groupName, keywords }) {
                 <List component="div" disablePadding sx={{ paddingLeft: 0, overflowY: 'auto', maxHeight: 300, overflow: 'auto' }}>
                     {keywords && keywords.map((m, i) => {
                         const { keyword, index, count } = m;
-                        return <AppContext.Consumer>{({ setSelectedNavIndex, selectedNavIndex }) => {
+                        return <AppContext.Consumer key={i}>{({ setSelectedNavIndex, selectedNavIndex }) => {
 
                             return <RenderRow handleClick={setSelectedNavIndex} selectedNavIndex={selectedNavIndex} key={i} keyword={keyword} index={index} count={count} />
 

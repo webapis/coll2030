@@ -5,13 +5,13 @@ import * as React from 'react';
 import CategoryNav from './category-nav.json'
 
 import KeywordListDrawer from './drawer/KeywordListDrawer'
-import useMediaQuery from '@mui/material/useMediaQuery';
+
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
 import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-import SearchBox from './drawer/SearchBox'
+
 import { Stack } from '@mui/material';
 const { categories } = CategoryNav[0]['nav']
 
@@ -19,11 +19,16 @@ export const AppContext = React.createContext();
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    
-     
+
+
     this.toggleDrawer = (open) => {
       this.setState(state => ({
         open: !state.open
+      }));
+    };
+    this.toggleFilterDrawer = (open) => {
+      this.setState(state => ({
+        ...state, filterDrawerIsOpen: !state.filterDrawerIsOpen
       }));
     };
 
@@ -48,7 +53,7 @@ export default class App extends React.Component {
           selectedNavIndex = state.selectedNavIndex.concat(index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
           selectedKeywords = [...state.selectedKeywords, { keyword, index }]
         }
-        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords }
+        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords,filterDrawerIsOpen:false }
       })
     }
 
@@ -56,7 +61,7 @@ export default class App extends React.Component {
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
-      matchedesktop: (600< window.innerWidth ) ,
+      matchedesktop: (600 < window.innerWidth),
       open: false,
       toggleDrawer: this.toggleDrawer,
       subcategories: [], selectSubcategory: this.selectSubcategory,
@@ -65,29 +70,31 @@ export default class App extends React.Component {
       selectedNavIndex: '',
       selectedKeywords: [],
       navKeywords: [],
+      toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex
     }
-
-
-
   }
 
   componentDidMount() {
     this.loadSubcategories()
   }
   componentDidUpdate(prevProps, prevState) {
-    const { selectedSubcategory, selectedNavIndex,startAt } = this.state
+    const { selectedSubcategory, selectedNavIndex, startAt } = this.state
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
       this.setState((state) => ({ ...state, fetchingProduct: true, fetchingKeywords: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('start')
     }
 
-    if ( (selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
-      
-      this.setState((state) => ({ ...state, fetchingProduct: true,products:[], fetchingKeywords: true }))
+    if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
+      this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
-      this.fetchNavKeywords(selectedNavIndex)
+      if (selectedNavIndex === '') {
+        this.fetchNavKeywords('start')
+      } else {
+        this.fetchNavKeywords(selectedNavIndex)
+      }
+
     }
   }
   loadSubcategories() {
@@ -110,18 +117,18 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    
-    const { selectedSubcategory: { subcategory}, selectedMarka, selectedNavIndex } = this.state
-    
+
+    const { selectedSubcategory: { subcategory }, selectedMarka, selectedNavIndex } = this.state
+
     var url = '/api/kadin/data?start=' + start + '&subcategory=' + subcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
-    
+
 
     return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
       return data
     })
       .then((data) => {
         var products = data.data
-        
+
         //const fetchAllComplete = [...products, ...collection].length === totalKeyword
         this.setState(state => ({
           ...state, products: state.startAt === 0 ? products : [...state.products, products], fetchingProduct: false
@@ -129,7 +136,7 @@ export default class App extends React.Component {
 
       })
       .catch(function (err) {
-        
+
         console.log('err', err)
         return err
       })
@@ -144,7 +151,7 @@ export default class App extends React.Component {
 
     fetch(url).then((response) => response.json()).then(navKeywords => {
 
-      
+
       this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords }))
 
     })
@@ -154,7 +161,7 @@ export default class App extends React.Component {
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory, products, fetching } = this.state
+    const { matchedesktop, selectedSubcategory } = this.state
 
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
