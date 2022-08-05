@@ -1,21 +1,16 @@
 import * as React from 'react';
-
-
-
 import CategoryNav from './category-nav.json'
-
 import KeywordListDrawer from './drawer/KeywordListDrawer'
-
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
 import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-
 import { Stack } from '@mui/material';
 const { categories } = CategoryNav[0]['nav']
 
 export const AppContext = React.createContext();
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);

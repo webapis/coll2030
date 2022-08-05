@@ -22,10 +22,10 @@ export default function SearchBox() {
           inputProps={{ 'aria-label': 'search google maps' }}
         />
 
-        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+        <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
           <SearchIcon />
         </IconButton>
-        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
+        <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
           <FilterListIcon />
         </IconButton>
 
