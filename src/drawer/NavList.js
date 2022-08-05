@@ -36,7 +36,7 @@ export default function NestedList({ groupName, keywords }) {
                         const { keyword, index, count } = m;
                         return <AppContext.Consumer key={i}>{({ setSelectedNavIndex, selectedNavIndex }) => {
 
-                            return <RenderRow handleClick={setSelectedNavIndex} selectedNavIndex={selectedNavIndex} key={i} keyword={keyword} index={index} count={count} />
+                            return <RenderRow handleClick={setSelectedNavIndex} selectedNavIndex={selectedNavIndex} key={index} keyword={keyword} index={index} count={count} />
 
                         }}</AppContext.Consumer>
                     })}

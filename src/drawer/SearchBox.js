@@ -4,19 +4,11 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
-
-import { actions } from '../store/accordionSlice';
-import { useDispatch } from 'react-redux';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { AppContext } from '../App';
 export default function SearchBox() {
-  const matchedesktop = useMediaQuery('(min-width:600px)');
-  const dispatch = useDispatch()
 
-  function showFilter(e) {
-    e.preventDefault()
-    dispatch(actions.setDisplayFilter(true))
-  }
+
+
   return (
     <AppContext.Consumer>{({ toggleFilterDrawer }) => {
       return <Paper
@@ -33,9 +25,9 @@ export default function SearchBox() {
         <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
           <SearchIcon />
         </IconButton>
-        {!matchedesktop && <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
+        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
           <FilterListIcon />
-        </IconButton>}
+        </IconButton>
 
 
       </Paper>

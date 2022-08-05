@@ -165,31 +165,20 @@ export default class App extends React.Component {
 
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
-
-      <div>
-        <TemporaryDrawer />
+      <TemporaryDrawer />
         {matchedesktop && selectedSubcategory &&
           <Stack>
             <Grid container>
-
               <Grid item xs={2} sx={{ paddingLeft: 5 }}>
                 <KeywordsList />
               </Grid>
-
-
               <Grid item xs={10}>
-
                 <ProductList />
               </Grid>
-
             </Grid>
           </Stack>
         }
-
-        {!matchedesktop && ([<KeywordListDrawer style={{ width: 300 }} />, <ProductList />])}
-
-
-      </div>
+        {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} />, <ProductList /></div>)}    
     </AppContext.Provider>)
   }
 }

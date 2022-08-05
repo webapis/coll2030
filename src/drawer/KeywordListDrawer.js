@@ -10,7 +10,7 @@ export default function KeywordListDrawer() {
     return <AppContext.Consumer>{({ toggleFilterDrawer, filterDrawerIsOpen }) => {
 
         return <Drawer sx={{ width: 400, display: 'flex' }} open={filterDrawerIsOpen} onClose={toggleFilterDrawer}>
-            <KeywordsList style={{ flex: 1 }} />
+            <KeywordsList  style={{ flex: 1 }} />
         </Drawer>
     }}</AppContext.Consumer>
 }
