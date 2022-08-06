@@ -64,7 +64,7 @@ export default function ProductList(props) {
 
   return (
     <AppContext.Consumer>
-      {({ fetchingProducts, products,selectedSubcategory}) => {
+      {({ fetchingProducts, products,selectedSubcategory,navKeywords}) => {
         return <div style={{ position: 'relative' }}>
 
           <div style={{ display: fetchingProducts ? 'block' : 'none', width: '100%', height: '100vh', backgroundColor: '#fafafa', position: 'absolute', top: 0, bottom: 0, zIndex: 10, opacity: 0.7, color: 'white' }}>  <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
@@ -72,7 +72,7 @@ export default function ProductList(props) {
           </Box></div>
 
           <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
-          <CarouselContainer/>
+          {navKeywords.length>0 && <CarouselContainer navKeywords={navKeywords}/>}
             <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
           
       
