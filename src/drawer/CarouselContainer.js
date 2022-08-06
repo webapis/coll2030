@@ -13,13 +13,36 @@ export default function CarouselContainer() {
 
     return <Swiper 
         modules={[Navigation, Pagination, Scrollbar,Mousewheel]}
-     
+       
+        loop={true}
+    
         navigation={true}
         pagination={true}
         mousewheel={true}
         keyboard={true}
-        spaceBetween={5}
-        slidesPerView={5}
+  
+  
+
+        breakpoints={{
+            300: {
+                loopFillGroupWithBlank:true,
+                slidesPerGroup:3,
+              slidesPerView: 3,
+              spaceBetween: 5,
+            },
+            768: {
+                loopFillGroupWithBlank:true,
+                slidesPerGroup:4,
+              slidesPerView: 4,
+              spaceBetween: 5,
+            },
+            1024: {
+                loopFillGroupWithBlank:true,
+                slidesPerGroup:5,
+              slidesPerView: 5,
+              spaceBetween: 5,
+            },
+          }}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
     >
@@ -31,6 +54,10 @@ export default function CarouselContainer() {
         <SwiperSlide>Slide 6</SwiperSlide>
         <SwiperSlide>Slide 7</SwiperSlide>
         <SwiperSlide>Slide 8</SwiperSlide>
+        <SwiperSlide>Slide 9</SwiperSlide>
+
+        <SwiperSlide>Slide 10</SwiperSlide>
+
 
     </Swiper>
 
