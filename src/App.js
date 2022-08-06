@@ -151,7 +151,7 @@ export default class App extends React.Component {
 
     fetch(url).then((response) => response.json()).then(navKeywords => {
 
-debugger
+
       this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords }))
 
     })

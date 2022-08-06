@@ -13,7 +13,7 @@ export default function CarouselContainer(props) {
 
     const { navKeywords } = props
     const fattened = navKeywords.map(m => m.keywords).flat().filter(f => f.count > 300)
-    debugger
+    
     return <Swiper
         modules={[Navigation, Pagination, Scrollbar, Mousewheel]}
 
@@ -51,7 +51,7 @@ export default function CarouselContainer(props) {
     >
         {fattened.map((m) => {
             const imageUrl = placeholders[m.marka].imageHost + m.imageUrl
-            debugger
+            
             return <SwiperSlide style={{ display: 'flex', flexDirection: 'column' }}>
                 <div>
                 <div><img src={imageUrl} width="px" height="50px" /> </div>
