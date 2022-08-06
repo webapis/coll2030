@@ -7,7 +7,7 @@ module.exports = (req, res) => {
   const { subcategory, navindex } = req.query
 
   var navkeywords = TAFFY(data);
-
+debugger
   const {keywords}= navkeywords().filter({index:navindex}).get()[0]
 
 

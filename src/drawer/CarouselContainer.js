@@ -7,11 +7,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/bundle'
 import './carouselstyle.css'
-
+import placeholders from "./imageComponent/placeholders";
+import { Typography } from "@mui/material";
 export default function CarouselContainer(props) {
 
     const { navKeywords } = props
-    const fattened =navKeywords.map(m=>m.keywords).flat().filter(f=>f.count>300)
+    const fattened = navKeywords.map(m => m.keywords).flat().filter(f => f.count > 300)
     debugger
     return <Swiper
         modules={[Navigation, Pagination, Scrollbar, Mousewheel]}
@@ -47,8 +48,21 @@ export default function CarouselContainer(props) {
         }}
         onSlideChange={() => console.log('slide chang')}
         onSwiper={(swiper) => console.log(swiper)}
-    >   
-    {fattened.map((m)=> <SwiperSlide>{m.keyword}</SwiperSlide>  )}
+    >
+        {fattened.map((m) => {
+            const imageUrl = placeholders[m.marka].imageHost + m.imageUrl
+            debugger
+            return <SwiperSlide style={{ display: 'flex', flexDirection: 'column' }}>
+                <div>
+                <div><img src={imageUrl} width="px" height="50px" /> </div>
+                <div>
+                    <Typography>{m.keyword}</Typography>
+                </div>
+                </div>
+        
+
+            </SwiperSlide>
+        })}
 
 
     </Swiper>

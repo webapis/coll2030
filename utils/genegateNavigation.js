@@ -23,11 +23,9 @@
 
 async function genNav() {
 
-  var promiseLimit = require('promise-limit')
 
-  var limit = promiseLimit(2)
-  var input = []
-  const { workerPromise } = require('../temp/workerPromise')
+
+
   var TAFFY = require('taffy');
   const fs = require('fs')
   const { mongoClient, extractNavData } = require('./mongoDb')
@@ -49,7 +47,8 @@ async function genNav() {
 
     ++objCounter
     console.log('objCounter...', objCounter)
-    const { subcategory, title } = object
+    const { subcategory, title, imageUrl, marka } = object
+
     let navMatchCollection = []
     if (title) {
 
@@ -97,53 +96,16 @@ async function genNav() {
 
               if (navKeys[comb].keywords[keyword] === undefined) {
 
-                navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index }
+                navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka }
               }
               else {
                 const count = navKeys[comb].keywords[keyword].count
-                navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index }
+                navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka }
               }
 
             })
 
-            //await workerPromise({ navMatch, title })
 
-            //querydata
-
-            // var filteredData = products().filter(function () {
-            //   const title = this.title
-            //   const matchfound = navMatch.filter((kws) => {
-
-            //     let exactmatch = kws.exactmatch
-            //     let negwords = kws.negwords
-            //     let nws = []
-            //     if (negwords) {
-            //       nws = negwords.split(',')
-
-            //     }
-
-            //     const kw = kws.keyword
-            //     const match = productTitleMatch({ kw, title, exactmatch, nws })
-            //     return match
-            //   })
-
-            //   if (title) {
-
-
-            //   } else {
-
-            //   }
-
-            //   return matchfound.length === navMatch.length
-            // }).get()
-
-            //  await makeDir(`public/nav-data/${subcategory}`)
-            //  if (fs.existsSync(`public/nav-data/${subcategory}/${comb}.json`)) {
-            //    fs.unlinkSync(`public/nav-data/${subcategory}/${comb}.json`)
-            //  }
-            // fs.appendFile(`public/nav-data/${subcategory}/${comb}.json`, JSON.stringify(filteredData)).then(() => {
-            //   console.log('done')
-            // })
 
           })
 
@@ -152,11 +114,11 @@ async function genNav() {
 
             if (navKeys.start.keywords[keyword] === undefined) {
 
-              navKeys.start.keywords[keyword] = { count: 1, group: group.trim(), index }
+              navKeys.start.keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka }
             }
             else {
               const count = navKeys.start.keywords[keyword].count
-              navKeys.start.keywords[keyword] = { count: count + 1, group: group.trim(), index }
+              navKeys.start.keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka }
             }
 
           })
@@ -166,7 +128,7 @@ async function genNav() {
 
       }
 
-      //  input.push({ navMatchCollection, title,subcategory })
+
 
 
 
@@ -190,14 +152,14 @@ async function genNav() {
     const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
     debugger
     const navKeywords = map.reduce((prev, curr) => {
-
+      debugger
       if (prev[curr.group] === undefined) {
-        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count }] } }
+        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl,marka:curr.marka }] } }
       } else {
 
 
         return {
-          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count }] }
+          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl,marka:curr.marka }] }
         }
       }
 
@@ -228,11 +190,11 @@ async function genNav() {
 
     debugger
   }
-
-  if (fs.existsSync(`${process.cwd()}/api/_files/kadin/nav-keywords.json`)) {
-    fs.unlinkSync(`${process.cwd()}/api/_files/kadin/nav-keywords.json`)
+  await makeDir(`api/_files/nav`)
+  if (fs.existsSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)) {
+    fs.unlinkSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)
   }
-  fs.appendFileSync(`${process.cwd()}/api/_files/kadin/nav-keywords.json`, JSON.stringify({regrouped}));
+  fs.appendFileSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`, JSON.stringify(regrouped));
   debugger
   console.log('end....1')
 
