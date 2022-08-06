@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Grid from '@mui/material/Grid'
 import ImageComponent from './imageComponent';
 import Container from '@mui/material/Container';
-
+import CarouselContainer from './CarouselContainer';
 import SearchBox from './SearchBox';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import Fab from '@mui/material/Fab';
@@ -72,10 +72,10 @@ export default function ProductList(props) {
           </Box></div>
 
           <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
-
+          <CarouselContainer/>
             <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
           
-
+      
 
 
               {products.length > 0 && products.map((item, i) => {

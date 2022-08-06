@@ -8,6 +8,7 @@ import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
 import { Stack } from '@mui/material';
 import LoadingDialog from './drawer/LoadingDialog';
+
 const { categories } = CategoryNav[0]['nav']
 
 export const AppContext = React.createContext();
@@ -177,6 +178,7 @@ export default class App extends React.Component {
           </Grid>
         </Stack>
       }
+ 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
       {fetchingProduct || fetchingKeywords &&  <LoadingDialog loading={true} /> }
      

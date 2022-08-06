@@ -221,10 +221,10 @@ async function genNav() {
 
     regrouped.push({ index: nk, keywords: sorted })
     debugger
-    if (fs.existsSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)) {
-      fs.unlinkSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)
-    }
-    fs.appendFileSync(`${process.cwd()}/public/nav-keywords/${nk}.json`, JSON.stringify(sorted));
+    // if (fs.existsSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)) {
+    //   fs.unlinkSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)
+    // }
+    // fs.appendFileSync(`${process.cwd()}/public/nav-keywords/${nk}.json`, JSON.stringify(sorted));
 
     debugger
   }

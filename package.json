@@ -36,6 +36,7 @@
     "react-window": "^1.8.7",
     "redux": "4.2.0",
     "stream-to-mongo-db": "1.6.0",
+    "swiper": "^8.3.2",
     "taffy": "2.6.2",
     "through2": "4.0.2",
     "web-vitals": "2.1.4"
@@ -53,8 +54,7 @@
     "spine": "node spine.js",
     "encryptData": "node encryptData.js",
     "decryptData": "node decryptData.js",
-    "genKeywords": "node utils/generateKeywords.js",
-    "genNavKeys": "node utils/genNavKeys.js"
+    "genKeywords": "node utils/generateKeywords.js"
   },
   "eslintConfig": {
     "extends": [
