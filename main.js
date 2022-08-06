@@ -82,7 +82,9 @@ Apify.main(async () => {
                     '--disable-gpu-rasterization',
                     '--disable-low-res-tiling',
                     '--disable-skia-runtime-opts',
-                    '--disable-yuv420-biplanar'
+                    '--disable-yuv420-biplanar',
+                    '--disable-site-isolation-trials'
+
                 ]
             }
 
@@ -110,14 +112,14 @@ Apify.main(async () => {
                         req.continue();
                     }
                 });
-                page.on('response',async response=>{
-                    const request = response.request();
-                    if (request.url().includes('desiredrequest.json')){
-                        const text = await response.text();
-                        debugger;
-                        console.log(text);
-                    }
-                })
+                // page.on('response',async response=>{
+                //     const request = response.request();
+                //     if (request.url().includes('desiredrequest.json')){
+                //         const text = await response.text();
+                //         debugger;
+                //         console.log(text);
+                //     }
+                // })
             },
         ],
         handleFailedRequestFunction: async ({ request: { errorMessages, url, userData: { gender, start } } }) => {

@@ -2,21 +2,22 @@ async function handler(page,context) {
     const { request: { userData: {  subcategory, category } } } = context
     const url = await page.url()
     await page.waitForSelector('.product-grid .product-card')
+    debugger
     const data = await page.evaluate((_subcategory, _category) => {
         const items = window.catalogModel.CatalogList.Items
         return items.map(item => {
             const { DefaultOptionImageUrl: imageUrl,
                 Price: priceNew,
-                ModelUrl,
+               ModelUrl,
                 ProductDescription: title,
             } = item
 
-
+            
             return {
                 title,
 
                 priceNew: priceNew.replace('TL', '').trim(),
-                imageUrl: imageUrl.substring(imageUrl.indexOf('https://img-lcwaikiki.mncdn.com/mnresize/600/-/pim/productimages/') + 65),
+                imageUrl: imageUrl.substring(imageUrl.indexOf('https://img-lcwaikiki.mncdn.com/') + 32),
                 link: ModelUrl.substring(32),
                 timestamp: Date.now(),
                 marka: 'lcwaikiki',
@@ -34,6 +35,7 @@ async function handler(page,context) {
 }
 
 async function getUrls(page) {
+    debugger
     const param = '?PageIndex='
     await page.waitForSelector('.product-list-heading__product-count')
 debugger;
@@ -46,7 +48,7 @@ debugger;
     let pagesLeft = totalPages
     for (let i = 2; i <= totalPages; i++) {
         const url = `${firstUrl}${param}${i}`
-  debugger;
+
 
         if (pagesLeft > 0) {
             pageUrls.push(url)
