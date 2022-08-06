@@ -25,14 +25,14 @@ await autoScroll(page)
                 subcategory: _subcategory,
                 category: _category
             }
-        })
-    }, subcategory, category).filter(f => f.imageUrl !== null)
+        }).filter(f => f.imageUrl !== null)
+    }, subcategory, category)
 
     console.log('data length_____', data.length, 'url:', url)
 
 
     debugger;
-    return data
+    return data 
 }
 
 
