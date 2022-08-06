@@ -26,7 +26,7 @@ await autoScroll(page)
                 category: _category
             }
         })
-    }, subcategory, category)
+    }, subcategory, category).filter(f => f.imageUrl !== null)
 
     console.log('data length_____', data.length, 'url:', url)
 
