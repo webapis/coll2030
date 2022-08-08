@@ -11,25 +11,18 @@ export default function CarouselContainer(props) {
     const fattened = navKeywords.map(m => m.keywords).flat().filter(f => f.count > 300)
     
     return <Tabs 
-    centered
+
     variant="scrollable"
     scrollButtons="auto"
     sx={{height:100,width:'100%'}}
+    value={0}
 
     >
-        {fattened.map((m) => {
+        {fattened.map((m,i) => {
             const imageUrl = placeholders[m.marka].imageHost.trim() + m.imageUrl.trim()
             
-            return <Tab icon={<img src={imageUrl} height="70"/> } label={m.keyword} style={{ display: 'flex', flexDirection: 'column' }}>
-                <div>
-             
-                <div>
-                    <Typography>{m.keyword}</Typography>
-                </div>
-                </div>
-        
-
-            </Tab>
+            return <Tab key={i} value={i} icon={<img src={imageUrl} height="70"/> } label={m.keyword} style={{ display: 'flex', flexDirection: 'column' }}/>
+     
         })}
 
 
