@@ -11,7 +11,7 @@ export default function CarouselContainer(props) {
     const fattened = navKeywords.map(m => m.keywords).flat().filter(f => f.count > 300)
     
     return <Tabs 
-
+    centered
     variant="scrollable"
     scrollButtons="auto"
 
