@@ -29,6 +29,9 @@ const placeholders = {
     faststep: { logo: { image: './logo/faststep.jpg', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.faststep.com.tr?img=catalog/urunresim/', detailHost: 'https://www.faststep.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     fullamoda: { logo: { image: './logo/fullamoda.webp', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://images.farktorcdn.com/img/', detailHost: 'https://www.fullamoda.com/', postfix: '', imgPostFix:'?tr=w-400' },
     gizia: { logo: { image: './logo/gizia.svg', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://pic.gizia.com/', detailHost: 'https://www.gizia.com/', postfix: '', imgPostFix:'?tr=w-400' },
+    vitrin: { logo: { image: './logo/vitrin.png', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.vitrin.com.tr/', detailHost: 'https://www.vitrin.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+
+
 }
 
 export default placeholders
