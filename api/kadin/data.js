@@ -17,10 +17,20 @@ module.exports = (req, res) => {
 
 
   const filterByKeyword = selectedNavIndex === '' ? function () { return true } : function filterByKeyword() {
-   
-    let splittedKeywordsIndex = selectedNavIndex.split('-')
-    let foundkeywords = allkeywords[subcategory].filter(f => splittedKeywordsIndex.includes(f.index))
+    const marka =this.marka
+    let splittedKeywordsIndex = selectedNavIndex.split('-').filter(f=>f!=='')
+    let foundkeywords = allkeywords[subcategory].filter(function(f)  {
+
+      const includes = splittedKeywordsIndex.includes(f.index)
+      if(marka==='defacto'  && includes){
+        debugger
+      }
+      return includes
+     })
+
     const title = this.title
+  
+
     const match = foundkeywords.filter(kws => {
       let exactmatch = kws.exactmatch
       let negwords = kws.negwords
@@ -29,12 +39,17 @@ module.exports = (req, res) => {
         nws = negwords.split(',')
 
       }
-
+  
       const kw = kws.keyword
+      
       return productTitleMatch({ kw, title, exactmatch, nws })
     })
+       if(marka==='defacto'){
+      debugger
+    }
+    
 
-    return match.length === foundkeywords.length
+    return match.length=== foundkeywords.length
   }
 
 
@@ -44,9 +59,9 @@ module.exports = (req, res) => {
   const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
   const filterByMarka = marka === '' ? {} : { marka }
 
-  var filteredData = products().filter(filterByMarka).filter(filterBySearch).filter(filterBySub).filter(filterByKeyword).get()
-
-  
+  var filteredData = products().filter(filterBySearch).filter(filterBySub).filter(filterByKeyword).get()
+//  var filteredData = products().filter(filterBySearch).filter(filterBySub).filter(filterByKeyword).get()
+  debugger
   var orderedData = orderData(filteredData)
   var orderedDb = TAFFY(orderedData)
 
@@ -62,8 +77,10 @@ module.exports = (req, res) => {
   console.log('marka', marka)
   console.log('startAt', startAt)
   console.log('count1', count)
+  debugger
   ;
   res.status(200).json({ data: d, count })
+
 }
 
 
