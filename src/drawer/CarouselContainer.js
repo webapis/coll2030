@@ -14,13 +14,13 @@ export default function CarouselContainer(props) {
     centered
     variant="scrollable"
     scrollButtons="auto"
-
+    sx={{height:100,width:'100%'}}
 
     >
         {fattened.map((m) => {
-            const imageUrl = placeholders[m.marka].imageHost + m.imageUrl
+            const imageUrl = placeholders[m.marka].imageHost.trim() + m.imageUrl.trim()
             
-            return <Tab icon={<img src={imageUrl} width="px" height="50px" /> } label={m.keyword} style={{ display: 'flex', flexDirection: 'column' }}>
+            return <Tab icon={<img src={imageUrl} height="70"/> } label={m.keyword} style={{ display: 'flex', flexDirection: 'column' }}>
                 <div>
              
                 <div>
