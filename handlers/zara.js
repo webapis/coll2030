@@ -29,7 +29,7 @@ async function handler(page, context) {
 
             const items = links.map((m, i) => {
                 return {
-                    title: titles[i],
+                    title: 'zara '+ titles[i],
 
                     priceNew: prices[i],
                     imageUrl: images[i],

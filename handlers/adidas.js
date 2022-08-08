@@ -16,7 +16,7 @@ async function handler(page, context) {
             const link = productCard.querySelector('[data-auto-id="glass-hockeycard-link"]').href
 
             return {
-                title,
+                title: 'adidas '+ title,
                 priceNew,
                 imageUrl: longImage.substring(longImage.indexOf('https://assets.adidas.com/images/') + 33),
                 link: link.substring(link.indexOf('https://www.adidas.com.tr/tr/') + 29),

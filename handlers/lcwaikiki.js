@@ -14,7 +14,7 @@ async function handler(page,context) {
 
             
             return {
-                title,
+                title: 'lcwaikiki '+title,
 
                 priceNew: priceNew.replace('TL', '').trim(),
                 imageUrl: imageUrl.substring(imageUrl.indexOf('https://img-lcwaikiki.mncdn.com/') + 32),

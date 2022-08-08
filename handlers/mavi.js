@@ -21,7 +21,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('//sky-static.mavi.com/sys-master/maviTrImages/') + 46)
 
             return {
-                title: productDesc+' '+productTitle,
+                title: 'mavi '+ productDesc+' '+productTitle,
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

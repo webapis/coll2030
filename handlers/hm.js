@@ -38,7 +38,7 @@ async function handler(page, context) {
                             const title = productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim()
 
                             return {
-                                title,
+                                title: 'hm '+title,
                                 priceNew,
                                 imageUrl: imageUrlshort,
                                 link,

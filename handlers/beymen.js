@@ -18,7 +18,7 @@ async function handler(page, context) {
             const longImgUrl = productCard.querySelectorAll('.m-productImageList [data-src]')[0].getAttribute('data-src').trim()
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.beymen.com/mnresize/") + 32)
             return {
-                title: title+' '+desc,
+                title: 'beymen '+ title+' '+desc,
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

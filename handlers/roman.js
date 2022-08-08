@@ -17,7 +17,7 @@ async function handler(page, context) {
             const longImgUrl = productCard.querySelector('[p-item-link] img').src.trim()
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://romancdn.sysrun.net/Content/ProductImage/Original/") + 58)
             return {
-                title,
+                title:'roman '+title,
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

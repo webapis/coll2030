@@ -17,7 +17,7 @@ async function handler(page, context) {
             const link = product.url
         debugger;
             return {
-                title,
+                title:'dogo '+title,
                 priceNew,
                 imageUrl: longImage.substring(longImage.indexOf('https://www.dogostore.com/') + 26),
                 link,

@@ -16,7 +16,7 @@ async function handler(page, context) {
             const link = productCard.querySelector('.product-item__image.js-product-item-image a').href
 
             return {
-                title,
+                title: 'beyyoglu '+ title,
                 priceNew,
                 imageUrl: img.substring(img.indexOf('https://beyyoglu.akinoncdn.com/products/') + 40),
                 link: link.substring(link.indexOf('https://www.beyyoglu.com/') + 25),

@@ -18,7 +18,7 @@ debugger;
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://vakko.akinoncdn.com/products/") + 37)
             const title = brand + ' ' + prodName
             return {
-                title,
+                title:'vakko '+title,
 
                 priceNew,
 

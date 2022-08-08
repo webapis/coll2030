@@ -21,7 +21,7 @@ async function handler(page, context) {
             const longImgUrl =  item.querySelector('[data-image-src]') && item.querySelector('[data-image-src]').getAttribute('data-image-src')
             const imageUrlshort = longImgUrl&& longImgUrl.substring(longImgUrl.indexOf('https://img2-ipekyol.mncdn.com/mnresize/')+40)
             return {
-                title: item.querySelector('.prd-name').innerText,
+                title: 'ipekyol '+ item.querySelector('.prd-name').innerText,
         
                 priceNew,
   

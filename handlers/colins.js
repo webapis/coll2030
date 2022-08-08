@@ -18,7 +18,7 @@ async function handler(page, context) {
             const link = productCard.querySelector('.lazy-image.product-name.track-link').href
 
             return {
-                title,
+                title:'colins '+title,
                 priceNew,
                 imageUrl: img.substring(img.indexOf('https://img-colinstr.mncdn.com/mnresize/')+40) ,
                 link:link.substring(link.indexOf('https://www.colins.com.tr/')+26),

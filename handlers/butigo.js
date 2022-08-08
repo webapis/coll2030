@@ -17,7 +17,7 @@ async function handler(page,context) {
             const priceNew =obj.price
             const link = obj.url
             return {
-                title,
+                title: 'butigo '+title,
    
                 priceNew,
 

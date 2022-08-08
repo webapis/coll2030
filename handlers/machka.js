@@ -19,7 +19,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://image.machka.com.tr/unsafe/660x0/10.116.1.50:8000//Machka/products/')+75)
 
             return {
-                title: item.querySelector('.ems-prd-title').innerText,
+                title: 'machka '+ item.querySelector('.ems-prd-title').innerText,
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

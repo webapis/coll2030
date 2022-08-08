@@ -18,7 +18,7 @@ async function handler(page,context) {
             const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
             const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
             return {
-                title,
+                title: 'defacto '+title,
    
                 priceNew: priceNew ? priceNew.replace(',', '.').trim() : 0,
 
