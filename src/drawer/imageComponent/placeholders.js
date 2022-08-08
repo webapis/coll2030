@@ -30,6 +30,7 @@ const placeholders = {
     fullamoda: { logo: { image: './logo/fullamoda.webp', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://images.farktorcdn.com/img/', detailHost: 'https://www.fullamoda.com/', postfix: '', imgPostFix:'?tr=w-400' },
     gizia: { logo: { image: './logo/gizia.svg', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://pic.gizia.com/', detailHost: 'https://www.gizia.com/', postfix: '', imgPostFix:'?tr=w-400' },
     vitrin: { logo: { image: './logo/vitrin.png', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.vitrin.com.tr/', detailHost: 'https://www.vitrin.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    xint: { logo: { image: './logo/xint.png', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://xint.com.tr/', detailHost: 'https://xint.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
 
 
 }
