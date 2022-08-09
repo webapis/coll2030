@@ -62,7 +62,7 @@ async function handler(page, context) {
 
                 }
 
-            }, 50)
+            }, 100)
             // clearInterval(inv)
         } catch (error) {
             debugger
