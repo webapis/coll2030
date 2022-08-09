@@ -75,7 +75,7 @@ export default function ProductList(props) {
         
             <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
           
-            {navKeywords.length>0 && <CarouselContainer navKeywords={navKeywords}/>}
+   
 
 
               {products.length > 0 && products.map((item, i) => {

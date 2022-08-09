@@ -35,6 +35,7 @@ const placeholders = {
 
     quzu: { logo: { image: './logo/quzu.webp', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.quzu.com.tr/', detailHost: 'https://www.quzu.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     saygigiyim: { logo: { image: './logo/saygigiyim.webp', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.saygigiyim.com/', detailHost: 'https://www.saygigiyim.com/', postfix: '', imgPostFix:'?tr=w-400' },
+    manuka: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.manuka.com.tr/', detailHost: 'https://www.manuka.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
 
 
 }
