@@ -1,8 +1,5 @@
 
-import { AppContext } from "../App";
-
 import placeholders from "./imageComponent/placeholders";
-import { Typography } from "@mui/material";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 export default function CarouselContainer(props) {
