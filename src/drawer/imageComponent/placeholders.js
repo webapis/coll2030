@@ -33,6 +33,9 @@ const placeholders = {
     xint: { logo: { image: './logo/xint.png', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://xint.com.tr/', detailHost: 'https://xint.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     tozlu: { logo: { image: './logo/tozlu.svg', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img.tozlu.com/', detailHost: 'https://www.tozlu.com/', postfix: '', imgPostFix:'?tr=w-400' },
 
+    quzu: { logo: { image: './logo/quzu.webp', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.quzu.com.tr/', detailHost: 'https://www.quzu.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    saygigiyim: { logo: { image: './logo/saygigiyim.webp', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.saygigiyim.com/', detailHost: 'https://www.saygigiyim.com/', postfix: '', imgPostFix:'?tr=w-400' },
+
 
 }
 
