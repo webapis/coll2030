@@ -19,7 +19,7 @@ const placeholders = {
     twist: { logo: { image: './logo/twist.svg', width: '15%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img2-twist.mncdn.com/mnresize/800/-//Twist/products/', detailHost: 'https://www.twist.com.tr/', postfix: '', imgPostFix: ''},
     hm: { logo: { image: './logo/hm.jpg', width: '30', height: 'auto' }, imagePrefix: '', placeholder:'./placeholder-img/h&m.webp', imageHost: 'http://lp2.hm.com/hmgoepprod?set=source[', detailHost: 'https://www2.hm.com/tr_tr/', postfix: '', imgPostFix: '' },
     adidas: { logo: { image: './logo/adidas.jpg', width: '28%', height: '' }, imagePrefix: '', placeholder:'./placeholder-img/adidas.svg', imageHost: 'https://assets.adidas.com/images/', detailHost: 'https://www.adidas.com.tr/tr/', postfix: '', imgPostFix: '' },
-    baqa: { logo: { image: './logo/baqa.png', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.baqa.com.tr', detailHost: 'https://www.baqa.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    baqa: { logo: { image: './logo/baqa.jpg', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.baqa.com.tr', detailHost: 'https://www.baqa.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     beyyoglu: { logo: { image: './logo/beyyoglu.svg', width: '45%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://beyyoglu.akinoncdn.com/products/', detailHost: 'https://www.beyyoglu.com/', postfix: '', imgPostFix:'?tr=w-400' },
     dogo: { logo: { image: './logo/dogo.svg', width: '25%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.dogostore.com/', detailHost: 'https://www.dogostore.com/', postfix: '', imgPostFix:'?tr=w-400' },
     dilvin: { logo: { image: './logo/dilvin.png', width: '50', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://kvyfm6d9dll6.merlincdn.net/productimages/', detailHost: 'https://www.dilvin.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
@@ -31,6 +31,7 @@ const placeholders = {
     gizia: { logo: { image: './logo/gizia.svg', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://pic.gizia.com/', detailHost: 'https://www.gizia.com/', postfix: '', imgPostFix:'?tr=w-400' },
     vitrin: { logo: { image: './logo/vitrin.png', width: '30%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.vitrin.com.tr/', detailHost: 'https://www.vitrin.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     xint: { logo: { image: './logo/xint.png', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://xint.com.tr/', detailHost: 'https://xint.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    tozlu: { logo: { image: './logo/tozlu.svg', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img.tozlu.com/', detailHost: 'https://www.tozlu.com/', postfix: '', imgPostFix:'?tr=w-400' },
 
 
 }
