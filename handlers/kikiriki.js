@@ -10,18 +10,18 @@ async function handler(page, context) {
     const data = await page.$$eval('.product-list-item', (productCards, _subcategory, _category) => {
         return productCards.map(productCard => {
 
-            const imageUrl = productCard.querySelector('.product-image img') && productCard.querySelector('.product-image img').src
+
             const title = productCard.querySelector('.product-title a[title]').getAttribute('title').trim()
             const priceNew = productCard.querySelector('.product-price span').textContent.replace('TL', '').trim()
             const longlink = productCard.querySelector('.product-image a').href
-            //  const link = longlink.substring(longlink.indexOf("defacto.com.tr/") + 15)
-            //  const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
-            //  const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
+            const link = longlink.substring(longlink.indexOf("https://tr.kikiriki.com/") + 24)
+            const longImgUrl = productCard.querySelector('.product-image img') ===null ? productCard.querySelector('amp-img').getAttribute('src'): productCard.querySelector('.product-image img').src
+            const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf("https://cdn.vebigo.com/") + 23)
             return {
                 title: 'kikiriki ' + title,
                 priceNew: priceNew,
-                imageUrl,
-                link: longlink,
+                imageUrl: imageUrlshort,
+                link,
                 timestamp: Date.now(),
                 marka: 'kikiriki',
                 subcategory: _subcategory,

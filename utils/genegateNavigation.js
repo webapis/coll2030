@@ -28,17 +28,17 @@ async function genNav() {
 
   var TAFFY = require('taffy');
   const fs = require('fs')
-  const { mongoClient, extractNavData } = require('./mongoDb')
+  const { mongoClient } = require('./mongoDb')
   const { productTitleMatch } = require('../api/kadin/productTitleMatch')
   const makeDir = require('make-dir');
 
   const dataCollection = await mongoClient({ collectionName: 'data' })
-  const data = require(`${process.cwd()}/api/_files/kadin/data.json`)
+
   await makeDir('public/nav-keywords')
   await makeDir(`public/nav-data/elbise`)
-  var products = TAFFY(data);
+  const categoryNav = {}
   const { getCombinations } = require('../nav-keys/combination')
-  debugger
+
   const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
   let navKeys = { start: { navMatch: [], keywords: {} } }
 
@@ -48,6 +48,12 @@ async function genNav() {
     ++objCounter
     console.log('objCounter...', objCounter)
     const { subcategory, title, imageUrl, marka } = object
+    if (categoryNav[subcategory] === undefined) {
+      categoryNav[subcategory] = { count: 0 }
+    }
+    else {
+      categoryNav[subcategory].count = categoryNav[subcategory].count + 1
+    }
 
     let navMatchCollection = []
     if (title) {
@@ -139,27 +145,24 @@ async function genNav() {
 
   fs.rmSync(`${process.cwd()}/public/nav-data`, { recursive: true, force: true });
 
-  // await  Promise.all(input.map(({ navMatchCollection, title,subcategory }) => {
 
-  //     return limit(() => workerPromise({ navMatchCollection, title,subcategory }))
-  //   }))
   console.log('nav gen complete')
-  debugger
+
   let regrouped = []
   for (let nk in navKeys) {
     const { keywords } = navKeys[nk]
-    debugger
+
     const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
-    debugger
+
     const navKeywords = map.reduce((prev, curr) => {
-      debugger
+
       if (prev[curr.group] === undefined) {
-        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl,marka:curr.marka }] } }
+        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka }] } }
       } else {
 
 
         return {
-          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl,marka:curr.marka }] }
+          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka }] }
         }
       }
 
@@ -167,7 +170,7 @@ async function genNav() {
 
     const sorted = Object.entries(navKeywords).map((m, i) => {
       const groupName = m[0]
-      debugger
+
       const keywords = m[1]['keywords'].sort(function (a, b) {
         var textA = a.keyword.toUpperCase();
         var textB = b.keyword.toUpperCase();
@@ -182,20 +185,29 @@ async function genNav() {
     })
 
     regrouped.push({ index: nk, keywords: sorted })
-    debugger
-    // if (fs.existsSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)) {
-    //   fs.unlinkSync(`${process.cwd()}/public/nav-keywords/${nk}.json`)
-    // }
-    // fs.appendFileSync(`${process.cwd()}/public/nav-keywords/${nk}.json`, JSON.stringify(sorted));
 
-    debugger
+
   }
+  debugger
   await makeDir(`api/_files/nav`)
   if (fs.existsSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)) {
     fs.unlinkSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)
   }
   fs.appendFileSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`, JSON.stringify(regrouped));
-  debugger
+
+  if (fs.existsSync(`${process.cwd()}/src/category-nav.json`)) {
+    fs.unlinkSync(`${process.cwd()}/src/category-nav.json`)
+  }
+  const categoryAsArray = Object.entries(categoryNav).map(c => {
+    debugger
+    return {subcategory:c[0],total:c[1].count}
+  }).sort((a, b) => {
+    debugger
+    var textA = a['subcategory'].toUpperCase();
+    var textB = b['subcategory'].toUpperCase();
+    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+  })
+  fs.appendFileSync(`${process.cwd()}/src/category-nav.json`, JSON.stringify(categoryAsArray));
   console.log('end....1')
 
 

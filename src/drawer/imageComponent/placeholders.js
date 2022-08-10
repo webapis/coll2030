@@ -37,6 +37,7 @@ const placeholders = {
     saygigiyim: { logo: { image: './logo/saygigiyim.webp', width: '20%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.saygigiyim.com/', detailHost: 'https://www.saygigiyim.com/', postfix: '', imgPostFix:'?tr=w-400' },
     manuka: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.manuka.com.tr/', detailHost: 'https://www.manuka.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
 
+    kikiriki: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.vebigo.com/', detailHost: 'https://tr.kikiriki.com/', postfix: '', imgPostFix:'?tr=w-400' },
 
 }
 

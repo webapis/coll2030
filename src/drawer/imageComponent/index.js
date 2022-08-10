@@ -15,8 +15,10 @@ export default function ImageComponent(props) {
   // const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
 
   const imagePlaceholder =  placeholders[props.marka].placeholder 
-
-  const logo = placeholders[props.marka].logo
+if(imagePlaceholder===undefined){
+  debugger
+}
+ // const logo = placeholders[props.marka].logo
 
   const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl + placeholders[props.marka].imgPostFix
   const detailHost = placeholders[props.marka].detailHost + props.link + placeholders[props.marka].postfix

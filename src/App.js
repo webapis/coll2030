@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CategoryNav from './category-nav.json'
+import subcategories from './category-nav.json'
 import KeywordListDrawer from './drawer/KeywordListDrawer'
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
 import ProductList from './drawer/ProductList'
@@ -8,9 +8,9 @@ import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
 import { Stack } from '@mui/material';
 import LoadingDialog from './drawer/LoadingDialog';
+debugger
 
-const { categories } = CategoryNav[0]['nav']
-
+debugger
 export const AppContext = React.createContext();
 
 export default class App extends React.Component {
@@ -98,22 +98,7 @@ export default class App extends React.Component {
     }
   }
   loadSubcategories() {
-    const categoriesArray = Object.entries(categories)
-    const joincategories = categoriesArray.reduce((prev, curr) => {
-      const arr = Object.entries(curr[1]['subcategories']).map((m) => { return { subcategory: m[0], total: m[1]['count'] } })
-      return [...prev, ...arr]
-
-    }, [])
-    const sortedsubcategories = joincategories.sort((a, b) => {
-      var textA = a['subcategory'].toUpperCase();
-      var textB = b['subcategory'].toUpperCase();
-      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    })
-
-
-
-    this.setState(state => ({ ...state, subcategories: sortedsubcategories }))
-
+    this.setState(state => ({ ...state, subcategories }))
   }
 
   fetchProducts(start) {
