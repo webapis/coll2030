@@ -1,43 +1,50 @@
-//require('dotenv').config()
-const data =require('./api/_files/kadin/data.json')
-const kw ='deri ^'
-const elbiseler =data.filter(f=>f.subcategory==='elbise' && f.title !=='')//.filter((f,i)=>i<5)
-let tree={}
-let mcd=[]
- elbiseler.map(m=>m.title).map((title,i)=>{
-console.log('title',title)
-  try {
-    const match =kw.replace('^','').replace(/\s/g,',').split(',').every(function(keyword){
-    const fullmatch = kw.indexOf('^')!==-1
 
-    if(fullmatch){
-    return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword).length>0
-    }else{
-    return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword || f.indexOf(keyword)===0  ).length>0
+
+
+(async () => {
+  //require('dotenv').config()
+  const data = require('./000000001.json')
+
+  const Apify = require('apify');
+  debugger
+  const dataset = await Apify.openDataset();
+  const { items } = await dataset.getData()
+  debugger
+  const map = items.map(m => {
+
+    return [...m.groups]
+  }).map(m => {
+
+
+    return [...m]
+  }).map((m) => {
+
+    return m[0].garments
+  }).map(m => {
+
+
+    return Object.values(m)
+  }).flat().map(m => {
+
+    return [m.colors.map(c => {
+
+      return { shortDescription: m.shortDescription, ...c }
+    })]
+  }).flat(2).map(m => {
+    const imageUrl =m.images[0].img1Src
+    const link =m.linkAnchor
+    return {
+      title: 'mango ' + m.shortDescription +' '+m.label,
+      priceNew:m.price.salePrice.replace('TL','').trim(),
+
+      imageUrl:imageUrl.substring(imageUrl.indexOf('https://st.mngbcn.com/')+22),
+      link:link.substring(link.indexOf('/')+1),
+      timestamp: Date.now(),
+      marka: 'mango',
     }
-  
-
- 
   })
-
-
-
-
-  if(match){
-    mcd.push(title)
-    const rd=  tree[`${kw}`] ===undefined? tree[`${kw}`]=1:tree[`${kw}`]=tree[`${kw}`]+1
-  }
-  } catch (error) {
-    debugger
-  }
-})
-debugger;
-
-
-
-
-
-
+  debugger
+})()
 
 
 

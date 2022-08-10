@@ -40,6 +40,7 @@ const placeholders = {
     kikiriki: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.vebigo.com/', detailHost: 'https://tr.kikiriki.com/', postfix: '', imgPostFix:'?tr=w-400' },
     jimmykey: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.sorsware.com/', detailHost: 'https://www.jimmykey.com/tr/', postfix: '', imgPostFix:'?tr=w-400' },
     perspective: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.sorsware.com/', detailHost: 'https://www.perspective.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    mango: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://st.mngbcn.com/', detailHost: 'https://shop.mango.com/', postfix: '', imgPostFix:'?tr=w-400' },
 
 }
 

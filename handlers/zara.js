@@ -44,7 +44,7 @@ async function handler(page, context) {
             products.push(...items)
         })
 
-        return products
+        return products.filter(f => f.imageUrl !== null)
 
     }, subcategory, category)
 

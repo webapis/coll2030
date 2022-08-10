@@ -1,54 +1,57 @@
 
+const Apify = require('apify');
 async function handler(page, context) {
     const { request: { userData: { subcategory, category, start } } } = context
     debugger;
+
+
     const url = await page.url()
 
     debugger;
 
     await page.waitForSelector('.catalog')
     await autoScroll(page);
-  await page.waitFor(5000)
+    const dataset = await Apify.openDataset();
+    const { items } = await dataset.getData()
+    debugger
+    const data = items.map(m => {
+
+        return [...m.groups]
+    }).map(m => {
+
+
+        return [...m]
+    }).map((m) => {
+
+        return m[0].garments
+    }).map(m => {
+
+
+        return Object.values(m)
+    }).flat().map(m => {
+
+        return [m.colors.map(c => {
+
+            return { shortDescription: m.shortDescription, ...c }
+        })]
+    }).flat(2).map(m => {
+
+        const imageUrl = m.images[0].img1Src
+        const link = m.linkAnchor
+        return {
+            title: 'mango ' + m.shortDescription + ' ' + m.label,
+            priceNew: m.price.salePrice.replace('TL', '').trim(),
+
+            imageUrl: imageUrl.substring(imageUrl.indexOf('https://st.mngbcn.com/') + 22),
+            link: link.substring(link.indexOf('/') + 1),
+            timestamp: Date.now(),
+            marka: 'mango',
+            category,
+            subcategory
+        }
+    })
     debugger;
-    const data = await page.$$eval('li.product-grid-block-dynamic.product-grid-block-dynamic__container', (list, _subcategory, _category) => {
 
-        let products = []
-        list.forEach(element => {
-
-            const links = Array.from(element.querySelectorAll('a.product-link.product-grid-product__link.link')).map((m) => {
-                const longlink = m.href
-                return longlink.substring(longlink.indexOf('https://www.zara.com/tr/tr/') + 27)
-            })
-            const images = Array.from(element.querySelectorAll('img.media-image__image.media__wrapper--media')).map((m) => {
-                const longimageurl = m.src
-                return longimageurl.substring(longimageurl.indexOf('https://static.zara.net/photos/') + 31)
-            })
-            const titles = Array.from(element.querySelectorAll('img.media-image__image.media__wrapper--media')).map((m) => m.alt)
-            const prices = Array.from(element.querySelectorAll('.price-current__amount')).map((m) => m.textContent.replace("TL", ''))
-
-
-            const items = links.map((m, i) => {
-                return {
-                    title: 'zara '+ titles[i],
-
-                    priceNew: prices[i],
-                    imageUrl: images[i],
-                    link: links[i],
-                    timestamp: Date.now(),
-                    marka: 'zara',
-                    subcategory: _subcategory,
-                    category: _category
-                }
-            })
-
-            products.push(...items)
-        })
-
-        return products
-
-    }, subcategory, category)
-
-    //----------
 
 
 
@@ -85,7 +88,7 @@ async function autoScroll(page) {
                     clearInterval(timer);
                     resolve();
                 }
-            }, 120);
+            }, 50);
         });
     });
 }

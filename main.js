@@ -1,5 +1,6 @@
 
 require('dotenv').config()
+
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
 const { getSheetValues, appendSheetValues } = require('./google.sheet.js')
@@ -100,26 +101,31 @@ Apify.main(async () => {
                 await page.setRequestInterception(true);
                 page.on('request', req => {
                     const resourceType = req.resourceType();
-                    if (resourceType === 'image') {
+               
+                    if (resourceType === 'image' || (resourceType==='fetch' && req._url.includes('.jpg'))) {
                         req.respond({
                             status: 200,
                             contentType: 'image/jpeg',
                             body: buffer
                         });
 
-
+                    
                     } else {
                         req.continue();
                     }
                 });
-                // page.on('response',async response=>{
-                //     const request = response.request();
-                //     if (request.url().includes('desiredrequest.json')){
-                //         const text = await response.text();
-                //         debugger;
-                //         console.log(text);
-                //     }
-                // })
+                page.on('response',async response=>{
+                    const request = response.request();
+            
+                    if (request.url().includes('https://shop.mango.com/services/productlist/products')){
+                        const json = await response.json();
+                        const _url =response._url
+                               console.log('JSON_url---------------------------------------------------------',_url)
+            
+                        await Apify.pushData(json);
+    
+                    }
+                })
             },
         ],
         handleFailedRequestFunction: async ({ request: { errorMessages, url, userData: { gender, start } } }) => {
