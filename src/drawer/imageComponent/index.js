@@ -69,7 +69,7 @@ export default function ImageComponent(props) {
         const selectedSubcategoryMatch = selectedSubcategory.includes(m.toLowerCase()) || m.toLowerCase().includes(selectedSubcategory)
 
 
-        return <span key={i} style={{ fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch) ? 800 : 300 }}>{m}{` `}
+        return <span key={i} style={{ fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch) ? 800 : 300 }}>{m.replace(props.marka,'')}{` `}
 
 
         </span>
@@ -94,8 +94,8 @@ export default function ImageComponent(props) {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', }}>
 
-
-          <img src={logo.image} height={logo.heigth} width={logo.width} alt={props.title} />
+        <div>{props.marka.toUpperCase()}</div>
+  
 
           <div>
             <Typography variant="caption" style={{ textAlign: 'right', right: 2, flex: 5 }}>{props.price}TL</Typography>
