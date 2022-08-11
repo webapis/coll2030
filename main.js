@@ -9,7 +9,7 @@ const Apify = require('apify');
 
 
 Apify.main(async () => {
-
+    await Apify.openDataset();
 
     const { utils: { log } } = Apify;
     const requestQueue = await Apify.openRequestQueue();
@@ -131,10 +131,23 @@ Apify.main(async () => {
                         const text = await response.text()
                         if (isJsonString(text)) {
 
-                       
-                            const json = JSON.parse(text);
-                            await Apify.pushData(json);
 
+                            const json = JSON.parse(text);
+                            if (Array.isArray(json)) {
+
+                                await Apify.pushData({ arr: json });
+                             //   response.continue();
+
+                            } else {
+
+                                await Apify.pushData(json);
+                             //   response.continue();
+                            }
+
+
+
+                        } else {
+                           // response.continue();
                         }
                     }
 

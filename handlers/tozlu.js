@@ -1,10 +1,12 @@
 
+const Apify = require('apify');
 async function handler(page, context) {
     const { request: { userData: { subcategory, category } } } = context
 
     const url = await page.url()
 
     await page.waitForSelector('#ProductPageProductList')
+    const dataset = await Apify.openDataset();
     // onetrust-accept-btn-handler
 
     const acceptcookies = await page.$('.seg-popup-close')
@@ -12,58 +14,42 @@ async function handler(page, context) {
         await page.click('.seg-popup-close')
     }
 
+
     return new Promise((resolve, reject) => {
         try {
-
             let inv = setInterval(async () => {
-                // const { loaded, remained } = await page.$eval('.load-more-heading', el => {
-                //     return { loaded: parseInt(el.getAttribute('data-items-shown')), remained: parseInt(el.getAttribute('data-total')) }
-                // })
+
                 const totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
                 const collected = await page.evaluate(() => document.querySelectorAll('.ItemOrj.col-4').length)
 
                 console.log('collected', collected)
 
                 if (totalProducts > collected) {
-
-                    //  await page.click('.button.js-load-more')
                     await manualScroll(page)
 
                 } else {
                     clearInterval(inv)
-
-                    const data = await page.$$eval('.ItemOrj.col-4', (productCards, _subcategory, _category, _opts) => {
-                        return productCards.map(productCard => {
-                            const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
-                            const longlink = productCard.querySelector('.productName.detailUrl a[title]').href
-                            const link = longlink.substring(longlink.indexOf("https://img.tozlu.com/") + 22)
-                            const longImgUrl = productCard.querySelector('[data-original]').getAttribute('data-original')
-                            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://img.tozlu.com/') + 22)
-                            const title = productCard.querySelector('.productName.detailUrl a[title]').getAttribute('title')
-
-                            return {
-                                title: 'tozlu ' + title,
-                                priceNew,
-                                imageUrl: imageUrlshort,
-                                link,
-                                timestamp: Date.now(),
-                                marka: 'tozlu',
-                                subcategory: _subcategory,
-                                category: _category
-                            }
-                        })
-                    }, subcategory, category)
-
-          
-                    console.log('data length_____', data.length, 'url:', url)
                     debugger
-            
+                    const { items } = await dataset.getData()
+                    const data = items.filter(f => f.products).map(p => [...p.products]).flat().map(m => {
+                 
+                         return {
+                           title: 'tozlu ' +m.name,
+                           priceNew: m.productSellPriceStr.replace('TL','').trim() ,
+                           imageUrl: ('https://img.tozlu.com/Uploads/UrunResimleri/thumb/'+m.imageName).replace('https://img.tozlu.com/',''),
+                           link:m.defaultUrl,
+                           timestamp: Date.now(),
+                           marka: 'tozlu',
+                           category,
+                           subcategory
+                         }
+                       })
+                       console.log('data length_____', data.length, 'url:', url)
                     return resolve(data)
 
                 }
 
             }, 100)
-            // clearInterval(inv)
         } catch (error) {
             debugger
             return reject(error)
