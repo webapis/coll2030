@@ -128,27 +128,30 @@ Apify.main(async () => {
 
                     const status = response.status()
                     if (status === 200) {
-                        const text = await response.text()
-                        if (isJsonString(text)) {
-
-
-                            const json = JSON.parse(text);
-                            if (Array.isArray(json)) {
-
-                                await Apify.pushData({ arr: json });
-                             //   response.continue();
-
-                            } else {
-
-                                await Apify.pushData(json);
-                             //   response.continue();
-                            }
-
-
-
-                        } else {
-                           // response.continue();
+                        try {
+                            const text = await response.text()
+                            if (isJsonString(text)) {
+    
+    
+                                const json = JSON.parse(text);
+                                if (Array.isArray(json)) {
+    
+                                    await Apify.pushData({ arr: json });
+                                 //   response.continue();
+    
+                                } else {
+    
+                                    await Apify.pushData(json);
+                                 //   response.continue();
+                                }
+    
+    
+    
+                            }   
+                        } catch (error) {
+                            debugger
                         }
+                      
                     }
 
 
