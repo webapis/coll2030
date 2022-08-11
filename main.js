@@ -65,7 +65,7 @@ Apify.main(async () => {
     const crawler = new Apify.PuppeteerCrawler({
         // requestList,
         requestQueue,
-        maxConcurrency: parseInt(process.env.MAX_CONCURRENCY) || 5,
+        maxConcurrency: parseInt(process.env.MAX_CONCURRENCY) || 1,
         handlePageTimeoutSecs: 600,
         // maxRequestRetries:4,
         // navigationTimeoutSecs:120,

@@ -2,7 +2,7 @@
 
 const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start } } } = context
+    const { request: { userData: { subcategory, category, start, opts } } } = context
     debugger;
 
 
@@ -15,44 +15,32 @@ async function handler(page, context) {
     const dataset = await Apify.openDataset();
     const { items } = await dataset.getData()
     debugger
-    const data = items.map(m => {
+    const data = await page.$$eval('.productItem', (productCards, _subcategory, _category, _opts) => {
+        return productCards.map(productCard => {
+            const priceNew = productCard.querySelector('.currentPrice').innerHTML.replace('TL', '').trim()
+            const longlink = productCard.querySelector('.proRowName a[title]').href
+            const link = longlink.substring(longlink.indexOf("https://www.olegcassini.com.tr/") + 31)
+             const longImgUrl = productCard.querySelector(".imgInner img").src
+             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.olegcassini.com.tr/") + 31)
+            const title = productCard.querySelector('.proRowName a[title]').getAttribute('title')
+            return {
+                title: 'olegcassini ' + title + (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
 
-        return [...m.groups]
-    }).map(m => {
+                priceNew,
+
+               imageUrl: imageUrlshort,
+              link,
+
+                timestamp: Date.now(),
+
+                marka: 'olegcassini',
+                subcategory: _subcategory,
+                category: _category
 
 
-        return [...m]
-    }).map((m) => {
-
-        return m[0].garments
-    }).map(m => {
-
-
-        return Object.values(m)
-    }).flat().map(m => {
-
-        return [m.colors.map(c => {
-
-            return { shortDescription: m.shortDescription, ...c }
-        })]
-    }).flat(2).map(m => {
-
-        const imageUrl = m.images[0].img1Src
-        const link = m.linkAnchor
-        return {
-            title: 'olegcassini ' + m.shortDescription + ' ' + m.label,
-            priceNew: m.price.salePrice.replace('TL', '').trim(),
-
-            imageUrl: imageUrl.substring(imageUrl.indexOf('https://st.mngbcn.com/') + 22),
-            link: link.substring(link.indexOf('/') + 1),
-            timestamp: Date.now(),
-            marka: 'olegcassini',
-            category,
-            subcategory
-        }
-    })
-    debugger;
-
+            }
+        })
+    }, subcategory, category, opts)
 
 
 
