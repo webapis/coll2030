@@ -3,45 +3,37 @@
 
 (async () => {
   //require('dotenv').config()
-  const data = require('./000000001.json')
+
 
   const Apify = require('apify');
   debugger
   const dataset = await Apify.openDataset();
   const { items } = await dataset.getData()
   debugger
-  const map = items.map(m => {
+  const map = items.filter(f => f.productGroups).map(m => [...m.productGroups]).flat().map(m => {
 
-    return [...m.groups]
-  }).map(m => {
+    return [...m.elements]
+  }).flat().filter(f => f.commercialComponents).map(m => [...m.commercialComponents]).flat().map(c => {
 
-
-    return [...m]
-  }).map((m) => {
-
-    return m[0].garments
-  }).map(m => {
-
-
-    return Object.values(m)
-  }).flat().map(m => {
-
-    return [m.colors.map(c => {
-
-      return { shortDescription: m.shortDescription, ...c }
-    })]
-  }).flat(2).map(m => {
-    const imageUrl =m.images[0].img1Src
-    const link =m.linkAnchor
     return {
-      title: 'mango ' + m.shortDescription +' '+m.label,
-      priceNew:m.price.salePrice.replace('TL','').trim(),
+      ...c, detail: {
+        ...c.detail, colors: c.detail.colors.map(m => {
+          const imageUrl =m.xmedia[0].path +'/w/315/'+m.xmedia[0].name+'.jpg?ts='+m.xmedia[0].timestamp
+          const link =c.seo.keyword+'-p'+c.seo.seoProductId+'.html'
+          const price =m.price.toString().length===5 ? m.price.toString().substring(0,3)+','+ m.price.toString().substring(3): (m.price.toString().length===6? m.price.toString().charAt(0)+'.'+m.price.toString().substring(1,4)+',00'  :null)
+    
+          return {
+            ...m, title: c.name + ' ' + m.name, priceNew:price, imageUrl,link
 
-      imageUrl:imageUrl.substring(imageUrl.indexOf('https://st.mngbcn.com/')+22),
-      link:link.substring(link.indexOf('/')+1),
-      timestamp: Date.now(),
-      marka: 'mango',
+          }
+        })
+      }
     }
+  }).map(m=>{
+    return [...m.detail.colors]
+
+  }).flat().map(m=>{
+    return {title:m.title,priceNew:m.priceNew,imageUrl:m.imageUrl,link:m.link}
   })
   debugger
 })()

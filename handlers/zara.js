@@ -1,58 +1,50 @@
-
+const Apify = require('apify');
 async function handler(page, context) {
     const { request: { userData: { subcategory, category, start } } } = context
-    debugger;
+
     const url = await page.url()
-
-    debugger;
-
     await page.waitForSelector('.product-grid-block-dynamic.product-grid-block-dynamic__container')
-    await autoScroll(page);
-  await page.waitFor(5000)
-    debugger;
-    const data = await page.$$eval('li.product-grid-block-dynamic.product-grid-block-dynamic__container', (list, _subcategory, _category) => {
+    const dataset = await Apify.openDataset();
+    await page.evaluate(async () => {
+        var totalHeight = 0;
+        var distance = 100;
+        let inc = 0
+        window.scrollBy(0, distance);
+        totalHeight += distance;
+        inc = inc + 1
+    });
 
-        let products = []
-        list.forEach(element => {
+    await page.waitFor(5000)
+    const { items } = await dataset.getData()
+    const data = items.filter(f => f.productGroups).map(m => [...m.productGroups]).flat().map(m => {
 
-            const links = Array.from(element.querySelectorAll('a.product-link.product-grid-product__link.link')).map((m) => {
-                const longlink = m.href
-                return longlink.substring(longlink.indexOf('https://www.zara.com/tr/tr/') + 27)
-            })
-            const images = Array.from(element.querySelectorAll('img.media-image__image.media__wrapper--media')).map((m) => {
-                const longimageurl = m.src
-                return longimageurl.substring(longimageurl.indexOf('https://static.zara.net/photos/') + 31)
-            })
-            const titles = Array.from(element.querySelectorAll('img.media-image__image.media__wrapper--media')).map((m) => m.alt)
-            const prices = Array.from(element.querySelectorAll('.price-current__amount')).map((m) => m.textContent.replace("TL", ''))
+        return [...m.elements]
+    }).flat().filter(f => f.commercialComponents).map(m => [...m.commercialComponents]).flat().map(c => {
 
-
-            const items = links.map((m, i) => {
+        return {
+            ...c, detail: {
+              ...c.detail, colors: c.detail.colors.map(m => {
+                const imageUrl =m.xmedia[0].path +'/w/315/'+m.xmedia[0].name+'.jpg?ts='+m.xmedia[0].timestamp
+                const link =c.seo.keyword+'-p'+c.seo.seoProductId+'.html'
+                const price =m.price.toString().length===5 ? m.price.toString().substring(0,3)+','+ m.price.toString().substring(3): (m.price.toString().length===6? m.price.toString().charAt(0)+'.'+m.price.toString().substring(1,4)+',00'  :null)
+          
                 return {
-                    title: 'zara '+ titles[i],
-
-                    priceNew: prices[i],
-                    imageUrl: images[i],
-                    link: links[i],
-                    timestamp: Date.now(),
-                    marka: 'zara',
-                    subcategory: _subcategory,
-                    category: _category
+                  ...m, title: "zara "+ c.name + ' ' + m.name, priceNew:price, imageUrl,link
+      
                 }
-            })
+              })
+            }
+          }
+    }).map(m => {
+        return [...m.detail.colors]
 
-            products.push(...items)
-        })
-
-        return products.filter(f => f.imageUrl !== null)
-
-    }, subcategory, category)
-
-    //----------
-
-
-
-    //----------
+    }).flat().map(m => {
+        return {
+            title: m.title, priceNew: m.priceNew, imageUrl: m.imageUrl, link: m.link, category, subcategory, timestamp: Date.now(),
+            marka: "zara",
+        }
+    })
+    // debugger;
 
     console.log('data length_____', data.length, 'url:', url)
 
@@ -67,27 +59,6 @@ async function getUrls(page) {
     return { pageUrls: [], productCount: 0, pageLength: 0 }
 }
 
-async function autoScroll(page) {
-    await page.evaluate(async () => {
 
-
-        await new Promise((resolve, reject) => {
-            var totalHeight = 0;
-            var distance = 100;
-            let inc = 0
-            var timer = setInterval(() => {
-                var scrollHeight = document.body.scrollHeight;
-
-                window.scrollBy(0, distance);
-                totalHeight += distance;
-                inc = inc + 1
-                if (totalHeight >= scrollHeight - window.innerHeight) {
-                    clearInterval(timer);
-                    resolve();
-                }
-            }, 120);
-        });
-    });
-}
 module.exports = { handler, getUrls }
 

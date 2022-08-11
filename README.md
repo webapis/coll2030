@@ -89,3 +89,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_navbar_hide_scroll
 
 https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
 
+
+
+CURRENCY
+ https://stackoverflow.com/questions/5314237/is-there-a-functionality-in-javascript-to-convert-values-into-specific-locale-fo

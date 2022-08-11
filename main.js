@@ -68,7 +68,7 @@ Apify.main(async () => {
         maxConcurrency: parseInt(process.env.MAX_CONCURRENCY) || 5,
         handlePageTimeoutSecs: 600,
         // maxRequestRetries:4,
-       // navigationTimeoutSecs:120,
+        // navigationTimeoutSecs:120,
         launchContext: {
             // Chrome with stealth should work for most websites.
             // If it doesn't, feel free to remove this.
@@ -101,31 +101,53 @@ Apify.main(async () => {
                 await page.setRequestInterception(true);
                 page.on('request', req => {
                     const resourceType = req.resourceType();
-               
-                    if (resourceType === 'image' || (resourceType==='fetch' && req._url.includes('.jpg'))) {
+
+                    if (resourceType === 'image' || (resourceType === 'fetch' && req._url.includes('.jpg'))) {
                         req.respond({
                             status: 200,
                             contentType: 'image/jpeg',
                             body: buffer
                         });
 
-                    
+
                     } else {
                         req.continue();
                     }
                 });
-                page.on('response',async response=>{
+                page.on('response', async response => {
                     const request = response.request();
-            
-                    if (request.url().includes('https://shop.mango.com/services/productlist/products')){
-                        const json = await response.json();
-                        const _url =response._url
-                               console.log('JSON_url---------------------------------------------------------',_url)
-            
-                        await Apify.pushData(json);
-    
+
+                    // if (request.url().includes('https://shop.mango.com/services/productlist/products')) {
+                    //     const json = await response.json();
+                    //     const _url = response._url
+                    //     console.log('JSON_url---------------------------------------------------------', _url)
+
+                    //     await Apify.pushData(json);
+
+                    // }
+
+                    const status = response.status()
+                    if (status === 200) {
+                        const text = await response.text()
+                        if (isJsonString(text)) {
+
+                       
+                            const json = JSON.parse(text);
+                            await Apify.pushData(json);
+
+                        }
                     }
+
+
                 })
+                function isJsonString(str) {
+                    try {
+                        JSON.parse(str);
+                    } catch (e) {
+                        return false;
+                    }
+                    return true;
+                }
             },
         ],
         handleFailedRequestFunction: async ({ request: { errorMessages, url, userData: { gender, start } } }) => {

@@ -4,17 +4,17 @@ async function handler(page, context) {
     const { request: { userData: { subcategory, category, start } } } = context
     debugger;
 
-
+    const dataset = await Apify.openDataset();
     const url = await page.url()
 
     debugger;
 
     await page.waitForSelector('.catalog')
     await autoScroll(page);
-    const dataset = await Apify.openDataset();
+
     const { items } = await dataset.getData()
     debugger
-    const data = items.map(m => {
+    const data = items.filter(f=>f.version && f.groups).map(m => {
 
         return [...m.groups]
     }).map(m => {
