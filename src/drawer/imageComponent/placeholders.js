@@ -43,6 +43,8 @@ const placeholders = {
     mango: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://st.mngbcn.com/', detailHost: 'https://shop.mango.com/', postfix: '', imgPostFix:'?tr=w-400' },
     olegcassini: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.olegcassini.com.tr/', detailHost: 'https://www.olegcassini.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     addax: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn2.sorsware.com/', detailHost: 'https://www.addax.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    oxxo: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.sorsware.com/', detailHost: 'https://www.oxxo.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    abiyefon: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.abiyefon.com/', detailHost: 'https://www.abiyefon.com/', postfix: '', imgPostFix:'?tr=w-400' },
 
 }
 
