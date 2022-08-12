@@ -19,7 +19,7 @@ async function handler(page, context) {
             const priceNew = productCard.querySelector('.d-block.product-box-prices.product-box-price.pl-1.pr-2.text-black').textContent.replace(/\n/g, '').replace('TL', '').trim()
             const longlink = productCard.querySelector('.product-box-image-container').href
             const link = longlink.substring(longlink.indexOf("https://www.yargici.com/") + 24)
-            const longImgUrl = document.querySelector('a.product-box-image-container img').src
+            const longImgUrl = productCard.querySelector('[data-original]').getAttribute('data-original')
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img-incommerce-yargici.mncdn.com/") + 41)
             const title = productCard.querySelector('.product-box-zoom-image').alt
             return {
