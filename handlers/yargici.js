@@ -16,25 +16,21 @@ async function handler(page, context) {
     debugger
     const data = await page.$$eval('.product-box-container', (productCards, _subcategory, _category, _opts) => {
         return productCards.map(productCard => {
-            // const priceNew = productCard.querySelector('.currentPrice') ? productCard.querySelector('.currentPrice').textContent.replace(/\n/g, '').replace('₺', '').trim() : productCard.querySelector('.addPriceDiscount span').textContent.replace('₺', '').trim()
-            // const longlink = productCard.querySelector('.detailLink').href
-            // const link = longlink.substring(longlink.indexOf("https://www.patirti.com/") + 24)
-             const longImgUrl = document.querySelector('[data-original]').getAttribute('data-original')
-            // const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img1ptrti.mncdn.com/") + 28)
+            const priceNew = productCard.querySelector('.d-block.product-box-prices.product-box-price.pl-1.pr-2.text-black').textContent.replace(/\n/g, '').replace('TL', '').trim()
+            const longlink = productCard.querySelector('.product-box-image-container').href
+            const link = longlink.substring(longlink.indexOf("https://www.yargici.com/") + 24)
+            const longImgUrl = document.querySelector('a.product-box-image-container img').src
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img-incommerce-yargici.mncdn.com/") + 41)
             const title = productCard.querySelector('.product-box-zoom-image').alt
             return {
                 title: 'yargici ' + title,
-                // priceNew,
-                 imageUrl: longImgUrl,
-                // link,
-
+                priceNew,
+                imageUrl: imageUrlshort,
+                link,
                 timestamp: Date.now(),
-
                 marka: 'yargici',
                 subcategory: _subcategory,
                 category: _category
-
-
             }
         })
     }, subcategory, category, opts)
