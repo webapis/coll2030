@@ -191,9 +191,33 @@ jobs:
       marka: addax
       maxconcurrency: '1'
     secrets: inherit
+  oxxo_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: oxxo
+      maxconcurrency: '1'
+    secrets: inherit
+  desa_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: desa
+      maxconcurrency: '1'
+    secrets: inherit
+  abiyefon_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: abiyefon
+      maxconcurrency: '1'
+    secrets: inherit
+  patirti_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: patirti
+      maxconcurrency: '1'
+    secrets: inherit
   generate_nav_job:
     runs-on: ubuntu-latest
-    needs: [defacto_job,machka_job,lcwaikiki_job,koton_job,ipekyol_job,mavi_job,adl_job,roman_job,penti_job,beymen_job,vakko_job,zara_job,twist_job,hm_job,adidas_job,baqa_job,beyyoglu_job,dogo_job,dilvin_job,colins_job,butigo_job,gizia_job,vitrin_job,xint_job,tozlu_job,quzu_job,saygigiyim_job,manuka_job,kikiriki_job,jimmykey_job,perspective_job,mango_job,olegcassini_job,addax_job]
+    needs: [defacto_job,machka_job,lcwaikiki_job,koton_job,ipekyol_job,mavi_job,adl_job,roman_job,penti_job,beymen_job,vakko_job,zara_job,twist_job,hm_job,adidas_job,baqa_job,beyyoglu_job,dogo_job,dilvin_job,colins_job,butigo_job,gizia_job,vitrin_job,xint_job,tozlu_job,quzu_job,saygigiyim_job,manuka_job,kikiriki_job,jimmykey_job,perspective_job,mango_job,olegcassini_job,addax_job,oxxo_job,desa_job,abiyefon_job,patirti_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2

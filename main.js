@@ -149,7 +149,7 @@ Apify.main(async () => {
     
                             }   
                         } catch (error) {
-                            debugger
+
                         }
                       
                     }

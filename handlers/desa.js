@@ -4,39 +4,46 @@ async function handler(page, context) {
 
     const url = await page.url()
 
-    await page.waitForSelector('.products')
-    // onetrust-accept-btn-handler
+    await page.waitForSelector('.list-content')
 
+    //
     await manualScroll(page)
+
+    const acceptcookies = await page.$('#personaWelcomePopupCloseBtn')
+    if (acceptcookies) {
+        await page.click('#personaWelcomePopupCloseBtn')
+    }
 
     return new Promise((resolve, reject) => {
         try {
 
             let inv = setInterval(async () => {
 
-       
-                const collected = await page.evaluate(() => document.querySelectorAll('.products li').length)
+
+                const collected = await page.evaluate(() => document.querySelectorAll('.product-item-wrapper').length)
 
                 console.log('collected', collected)
-           
-                const loadmorebtn = await page.$('.load-more-products')
-                if (loadmorebtn) {
-                    await page.click('.load-more-products')
-                   await manualScroll(page)
+
+                const loadmorebtn = await page.$eval('.load-more-button', (element) => element.classList.contains('hidden'))
+                debugger
+                if (loadmorebtn === false) {
+                    debugger
+                    await page.click('.load-more-button')
+                    await manualScroll(page)
                 }
                 else {
                     clearInterval(inv)
-
-                    const data = await page.$$eval('.products li', (productCards, _subcategory, _category, _opts) => {
+                    debugger
+                    const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts) => {
                         return productCards.map(productCard => {
-                            // const priceNew = productCard.querySelector("span[data-price]") ? productCard.querySelector("span[data-price]").getAttribute('data-price').replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim() : productCard.outerHTML
-                            // const longlink = productCard.querySelector('.product-link') ? productCard.querySelector('.product-link').getAttribute('data-purehref') : productCard.outerHTML
-                            // const link = longlink.substring(longlink.indexOf("/") + 1)
-                            // const longImgUrl = productCard.querySelector('.product-list-image') ? productCard.querySelector('.product-list-image').src : productCard.outerHTML
-                            // const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://www.abiyefon.com/') + 25)
-                            const title = productCard.querySelector(".img-options img") ? productCard.querySelector(".img-options img").alt : productCard.outerHTML
+                            const priceNew = productCard.querySelector(".product-sale-price") ? productCard.querySelector(".product-sale-price").textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim() : productCard.outerHTML
+                            const longlink = productCard.querySelector('.product-name a') ? productCard.querySelector('.product-name a').href : productCard.outerHTML
+                             const link = longlink.substring(longlink.indexOf("https://www.desa.com.tr/") + 24)
+                            const longImgUrl = productCard.querySelector('[data-src]') ? productCard.querySelector('[data-src]').getAttribute('data-src') : productCard.outerHTML
+                             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://cdn-ayae.akinon.net/') + 28)
+                            const title = productCard.querySelector(".product-name a") ? productCard.querySelector(".product-name a").innerHTML : productCard.outerHTML
                             return {
-                                title: 'desa ' + title + (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
+                                title: 'desa ' + title,//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
                                 priceNew,
                                 imageUrl: imageUrlshort,
                                 link,
