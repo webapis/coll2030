@@ -16,8 +16,49 @@ export const AppContext = React.createContext();
 export default class App extends React.Component {
   constructor(props) {
     super(props);
+   this.scrollHandled=false
+    var prevScrollpos = window.pageYOffset;
+    window.addEventListener('scroll', () => {
+
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        //  document.getElementById("navbar").style.top = "0";
+
+        // document.getElementById('static-nav').style.visibility = "visible"
+
+      } else {
+
+        //document.getElementById("navbar").style.top = "-260px";
+
+        // document.getElementById('static-nav').style.visibility = "hidden"
+      }
+      prevScrollpos = currentScrollPos;
+
+      var myButtom = document.getElementById('nav-top-btn')
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        myButtom.style.display = "block";
+      } else {
+        myButtom.style.display = "none";
+      }
+
+      if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight &&  this.scrollHandled===false) {
+        this.scrollHandled=true
+        const hasMore = this.state.products.length < this.state.availableProducts
+        if (hasMore) {
+          debugger
+          this.fetchProducts(this.state.startAt)
+        }
+  
 
 
+        console.log('reached bottom of the page')
+        // you're at the bottom of the page
+      }
+
+
+
+
+    })
     this.toggleDrawer = (open) => {
       this.setState(state => ({
         open: !state.open
@@ -67,6 +108,7 @@ export default class App extends React.Component {
       selectedNavIndex: '',
       selectedKeywords: [],
       navKeywords: [],
+      availableProducts: 0,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex
     }
@@ -112,12 +154,13 @@ export default class App extends React.Component {
       return data
     })
       .then((data) => {
-        var products = data.data
-
-        //const fetchAllComplete = [...products, ...collection].length === totalKeyword
+        debugger
+        const { data: products, count } = data
+debugger
         this.setState(state => ({
-          ...state, products: state.startAt === 0 ? products : [...state.products, products], fetchingProduct: false
+          ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
         }))
+        this.scrollHandled=false
 
       })
       .catch(function (err) {
@@ -130,23 +173,14 @@ export default class App extends React.Component {
   }
 
   fetchNavKeywords(selectedNavIndex) {
-
-
     var url = `/api/kadin/nav?navindex=${selectedNavIndex}`
-
     fetch(url).then((response) => response.json()).then(navKeywords => {
-
-
       this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords }))
-
     })
-
-
-
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory,fetchingKeywords,fetchingProduct } = this.state
+    const { matchedesktop, selectedSubcategory, fetchingKeywords, fetchingProduct } = this.state
 
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
@@ -163,10 +197,10 @@ export default class App extends React.Component {
           </Grid>
         </Stack>
       }
- 
+
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
-      {fetchingProduct || fetchingKeywords &&  <LoadingDialog loading={true} /> }
-     
+      {fetchingProduct || fetchingKeywords && <LoadingDialog loading={true} />}
+
     </AppContext.Provider>)
   }
 }

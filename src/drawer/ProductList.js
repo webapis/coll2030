@@ -1,70 +1,24 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import Grid from '@mui/material/Grid'
 import ImageComponent from './imageComponent';
 import Container from '@mui/material/Container';
-import CarouselContainer from './CarouselContainer';
-import SearchBox from './SearchBox';
+
 import NavigationIcon from '@mui/icons-material/Navigation';
 import Fab from '@mui/material/Fab';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import  { AppContext } from '../App';
+import { AppContext } from '../App';
+import { Typography } from '@mui/material';
 export default function ProductList(props) {
-
-
-
-  useEffect(() => {
-
-    var prevScrollpos = window.pageYOffset;
-    window.addEventListener('scroll', function scroll() {
-
-      var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        //  document.getElementById("navbar").style.top = "0";
-
-        // document.getElementById('static-nav').style.visibility = "visible"
-
-      } else {
-
-        //document.getElementById("navbar").style.top = "-260px";
-
-        // document.getElementById('static-nav').style.visibility = "hidden"
-      }
-      prevScrollpos = currentScrollPos;
-
-      var myButtom = document.getElementById('nav-top-btn')
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        myButtom.style.display = "block";
-      } else {
-        myButtom.style.display = "none";
-      }
-
-      if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight) {
-
-
-
-
-        console.log('reached bottom of the page')
-        // you're at the bottom of the page
-      }
-
-
-
-
-    })
-  }, [])
-
-
-
 
 
 
 
   return (
     <AppContext.Consumer>
-      {({ fetchingProducts, products,selectedSubcategory,navKeywords}) => {
+      {({ fetchingProducts, products, selectedSubcategory, availableProducts }) => {
         return <div style={{ position: 'relative' }}>
 
           <div style={{ display: fetchingProducts ? 'block' : 'none', width: '100%', height: '100vh', backgroundColor: '#fafafa', position: 'absolute', top: 0, bottom: 0, zIndex: 10, opacity: 0.7, color: 'white' }}>  <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
@@ -72,12 +26,8 @@ export default function ProductList(props) {
           </Box></div>
 
           <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
-        
+            {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
             <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
-          
-   
-
-
               {products.length > 0 && products.map((item, i) => {
 
                 return <Grid margin={0} padding={0} item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -85,15 +35,21 @@ export default function ProductList(props) {
                   <ImageComponent selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 
                 </Grid>
+
+
               })}
 
 
             </Grid>
 
+            <Fab variant="extended" sx={{ position: 'fixed', bottom: 55, right: 5, fontSize: 10 }} color="" >
+              {products.length - 1}/{availableProducts}
+            </Fab>
 
             <Fab id="nav-top-btn" variant="extended" sx={{ position: 'fixed', bottom: 5, right: 5, display: 'none' }} color="primary" onClick={() => { window.scrollTo({ top: 0 }); }}>
               <NavigationIcon />
             </Fab>
+            {products.length > 0 && (products.length-1) === availableProducts && <Typography sx={{ color: '#757575',marginBottom:10 }}>toplam:{availableProducts}ürün görüntilendi</Typography>}
           </Container>
         </div>
       }}
