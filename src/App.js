@@ -173,9 +173,11 @@ debugger
   }
 
   fetchNavKeywords(selectedNavIndex) {
-    var url = `/api/kadin/nav?navindex=${selectedNavIndex}`
-    fetch(url).then((response) => response.json()).then(navKeywords => {
-      this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords }))
+  //  var url = `/api/kadin/nav?navindex=${selectedNavIndex}`
+  var url=`https://res.cloudinary.com/codergihub/raw/upload/start.json`
+    fetch(url).then((response) => response.json()).then(({keywords}) => {
+      debugger
+      this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords:keywords }))
     })
 
   }

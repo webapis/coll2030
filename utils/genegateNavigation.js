@@ -24,9 +24,9 @@
 async function genNav() {
 
 
+  const { cloudinaryUploader } = require('./cloudinaryUploader')
 
 
-  var TAFFY = require('taffy');
   const fs = require('fs')
   const { mongoClient } = require('./mongoDb')
   const { productTitleMatch } = require('../api/kadin/productTitleMatch')
@@ -37,7 +37,7 @@ async function genNav() {
   await makeDir('public/nav-keywords')
   await makeDir(`public/nav-data/elbise`)
   const categoryNav = {}
-  const { getCombinations } = require('../nav-keys/combination')
+  const { getCombinations } = require('../nav-keyssdsdsd/combination')
 
   const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
   let navKeys = { start: { navMatch: [], keywords: {} } }
@@ -79,21 +79,28 @@ async function genNav() {
             const endPrice = parseFloat(priceRange[1])
             try {
               const productPrice = parseFloat(priceNew.replace('.', '').replace(',', '.'))
-              if (productPrice >= startPrice && productPrice <= endPrice) {
 
-                return true
+              if (startPrice < endPrice) {
 
-              } else {
-                return false
+                if (productPrice >= startPrice && productPrice <= endPrice) {
+                  return true
+                } else {
+                  return false;
+                }
+
+              }
+              else {
+                if (productPrice >= startPrice) {
+                  return true
+                } else {
+
+                  return false
+                }
+
               }
             } catch (error) {
               debugger
             }
-
-
-
-
-
 
           } else {
 
@@ -191,7 +198,7 @@ async function genNav() {
       const keywords = m[1]['keywords'].sort(function (a, b) {
         var textA = a.parentkey.toUpperCase();
         var textB = b.parentkey.toUpperCase();
-        debugger
+
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
       })
 
@@ -208,27 +215,32 @@ async function genNav() {
   }
   debugger
   await makeDir(`api/_files/nav`)
-  if (fs.existsSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)) {
-    fs.unlinkSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)
+  for (let cr of regrouped) {
+    const { index, keywords } = cr
+    console.log('index', index)
+    debugger
+    await cloudinaryUploader(JSON.stringify(keywords), index)
+    debugger
   }
-  fs.appendFileSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`, JSON.stringify(regrouped));
+
+
 
   if (fs.existsSync(`${process.cwd()}/src/category-nav.json`)) {
     fs.unlinkSync(`${process.cwd()}/src/category-nav.json`)
   }
   const categoryAsArray = Object.entries(categoryNav).map(c => {
-    debugger
+
     return { subcategory: c[0], total: c[1].count }
   }).sort((a, b) => {
-    debugger
+
     var textA = a['subcategory'].toUpperCase();
     var textB = b['subcategory'].toUpperCase();
     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
   })
+
+
   fs.appendFileSync(`${process.cwd()}/src/category-nav.json`, JSON.stringify(categoryAsArray));
   console.log('end....1')
-
-
 
 }
 

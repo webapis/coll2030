@@ -3,25 +3,10 @@
 
 (async () => {
   //require('dotenv').config()
-
-
-  const Apify = require('apify');
-  debugger
-  const dataset = await Apify.openDataset();
-  const { items } = await dataset.getData()
-  debugger
-  const map = items.filter(f => f.products).map(p => [...p.products]).flat().map(m => {
-
-
-    return {
-      title: 'tozlu ' +m.name,
-      priceNew: m.productSellPriceStr.replace('TL','').trim() ,
-      imageUrl: 'https://img.tozlu.com/Uploads/UrunResimleri/thumb/'+m.imageName,
-      link:m.defaultUrl,
-      timestamp: Date.now(),
-      marka: 'tozlu'
-    }
-  })
+const {cloudinaryUploader}=require('./utils/cloudinaryUploader')
+debugger
+await cloudinaryUploader(JSON.stringify({hello:'yes'}),'hello')
+debugger
 
   debugger
 })()
