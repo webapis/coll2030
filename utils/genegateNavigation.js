@@ -47,7 +47,7 @@ async function genNav() {
 
     ++objCounter
     console.log('objCounter...', objCounter)
-    const { subcategory, title, imageUrl, marka } = object
+    const { subcategory, title, imageUrl, marka, priceNew } = object
     if (categoryNav[subcategory] === undefined) {
       categoryNav[subcategory] = { count: 0 }
     }
@@ -72,19 +72,44 @@ async function genNav() {
           let exactmatch = kws.exactmatch
           let negwords = kws.negwords
           //  let keywordTitle = kws.title
-          //   let group = kws.group
+          let group = kws.group
+          if (group === 'FIYAT ARALIĞI') {
+            const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
+            const startPrice =parseFloat( priceRange[0]) 
+            const endPrice =parseFloat( priceRange[1])
+            try {
+              const productPrice = parseFloat(priceNew.replace('.','').replace(',','.'))
+              if (productPrice >= startPrice &&  productPrice <=endPrice) {
 
-          let nws = []
-          if (negwords) {
-            nws = negwords.split(',')
+                return true 
+           
+              } else {
+                return false
+              }
+            } catch (error) {
+              debugger
+            }
+         
+        
+         
 
+           
+
+          } else {
+
+            let nws = []
+            if (negwords) {
+              nws = negwords.split(',')
+
+            }
+            const kw = kws.keyword
+            const match = productTitleMatch({ kw, title, exactmatch, nws })
+            return match
           }
 
-          const kw = kws.keyword
-          const match = productTitleMatch({ kw, title, exactmatch, nws })
 
 
-          return match
+
         })
 
         if (navMatch.length > 0) {
@@ -111,8 +136,6 @@ async function genNav() {
 
             })
 
-
-
           })
 
           navMatch.forEach(nm => {
@@ -133,12 +156,6 @@ async function genNav() {
 
 
       }
-
-
-
-
-
-
 
     }
   })//end
@@ -200,7 +217,7 @@ async function genNav() {
   }
   const categoryAsArray = Object.entries(categoryNav).map(c => {
     debugger
-    return {subcategory:c[0],total:c[1].count}
+    return { subcategory: c[0], total: c[1].count }
   }).sort((a, b) => {
     debugger
     var textA = a['subcategory'].toUpperCase();
