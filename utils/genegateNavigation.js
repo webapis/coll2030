@@ -75,25 +75,25 @@ async function genNav() {
           let group = kws.group
           if (group === 'FIYAT ARALIĞI') {
             const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
-            const startPrice =parseFloat( priceRange[0]) 
-            const endPrice =parseFloat( priceRange[1])
+            const startPrice = parseFloat(priceRange[0])
+            const endPrice = parseFloat(priceRange[1])
             try {
-              const productPrice = parseFloat(priceNew.replace('.','').replace(',','.'))
-              if (productPrice >= startPrice &&  productPrice <=endPrice) {
+              const productPrice = parseFloat(priceNew.replace('.', '').replace(',', '.'))
+              if (productPrice >= startPrice && productPrice <= endPrice) {
 
-                return true 
-           
+                return true
+
               } else {
                 return false
               }
             } catch (error) {
               debugger
             }
-         
-        
-         
 
-           
+
+
+
+
 
           } else {
 
@@ -123,15 +123,15 @@ async function genNav() {
               navKeys[comb] = { keywords: {} }
             }
             navMatch.forEach(nm => {
-              const { keyword, group, index } = nm
+              const { keyword, group, index, parentkey } = nm
 
               if (navKeys[comb].keywords[keyword] === undefined) {
 
-                navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka }
+                navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka, parentkey }
               }
               else {
                 const count = navKeys[comb].keywords[keyword].count
-                navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka }
+                navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka, parentkey }
               }
 
             })
@@ -139,15 +139,15 @@ async function genNav() {
           })
 
           navMatch.forEach(nm => {
-            const { keyword, group, index } = nm
+            const { keyword, group, index, parentkey } = nm
 
             if (navKeys.start.keywords[keyword] === undefined) {
 
-              navKeys.start.keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka }
+              navKeys.start.keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka, parentkey }
             }
             else {
               const count = navKeys.start.keywords[keyword].count
-              navKeys.start.keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka }
+              navKeys.start.keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka, parentkey }
             }
 
           })
@@ -174,12 +174,12 @@ async function genNav() {
     const navKeywords = map.reduce((prev, curr) => {
 
       if (prev[curr.group] === undefined) {
-        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka }] } }
+        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka, parentkey: curr.parentkey }] } }
       } else {
 
 
         return {
-          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka }] }
+          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka, parentkey: curr.parentkey }] }
         }
       }
 
@@ -189,8 +189,9 @@ async function genNav() {
       const groupName = m[0]
 
       const keywords = m[1]['keywords'].sort(function (a, b) {
-        var textA = a.keyword.toUpperCase();
-        var textB = b.keyword.toUpperCase();
+        var textA = a.parentkey.toUpperCase();
+        var textB = b.parentkey.toUpperCase();
+        debugger
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
       })
 

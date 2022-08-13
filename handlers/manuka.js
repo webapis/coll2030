@@ -13,7 +13,7 @@ async function handler(page, context) {
 
         const longImage = product.image
         const title = product.name.replace(/I/g,'ı').replace(/İ/g,'i').toLowerCase()
-        const priceNew = product.total_sale_price
+        const priceNew = product.total_sale_price.toString().replace('.',',')
         const link = product.url
 
         return {

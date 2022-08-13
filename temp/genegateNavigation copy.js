@@ -1,164 +1,218 @@
 
 
-const fs = require('fs')
-const { mongoClient, extractNavData } = require('../utils/mongoDb')
-var through = require("through2");
-const makeDir = require('make-dir');
-const path = require('path')
-var jsonArrayStreams = require("json-array-streams");
-
-async function generateNavigation() {
-    const markaNavCollection = await mongoClient({ collectionName: 'marka-nav' })
-    const categoryNavCollection = await mongoClient({ collectionName: 'category-nav' })
-    await categoryNavCollection.deleteMany({})
-    await markaNavCollection.deleteMany({})
-    let categoryTree = {}
-    let markaTree = {}
-    let markaNavTree={}
-    let categoryNavTree={}
-    return new Promise(async (resolve, reject) => {
-        const readstream = fs.createReadStream("./api/_files/kadin/data.json")
-        const data = fs.readFileSync("./api/_files/kadin/data.json")
-        const totalObjects = JSON.parse(data).length
-        console.log('totalObjects', totalObjects)
-        let objCounter = 0
-        readstream.pipe(jsonArrayStreams.parse())
-            .pipe(through.obj(async function (object, enc, cb) {
-                ++objCounter
-                console.log('objCounter...', objCounter)
-                const { category, subcategory, marka, title } = object
-                const keywordsCollection = fs.existsSync(`${process.cwd()}/keywords/${subcategory}.js`) && require(`../keywords/${subcategory}`)
-                if (keywordsCollection) {
-                    keywordsCollection.forEach(keywords => {
-
-                        let parentKeyWord = keywords[0]
-                 
-                        keywords.forEach(kw => {
-
-                            const match =kw.replace('^','').replace(/\s/g,',').split(',').every(function(keyword){
-                                const fullmatch = kw.indexOf('^')!==-1
-                            
-                                if(fullmatch){
-                                return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword).length>0
-                                }else{
-                                return   title.toLowerCase().replace(/\s/g,',').split(',').filter(f=> f===keyword || f.indexOf(keyword)===0  ).length>0
-                                }
-                             
-                              })
-
-                            if (match) {
-                                if (categoryTree[`${subcategory}`] === undefined) {
-                                  
-                                    categoryTree[`${subcategory}`] = {}
-                                }
-                                if (categoryTree[`${subcategory}`][`${parentKeyWord}`] === undefined) {
-                            
-                                    categoryTree[`${subcategory}`][`${parentKeyWord}`] = {}
-                                }
-                             
-                                if (markaTree[`${marka}`] === undefined) {
-
-                                    markaTree[`${marka}`] = {}
-
-                                  
-                                }
-                                if (markaTree[`${marka}`][`${subcategory}`] === undefined) {
-                                 
-                                    markaTree[`${marka}`][`${subcategory}`] = {}
-                                }
-                                if (markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] === undefined) {
-                                 
-                                    markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`] = {}
-                                }
-                                 
-                                   
-                               
-                                categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`] === undefined ?  categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`]  = 1 :  categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`]  =  categoryTree[`${subcategory}`][`${parentKeyWord}`][`${kw}`]  + 1
-                                markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] === undefined ? markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`]= 1 : markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`]= markaTree[`${marka}`][`${subcategory}`][`${parentKeyWord}`][`${kw}`] + 1
-
-
-                            }
-                        })
-                    })
-                }
-
-                await updateDatabase({ pc: { category, subcategory }, marka, markaNavCollection, categoryNavCollection })
-               // updateVar({ category, subcategory,markaNavTree,categoryNavTree })
-                if (objCounter === totalObjects) {
-                    debugger;
-                    const splitCategoryKeywrods = Object.entries(categoryTree)
-                    const splitMarkaKeywords = Object.entries(markaTree)
-                    debugger;
-                    for (let kwds of splitMarkaKeywords) {
-
-                        const marka = kwds[0]
-                        const keywords = kwds[1]
-                        const path = `${process.cwd()}/public/keywords/marka/${marka}.json`
-                        if (fs.existsSync(path)) {
-                            fs.unlinkSync(path)
-                        }
-                        fs.appendFileSync(path, JSON.stringify(keywords));
-                        debugger;
-                    }
-
-                    for (let kwds of splitCategoryKeywrods) {
-
-                        const category = kwds[0]
-                        const keywords = kwds[1]
-                        const path = `${process.cwd()}/public/keywords/category/${category}.json`
-                        if (fs.existsSync(path)) {
-                            fs.unlinkSync(path)
-                        }
-                        fs.appendFileSync(path, JSON.stringify(keywords));
-                        debugger;
-                    }
-                    debugger;
-                    console.log('end....1')
-                    await extractNavData({ collection: categoryNavCollection, exportPath: `${process.cwd()}/public/category-nav.json` })
-                    await extractNavData({ collection: markaNavCollection, exportPath: `${process.cwd()}/public/marka-nav.json` })
-                    return resolve(true)
-
-                }
-                cb()
-            }))
-
-
-        readstream.on('end', async (data) => {
-            console.log('end')
-        })
-        readstream.on('error', (error) => {
-            debugger;
-            return reject(error)
-        })
-    })
-}
 
 (async () => {
-    console.log('---------------NAV GENERATION STARTED----------------')
-    await generateNavigation()
-    console.log('---------------NAV GENERATION COMPLETE----------------')
-    process.exit(0)
+  console.log('--------------REMOVING DUBLICATE DATA STARTED-------------')
+  const { importData, exportData } = require('../utils/mongoDb')
+
+  await importData({ collectionName: 'data', folder: 'data' })
+
+  await genNav()
+
+
+
+  await exportData({ exportPath: `${process.cwd()}/api/_files/kadin/data.json`, collectionName: 'data', aggegation: [] })
+  console.log('-------------REMOVING DUBLICATE DATA COMPLETE---------------')
+  process.exit(0)
+
 })()
 
 
 
-async function updateDatabase({ pc, marka, markaNavCollection, categoryNavCollection }) {
 
-    const { category, subcategory, regex } = pc
-    await categoryNavCollection.updateOne({}, { $inc: { [`nav.totalByCategory`]: 1 } }, { upsert: true })
-    await categoryNavCollection.updateOne({}, { $inc: { [`nav.categories.${category}.totalBySubcategory`]: 1 } }, { upsert: true })
-    // await categoryNavCollection.updateOne({}, { $set: { [`nav.categories.${category}.subcategories.${subcategory}.regex`]: regex } }, { upsert: true })
-    await categoryNavCollection.updateOne({}, { $inc: { [`nav.categories.${category}.subcategories.${subcategory}.count`]: 1 } }, { upsert: true })
 
-    await markaNavCollection.updateOne({}, { $inc: { [`nav.totalByMarka`]: 1 } }, { upsert: true })
-    await markaNavCollection.updateOne({}, { $inc: { [`nav.markas.${marka}.totalByCatory`]: 1 } }, { upsert: true })
-    await markaNavCollection.updateOne({}, { $inc: { [`nav.markas.${marka}.categories.${category}.totalBySubcategory`]: 1 } }, { upsert: true })
-    //  await markaNavCollection.updateOne({}, { $set: { [`nav.markas.${marka}.categories.${category}.subcategories.${subcategory}.regex`]: regex } }, { upsert: true })
-    await markaNavCollection.updateOne({}, { $inc: { [`nav.markas.${marka}.categories.${category}.subcategories.${subcategory}.count`]: 1 } }, { upsert: true })
+async function genNav() {
+
+
+
+
+  var TAFFY = require('taffy');
+  const fs = require('fs')
+  const { mongoClient } = require('../utils/mongoDb')
+  const { productTitleMatch } = require('../api/kadin/productTitleMatch')
+  const makeDir = require('make-dir');
+
+  const dataCollection = await mongoClient({ collectionName: 'data' })
+
+  await makeDir('public/nav-keywords')
+  await makeDir(`public/nav-data/elbise`)
+  const categoryNav = {}
+  const { getCombinations } = require('../nav-keys/combination')
+
+  const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
+  let navKeys = { start: { navMatch: [], keywords: {} } }
+
+  let objCounter = 0
+  await dataCollection.find().forEach(async (object) => {
+
+    ++objCounter
+    console.log('objCounter...', objCounter)
+    const { subcategory, title, imageUrl, marka } = object
+    if (categoryNav[subcategory] === undefined) {
+      categoryNav[subcategory] = { count: 0 }
+    }
+    else {
+      categoryNav[subcategory].count = categoryNav[subcategory].count + 1
+    }
+
+    let navMatchCollection = []
+    if (title) {
+
+      let matchfound = false
+
+      const keywords = allkeywords[subcategory]
+
+
+      if (keywords && keywords.length > 0) {
+
+
+        const navMatch = keywords.map((m, i) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
+
+          //  let parentKeyWord = kws.parentkey
+          let exactmatch = kws.exactmatch
+          let negwords = kws.negwords
+          //  let keywordTitle = kws.title
+          //   let group = kws.group
+
+          let nws = []
+          if (negwords) {
+            nws = negwords.split(',')
+
+          }
+
+          const kw = kws.keyword
+          const match = productTitleMatch({ kw, title, exactmatch, nws })
+
+
+          return match
+        })
+
+        if (navMatch.length > 0) {
+          navMatchCollection.push(navMatch)
+
+          const possibleCombination = getCombinations(navMatch.map((m) => m.index))
+
+          possibleCombination.forEach(async (comb) => {
+
+            if (navKeys[comb] === undefined) {
+              navKeys[comb] = { keywords: {} }
+            }
+            navMatch.forEach(nm => {
+              const { keyword, group, index } = nm
+
+              if (navKeys[comb].keywords[keyword] === undefined) {
+
+                navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka }
+              }
+              else {
+                const count = navKeys[comb].keywords[keyword].count
+                navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka }
+              }
+
+            })
+
+
+
+          })
+
+          navMatch.forEach(nm => {
+            const { keyword, group, index } = nm
+
+            if (navKeys.start.keywords[keyword] === undefined) {
+
+              navKeys.start.keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka }
+            }
+            else {
+              const count = navKeys.start.keywords[keyword].count
+              navKeys.start.keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka }
+            }
+
+          })
+
+        }
+
+
+      }
+
+
+
+
+
+
+
+    }
+  })//end
+
+  fs.rmSync(`${process.cwd()}/public/nav-data`, { recursive: true, force: true });
+
+
+  console.log('nav gen complete')
+
+  let regrouped = []
+  for (let nk in navKeys) {
+    const { keywords } = navKeys[nk]
+
+    const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
+
+    const navKeywords = map.reduce((prev, curr) => {
+
+      if (prev[curr.group] === undefined) {
+        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka }] } }
+      } else {
+
+
+        return {
+          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka }] }
+        }
+      }
+
+    }, {})
+
+    const sorted = Object.entries(navKeywords).map((m, i) => {
+      const groupName = m[0]
+
+      const keywords = m[1]['keywords'].sort(function (a, b) {
+        var textA = a.keyword.toUpperCase();
+        var textB = b.keyword.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      })
+
+      return { groupName, keywords }
+    }).sort(function (a, b) {
+      var textA = a.groupName.toUpperCase();
+      var textB = b.groupName.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    })
+
+    regrouped.push({ index: nk, keywords: sorted })
+
+
+  }
+  debugger
+  await makeDir(`api/_files/nav`)
+  if (fs.existsSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)) {
+    fs.unlinkSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)
+  }
+  fs.appendFileSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`, JSON.stringify(regrouped));
+
+  if (fs.existsSync(`${process.cwd()}/src/category-nav.json`)) {
+    fs.unlinkSync(`${process.cwd()}/src/category-nav.json`)
+  }
+  const categoryAsArray = Object.entries(categoryNav).map(c => {
+    debugger
+    return {subcategory:c[0],total:c[1].count}
+  }).sort((a, b) => {
+    debugger
+    var textA = a['subcategory'].toUpperCase();
+    var textB = b['subcategory'].toUpperCase();
+    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+  })
+  fs.appendFileSync(`${process.cwd()}/src/category-nav.json`, JSON.stringify(categoryAsArray));
+  console.log('end....1')
+
+
+
 }
 
-async function updateVar({ pc, marka, categoryNavTree, markaNavTree }) {
 
-    const { category, subcategory, regex } = pc
 
-}

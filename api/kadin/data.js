@@ -22,31 +22,54 @@ module.exports = (req, res) => {
     let foundkeywords = allkeywords[subcategory].filter(function(f)  {
 
       const includes = splittedKeywordsIndex.includes(f.index)
-      if(marka==='defacto'  && includes){
-        debugger
-      }
+   
       return includes
      })
 
     const title = this.title
+    const priceNew =this.priceNew
   
 
     const match = foundkeywords.filter(kws => {
-      let exactmatch = kws.exactmatch
+      let group = kws.group
       let negwords = kws.negwords
-      let nws = []
-      if (negwords) {
-        nws = negwords.split(',')
+      let exactmatch = kws.exactmatch
+          if (group === 'FIYAT ARALIĞI') {
+            const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
+            const startPrice =parseFloat( priceRange[0]) 
+            const endPrice =parseFloat( priceRange[1])
+            try {
+              const productPrice = parseFloat(priceNew.replace('.','').replace(',','.'))
+              if (productPrice >= startPrice &&  productPrice <=endPrice) {
 
-      }
-  
-      const kw = kws.keyword
-      
-      return productTitleMatch({ kw, title, exactmatch, nws })
+                return true 
+           
+              } else {
+                return false
+              }
+            } catch (error) {
+              debugger
+            }
+         
+        
+         
+
+           
+
+          } else {
+
+            let nws = []
+          
+            if (negwords) {
+              nws = negwords.split(',')
+
+            }
+            const kw = kws.keyword
+            const match = productTitleMatch({ kw, title, exactmatch, nws })
+            return match
+          }
     })
-       if(marka==='defacto'){
-      debugger
-    }
+
     
 
     return match.length=== foundkeywords.length
