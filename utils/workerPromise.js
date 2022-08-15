@@ -2,12 +2,12 @@
 const {
     Worker, isMainThread
 } = require('node:worker_threads');
-function workerPromise({buffers }) {
+function workerPromise({ buffers }) {
 
     if (isMainThread) {
 
         return new Promise((resolve, reject) => {
-            const encode_worker = new Worker(`${process.cwd()}/utils/cloudinaryUploader.js`, { workerData: {buffers } });
+            const encode_worker = new Worker(`${process.cwd()}/utils/cloudinaryUploader.js`, { workerData: { buffers } });
 
             // encode_worker.on('message', (transcode_data) => {
             //     log.info("%o", transcode_data);
@@ -15,7 +15,7 @@ function workerPromise({buffers }) {
             // });
 
             encode_worker.on('error', (err) => {
-           
+
                 reject(err);
             });
 
@@ -23,7 +23,10 @@ function workerPromise({buffers }) {
                 if (code !== 0) {
                     reject(new Error(`Encoding stopped with exit code [ ${code} ]`));
                 }
-                console.log('worker complete')
+
+                global.navItems = global.navItems + buffers.length
+                console.log('worker complete', global.navItems)
+                console.log('worker left', global.itemsTotal - global.navItems)
                 resolve(true);
             });
 

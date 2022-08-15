@@ -231,11 +231,13 @@ async function genNav() {
   debugger
   const slicedArray = sliceIntoChunks(regrouped, 10)
   debugger
+  global.navItems = 0
+  global.itemsTotal = slicedArray.length * 10
   await Promise.all(slicedArray.map(async (buffers, i) => {
 
-  
 
-    return limit(async () =>await workerPromise({ buffers }) )
+
+    return limit(async () => await workerPromise({ buffers }))
 
 
   }))

@@ -46,7 +46,7 @@ const streamifier=require('streamifier')
 
         if (result) {
           debugger
-          console.log('upload', public_id)
+  
           resolve(result);
 
         } else {
