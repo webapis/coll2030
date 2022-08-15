@@ -28,7 +28,7 @@ async function genNav() {
 
   var promiseLimit = require('promise-limit')
 
-  var limit = promiseLimit(20)
+  var limit = promiseLimit(5)
   const fs = require('fs')
   const { mongoClient } = require('./mongoDb')
   const { productTitleMatch } = require('../api/kadin/productTitleMatch')
@@ -48,7 +48,7 @@ async function genNav() {
   await dataCollection.find().forEach(async (object) => {
 
     ++objCounter
-    console.log('objCounter...', objCounter)
+   // console.log('objCounter...', objCounter)
     const { subcategory, title, imageUrl, marka, priceNew } = object
     if (categoryNav[subcategory] === undefined) {
       categoryNav[subcategory] = { count: 0 }

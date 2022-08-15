@@ -148,7 +148,7 @@ export default class App extends React.Component {
     const { selectedSubcategory: { subcategory }, selectedMarka, selectedNavIndex } = this.state
 
     var url = '/api/kadin/data?start=' + start + '&subcategory=' + subcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
-
+debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
       return data
@@ -173,11 +173,18 @@ debugger
   }
 
   fetchNavKeywords(selectedNavIndex) {
-  //  var url = `/api/kadin/nav?navindex=${selectedNavIndex}`
-  var url=`https://res.cloudinary.com/codergihub/raw/upload/start.json`
-    fetch(url).then((response) => response.json()).then(({keywords}) => {
+    var url = ''
+    if(selectedNavIndex===''){
+       url=`https://res.cloudinary.com/codergihub/raw/upload/navigation/start`
+    }else{
+       url=`https://res.cloudinary.com/codergihub/raw/upload/navigation/${selectedNavIndex}`
+    }
+debugger
+    fetch(url).then(async(response) =>response.json()).then((keywords) => {
       debugger
       this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords:keywords }))
+    }).catch(err=>{
+      debugger
     })
 
   }

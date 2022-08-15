@@ -26,6 +26,7 @@
     "node-fetch": "2.6.1",
     "p-limit": "^4.0.0",
     "promise-limit": "^2.7.0",
+    "promise-retry": "^2.0.1",
     "puppeteer": "*",
     "react": "18.1.0",
     "react-dom": "18.1.0",
