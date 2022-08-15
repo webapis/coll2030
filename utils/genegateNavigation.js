@@ -22,11 +22,13 @@
 
 
 async function genNav() {
+  const { workerPromise } = require('./workerPromise')
 
+  //const { cloudinaryUploader } = require('./cloudinaryUploader')
 
-  const { cloudinaryUploader } = require('./cloudinaryUploader')
+  var promiseLimit = require('promise-limit')
 
-
+  var limit = promiseLimit(20)
   const fs = require('fs')
   const { mongoClient } = require('./mongoDb')
   const { productTitleMatch } = require('../api/kadin/productTitleMatch')
@@ -120,6 +122,7 @@ async function genNav() {
         })
 
         if (navMatch.length > 0) {
+
           navMatchCollection.push(navMatch)
 
           const possibleCombination = getCombinations(navMatch.map((m) => m.index))
@@ -215,14 +218,27 @@ async function genNav() {
   }
   debugger
   await makeDir(`api/_files/nav`)
-  for (let cr of regrouped) {
-    const { index, keywords } = cr
-    console.log('index', index)
-    debugger
-    await cloudinaryUploader(JSON.stringify(keywords), index)
-    debugger
-  }
+  debugger
+  // for (let cr of regrouped) {
+  //   const { index, keywords } = cr
+  //   console.log('index', index)
+  //   debugger
 
+  //   await cloudinaryUploader(JSON.stringify(keywords), index)
+  //   debugger
+  // }
+
+  debugger
+  const slicedArray = sliceIntoChunks(regrouped, 10)
+  debugger
+  await Promise.all(slicedArray.map(async (buffers, i) => {
+
+  
+
+    return limit(async () =>await workerPromise({ buffers }) )
+
+
+  }))
 
 
   if (fs.existsSync(`${process.cwd()}/src/category-nav.json`)) {
@@ -246,3 +262,11 @@ async function genNav() {
 
 
 
+function sliceIntoChunks(arr, chunkSize) {
+  const res = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    const chunk = arr.slice(i, i + chunkSize);
+    res.push(chunk);
+  }
+  return res;
+}
