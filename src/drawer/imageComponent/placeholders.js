@@ -1,4 +1,4 @@
-//const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_400/'
+const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_400/'
 const imagePrefixImageKit = 'https://ik.imagekit.io/mumrjdehaou/'
 
 const placeholder = 'https://www.mavi.com/_ui/responsive/theme-mavi/images/placeholder.jpg'
@@ -39,7 +39,7 @@ const placeholders = {
 
     kikiriki: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.vebigo.com/', detailHost: 'https://tr.kikiriki.com/', postfix: '', imgPostFix:'?tr=w-400' },
     jimmykey: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.sorsware.com/', detailHost: 'https://www.jimmykey.com/tr/', postfix: '', imgPostFix:'?tr=w-400' },
-    perspective: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.sorsware.com/', detailHost: 'https://www.perspective.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
+    perspective: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix:imagePrefixCloudinary, imagePrefixImageKit, placeholder, imageHost: 'https://cdn.sorsware.com/', detailHost: 'https://www.perspective.com.tr/', postfix: '', imgPostFix:'' },
     mango: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://st.mngbcn.com/', detailHost: 'https://shop.mango.com/', postfix: '', imgPostFix:'?tr=w-400' },
     olegcassini: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.olegcassini.com.tr/', detailHost: 'https://www.olegcassini.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     addax: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn2.sorsware.com/', detailHost: 'https://www.addax.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
