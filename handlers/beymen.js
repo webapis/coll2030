@@ -12,7 +12,7 @@ async function handler(page, context) {
 
             const title = productCard.querySelector('.m-productCard__detail .m-productCard__title').textContent
             const desc =productCard.querySelector('.m-productCard__detail .m-productCard__desc').textContent
-            const priceNew = productCard.querySelector('.m-productCard__newPrice').textContent.replace('TL','').trim()
+            const priceNew = productCard.querySelector('.m-productCard__newPrice').textContent.replace('TL','').trim().replace('.','').trim()
             const longlink = productCard.querySelector('div[data-page] a').href
            const link = longlink.substring(longlink.indexOf("https://www.beymen.com/") + 23)
             const longImgUrl = productCard.querySelectorAll('.m-productImageList [data-src]')[0].getAttribute('data-src').trim()

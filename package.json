@@ -10,6 +10,7 @@
     "@mui/lab": "^5.0.0-alpha.90",
     "@mui/material": "5.7.0",
     "@reduxjs/toolkit": "^1.8.2",
+    "accounting-js": "^1.1.1",
     "apify": "2.0.7",
     "big-json": "^3.1.0",
     "cloudinary": "^1.30.1",

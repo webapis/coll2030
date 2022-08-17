@@ -3,6 +3,8 @@
 require('dotenv').config()
 const stream = require('stream')
 const { MongoClient } = require('mongodb')
+
+debugger
 //const stream = require('stream')
 const fs = require('fs')
 const path = require('path')
@@ -44,7 +46,7 @@ async function importData({ collectionName, folder }) {
 
 async function exportData({ exportPath, collectionName, aggegation }) {
     console.log('EXPORTING DATA STARTED....')
-
+    const {formatMoney} =require('accounting-js')
     const collection = await mongoClient({collectionName})
   
     const cursor = await collection.aggregate(aggegation, { allowDiskUse: true })
@@ -59,11 +61,15 @@ async function exportData({ exportPath, collectionName, aggegation }) {
     let parcedData = 0
     cursorAsStream = stream.Readable.from(cursor.map(async (entry) => {  
       ++parcedData
+      const {priceNew} =entry
+      const format=formatMoney(parseFloat(priceNew), { symbol: "₺", precision: 2, thousand: ".", decimal: "," });
+      debugger
       if (parcedData === countdata.length) {
-        return JSON.stringify(entry) + '\n'
+      
+        return JSON.stringify({...entry,priceNew:format}) + '\n'
       }
   
-      return JSON.stringify(entry) + ',\n'
+      return JSON.stringify({...entry,priceNew:format}) + ',\n'
   
     }))
     cursorAsStream.pipe(writeStream);
