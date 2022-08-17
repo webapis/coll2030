@@ -39,4 +39,5 @@ src/components/categoryMenu/*.json
 src/components/MarkaMenu/*.json
 data-unique
 
-api/_files/nav/*.json
+api/_files/kadin/nav/*.json
+api/_files/kadin/data/data.json
