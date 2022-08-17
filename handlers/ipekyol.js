@@ -23,7 +23,7 @@ async function handler(page, context) {
             return {
                 title: 'ipekyol '+ item.querySelector('.prd-name').innerText,
         
-                priceNew,
+                priceNew:priceNew.replace('.','').replace(',00','').trim(),
   
                 imageUrl:imageUrlshort,
                 link,

@@ -20,7 +20,7 @@ async function handler(page, context) {
             return {
                 title: 'perspective ' + title,
 
-                priceNew,
+                priceNew:priceNew.replace('.','').replace(',','.').trim(),
 
                 imageUrl: imageUrlshort,
                 link,

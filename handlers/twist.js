@@ -17,7 +17,7 @@ await autoScroll(page)
 
             return {
                 title: 'twist '+title,
-                priceNew,
+                priceNew:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl:imageUrlshort,
                 link,
                 timestamp: Date.now(),

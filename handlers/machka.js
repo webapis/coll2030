@@ -12,15 +12,15 @@ async function handler(page, context) {
 
         return items.map(item => {
             const priceNew = item.querySelector('.ems-prd-price-last') && item.querySelector('.ems-prd-price-last').innerText.replace('₺', '').trim()
-   
+
             const longlink = item.querySelector('.ems-prd-link.btn-full').href
-            const link = longlink.substring(longlink.indexOf('https://www.machka.com.tr/urun/')+31)
+            const link = longlink.substring(longlink.indexOf('https://www.machka.com.tr/urun/') + 31)
             const longImgUrl = item.querySelector('.ems-responsive-item').getAttribute('data-image-src')
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://image.machka.com.tr/unsafe/660x0/10.116.1.50:8000//Machka/products/')+75)
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://image.machka.com.tr/unsafe/660x0/10.116.1.50:8000//Machka/products/') + 75)
 
             return {
-                title: 'machka '+ item.querySelector('.ems-prd-title').innerText,
-                priceNew,
+                title: 'machka ' + item.querySelector('.ems-prd-title').innerText,
+                priceNew: priceNew.replace('.', '').replace(',00', '').trim(),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
@@ -39,7 +39,7 @@ async function handler(page, context) {
         return window.getComputedStyle(elem).getPropertyValue('display') !== 'none'
     });
     debugger;
- 
+
 
     if (isNotHidden && start) {
 
@@ -58,7 +58,7 @@ async function handler(page, context) {
 
         const nextPage = pageUrl + pageNumber
         const requestQueue = await Apify.openRequestQueue();
-debugger;
+        debugger;
         requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory, category } })
 
     }

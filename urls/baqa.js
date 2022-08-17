@@ -1,6 +1,6 @@
 const urls = [
   
-    { url: 'https://www.baqa.com.tr/elbise', subcategory: 'elbise', category: 'üst-giyim' },
+    { url: 'https://www.baqa.com.tr/elbise?currency=try', subcategory: 'elbise', category: 'üst-giyim' },
  
   
 ]

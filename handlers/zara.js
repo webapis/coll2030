@@ -29,7 +29,7 @@ async function handler(page, context) {
                 const price =m.price.toString().length===5 ? m.price.toString().substring(0,3)+','+ m.price.toString().substring(3): (m.price.toString().length===6? m.price.toString().charAt(0)+'.'+m.price.toString().substring(1,4)+',00'  :null)
           
                 return {
-                  ...m, title: "zara "+ c.name + ' ' + m.name, priceNew:price, imageUrl,link
+                  ...m, title: "zara "+ c.name + ' ' + m.name, priceNew:price.replace('.','').replace(',','.').trim(), imageUrl,link
       
                 }
               })

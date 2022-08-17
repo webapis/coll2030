@@ -11,10 +11,10 @@ async function handler(page, context) {
             const longImgUrl = productCard.querySelector('img[alt]').src ? productCard.querySelector('img[alt]').src : productCard.querySelector('img[alt]').getAttribute('data-src')
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://ktnimg2.mncdn.com/') + 26)
             const longLink = productCard.querySelector('.js-product-wrapper.product-item a').href
-            const shortLink  = longLink.substring(longLink.indexOf('https://www.koton.com/') + 22)
+            const shortLink = longLink.substring(longLink.indexOf('https://www.koton.com/') + 22)
             return {
-                title: 'koton '+ productCard.querySelector('img').alt,
-                priceNew: newPrice,
+                title: 'koton ' + productCard.querySelector('img').alt,
+                priceNew: newPrice.replace(',', '.').trim(),
                 imageUrl: imageUrlshort,
                 link: shortLink,
                 timestamp: Date.now(),

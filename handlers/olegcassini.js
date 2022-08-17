@@ -17,7 +17,7 @@ async function handler(page, context) {
     debugger
     const data = await page.$$eval('.productItem', (productCards, _subcategory, _category, _opts) => {
         return productCards.map(productCard => {
-            const priceNew = productCard.querySelector('.currentPrice').innerHTML.replace('TL', '').trim()
+            const priceNew = productCard.querySelector('.currentPrice').innerHTML.replace('TL', '').replace('.','').replace(',','.').trim()
             const longlink = productCard.querySelector('.proRowName a[title]').href
             const link = longlink.substring(longlink.indexOf("https://www.olegcassini.com.tr/") + 31)
              const longImgUrl = productCard.querySelector(".imgInner img").src

@@ -18,7 +18,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://romancdn.sysrun.net/Content/ProductImage/Original/") + 58)
             return {
                 title:'roman '+title,
-                priceNew,
+                priceNew:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),

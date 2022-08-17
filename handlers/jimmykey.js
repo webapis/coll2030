@@ -23,7 +23,7 @@ async function handler(page, context) {
 
             return {
                 title: 'jimmykey ' + title,
-                priceNew,
+                priceNew:priceNew.replace(',','.'),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
