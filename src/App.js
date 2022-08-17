@@ -175,9 +175,9 @@ debugger
   fetchNavKeywords(selectedNavIndex) {
     var url = ''
     if(selectedNavIndex===''){
-       url=`https://res.cloudinary.com/codergihub/raw/upload/navigation/start`
+       url=`/api/kadin/nav?navindex=start`
     }else{
-       url=`https://res.cloudinary.com/codergihub/raw/upload/navigation/${selectedNavIndex}`
+      url=`/api/kadin/nav?navindex=${selectedNavIndex}&subcategory='elbise'`
     }
 debugger
     fetch(url).then(async(response) =>response.json()).then((keywords) => {

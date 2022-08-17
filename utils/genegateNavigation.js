@@ -48,7 +48,7 @@ async function genNav() {
   await dataCollection.find().forEach(async (object) => {
 
     ++objCounter
-   // console.log('objCounter...', objCounter)
+    // console.log('objCounter...', objCounter)
     const { subcategory, title, imageUrl, marka, priceNew } = object
     if (categoryNav[subcategory] === undefined) {
       categoryNav[subcategory] = { count: 0 }
@@ -127,27 +127,48 @@ async function genNav() {
 
           const possibleCombination = getCombinations(navMatch.map((m) => m.index))
 
-          possibleCombination.forEach(async (comb) => {
-
-            if (navKeys[comb] === undefined) {
-              navKeys[comb] = { keywords: {} }
-            }
-            navMatch.forEach(nm => {
-              const { keyword, group, index, parentkey } = nm
-
-              if (navKeys[comb].keywords[keyword] === undefined) {
-
-                navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka, parentkey }
-              }
-              else {
-                const count = navKeys[comb].keywords[keyword].count
-                navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka, parentkey }
-              }
-
+          possibleCombination.forEach(async (c) => {
+            const comb = c.split('-').filter(f => f !== '').map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
+            const mapComb = comb.split('-').filter(f => f !== '').map((m) => {
+              const obj = navMatch.find(f => f.index.replace('-', '').trim() === m)
+              return obj
             })
+            let doubleExist = false
+            for (let g of mapComb) {
+              let match = navMatch.filter(f => f.groupid === g.groupid)
+              if (match.length > 1) {
+                doubleExist = true
+    
+              } 
 
+            }
+            if (!doubleExist) {
+
+
+
+           
+              if (navKeys[comb] === undefined) {
+                navKeys[comb] = { keywords: {} }
+              }
+              navMatch.forEach(nm => {
+                const { keyword, group, index, parentkey } = nm
+
+                if (navKeys[comb].keywords[keyword] === undefined) {
+
+                  navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka, parentkey }
+                }
+                else {
+                  const count = navKeys[comb].keywords[keyword].count
+                  navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka, parentkey }
+                }
+
+              })
+
+
+           
+
+            }
           })
-
           navMatch.forEach(nm => {
             const { keyword, group, index, parentkey } = nm
 
@@ -161,6 +182,7 @@ async function genNav() {
             }
 
           })
+
 
         }
 
@@ -219,28 +241,36 @@ async function genNav() {
   debugger
   await makeDir(`api/_files/nav`)
   debugger
+
+  if (fs.existsSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)) {
+    fs.unlinkSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)
+  }
+  fs.appendFileSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`, JSON.stringify(regrouped));
+
   // for (let cr of regrouped) {
+  //   debugger
   //   const { index, keywords } = cr
   //   console.log('index', index)
+  //   fs.appendFileSync(`${process.cwd()}/public/nav-keywords/${index}.json`, JSON.stringify(keywords));
   //   debugger
 
-  //   await cloudinaryUploader(JSON.stringify(keywords), index)
+
   //   debugger
   // }
 
-  debugger
-  const slicedArray = sliceIntoChunks(regrouped, 10)
-  debugger
-  global.navItems = 0
-  global.itemsTotal = slicedArray.length * 10
-  await Promise.all(slicedArray.map(async (buffers, i) => {
+  // debugger
+  // const slicedArray = sliceIntoChunks(regrouped, 10)
+  // debugger
+  // global.navItems = 0
+  // global.itemsTotal = slicedArray.length * 10
+  // await Promise.all(slicedArray.map(async (buffers, i) => {
 
 
 
-    return limit(async () => await workerPromise({ buffers }))
+  //   return limit(async () => await workerPromise({ buffers }))
 
 
-  }))
+  // }))
 
 
   if (fs.existsSync(`${process.cwd()}/src/category-nav.json`)) {
