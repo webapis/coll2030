@@ -40,4 +40,4 @@ src/components/MarkaMenu/*.json
 data-unique
 
 api/_files/kadin/nav/*.json
-api/_files/kadin/data/data.json
+api/_files/kadin/data.json
