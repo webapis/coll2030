@@ -6,14 +6,14 @@ async function handler(page, context) {
     debugger
     await page.waitForSelector('.fl.col-12.catalogWrapper')
     const products = await page.evaluate(() => window.PRODUCT_DATA)
-
+debugger
     debugger;
 
     const data = products.map(product => {
 
         const longImage = product.image
         const title = product.name.replace(/I/g,'ı').replace(/İ/g,'i').toLowerCase()
-        const priceNew = product.total_sale_price.toString().replace(',','.')
+        const priceNew = product.total_sale_price.toString()
         const link = product.url
 
         return {

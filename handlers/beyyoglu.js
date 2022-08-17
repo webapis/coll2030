@@ -12,7 +12,7 @@ async function handler(page, context) {
 
             const img = productCard.querySelector('.product-item__image.js-product-item-image a img').src
             const title = productCard.querySelector('.product-item__image.js-product-item-image a img').alt
-            const priceNew = productCard.querySelector('pz-price').innerHTML.replace('TL', '').trim().replace(',','')
+            const priceNew = productCard.querySelector('pz-price').innerHTML.replace('TL', '').trim().replace(',','.')
             const link = productCard.querySelector('.product-item__image.js-product-item-image a').href
 
             return {

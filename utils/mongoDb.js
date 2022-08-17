@@ -62,7 +62,7 @@ async function exportData({ exportPath, collectionName, aggegation }) {
     cursorAsStream = stream.Readable.from(cursor.map(async (entry) => {  
       ++parcedData
       const {priceNew} =entry
-      const format=formatMoney(parseFloat(priceNew), { symbol: "₺", precision: 2, thousand: ".", decimal: "," });
+      const format=formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," });
       debugger
       if (parcedData === countdata.length) {
       
