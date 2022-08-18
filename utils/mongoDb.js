@@ -46,7 +46,7 @@ async function importData({ collectionName, folder }) {
 
 async function exportData({ exportPath, collectionName, aggegation }) {
     console.log('EXPORTING DATA STARTED....')
-    const {formatMoney} =require('accounting-js')
+
     const collection = await mongoClient({collectionName})
   
     const cursor = await collection.aggregate(aggegation, { allowDiskUse: true })
@@ -62,14 +62,14 @@ async function exportData({ exportPath, collectionName, aggegation }) {
     cursorAsStream = stream.Readable.from(cursor.map(async (entry) => {  
       ++parcedData
       const {priceNew} =entry
-      const format=formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," });
+    
       debugger
       if (parcedData === countdata.length) {
       
-        return JSON.stringify({...entry,priceNew:format}) + '\n'
+        return JSON.stringify(entry) + '\n'
       }
   
-      return JSON.stringify({...entry,priceNew:format}) + ',\n'
+      return JSON.stringify(entry) + ',\n'
   
     }))
     cursorAsStream.pipe(writeStream);

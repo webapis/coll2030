@@ -6,7 +6,7 @@ const fs = require('fs')
 const { getSheetValues, appendSheetValues } = require('./google.sheet.js')
 const makeDir = require('make-dir');
 const Apify = require('apify');
-
+const { formatMoney } = require('accounting-js')
 
 Apify.main(async () => {
     await Apify.openDataset();
@@ -131,27 +131,27 @@ Apify.main(async () => {
                         try {
                             const text = await response.text()
                             if (isJsonString(text)) {
-    
-    
+
+
                                 const json = JSON.parse(text);
                                 if (Array.isArray(json)) {
-    
+
                                     await Apify.pushData({ arr: json });
-                                 //   response.continue();
-    
+                                    //   response.continue();
+
                                 } else {
-    
+
                                     await Apify.pushData(json);
-                                 //   response.continue();
+                                    //   response.continue();
                                 }
-    
-    
-    
-                            }   
+
+
+
+                            }
                         } catch (error) {
 
                         }
-                      
+
                     }
 
 
@@ -184,7 +184,11 @@ Apify.main(async () => {
             fs.unlinkSync(`data/${marka}.json`)
         }
 
-        fs.appendFileSync(`data/${marka}.json`, JSON.stringify(productItems));
+        fs.appendFileSync(`data/${marka}.json`, JSON.stringify(productItems.map((m) => {
+            const { priceNew } = m
+            const formatted = formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," });
+            return { ...m, priceNew: formatted }
+        })));
     } else {
         console.log('UNSUCCESSFUL DATA COLLECTION.......')
     }
