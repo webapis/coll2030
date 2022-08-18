@@ -27,7 +27,7 @@ async function handler(page, context) {
 
         const longImage = product.image
         const title = product.name
-        const priceNew = product.total_sale_price.toString()//.replace(',','').replace('.00','').trim()
+        const priceNew = product.total_sale_price.toString().replace('.', '').replace(',', '').trim()//.replace(',','').replace('.00','').trim()
         const link = product.url
 
         return {

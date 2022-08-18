@@ -25,19 +25,13 @@ async function handler(page, context) {
             const title = productCard.querySelector("img[data-src]").alt
             return {
                 title: 'addax ' + title,
-
                 priceNew,
-
                 imageUrl: imageUrlshort,
                 link,
-
                 timestamp: Date.now(),
-
                 marka: 'addax',
                 subcategory: _subcategory,
                 category: _category
-
-
             }
         })
     }, subcategory, category, opts)

@@ -39,7 +39,8 @@ module.exports = (req, res) => {
             const startPrice =parseFloat( priceRange[0]) 
             const endPrice =parseFloat( priceRange[1])
             try {
-              const productPrice = parseFloat(priceNew)
+              const price =priceNew.toString().replace('.', '').replace(',', '.')
+              const productPrice = parseFloat(price)
               //      const productPrice = parseFloat(priceNew.replace('.','').replace(',','.'))
               if (endPrice) {
 

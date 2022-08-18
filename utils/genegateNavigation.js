@@ -22,13 +22,9 @@
 
 
 async function genNav() {
-  const { workerPromise } = require('./workerPromise')
 
-  //const { cloudinaryUploader } = require('./cloudinaryUploader')
 
-  var promiseLimit = require('promise-limit')
 
-  var limit = promiseLimit(5)
   const fs = require('fs')
   const { mongoClient } = require('./mongoDb')
   const { productTitleMatch } = require('../api/kadin/productTitleMatch')
@@ -79,10 +75,13 @@ async function genNav() {
             const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
             const startPrice = parseFloat(priceRange[0])
             const endPrice = parseFloat(priceRange[1])
-     
+
             try {
-              const productPrice = parseFloat(priceNew)
-            //  const productPrice = parseFloat(priceNew.replace('.', '').replace(',', '.'))
+              const price =priceNew.toString().replace('.', '').replace(',', '.')
+              const productPrice = parseFloat(price)
+
+              debugger
+              //  const productPrice = parseFloat(priceNew.replace('.', '').replace(',', '.'))
               if (endPrice) {
 
                 if (productPrice >= startPrice && productPrice <= endPrice) {
@@ -140,15 +139,15 @@ async function genNav() {
               let match = navMatch.filter(f => f.groupid === g.groupid)
               if (match.length > 1) {
                 doubleExist = true
-    
-              } 
+
+              }
 
             }
             if (!doubleExist) {
 
 
 
-           
+
               if (navKeys[comb] === undefined) {
                 navKeys[comb] = { keywords: {} }
               }
@@ -167,7 +166,7 @@ async function genNav() {
               })
 
 
-           
+
 
             }
           })

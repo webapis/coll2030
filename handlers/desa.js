@@ -44,7 +44,7 @@ async function handler(page, context) {
                             const title = productCard.querySelector(".product-name a") ? productCard.querySelector(".product-name a").innerHTML : productCard.outerHTML
                             return {
                                 title: 'desa ' + title,//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
-                                priceNew,
+                                priceNew:priceNew.replace('.', '').replace(',', '.').trim(),
                                 imageUrl: imageUrlshort,
                                 link,
                                 timestamp: Date.now(),
