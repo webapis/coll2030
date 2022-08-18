@@ -22,12 +22,12 @@ async function handler(page, context) {
     const products = await page.evaluate(() => window.PRODUCT_DATA)
 
     debugger;
-
+  
     const data = products.map(product => {
 
         const longImage = product.image
         const title = product.name
-        const priceNew = product.total_sale_price.toString().replace('.', '').replace(',', '').trim()//.replace(',','').replace('.00','').trim()
+        const priceNew = product.total_sale_price.toString().replace('.', '').replace(',', '.').trim()//.replace(',','').replace('.00','').trim()
         const link = product.url
 
         return {
