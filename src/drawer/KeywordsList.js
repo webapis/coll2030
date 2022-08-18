@@ -26,6 +26,7 @@ export default function KeywordsList() {
                             <Stack direction="row" spacing={1}>
                                 {selectedKeywords.map((m, i) => {
                                     const { index, keyword } = m
+                                 
                                     return <Chip key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} />
                                 })}
                             </Stack>
@@ -33,7 +34,7 @@ export default function KeywordsList() {
                     }
                 >{
                         navKeywords && navKeywords.map((m, i) => {
-                            debugger
+                        
                             const { groupName, keywords } = m
                             return <NavList key={i} groupName={groupName} keywords={keywords} />
                         })

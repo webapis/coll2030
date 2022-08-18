@@ -39,13 +39,26 @@ module.exports = (req, res) => {
             const startPrice =parseFloat( priceRange[0]) 
             const endPrice =parseFloat( priceRange[1])
             try {
-              const productPrice = parseFloat(priceNew.replace('.','').replace(',','.'))
-              if (productPrice >= startPrice &&  productPrice <=endPrice) {
+              const productPrice = parseFloat(priceNew)
+              //      const productPrice = parseFloat(priceNew.replace('.','').replace(',','.'))
+              if (endPrice) {
 
-                return true 
-           
-              } else {
-                return false
+                if (productPrice >= startPrice && productPrice <= endPrice) {
+                  return true
+                } else {
+                  return false;
+                }
+
+              }
+              else {
+                debugger
+                if (productPrice >= startPrice) {
+                  return true
+                } else {
+
+                  return false
+                }
+
               }
             } catch (error) {
               debugger

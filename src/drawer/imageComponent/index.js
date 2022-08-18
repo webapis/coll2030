@@ -105,7 +105,7 @@ if(imagePlaceholder===undefined){
   
 
           <div>
-            <Typography variant="caption" style={{ textAlign: 'right', right: 2, flex: 5 }}>{props.price}TL</Typography>
+            <Typography variant="caption" style={{ textAlign: 'right', right: 2, flex: 5 }}>{props.price} TL</Typography>
           </div>
 
         </div>

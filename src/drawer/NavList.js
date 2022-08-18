@@ -51,6 +51,7 @@ export default function NestedList({ groupName, keywords }) {
 function RenderRow(props) {
     const { handleClick, selectedNavIndex } = props
     const { keyword, index, count } = props;
+    debugger
     const matchfound = selectedNavIndex.split('-').find(f => f === index.replace('-', '')) ? true : false
     return (
         <ListItem
@@ -70,7 +71,7 @@ function RenderRow(props) {
                         inputProps={{ 'aria-labelledby': "" }}
                     />
                 </ListItemIcon>
-                <ListItemText id="s" primary={keyword} />
+                <ListItemText id="s" primary={keyword==='1500'?'1500 >':keyword} />
             </ListItemButton>
         </ListItem>
     );

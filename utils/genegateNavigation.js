@@ -79,10 +79,11 @@ async function genNav() {
             const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
             const startPrice = parseFloat(priceRange[0])
             const endPrice = parseFloat(priceRange[1])
+     
             try {
-              const productPrice = parseFloat(priceNew.replace('.', '').replace(',', '.'))
-
-              if (startPrice < endPrice) {
+              const productPrice = parseFloat(priceNew)
+            //  const productPrice = parseFloat(priceNew.replace('.', '').replace(',', '.'))
+              if (endPrice) {
 
                 if (productPrice >= startPrice && productPrice <= endPrice) {
                   return true
@@ -92,6 +93,7 @@ async function genNav() {
 
               }
               else {
+                debugger
                 if (productPrice >= startPrice) {
                   return true
                 } else {
