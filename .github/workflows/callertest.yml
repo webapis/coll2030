@@ -5,7 +5,7 @@ jobs:
   test_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: gizia
+      marka: manuka
     secrets: inherit
 
   generate_nav_job:

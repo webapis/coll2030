@@ -3,6 +3,15 @@ async function handler(page, context) {
     const { request: { userData: { subcategory, category, opts } } } = context
 
     const url = await page.url()
+
+    const language =await page.evaluate(()=>document.querySelector('span.forDesktop').innerHTML)
+    if(language==='English - EUR'){
+         let elem = await page.$('span.forDesktop')
+         await elem.hover()
+         await page.click('[value="tr"]')
+         await page.waitForNavigation()
+    }
+
     debugger
     await page.waitForSelector('.fl.col-12.catalogWrapper')
     const products = await page.evaluate(() => window.PRODUCT_DATA)
