@@ -8,8 +8,8 @@ async function handler(page, context) {
     if(language==='English - EUR'){
          let elem = await page.$('span.forDesktop')
          await elem.hover()
-         await page.click('[value="tr"]')
-         await page.waitForNavigation()
+         await page.click('span[value="tr"]')
+         await page.waitForSelector('img[alt="Türkçe"]')
     }
 
     debugger
