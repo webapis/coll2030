@@ -4,11 +4,7 @@ async function handler(page, context) {
 
     const url = await page.url()
     debugger
-    await page.waitForSelector('.drop-down-title')
-    await page.hover('.drop-down-title')
-    debugger
-    await page.waitForSelector('li[data-value="TL"]')
-    await page.click('li[data-value="TL"]')
+
     debugger
     await page.waitForSelector('#category-list')
 
@@ -46,6 +42,11 @@ async function handler(page, context) {
 async function getUrls(page) {
     debugger
     const url = await page.url()
+    await page.waitForSelector('.drop-down-title')
+    await page.hover('.drop-down-title')
+    debugger
+    await page.waitForSelector('li[data-value="TL"]')
+    await page.click('li[data-value="TL"]')
     await page.waitForSelector('.productPager')
 
     const totalPages = await page.$eval('.productPager', element => parseInt(element.querySelectorAll('a[title]')[element.querySelectorAll('a[title]').length - 2].getAttribute('title').replace(/[^\d]/g, '')))
