@@ -16,7 +16,7 @@ export const AppContext = React.createContext();
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-   this.scrollHandled=false
+    this.scrollHandled = false
     var prevScrollpos = window.pageYOffset;
     window.addEventListener('scroll', () => {
 
@@ -41,14 +41,14 @@ export default class App extends React.Component {
         myButtom.style.display = "none";
       }
 
-      if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight &&  this.scrollHandled===false) {
-        this.scrollHandled=true
+      if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight && this.scrollHandled === false) {
+        this.scrollHandled = true
         const hasMore = this.state.products.length < this.state.availableProducts
         if (hasMore) {
           debugger
           this.fetchProducts(this.state.startAt)
         }
-  
+
 
 
         console.log('reached bottom of the page')
@@ -109,6 +109,7 @@ export default class App extends React.Component {
       selectedKeywords: [],
       navKeywords: [],
       availableProducts: 0,
+      fn: 1,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex
     }
@@ -118,21 +119,21 @@ export default class App extends React.Component {
     this.loadSubcategories()
   }
   componentDidUpdate(prevProps, prevState) {
-    const { selectedSubcategory, selectedNavIndex, startAt } = this.state
+    const { selectedSubcategory, selectedNavIndex, startAt, fn } = this.state
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('start')
+      this.fetchNavKeywords('0-', fn)
     }
 
     if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       if (selectedNavIndex === '') {
-        this.fetchNavKeywords('start')
+        this.fetchNavKeywords('0-',fn)
       } else {
         setTimeout(() => {
-          this.fetchNavKeywords(selectedNavIndex)
+          this.fetchNavKeywords(selectedNavIndex, fn)
         }, 100)
 
       }
@@ -148,7 +149,7 @@ export default class App extends React.Component {
     const { selectedSubcategory: { subcategory }, selectedMarka, selectedNavIndex } = this.state
 
     var url = '/api/kadin/data?start=' + start + '&subcategory=' + subcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
-debugger
+    debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
       return data
@@ -156,11 +157,11 @@ debugger
       .then((data) => {
         debugger
         const { data: products, count } = data
-debugger
+        debugger
         this.setState(state => ({
           ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
         }))
-        this.scrollHandled=false
+        this.scrollHandled = false
 
       })
       .catch(function (err) {
@@ -172,18 +173,28 @@ debugger
 
   }
 
-  fetchNavKeywords(selectedNavIndex) {
+  fetchNavKeywords(selectedNavIndex, fn) {
     var url = ''
-    if(selectedNavIndex===''){
-       url=`/api/kadin/nav?navindex=start`
-    }else{
-      url=`/api/kadin/nav?navindex=${selectedNavIndex}&subcategory='elbise'`
+    debugger
+    if (selectedNavIndex === '') {
+      url = `/api/kadin/navfirst?navindex=0-`
+    } else {
+
+      if (fn === 2) {
+        debugger
+        url = `/api/kadin/navsecond?navindex=${selectedNavIndex}&subcategory='elbise'`
+      } else {
+        debugger
+        url = `/api/kadin/navfirst?navindex=${selectedNavIndex}&subcategory='elbise'`
+      }
+
     }
-debugger
-    fetch(url).then(async(response) =>response.json()).then((keywords) => {
+    debugger
+    fetch(url).then(async (response) => response.json()).then((data) => {
+      const { keywords, fn } = data
       debugger
-      this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords:keywords }))
-    }).catch(err=>{
+      this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords: keywords, fn }))
+    }).catch(err => {
       debugger
     })
 

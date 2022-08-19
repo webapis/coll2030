@@ -41,4 +41,4 @@ data-unique
 
 api/_files/kadin/nav/*.json
 api/_files/kadin/data.json
-api/_files/nav/nav-keywords.json
+api/_files/nav/*.json

@@ -39,7 +39,7 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
         debugger
         console.log('exactmatch...', exactmatch, keyword)
         categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group,index,groupid })
-     
+     debugger
     }
     const groupByParentKey = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
     

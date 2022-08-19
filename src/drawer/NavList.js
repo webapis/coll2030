@@ -51,7 +51,7 @@ export default function NestedList({ groupName, keywords }) {
 function RenderRow(props) {
     const { handleClick, selectedNavIndex } = props
     const { keyword, index, count } = props;
-    debugger
+
     const matchfound = selectedNavIndex.split('-').find(f => f === index.replace('-', '')) ? true : false
     return (
         <ListItem

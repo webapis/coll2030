@@ -38,7 +38,7 @@ async function genNav() {
   const { getCombinations } = require('../nav-keyssdsdsd/combination')
 
   const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
-  let navKeys = { start: { navMatch: [], keywords: {} } }
+  let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
 
   let objCounter = 0
   await dataCollection.find().forEach(async (object) => {
@@ -73,10 +73,10 @@ async function genNav() {
             const endPrice = parseFloat(priceRange[1])
 
             try {
-              const price =priceNew.toString().replace('.', '').replace(',', '.')
+              const price = priceNew.toString().replace('.', '').replace(',', '.')
               const productPrice = parseFloat(price)
 
-       
+
 
               if (endPrice) {
 
@@ -88,7 +88,7 @@ async function genNav() {
 
               }
               else {
-        
+
                 if (productPrice >= startPrice) {
                   return true
                 } else {
@@ -127,19 +127,19 @@ async function genNav() {
               const obj = navMatch.find(f => f.index.replace('-', '').trim() === m)
               return obj
             })
-    
+
             let doubleExist = false
             for (let g of mapComb) {
-          
+
               let match = navMatch.filter(f => f.groupid === g.groupid)
-          
+
               if (match.length > 1) {
                 doubleExist = true
 
               }
 
             }
-         
+
             if (!doubleExist) {
 
               if (navKeys[comb] === undefined) {
@@ -164,13 +164,13 @@ async function genNav() {
           navMatch.forEach(nm => {
             const { keyword, group, index, parentkey } = nm
 
-            if (navKeys.start.keywords[keyword] === undefined) {
+            if (navKeys['0-'].keywords[keyword] === undefined) {
 
-              navKeys.start.keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka, parentkey }
+              navKeys['0-'].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka, parentkey }
             }
             else {
-              const count = navKeys.start.keywords[keyword].count
-              navKeys.start.keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka, parentkey }
+              const count = navKeys['0-'].keywords[keyword].count
+              navKeys['0-'].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka, parentkey }
             }
 
           })
@@ -190,9 +190,10 @@ async function genNav() {
   console.log('nav gen complete')
 
   let regrouped = []
+  let id = 0
   for (let nk in navKeys) {
     const { keywords } = navKeys[nk]
-
+    id = id + 1
     const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
 
     const navKeywords = map.reduce((prev, curr) => {
@@ -226,7 +227,7 @@ async function genNav() {
       return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     })
 
-    regrouped.push({ index: nk, keywords: sorted })
+    regrouped.push({ index: nk, keywords: sorted, id })
 
 
   }
@@ -238,9 +239,33 @@ async function genNav() {
     fs.unlinkSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)
   }
 
-  const ft =regrouped.find(f=>f.index==='52-')
-debugger
-  fs.appendFileSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`, JSON.stringify(regrouped));
+  const sorted = regrouped.sort((a, b) => {
+
+
+    return a.id - b.id
+  })
+  const total = regrouped.length
+  const splitLength = total / 2
+  const mapped = sorted.map(s => {
+    const {id}=s
+
+    return { ...s, fn:id <=splitLength?1:2  } 
+  
+  })
+
+  const firstPart = mapped.filter((f) => f.fn ===1)
+  const secondPart = mapped.filter((f) => f.fn ===2)
+
+  debugger
+
+  if (fs.existsSync(`${process.cwd()}/api/_files/nav/0-keywords.json`)) {
+    fs.unlinkSync(`${process.cwd()}/api/_files/nav/0-keywords.json`)
+  }
+  if (fs.existsSync(`${process.cwd()}/api/_files/nav/1-keywords.json`)) {
+    fs.unlinkSync(`${process.cwd()}/api/_files/nav/1-keywords.json`)
+  }
+  fs.appendFileSync(`${process.cwd()}/api/_files/nav/0-keywords.json`, JSON.stringify(firstPart));
+  fs.appendFileSync(`${process.cwd()}/api/_files/nav/1-keywords.json`, JSON.stringify(secondPart));
 
   // for (let cr of regrouped) {
   //   debugger

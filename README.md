@@ -81,6 +81,9 @@ npm config set proxy http://proxy_host:port
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 3 * * *'
 //
+git:
+ git rm --cached file.conf
+git rm -r --cached .
 
 https://www.freeconvert.com/png-to-svg/download
 

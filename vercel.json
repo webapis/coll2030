@@ -6,7 +6,10 @@
         "includeFiles": "_files/kadin/*.json"
     },
   
-    "api/kadin/nav.js": {
-        "includeFiles": "_files/nav/*.json"
+    "api/kadin/navfirst.js": {
+        "includeFiles": "_files/nav/0-keywords.json"
+    },
+    "api/kadin/navsecond.js": {
+        "includeFiles": "_files/nav/1-keywords.json"
     }
 }}
