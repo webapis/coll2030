@@ -18,7 +18,7 @@ async function handler(page,context) {
 
                 priceNew: priceNew.replace('TL', '').trim(),//.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrl.substring(imageUrl.indexOf('https://img-lcwaikiki.mncdn.com/') + 32),
-                link: ModelUrl.substring(32),
+                link: ModelUrl.substring(1),
                 timestamp: Date.now(),
                 marka: 'lcwaikiki',
                 category:_category,

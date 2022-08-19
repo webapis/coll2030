@@ -63,7 +63,7 @@ async function exportData({ exportPath, collectionName, aggegation }) {
       ++parcedData
       const {priceNew} =entry
     
-      debugger
+
       if (parcedData === countdata.length) {
       
         return JSON.stringify(entry) + '\n'

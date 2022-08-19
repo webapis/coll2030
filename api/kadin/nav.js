@@ -8,6 +8,10 @@ module.exports = (req, res) => {
 
   var navkeywords = TAFFY(data);
 debugger
+
+console.log('navindex',navindex)
+//const all= navkeywords().get()
+debugger
   const {keywords}= navkeywords().filter({index:navindex}).get()[0]
 debugger
 

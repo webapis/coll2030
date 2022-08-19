@@ -56,13 +56,9 @@ async function genNav() {
     let navMatchCollection = []
     if (title) {
 
-      let matchfound = false
 
       const keywords = allkeywords[subcategory]
-
-
       if (keywords && keywords.length > 0) {
-
 
         const navMatch = keywords.map((m, i) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
 
@@ -80,8 +76,8 @@ async function genNav() {
               const price =priceNew.toString().replace('.', '').replace(',', '.')
               const productPrice = parseFloat(price)
 
-              debugger
-              //  const productPrice = parseFloat(priceNew.replace('.', '').replace(',', '.'))
+       
+
               if (endPrice) {
 
                 if (productPrice >= startPrice && productPrice <= endPrice) {
@@ -92,7 +88,7 @@ async function genNav() {
 
               }
               else {
-                debugger
+        
                 if (productPrice >= startPrice) {
                   return true
                 } else {
@@ -117,9 +113,6 @@ async function genNav() {
             return match
           }
 
-
-
-
         })
 
         if (navMatch.length > 0) {
@@ -134,19 +127,20 @@ async function genNav() {
               const obj = navMatch.find(f => f.index.replace('-', '').trim() === m)
               return obj
             })
+    
             let doubleExist = false
             for (let g of mapComb) {
+          
               let match = navMatch.filter(f => f.groupid === g.groupid)
+          
               if (match.length > 1) {
                 doubleExist = true
 
               }
 
             }
+         
             if (!doubleExist) {
-
-
-
 
               if (navKeys[comb] === undefined) {
                 navKeys[comb] = { keywords: {} }
@@ -164,9 +158,6 @@ async function genNav() {
                 }
 
               })
-
-
-
 
             }
           })
@@ -246,6 +237,9 @@ async function genNav() {
   if (fs.existsSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)) {
     fs.unlinkSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)
   }
+
+  const ft =regrouped.find(f=>f.index==='52-')
+debugger
   fs.appendFileSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`, JSON.stringify(regrouped));
 
   // for (let cr of regrouped) {
