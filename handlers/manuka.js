@@ -1,4 +1,4 @@
-
+const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
     const { request: { userData: { subcategory, category, opts } } } = context
 
@@ -34,7 +34,7 @@ async function handler(page, context) {
 
         return {
             title: 'manuka ' + title.split(' ').map(m => m.charAt(0).toUpperCase() + m.slice(1)).join(' '),
-            priceNew,
+            priceNew:formatMoney(priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),
             imageUrl: longImage.substring(longImage.indexOf('https://www.manuka.com.tr') + 25),
             link,
             timestamp: Date.now(),

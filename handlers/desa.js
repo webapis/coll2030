@@ -1,4 +1,4 @@
-
+const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
     const { request: { userData: { subcategory, category, opts } } } = context
 
@@ -44,7 +44,7 @@ async function handler(page, context) {
                             const title = productCard.querySelector(".product-name a") ? productCard.querySelector(".product-name a").innerHTML : productCard.outerHTML
                             return {
                                 title: 'desa ' + title,//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
-                                priceNew,//:priceNew.replace('.', '').replace(',', '.').trim(),
+                                priceNew:formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),
                                 imageUrl: imageUrlshort,
                                 link,
                                 timestamp: Date.now(),

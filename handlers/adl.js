@@ -1,3 +1,5 @@
+
+const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
     const { request: { userData: { subcategory, category } } } = context
     debugger;
@@ -17,7 +19,7 @@ async function handler(page, context) {
             debugger;
             return {
                 title: 'adl ' + title,
-                priceNew,
+                priceNew:formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),

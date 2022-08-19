@@ -1,6 +1,7 @@
 
-async function handler(page,context) {
-    const { request: { userData: {  subcategory, category } } } = context
+const { formatMoney } = require('accounting-js')
+async function handler(page, context) {
+    const { request: { userData: { subcategory, category } } } = context
 
     const url = await page.url()
 
@@ -18,18 +19,18 @@ async function handler(page,context) {
             const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
             const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
             return {
-                title: 'defacto '+title,
-   
-                priceNew: priceNew ? priceNew.trim() : 0,
+                title: 'defacto ' + title,
+
+                priceNew: formatMoney(parseFloat(priceNew.replace(',', '.')), { symbol: "", precision: 2, thousand: ".", decimal: "," }),
 
                 imageUrl: imageUrlshort,
                 link,
 
                 timestamp: Date.now(),
- 
+
                 marka: 'defacto',
-                subcategory:_subcategory,
-                category:_category
+                subcategory: _subcategory,
+                category: _category
 
 
             }
@@ -53,11 +54,11 @@ async function getUrls(page) {
     let pagesLeft = totalPages
     for (let i = 2; i <= totalPages; i++) {
 
-     
+
 
         pageUrls.push(`${url}?page=` + i)
         --pagesLeft
-    
+
 
     }
 

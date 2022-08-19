@@ -1,4 +1,4 @@
-
+const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
     const { request: { userData: { subcategory, category,opts } } } = context
 
@@ -18,7 +18,7 @@ debugger
   
             return {
                 title:'xint '+title,
-                priceNew,
+                priceNew:formatMoney(priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),
                 imageUrl: longImage.substring(longImage.indexOf('https://www.xint.com.tr/') + 24),
                 link,
                 timestamp: Date.now(),

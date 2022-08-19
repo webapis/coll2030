@@ -26,7 +26,7 @@ async function handler(page, context) {
               ...c.detail, colors: c.detail.colors.map(m => {
                 const imageUrl =m.xmedia[0].path +'/w/315/'+m.xmedia[0].name+'.jpg?ts='+m.xmedia[0].timestamp
                 const link =c.seo.keyword+'-p'+c.seo.seoProductId+'.html'
-                const price =m.price//.toString().length===5 ? m.price.toString().substring(0,3)+','+ m.price.toString().substring(3): (m.price.toString().length===6? m.price.toString().charAt(0)+'.'+m.price.toString().substring(1,4)+',00'  :null)
+                const price =m.price.toString().length===5 ? m.price.toString().substring(0,3)+','+ m.price.toString().substring(3): (m.price.toString().length===6? m.price.toString().charAt(0)+'.'+m.price.toString().substring(1,4)+',00'  :null)
           
                 return {
                   ...m, title: "zara "+ c.name + ' ' + m.name, priceNew:price, imageUrl,link

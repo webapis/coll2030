@@ -1,5 +1,5 @@
 
-
+const { formatMoney } = require('accounting-js')
 
 async function handler(page, context) {
     const { request: { userData: { subcategory, category, start, opts } } } = context
@@ -24,7 +24,7 @@ async function handler(page, context) {
             const title = productCard.querySelector(".ProductName").innerHTML.replace(/\n/g, '')
             return {
                 title: 'patirti ' + title,
-                priceNew,
+                priceNew:formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),
                 imageUrl: imageUrlshort,
                 link,
 

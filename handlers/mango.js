@@ -40,7 +40,7 @@ async function handler(page, context) {
         const link = m.linkAnchor
         return {
             title: 'mango ' + m.shortDescription + ' ' + m.label,
-            priceNew: m.price.salePrice.replace('TL', ''),//.replace('.','').replace(',','.').trim(),
+            priceNew: m.price.salePrice.replace('TL', '').trim(),//.replace('.','').replace(',','.').trim(),
 
             imageUrl: imageUrl.substring(imageUrl.indexOf('https://st.mngbcn.com/') + 22),
             link: link.substring(link.indexOf('/') + 1),
