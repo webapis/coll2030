@@ -187,8 +187,8 @@ Apify.main(async () => {
 
         fs.appendFileSync(`data/${marka}.json`, JSON.stringify(productItems.map((m) => {
             const { priceNew } = m
-            const formatted = formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," });
-            return { ...m, priceNew: formatted }
+          //  const formatted = formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," });
+            return { ...m, priceNew }
         })));
     } else {
         console.log('UNSUCCESSFUL DATA COLLECTION.......')
