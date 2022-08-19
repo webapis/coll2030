@@ -20,7 +20,7 @@ async function handler(page, context) {
 
             return {
                 title: 'machka ' + item.querySelector('.ems-prd-title').innerText,
-                priceNew: priceNew.replace('.', '').replace(',00', '').trim(),
+                priceNew,//: priceNew.replace('.', '').replace(',00', '').trim(),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),

@@ -20,7 +20,7 @@ debugger;
             return {
                 title:'vakko '+title,
 
-                priceNew:priceNew.replace('.','').replace(',','.').trim(),
+                priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
 
                 imageUrl: imageUrlshort,
                 link,

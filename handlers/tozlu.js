@@ -35,7 +35,7 @@ async function handler(page, context) {
                  
                          return {
                            title: 'tozlu ' +m.name,
-                           priceNew: m.productSellPriceStr.replace('TL','').trim().replace('.','').replace(',','.').trim() ,
+                           priceNew: m.productSellPriceStr.replace('TL','').trim(),//.replace('.','').replace(',','.').trim() ,
                            imageUrl: ('https://img.tozlu.com/Uploads/UrunResimleri/thumb/'+m.imageName).replace('https://img.tozlu.com/',''),
                            link:m.defaultUrl,
                            timestamp: Date.now(),

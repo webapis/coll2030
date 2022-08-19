@@ -13,7 +13,7 @@ debugger
    
             const longImage =product.image
             const title = product.name
-            const priceNew = product.total_sale_price.toString().replace('.',',')
+            const priceNew = product.total_sale_price//.toString().replace('.',',')
             const link = product.url
   
             return {

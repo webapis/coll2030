@@ -24,7 +24,7 @@ async function handler(page, context) {
             const title = productCard.querySelector('.product-box-zoom-image').alt
             return {
                 title: 'yargici ' + title,
-                priceNew:priceNew.replace('.','').replace(',','.').trim(),
+                priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),

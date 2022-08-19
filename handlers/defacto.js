@@ -20,7 +20,7 @@ async function handler(page,context) {
             return {
                 title: 'defacto '+title,
    
-                priceNew: priceNew ? priceNew.replace(',', '.').trim() : 0,
+                priceNew: priceNew ? priceNew.trim() : 0,
 
                 imageUrl: imageUrlshort,
                 link,

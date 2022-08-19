@@ -17,7 +17,7 @@ async function handler(page, context) {
     debugger
     const data = await page.$$eval('.Prd', (productCards, _subcategory, _category, _opts) => {
         return productCards.map(productCard => {
-            const priceNew = productCard.querySelector('.PPrice').innerHTML.replace('TL', '').trim().replace(',','.')
+            const priceNew = productCard.querySelector('.PPrice').innerHTML.replace('TL', '').trim()//.replace(',','.')
             const longlink = productCard.querySelector('a[data-product').href
             const link = longlink.substring(longlink.indexOf("https://www.addax.com.tr/") + 25)
             const longImgUrl = productCard.querySelector("img[data-src]").getAttribute('data-src')

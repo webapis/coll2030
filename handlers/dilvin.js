@@ -17,7 +17,7 @@ async function handler(page, context) {
 
             return {
                 title: 'dilvin '+title,
-                priceNew:priceNew.replace(',','.'),
+                priceNew,//:priceNew.replace(',','.'),
                 imageUrl: img.substring(img.indexOf('https://kvyfm6d9dll6.merlincdn.net/productimages/')+49),
                 link:link.substring(link.indexOf('https://www.dilvin.com.tr/')+26),
                 timestamp: Date.now(),

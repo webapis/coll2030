@@ -18,7 +18,7 @@ debugger
   
             return {
                 title:'vitrin '+title,
-                priceNew:priceNew.replace('.','').replace(',','.').trim(),
+                priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: longImage.substring(longImage.indexOf('https://www.vitrin.com.tr') + 25),
                 link,
                 timestamp: Date.now(),

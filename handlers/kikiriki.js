@@ -19,7 +19,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf("https://cdn.vebigo.com/") + 23)
             return {
                 title: 'kikiriki ' + title,
-                priceNew: priceNew.replace('.','').replace(',','.').trim(),
+                priceNew,//: priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),

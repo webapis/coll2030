@@ -14,7 +14,7 @@ async function handler(page, context) {
             const shortLink = longLink.substring(longLink.indexOf('https://www.koton.com/') + 22)
             return {
                 title: 'koton ' + productCard.querySelector('img').alt,
-                priceNew: newPrice.replace(',', '.').trim(),
+                priceNew,//: newPrice.replace(',', '.').trim(),
                 imageUrl: imageUrlshort,
                 link: shortLink,
                 timestamp: Date.now(),

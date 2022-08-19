@@ -43,7 +43,7 @@ async function handler(page, context) {
 
                             return {
                                 title: 'quzu ' + title,
-                                priceNew:priceNew.replace('.','').replace(',','.').trim(),
+                                priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                                 imageUrl: longImgUrl,
                                 link,
                                 timestamp: Date.now(),
