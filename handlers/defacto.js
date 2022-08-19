@@ -21,7 +21,7 @@ async function handler(page, context) {
             return {
                 title: 'defacto ' + title,
 
-                priceNew: formatMoney(parseFloat(priceNew.replace(',', '.')), { symbol: "", precision: 2, thousand: ".", decimal: "," }),
+                priceNew,
 
                 imageUrl: imageUrlshort,
                 link,
@@ -41,7 +41,9 @@ async function handler(page, context) {
 
 
 
-    return data
+    return data.map((m) => {
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
+    })
 }
 
 async function getUrls(page) {

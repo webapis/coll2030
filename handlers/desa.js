@@ -38,13 +38,13 @@ async function handler(page, context) {
                         return productCards.map(productCard => {
                             const priceNew = productCard.querySelector(".product-sale-price") ? productCard.querySelector(".product-sale-price").textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim() : productCard.outerHTML
                             const longlink = productCard.querySelector('.product-name a') ? productCard.querySelector('.product-name a').href : productCard.outerHTML
-                             const link = longlink.substring(longlink.indexOf("https://www.desa.com.tr/") + 24)
+                            const link = longlink.substring(longlink.indexOf("https://www.desa.com.tr/") + 24)
                             const longImgUrl = productCard.querySelector('[data-src]') ? productCard.querySelector('[data-src]').getAttribute('data-src') : productCard.outerHTML
-                             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://cdn-ayae.akinon.net/') + 28)
+                            const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://cdn-ayae.akinon.net/') + 28)
                             const title = productCard.querySelector(".product-name a") ? productCard.querySelector(".product-name a").innerHTML : productCard.outerHTML
                             return {
                                 title: 'desa ' + title,//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
-                                priceNew:formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),
+                                priceNew,
                                 imageUrl: imageUrlshort,
                                 link,
                                 timestamp: Date.now(),
@@ -59,7 +59,9 @@ async function handler(page, context) {
                     console.log('data length_____', data.length, 'url:', url)
                     debugger
 
-                    return resolve(data)
+                    return resolve(data.map((m) => {
+                        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
+                    }))
 
                 }
 

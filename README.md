@@ -95,3 +95,8 @@ CURRENCY
  https://stackoverflow.com/questions/5314237/is-there-a-functionality-in-javascript-to-convert-values-into-specific-locale-fo
 
  https://support.cloudinary.com/hc/en-us/community/posts/360007581379-Correct-way-of-uploading-from-buffer-
+
+
+
+ dress cat
+ https://www.olegcassini.com.tr/rehber/yaka-tipi-rehberi

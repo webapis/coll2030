@@ -19,7 +19,7 @@ async function handler(page, context) {
             debugger;
             return {
                 title: 'adl ' + title,
-                priceNew:formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),
+                priceNew,
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
@@ -34,7 +34,9 @@ async function handler(page, context) {
 
 
 
-    return data
+    return data.map((m) => {
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
+    })
 }
 
 async function getUrls(page) {

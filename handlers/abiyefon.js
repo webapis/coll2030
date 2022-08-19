@@ -18,7 +18,7 @@ const data = await page.$$eval('.products li', (productCards, _subcategory, _cat
         const title = productCard.querySelector(".img-options img") ? productCard.querySelector(".img-options img").alt : productCard.outerHTML
         return {
             title: 'abiyefon ' + title + ((_opts && _opts.keyword) ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
-            priceNew:formatMoney(parseFloat(priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),
+            priceNew,
             imageUrl: imageUrlshort,
             link,
             timestamp: Date.now(),
@@ -33,7 +33,9 @@ const data = await page.$$eval('.products li', (productCards, _subcategory, _cat
 
 
 
-    return data
+    return data.map((m) => {
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
+    })
 }
 
 async function getUrls(page) {
