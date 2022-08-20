@@ -5,14 +5,10 @@
   console.log('--------------REMOVING DUBLICATE DATA STARTED-------------')
   const { importData, exportData } = require('./mongoDb')
 
-  await importData({ collectionName: 'data', folder: 'data' })
+  await importData({ collectionName: 'data', folder: `${process.cwd()}/api/_files/kadin` })
 
   await genNav()
 
-
-
-  await exportData({ exportPath: `${process.cwd()}/api/_files/kadin/data.json`, collectionName: 'data', aggegation: [] })
-  console.log('-------------REMOVING DUBLICATE DATA COMPLETE---------------')
   process.exit(0)
 
 })()
@@ -37,14 +33,13 @@ async function genNav() {
   const categoryNav = {}
   const { getCombinations } = require('../nav-keyssdsdsd/combination')
 
-  const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
+  const allkeywords =  require(`${process.cwd()}/api/_files/nav/keywords.json`)
   let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
 
-  let objCounter = 1
+
   await dataCollection.find().forEach(async (object, a) => {
 
-    // ++objCounter
-    // console.log('objCounter...', objCounter)
+
     const { subcategory, title, imageUrl, marka, priceNew } = object
     if (categoryNav[subcategory] === undefined) {
       categoryNav[subcategory] = { count: 0 }
@@ -62,10 +57,10 @@ async function genNav() {
 
         const navMatch = keywords.map((m, b) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
 
-          //  let parentKeyWord = kws.parentkey
+     
           let exactmatch = kws.exactmatch
           let negwords = kws.negwords
-          //  let keywordTitle = kws.title
+    
           let group = kws.group
           if (group === 'FIYAT ARALIĞI') {
             const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
@@ -143,7 +138,7 @@ async function genNav() {
 
             if (true) {
 
-              //  console.log('objCounter',objCounter)
+          
               if (navKeys[comb] === undefined) {
                 navKeys[comb] = { keywords: {} }
               }
@@ -272,30 +267,7 @@ async function genNav() {
   fs.appendFileSync(`${process.cwd()}/api/_files/nav/0-keywords.json`, JSON.stringify(firstPart));
   fs.appendFileSync(`${process.cwd()}/api/_files/nav/1-keywords.json`, JSON.stringify(secondPart));
 
-  // for (let cr of regrouped) {
-  //   debugger
-  //   const { index, keywords } = cr
-  //   console.log('index', index)
-  //   fs.appendFileSync(`${process.cwd()}/public/nav-keywords/${index}.json`, JSON.stringify(keywords));
-  //   debugger
 
-
-  //   debugger
-  // }
-
-  // debugger
-  // const slicedArray = sliceIntoChunks(regrouped, 10)
-  // debugger
-  // global.navItems = 0
-  // global.itemsTotal = slicedArray.length * 10
-  // await Promise.all(slicedArray.map(async (buffers, i) => {
-
-
-
-  //   return limit(async () => await workerPromise({ buffers }))
-
-
-  // }))
 
 
   if (fs.existsSync(`${process.cwd()}/src/category-nav.json`)) {

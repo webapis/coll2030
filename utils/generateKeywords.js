@@ -12,10 +12,10 @@
     const elbise = await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:J' })
   //  const etek = await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:I' })
     await makeDir('api/_files/kadin')
-    if (fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`)) {
-        fs.unlinkSync(`${process.cwd()}/api/_files/kadin/keywords.json`)
+    if (fs.existsSync(`${process.cwd()}/api/_files/nav/keywords.json`)) {
+        fs.unlinkSync(`${process.cwd()}/api/_files/nav/keywords.json`)
     }
-    fs.appendFileSync(`${process.cwd()}/api/_files/kadin/keywords.json`, JSON.stringify({ elbise }))
+    fs.appendFileSync(`${process.cwd()}/api/_files/nav/keywords.json`, JSON.stringify({ elbise }))
     process.exit(0)
 
 })()

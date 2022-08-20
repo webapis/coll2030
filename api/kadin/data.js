@@ -6,7 +6,7 @@ const { orderData } = require('./orderData')
 // Create a new database a single object (first record)
 const data = require('../_files/kadin/data.json')
 
-const allkeywords = require(`${process.cwd()}/api/_files/kadin/keywords.json`)
+const allkeywords = require(`${process.cwd()}/api/_files/nav/keywords.json`)
 module.exports = (req, res) => {
   const { subcategory, start, marka, search, selectedNavIndex } = req.query
   debugger
