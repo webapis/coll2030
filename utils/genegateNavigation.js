@@ -189,7 +189,7 @@ async function genNav() {
   let regrouped = []
 
   for (let nk in navKeys) {
-    ++objCounter
+    
     const { keywords } = navKeys[nk]
 
     const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })

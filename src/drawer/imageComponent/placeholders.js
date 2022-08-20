@@ -1,8 +1,7 @@
 const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_400/'
 const imagePrefixImageKit = 'https://ik.imagekit.io/mumrjdehaou/'
 
-var placeholder = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAAB8CAMAAADZ7UtLAAAAIVBMVEXQ0NDw8PDT09Pr6+vc3Nzz8/Pg4ODl5eXZ2dnW1tbo6Ohn0vCFAAACwElEQVR4nO3a65arIAwF4AmKvbz/A5/qOFUxkIRI8KyV/b/DN5vGUu3Pz70TegOoOFAbB2rjQG0cqI0DtXGgNg7UxoHaOFAbB2rjQG0cqA0XGF6d/hXWstM7zhmmDkjGkk/YMrUXJaGBU9wB49vAdAgJHPe+Tx4Wql0o4AuSxNHE9Q0FfKdAABPXNwTwVOAnthUSwAkB2s4JAXwgwMH0akgshrwFARy4z/8ORN+DNrI1BPCJAG0/j6ntOvviywT2FwqYfhRDNP4wJt/wj0RoexXkHLeGg9B4g1kH1t0kx8Haxzryj2uJscOBmvmlKUyPT8zbW5busagkDtTGgdo4UBsHauNAbdoCg/4uRFNgGOJT/TeugOQyfM5oWmFDYPg9RCqF7YBhWI/hOmEzYNi+KKiErYDf/uZoZrkVcO9TddgGGOAYxaQ0AYYB0lTvcgsg4qvf5QZA1FfdYQMg7qvt8HJgpr/qSbkamPdV7vLFwKKvqkM5sHSHpuyr6lAMHGPhFhflq5gUKXCMkBWS/UHFw1IhcFxWyQgZPvkuy4DrLXW0Q05/y4tluywCfm/5I0KuT9qhBDjuakgXEfhkkyIAHh6ZJB2KfKJJ4QPHZJGDUOQDyS6zgedHTptQ1p+sQy7w5IPtaiP3CTpkAkdsjbXDKh97UnhArL8/YaWPu8ssINrfkgl7YMsNq0PWozC8v6WGqbK/5cUcIQNY8GnD2GUamN/fC0J3KP7127WhJ4X8SUBL3hyqQwLYtr851KSUge19QE1KEWjiI3a5BDTylSelAGw+H1sKHeaBVv3NKUxKFmjpg8Kk5IDGvvwuZ4Dmvuyk4EDD+diCC1GgfX9z8A4xYB8f4B0iwG4+9GpzBvbzAdbhCdhlPgrCFNi1P8Bu+tzLB6cOw918aYcH4HO4RZ5Z4B3jQG0cqI0DtXGgNg7UJvwD0v8WvBavAJMAAAAASUVORK5CYII='
-
+var placeholder = './placeholder-img/placeholder.jpg'
 const placeholders = {
     defacto: { logo: { image: './logo/defacto.svg', width: '25%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://dfcdn.defacto.com.tr/', detailHost: 'https://www.defacto.com.tr/', postfix: '', imgPostFix: '' },
     koton: { logo: { image: './logo/koton.webp', width: '80', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://ktnimg2.mncdn.com/', detailHost: 'https://www.koton.com/', postfix: '', imgPostFix: '?tr=w-400' },
