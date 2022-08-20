@@ -40,10 +40,10 @@ async function genNav() {
   const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
   let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
 
-  let objCounter = 1
-  await dataCollection.find().forEach(async (object, a) => {
+  let objCounter = 0
+  await dataCollection.find().forEach(async (object,a) => {
 
-    // ++objCounter
+    ++objCounter
     // console.log('objCounter...', objCounter)
     const { subcategory, title, imageUrl, marka, priceNew } = object
     if (categoryNav[subcategory] === undefined) {
@@ -121,8 +121,8 @@ async function genNav() {
 
           const possibleCombination = getCombinations(navMatch.map((m) => m.index))
 
-          possibleCombination.forEach(async (c, h) => {
-
+          possibleCombination.forEach(async (c,h) => {
+        
             const comb = c.split('-').filter(f => f !== '').map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
             const mapComb = comb.split('-').filter(f => f !== '').map((m) => {
               const obj = navMatch.find(f => f.index.replace('-', '').trim() === m)
@@ -141,9 +141,9 @@ async function genNav() {
 
             }
 
-            if (true) {
-
-              //  console.log('objCounter',objCounter)
+            if (!doubleExist) {
+              ++objCounter
+            //  console.log('objCounter',objCounter)
               if (navKeys[comb] === undefined) {
                 navKeys[comb] = { keywords: {} }
               }
@@ -194,7 +194,6 @@ async function genNav() {
   let regrouped = []
 
   for (let nk in navKeys) {
-    ++objCounter
     const { keywords } = navKeys[nk]
 
     const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
@@ -229,7 +228,7 @@ async function genNav() {
       var textB = b.groupName.toUpperCase();
       return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     })
-    const id = parseInt(nk.replace(/-/g, '').trim())
+    const id = parseInt(nk.substring(0, nk.indexOf('-')))
 
     regrouped.push({ index: nk, keywords: sorted, id })
 
@@ -248,17 +247,19 @@ async function genNav() {
 
     return a.id - b.id
   })
-
-
+  const total = regrouped[regrouped.length-1]
+  debugger
+  const splitLength = total.id / 2
+debugger
   const mapped = sorted.map(s => {
     const { id } = s
-    const fn = id % 2
-    return { ...s, fn }
+
+    return { ...s, fn: id <= splitLength ? 1 : 2 }
 
   })
 
-  const firstPart = mapped.filter((f) => f.fn === 0)
-  const secondPart = mapped.filter((f) => f.fn === 1)
+  const firstPart = mapped.filter((f) => f.fn === 1).map(m=>{return {index:m.index,id:m.id}})
+  const secondPart = mapped.filter((f) => f.fn === 2)
 
 
   debugger

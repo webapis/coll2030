@@ -109,7 +109,6 @@ export default class App extends React.Component {
       selectedKeywords: [],
       navKeywords: [],
       availableProducts: 0,
-      fn: 1,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex
     }
@@ -119,21 +118,21 @@ export default class App extends React.Component {
     this.loadSubcategories()
   }
   componentDidUpdate(prevProps, prevState) {
-    const { selectedSubcategory, selectedNavIndex, startAt, fn } = this.state
+    const { selectedSubcategory, selectedNavIndex, startAt } = this.state
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', fn)
+      this.fetchNavKeywords('0-')
     }
 
     if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       if (selectedNavIndex === '') {
-        this.fetchNavKeywords('0-',fn)
+        this.fetchNavKeywords('0-')
       } else {
         setTimeout(() => {
-          this.fetchNavKeywords(selectedNavIndex, fn)
+          this.fetchNavKeywords(selectedNavIndex)
         }, 100)
 
       }
@@ -173,14 +172,15 @@ export default class App extends React.Component {
 
   }
 
-  fetchNavKeywords(selectedNavIndex, fn) {
+  fetchNavKeywords(selectedNavIndex) {
     var url = ''
+    const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) %2
     debugger
     if (selectedNavIndex === '') {
       url = `/api/kadin/navfirst?navindex=0-`
     } else {
 
-      if (fn === 2) {
+      if (fn === 1) {
         debugger
         url = `/api/kadin/navsecond?navindex=${selectedNavIndex}&subcategory='elbise'`
       } else {
@@ -191,9 +191,9 @@ export default class App extends React.Component {
     }
     debugger
     fetch(url).then(async (response) => response.json()).then((data) => {
-      const { keywords, fn } = data
+      const { keywords } = data
       debugger
-      this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords: keywords, fn }))
+      this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords: keywords }))
     }).catch(err => {
       debugger
     })
