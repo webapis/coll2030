@@ -12,7 +12,7 @@ await autoScroll(page)
             const longlink = productCard.querySelector('.prd-lnk').href
             const link = longlink.substring(longlink.indexOf("https://www.twist.com.tr/") + 25)
             const longImgUrl =  productCard.querySelector('[data-background]') ? productCard.querySelector('[data-background]').getAttribute('data-background') : productCard.querySelector('[data-image-src]').getAttribute('data-image-src')
-           const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img2-twist.mncdn.com/mnresize/800/-//Twist/products/") + 60)
+           const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img2-twist.mncdn.com/") + 29)
             const title =  productCard.querySelector('.prd-name').textContent.replace(/\n/g, '').trim()
 
             return {

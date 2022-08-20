@@ -30,7 +30,7 @@ export default function ProductList(props) {
             <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
               {products.length > 0 && products.map((item, i) => {
 
-                return <Grid margin={0} padding={0} item key={i} xs={6} sm={4} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+                return <Grid margin={0} padding={0} item key={i} xs={6} sm={2}  sx={{ display: 'flex', justifyContent: 'center' }}>
 
                   <ImageComponent selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 
