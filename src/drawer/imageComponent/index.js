@@ -89,7 +89,7 @@ if(imagePlaceholder===undefined){
 
 
               <img ref={imageEl} data-intersection="true" className="figure"
-                style={{width:'100%', height:'100%'}}
+            
                 src={imagePlaceholder}
                 data-src={imageSource.trim()}
                 alt={props.title}
