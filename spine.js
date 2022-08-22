@@ -1,15 +1,16 @@
+const data = require('./api/_files/kadin/data.json')
 
 
+const groupBySubcategory =groupBy(data,'subcategory')
 
-(async () => {
-  //require('dotenv').config()
-const {cloudinaryUploader}=require('./utils/cloudinaryUploader')
+
 debugger
-await cloudinaryUploader(JSON.stringify({hello:'yes'}),'hello')
-debugger
+
+
+for(let group in groupBySubcategory){
 
   debugger
-})()
+}
 
 
 
@@ -22,15 +23,12 @@ debugger
 
 
 
-
-
-
-
-
-
-
-
-
+ function groupBy(xs, key) {
+  return xs.reduce(function(rv, x) {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
+  }, {});
+};
 
 
 

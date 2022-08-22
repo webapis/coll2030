@@ -1,14 +1,14 @@
 
 const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category, node } } } = context
 
     const url = await page.url()
 
     await page.waitForSelector('.catalog-products')
 
 
-    const data = await page.$$eval('.catalog-products .product-card', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.catalog-products .product-card', (productCards, _subcategory, _category, _node) => {
         return productCards.map(productCard => {
 
             const imageUrl = productCard.querySelector('.catalog-products .product-card .product-card__image .image-box .product-card__image--item.swiper-slide img').getAttribute('data-srcset')
@@ -20,22 +20,18 @@ async function handler(page, context) {
             const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
             return {
                 title: 'defacto ' + title,
-
                 priceNew,
-
                 imageUrl: imageUrlshort,
                 link,
-
                 timestamp: Date.now(),
-
                 marka: 'defacto',
                 subcategory: _subcategory,
-                category: _category
-
+                category: _category,
+                node: _node
 
             }
         })//.filter(f => f.imageUrl !== null)
-    }, subcategory, category)
+    }, subcategory, category, node)
 
     console.log('data length_____', data.length, 'url:', url)
 

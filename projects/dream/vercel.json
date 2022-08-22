@@ -1,0 +1,22 @@
+{
+    "functions": {
+        "api/fns/elbise/elbise.js": {
+            "includeFiles": "_files/elbise/*.json"
+        },
+        "api/fns/elbise/navfirst.js": {
+            "includeFiles": "_files/elbise/nav/0-keywords.json"
+        },
+        "api/fns/elbise/navsecond.js": {
+            "includeFiles": "_files/elbise/nav/1-keywords.json"
+        },
+        "api/fns/pantolon/pantolon.js": {
+            "includeFiles": "_files/pantolon/*.json"
+        },
+        "api/fns/pantolon/navfirst.js": {
+            "includeFiles": "_files/pantolon/nav/0-keywords.json"
+        },
+        "api/fns/pantolon/navsecond.js": {
+            "includeFiles": "_files/pantolon/nav/1-keywords.json"
+        }
+    }
+}

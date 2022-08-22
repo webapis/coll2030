@@ -42,7 +42,7 @@ debugger;
         }
       ]
 
-    await exportData({ exportPath: `${process.cwd()}/api/_files/kadin/data.json`, collectionName: 'data', aggegation })
+    await exportData({ exportPath: `${process.cwd()}/unique-data/data.json`, collectionName: 'data', aggegation })
     console.log('-------------REMOVING DUBLICATE DATA COMPLETE---------------')
     process.exit(0)
  
