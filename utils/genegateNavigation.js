@@ -17,7 +17,7 @@ async function genNav({ node, subcategory }) {
   const makeDir = require('make-dir');
   await makeDir(`projects/${node}/api/_files/${subcategory}`)
   const fs = require('fs')
-  const folder = `projects/${node}/api/_files/${subcategory}/data`
+  const folder = `${process.cwd()}/projects/${node}/api/_files/${subcategory}/data`
   const files = fs.readdirSync(folder)
   const dataCollection = []
   for (let file of files) {
