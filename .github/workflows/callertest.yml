@@ -41,7 +41,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: data
-          path: projects/dream/*.json
+          path: projects/dream/api/_files/*.json
       - name: Decript data
         run: 'npm run decryptData'
       - name: gen nav
