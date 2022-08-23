@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: data
-          path: projects/**/api/_files/**/**/*.json
+          path: projects/**/*.json
 
         
 
