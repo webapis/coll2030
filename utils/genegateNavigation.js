@@ -18,7 +18,8 @@ async function genNav({ node, subcategory }) {
   await makeDir(`projects/${node}/api/_files/${subcategory}/nav`)
   const fs = require('fs')
   const folder = `${process.cwd()}/projects/${node}/api/_files/${subcategory}/data`
-  debugger
+  console.log('folder',folder)
+
    const folderexists = fs.existsSync(folder)
   const files = fs.readdirSync(folder)
   console.log('folder',folderexists)
