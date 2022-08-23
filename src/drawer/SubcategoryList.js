@@ -18,12 +18,13 @@ export default function MarkaSabcategoryList() {
             return subcategories.map((m, i) => {
                 const subcategory = m['subcategory']
                 const total = m['total']
+                const node =m['node']
                 const currentChar = subcategory.charAt(0)
-
+       
                 if (i === 0) {
 
                     return <ListItem key={i} component="div" disablePadding>
-                        <ListItemButton onClick={() => selectSubcategory({subcategory, total})}>
+                        <ListItemButton onClick={() => selectSubcategory({subcategory, totalSubcategory:total,node})}>
                             <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ flex: 1 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
                         </ListItemButton>
                     </ListItem>
@@ -34,7 +35,7 @@ export default function MarkaSabcategoryList() {
                     const prevChar = subcategories[i - 1]['subcategory'].charAt(0)
                     if (prevChar === currentChar) {
                         return <ListItem key={i} component="div" disablePadding>
-                            <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
+                            <ListItemButton onClick={() => selectSubcategory({subcategory, totalSubcategory:total,node})}>
                                 <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ flex: 1 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
                             </ListItemButton>
                         </ListItem>
@@ -43,11 +44,10 @@ export default function MarkaSabcategoryList() {
                     } else {
 
                         return <ListItem key={i} component="div" disablePadding>
-                            <ListItemButton onClick={() => selectSubcategory(subcategory, total)}>
+                            <ListItemButton onClick={() => selectSubcategory({subcategory, totalSubcategory:total,node})}>
                                 <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ flex: 1 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
                             </ListItemButton>
                         </ListItem>
-
 
                     }
                 }

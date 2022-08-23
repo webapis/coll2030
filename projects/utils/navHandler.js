@@ -3,9 +3,10 @@ var TAFFY = require('taffy');
 
 
 
-function navHandler({ req, res, project, subcateogry, keyOrder }) {
+function navHandler({ req, res, project, subcategory, keyOrder }) {
+    res.setHeader('Access-Control-Allow-Origin', '*')
     const { navindex } = req.query
-    const data = require(`./${project}/api/_files/${subcateogry}/nav/${keyOrder}-keywords.json`)
+    const data = require(`../${project}/api/_files/${subcategory}/nav/${keyOrder}-keywords.json`)
     var navkeywords = TAFFY(data);
     debugger
 

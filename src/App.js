@@ -70,9 +70,10 @@ export default class App extends React.Component {
       }));
     };
 
-    this.selectSubcategory = ({ subcategory, totalSubcategory }) => {
+    this.selectSubcategory = ({ subcategory, totalSubcategory, node }) => {
+
       this.setState(state => ({
-        ...state, selectedSubcategory: { subcategory, totalSubcategory }, open: false
+        ...state, selectedSubcategory: { subcategory, totalSubcategory, node }, open: false
       }));
     }
 
@@ -122,18 +123,18 @@ export default class App extends React.Component {
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-')
+      this.fetchNavKeywords('0-',selectedSubcategory.subcategory)
     }
 
     if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       if (selectedNavIndex === '') {
-        this.fetchNavKeywords('0-')
+        this.fetchNavKeywords('0-',selectedSubcategory.subcategory)
       } else {
-        setTimeout(() => {
-          this.fetchNavKeywords(selectedNavIndex)
-        }, 100)
+    
+      //    this.fetchNavKeywords(selectedNavIndex,selectSubcategory.subcategory)
+     
 
       }
 
@@ -145,18 +146,24 @@ export default class App extends React.Component {
 
   fetchProducts(start) {
 
-    const { selectedSubcategory: { subcategory }, selectedMarka, selectedNavIndex } = this.state
-
-    var url = '/api/kadin/data?start=' + start + '&subcategory=' + subcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
+    const { selectedSubcategory: { subcategory, node }, selectedMarka, selectedNavIndex } = this.state
+    //    var url = '/api/kadin/data?start=' + start + '&subcategory=' + subcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
+    var url = `http://localhost:3000/api/fns/${subcategory}/${subcategory}?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
     debugger
 
-    return fetch(url, { cache: 'default' }).then(function (response) { return response.json() }).then(function (data) {
+    return fetch(url, { cache: 'default' }).then(function (response) { 
+      
+      debugger
+      
+      return response.json() }).then(function (data) {
       return data
     })
       .then((data) => {
         debugger
+        debugger
         const { data: products, count } = data
         debugger
+
         this.setState(state => ({
           ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
         }))
@@ -164,7 +171,7 @@ export default class App extends React.Component {
 
       })
       .catch(function (err) {
-
+debugger
         console.log('err', err)
         return err
       })
@@ -172,20 +179,21 @@ export default class App extends React.Component {
 
   }
 
-  fetchNavKeywords(selectedNavIndex) {
+  fetchNavKeywords(selectedNavIndex,subcategory) {
+
     var url = ''
-    const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) %2
+    const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
     debugger
     if (selectedNavIndex === '') {
-      url = `/api/kadin/navfirst?navindex=0-`
+      url = `http://localhost:3000/api/fns/${subcategory}/navfirst?navindex=0-`
     } else {
 
       if (fn === 1) {
         debugger
-        url = `/api/kadin/navsecond?navindex=${selectedNavIndex}&subcategory='elbise'`
+        url = `http://localhost:3000/api/fns/${subcategory}/navsecond?navindex=${selectedNavIndex}`
       } else {
         debugger
-        url = `/api/kadin/navfirst?navindex=${selectedNavIndex}&subcategory='elbise'`
+        url = `http://localhost:3000/api/fns/${subcategory}/navfirst?navindex=${selectedNavIndex}`
       }
 
     }

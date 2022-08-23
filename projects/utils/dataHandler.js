@@ -6,19 +6,19 @@ const { orderData } = require('./orderData')
 const fs = require('fs')
 
 function dataHandler({ req, res, project, subcategory }) {
-
+  res.setHeader('Access-Control-Allow-Origin', '*')
   const { start, search, selectedNavIndex } = req.query
 
   const allkeywords = require(`../${project}/api/_files/${subcategory}/nav/keywords.json`)
   const data = []
 
-  const files = fs.readdirSync(`../${project}/api/_files/${subcategory}`)
-
+  const files = fs.readdirSync(`../${project}/api/_files/${subcategory}/data`)
+const folder =`../${project}/api/_files/${subcategory}/data`
   for (let file of files) {
 
-    const data = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
-
-    const dataObjectArr = JSON.parse(data)
+    const dataRaw = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
+debugger
+    const dataObjectArr = JSON.parse(dataRaw)
 
     data.push(...dataObjectArr)
   }
@@ -112,7 +112,7 @@ function dataHandler({ req, res, project, subcategory }) {
   console.log('startAt', startAt)
   console.log('count1', count)
   debugger
-  ;
+  
   res.status(200).json({ data: d, count })
 
 }
