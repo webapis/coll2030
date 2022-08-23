@@ -40,7 +40,6 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: data
           path: projects/dream/api/_files
       - name: Decript data
         run: 'npm run decryptData'
