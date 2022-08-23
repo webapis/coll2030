@@ -3,25 +3,21 @@
 
 (async () => {
     const { getGoogleToken } = require('../google/google.oauth')
-    const fs = require('fs')
 
-    const makeDir = require('make-dir');
-    const path = require('path')
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
-    const elbise = await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:J' })
-    //  const etek = await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:I' })
-    await makeDir('projects/dream/api/_files/elbise/nav')
-    if (fs.existsSync(`projects/dream/api/_files/elbise/nav/keywords.json`)) {
-        fs.unlinkSync(`projects/dream/api/_files/elbise/nav/keywords.json`)
-    }
-    fs.appendFileSync(`projects/dream/api/_files/elbise/nav/keywords.json`, JSON.stringify({ elbise }))
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:J', node: 'dream', subcategory: 'elbise' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'pantolon!A:J', node: 'dream', subcategory: 'pantolon' })
+
     process.exit(0)
 
 })()
 
 
-async function generateKeyword({ google_access_token, spreadsheetId, range }) {
+async function generateKeyword({ google_access_token, spreadsheetId, range, node, subcategory }) {
+    const fs = require('fs')
+    const makeDir = require('make-dir');
+
     const { getSheetValues, appendSheetValues } = require('../google.sheet.js')
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range })
     let categoryItems = []
@@ -41,8 +37,12 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
         categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid })
         debugger
     }
-    const groupByParentKey = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
+    const data = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
 
-
-    return groupByParentKey
+    await makeDir(`projects/${node}/api/_files/${subcategory}/nav`)
+    if (fs.existsSync(`projects/${node}/api/_files/${subcategory}/nav/keywords.json`)) {
+        fs.unlinkSync(`projects/${node}/api/_files/${subcategory}/nav/keywords.json`)
+    }
+    fs.appendFileSync(`projects/${node}/api/_files/${subcategory}/nav/keywords.json`, JSON.stringify({ [subcategory]: data }))
+  
 }

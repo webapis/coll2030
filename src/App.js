@@ -148,8 +148,8 @@ export default class App extends React.Component {
 
   fetchProducts(start) {
 
-    const { selectedSubcategory: { subcategory, node }, selectedMarka, selectedNavIndex } = this.state
-    //    var url = '/api/kadin/data?start=' + start + '&subcategory=' + subcategory + '&marka=' + selectedMarka + '&selectedNavIndex=' + selectedNavIndex
+    const { selectedSubcategory: { subcategory}, selectedNavIndex } = this.state
+
     var url = `http://localhost:3000/api/fns/${subcategory}/${subcategory}?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
     debugger
 
