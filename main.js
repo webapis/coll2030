@@ -181,7 +181,7 @@ Apify.main(async () => {
     const { items: productItems } = await productsDataset.getData();
 
 
-    await makeDir('data');
+    // await makeDir('data');
 
     if (productItems.length > 0) {
 
@@ -198,10 +198,12 @@ Apify.main(async () => {
                 debugger
                 const data = groupByProject[project]
                 debugger
-                if (fs.existsSync(`projects/${project}/api/_files/${subcategory}/data.json`)) {
-                    fs.unlinkSync(`projects/${project}/api/_files/${subcategory}/data.json`)
+                await makeDir(`projects/${project}/api/_files/${subcategory}/data`)
+
+                if (fs.existsSync(`projects/${project}/api/_files/${subcategory}/data/${marka}.json`)) {
+                    fs.unlinkSync(`projects/${project}/api/_files/${subcategory}/data/${marka}.json`)
                 }
-                fs.appendFileSync(`projects/${project}/api/_files/${subcategory}/data.json`, JSON.stringify(data));
+                fs.appendFileSync(`projects/${project}/api/_files/${subcategory}/data/${marka}.json`, JSON.stringify(data));
 
             }
 

@@ -3,14 +3,25 @@ var TAFFY = require('taffy');
 
 const { productTitleMatch } = require('./productTitleMatch')
 const { orderData } = require('./orderData')
-
+const fs = require('fs')
 
 function dataHandler({ req, res, project, subcategory }) {
 
   const { start, search, selectedNavIndex } = req.query
 
   const allkeywords = require(`../${project}/api/_files/${subcategory}/nav/keywords.json`)
-  const data = require(`../${project}/api/_files/${subcategory}.json`)
+  const data = []
+
+  const files = fs.readdirSync(`../${project}/api/_files/${subcategory}`)
+
+  for (let file of files) {
+
+    const data = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
+
+    const dataObjectArr = JSON.parse(data)
+
+    data.push(...dataObjectArr)
+  }
   debugger
   const startAt = parseInt(start)
   var products = TAFFY(data);

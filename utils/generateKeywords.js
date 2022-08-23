@@ -10,12 +10,12 @@
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
     const elbise = await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:J' })
-  //  const etek = await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:I' })
-    await makeDir('api/_files/kadin')
-    if (fs.existsSync(`${process.cwd()}/api/_files/nav/keywords.json`)) {
-        fs.unlinkSync(`${process.cwd()}/api/_files/nav/keywords.json`)
+    //  const etek = await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:I' })
+    await makeDir('projects/dream/api/_files/elbise/nav')
+    if (fs.existsSync(`projects/dream/api/_files/elbise/nav/keywords.json`)) {
+        fs.unlinkSync(`projects/dream/api/_files/elbise/nav/keywords.json`)
     }
-    fs.appendFileSync(`${process.cwd()}/api/_files/nav/keywords.json`, JSON.stringify({ elbise }))
+    fs.appendFileSync(`projects/dream/api/_files/elbise/nav/keywords.json`, JSON.stringify({ elbise }))
     process.exit(0)
 
 })()
@@ -34,15 +34,15 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
         const exactmatch = value[5]
         const state = value[6]
         const group = value[7]
-        const index =value[8]
-        const groupid =value[9]
+        const index = value[8]
+        const groupid = value[9]
         debugger
         console.log('exactmatch...', exactmatch, keyword)
-        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group,index,groupid })
-     debugger
+        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid })
+        debugger
     }
     const groupByParentKey = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
-    
+
 
     return groupByParentKey
 }
