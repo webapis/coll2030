@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: data
-          path: data/${{ inputs.marka }}.json
+          path: projects/**/api/files/**/**/*.json
 
         
 
