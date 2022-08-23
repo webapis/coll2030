@@ -49,3 +49,4 @@ jobs:
         run: node utils/genegateNavigation.js
       - name: publish 
         run: vercel --token ${{secrets.VERCEL_TOKEN}} --confirm
+        run: vercel projects/dream --token ${{secrets.VERCEL_TOKEN}} --confirm
