@@ -132,8 +132,10 @@ export default class App extends React.Component {
       if (selectedNavIndex === '') {
         this.fetchNavKeywords('0-',selectedSubcategory.subcategory)
       } else {
-    
-      //    this.fetchNavKeywords(selectedNavIndex,selectSubcategory.subcategory)
+
+
+    debugger
+        this.fetchNavKeywords(selectedNavIndex,selectedSubcategory.subcategory)
      
 
       }
