@@ -15,10 +15,15 @@
 
 async function genNav({ node, subcategory }) {
   const makeDir = require('make-dir');
-  await makeDir(`projects/${node}/api/_files/${subcategory}`)
+  await makeDir(`projects/${node}/api/_files/${subcategory}/nav`)
   const fs = require('fs')
   const folder = `${process.cwd()}/projects/${node}/api/_files/${subcategory}/data`
+  debugger
+   const folderexists = fs.existsSync(folder)
   const files = fs.readdirSync(folder)
+  console.log('folder',folderexists)
+  console.log('files.length',files.length)
+  debugger
   const dataCollection = []
   for (let file of files) {
 
