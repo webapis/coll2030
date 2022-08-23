@@ -5,7 +5,7 @@ jobs:
   test_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: saygigiyim
+      marka: defacto
     secrets: inherit
 
   generate_nav_job:
@@ -43,12 +43,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: data
-          path: data
+          path: projects/**/api/files/**/**/*.json
       - name: Decript data
         run: 'npm run decryptData'
-      - name: remove dublicate data 
-        id: removeDublicateData
-        run: node utils/removeDublicateData.js
       - name: gen nav
         id: genegateNavigation
         run: node utils/genegateNavigation.js
