@@ -23,7 +23,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local Netlify folder
+# Local Netlify folde
 .netlify
 
 
@@ -32,14 +32,3 @@ apify_storage
 
 turkmenistan-market-f1b9872438ea.json
 
-data
-data-nav
-
-src/components/categoryMenu/*.json
-src/components/MarkaMenu/*.json
-data-unique
-
-api/_files/kadin/nav/*.json
-api/_files/kadin/data.json
-api/_files/nav/0-keywords.json
-api/_files/nav/1-keywords.json
