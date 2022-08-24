@@ -44,6 +44,7 @@ jobs:
           path: projects/dream/api/_file
       - name: Display structure of downloaded files
         run: ls -R
+        working-directory: projects/dream/api/_file
       - name: Decript data
         run: 'npm run decryptData'
       - name: gen nav
