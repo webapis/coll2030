@@ -50,7 +50,5 @@ jobs:
       - name: gen nav
         id: genegateNavigation
         run: node utils/genegateNavigation.js
-      - name: publish one
-        run: vercel --token ${{secrets.VERCEL_TOKEN}} --yes
       - name: publish two
-        run: vercel ./projects/dream --token ${{secrets.VERCEL_TOKEN}} --yes 
+        run: npm run deploydream
