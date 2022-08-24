@@ -41,10 +41,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: data
-          path: projects/dream/api/_file
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: projects/dream/api/_file
+        working-directory: projects
       - name: Decript data
         run: 'npm run decryptData'
       - name: gen nav
