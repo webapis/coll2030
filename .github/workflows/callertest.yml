@@ -53,4 +53,4 @@ jobs:
       - name: publish one
         run: vercel --token ${{secrets.VERCEL_TOKEN}} --yes
       - name: publish two
-        run: vercel ./project/dream --token ${{secrets.VERCEL_TOKEN}} --yes 
+        run: vercel projects/dream --token ${{secrets.VERCEL_TOKEN}} --yes 
