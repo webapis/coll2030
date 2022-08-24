@@ -14,12 +14,14 @@
 //
 
 async function genNav({ node, subcategory }) {
+  console.log('node',node)
+  console.log('subcategory',subcategory)
   const makeDir = require('make-dir');
   await makeDir(`projects/${node}/api/_files/${subcategory}/nav`)
   const fs = require('fs')
   const folder = `${process.cwd()}/projects/${node}/api/_files/${subcategory}/data`
   console.log('folder',folder)
-  const folder1 = `${process.cwd()}/projects/api/_files`
+  const folder1 = `${process.cwd()}/projects/${node}/api/_files`
    const folderexists = fs.existsSync(folder1)
    const filess = fs.readdirSync(folder1)
    filess.forEach(file=>{
