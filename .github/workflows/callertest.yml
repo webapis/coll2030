@@ -39,8 +39,8 @@ jobs:
         run: 'npm i -g vercel'
       - name: Download a single artifact
         uses: actions/download-artifact@v3
-        with:
-          path: projects/dream/api/_files
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: Decript data
         run: 'npm run decryptData'
       - name: gen nav
