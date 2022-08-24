@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: data
-          path: projects/dream/api/_files
+          path: ~/projects/dream/api/_files
       - name: Display structure of uploaded files
         run: ls -R
 
