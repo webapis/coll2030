@@ -57,6 +57,9 @@ jobs:
         with:
           name: data
           path: projects/dream/api/_files
+      - name: Display structure of uploaded files
+        run: ls -R
+        working-directory: projects
 
         
 
