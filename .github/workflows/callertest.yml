@@ -53,4 +53,4 @@ jobs:
       - name: publish one
         run: vercel --token ${{secrets.VERCEL_TOKEN}} --confirm
       - name: publish two
-        run: vercel projects/dream --token ${{secrets.VERCEL_TOKEN}} --confirm
+        run: vercel dream --token ${{secrets.VERCEL_TOKEN}} --confirm
