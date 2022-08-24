@@ -39,6 +39,9 @@ jobs:
         run: 'npm i -g vercel'
       - name: Download a single artifact
         uses: actions/download-artifact@v3
+        with:
+          name: data
+          path: projects/dream/api/_file
       - name: Display structure of downloaded files
         run: ls -R
       - name: Decript data
