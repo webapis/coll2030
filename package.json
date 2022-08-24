@@ -57,7 +57,8 @@
     "encryptData": "node encryptData.js",
     "decryptData": "node decryptData.js",
     "genKeywords": "node utils/generateKeywords.js",
-    "deploydream": "vercel projects/dream --token $VERCEL_TOKEN --yes"
+    "deploymain": "vercel --token $VERCEL_TOKEN --yes",
+    "deploydream":"vercel projects/dream --token $VERCEL_TOKEN --yes"
   },
   "eslintConfig": {
     "extends": [

@@ -147,10 +147,10 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-
+    let host ='https://dream2022.vercel.app/'
     const { selectedSubcategory: { subcategory}, selectedNavIndex } = this.state
 
-    var url = `http://localhost:3000/api/fns/${subcategory}/${subcategory}?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
+    var url = `${host}api/fns/${subcategory}/${subcategory}?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
     debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) { 
@@ -183,19 +183,20 @@ debugger
 
   fetchNavKeywords(selectedNavIndex,subcategory) {
 
+    let host ='https://dream2022.vercel.app/'
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
     debugger
     if (selectedNavIndex === '') {
-      url = `http://localhost:3000/api/fns/${subcategory}/navfirst?navindex=0-`
+      url = `${host}api/fns/${subcategory}/navfirst?navindex=0-`
     } else {
 
       if (fn === 1) {
         debugger
-        url = `http://localhost:3000/api/fns/${subcategory}/navsecond?navindex=${selectedNavIndex}`
+        url = `${host}api/fns/${subcategory}/navsecond?navindex=${selectedNavIndex}`
       } else {
         debugger
-        url = `http://localhost:3000/api/fns/${subcategory}/navfirst?navindex=${selectedNavIndex}`
+        url = `${host}api/fns/${subcategory}/navfirst?navindex=${selectedNavIndex}`
       }
 
     }
