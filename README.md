@@ -108,3 +108,8 @@ CURRENCY
 
        - name: publish one
         run: vercel --token ${{secrets.VERCEL_TOKEN}} --yes
+
+       - name: publish one
+        run: npm run deploymain
+      - name: publish two
+        run: npm run deploydream

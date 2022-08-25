@@ -54,7 +54,6 @@ jobs:
       - name: gen nav
         id: genegateNavigation
         run: node utils/genegateNavigation.js
-      - name: publish one
-        run: npm run deploymain
-      - name: publish two
-        run: npm run deploydream
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply php-cs-fixer changes
