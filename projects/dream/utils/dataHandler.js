@@ -9,11 +9,11 @@ function dataHandler({ req, res, project, subcategory }) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   const { start, search, selectedNavIndex } = req.query
 
-  const allkeywords = require(path.join(process.cwd(), `api/_files/${subcategory}/nav/keywords.json`))
+  const allkeywords = require(path.join(process.cwd(), `projects/${project}/api/_files/${subcategory}/nav/keywords.json`))
   const data = []
 
-  const files = fs.readdirSync(path.join(process.cwd(), `api/_files/${subcategory}/data`))
-  const folder = path.join(process.cwd(), `api/_files/${subcategory}/data`)
+  const files = fs.readdirSync(path.join(process.cwd(), `projects/${project}/api/_files/${subcategory}/data`))
+  const folder = path.join(process.cwd(), `projects/${project}/api/_files/${subcategory}/data`)
   for (let file of files) {
 
     const dataRaw = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })

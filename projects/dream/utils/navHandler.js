@@ -6,7 +6,7 @@ const path = require('path');
 function navHandler({ req, res, project, subcategory, keyOrder }) {
     res.setHeader('Access-Control-Allow-Origin', '*')
     const { navindex } = req.query
-    const data = require(path.join(process.cwd(), `api/_files/${subcategory}/nav/${keyOrder}-keywords.json`))
+    const data = require(path.join(process.cwd(), `projects/${project}/api/_files/${subcategory}/nav/${keyOrder}-keywords.json`))
     var navkeywords = TAFFY(data);
     debugger
 
