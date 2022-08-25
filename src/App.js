@@ -147,7 +147,7 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    let host =  'http://localhost:3001/'  //'https://dream2022.vercel.app/'
+    let host = 'https://dream-gules.vercel.app/'// 'http://localhost:3001/'  //
     const { selectedSubcategory: { subcategory}, selectedNavIndex } = this.state
 
     var url = `${host}api/fns/${subcategory}/${subcategory}?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
@@ -183,7 +183,7 @@ debugger
 
   fetchNavKeywords(selectedNavIndex,subcategory) {
 
-    let host =  'http://localhost:3001/'  //'https://dream2022.vercel.app/'
+    let host = 'https://dream-gules.vercel.app/'// 'http://localhost:3001/'  //
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
     debugger
