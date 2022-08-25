@@ -42,7 +42,7 @@ async function genNav({ node, subcategory }) {
     dataCollection.push(...dataObjectArr)
   }
 
-  const { productTitleMatch } = require('../projects/utils/productTitleMatch')
+  const { productTitleMatch } = require('../projects/dream/utils/productTitleMatch')
 
 
   const categoryNav = { count: dataCollection.length, node,subcategory } 
