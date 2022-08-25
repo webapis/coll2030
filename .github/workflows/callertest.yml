@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: data
-          path: projects/dream/api/_files/data
+          path: projects/dream/api/_files/elbise/data
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: projects
