@@ -4,16 +4,16 @@ var TAFFY = require('taffy');
 const { productTitleMatch } = require('./productTitleMatch')
 const { orderData } = require('./orderData')
 const fs = require('fs')
-
+const path =require('path');
 function dataHandler({ req, res, project, subcategory }) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   const { start, search, selectedNavIndex } = req.query
 
-  const allkeywords = JSON.parse(fs.readFileSync(`../projects/${project}/api/_files/${subcategory}/nav/keywords.json`, { encoding: 'utf-8' }))
+  const allkeywords = require(path.join(process.cwd(), `api/_files/${subcategory}/nav/keywords.json`))
   const data = []
 
-  const files = fs.readdirSync(`../projects/${project}/api/_files/${subcategory}/data`)
-  const folder = `../projects/${project}/api/_files/${subcategory}/data`
+  const files = fs.readdirSync(path.join(process.cwd(), `api/_files/${subcategory}/data`))
+  const folder = path.join(process.cwd(), `api/_files/${subcategory}/data`)
   for (let file of files) {
 
     const dataRaw = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
