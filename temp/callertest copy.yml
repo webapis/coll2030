@@ -4,7 +4,7 @@ on:
 
 env:
   VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
-  NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
+
 jobs:
   test_job:
     uses: ./.github/workflows/reusable.yml
@@ -54,5 +54,11 @@ jobs:
       - name: gen nav
         id: genegateNavigation
         run: node utils/genegateNavigation.js
-      - name: deploy to netlify
-        run: 
+      - name: Commit report
+        run: |
+          git config --global user.name 'Serdar Ashirov'
+          git config --global user.email 'webapis@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
+          git add .
+          git commit -m "Automated report."
+          git push
