@@ -23,14 +23,14 @@ function dataHandler({ event, project, subcategory }) {
 
   }
   else if (event.httpMethod === 'GET') {
-debugger
+    debugger
     const { start, search, selectedNavIndex } = event.queryStringParameters
-debugger
-    const allkeywords = require(`../api/_files/${subcategory}/nav/keywords.json`)
+    debugger
+    const allkeywords = require(path.join(process.cwd(), `api/_files/${subcategory}/nav/keywords.json`))
     const data = []
-debugger
-const dirPath = path.join(process.cwd(),`api/_files/${subcategory}/data`)
-debugger
+    debugger
+    const dirPath = path.join(process.cwd(), `api/_files/${subcategory}/data`)
+    debugger
     const files = fs.readdirSync(dirPath)
     debugger
     for (let file of files) {
