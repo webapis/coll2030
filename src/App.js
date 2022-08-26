@@ -147,10 +147,10 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    let host = 'https://dream-lovat.vercel.app/'// 'http://localhost:3001/'  //
+    let host = 'http://localhost:8888/.netlify/functions'// 'http://localhost:3001/'  //
     const { selectedSubcategory: { subcategory}, selectedNavIndex } = this.state
 
-    var url = `${host}api/fns/${subcategory}/${subcategory}?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
+    var url = `${host}/${subcategory}/?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
     debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) { 
@@ -183,20 +183,20 @@ debugger
 
   fetchNavKeywords(selectedNavIndex,subcategory) {
 
-    let host = 'https://dream-lovat.vercel.app/'// 'http://localhost:3001/'  //
+    let host = 'http://localhost:8888/.netlify/functions'// 'http://localhost:3001/'  //
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
     debugger
     if (selectedNavIndex === '') {
-      url = `${host}api/fns/${subcategory}/navfirst?navindex=0-`
+      url = `${host}/${subcategory}-navfirst?navindex=0-`
     } else {
 
       if (fn === 1) {
         debugger
-        url = `${host}api/fns/${subcategory}/navsecond?navindex=${selectedNavIndex}`
+        url = `${host}/${subcategory}-navsecond?navindex=${selectedNavIndex}`
       } else {
         debugger
-        url = `${host}api/fns/${subcategory}/navfirst?navindex=${selectedNavIndex}`
+        url = `${host}/${subcategory}-navfirst?navindex=${selectedNavIndex}`
       }
 
     }
