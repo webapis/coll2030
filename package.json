@@ -59,7 +59,7 @@
     "decryptData": "node decryptData.js",
     "genKeywords": "node utils/generateKeywords.js",
     "deploymain": "vercel --token $VERCEL_TOKEN --prod --yes",
-    "deploy":"cd projects/dream && netlify deploy --prod"
+    "deploy":"netlify deploy --dir=projects/dream --prod"
   },
   "eslintConfig": {
     "extends": [
