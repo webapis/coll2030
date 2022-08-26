@@ -16,9 +16,9 @@ function dataHandler({ event, project, subcategory }) {
 
     // To enable CORS
     return {
-      statusCode: 200, // <-- Important!
+      statusCode: 204, // <-- Important!
       headers,
-      body: 'This was not a POST request!'
+      //body: 'This was not a POST request!'
     };
 
   }
