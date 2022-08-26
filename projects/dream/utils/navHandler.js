@@ -23,7 +23,7 @@ function navHandler({ event, project, subcategory, keyOrder }) {
 
     } else if (event.httpMethod === 'GET') {
         const { navindex } = event.queryStringParameters
-        const data = require(`../_files/${subcategory}/nav/${keyOrder}-keywords.json`)
+        const data = require(`./api/_files/${subcategory}/nav/${keyOrder}-keywords.json`)
         var navkeywords = TAFFY(data);
         debugger
 
