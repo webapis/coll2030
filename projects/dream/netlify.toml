@@ -1,2 +1,3 @@
-[functions."elbise.elbise"]
-  included_files = ["api/_files/elbise/data/**.json","api/_files/elbise/nav/keywords.json"]
+[functions]
+  node_bundler = "esbuild"
+ # included_files = ["api/_files/elbise/data/**.json","api/_files/elbise/nav/keywords.json"]
