@@ -17,11 +17,11 @@ async function genNav({ node, subcategory }) {
   console.log('node',node)
   console.log('subcategory',subcategory)
   const makeDir = require('make-dir');
-  await makeDir(`projects/${node}/api/_files/${subcategory}/nav`)
+  await makeDir(`projects/${node}/api/_files/key/${subcategory}`)
   const fs = require('fs')
-  const folder = `${process.cwd()}/projects/${node}/api/_files/${subcategory}/data`
+  const folder = `${process.cwd()}/projects/${node}/api/_files/data/${subcategory}`
   console.log('folder',folder)
-  const folder1 = `${process.cwd()}/projects/${node}/api/_files/${subcategory}/data`
+  const folder1 = `${process.cwd()}/projects/${node}/api/_files/data/${subcategory}`
    const folderexists = fs.existsSync(folder1)
    const filess = fs.readdirSync(folder1)
    filess.forEach(file=>{
@@ -53,7 +53,7 @@ async function genNav({ node, subcategory }) {
 
   fs.writeFileSync(`${process.cwd()}/src/category-nav.json`, JSON.stringify(categoryAsArrayObject))
   debugger
-  const allkeywords = require(`../projects/${node}/api/_files/${subcategory}/nav/keywords.json`)
+  const allkeywords = require(`../projects/${node}/api/_files/nav/${subcategory}/keywords.json`)
   let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
 
   let objCounter = 0
@@ -268,14 +268,14 @@ async function genNav({ node, subcategory }) {
 
   debugger
 
-  if (fs.existsSync(`projects/${node}/api/_files/${subcategory}/nav/0-keywords.json`)) {
-    fs.unlinkSync(`projects/${node}/api/_files/${subcategory}/nav/0-keywords.json`)
+  if (fs.existsSync(`projects/${node}/api/_files/key/${subcategory}/0-keywords.json`)) {
+    fs.unlinkSync(`projects/${node}/api/_files/key/${subcategory}/0-keywords.json`)
   }
-  if (fs.existsSync(`projects/${node}/api/_files/${subcategory}/nav/1-keywords.json`)) {
-    fs.unlinkSync(`projects/${node}/api/_files/${subcategory}/nav/1-keywords.json`)
+  if (fs.existsSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)) {
+    fs.unlinkSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)
   }
-  fs.appendFileSync(`projects/${node}/api/_files/${subcategory}/nav/0-keywords.json`, JSON.stringify(firstPart));
-  fs.appendFileSync(`projects/${node}/api/_files/${subcategory}/nav/1-keywords.json`, JSON.stringify(secondPart));
+  fs.appendFileSync(`projects/${node}/api/_files/key/${subcategory}/0-keywords.json`, JSON.stringify(firstPart));
+  fs.appendFileSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`, JSON.stringify(secondPart));
 
 
 

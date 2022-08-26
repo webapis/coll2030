@@ -198,12 +198,12 @@ Apify.main(async () => {
                 debugger
                 const data = groupByProject[project]
                 debugger
-                await makeDir(`projects/${project}/api/_files/${subcategory}/data`)
+                await makeDir(`projects/${project}/api/_files/data/${subcategory}`)
 
-                if (fs.existsSync(`projects/${project}/api/_files/${subcategory}/data/${marka}.json`)) {
-                    fs.unlinkSync(`projects/${project}/api/_files/${subcategory}/data/${marka}.json`)
+                if (fs.existsSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)) {
+                    fs.unlinkSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)
                 }
-                fs.appendFileSync(`projects/${project}/api/_files/${subcategory}/data/${marka}.json`, JSON.stringify(data));
+                fs.appendFileSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`, JSON.stringify(data));
 
             }
 

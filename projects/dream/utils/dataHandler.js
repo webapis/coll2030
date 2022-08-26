@@ -26,10 +26,10 @@ function dataHandler({ event, project, subcategory }) {
     debugger
     const { start, search, selectedNavIndex } = event.queryStringParameters
     debugger
-    const allkeywords = require(path.join(process.cwd(), `./api/_files/${subcategory}/nav/keywords.json`))
+    const allkeywords = require(path.join(process.cwd(), `./api/_files/nav/${subcategory}/keywords.json`))
     const data = []
     debugger
-    const dirPath = path.join(`./api/_files/${subcategory}/data`)
+    const dirPath = path.join(`./api/_files/data/${subcategory}`)
     debugger
     const files = fs.readdirSync(dirPath)
     debugger
