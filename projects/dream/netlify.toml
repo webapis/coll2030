@@ -1,2 +1,2 @@
 [functions."elbise.elbise"]
-  included_files = ["_files/elbise/data/**.json","_files/elbise/nav/keywords.json"]
+  included_files = ["api/_files/elbise/data/**.json","api/_files/elbise/nav/keywords.json"]
