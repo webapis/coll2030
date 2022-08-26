@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const { navHandler } = require('../../../utils/navHandler')
+const { navHandler } = require('../../utils/navHandler')
 exports.handler = async function (event, context) {
 
 
