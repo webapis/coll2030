@@ -55,4 +55,4 @@ jobs:
         id: genegateNavigation
         run: node utils/genegateNavigation.js
       - name: deploy to netlify
-        run: 'cd projects/dream && netlify deploy --prod'
+        run: 'npm run deploy'
