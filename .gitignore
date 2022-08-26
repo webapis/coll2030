@@ -33,6 +33,3 @@ turkmenistan-market-f1b9872438ea.json
 data/**/*.json
 .vercel
 # Local Netlify folder
-projects/dream/api/_files/data/**/*.json
-projects/dream/api/_files/key/**/*.json
-
