@@ -55,4 +55,6 @@ jobs:
         id: genegateNavigation
         run: node utils/genegateNavigation.js
       - name: deploytonetlify
+          env: 
+            NETLIFY_SITE_ID:  "41dc1cc1-4401-4d93-9139-207230925314"
         run: 'npm run deploy'
