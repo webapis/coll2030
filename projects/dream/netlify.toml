@@ -1,4 +1,6 @@
 [functions]
-
-  included_files = ["api/_files/elbise/data/*.json","api/_files/elbise/nav/keywords.json"]
   external_node_modules = ["taffy"]
+[functions."elbise.elbise"]
+  included_files = ["api/_files/elbise/data/*.json","api/_files/elbise/nav/keywords.json"]
+[functions."pantolon.pantolon"]
+  included_files = ["api/_files/pantolon/data/*.json","api/_files/pantolon/nav/keywords.json"]
