@@ -54,5 +54,5 @@ jobs:
       - name: gen nav
         id: genegateNavigation
         run: node utils/genegateNavigation.js
-      - name: deploy to netlify
+      - name: deploytonetlify
         run: 'npm run deploy'
