@@ -1,9 +1,7 @@
 
-
 const { navHandler } = require('../../utils/navHandler')
 exports.handler = async function (event, context) {
 
 
-return await  navHandler({ event, subcategory: 'elbise', project: 'dream', keyOrder: '0' })
+return await  navHandler({ event, subcategory: 'pantolon', project: 'dream', keyOrder: '1' })
 }
-
