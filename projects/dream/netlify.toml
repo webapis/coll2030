@@ -1,5 +1,4 @@
 [functions]
   node_bundler = "esbuild"
- included_files = ["api/_files/elbise/data/*.json","api/_files/elbise/nav/keywords.json"]
-
+  included_files = ["api/_files/elbise/data/*.json","api/_files/elbise/nav/keywords.json"]
   external_node_modules = ["taffy"]
