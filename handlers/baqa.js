@@ -1,31 +1,32 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category, node } } } = context
 
     const url = await page.url()
 
     await page.waitForSelector('#ProductPageProductList')
     await autoScroll(page)
     debugger;
-    const data = await page.$$eval('.ItemOrj.col-3', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.ItemOrj.col-3', (productCards, _subcategory, _category, _node) => {
         return productCards.map(productCard => {
             const longimg = productCard.querySelector('[data-original]').getAttribute('data-original')
             const title = productCard.querySelector('.productName.detailUrl a').innerHTML
-            const priceNew =productCard.querySelector('.discountPrice span').innerHTML.replace('₺', '')//.replace('.','').replace(',','.')
+            const priceNew = productCard.querySelector('.discountPrice span').innerHTML.replace('₺', '')//.replace('.','').replace(',','.')
             const link = productCard.querySelector('.detailLink.detailUrl').href
 
             return {
-                title: 'baqa '+ title,
+                title: 'baqa ' + title,
                 priceNew,
                 imageUrl: longimg,
-                link: link.substring(link.indexOf('https://www.baqa.com.tr/')+24),
+                link: link.substring(link.indexOf('https://www.baqa.com.tr/') + 24),
                 timestamp: Date.now(),
                 marka: 'baqa',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         })//.filter(f => f.priceNew !== null)
-    }, subcategory, category)
+    }, subcategory, category, node)
 
     console.log('data length_____', data.length, 'url:', url)
 
@@ -56,7 +57,7 @@ async function autoScroll(page) {
     });
 }
 async function getUrls(page) {
- 
+
     const pageUrls = []
 
 

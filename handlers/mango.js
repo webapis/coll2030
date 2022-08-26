@@ -1,7 +1,7 @@
 
 const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start } } } = context
+    const { request: { userData: { subcategory, category, start,node } } } = context
     debugger;
 
     const dataset = await Apify.openDataset();
@@ -47,7 +47,8 @@ async function handler(page, context) {
             timestamp: Date.now(),
             marka: 'mango',
             category,
-            subcategory
+            subcategory,
+            node
         }
     })
     debugger;

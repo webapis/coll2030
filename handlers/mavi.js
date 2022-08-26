@@ -1,7 +1,7 @@
 const Apify = require('apify');
 
 async function handler(page, context) {
-    const { request: { userData: { start,subcategory,category } } } = context
+    const { request: { userData: { start,subcategory,category,node } } } = context
     debugger;
     const url = await page.url()
     await page.waitForSelector('.product-list-cards')
@@ -9,7 +9,7 @@ async function handler(page, context) {
     await page.waitForSelector('.product-item')
 
     debugger;
-    const data = await page.$$eval('.product-item', (items,_subcategory,_category) => {
+    const data = await page.$$eval('.product-item', (items,_subcategory,_category,_node) => {
 
         return items.map(item => {
             let productTitle =document.querySelector('.product-title').textContent
@@ -28,10 +28,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'mavi',
                 category:_category,
-                subcategory:_subcategory
+                subcategory:_subcategory,
+                node: _node
             }
         })
-    },subcategory,category);
+    },subcategory,category,node);
         console.log('data length_____', data.length)
         const nextPageExists = await page.$('.button.more-product')
         debugger;

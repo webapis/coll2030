@@ -1,7 +1,7 @@
 
 const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category,node } } } = context
 
     const url = await page.url()
 
@@ -41,7 +41,8 @@ async function handler(page, context) {
                            timestamp: Date.now(),
                            marka: 'tozlu',
                            category,
-                           subcategory
+                           subcategory,
+                           node
                          }
                        })
                        console.log('data length_____', data.length, 'url:', url)

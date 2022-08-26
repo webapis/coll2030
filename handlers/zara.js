@@ -1,6 +1,6 @@
 const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start } } } = context
+    const { request: { userData: { subcategory, category, start,node } } } = context
 
     const url = await page.url()
     await page.waitForSelector('.product-grid-block-dynamic.product-grid-block-dynamic__container')
@@ -41,7 +41,7 @@ async function handler(page, context) {
     }).flat().map(m => {
         return {
             title: m.title, priceNew: m.priceNew, imageUrl: m.imageUrl, link: m.link, category, subcategory, timestamp: Date.now(),
-            marka: "zara",
+            marka: "zara",node
         }
     })
     // debugger;

@@ -1,6 +1,6 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category,node } } } = context
 
     const url = await page.url()
 
@@ -32,7 +32,7 @@ async function handler(page, context) {
                 } else {
                     clearInterval(inv)
 
-                    const data = await page.$$eval('.productItem', (productCards, _subcategory, _category, _opts) => {
+                    const data = await page.$$eval('.productItem', (productCards, _subcategory, _category, _opts,_node) => {
                         return productCards.map(productCard => {
                             const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
                             const longlink = productCard.querySelector('.productName a').href
@@ -49,10 +49,11 @@ async function handler(page, context) {
                                 timestamp: Date.now(),
                                 marka: 'saygigiyim',
                                 subcategory: _subcategory,
-                                category: _category
+                                category: _category,
+                                node: _node
                             }
                         }).filter(f => f.imageUrl !== null)
-                    }, subcategory, category)
+                    }, subcategory, category,node)
 
           
                     console.log('data length_____', data.length, 'url:', url)

@@ -248,19 +248,24 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: 'npm install'
-      - name: Install vercel cli
-        run: 'npm i -g vercel'
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
           name: data
-          path: projects/**/api/_files/**/**/*.json
+          path: projects/dream/api/_files/data
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: projects
       - name: Decript data
         run: 'npm run decryptData'
       - name: gen nav
         id: genegateNavigation
         run: node utils/genegateNavigation.js
-      - name: publish 
-        run: vercel --token ${{secrets.VERCEL_TOKEN}} --prod
-      - name: publish 
-        run: vercel --token ${{secrets.VERCEL_TOKEN}} --prod projects/dream
+      - name: Commit report
+        run: |
+          git config --global user.name 'Serdar Ashirov'
+          git config --global user.email 'webapis@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
+          git add .
+          git commit -m "Automated report."
+          git push

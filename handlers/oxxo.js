@@ -1,6 +1,6 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start, opts } } } = context
+    const { request: { userData: { subcategory, category, start, opts,node } } } = context
     debugger;
 
 
@@ -12,7 +12,7 @@ async function handler(page, context) {
     await autoScroll(page);
 
     debugger
-    const data = await page.$$eval('.Prd', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.Prd', (productCards, _subcategory, _category,_node) => {
         return productCards.map(productCard => {
 
             const longImgUrl = productCard.querySelector('a[data-product] img').getAttribute('data-src') ? productCard.querySelector('a[data-product] img').getAttribute('data-src') : productCard.querySelector('a[data-product] img').src
@@ -34,12 +34,13 @@ async function handler(page, context) {
 
                 marka: 'oxxo',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
 
 
             }
         })//.filter(f => f.imageUrl !== null)
-    }, subcategory, category)
+    }, subcategory, category,node)
 
 
 

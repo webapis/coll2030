@@ -1,10 +1,10 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category, node } } } = context
     const url = await page.url()
     await page.waitForSelector('.list__products')
 
-    const data = await page.evaluate((_subcategory, _category) => {
+    const data = await page.evaluate((_subcategory, _category, _node) => {
         const productCards = Array.from(document.querySelectorAll('.js-product-wrapper.product-item'))
         return productCards.map(productCard => {
             const newPrice = productCard.querySelector('.-actuel') ? productCard.querySelector('.-actuel').innerText.trim().replace('₺', '').replace('TL', '') : null
@@ -14,17 +14,18 @@ async function handler(page, context) {
             const shortLink = longLink.substring(longLink.indexOf('https://www.koton.com/') + 22)
             return {
                 title: 'koton ' + productCard.querySelector('img').alt,
-                priceNew:newPrice.trim(),//: newPrice.replace(',', '.').trim(),
+                priceNew: newPrice.trim(),//: newPrice.replace(',', '.').trim(),
                 imageUrl: imageUrlshort,
                 link: shortLink,
                 timestamp: Date.now(),
                 marka: 'koton',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         })//.filter(f => f.imageUrl !== null)
 
-    }, subcategory, category)
+    }, subcategory, category, node)
     debugger;
 
     console.log('data length_____', data.length, 'url:', url)

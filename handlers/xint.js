@@ -1,6 +1,6 @@
 const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category,opts } } } = context
+    const { request: { userData: { subcategory, category,opts,node } } } = context
 
     const url = await page.url()
 debugger
@@ -24,7 +24,8 @@ debugger
                 timestamp: Date.now(),
                 marka: 'xint',
                 subcategory,
-                category
+                category,
+                node
             }
         })
 

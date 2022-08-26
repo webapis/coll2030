@@ -1,13 +1,13 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category,node } } } = context
 
     const url = await page.url()
     debugger
     await page.waitForSelector('.ProductList')
 
 
-    const data = await page.$$eval('.Prd', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.Prd', (productCards, _subcategory, _category,_node) => {
         return productCards.map(productCard => {
 
             const longImgUrl = productCard.querySelector('[data-src]') ? productCard.querySelector('[data-src]').getAttribute('data-src') : productCard.querySelector('.PImage').src
@@ -29,12 +29,13 @@ async function handler(page, context) {
 
                 marka: 'perspective',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
 
 
             }
         })//.filter(f => f.imageUrl !== null)
-    }, subcategory, category)
+    }, subcategory, category,node)
 
     console.log('data length_____', data.length, 'url:', url)
 

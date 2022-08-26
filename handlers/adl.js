@@ -1,12 +1,12 @@
 
 const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category,node } } } = context
     debugger;
     const url = await page.url()
     await page.waitForSelector('.products__items')
 
-    const data = await page.$$eval('.products__items .product-item', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.products__items .product-item', (productCards, _subcategory, _category,_node) => {
         return productCards.map(productCard => {
 
 
@@ -25,10 +25,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'adl',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         })//.filter(f => f.imageUrl !== null)
-    }, subcategory, category)
+    }, subcategory, category,node)
     debugger;
     console.log('data length_____', data.length, 'url:', url)
 

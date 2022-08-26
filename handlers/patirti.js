@@ -2,7 +2,7 @@
 const { formatMoney } = require('accounting-js')
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start, opts } } } = context
+    const { request: { userData: { subcategory, category, start, opts,node } } } = context
     debugger;
 
 
@@ -14,7 +14,7 @@ async function handler(page, context) {
     await autoScroll(page);
 
     debugger
-    const data = await page.$$eval('.productItemWrapper', (productCards, _subcategory, _category, _opts) => {
+    const data = await page.$$eval('.productItemWrapper', (productCards, _subcategory, _category, _opts,_node) => {
         return productCards.map(productCard => {
             const priceNew = productCard.querySelector('.currentPrice') ? productCard.querySelector('.currentPrice').textContent.replace(/\n/g, '').replace('₺', '').trim() : productCard.querySelector('.addPriceDiscount span').textContent.replace('₺', '').trim()
             const longlink = productCard.querySelector('.detailLink').href
@@ -32,12 +32,13 @@ async function handler(page, context) {
 
                 marka: 'patirti',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
 
 
             }
         })
-    }, subcategory, category, opts)
+    }, subcategory, category, opts,node)
 
 
 

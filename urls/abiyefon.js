@@ -1,6 +1,6 @@
 const urls = [
 
-    { url: 'https://www.abiyefon.com/nikah-elbiseleri/', subcategory: 'elbise', category: 'üst-giyim', opts: { keyword: 'nikah' }, node: 'dream', fn: 'elbise' },
+    { url: 'https://www.abiyefon.com/nikah-elbiseleri/', subcategory: 'elbise', category: 'üst-giyim', opts: { keyword: 'nikah' }, node:'dream',fn:'elbise' },
     { url: 'https://www.abiyefon.com/hamile-abiye-modelleri', subcategory: 'elbise', category: 'üst-giyim', opts: { keyword: 'hamile' }, node: 'dream', fn: 'elbise' },
     { url: 'https://www.abiyefon.com/balik-abiye-elbise', subcategory: 'elbise', category: 'üst-giyim', node: 'dream', fn: 'elbise' },
     { url: 'https://www.abiyefon.com/abiye/uzun-abiye-elbise-modelleri', subcategory: 'elbise', category: 'üst-giyim', node: 'dream', fn: 'elbise' },

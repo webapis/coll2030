@@ -1,6 +1,6 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category,node } } } = context
 
     const url = await page.url()
 
@@ -24,7 +24,8 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'dogo',
                 subcategory,
-                category
+                category,
+                node
             }
         })
 

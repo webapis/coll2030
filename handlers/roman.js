@@ -1,13 +1,13 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category,node } } } = context
     debugger;
     const url = await page.url()
 
     await page.waitForSelector('.category-product-list')
 
 
-    const data = await page.$$eval('.category-product-list .item.triple-view.instock', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.category-product-list .item.triple-view.instock', (productCards, _subcategory, _category,_node) => {
         return productCards.map(productCard => {
 
             const title = productCard.querySelector('.product-list-name') && productCard.querySelector('.product-list-name').textContent
@@ -24,12 +24,13 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'roman',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
 
 
             }
         })
-    }, subcategory, category)
+    }, subcategory, category,node)
 
     console.log('data length_____', data.length, 'url:', url)
 

@@ -1,13 +1,13 @@
 const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start } } } = context
+    const { request: { userData: { subcategory, category, start,node } } } = context
 
     const url = await page.url()
 
     await page.waitForSelector('.list__content')
     await autoScroll(page)
     debugger;
-    const data = await page.$$eval('.js-product-wrapper.product-item', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.js-product-wrapper.product-item', (productCards, _subcategory, _category,_node) => {
         return productCards.map(productCard => {
 
             const img = productCard.querySelector('.product-item__image.js-product-item-image a img').src
@@ -23,10 +23,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'beyyoglu',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         }).filter(f => f.priceNew !== null)
-    }, subcategory, category)
+    }, subcategory, category,node)
 
 
     if (start) {

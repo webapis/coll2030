@@ -1,14 +1,14 @@
 const Apify = require('apify');
 
 async function handler(page, context) {
-    const { request: { userData: { start, subcategory, category } } } = context
+    const { request: { userData: { start, subcategory, category,node } } } = context
     const url = await page.url()
     debugger;
     await page.waitForSelector('.ems-prd-list-page');
     debugger;
     await page.waitForSelector('.ems-prd');
     debugger;
-    const data = await page.$$eval('.ems-prd', (items, _subcategory, _category) => {
+    const data = await page.$$eval('.ems-prd', (items, _subcategory, _category,_node) => {
 
         return items.map(item => {
             const priceNew = item.querySelector('.ems-prd-price-last') && item.querySelector('.ems-prd-price-last').innerText.replace('₺', '').trim()
@@ -26,10 +26,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'machka',
                 category: _category,
-                subcategory: _subcategory
+                subcategory: _subcategory,
+                node: _node
             }
         })
-    }, subcategory, category);
+    }, subcategory, category,node);
 
 
     debugger;

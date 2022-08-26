@@ -1,6 +1,6 @@
 const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, opts } } } = context
+    const { request: { userData: { subcategory, category, opts,node } } } = context
 
     const url = await page.url()
 
@@ -34,7 +34,7 @@ async function handler(page, context) {
                 else {
                     clearInterval(inv)
                     debugger
-                    const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts) => {
+                    const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts,_node) => {
                         return productCards.map(productCard => {
                             const priceNew = productCard.querySelector(".product-sale-price") ? productCard.querySelector(".product-sale-price").textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim() : productCard.outerHTML
                             const longlink = productCard.querySelector('.product-name a') ? productCard.querySelector('.product-name a').href : productCard.outerHTML
@@ -50,10 +50,11 @@ async function handler(page, context) {
                                 timestamp: Date.now(),
                                 marka: 'desa',
                                 subcategory: _subcategory,
-                                category: _category
+                                category: _category,
+                                node: _node
                             }
                         }).filter(f => f.imageUrl !== null)
-                    }, subcategory, category, opts)
+                    }, subcategory, category, opts,node)
 
 
                     console.log('data length_____', data.length, 'url:', url)

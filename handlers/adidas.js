@@ -1,13 +1,13 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category,node } } } = context
 
     const url = await page.url()
 
     await page.waitForSelector('.plp-grid___hCUwO')
     await autoScroll(page)
     debugger;
-    const data = await page.$$eval('.grid-item', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.grid-item', (productCards, _subcategory, _category,_node) => {
         return productCards.map(productCard => {
 
             const longImage = productCard.querySelector('.glass-product-card__assets-link img') && productCard.querySelector('.glass-product-card__assets-link img').srcset.split('w,')[5].replace('\n', '').replace('766w', '').trim()
@@ -23,10 +23,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'adidas',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         }).filter(f => f.priceNew !== null)
-    }, subcategory, category)
+    }, subcategory, category,node)
 
     console.log('data length_____', data.length, 'url:', url)
 

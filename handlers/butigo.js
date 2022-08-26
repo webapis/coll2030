@@ -1,13 +1,13 @@
 
 async function handler(page,context) {
-    const { request: { userData: {  subcategory, category } } } = context
+    const { request: { userData: {  subcategory, category,node } } } = context
 
     const url = await page.url()
 
     await page.waitForSelector('.row.product-lists')
 
 
-    const data = await page.$$eval('[data-gtm-product]', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('[data-gtm-product]', (productCards, _subcategory, _category,_node) => {
         return productCards.map(productCard => {
 
             const obj = JSON.parse(productCard.getAttribute('data-gtm-product'))
@@ -28,12 +28,13 @@ async function handler(page,context) {
  
                 marka: 'butigo',
                 subcategory:_subcategory,
-                category:_category
+                category:_category,
+                node: _node
 
 
             }
         })//.filter(f => f.imageUrl !== null)
-    }, subcategory, category)
+    }, subcategory, category,node)
 
     console.log('data length_____', data.length, 'url:', url)
 

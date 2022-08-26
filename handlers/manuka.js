@@ -1,6 +1,6 @@
 const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, opts } } } = context
+    const { request: { userData: { subcategory, category, opts,node } } } = context
 
 
     const url = await page.url()
@@ -40,7 +40,8 @@ async function handler(page, context) {
             timestamp: Date.now(),
             marka: 'manuka',
             subcategory,
-            category
+            category,
+            node
         }
     })
 

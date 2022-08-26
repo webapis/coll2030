@@ -1,9 +1,9 @@
 async function handler(page,context) {
-    const { request: { userData: {  subcategory, category } } } = context
+    const { request: { userData: {  subcategory, category,node } } } = context
     const url = await page.url()
     await page.waitForSelector('.product-grid .product-card')
     debugger
-    const data = await page.evaluate((_subcategory, _category) => {
+    const data = await page.evaluate((_subcategory, _category,_node) => {
         const items = window.catalogModel.CatalogList.Items
         return items.map(item => {
             const { DefaultOptionImageUrl: imageUrl,
@@ -22,11 +22,12 @@ async function handler(page,context) {
                 timestamp: Date.now(),
                 marka: 'lcwaikiki',
                 category:_category,
-                subcategory:_subcategory
+                subcategory:_subcategory,
+                node: _node
 
             }
         }).filter(f => f.imageUrl !== null)
-    },subcategory, category)
+    },subcategory, category,node)
     debugger;
 
     console.log('data length_____', data.length, 'url:', url)

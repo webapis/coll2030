@@ -1,13 +1,13 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, opts } } } = context
+    const { request: { userData: { subcategory, category, opts,node } } } = context
 debugger;
     const url = await page.url()
 
     await page.waitForSelector('.category__products')
 
 
-    const data = await page.$$eval('.category__products .product__each', (productCards, _subcategory, _category, _opts) => {
+    const data = await page.$$eval('.category__products .product__each', (productCards, _subcategory, _category, _opts,_node) => {
         return productCards.map(productCard => {
             const brand = productCard.querySelector('.product__each--brand__name').textContent.replace('\n', '').trim()
             const prodName = productCard.querySelector('.product__each--name-text').textContent.replace('\n', '').trim()
@@ -29,12 +29,13 @@ debugger;
 
                 marka: 'vakko',
                 subcategory: _opts ? _opts.find((f) => title.includes(f)).replace('ELBİSE','ELBISE').toLowerCase() : _subcategory,
-                category: _category
+                category: _category,
+                node: _node
 
 
             }
         })
-    }, subcategory, category, opts)
+    }, subcategory, category, opts,node)
 
 
     console.log('data length_____', data.length, 'url:', url)

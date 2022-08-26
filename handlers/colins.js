@@ -1,6 +1,6 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category } } } = context
+    const { request: { userData: { subcategory, category,node } } } = context
     debugger;
     const url = await page.url()
 
@@ -10,7 +10,7 @@ async function handler(page, context) {
     debugger;
 
 
-    const data = await page.$$eval('.productbox.clearfix.list-item', (productCards, _subcategory, _category, _opts) => {
+    const data = await page.$$eval('.productbox.clearfix.list-item', (productCards, _subcategory, _category, _opts,_node) => {
         return productCards.map(productCard => {
             const title = productCard.querySelector('.lazy-image.product-name.track-link').getAttribute('title')
             const img= productCard.querySelector('.lazy-image.product-name.track-link img').src
@@ -25,10 +25,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'colins',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         })
-    }, subcategory, category)
+    }, subcategory, category,node)
     console.log('data length_____', data.length, 'url:', url)
     return data
 

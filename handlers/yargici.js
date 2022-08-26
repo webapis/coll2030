@@ -2,7 +2,7 @@
 
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start, opts } } } = context
+    const { request: { userData: { subcategory, category, start, opts,node } } } = context
     debugger;
 
 
@@ -14,7 +14,7 @@ async function handler(page, context) {
     await autoScroll(page);
 
     debugger
-    const data = await page.$$eval('.product-box-container', (productCards, _subcategory, _category, _opts) => {
+    const data = await page.$$eval('.product-box-container', (productCards, _subcategory, _category, _opts,_node) => {
         return productCards.map(productCard => {
             const priceNew = productCard.querySelector('.d-block.product-box-prices.product-box-price.pl-1.pr-2.text-black').textContent.replace(/\n/g, '').replace('TL', '').trim()
             const longlink = productCard.querySelector('.product-box-image-container').href
@@ -30,10 +30,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'yargici',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         })
-    }, subcategory, category, opts)
+    }, subcategory, category, opts,node)
 
 
 

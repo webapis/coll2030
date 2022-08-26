@@ -1,7 +1,7 @@
 const Apify = require('apify');
 async function handler(page, context) {
 
-    const { request: { userData: { start,  subcategory, category } } } = context
+    const { request: { userData: { start,  subcategory, category,node } } } = context
     const url = await page.url()
 
     debugger;//
@@ -32,12 +32,13 @@ async function handler(page, context) {
       
                 marka: 'ipekyol',
                 subcategory:_subcategory,
-                category:_category
+                category:_category,
+                node: _node
 
 
             }
         }).filter(f => f.imageUrl !== null)
-    },subcategory, category )
+    },subcategory, category,node )
 
     console.log('data length_____', data.length)
     const nextPageExists = await page.$('.btnDefault.load-next')

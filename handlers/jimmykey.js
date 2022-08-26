@@ -1,6 +1,6 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start } } } = context
+    const { request: { userData: { subcategory, category, start,node } } } = context
     debugger;
     const url = await page.url()
 
@@ -10,7 +10,7 @@ async function handler(page, context) {
     await autoScroll(page);
     await page.waitFor(5000)
     debugger;
-    const data = await page.$$eval('.row.ProductList', (productCards, _subcategory, _category) => {
+    const data = await page.$$eval('.row.ProductList', (productCards, _subcategory, _category,_node) => {
 
         return productCards.map(productCard => {
 
@@ -29,10 +29,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'jimmykey',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         })//.filter(f => f.imageUrl !== null)
-    }, subcategory, category)
+    }, subcategory, category,node)
 
     //----------
 

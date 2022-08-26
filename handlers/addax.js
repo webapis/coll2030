@@ -2,7 +2,7 @@
 
 const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start, opts } } } = context
+    const { request: { userData: { subcategory, category, start, opts,node } } } = context
     debugger;
 
 
@@ -15,7 +15,7 @@ async function handler(page, context) {
     const dataset = await Apify.openDataset();
     const { items } = await dataset.getData()
     debugger
-    const data = await page.$$eval('.Prd', (productCards, _subcategory, _category, _opts) => {
+    const data = await page.$$eval('.Prd', (productCards, _subcategory, _category, _opts,_node) => {
         return productCards.map(productCard => {
             const priceNew = productCard.querySelector('.PPrice').innerHTML.replace('TL', '').trim()//.replace(',','.')
             const longlink = productCard.querySelector('a[data-product').href
@@ -31,10 +31,11 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'addax',
                 subcategory: _subcategory,
-                category: _category
+                category: _category,
+                node: _node
             }
         })
-    }, subcategory, category, opts)
+    }, subcategory, category, opts,node)
 
 
 
