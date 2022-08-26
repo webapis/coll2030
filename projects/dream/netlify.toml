@@ -9,6 +9,6 @@
 [functions."pantolon"]
   included_files = ["api/_files/data/pantolon/*.json","api/_files/nav/pantolon/keywords.json"]
 [functions."pantolon-navfirst"]
-  included_files = ["api/_files/nav/pantolon/0-keywords.json"]
+  included_files = ["api/_files/key/pantolon/0-keywords.json"]
 [functions."pantolon-navsecond"]
-  included_files = ["api/_files/nav/pantolon/1-keywords.json"]
+  included_files = ["api/_files/key/pantolon/1-keywords.json"]
