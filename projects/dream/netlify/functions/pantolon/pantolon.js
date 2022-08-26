@@ -1,8 +1,8 @@
-require('dotenv').config()
 
 const { dataHandler } = require('../../../utils/dataHandler')
-exports.handler =  async function(event, context) {
+exports.handler =  function (event, context) {
 
-  //  dataHandler({ req, res, project: 'dream', subcategory: 'pantolon' })
+
+return { ...dataHandler({ event, project: 'dream', subcategory: 'pantolon' })}
 
 }

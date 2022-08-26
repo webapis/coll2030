@@ -4,116 +4,147 @@ var TAFFY = require('taffy');
 const { productTitleMatch } = require('./productTitleMatch')
 const { orderData } = require('./orderData')
 const fs = require('fs')
-const path =require('path');
-function dataHandler({ req, res, project, subcategory }) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  const { start, search, selectedNavIndex } = req.query
+const path = require('path');
+function dataHandler({ event, project, subcategory }) {
+  if (event.httpMethod === 'OPTIONS') {
 
-  const allkeywords = require(`../_files/${subcategory}/nav/keywords.json`)
-  const data = []
+    const headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+    };
 
-  const files = fs.readdirSync(`../_files/${subcategory}/data`)
-  const folder = `../api/_files/${subcategory}/data`
-  for (let file of files) {
+    // To enable CORS
+    return {
+      statusCode: 200, // <-- Important!
+      headers,
+      body: 'This was not a POST request!'
+    };
 
-    const dataRaw = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
+  }
+  else if (event.httpMethod === 'GET') {
+debugger
+    const { start, search, selectedNavIndex } = event.queryStringParameters
+debugger
+    const allkeywords = require(`../api/_files/${subcategory}/nav/keywords.json`)
+    const data = []
+debugger
+const dirPath = path.join(process.cwd(),`api/_files/${subcategory}/data`)
+debugger
+    const files = fs.readdirSync(dirPath)
     debugger
-    const dataObjectArr = JSON.parse(dataRaw)
+    for (let file of files) {
 
-    data.push(...dataObjectArr)
-  }
-  debugger
-  const startAt = parseInt(start)
-  var products = TAFFY(data);
+      const dataRaw = fs.readFileSync(`${dirPath}/${file}`, { encoding: 'utf8' })
+      debugger
+      const dataObjectArr = JSON.parse(dataRaw)
 
-  const filterByKeyword = selectedNavIndex === '' ? function () { return true } : function filterByKeyword() {
+      data.push(...dataObjectArr)
+    }
+    debugger
+    const startAt = parseInt(start)
+    var products = TAFFY(data);
 
-    let splittedKeywordsIndex = selectedNavIndex.split('-').filter(f => f !== '')
-    let foundkeywords = allkeywords[subcategory].filter(function (f) {
-      const includes = splittedKeywordsIndex.includes(f.index)
-      return includes
-    })
+    const filterByKeyword = selectedNavIndex === '' ? function () { return true } : function filterByKeyword() {
+
+      let splittedKeywordsIndex = selectedNavIndex.split('-').filter(f => f !== '')
+      let foundkeywords = allkeywords[subcategory].filter(function (f) {
+        const includes = splittedKeywordsIndex.includes(f.index)
+        return includes
+      })
 
 
-    const title = this.title
-    const priceNew = this.priceNew
+      const title = this.title
+      const priceNew = this.priceNew
 
-    const match = foundkeywords.filter(kws => {
-      let group = kws.group
-      let negwords = kws.negwords
-      let exactmatch = kws.exactmatch
-      if (group === 'FIYAT ARALIĞI') {
-        const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
-        const startPrice = parseFloat(priceRange[0])
-        const endPrice = parseFloat(priceRange[1])
-        try {
-          const price = priceNew.toString().replace('.', '').replace(',', '.')
-          const productPrice = parseFloat(price)
+      const match = foundkeywords.filter(kws => {
+        let group = kws.group
+        let negwords = kws.negwords
+        let exactmatch = kws.exactmatch
+        if (group === 'FIYAT ARALIĞI') {
+          const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
+          const startPrice = parseFloat(priceRange[0])
+          const endPrice = parseFloat(priceRange[1])
+          try {
+            const price = priceNew.toString().replace('.', '').replace(',', '.')
+            const productPrice = parseFloat(price)
 
-          if (endPrice) {
+            if (endPrice) {
 
-            if (productPrice >= startPrice && productPrice <= endPrice) {
-              return true
-            } else {
-              return false;
+              if (productPrice >= startPrice && productPrice <= endPrice) {
+                return true
+              } else {
+                return false;
+              }
+
             }
+            else {
+              debugger
+              if (productPrice >= startPrice) {
+                return true
+              } else {
 
-          }
-          else {
+                return false
+              }
+
+            }
+          } catch (error) {
             debugger
-            if (productPrice >= startPrice) {
-              return true
-            } else {
+          }
 
-              return false
-            }
+        } else {
+
+          let nws = []
+
+          if (negwords) {
+            nws = negwords.split(',')
 
           }
-        } catch (error) {
-          debugger
+          const kw = kws.keyword
+          const match = productTitleMatch({ kw, title, exactmatch, nws })
+          return match
         }
+      })
 
-      } else {
+      return match.length === foundkeywords.length
+    }
 
-        let nws = []
+    const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
 
-        if (negwords) {
-          nws = negwords.split(',')
 
-        }
-        const kw = kws.keyword
-        const match = productTitleMatch({ kw, title, exactmatch, nws })
-        return match
-      }
-    })
+    var filteredData = products().filter(filterBySearch).filter(filterByKeyword).get()
 
-    return match.length === foundkeywords.length
+    debugger
+    var orderedData = orderData(filteredData)
+    var orderedDb = TAFFY(orderedData)
+
+    var d = orderedDb().start(startAt).limit(100).get()
+    let count = orderedDb().count()
+
+
+
+    console.log('data.length', d.length)
+
+
+    console.log('search', filterBySearch)
+
+    console.log('startAt', startAt)
+    console.log('count1', count)
+    debugger
+
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ data: d, count })
+    }
+
+  } else {
+
+    return {
+      statusCode: 500,
+      body: 'unrecognized HTTP Method, must be one of GET/POST/PUT/DELETE/OPTIONS'
+    };
   }
-
-  const filterBySearch = search === '' ? {} : { title: { regex: new RegExp(search, 'i') } }
-
-
-  var filteredData = products().filter(filterBySearch).filter(filterByKeyword).get()
-
-  debugger
-  var orderedData = orderData(filteredData)
-  var orderedDb = TAFFY(orderedData)
-
-  var d = orderedDb().start(startAt).limit(100).get()
-  let count = orderedDb().count()
-
-
-
-  console.log('data.length', d.length)
-
-
-  console.log('search', filterBySearch)
-
-  console.log('startAt', startAt)
-  console.log('count1', count)
-  debugger
-
-  res.status(200).json({ data: d, count })
 
 }
 

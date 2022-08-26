@@ -53,6 +53,7 @@
     "generateNavigation": "node utils/genegateNavigation.js",
     "dev": "netlify dev",
     "vercel:dev": "vercel dev",
+    "netlify:dev": "cd projects/dream && netlify dev",
     "spine": "node spine.js",
     "encryptData": "node encryptData.js",
     "decryptData": "node decryptData.js",
