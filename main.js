@@ -199,12 +199,12 @@ Apify.main(async () => {
                 const data = groupByProject[project]
                 for (let d of data) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '')
-                    await makeDir(`data/${marka}/projects/${project}/${subcategory}/${marka}`)
+                    await makeDir(`projects/${project}/data/${marka}/${subcategory}/${marka}`)
 
                     // if (fs.existsSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)) {
                     //     fs.unlinkSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)
                     // }
-                    fs.appendFileSync(`data/${marka}/projects/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                    fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
                 }
                 debugger
 

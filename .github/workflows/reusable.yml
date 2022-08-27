@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: data
-          path: data/${{ inputs.marka }}
+          path: projects/dream/data/${{ inputs.marka }}
       - name: Display structure of uploaded files
         run: ls -R
         working-directory: projects
