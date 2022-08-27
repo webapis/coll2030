@@ -24,11 +24,12 @@ console.log('--------------------------------------------------------------')
         const subcategory = s[1]
         const project = s[2]
         const data = obj[o]
+        console.log('s',s)
         console.log('data',data.length)
         console.log('marka',marka)
         console.log('subcategory',subcategory)
         console.log('project',project)
-         fs.writeFileSync( process.cwd(),`api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
+       //  fs.writeFileSync( process.cwd(),`api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
         debugger
 
     }
