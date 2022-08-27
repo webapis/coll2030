@@ -1,5 +1,5 @@
 
-const { dataHandler } = require('../../utils/dataHandler')
+const { dataHandler } = require('../../dataHandler')
 exports.handler = async function (event, context) {
 
 

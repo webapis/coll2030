@@ -1,5 +1,5 @@
 
-const { navHandler } = require('../../utils/navHandler')
+const { navHandler } = require('../../navHandler')
 exports.handler = async function (event, context) {
 
 
