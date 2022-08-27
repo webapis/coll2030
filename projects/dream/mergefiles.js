@@ -8,20 +8,22 @@ console.log('--------------------------------------------------------------')
 let obj = {}
 walkSync(path.join(process.cwd(), 'data'), async (filepath) => {
 
-try {
-    const dirName = path.dirname(filepath)
+    try {
+        const dirName = path.dirname(filepath)
+        console.log('filepath', filepath)
+                           
+        const data = JSON.parse(fs.readFileSync(filepath))
 
-    const data = JSON.parse(fs.readFileSync(filepath))
+        if (obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] === undefined) {
+            obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [data]
+        }
+        obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data]
+    } catch (error) {
 
-    if (obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] === undefined) {
-        obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [data]
+        console.log('filepath', filepath)
+debugger
     }
-    obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data] 
-} catch (error) {
 
-
-}
-  
 
 })
 
