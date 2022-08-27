@@ -28,7 +28,7 @@ console.log('--------------------------------------------------------------')
         console.log('marka',marka)
         console.log('subcategory',subcategory)
         console.log('project',project)
-     fs.writeFileSync( process.cwd()`api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
+         fs.writeFileSync( process.cwd(),`api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
         debugger
 
     }
