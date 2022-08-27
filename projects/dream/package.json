@@ -9,9 +9,6 @@
   "scripts": {
     "mergefiles": "node utils/mergefiles.js  && node utils/genegateNavigation.js"
  
-  },
-  "include": [
-    "utils"
-  ]
+  }
   
 }
