@@ -7,7 +7,7 @@
     "taffy": "2.6.2"
   },
   "scripts": {
-    "mergefiles": "node utils/mergefiles.js  && node utils/genegateNavigation.js"
+    "mergefiles": "echo \"Starting BrowserSync\" && exit 1"
  
   }
   
