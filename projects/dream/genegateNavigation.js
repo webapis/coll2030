@@ -60,7 +60,7 @@ async function genNav({ node, subcategory }) {
   let objCounter = 0
   dataCollection.forEach(async (object) => {
 
-    console.log('objCounter', ++objCounter)
+   // console.log('objCounter', ++objCounter)
     const { subcategory, title, imageUrl, marka, priceNew, node } = object
 
 
