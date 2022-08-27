@@ -7,9 +7,11 @@ console.log('--------------------------------------------------------------')
     let obj = {}
     walkSync(path.join(process.cwd(), 'data'), (filepath) => {
 
-        console.log('filepath',filepath)
+      
         const dirName = path.dirname(filepath)
         const data = JSON.parse(fs.readFileSync(filepath))
+        console.log('data',data)
+        console.log('obj',obj)
         if (obj[dirName.replace(/[\\]/g, "-")] === undefined) {
             obj[dirName.replace(/[\\]/g, "-")] = [data]
         }
