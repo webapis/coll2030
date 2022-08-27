@@ -277,8 +277,12 @@ async function genNav({ node, subcategory }) {
   // }
   const savePathDir = path.dirname(process.cwd(), `api/_files/data/${subcategory}`)
   await makeDir(savePathDir)
-  fs.appendFileSync(path.join(savePathDir, '0-keywords.json'), JSON.stringify(firstPart));
-  fs.appendFileSync(path.join(savePathDir, '1-keywords.json'), JSON.stringify(secondPart));
+  const path0 =path.join(savePathDir, '0-keywords.json')
+  const path1 =path.join(savePathDir, '0-keywords.json')
+  console.log('path0',path0)
+  console.log('path1',path1)
+  fs.appendFileSync(path0, JSON.stringify(firstPart));
+  fs.appendFileSync(path1, JSON.stringify(secondPart));
 
 
 
