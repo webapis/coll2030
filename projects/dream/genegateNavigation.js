@@ -6,7 +6,7 @@
 
 
   await genNav({ node: 'dream', subcategory: 'elbise' })
-   await genNav({ node: 'dream', subcategory: 'pantolon' })
+  await genNav({ node: 'dream', subcategory: 'pantolon' })
   process.exit(0)
 
 })()
@@ -14,31 +14,31 @@
 //
 
 async function genNav({ node, subcategory }) {
-  console.log('node',node)
-  console.log('subcategory',subcategory)
-  const path =require('path')
+  console.log('node', node)
+  console.log('subcategory', subcategory)
+  const path = require('path')
   const makeDir = require('make-dir');
-  await makeDir(`../api/_files/key/${subcategory}`)
+  //await makeDir(`../api/_files/key/${subcategory}`)
   const fs = require('fs')
-  const folder =path.join(process.cwd(),`api/_files/data/${subcategory}`)
-  console.log('folder',folder)
-  const folder1 =  path.join(process.cwd(),`api/_files/data/${subcategory}`)
-   const folderexists = fs.existsSync(folder1)
-   const filess = fs.readdirSync(folder1)
-   filess.forEach(file=>{
-    console.log('file',file)
-   })
-   console.log('folderexists',folderexists)
+  const folder = path.join(process.cwd(), `api/_files/data/${subcategory}`)
+  console.log('folder', folder)
+  const folder1 = path.join(process.cwd(), `api/_files/data/${subcategory}`)
+  const folderexists = fs.existsSync(folder1)
+  const filess = fs.readdirSync(folder1)
+  filess.forEach(file => {
+    console.log('file', file)
+  })
+  console.log('folderexists', folderexists)
   const files = fs.readdirSync(folder)
 
- 
-  console.log('files.length',files.length)
+
+  console.log('files.length', files.length)
   debugger
   const dataCollection = []
   for (let file of files) {
 
     const data = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
-debugger
+    debugger
     const dataObjectArr = JSON.parse(data)
     dataCollection.push(...dataObjectArr)
   }
@@ -46,7 +46,7 @@ debugger
   const { productTitleMatch } = require('./productTitleMatch')
 
 
-  const categoryNav = { count: dataCollection.length, node,subcategory } 
+  const categoryNav = { count: dataCollection.length, node, subcategory }
   // const categoryNavArray = fs.readFileSync(`${process.cwd()}/src/category-nav.json`, { encoding: 'utf-8' })
   // const categoryAsArrayObject = JSON.parse(categoryNavArray).filter(f => f.subcategory !== subcategory)
   // categoryAsArrayObject.push(categoryNav)
@@ -54,7 +54,7 @@ debugger
 
   // fs.writeFileSync(`${process.cwd()}/src/category-nav.json`, JSON.stringify(categoryAsArrayObject))
   debugger
-  const allkeywords = require(path.join(process.cwd(),`api/_files/nav/${subcategory}/keywords.json`))
+  const allkeywords = require(path.join(process.cwd(), `api/_files/nav/${subcategory}/keywords.json`))
   let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
 
   let objCounter = 0
@@ -275,8 +275,10 @@ debugger
   // if (fs.existsSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)) {
   //   fs.unlinkSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)
   // }
-  fs.appendFileSync( path.join(process.cwd(),`api/_files/key/${subcategory}/0-keywords.json`), JSON.stringify(firstPart));
-  fs.appendFileSync(path.join(process.cwd(),`api/_files/key/${subcategory}/1-keywords.json`), JSON.stringify(secondPart));
+  const savePathDir = path.dirname(process.cwd(), `api/_files/data/${subcategory}`)
+  await makeDir(savePathDir)
+  fs.appendFileSync(path.join(savePathDir, '0-keywords.json'), JSON.stringify(firstPart));
+  fs.appendFileSync(path.join(savePathDir, '1-keywords.json'), JSON.stringify(secondPart));
 
 
 
