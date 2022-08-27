@@ -12,7 +12,7 @@ try {
     const dirName = path.dirname(filepath)
 
     const data = JSON.parse(fs.readFileSync(filepath))
-console.log(data)
+
     if (obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] === undefined) {
         obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [data]
     }
