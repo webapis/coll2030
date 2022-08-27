@@ -276,7 +276,7 @@ async function genNav({ node, subcategory }) {
   //   fs.unlinkSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)
   // }
 
-  const savePathDir = path.join(process.cwd(), `api/_files/data/${subcategory}`)
+  const savePathDir = path.join(process.cwd(), `api/_files/key/${subcategory}`)
   await makeDir(path.dirname(savePathDir))
   const path0 = path.join(savePathDir, '0-keywords.json')
   const path1 = path.join(savePathDir, '1-keywords.json')

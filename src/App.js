@@ -147,7 +147,7 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    let host = 'http://localhost:8888/.netlify/functions'// 'http://localhost:3001/'  //
+    let host = 'https://dream2022.netlify.app/.netlify/functions'// 'http://localhost:3001/'  //
     const { selectedSubcategory: { subcategory}, selectedNavIndex } = this.state
 
     var url = `${host}/${subcategory}/?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
@@ -183,30 +183,30 @@ debugger
 
   fetchNavKeywords(selectedNavIndex,subcategory) {
 
-    let host = 'http://localhost:8888/.netlify/functions'// 'http://localhost:3001/'  //
+    let host = 'https://dream2022.netlify.app/.netlify/functions'// 'http://localhost:3001/'  //
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
-    debugger
+
     if (selectedNavIndex === '') {
       url = `${host}/${subcategory}-navfirst?navindex=0-`
     } else {
 
       if (fn === 1) {
-        debugger
+  
         url = `${host}/${subcategory}-navsecond?navindex=${selectedNavIndex}`
       } else {
-        debugger
+    
         url = `${host}/${subcategory}-navfirst?navindex=${selectedNavIndex}`
       }
 
     }
-    debugger
+
     fetch(url).then(async (response) => response.json()).then((data) => {
       const { keywords } = data
-      debugger
+   
       this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords: keywords }))
     }).catch(err => {
-      debugger
+     
     })
 
   }
