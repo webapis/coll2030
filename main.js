@@ -197,13 +197,17 @@ Apify.main(async () => {
             for (let project in groupByProject) {
                 debugger
                 const data = groupByProject[project]
-                debugger
-                await makeDir(`projects/${project}/api/_files/data/${subcategory}`)
+                for (let d of data) {
+                    const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '')
+                    await makeDir(`data/projects/${project}/${subcategory}/${marka}`)
 
-                if (fs.existsSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)) {
-                    fs.unlinkSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)
+                    // if (fs.existsSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)) {
+                    //     fs.unlinkSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)
+                    // }
+                    fs.appendFileSync(`data/projects/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
                 }
-                fs.appendFileSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`, JSON.stringify(data));
+                debugger
+
 
             }
 
