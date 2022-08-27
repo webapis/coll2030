@@ -6,8 +6,8 @@ const fs = require('fs')
 const { getSheetValues, appendSheetValues } = require('./google.sheet.js')
 const makeDir = require('make-dir');
 const Apify = require('apify');
-const { formatMoney } = require('accounting-js')
 
+var _ = require('lodash');
 Apify.main(async () => {
     await Apify.openDataset();
 
@@ -184,11 +184,8 @@ Apify.main(async () => {
     // await makeDir('data');
 
     if (productItems.length > 0) {
-
         const productItemsWithoutDublicate = uniqify(productItems, 'imageUrl')
-
         const groupBySubcategory = groupBy(productItemsWithoutDublicate, 'subcategory')
-
         for (let subcategory in groupBySubcategory) {
             debugger
             const products = groupBySubcategory[subcategory]
@@ -200,29 +197,25 @@ Apify.main(async () => {
                 for (let d of data) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '')
                     await makeDir(`projects/${project}/data/${marka}/${subcategory}/${marka}`)
-
-                    // if (fs.existsSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)) {
-                    //     fs.unlinkSync(`projects/${project}/api/_files/data/${subcategory}/${marka}.json`)
-                    // }
-                    fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                    const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
+                    if (exists) {
+                        const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
+                        if (_.isEqual(obj, d) === false) {
+                            fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
+                            fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                        }
+                    } else {
+                        fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
+                    }
                 }
                 debugger
-
-
             }
-
         }
-
     }
-
     else {
-
         console.log('UNSUCCESSFUL DATA COLLECTION.......')
-
     }
-
     console.log('Crawl finished.');
-
 });
 
 
