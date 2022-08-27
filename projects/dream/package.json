@@ -7,7 +7,7 @@
     "taffy": "2.6.2"
   },
   "scripts": {
-    "mergefiles": "node utils/mergefiles  && node utils/genegateNavigation.js"
+    "mergefiles": "node utils/mergefiles.js  && node utils/genegateNavigation.js"
  
   }
 }
