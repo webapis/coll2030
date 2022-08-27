@@ -32,7 +32,7 @@ console.log('--------------------------------------------------------------')
         console.log('subcategory',subcategory)
         console.log('project',project)
         const savePath =path.join(process.cwd(),`api/_files/data/${subcategory}/${marka}.json`)
-        await makeDir(path.dirname(savePath))
+        makeDir.sync(path.dirname(savePath))
         console.log('savePath',savePath)
         fs.writeFileSync(savePath, JSON.stringify(data))
         debugger
