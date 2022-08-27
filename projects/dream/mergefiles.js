@@ -21,7 +21,7 @@ console.log('--------------------------------------------------------------')
         const subcategory = s[1]
         const project = s[2]
         const data = obj[o]
-        fs.writeFileSync(path.join(process.cwd(), `api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data))
+        fs.writeFileSync(`./api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
         debugger
 
     }
