@@ -1,7 +1,9 @@
+
+console.log('--------------------------------------------------------------')
 const fs = require('fs')
 const path = require('path')
-const { walkSync } = require('../utils/walkSync')
-
+const { walkSync } = require('./walkSync')
+console.log('--------------------------------------------------------------')
     let obj = {}
     walkSync(path.join(process.cwd(), 'data'), (filepath) => {
 
