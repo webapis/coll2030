@@ -50,7 +50,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "collection": "node main.js",
-    "mergefiles": "node utils/mergefiles  && node utils/genegateNavigation.js",
+    "mergefiles": "node utils/mergefiles.js  && node utils/genegateNavigation.js",
     "generateNavigation": "node utils/genegateNavigation.js",
     "dev": "netlify dev",
     "vercel:dev": "vercel dev",
