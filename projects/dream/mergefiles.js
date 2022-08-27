@@ -16,7 +16,7 @@ console.log('--------------------------------------------------------------')
             obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [data]
         }
         obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data]
-        console.log('dirName',dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-"))
+
     })
 
     for (let o in obj) {
@@ -32,7 +32,7 @@ console.log('--------------------------------------------------------------')
         console.log('project',project)
         const savePath =path.join(process.cwd(),`api/_files/data/${subcategory}/${marka}.json`)
         console.log('savePath',savePath)
-        fs.writeFileSync(savePath), JSON.stringify(data)
+        fs.writeFileSync(savePath, JSON.stringify(data))
         debugger
 
     }
