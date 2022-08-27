@@ -9,13 +9,14 @@ console.log('--------------------------------------------------------------')
 
         console.log('filepath',filepath)
         const dirName = path.dirname(filepath)
-        // const data = JSON.parse(fs.readFileSync(filepath))
-        // if (obj[dirName.replace(/[\\]/g, "-")] === undefined) {
-        //     obj[dirName.replace(/[\\]/g, "-")] = [data]
-        // }
-        // obj[dirName.replace(/[\\]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-")], data]
+        const data = JSON.parse(fs.readFileSync(filepath))
+        if (obj[dirName.replace(/[\\]/g, "-")] === undefined) {
+            obj[dirName.replace(/[\\]/g, "-")] = [data]
+        }
+        obj[dirName.replace(/[\\]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-")], data]
 
     })
+    console.log('obj',obj.length)
     // for (let o in obj) {
     //     const s = o.split('-').reverse()
     //     const marka = s[0]
