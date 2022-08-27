@@ -10,8 +10,7 @@ console.log('--------------------------------------------------------------')
       
         const dirName = path.dirname(filepath)
         const data = JSON.parse(fs.readFileSync(filepath))
-        console.log('data',data)
-        console.log('obj',obj)
+
         if (obj[dirName.replace(/[\\]/g, "-")] === undefined) {
             obj[dirName.replace(/[\\]/g, "-")] = [data]
         }
@@ -19,16 +18,17 @@ console.log('--------------------------------------------------------------')
 
     })
     console.log('obj',obj.length)
-    // for (let o in obj) {
-    //     const s = o.split('-').reverse()
-    //     const marka = s[0]
-    //     const subcategory = s[1]
-    //     const project = s[2]
-    //     const data = obj[o]
-    //     fs.writeFileSync(`./api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
-    //     debugger
+    for (let o in obj) {
+        const s = o.split('-').reverse()
+        const marka = s[0]
+        const subcategory = s[1]
+        const project = s[2]
+        const data = obj[o]
+        console.log('data',data.length)
+       // fs.writeFileSync(`./api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
+        debugger
 
-    // }
+    }
 
 
 
