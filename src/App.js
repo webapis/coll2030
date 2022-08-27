@@ -147,7 +147,7 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    let host = 'https://dream2022.netlify.app/.netlify/functions'// 'http://localhost:3001/'  //
+    let host = 'http://localhost:8888/.netlify/functions'// 'http://localhost:3001/'  //
     const { selectedSubcategory: { subcategory}, selectedNavIndex } = this.state
 
     var url = `${host}/${subcategory}/?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
@@ -183,7 +183,7 @@ debugger
 
   fetchNavKeywords(selectedNavIndex,subcategory) {
 
-    let host = 'https://dream2022.netlify.app/.netlify/functions'// 'http://localhost:3001/'  //
+    let host = 'http://localhost:8888/.netlify/functions'// 'http://localhost:3001/'  //
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
     debugger
