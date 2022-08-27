@@ -5,5 +5,9 @@
   "dependencies": {
     "dotenv": "15.0.1",
     "taffy": "2.6.2"
+  },
+  "scripts": {
+    "mergefiles": "node utils/mergefiles  && node utils/genegateNavigation.js"
+ 
   }
 }
