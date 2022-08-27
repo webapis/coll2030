@@ -17,7 +17,7 @@ console.log('--------------------------------------------------------------')
         obj[dirName.replace(/[\\]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-")], data]
 
     })
-    console.log('obj',obj.length)
+
     for (let o in obj) {
         const s = o.split('-').reverse()
         const marka = s[0]
@@ -25,7 +25,10 @@ console.log('--------------------------------------------------------------')
         const project = s[2]
         const data = obj[o]
         console.log('data',data.length)
-       // fs.writeFileSync(`./api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
+        console.log('marka',marka)
+        console.log('subcategory',subcategory)
+        console.log('project',project)
+     fs.writeFileSync( process.cwd()`api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
         debugger
 
     }
