@@ -6,7 +6,7 @@ const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
 console.log('--------------------------------------------------------------')
     let obj = {}
-    walkSync(path.join(process.cwd(), 'data'), (filepath) => {
+    walkSync(path.join(process.cwd(), 'data'), async(filepath) => {
 
       
         const dirName = path.dirname(filepath)
