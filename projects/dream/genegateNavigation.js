@@ -60,7 +60,7 @@ async function genNav({ node, subcategory }) {
   let objCounter = 0
   dataCollection.forEach(async (object) => {
 
-   // console.log('objCounter', ++objCounter)
+    // console.log('objCounter', ++objCounter)
     const { subcategory, title, imageUrl, marka, priceNew, node } = object
 
 
@@ -275,12 +275,13 @@ async function genNav({ node, subcategory }) {
   // if (fs.existsSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)) {
   //   fs.unlinkSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)
   // }
-  const savePathDir = path.dirname(process.cwd(), `api/_files/data/${subcategory}`)
-  await makeDir(savePathDir)
-  const path0 =path.join(savePathDir, '0-keywords.json')
-  const path1 =path.join(savePathDir, '0-keywords.json')
-  console.log('path0',path0)
-  console.log('path1',path1)
+
+  const savePathDir = path.join(process.cwd(), `api/_files/data/${subcategory}`)
+  await makeDir(path.dirname(savePathDir))
+  const path0 = path.join(savePathDir, '0-keywords.json')
+  const path1 = path.join(savePathDir, '1-keywords.json')
+  console.log('path0', path0)
+  console.log('path1', path1)
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
 
