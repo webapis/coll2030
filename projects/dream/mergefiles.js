@@ -30,7 +30,9 @@ console.log('--------------------------------------------------------------')
         console.log('marka',marka)
         console.log('subcategory',subcategory)
         console.log('project',project)
-       //  fs.writeFileSync( process.cwd(),`api/_files/data/${subcategory}/${marka}.json`), JSON.stringify(data)
+        const savePath =path.join(process.cwd(),`api/_files/data/${subcategory}/${marka}.json`)
+        console.log('savePath',savePath)
+        fs.writeFileSync(savePath), JSON.stringify(data)
         debugger
 
     }
