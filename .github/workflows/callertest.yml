@@ -39,8 +39,6 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: 'npm install'
-      - name: Install vercel cli
-        run: 'npm i -g vercel'
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
