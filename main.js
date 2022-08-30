@@ -203,7 +203,7 @@ Apify.main(async () => {
                      //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
                       //  if (_.isEqual(obj, d) === false) {
                             debugger
-                          //  fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
+                            fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
                             fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
                             // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
                             // const origin =JSON.parse(data)
