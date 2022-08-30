@@ -200,12 +200,16 @@ Apify.main(async () => {
                     const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
                     if (exists) {
                         debugger
-                        const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
-                        if (_.isEqual(obj, d) === false) {
+                     //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
+                      //  if (_.isEqual(obj, d) === false) {
                             debugger
                            // fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
                             fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
-                        }
+                            const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
+                            const origin =JSON.parse(data)
+                            const updated ={...origin,...d}
+                            fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
+                     //   }
                     } else {
                         debugger
                         fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
