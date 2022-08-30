@@ -195,7 +195,7 @@ Apify.main(async () => {
                 debugger
                 const data = groupByProject[project]
                 for (let d of data) {
-                    const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '')
+                    const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/,'-')
                     await makeDir(`projects/${project}/data/${marka}/${subcategory}/${marka}`)
                     const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
                     if (exists) {
