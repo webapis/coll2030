@@ -19,8 +19,8 @@ walkSync(path.join(process.cwd(), 'data'), async (filepath) => {
         }
         obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data]
     } catch (error) {
-
         console.log('filepath', filepath)
+        console.log('error', error)
 debugger
     }
 
