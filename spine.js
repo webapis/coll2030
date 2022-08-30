@@ -33,7 +33,7 @@ const objNew = {
     priceNew: "169,00",
     imageUrl: "768/I3709AZ_22SM_BG106_01_01.jpg",
     link: "traditional-harem-yuksek-bel-cepli-viskon-pantolon-2396086",
-    timestamp: 1661841277689,
+    timestamp: 1661841277680,
     marka: "defacto",
     subcategory: "pantolon",
     category: "alt-giyim",
@@ -41,7 +41,7 @@ const objNew = {
 }
 
 
-const updatedString =objOld.replace(/"timestamp":".*?"/m,objNew.timestamp)
+const updatedString =objOld.replace(/"timestamp":.*?,/m,objNew.timestamp+",")
 
   fs.writeFileSync('./projects/dream/data/defacto/pantolon/defacto/768-I3709AZ_22SM_BG106_01_01.json',updatedString)
 debugger
