@@ -282,8 +282,8 @@ async function genNav({ node, subcategory }) {
 
   const path0 = path.join(process.cwd(), `api/_files/key/${subcategory}`, '0-keywords.json')
   const path1 = path.join(process.cwd(), `api/_files/key/${subcategory}`, '1-keywords.json')
-  console.log('path0', path0)
-  console.log('path1', path1)
+  //console.log('path0', path0)
+  //console.log('path1', path1)
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
 

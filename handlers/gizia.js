@@ -59,7 +59,7 @@ async function getUrls(page) {
     debugger
     await page.waitForSelector('.productPager')
 
-    const totalPages = await page.$eval('.productPager', element => parseInt(element.querySelectorAll('a[title]')[element.querySelectorAll('a[title]').length - 2].getAttribute('title').replace(/[^\d]/g, '')))
+    const totalPages = await page.evaluate(()=>Array.from(document.querySelectorAll('.productPager a[href*="?pg="]')).map(e=>parseInt( e.href.substring(e.href.lastIndexOf('pg=')+3))).sort(function (a, b) {  return a - b;  }).reverse()[0])
     debugger
     const pageUrls = []
 

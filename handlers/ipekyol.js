@@ -7,7 +7,7 @@ async function handler(page, context) {
     debugger;//
     await page.waitForSelector('.prd-list .prd')
     debugger;
-    const data = await page.evaluate((_subcategory,_category) => {
+    const data = await page.evaluate((_subcategory,_category,_node) => {
   
         const items = Array.from(document.querySelectorAll('.prd-list .prd'))
         return items.map(item => {

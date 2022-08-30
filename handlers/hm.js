@@ -28,7 +28,7 @@ async function handler(page, context) {
                 } else {
                     debugger;
                     clearInterval(inv)
-                    const data = await page.$$eval('.product-item', (productCards, _subcategory, _category, _opts,_node) => {
+                    const data = await page.$$eval('.product-item', (productCards, _subcategory, _category,_node) => {
                         return productCards.map(productCard => {
                             const priceNew = productCard.querySelector('.price.regular').innerHTML.replace('TL', '').trim()
                             const longlink = productCard.querySelector('.item-heading a').href
