@@ -1,9 +1,9 @@
 require('dotenv').config()
 
-const { navHandler } = require('../../../utils/navHandler')
+const { vercelNavHandler } = require('../../../vercelNavHandler')
 module.exports = (req, res) => {
 
 
-  navHandler({ req, res, subcategory: 'elbise', project: 'dream', keyOrder: '1' })
+  vercelNavHandler({ req, res, subcategory: 'elbise', keyOrder: '1' })
 }
 

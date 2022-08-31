@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const {commonNavHandler}=require('./commonNavHandler')
-function netlifyNavHandler({ event, project, subcategory, keyOrder }) {
+function netlifyNavHandler({ event, subcategory, keyOrder }) {
 
 
     if (event.httpMethod === 'OPTIONS') {

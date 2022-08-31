@@ -1,8 +1,8 @@
 require('dotenv').config()
 
-const { dataHandler } = require('../../../utils/dataHandler')
+const { vercelDataHandler } = require('../../../vercelDataHandler')
 module.exports = (req, res) => {
 
-  dataHandler({ req, res, project: 'dream', subcategory: 'elbise' })
+  vercelDataHandler({ req, res, project: 'dream', subcategory: 'elbise' })
 
 }
