@@ -164,16 +164,17 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
+    const { selectedSubcategory: { subcategory }, selectedNavIndex } = this.state
     let host = ''
     let href = window.location.href
     debugger
     if (href === 'http://localhost:3000/') {
-      host = 'https://coll2030.vercel.app/api/fns'//'http://localhost:8888/.netlify/functions'
+      host = `https://coll2030.vercel.app/api/fns`//'http://localhost:8888/.netlify/functions'
     } else {
       host = 'https://dream2022.netlify.app/.netlify/functions'
     }
 
-    const { selectedSubcategory: { subcategory }, selectedNavIndex } = this.state
+   
 
     var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex
     debugger
