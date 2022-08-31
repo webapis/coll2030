@@ -21,12 +21,12 @@ async function handler(page, context) {
                 const nextPageExists = await page.evaluate(() => document.querySelector('.button.js-load-more').style['display'] === '')
 
                 if (nextPageExists) {
-                    debugger;
+               
                     await page.click('.button.js-load-more')
                     await manualScroll(page)
-                    debugger;
+                 
                 } else {
-                    debugger;
+                  
                     clearInterval(inv)
                     const data = await page.$$eval('.product-item', (productCards, _subcategory, _category,_node) => {
                         return productCards.map(productCard => {
