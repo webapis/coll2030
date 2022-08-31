@@ -73,7 +73,14 @@ export default class App extends React.Component {
     this.selectSubcategory = ({ subcategory, totalSubcategory, node }) => {
 
       this.setState(state => ({
-        ...state, selectedSubcategory: { subcategory, totalSubcategory, node }, open: false
+        ...state, startAt: 0,
+        selectedMarka: '',
+        selectedNavIndex: '',
+        selectedKeywords: [],
+        navKeywords: [],
+        products: [],
+        fetchingProduct: false,
+        availableProducts: 0, selectedSubcategory: { subcategory, totalSubcategory, node }, open: false
       }));
     }
 
@@ -120,7 +127,17 @@ export default class App extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     const { selectedSubcategory, selectedNavIndex, startAt } = this.state
+    debugger
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
+      debugger
+      this.setState((state) => ({ ...state, fetchingProduct: true }))
+      this.fetchProducts(0)
+      this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
+    }
+
+    
+    if(selectedSubcategory && prevState.selectedSubcategory !== null && selectedSubcategory.subcategory !==prevState.selectedSubcategory.subcategory){
+      debugger
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
@@ -150,12 +167,12 @@ export default class App extends React.Component {
     let host = ''
     let href = window.location.href
     debugger
-    if(href === 'http://localhost:3000/'){
-      host='http://localhost:8888/.netlify/functions'
-    }else{
+    if (href === 'http://localhost:3000/') {
+      host = 'http://localhost:8888/.netlify/functions'
+    } else {
       host = 'https://dream2022.netlify.app/.netlify/functions'
     }
-   
+
     const { selectedSubcategory: { subcategory }, selectedNavIndex } = this.state
 
     var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex
@@ -194,9 +211,9 @@ export default class App extends React.Component {
     let host = ''
     let href = window.location.href
     debugger
-    if(href === 'http://localhost:3000/'){
-      host='http://localhost:8888/.netlify/functions'
-    }else{
+    if (href === 'http://localhost:3000/') {
+      host = 'http://localhost:8888/.netlify/functions'
+    } else {
       host = 'https://dream2022.netlify.app/.netlify/functions'
     }
 
@@ -247,7 +264,7 @@ export default class App extends React.Component {
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
-      {(fetchingProduct || fetchingKeywords )&& <LoadingDialog loading={true} />}
+      {(fetchingProduct || fetchingKeywords) && <LoadingDialog loading={true} />}
 
     </AppContext.Provider>)
   }

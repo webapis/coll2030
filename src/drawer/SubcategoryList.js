@@ -21,36 +21,36 @@ export default function MarkaSabcategoryList() {
                 const node =m['node']
                 const currentChar = subcategory.charAt(0)
        
-                if (i === 0) {
+                // if (i === 0) {
 
-                    return <ListItem key={i} component="div" disablePadding>
-                        <ListItemButton onClick={() => selectSubcategory({subcategory, totalSubcategory:total,node})}>
-                            <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ flex: 1 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
-                        </ListItemButton>
-                    </ListItem>
+                //     return <ListItem key={i} component="div" disablePadding>
+                //         <ListItemButton onClick={() => selectSubcategory({subcategory, totalSubcategory:total,node})}>
+                //             <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ flex: 1 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
+                //         </ListItemButton>
+                //     </ListItem>
 
 
-                }
-                else {
-                    const prevChar = subcategories[i - 1]['subcategory'].charAt(0)
-                    if (prevChar === currentChar) {
+                // }
+                // else {
+                //     const prevChar = subcategories[i - 1]['subcategory'].charAt(0)
+                //     if (prevChar === currentChar) {
+                //         return <ListItem key={i} component="div" disablePadding>
+                //             <ListItemButton onClick={() => selectSubcategory({subcategory, totalSubcategory:total,node})}>
+                //                 <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ flex: 1 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
+                //             </ListItemButton>
+                //         </ListItem>
+
+
+                //     } else {
+
                         return <ListItem key={i} component="div" disablePadding>
                             <ListItemButton onClick={() => selectSubcategory({subcategory, totalSubcategory:total,node})}>
                                 <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ flex: 1 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
                             </ListItemButton>
                         </ListItem>
 
-
-                    } else {
-
-                        return <ListItem key={i} component="div" disablePadding>
-                            <ListItemButton onClick={() => selectSubcategory({subcategory, totalSubcategory:total,node})}>
-                                <ListItemText primary={<div style={{ display: 'flex' }}><Typography variant="overline" style={{ flex: 1 }}>{subcategory.toUpperCase()}</Typography><Typography variant="overline" style={{ color: '#9e9e9e' }}>{total}</Typography></div>} />
-                            </ListItemButton>
-                        </ListItem>
-
-                    }
-                }
+                    
+               // }
             })
         }}
     </AppContext.Consumer>
