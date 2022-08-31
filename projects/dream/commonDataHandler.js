@@ -10,7 +10,8 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
     const allkeywords = require(path.join(process.cwd(), `./api/_files/nav/${subcategory}/keywords.json`))
     const data = []
     debugger
-    const dirPath = path.join(`./api/_files/data/${subcategory}`)
+    //const dirPath = path.join(`./api/_files/data/${subcategory}`)
+    const dirPath = path.join(process.cwd(), `./api/_files/data/${subcategory}`)
     debugger
     const files = fs.readdirSync(dirPath)
     debugger
