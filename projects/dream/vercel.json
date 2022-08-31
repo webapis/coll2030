@@ -1,21 +1,21 @@
 {
     "functions": {
-        "api/fns/elbise/elbise.js": {
+        "api/fns/elbise.js": {
             "includeFiles": "api/_files/elbise/**/*.json"
         },
-        "api/fns/elbise/navfirst.js": {
+        "api/fns/elbise-navfirst.js": {
             "includeFiles": "api/_files/key/elbise/0-keywords.json"
         },
-        "api/fns/elbise/navsecond.js": {
+        "api/fns/elbise-navsecond.js": {
             "includeFiles": "api/_files/key/elbise/1-keywords.json"
         },
-        "api/fns/pantolon/pantolon.js": {
+        "api/fns/pantolon.js": {
             "includeFiles": "api/_files/pantolon/**/*.json"
         },
-        "api/fns/pantolon/navfirst.js": {
+        "api/fns/pantolon-navfirst.js": {
             "includeFiles": "api/_files/key/pantolon/0-keywords.json"
         },
-        "api/fns/pantolon/navsecond.js": {
+        "api/fns/pantolon-navsecond.js": {
             "includeFiles": "api/_files/key/pantolon/1-keywords.json"
         }
     }
