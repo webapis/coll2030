@@ -123,20 +123,20 @@ export default class App extends React.Component {
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-',selectedSubcategory.subcategory)
+      this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
     }
 
     if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       if (selectedNavIndex === '') {
-        this.fetchNavKeywords('0-',selectedSubcategory.subcategory)
+        this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
       } else {
 
 
-    debugger
-        this.fetchNavKeywords(selectedNavIndex,selectedSubcategory.subcategory)
-     
+        debugger
+        this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory)
+
 
       }
 
@@ -147,17 +147,26 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    let host = 'https://dream2022.netlify.app/.netlify/functions'// 'http://localhost:3001/'  //
-    const { selectedSubcategory: { subcategory}, selectedNavIndex } = this.state
+    let host = ''
+    let href = window.location.href
+    debugger
+    if(href === 'http://localhost:3000/'){
+      host='http://localhost:8888/.netlify/functions'
+    }else{
+      host = 'https://dream2022.netlify.app/.netlify/functions'
+    }
+   
+    const { selectedSubcategory: { subcategory }, selectedNavIndex } = this.state
 
-    var url = `${host}/${subcategory}/?start=` + start +  '&selectedNavIndex=' + selectedNavIndex
+    var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex
     debugger
 
-    return fetch(url, { cache: 'default' }).then(function (response) { 
-      
+    return fetch(url, { cache: 'default' }).then(function (response) {
+
       debugger
-      
-      return response.json() }).then(function (data) {
+
+      return response.json()
+    }).then(function (data) {
       return data
     })
       .then((data) => {
@@ -173,7 +182,7 @@ export default class App extends React.Component {
 
       })
       .catch(function (err) {
-debugger
+        debugger
         console.log('err', err)
         return err
       })
@@ -181,9 +190,16 @@ debugger
 
   }
 
-  fetchNavKeywords(selectedNavIndex,subcategory) {
+  fetchNavKeywords(selectedNavIndex, subcategory) {
+    let host = ''
+    let href = window.location.href
+    debugger
+    if(href === 'http://localhost:3000/'){
+      host='http://localhost:8888/.netlify/functions'
+    }else{
+      host = 'https://dream2022.netlify.app/.netlify/functions'
+    }
 
-    let host = 'https://dream2022.netlify.app/.netlify/functions'// 'http://localhost:3001/'  //
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
 
@@ -192,21 +208,22 @@ debugger
     } else {
 
       if (fn === 1) {
-  
+
         url = `${host}/${subcategory}-navsecond?navindex=${selectedNavIndex}`
       } else {
-    
+
         url = `${host}/${subcategory}-navfirst?navindex=${selectedNavIndex}`
       }
 
     }
+    debugger
 
     fetch(url).then(async (response) => response.json()).then((data) => {
       const { keywords } = data
-   
+
       this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords: keywords }))
     }).catch(err => {
-     
+
     })
 
   }
@@ -230,7 +247,7 @@ debugger
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
-      {fetchingProduct || fetchingKeywords && <LoadingDialog loading={true} />}
+      {(fetchingProduct || fetchingKeywords )&& <LoadingDialog loading={true} />}
 
     </AppContext.Provider>)
   }
