@@ -1,9 +1,7 @@
 require('dotenv').config()
-var TAFFY = require('taffy');
 
-const path = require('path');
-
-function navHandler({ event, project, subcategory, keyOrder }) {
+const {commonNavHandler}=require('./commonNavHandler')
+function netlifyNavHandler({ event, project, subcategory, keyOrder }) {
 
 
     if (event.httpMethod === 'OPTIONS') {
@@ -23,21 +21,15 @@ function navHandler({ event, project, subcategory, keyOrder }) {
 
     } else if (event.httpMethod === 'GET') {
         const { navindex } = event.queryStringParameters
-        const data = require(path.join(process.cwd(), `./api/_files/key/${subcategory}/${keyOrder}-keywords.json`))
-        var navkeywords = TAFFY(data);
-        debugger
 
-        console.log('navindex', navindex)
-
-        debugger
-        const { keywords, fn } = navkeywords().filter({ index: navindex }).get()[0]
+        const { keywords } = commonNavHandler({subcategory,keyOrder,navindex})
         debugger
         return {
             statusCode: 200,
             headers: {
                 "Access-Control-Allow-Origin": "*", // Allow from anywhere 
             },
-            body: JSON.stringify({ keywords, fn })
+            body: JSON.stringify({ keywords })
         }
     } else {
 
@@ -49,4 +41,4 @@ function navHandler({ event, project, subcategory, keyOrder }) {
 
 }
 
-module.exports = { navHandler }
+module.exports = { netlifyNavHandler }

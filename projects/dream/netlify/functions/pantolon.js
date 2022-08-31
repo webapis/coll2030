@@ -1,8 +1,8 @@
 
-const { dataHandler } = require('../../dataHandler')
+const { netlifyDataHandler } = require('../../netlifyDataHandler')
 exports.handler = async function (event, context) {
 
 
-return await dataHandler({ event, project: 'dream', subcategory: 'pantolon' })
+return await netlifyDataHandler({ event, project: 'dream', subcategory: 'pantolon' })
 
 }

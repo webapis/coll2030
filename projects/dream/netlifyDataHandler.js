@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { commonDataHandler } = require('./commonDataHandler')
-function dataHandler({ event, project, subcategory }) {
+function netlifyDataHandler({ event, project, subcategory }) {
   if (event.httpMethod === 'OPTIONS') {
 
     const headers = {
@@ -44,4 +44,4 @@ function dataHandler({ event, project, subcategory }) {
 
 
 
-module.exports = { dataHandler }
+module.exports = { netlifyDataHandler }

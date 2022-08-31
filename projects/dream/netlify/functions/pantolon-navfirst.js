@@ -1,7 +1,7 @@
 
-const { navHandler } = require('../../navHandler')
+const { netlifyNavHandler } = require('../../netlifyNavHandler')
 exports.handler = async function (event, context) {
 
 
-return await  navHandler({ event, subcategory: 'pantolon', project: 'dream', keyOrder: '0' })
+return await  netlifyNavHandler({ event, subcategory: 'pantolon', project: 'dream', keyOrder: '0' })
 }
