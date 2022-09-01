@@ -48,7 +48,7 @@ export default class App extends React.Component {
         this.scrollHandled = true
         const hasMore = this.state.products.length < this.state.availableProducts
         if (hasMore) {
-          
+
           this.fetchProducts(this.state.startAt)
         }
 
@@ -72,21 +72,41 @@ export default class App extends React.Component {
         ...state, filterDrawerIsOpen: !state.filterDrawerIsOpen
       }));
     };
-   this.clearSubcategory =()=>{
-    this.setState(state => ({
-      ...state,      startAt: 0,
-      selectedMarka: '',
-      selectedNavIndex: '',
-      selectedKeywords: [],
-      navKeywords: [],
-      availableProducts: 0,
-      selectedSubcategory: null,
-      products: [],
-      fetchingProduct: false,
-      open: false,
-    }));
+    this.clearSubcategory = () => {
+      this.setState(state => ({
+        ...state, startAt: 0,
+        selectedMarka: '',
+        selectedNavIndex: '',
+        selectedKeywords: [],
+        navKeywords: [],
+        availableProducts: 0,
+        selectedSubcategory: null,
+        products: [],
+        fetchingProduct: false,
+        open: false,
+      }));
 
-   }
+    }
+    this.searchInputChanged = (e) => {
+      const {value}=e.target
+
+      this.setState(state => ({
+        ...state,
+        search:value,
+
+      }));
+    }
+    this.searchProduct =()=>{
+      const {selectedSubcategory:{subcategory}}=this.state
+      this.setState((state) => ({ ...state, startAt: 0,
+        selectedMarka: '',
+        selectedNavIndex: '',
+        selectedKeywords: [],
+        navKeywords: [],
+        products: [], fetchingProduct: true }))
+      this.fetchProducts(0)
+      this.fetchNavKeywords('0-',subcategory)
+    }
     this.selectSubcategory = ({ subcategory, totalSubcategory, node }) => {
 
       this.setState(state => ({
@@ -134,9 +154,12 @@ export default class App extends React.Component {
       selectedKeywords: [],
       navKeywords: [],
       availableProducts: 0,
+      search: '',
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex,
-      clearSubcategory:this.clearSubcategory
+      clearSubcategory: this.clearSubcategory,
+      searchInputChanged: this.searchInputChanged,
+      searchProduct:this.searchProduct
     }
   }
 
@@ -145,9 +168,9 @@ export default class App extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     const { selectedSubcategory, selectedNavIndex, startAt } = this.state
-    
+
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
-      
+
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
@@ -155,7 +178,7 @@ export default class App extends React.Component {
 
 
     if (selectedSubcategory && prevState.selectedSubcategory !== null && selectedSubcategory.subcategory !== prevState.selectedSubcategory.subcategory) {
-      
+
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
@@ -169,7 +192,7 @@ export default class App extends React.Component {
       } else {
 
 
-        
+
         this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory)
 
 
@@ -182,10 +205,10 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    const { selectedSubcategory: { subcategory }, selectedNavIndex } = this.state
+    const { selectedSubcategory: { subcategory }, selectedNavIndex,search } = this.state
     let host = ''
     let href = window.location.href
-    
+
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
@@ -194,22 +217,22 @@ export default class App extends React.Component {
 
 
 
-    var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex
-    
+    var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex+'&search='+search
+
 
     return fetch(url, { cache: 'default' }).then(function (response) {
 
-      
+
 
       return response.json()
     }).then(function (data) {
       return data
     })
       .then((data) => {
-        
-        
+
+
         const { data: products, count } = data
-        
+
 
         this.setState(state => ({
           ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
@@ -218,7 +241,7 @@ export default class App extends React.Component {
 
       })
       .catch(function (err) {
-        
+
         console.log('err', err)
         return err
       })
@@ -229,7 +252,7 @@ export default class App extends React.Component {
   fetchNavKeywords(selectedNavIndex, subcategory) {
     let host = ''
     let href = window.location.href
-    
+
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
@@ -252,7 +275,7 @@ export default class App extends React.Component {
       }
 
     }
-    
+
 
     fetch(url).then(async (response) => response.json()).then((data) => {
       const { keywords } = data
@@ -264,17 +287,17 @@ export default class App extends React.Component {
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory, fetchingKeywords, fetchingProduct, subcategories, selectSubcategory ,products} = this.state
+    const { matchedesktop, selectedSubcategory, fetchingKeywords, fetchingProduct, subcategories, selectSubcategory, products } = this.state
 
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-      { products.length===0 && !fetchingProduct && <Container>
+      {products.length === 0 && !fetchingProduct && <Container>
         <Typography align="center" variant="h5">Ürünler</Typography>
-        <ImageList sx={{ height:'80vh',  justifyContent: 'center', display:'flex' }} cols={3} rowHeight={164}>
+        <ImageList sx={{ height: '80vh', justifyContent: 'center', display: 'flex' }} cols={3} rowHeight={164}>
           {subcategories.map((item) => {
             const { subcategory, node, count: totalSubcategory } = item
-            return <ImageListItem sx={{width:200}} key={item.img} onClick={() => {
+            return <ImageListItem sx={{ width: 200 }} key={item.img} onClick={() => {
               selectSubcategory({ subcategory, totalSubcategory, node })
             }}>
 
@@ -291,7 +314,7 @@ export default class App extends React.Component {
           })}
         </ImageList>
       </Container>
-  }
+      }
       {matchedesktop && selectedSubcategory &&
         <Stack>
           <Grid container>
@@ -307,7 +330,7 @@ export default class App extends React.Component {
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
       {(fetchingProduct || fetchingKeywords) && <LoadingDialog loading={true} />}
-   
+
     </AppContext.Provider>)
   }
 }

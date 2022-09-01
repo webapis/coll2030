@@ -11,7 +11,7 @@ export default function SearchBox() {
 
 
   return (
-    <AppContext.Consumer>{({ toggleFilterDrawer,matchedesktop,selectedSubcategory }) => {
+    <AppContext.Consumer>{({ toggleFilterDrawer,matchedesktop,selectedSubcategory,searchInputChanged,searchProduct,search }) => {
       return <Paper
         component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' }}
@@ -20,10 +20,10 @@ export default function SearchBox() {
         <InputBase
           sx={{ ml: 1, flex: 10 }}
           placeholder={selectedSubcategory.subcategory.toUpperCase() +" ara".toUpperCase() }
-          inputProps={{ 'aria-label': 'search google maps' }}
+          inputProps={{ 'aria-label': 'search google maps' }} onChange={searchInputChanged} value={search}
         />
 
-        <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+        <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={searchProduct}>
           <SearchIcon />
         </IconButton>
         {!matchedesktop &&  <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
