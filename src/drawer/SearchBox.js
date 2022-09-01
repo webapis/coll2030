@@ -5,20 +5,21 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { AppContext } from '../App';
+
 export default function SearchBox() {
 
 
 
   return (
-    <AppContext.Consumer>{({ toggleFilterDrawer,matchedesktop }) => {
+    <AppContext.Consumer>{({ toggleFilterDrawer,matchedesktop,selectedSubcategory }) => {
       return <Paper
         component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' }}
       >
-
+ 
         <InputBase
-          sx={{ ml: 1, flex: 1 }}
-          placeholder="Ürün ara"
+          sx={{ ml: 1, flex: 10 }}
+          placeholder={selectedSubcategory.subcategory.toUpperCase() +" ara".toUpperCase() }
           inputProps={{ 'aria-label': 'search google maps' }}
         />
 
