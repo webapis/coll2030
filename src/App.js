@@ -233,7 +233,7 @@ export default class App extends React.Component {
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-      host = `https://coll2030.vercel.app/api/fns` //'https://dream2022.netlify.app/.netlify/functions'
+      host = `https://coll2030.vercel.app/api/fns` //'https://dream2022.netlify.app/.netlify/functions'/
     }
 
     var url = ''
