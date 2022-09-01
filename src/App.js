@@ -6,8 +6,11 @@ import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-import { Stack } from '@mui/material';
+import { Stack, Container, Typography } from '@mui/material';
 import LoadingDialog from './drawer/LoadingDialog';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
 debugger
 
 debugger
@@ -135,8 +138,8 @@ export default class App extends React.Component {
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
     }
 
-    
-    if(selectedSubcategory && prevState.selectedSubcategory !== null && selectedSubcategory.subcategory !==prevState.selectedSubcategory.subcategory){
+
+    if (selectedSubcategory && prevState.selectedSubcategory !== null && selectedSubcategory.subcategory !== prevState.selectedSubcategory.subcategory) {
       debugger
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
@@ -169,12 +172,12 @@ export default class App extends React.Component {
     let href = window.location.href
     debugger
     if (href === 'http://localhost:3000/') {
-      host = `https://coll2030.vercel.app/api/fns`//'http://localhost:8888/.netlify/functions'
+      host = 'http://localhost:8888/.netlify/functions'
     } else {
       host = `https://coll2030.vercel.app/api/fns`//'https://dream2022.netlify.app/.netlify/functions'
     }
 
-   
+
 
     var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex
     debugger
@@ -213,7 +216,7 @@ export default class App extends React.Component {
     let href = window.location.href
     debugger
     if (href === 'http://localhost:3000/') {
-      host = 'https://coll2030.vercel.app/api/fns'//'http://localhost:8888/.netlify/functions'
+      host = 'http://localhost:8888/.netlify/functions'
     } else {
       host = `https://coll2030.vercel.app/api/fns` //'https://dream2022.netlify.app/.netlify/functions'
     }
@@ -246,11 +249,34 @@ export default class App extends React.Component {
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory, fetchingKeywords, fetchingProduct } = this.state
+    const { matchedesktop, selectedSubcategory, fetchingKeywords, fetchingProduct, subcategories, selectSubcategory ,products} = this.state
 
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
+      { products.length===0&& <Container>
+        <Typography align="center" variant="h5">Ürünler</Typography>
+        <ImageList sx={{ height:'80vh',  justifyContent: 'center', display:'flex' }} cols={3} rowHeight={164}>
+          {subcategories.map((item) => {
+            const { subcategory, node, count: totalSubcategory } = item
+            return <ImageListItem sx={{width:200}} key={item.img} onClick={() => {
+              selectSubcategory({ subcategory, totalSubcategory, node })
+            }}>
+
+              <img
+                src={item.imgUrl}
+                alt={item.subcategory}
+                loading="lazy"
+              />
+              <ImageListItemBar
+                title={item.subcategory}
+                position="below"
+              />
+            </ImageListItem>
+          })}
+        </ImageList>
+      </Container>
+  }
       {matchedesktop && selectedSubcategory &&
         <Stack>
           <Grid container>
@@ -266,7 +292,7 @@ export default class App extends React.Component {
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
       {(fetchingProduct || fetchingKeywords) && <LoadingDialog loading={true} />}
-
+   
     </AppContext.Provider>)
   }
 }
