@@ -190,12 +190,7 @@ export default class App extends React.Component {
       if (selectedNavIndex === '') {
         this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
       } else {
-
-
-
         this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory)
-
-
       }
 
     }
@@ -292,12 +287,12 @@ export default class App extends React.Component {
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-      {products.length === 0 && !fetchingProduct && <Container>
+      {products.length === 0 && !fetchingProduct && <Container sx={{display:'flex',alignItems:'center', flexDirection:'column'}}>
         <Typography align="center" variant="h5">Ürünler</Typography>
-        <ImageList sx={{ height: '80vh', justifyContent: 'center', display: 'flex' }} cols={3} rowHeight={164}>
-          {subcategories.map((item) => {
+        <ImageList center sx={{  textAlign:'center', height:'100%'}} variant="standard" cols={matchedesktop? 4:2}  gap={8}>
+          {subcategories.map((item, i) => {
             const { subcategory, node, count: totalSubcategory } = item
-            return <ImageListItem sx={{ width: 200 }} key={item.img} onClick={() => {
+            return <ImageListItem  sx={{ width: 150, height:'auto' }} key={i} onClick={() => {
               selectSubcategory({ subcategory, totalSubcategory, node })
             }}>
 
@@ -305,6 +300,7 @@ export default class App extends React.Component {
                 src={item.imgUrl}
                 alt={item.subcategory}
                 loading="lazy"
+               
               />
               <ImageListItemBar
                 title={item.subcategory}
