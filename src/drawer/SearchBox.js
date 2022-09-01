@@ -14,7 +14,7 @@ export default function SearchBox() {
     <AppContext.Consumer>{({ toggleFilterDrawer, matchedesktop, selectedSubcategory, searchInputChanged, searchProduct, search,selectSubcategory }) => {
       return <Paper
         component="form"
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' }}
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: !matchedesktop?'100%':'30%' }}
       >
 
         <InputBase
@@ -25,7 +25,7 @@ export default function SearchBox() {
           const {value}=e.target
           if(value===''){
             // const {subcategory, totalSubcategory, node}= selectedSubcategory
-            // debugger
+            // 
             // selectSubcategory({subcategory, totalSubcategory, node})
           } else{
 
@@ -37,7 +37,7 @@ export default function SearchBox() {
             if (e.key === 'Enter') {
               searchProduct()
             } else{
-              debugger
+              
             }
           }}
         />

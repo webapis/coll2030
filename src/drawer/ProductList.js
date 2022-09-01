@@ -28,7 +28,7 @@ export default function ProductList(props) {
 
           <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
             {products.length>0
-            &&  <SearchBox />
+            && <div style={{display:'flex',justifyContent:'flex-end'}}><SearchBox /></div> 
             }
            
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}

@@ -72,9 +72,9 @@ if(imagePlaceholder===undefined){
 
       const productTitle = props.title.split(' ').map(t => t.trim()).map((m, i) => {
         const searchWorkds  = search.length> 0 ? search.split(' ').map(m=>m.toLowerCase()):false
-        debugger
+        
         const searchMatch =searchWorkds ? searchWorkds.find(f => f.includes(m.toLowerCase())):false
-        debugger
+        
         const selectedKeywordMatch = selectedKeywords.find(f => f.keyword.includes(m.toLowerCase())) || selectedKeywords.map(t => { return { ...t, keyword: t.keyword.trim() } }).find(s => m.toLowerCase().includes(s))
         const selectedSubcategoryMatch = selectedSubcategory.includes(m.toLowerCase()) || m.toLowerCase().includes(selectedSubcategory)
 
