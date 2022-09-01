@@ -269,7 +269,7 @@ export default class App extends React.Component {
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-      { products.length===0&& <Container>
+      { products.length===0 && !fetchingProduct && <Container>
         <Typography align="center" variant="h5">Ürünler</Typography>
         <ImageList sx={{ height:'80vh',  justifyContent: 'center', display:'flex' }} cols={3} rowHeight={164}>
           {subcategories.map((item) => {

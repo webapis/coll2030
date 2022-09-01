@@ -3,10 +3,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+
 import HomeIcon from '@mui/icons-material/Home'
 import { AppContext } from '../App';
-import FilterListIcon from '@mui/icons-material/FilterList';
+
 export default function AppBarContainer() {
 
     return (
@@ -29,10 +29,7 @@ export default function AppBarContainer() {
       MODABURADA
     </Typography>
 
- 
-    {!matchedesktop && <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
-          <FilterListIcon />
-        </IconButton>}
+
     
 
   </Toolbar>
