@@ -27,12 +27,15 @@ export default function ProductList(props) {
           </Box></div>
 
           <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
-            <SearchBox/>
+            {products.length>0
+            &&  <SearchBox />
+            }
+           
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
             <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
               {products.length > 0 && products.map((item, i) => {
 
-                return <Grid margin={0} padding={0} item key={i} xs={6} sm={2}  sx={{ display: 'flex', justifyContent: 'center' }}>
+                return <Grid margin={0} padding={0} item key={i} xs={6} sm={2} sx={{ display: 'flex', justifyContent: 'center' }}>
 
                   <ImageComponent selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
 
@@ -43,15 +46,15 @@ export default function ProductList(props) {
 
 
             </Grid>
-
-            <Fab variant="extended" sx={{ position: 'fixed', bottom: 55, right: 5, fontSize: 10 }} color="" >
+            {products.length > 0 && <Fab variant="extended" sx={{ position: 'fixed', bottom: 55, right: 5, fontSize: 10 }} color="" >
               {products.length - 1}/{availableProducts}
-            </Fab>
+            </Fab>}
+
 
             <Fab id="nav-top-btn" variant="extended" sx={{ position: 'fixed', bottom: 5, right: 5, display: 'none' }} color="primary" onClick={() => { window.scrollTo({ top: 0 }); }}>
               <NavigationIcon />
             </Fab>
-            {products.length > 0 && (products.length-1) === availableProducts && <Typography sx={{ color: '#757575',marginBottom:10 }}>toplam:{availableProducts}ürün görüntilendi</Typography>}
+            {products.length > 0 && (products.length - 1) === availableProducts && <Typography sx={{ color: '#757575', marginBottom: 10 }}>toplam:{availableProducts}ürün görüntilendi</Typography>}
           </Container>
         </div>
       }}
