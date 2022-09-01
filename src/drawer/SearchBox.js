@@ -10,7 +10,7 @@ export default function SearchBox() {
 
 
   return (
-    <AppContext.Consumer>{({ toggleFilterDrawer }) => {
+    <AppContext.Consumer>{({ toggleFilterDrawer,matchedesktop }) => {
       return <Paper
         component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' }}
@@ -25,9 +25,9 @@ export default function SearchBox() {
         <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
           <SearchIcon />
         </IconButton>
-        <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
+        {!matchedesktop &&  <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
           <FilterListIcon />
-        </IconButton>
+        </IconButton>}
 
 
       </Paper>

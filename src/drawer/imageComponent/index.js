@@ -14,14 +14,14 @@ export default function ImageComponent(props) {
 
   // const cloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_300/'
 if(props.marka===undefined){
-  debugger
+  
 }
 if( placeholders[props.marka].placeholder ===undefined){
-  debugger
+  
 }
   const imagePlaceholder =  placeholders[props.marka].placeholder 
 if(imagePlaceholder===undefined){
-  debugger
+  
 }
  // const logo = placeholders[props.marka].logo
 

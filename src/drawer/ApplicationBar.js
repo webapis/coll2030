@@ -4,7 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home'
 import { AppContext } from '../App';
 import FilterListIcon from '@mui/icons-material/FilterList';
 export default function AppBarContainer() {
@@ -12,7 +12,7 @@ export default function AppBarContainer() {
     return (
 
 <AppContext.Consumer>
-{(({toggleDrawer,toggleFilterDrawer})=>{
+{(({toggleDrawer,toggleFilterDrawer,matchedesktop,clearSubcategory})=>{
   return  <AppBar color="" position='static'>
   <Toolbar>
     <IconButton
@@ -21,19 +21,19 @@ export default function AppBarContainer() {
       color="inherit"
       aria-label="menu"
       sx={{ mr: 2 }}
-      onClick={toggleDrawer}
+      onClick={clearSubcategory}
     >
-      <MenuIcon />
+      <HomeIcon />
     </IconButton>
     <Typography variant="h6" component="div">
       MODABURADA
     </Typography>
-    <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-      <SearchIcon />
-    </IconButton>
-    <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
+
+ 
+    {!matchedesktop && <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
           <FilterListIcon />
-        </IconButton>
+        </IconButton>}
+    
 
   </Toolbar>
 

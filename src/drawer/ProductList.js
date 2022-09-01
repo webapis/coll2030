@@ -11,6 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { AppContext } from '../App';
 import { Typography } from '@mui/material';
+import SearchBox from './SearchBox'
 export default function ProductList(props) {
 
 
@@ -26,6 +27,7 @@ export default function ProductList(props) {
           </Box></div>
 
           <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
+            <SearchBox/>
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
             <Grid container justifyContent="center" spacing={1} margin={0} padding={0}>
               {products.length > 0 && products.map((item, i) => {

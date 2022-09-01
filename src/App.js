@@ -11,9 +11,9 @@ import LoadingDialog from './drawer/LoadingDialog';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-debugger
 
-debugger
+
+
 export const AppContext = React.createContext();
 
 export default class App extends React.Component {
@@ -48,7 +48,7 @@ export default class App extends React.Component {
         this.scrollHandled = true
         const hasMore = this.state.products.length < this.state.availableProducts
         if (hasMore) {
-          debugger
+          
           this.fetchProducts(this.state.startAt)
         }
 
@@ -72,7 +72,21 @@ export default class App extends React.Component {
         ...state, filterDrawerIsOpen: !state.filterDrawerIsOpen
       }));
     };
+   this.clearSubcategory =()=>{
+    this.setState(state => ({
+      ...state,      startAt: 0,
+      selectedMarka: '',
+      selectedNavIndex: '',
+      selectedKeywords: [],
+      navKeywords: [],
+      availableProducts: 0,
+      selectedSubcategory: null,
+      products: [],
+      fetchingProduct: false,
+      open: false,
+    }));
 
+   }
     this.selectSubcategory = ({ subcategory, totalSubcategory, node }) => {
 
       this.setState(state => ({
@@ -121,7 +135,8 @@ export default class App extends React.Component {
       navKeywords: [],
       availableProducts: 0,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
-      setSelectedNavIndex: this.setSelectedNavIndex
+      setSelectedNavIndex: this.setSelectedNavIndex,
+      clearSubcategory:this.clearSubcategory
     }
   }
 
@@ -130,9 +145,9 @@ export default class App extends React.Component {
   }
   componentDidUpdate(prevProps, prevState) {
     const { selectedSubcategory, selectedNavIndex, startAt } = this.state
-    debugger
+    
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
-      debugger
+      
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
@@ -140,7 +155,7 @@ export default class App extends React.Component {
 
 
     if (selectedSubcategory && prevState.selectedSubcategory !== null && selectedSubcategory.subcategory !== prevState.selectedSubcategory.subcategory) {
-      debugger
+      
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
@@ -154,7 +169,7 @@ export default class App extends React.Component {
       } else {
 
 
-        debugger
+        
         this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory)
 
 
@@ -170,7 +185,7 @@ export default class App extends React.Component {
     const { selectedSubcategory: { subcategory }, selectedNavIndex } = this.state
     let host = ''
     let href = window.location.href
-    debugger
+    
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
@@ -180,21 +195,21 @@ export default class App extends React.Component {
 
 
     var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex
-    debugger
+    
 
     return fetch(url, { cache: 'default' }).then(function (response) {
 
-      debugger
+      
 
       return response.json()
     }).then(function (data) {
       return data
     })
       .then((data) => {
-        debugger
-        debugger
+        
+        
         const { data: products, count } = data
-        debugger
+        
 
         this.setState(state => ({
           ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
@@ -203,7 +218,7 @@ export default class App extends React.Component {
 
       })
       .catch(function (err) {
-        debugger
+        
         console.log('err', err)
         return err
       })
@@ -214,7 +229,7 @@ export default class App extends React.Component {
   fetchNavKeywords(selectedNavIndex, subcategory) {
     let host = ''
     let href = window.location.href
-    debugger
+    
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
@@ -237,7 +252,7 @@ export default class App extends React.Component {
       }
 
     }
-    debugger
+    
 
     fetch(url).then(async (response) => response.json()).then((data) => {
       const { keywords } = data
