@@ -288,11 +288,11 @@ export default class App extends React.Component {
       <ApplicationBar />
       <TemporaryDrawer />
       {products.length === 0 && !fetchingProduct && <Container sx={{display:'flex',alignItems:'center', flexDirection:'column'}}>
-        <Typography align="center" variant="h5">Ürünler</Typography>
-        <ImageList center sx={{  textAlign:'center', height:'100%'}} variant="standard" cols={matchedesktop? 4:2}  gap={8}>
+        <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
+        <ImageList center sx={{  textAlign:'center', height:'100%'}} variant="standard" cols={matchedesktop? 5:2}  gap={8}>
           {subcategories.map((item, i) => {
             const { subcategory, node, count: totalSubcategory } = item
-            return <ImageListItem  sx={{ width: 150, height:'auto' }} key={i} onClick={() => {
+            return <ImageListItem  sx={{ width: 130, height:'auto' }} key={i} onClick={() => {
               selectSubcategory({ subcategory, totalSubcategory, node })
             }}>
 
