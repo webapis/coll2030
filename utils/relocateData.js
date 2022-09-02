@@ -8,7 +8,7 @@ console.log('--------------------------------------------------------------')
 
 debugger
 let obj = {}
-walkSync(path.join(process.cwd(), 'data'), async (filepath) => {
+walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
     try {
 
