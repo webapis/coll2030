@@ -39,26 +39,26 @@ walkSync(path.join(process.cwd(), 'data'), async (filepath) => {
 
 
 
-for (let o in obj) {
-    const s = o.split('-').reverse()
-    const marka = s[0]
-    const subcategory = s[1]
-    //  const project = s[4]
-    const data = obj[o]
-    // console.log('s', s)
-    // console.log('data', data.length)
-    // console.log('marka', marka)
-    // console.log('subcategory', subcategory)
-    // console.log('project', project)
-    debugger
-    const savePath = path.join(process.cwd(), `api/_files/data/${marka}/${subcategory}/${marka}.json`)
-    makeDir.sync(path.dirname(savePath))
-    // console.log('savePath', savePath)
-    if (fs.existsSync(savePath)) {
-        fs.unlinkSync(savePath)
-    }
-    fs.writeFileSync(savePath, JSON.stringify(data))
-    debugger
+// for (let o in obj) {
+//     const s = o.split('-').reverse()
+//     const marka = s[0]
+//     const subcategory = s[1]
+//     //  const project = s[4]
+//     const data = obj[o]
+//     // console.log('s', s)
+//     // console.log('data', data.length)
+//     // console.log('marka', marka)
+//     // console.log('subcategory', subcategory)
+//     // console.log('project', project)
+//     debugger
+//     const savePath = path.join(process.cwd(), `api/_files/data/${marka}/${subcategory}/${marka}.json`)
+//     makeDir.sync(path.dirname(savePath))
+//     // console.log('savePath', savePath)
+//     if (fs.existsSync(savePath)) {
+//         fs.unlinkSync(savePath)
+//     }
+//     fs.writeFileSync(savePath, JSON.stringify(data))
+//     debugger
 
-}
+// }
 
