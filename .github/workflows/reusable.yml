@@ -57,9 +57,6 @@ jobs:
         with:
           name: data
           path: collected-data/${{ inputs.marka }}
-      - name: Display structure of uploaded files
-        run: ls -R
-        working-directory: collected-data
         
 
 
