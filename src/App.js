@@ -201,6 +201,7 @@ export default class App extends React.Component {
 
   fetchProducts(start) {
     const { selectedSubcategory: { subcategory }, selectedNavIndex,search } = this.state
+    debugger
     let host = ''
     let href = window.location.href
 
@@ -213,7 +214,7 @@ export default class App extends React.Component {
 
 
     var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex+'&search='+search
-
+debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) {
 
