@@ -43,7 +43,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: data
-          path: data
+          path: collected-data
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: collected-data
