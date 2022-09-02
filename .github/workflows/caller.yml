@@ -255,7 +255,7 @@ jobs:
           path: data
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: data
+        working-directory: collected-data
       - name: Decript data
         run: 'npm run decryptData'
       - name: relocateData
