@@ -8,7 +8,7 @@
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
     await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:J', node: 'dream', subcategory: 'elbise' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'pantolon!A:J', node: 'dream', subcategory: 'pantolon' })
-
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'pantolon!A:J', node: 'dream', subcategory: 'etek' })
     process.exit(0)
 
 })()

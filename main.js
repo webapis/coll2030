@@ -190,15 +190,15 @@ Apify.main(async () => {
                 const data = groupByProject[project]
                 for (let d of data) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/,'').replace(/\[|\]|\,|&|=|:/g,'')
-                                   await makeDir(`projects/${project}/data/${marka}/${subcategory}/${marka}`)
-                    const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
+                    await makeDir(`data/${marka}/${project}/${subcategory}/${marka}`)
+                    const exists = fs.existsSync(`data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
                     if (exists) {
                         debugger
                      //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
                       //  if (_.isEqual(obj, d) === false) {
                             debugger
-                            fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
-                            fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                            fs.unlinkSync(`data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
+                            fs.appendFileSync(`data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
                             // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
                             // const origin =JSON.parse(data)
                             // const updated ={...origin,...d}
@@ -206,7 +206,7 @@ Apify.main(async () => {
                      //   }
                     } else {
                         debugger
-                        fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                        fs.appendFileSync(`data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
                 
                     }
                 }

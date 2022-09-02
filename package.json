@@ -53,6 +53,7 @@
     "collection": "node main.js",
     "mergefiles": "node utils/mergefiles.js  && node utils/genegateNavigation.js",
     "generateNavigation": "node utils/genegateNavigation.js",
+    "relocatedata":"node utils/relocateData.js",
     "dev": "netlify dev",
     "vercel:dev": "vercel dev",
     "netlify:dev": "cd projects/dream && netlify dev",

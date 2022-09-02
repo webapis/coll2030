@@ -252,12 +252,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: data
-          path: projects/dream/data
+          path: data
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: projects
       - name: Decript data
         run: 'npm run decryptData'
+      - name: relocatedata
+        id: relocateata
+        run: node utils/relocatedata.js
       - name: Commit report
         run: |
           git config --global user.name 'Serdar Ashirov'

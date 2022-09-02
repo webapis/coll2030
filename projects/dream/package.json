@@ -9,7 +9,6 @@
   },
   "scripts": {
     "mergefiles": "node mergefiles.js  && node genegateNavigation.js"
- 
   }
   
 }
