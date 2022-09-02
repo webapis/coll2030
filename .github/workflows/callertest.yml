@@ -46,12 +46,12 @@ jobs:
           path: data
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: projects
+        working-directory: data
       - name: Decript data
         run: 'npm run decryptData'
       - name: relocatedata
-        id: relocateata
-        run: node utils/relocatedata.js
+        id: relocateData
+        run: node utils/relocateData.js
       - name: Commit report
         run: |
           git config --global user.name 'Serdar Ashirov'

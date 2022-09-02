@@ -59,7 +59,7 @@ jobs:
           path: data/${{ inputs.marka }}
       - name: Display structure of uploaded files
         run: ls -R
-        working-directory: projects
+        working-directory: data
         
 
 

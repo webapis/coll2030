@@ -255,12 +255,12 @@ jobs:
           path: data
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: projects
+        working-directory: data
       - name: Decript data
         run: 'npm run decryptData'
-      - name: relocatedata
+      - name: relocateData
         id: relocateata
-        run: node utils/relocatedata.js
+        run: node utils/relocateData.js
       - name: Commit report
         run: |
           git config --global user.name 'Serdar Ashirov'
