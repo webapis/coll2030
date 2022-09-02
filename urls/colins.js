@@ -1,7 +1,7 @@
 const urls = [
   
-    { url: 'https://www.colins.com.tr/c/kadin-elbise-212', subcategory: ['elbise'], category: 'üst-giyim',node:'dream',fn:'elbise' },
- 
+    { url: 'https://www.colins.com.tr/c/kadin-elbise-212', subcategory: ['elbise'], category: 'üst-giyim',node:'dream'},
+    { url: 'https://www.colins.com.tr/c/kadin-etek-239', subcategory: ['etek'], category: 'alt-giyim',node:'dream' },
   
 ]
 
