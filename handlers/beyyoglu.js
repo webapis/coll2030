@@ -22,7 +22,7 @@ async function handler(page, context) {
                 link: link.substring(link.indexOf('https://www.beyyoglu.com/') + 25),
                 timestamp: Date.now(),
                 marka: 'beyyoglu',
-                subcategory: _subcategory,
+             //   subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -43,7 +43,14 @@ async function handler(page, context) {
     }
     debugger;
     console.log('data length_____', data.length, 'url:', url)
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[0]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 async function autoScroll(page) {
     await page.evaluate(async () => {

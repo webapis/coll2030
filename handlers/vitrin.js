@@ -23,7 +23,7 @@ debugger
                 link,
                 timestamp: Date.now(),
                 marka: 'vitrin',
-                subcategory,
+               // subcategory,
                 category,
                 node
             }
@@ -31,10 +31,14 @@ debugger
 
 
     console.log('data length_____', data.length, 'url:', url)
-
-    debugger;
-
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[0]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

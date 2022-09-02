@@ -24,11 +24,7 @@ Apify.main(async () => {
 
     }
 
-
-
     const productsDataset = await Apify.openDataset(`products`);
-
-
 
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
@@ -53,8 +49,6 @@ Apify.main(async () => {
         }
 
         const dataCollected = await handler(page, context)
-
-
 
         await productsDataset.pushData(dataCollected)
 

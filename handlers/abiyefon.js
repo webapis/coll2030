@@ -23,7 +23,7 @@ async function handler(page, context) {
                 link,
                 timestamp: Date.now(),
                 marka: 'abiyefon',
-                subcategory: _subcategory,
+             //   subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -32,11 +32,21 @@ async function handler(page, context) {
 
     console.log('data length_____', data.length, 'url:', url)
 
-
-
-    return data.map((m) => {
+    const formatprice = data.map((m) => {
         return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
     })
+
+
+    debugger;
+    const withSub = formatprice.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[0]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
+
 }
 
 async function getUrls(page) {

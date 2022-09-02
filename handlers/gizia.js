@@ -37,7 +37,7 @@ async function handler(page, context) {
             link,
             timestamp: Date.now(),
             marka: 'gizia',
-            subcategory,
+          //  subcategory,
             category,
             node
         }
@@ -48,7 +48,14 @@ async function handler(page, context) {
 
     debugger;
 
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[0]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

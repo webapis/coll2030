@@ -41,12 +41,20 @@ async function handler(page, context) {
                            timestamp: Date.now(),
                            marka: 'tozlu',
                            category,
-                           subcategory,
+                       //    subcategory,
                            node
                          }
                        })
                        console.log('data length_____', data.length, 'url:', url)
-                    return resolve(data)
+                       const withSub = data.map(m => {
+                        const { title } = m
+                        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+                        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[0]
+                        debugger
+                        return { ...m, subcategory: subcat }
+                    })
+                 
+                    return resolve(withSub)
 
                 }
 

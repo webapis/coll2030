@@ -24,15 +24,21 @@ async function handler(page, context) {
                 link:link.substring(link.indexOf('https://www.colins.com.tr/')+26),
                 timestamp: Date.now(),
                 marka: 'colins',
-                subcategory: _subcategory,
+              //  subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
         })
     }, subcategory, category,node)
     console.log('data length_____', data.length, 'url:', url)
-    return data
-
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[0]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 

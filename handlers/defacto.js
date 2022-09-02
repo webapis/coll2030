@@ -18,6 +18,7 @@ async function handler(page, context) {
             const link = longlink.substring(longlink.indexOf("defacto.com.tr/") + 15)
             const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
             const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
+           // const subcat = _subcategory.filter(f => title.toLowerCase().includes(f))
             return {
                 title: 'defacto ' + title,
                 priceNew,
@@ -25,7 +26,7 @@ async function handler(page, context) {
                 link,
                 timestamp: Date.now(),
                 marka: 'defacto',
-                subcategory: _subcategory,
+               // subcategory: subcat.length > 0 ? subcat[0] : _subcategory[0],
                 category: _category,
                 node: _node
 
@@ -35,11 +36,20 @@ async function handler(page, context) {
 
     console.log('data length_____', data.length, 'url:', url)
 
+debugger
 
-
-    return data.map((m) => {
+    const formatprice = data.map((m) => {
         return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
     })
+
+    const withSub = formatprice.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[0]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {
