@@ -16,10 +16,10 @@ async function handler(page, context) {
 
     return new Promise((resolve, reject) => {
         try {
-
+           let pause =false
             let inv = setInterval(async () => {
-
-
+                if(pause===false){
+                
                 const collected = await page.evaluate(() => document.querySelectorAll('.product-item-wrapper').length)
 
                 console.log('collected', collected)
@@ -32,7 +32,7 @@ async function handler(page, context) {
                     await manualScroll(page)
                 }
                 else {
-                 //   clearInterval(inv)
+                    pause=true
                     debugger
                     const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts,_node) => {
                         return productCards.map(productCard => {
@@ -67,15 +67,15 @@ async function handler(page, context) {
                         return { ...m, subcategory: subcat }
                     })
                 
-                 
+                   // clearInterval(inv)
                     return resolve(withSub.map((m) => {
                         return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
                     }))
-
+                 
                 }
-
+            }
             }, 200)
-            // clearInterval(inv)
+        
         } catch (error) {
             debugger
            // return reject(error)
