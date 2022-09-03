@@ -36,7 +36,7 @@ async function handler(page, context) {
                         }
                         else {
                             pause = true
-                            clearInterval(inv)
+                           // clearInterval(inv)
                             debugger
                             const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts, _node) => {
                                 return productCards.map(productCard => {
@@ -78,7 +78,7 @@ async function handler(page, context) {
 
                         }
                     }
-                }, 200)
+                }, 300)
 
             } catch (error) {
                 debugger
