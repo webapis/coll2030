@@ -36,7 +36,7 @@ async function handler(page, context) {
                         }
                         else {
                             pause = true
-                           // clearInterval(inv)
+                            // clearInterval(inv)
                             debugger
                             const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts, _node) => {
                                 return productCards.map(productCard => {
@@ -78,14 +78,15 @@ async function handler(page, context) {
 
                         }
                     }
-                }, 400)
+                }, 150)
 
             } catch (error) {
                 debugger
                 console.log('error 1', error)
-              //  return reject(error)
+                return resolve(true)
             }
         })
+    
     } catch (error) {
         console.log('error 2', error)
 
