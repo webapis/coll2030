@@ -32,7 +32,7 @@ async function handler(page, context) {
                     await manualScroll(page)
                 }
                 else {
-                    clearInterval(inv)
+                 //   clearInterval(inv)
                     debugger
                     const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts,_node) => {
                         return productCards.map(productCard => {
