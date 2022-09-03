@@ -21,7 +21,7 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
         console.log('filepath', filepath)
         await makeDir( `projects/${project}/data/${marka}/${subcategory}`)
         
-        const savePath = path.join(process.cwd(), `projects/${project}/data/${marka}/${subcategory}/${filename}.json`)
+        const savePath = path.join(process.cwd(), `projects/${project}/data/${marka}/${subcategory}/${filename}`)
         const data = JSON.parse(fs.readFileSync(filepath))
         if (fs.existsSync(savePath)) {
             fs.unlinkSync(savePath)
