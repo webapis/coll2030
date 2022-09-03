@@ -83,7 +83,7 @@ async function handler(page, context) {
             } catch (error) {
                 debugger
                 console.log('error 1', error)
-                return reject(error)
+              //  return reject(error)
             }
         })
     } catch (error) {
