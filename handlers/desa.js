@@ -16,7 +16,7 @@ async function handler(page, context) {
         if (acceptcookies) {
             await page.click('#personaWelcomePopupCloseBtn')
         }
-        return new Promise((resolve, reject) => {
+        return await new Promise((resolve, reject) => {
             try {
                 let pause = false
                 let inv = setInterval(async () => {
@@ -36,7 +36,7 @@ async function handler(page, context) {
                         }
                         else {
                             pause = true
-                            clearInterval(inv)
+                           // clearInterval(inv)
                             debugger
                             const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts, _node) => {
                                 return productCards.map(productCard => {
@@ -75,6 +75,7 @@ async function handler(page, context) {
                             resolve(withSub.map((m) => {
                                 return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
                             }))
+                            clearInterval(inv)
 
                         }
                     }
