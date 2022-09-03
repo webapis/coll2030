@@ -225,6 +225,7 @@ Apify.main(async () => {
     else {
         console.log('UNSUCCESSFUL DATA COLLECTION.......')
     }
+    
     console.log('Crawl finished.');
 });
 
