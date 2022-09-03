@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: desa
-         maxconcurrency: '1'
+      maxconcurrency: '1'
     secrets: inherit
 
   generate_nav_job:
