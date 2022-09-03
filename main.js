@@ -56,7 +56,7 @@ Apify.main(async () => {
 
         console.log('total collected', process.env.dataLength)
     }
-
+console.log('process.env.MAX_CONCURRENCY',process.env.MAX_CONCURRENCY)
     const crawler = new Apify.PuppeteerCrawler({
         // requestList,
         requestQueue,
