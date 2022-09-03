@@ -18,6 +18,7 @@ async function handler(page, context) {
         try {
            let pause =false
             let inv = setInterval(async () => {
+                console.log('pause',pause)
                 if(pause===false){
                 
                 const collected = await page.evaluate(() => document.querySelectorAll('.product-item-wrapper').length)
@@ -33,6 +34,7 @@ async function handler(page, context) {
                 }
                 else {
                     pause=true
+                  clearInterval(inv)
                     debugger
                     const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts,_node) => {
                         return productCards.map(productCard => {
@@ -67,7 +69,7 @@ async function handler(page, context) {
                         return { ...m, subcategory: subcat }
                     })
                 
-                   // clearInterval(inv)
+               
                     return resolve(withSub.map((m) => {
                         return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
                     }))

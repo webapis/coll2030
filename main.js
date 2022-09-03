@@ -80,7 +80,7 @@ console.log('process.env.MAX_CONCURRENCY',process.env.MAX_CONCURRENCY)
                     '--disable-skia-runtime-opts',
                     '--disable-yuv420-biplanar',
                     '--disable-site-isolation-trials',
-                    '--shm-size=3gb'
+                   // '--shm-size=3gb'
 
                 ]
             }
