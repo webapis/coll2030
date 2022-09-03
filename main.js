@@ -29,35 +29,41 @@ Apify.main(async () => {
 
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
+        try {
 
-        const { page, request: { userData: { start, subcategory, category, opts, node } } } = context
 
-        const marka = process.env.marka
-        const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
-        const { pageUrls, productCount } = await getUrls(page)
-        process.env.productCount = productCount
+            const { page, request: { userData: { start, subcategory, category, opts, node } } } = context
 
-        if (start) {
-            let order = 1
-            for (let url of pageUrls) {
-                if (pageUrls.length === order) {
-                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category, opts, node } })
-                } else {
-                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category, opts, node } })
+            const marka = process.env.marka
+            const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
+            const { pageUrls, productCount } = await getUrls(page)
+            process.env.productCount = productCount
+
+            if (start) {
+                let order = 1
+                for (let url of pageUrls) {
+                    if (pageUrls.length === order) {
+                        requestQueue.addRequest({ url, userData: { start: false, subcategory, category, opts, node } })
+                    } else {
+                        requestQueue.addRequest({ url, userData: { start: false, subcategory, category, opts, node } })
+                    }
+                    ++order;
                 }
-                ++order;
             }
+
+            const dataCollected = await handler(page, context)
+
+            await productsDataset.pushData(dataCollected)
+
+            process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
+
+            console.log('total collected', process.env.dataLength)
+        } catch (error) {
+            console.log('error----1', error)
         }
 
-        const dataCollected = await handler(page, context)
-
-        await productsDataset.pushData(dataCollected)
-
-        process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
-
-        console.log('total collected', process.env.dataLength)
     }
-console.log('process.env.MAX_CONCURRENCY',process.env.MAX_CONCURRENCY)
+    console.log('process.env.MAX_CONCURRENCY', process.env.MAX_CONCURRENCY)
     const crawler = new Apify.PuppeteerCrawler({
         // requestList,
         requestQueue,
@@ -81,7 +87,7 @@ console.log('process.env.MAX_CONCURRENCY',process.env.MAX_CONCURRENCY)
                     '--disable-skia-runtime-opts',
                     '--disable-yuv420-biplanar',
                     '--disable-site-isolation-trials',
-                   // '--shm-size=3gb'
+                    // '--shm-size=3gb'
 
                 ]
             }
@@ -191,25 +197,25 @@ console.log('process.env.MAX_CONCURRENCY',process.env.MAX_CONCURRENCY)
                 debugger
                 const data = groupByProject[project]
                 for (let d of data) {
-                    const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/,'').replace(/\[|\]|\,|&|=|:/g,'')
+                    const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                     await makeDir(`collected-data/${marka}/${project}/${subcategory}/${marka}`)
                     const exists = fs.existsSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
                     if (exists) {
                         debugger
-                     //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
-                      //  if (_.isEqual(obj, d) === false) {
-                            debugger
-                            fs.unlinkSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
-                            fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
-                            // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
-                            // const origin =JSON.parse(data)
-                            // const updated ={...origin,...d}
-                            // fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
-                     //   }
+                        //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
+                        //  if (_.isEqual(obj, d) === false) {
+                        debugger
+                        fs.unlinkSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
+                        fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                        // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
+                        // const origin =JSON.parse(data)
+                        // const updated ={...origin,...d}
+                        // fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
+                        //   }
                     } else {
                         debugger
                         fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
-                
+
                     }
                 }
                 debugger
