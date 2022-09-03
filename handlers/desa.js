@@ -78,7 +78,7 @@ async function handler(page, context) {
             // clearInterval(inv)
         } catch (error) {
             debugger
-            return reject(error)
+           // return reject(error)
         }
     })
 }
