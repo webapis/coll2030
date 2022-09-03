@@ -67,7 +67,7 @@ async function handler(page, context) {
                         return { ...m, subcategory: subcat }
                     })
                 
-                  // await page.close()
+                   await page.close()
                     return resolve(withSub.map((m) => {
                         return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
                     }))
