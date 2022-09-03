@@ -78,7 +78,7 @@ async function handler(page, context) {
 
                         }
                     }
-                }, 300)
+                }, 400)
 
             } catch (error) {
                 debugger
