@@ -23,7 +23,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img1ptrti.mncdn.com/") + 28)
             const title = productCard.querySelector(".ProductName").innerHTML.replace(/\n/g, '')
             return {
-                title: 'patirti ' + title,
+                title: 'patirti ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

@@ -24,7 +24,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn2.sorsware.com/") + 26)
             const title = productCard.querySelector("img[data-src]").alt
             return {
-                title: 'addax ' + title,
+                title: 'addax ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

@@ -17,7 +17,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://www.abiyefon.com/') + 25)
             const title = productCard.querySelector(".img-options img") ? productCard.querySelector(".img-options img").alt : productCard.outerHTML
             return {
-                title: 'abiyefon ' + title + ((_opts && _opts.keyword) ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
+                title: 'abiyefon ' + title.replace(/İ/g,'i').toLowerCase() + ((_opts && _opts.keyword) ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

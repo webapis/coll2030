@@ -42,7 +42,7 @@ async function handler(page, context) {
                             const title = productCard.querySelector('.productName a').innerHTML
 
                             return {
-                                title: 'saygigiyim ' + title,
+                                title: 'saygigiyim ' + title.replace(/İ/g,'i').toLowerCase(),
                                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                                 imageUrl: longImgUrl,
                                 link,

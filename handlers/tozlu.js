@@ -34,7 +34,7 @@ async function handler(page, context) {
                     const data = items.filter(f => f.products).map(p => [...p.products]).flat().map(m => {
                  
                          return {
-                           title: 'tozlu ' +m.name,
+                           title: 'tozlu ' +m.name.replace(/İ/g,'i').toLowerCase(),
                            priceNew: m.productSellPriceStr.replace('TL','').trim(),//.replace('.','').replace(',','.').trim() ,
                            imageUrl: ('https://img.tozlu.com/Uploads/UrunResimleri/thumb/'+m.imageName).replace('https://img.tozlu.com/',''),
                            link:m.defaultUrl,

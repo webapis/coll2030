@@ -200,14 +200,15 @@ Apify.main(async () => {
                 for (let d of data) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                     await makeDir(`collected-data/${marka}/${project}/${subcategory}/${marka}`)
-                    const exists = fs.existsSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
+                    const exists = fs.existsSync( `projects/${project}/data/${marka}/${subcategory}/${filename}.json`)
                     if (exists) {
+                        console.log('exist',filename)
                         debugger
                         //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
                         //  if (_.isEqual(obj, d) === false) {
                         debugger
-                        fs.unlinkSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
-                        fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                      //  fs.unlinkSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
+                       // fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
                         // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
                         // const origin =JSON.parse(data)
                         // const updated ={...origin,...d}

@@ -18,7 +18,7 @@ async function handler(page, context) {
             const longImgUrl = productCard.querySelector('.product-image img') ===null ? productCard.querySelector('amp-img').getAttribute('src'): productCard.querySelector('.product-image img').src
             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf("https://cdn.vebigo.com/") + 23)
             return {
-                title: 'kikiriki ' + title,
+                title: 'kikiriki ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//: priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrlshort,
                 link,

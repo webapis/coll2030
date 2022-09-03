@@ -23,7 +23,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img-incommerce-yargici.mncdn.com/") + 41)
             const title = productCard.querySelector('.product-box-zoom-image').alt
             return {
-                title: 'yargici ' + title,
+                title: 'yargici ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrlshort,
                 link,

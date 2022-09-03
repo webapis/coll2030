@@ -17,7 +17,7 @@ debugger
             const link = product.url
   
             return {
-                title:'xint '+title,
+                title:'xint '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew:formatMoney(priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),
                 imageUrl: longImage.substring(longImage.indexOf('https://www.xint.com.tr/') + 24),
                 link,

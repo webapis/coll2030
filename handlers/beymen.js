@@ -40,9 +40,9 @@ async function handler(page, context) {
     const withSub = data.map(m => {
         const { title } = m
         const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
-        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length - 1]
         debugger
-        return { ...m, subcategory: subcat }
+        return { ...m, subcategory: subcat, title: title.replace(/İ/g, 'i').toLowerCase() }
     })
     return withSub
 }

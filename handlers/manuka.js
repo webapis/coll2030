@@ -33,7 +33,7 @@ async function handler(page, context) {
         const link = product.url
 
         return {
-            title: 'manuka ' + title.split(' ').map(m => m.charAt(0).toUpperCase() + m.slice(1)).join(' '),
+            title: 'manuka ' + title.replace(/İ/g,'i').toLowerCase().split(' ').map(m => m.charAt(0).toUpperCase() + m.slice(1)).join(' '),
             priceNew:formatMoney(priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),
             imageUrl: longImage.substring(longImage.indexOf('https://www.manuka.com.tr') + 25),
             link,

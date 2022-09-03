@@ -22,7 +22,7 @@ async function handler(page, context) {
             const imageUrlshort = imageUrl && imageUrl.substring(imageUrl.indexOf("https://cdn.sorsware.com/") + 25)
 
             return {
-                title: 'jimmykey ' + title,
+                title: 'jimmykey ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace(',','.'),
                 imageUrl: imageUrlshort,
                 link,

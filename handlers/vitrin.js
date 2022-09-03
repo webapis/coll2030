@@ -17,7 +17,7 @@ debugger
             const link = product.url
   
             return {
-                title:'vitrin '+title,
+                title:'vitrin '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: longImage.substring(longImage.indexOf('https://www.vitrin.com.tr') + 25),
                 link,

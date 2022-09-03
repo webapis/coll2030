@@ -16,7 +16,7 @@ await autoScroll(page)
             const title =  productCard.querySelector('.prd-name').textContent.replace(/\n/g, '').trim()
 
             return {
-                title: 'twist '+title,
+                title: 'twist '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl:imageUrlshort,
                 link,

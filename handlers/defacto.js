@@ -20,7 +20,7 @@ async function handler(page, context) {
             const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
            // const subcat = _subcategory.filter(f => title.toLowerCase().includes(f))
             return {
-                title: 'defacto ' + title,
+                title: 'defacto ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
