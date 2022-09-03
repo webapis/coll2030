@@ -79,7 +79,8 @@ Apify.main(async () => {
                     '--disable-low-res-tiling',
                     '--disable-skia-runtime-opts',
                     '--disable-yuv420-biplanar',
-                    '--disable-site-isolation-trials'
+                    '--disable-site-isolation-trials',
+                    '--disable-dev-shm-usage'
 
                 ]
             }
