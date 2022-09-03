@@ -8,8 +8,9 @@ const urls = [
     // { url: 'https://www.gizia.com/kokteyl-elbiseleri', subcategory: 'elbise', category: 'üst-giyim',opts:{category:'kokteyl'} },
     // { url: 'https://www.gizia.com/gece-elbiseleri', subcategory: 'elbise', category: 'üst-giyim',opts:{category:'gece'} },
     // { url: 'https://www.gizia.com/dugun-elbiseleri', subcategory: 'elbise', category: 'üst-giyim',opts:{category:'düğün'} },
-     { url: 'https://www.gizia.com/elbise', subcategory: ['elbise'], category: 'üst-giyim',opts:{category:''} ,node:'dream'},
+     { url: 'https://www.gizia.com/elbise',                      subcategory: ['elbise'], category: 'üst-giyim',opts:{category:''} ,node:'dream'},
      { url: 'https://www.gizia.com/ilkbahar-yaz-etek-modelleri', subcategory: ['etek'], category: 'alt-giyim',opts:{category:''} ,node:'dream'},
+     { url: 'https://www.gizia.com/ilkbahar-yaz-pantolon-modelleri', subcategory: ['pantolon'], category: 'alt-giyim',opts:{category:''} ,node:'dream'},
     // { url: 'https://www.gizia.com/abiye-elbiseler', subcategory: 'elbise', category: 'üst-giyim',opts:{category:'abiye'} },
     // { url: 'https://www.gizia.com/kir-dugunu-elbiseleri', subcategory: 'elbise', category: 'üst-giyim',opts:{category:'kır düğünü'} },
   

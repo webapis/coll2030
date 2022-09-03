@@ -80,7 +80,7 @@ Apify.main(async () => {
                     '--disable-skia-runtime-opts',
                     '--disable-yuv420-biplanar',
                     '--disable-site-isolation-trials',
-                    '--shm-size=1gb'
+                    '--shm-size=3gb'
 
                 ]
             }
