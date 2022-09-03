@@ -202,7 +202,7 @@ Apify.main(async () => {
                     await makeDir(`collected-data/${marka}/${project}/${subcategory}/${marka}`)
                     const exists = fs.existsSync( `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
                     if (exists) {
-                        console.log('exist',filename)
+                        console.log('exist+++++++++',`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
                         debugger
                         //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
                         //  if (_.isEqual(obj, d) === false) {
@@ -215,6 +215,7 @@ Apify.main(async () => {
                         // fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
                         //   }
                     } else {
+                        console.log('first time',`projects/${project}/data/${marka}/${subcategory}/${id}.json` )
                         debugger
                         fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
 
