@@ -9,9 +9,7 @@ const Apify = require('apify');
 
 var _ = require('lodash');
 Apify.main(async () => {
-    try {
-        
-  
+
     await Apify.openDataset();
 
     const { utils: { log } } = Apify;
@@ -222,10 +220,6 @@ console.log('process.env.MAX_CONCURRENCY',process.env.MAX_CONCURRENCY)
         console.log('UNSUCCESSFUL DATA COLLECTION.......')
     }
     console.log('Crawl finished.');
-
-} catch (error) {
-        console.log('error happened here',error)
-}
 });
 
 

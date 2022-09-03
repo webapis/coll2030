@@ -36,7 +36,7 @@ async function handler(page, context) {
                         }
                         else {
                             pause = true
-                            // clearInterval(inv)
+                            clearInterval(inv)
                             debugger
                             const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts, _node) => {
                                 return productCards.map(productCard => {
@@ -72,7 +72,7 @@ async function handler(page, context) {
                             })
 
 
-                            return resolve(withSub.map((m) => {
+                            resolve(withSub.map((m) => {
                                 return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
                             }))
 
@@ -83,10 +83,10 @@ async function handler(page, context) {
             } catch (error) {
                 debugger
                 console.log('error 1', error)
-                return resolve(true)
+               reject(error)
             }
         })
-    
+
     } catch (error) {
         console.log('error 2', error)
 
