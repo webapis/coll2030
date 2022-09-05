@@ -5,13 +5,13 @@ const urls = [
     { url: 'https://www.machka.com.tr/kadin-pantolon-c_832?page=1', subcategory: ['pantolon'], category: 'alt-giyim',node:'dream'},
 
 
-    { url: 'https://www.machka.com.tr/sweat-shirt', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.machka.com.tr/bluz-c_826', subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.machka.com.tr/kadin-gomlek-c_853', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.machka.com.tr/kadin-ceket-c_827', subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.machka.com.tr/kaban-c_830', subcategory: ['kaban'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.machka.com.tr/kadin-mont-c_831', subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.machka.com.tr/tunik-modelleri-c_855', subcategory: ['tunik'], category: 'üst-giyim', node: 'dream' }
+    { url: 'https://www.machka.com.tr/sweat-shirt?page=1', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.machka.com.tr/bluz-c_826?page=1', subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.machka.com.tr/kadin-gomlek-c_853?page=1', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.machka.com.tr/kadin-ceket-c_827?page=1', subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.machka.com.tr/kaban-c_830?page=1', subcategory: ['kaban'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.machka.com.tr/kadin-mont-c_831?page=1', subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.machka.com.tr/tunik-modelleri-c_855?page=1', subcategory: ['tunik'], category: 'üst-giyim', node: 'dream' }
   ]
 
 module.exports={urls}

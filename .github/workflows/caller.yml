@@ -69,6 +69,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: hm
+      maxconcurrency: '1'
     secrets: inherit
   adidas_job:
     uses: ./.github/workflows/reusable.yml
@@ -141,7 +142,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: quzu
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   saygigiyim_job:
     uses: ./.github/workflows/reusable.yml
