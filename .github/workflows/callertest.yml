@@ -9,7 +9,7 @@ jobs:
   test_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: hm
+      marka: quzu
       maxconcurrency: '1'
     secrets: inherit
 
