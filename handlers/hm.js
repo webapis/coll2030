@@ -18,9 +18,9 @@ async function handler(page, context) {
                 // const { loaded, remained } = await page.$eval('.load-more-heading', el => {
                 //     return { loaded: parseInt(el.getAttribute('data-items-shown')), remained: parseInt(el.getAttribute('data-total')) }
                 // })
-                const nextPageExists = await page.evaluate(() => document.querySelector('.button.js-load-more').style['display'] === '')
+                const nextPageExists = await page.evaluate(() => document.querySelector('.button.js-load-more') &&  document.querySelector('.button.js-load-more').classList.contains('hidden')===false)
 
-                if (nextPageExists) {
+                if (nextPageExists===false) {
                
                     await page.click('.button.js-load-more')
                     await manualScroll(page)
