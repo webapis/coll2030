@@ -88,24 +88,26 @@ export default class App extends React.Component {
 
     }
     this.searchInputChanged = (e) => {
-      const {value}=e.target
+      const { value } = e.target
 
       this.setState(state => ({
         ...state,
-        search:value,
+        search: value,
 
       }));
     }
-    this.searchProduct =()=>{
-      const {selectedSubcategory:{subcategory}}=this.state
-      this.setState((state) => ({ ...state, startAt: 0,
+    this.searchProduct = () => {
+      const { selectedSubcategory: { subcategory } } = this.state
+      this.setState((state) => ({
+        ...state, startAt: 0,
         selectedMarka: '',
         selectedNavIndex: '',
         selectedKeywords: [],
         navKeywords: [],
-        products: [], fetchingProduct: true }))
+        products: [], fetchingProduct: true
+      }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-',subcategory)
+      this.fetchNavKeywords('0-', subcategory)
     }
     this.selectSubcategory = ({ subcategory, totalSubcategory, node }) => {
 
@@ -159,7 +161,7 @@ export default class App extends React.Component {
       setSelectedNavIndex: this.setSelectedNavIndex,
       clearSubcategory: this.clearSubcategory,
       searchInputChanged: this.searchInputChanged,
-      searchProduct:this.searchProduct
+      searchProduct: this.searchProduct
     }
   }
 
@@ -200,7 +202,7 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    const { selectedSubcategory: { subcategory }, selectedNavIndex,search } = this.state
+    const { selectedSubcategory: { subcategory, node }, selectedNavIndex, search } = this.state
     debugger
     let host = ''
     let href = window.location.href
@@ -208,13 +210,13 @@ export default class App extends React.Component {
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-      host = `https://coll2030.vercel.app/api/fns`//'https://dream2022.netlify.app/.netlify/functions'
+      host = `https://${node}.vercel.app/api/fns`//'https://dream2022.netlify.app/.netlify/functions'
     }
 
 
 
-    var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex+'&search='+search
-debugger
+    var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
+    debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) {
 
@@ -252,7 +254,7 @@ debugger
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-      host = `https://coll2030.vercel.app/api/fns` //'https://dream2022.netlify.app/.netlify/functions'
+      host = `https://${node}.vercel.app/api/fns` //'https://dream2022.netlify.app/.netlify/functions'
     }
 
     var url = ''
@@ -288,12 +290,12 @@ debugger
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-      {products.length === 0 && !fetchingProduct && <Container sx={{display:'flex',alignItems:'center', flexDirection:'column'}}>
+      {products.length === 0 && !fetchingProduct && <Container sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
         <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
-        <ImageList center sx={{  textAlign:'center', height:'100%'}} variant="standard" cols={matchedesktop? 5:2}  gap={8}>
+        <ImageList center sx={{ textAlign: 'center', height: '100%' }} variant="standard" cols={matchedesktop ? 5 : 2} gap={8}>
           {subcategories.map((item, i) => {
             const { subcategory, node, count: totalSubcategory } = item
-            return <ImageListItem  sx={{ width: 130, height:'auto' }} key={i} onClick={() => {
+            return <ImageListItem sx={{ width: 130, height: 'auto' }} key={i} onClick={() => {
               selectSubcategory({ subcategory, totalSubcategory, node })
             }}>
 
@@ -301,7 +303,7 @@ debugger
                 src={item.imgUrl}
                 alt={item.subcategory}
                 loading="lazy"
-               
+
               />
               <ImageListItemBar
                 title={item.subcategory}
