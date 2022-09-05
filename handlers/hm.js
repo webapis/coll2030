@@ -1,6 +1,6 @@
 
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category,node } } } = context
+    const { request: { userData: { subcategory, category, node } } } = context
 
     const url = await page.url()
 
@@ -18,17 +18,17 @@ async function handler(page, context) {
                 // const { loaded, remained } = await page.$eval('.load-more-heading', el => {
                 //     return { loaded: parseInt(el.getAttribute('data-items-shown')), remained: parseInt(el.getAttribute('data-total')) }
                 // })
-                const nextPageExists = await page.evaluate(() => document.querySelector('.button.js-load-more') &&  document.querySelector('.button.js-load-more').classList.contains('hidden')===false)
+                const nextPageExists = await page.evaluate(() => document.querySelector('.button.js-load-more') && document.querySelector('.button.js-load-more').classList.contains('hidden') === false)
 
-                if (nextPageExists===false) {
-               
+                if (nextPageExists === false) {
+
                     await page.click('.button.js-load-more')
                     await manualScroll(page)
-                 
+
                 } else {
-                  
+
                     clearInterval(inv)
-                    const data = await page.$$eval('.product-item', (productCards, _subcategory, _category,_node) => {
+                    const data = await page.$$eval('.product-item', (productCards, _subcategory, _category, _node) => {
                         return productCards.map(productCard => {
                             const priceNew = productCard.querySelector('.price.regular').innerHTML.replace('TL', '').trim()
                             const longlink = productCard.querySelector('.item-heading a').href
@@ -38,35 +38,36 @@ async function handler(page, context) {
                             const title = productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim()
 
                             return {
-                                title: 'hm '+title.replace(/İ/g,'i').toLowerCase(),
-                                priceNew:priceNew.replace('&nbsp;','.'),//:priceNew.replace('.','').replace(',','.').trim(),
+                                title: 'hm ' + title.replace(/İ/g, 'i').toLowerCase(),
+                                priceNew: priceNew.replace('&nbsp;', '.'),//:priceNew.replace('.','').replace(',','.').trim(),
                                 imageUrl: imageUrlshort,
                                 link,
                                 timestamp: Date.now(),
                                 marka: 'hm',
-                             //   subcategory: _subcategory,
+                                //   subcategory: _subcategory,
                                 category: _category,
                                 node: _node
                             }
                         })
-                    }, subcategory, category,node)
+                    }, subcategory, category, node)
                     console.log('data length_____', data.length, 'url:', url)
 
                     const withSub = data.map(m => {
                         const { title } = m
                         const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
-                        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+                        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length - 1]
                         debugger
                         return { ...m, subcategory: subcat }
                     })
-                  
+
                     return resolve(withSub)
 
                 }
 
             }, 3000)
         } catch (error) {
-            return reject(error)
+            console.log('err', error)
+            return resolve([])
         }
     })
 }

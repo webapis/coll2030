@@ -52,12 +52,16 @@ Apify.main(async () => {
             }
 
             const dataCollected = await handler(page, context)
+  if(dataCollected.length>0){
+    await productsDataset.pushData(dataCollected)
 
-            await productsDataset.pushData(dataCollected)
+    process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
 
-            process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
-
-            console.log('total collected', process.env.dataLength)
+    console.log('total collected', process.env.dataLength)
+  } else{
+    console.log('unsuccessfull data collection')
+  }
+      
         } catch (error) {
             console.log('error----1', error)
         }
