@@ -175,7 +175,7 @@ export default class App extends React.Component {
 
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
+      this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
     }
 
 
@@ -183,16 +183,16 @@ export default class App extends React.Component {
 
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
+      this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
     }
 
     if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       if (selectedNavIndex === '') {
-        this.fetchNavKeywords('0-', selectedSubcategory.subcategory)
+        this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
       } else {
-        this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory)
+        this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory,selectedSubcategory.node)
       }
 
     }
@@ -203,6 +203,7 @@ export default class App extends React.Component {
 
   fetchProducts(start) {
     const { selectedSubcategory: { subcategory, node }, selectedNavIndex, search } = this.state
+
     debugger
     let host = ''
     let href = window.location.href
@@ -215,7 +216,7 @@ export default class App extends React.Component {
 
 
 
-    var url = `${host}/${subcategory}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
+    var url = `${host}/${subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i') }/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
     debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) {
@@ -247,7 +248,8 @@ export default class App extends React.Component {
 
   }
 
-  fetchNavKeywords(selectedNavIndex, subcategory) {
+  fetchNavKeywords(selectedNavIndex, subcategory,node) {
+    let subcat =subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i')
     let host = ''
     let href = window.location.href
 
@@ -261,15 +263,15 @@ export default class App extends React.Component {
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
 
     if (selectedNavIndex === '') {
-      url = `${host}/${subcategory}-navfirst?navindex=0-`
+      url = `${host}/${subcat}-navfirst?navindex=0-`
     } else {
 
       if (fn === 1) {
 
-        url = `${host}/${subcategory}-navsecond?navindex=${selectedNavIndex}`
+        url = `${host}/${subcat}-navsecond?navindex=${selectedNavIndex}`
       } else {
 
-        url = `${host}/${subcategory}-navfirst?navindex=${selectedNavIndex}`
+        url = `${host}/${subcat}-navfirst?navindex=${selectedNavIndex}`
       }
 
     }

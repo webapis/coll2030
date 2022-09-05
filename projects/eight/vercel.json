@@ -1,0 +1,22 @@
+{
+    "functions": {
+        "api/fns/tişört.js": {
+            "includeFiles": "api/_files/tişört/**/*.json"
+        },
+        "api/fns/tişört-navfirst.js": {
+            "includeFiles": "api/_files/key/tişört/0-keywords.json"
+        },
+        "api/fns/tişört-navsecond.js": {
+            "includeFiles": "api/_files/key/tişört/1-keywords.json"
+        },
+        "api/fns/hırka.js": {
+            "includeFiles": "api/_files/hırka/**/*.json"
+        },
+        "api/fns/hırka-navfirst.js": {
+            "includeFiles": "api/_files/key/hırka/0-keywords.json"
+        },
+        "api/fns/hırka-navsecond.js": {
+            "includeFiles": "api/_files/key/hırka/1-keywords.json"
+        }
+    }
+}
