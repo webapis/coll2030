@@ -216,7 +216,7 @@ export default class App extends React.Component {
 
 
 
-    var url = `${host}/${subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i') }/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
+    var url = `${host}/${subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ğ/g,'g') }/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
     debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) {
@@ -249,7 +249,7 @@ export default class App extends React.Component {
   }
 
   fetchNavKeywords(selectedNavIndex, subcategory,node) {
-    let subcat =subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i')
+    let subcat =subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ğ/g,'g')
     let host = ''
     let href = window.location.href
 

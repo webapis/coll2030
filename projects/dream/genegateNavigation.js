@@ -13,6 +13,20 @@
   await genNav({ node: 'dream', subcategory: 'tişört' })
   await genNav({ node: 'dream', subcategory: 'sweatshirt' })
   await genNav({ node: 'dream', subcategory: 'hırka' })
+
+
+  await genNav({ node: 'dream', subcategory: 'bluz' })
+  await genNav({ node: 'dream', subcategory: 'şort' })
+  await genNav({ node: 'dream', subcategory: 'ceket' })
+  await genNav({ node: 'dream', subcategory: 'tunik' })
+  await genNav({ node: 'dream', subcategory: 'tayt' })
+  await genNav({ node: 'dream', subcategory: 'yağmurluk' })
+  await genNav({ node: 'dream', subcategory: 'mont' })
+  await genNav({ node: 'dream', subcategory: 'trençkot' })
+
+  await genNav({ node: 'dream', subcategory: 'kaban' })
+  await genNav({ node: 'dream', subcategory: 'atlet' })
+
   process.exit(0)
 
 })()
