@@ -5,10 +5,10 @@
   console.log('--------------GEN NAV DATA STARTED-------------')
 
 
-  await genNav({ node: 'dream', subcategory: 'elbise' })
-  await genNav({ node: 'dream', subcategory: 'pantolon' })
-  await genNav({ node: 'dream', subcategory: 'etek' })
-  await genNav({ node: 'dream', subcategory: 'tulum' })
+  await genNav({ node: 'eight', subcategory: 'gömlek' })
+  await genNav({ node: 'eight', subcategory: 'tişört' })
+  await genNav({ node: 'eight', subcategory: 'sweatshirt' })
+  await genNav({ node: 'eight', subcategory: 'hırka' })
   process.exit(0)
 
 })()

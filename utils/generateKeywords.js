@@ -10,6 +10,12 @@
     await generateKeyword({ google_access_token, spreadsheetId, range: 'pantolon!A:J', node: 'dream', subcategory: 'pantolon' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:J', node: 'dream', subcategory: 'etek' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'tulum!A:J', node: 'dream', subcategory: 'tulum' })
+
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'tisort!A:J', node: 'eight', subcategory: 'tişört' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'hirka!A:J', node: 'eight', subcategory: 'hırka' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'gomlek!A:J', node: 'eight', subcategory: 'gömlek' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'sweatshirt!A:J', node: 'eight', subcategory: 'sweatshirt' })
+
     process.exit(0)
 
 })()
@@ -20,8 +26,11 @@ async function generateKeyword({ google_access_token, spreadsheetId, range, node
     const makeDir = require('make-dir');
 
     const { getSheetValues, appendSheetValues } = require('../google.sheet.js')
-    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range })
     let categoryItems = []
+
+   
+    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range })
+
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const keyword = value[0]
         const parentorchild = value[1]
@@ -33,11 +42,12 @@ async function generateKeyword({ google_access_token, spreadsheetId, range, node
         const group = value[7]
         const index = value[8]
         const groupid = value[9]
-        debugger
+       
         console.log('exactmatch...', exactmatch, keyword)
         categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid })
-        debugger
+
     }
+
     const data = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
 
     await makeDir(`projects/${node}/api/_files/nav/${subcategory}`)
@@ -45,5 +55,8 @@ async function generateKeyword({ google_access_token, spreadsheetId, range, node
         fs.unlinkSync(`projects/${node}/api/_files/nav/${subcategory}/keywords.json`)
     }
     fs.appendFileSync(`projects/${node}/api/_files/nav/${subcategory}/keywords.json`, JSON.stringify({ [subcategory]: data }))
+    console.log('subcategory',subcategory)
+
+  
   
 }
