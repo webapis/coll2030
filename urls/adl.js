@@ -17,6 +17,8 @@ const urls = [
     { url: 'https://www.adl.com.tr/kadin-atlet', subcategory: ['atlet'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.adl.com.tr/kadin-tayt', subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.adl.com.tr/kadin-sort', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
+
+
 ]
 
 module.exports={urls}
