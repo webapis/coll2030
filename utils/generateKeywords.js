@@ -11,10 +11,10 @@
     await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:J', node: 'dream', subcategory: 'etek' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'tulum!A:J', node: 'dream', subcategory: 'tulum' })
 
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'tisort!A:J', node: 'eight', subcategory: 'tişört' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'hirka!A:J', node: 'eight', subcategory: 'hırka' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'gomlek!A:J', node: 'eight', subcategory: 'gömlek' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'sweatshirt!A:J', node: 'eight', subcategory: 'sweatshirt' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'tisort!A:J', node: 'dream', subcategory: 'tişört' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'hirka!A:J', node: 'dream', subcategory: 'hırka' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'gomlek!A:J', node: 'dream', subcategory: 'gömlek' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'sweatshirt!A:J', node: 'dream', subcategory: 'sweatshirt' })
 
     process.exit(0)
 

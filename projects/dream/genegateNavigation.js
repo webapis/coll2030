@@ -9,6 +9,10 @@
   await genNav({ node: 'dream', subcategory: 'pantolon' })
   await genNav({ node: 'dream', subcategory: 'etek' })
   await genNav({ node: 'dream', subcategory: 'tulum' })
+  await genNav({ node: 'dream', subcategory: 'gömlek' })
+  await genNav({ node: 'dream', subcategory: 'tişört' })
+  await genNav({ node: 'dream', subcategory: 'sweatshirt' })
+  await genNav({ node: 'dream', subcategory: 'hırka' })
   process.exit(0)
 
 })()

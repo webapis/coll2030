@@ -211,7 +211,7 @@ export default class App extends React.Component {
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-      host = `https://${node}.vercel.app/api/fns`//'https://dream2022.netlify.app/.netlify/functions'
+      host ='https://dream2022.netlify.app/.netlify/functions' // `https://${node}.vercel.app/api/fns`
     }
 
 
@@ -256,7 +256,7 @@ export default class App extends React.Component {
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-      host = `https://${node}.vercel.app/api/fns` //'https://dream2022.netlify.app/.netlify/functions'
+      host ='https://dream2022.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
     }
 
     var url = ''
