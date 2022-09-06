@@ -257,6 +257,11 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: collected-data
+      - name: Download olddata artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: olddata
+          path: old-data
       - name: Decript data
         run: 'npm run decryptData'
       - name: relocateData
