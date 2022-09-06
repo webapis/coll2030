@@ -3,7 +3,9 @@ require('dotenv').config()
 
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
+const path = require('path')
 const { getSheetValues, appendSheetValues } = require('./google.sheet.js')
+const { walkSync } = require('./utils/walkSync')
 const makeDir = require('make-dir');
 const Apify = require('apify');
 
@@ -52,16 +54,16 @@ Apify.main(async () => {
             }
 
             const dataCollected = await handler(page, context)
-  if(dataCollected.length>0){
-    await productsDataset.pushData(dataCollected)
+            if (dataCollected.length > 0) {
+                await productsDataset.pushData(dataCollected)
 
-    process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
+                process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
 
-    console.log('total collected', process.env.dataLength)
-  } else{
-    console.log('unsuccessfull data collection')
-  }
-      
+                console.log('total collected', process.env.dataLength)
+            } else {
+                console.log('unsuccessfull data collection')
+            }
+
         } catch (error) {
             console.log('error----1', error)
         }
@@ -204,23 +206,41 @@ Apify.main(async () => {
                 for (let d of data) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                     await makeDir(`collected-data/${marka}/${project}/${subcategory}/${marka}`)
-                    const exists = fs.existsSync( `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+                    const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
                     if (exists) {
-                        console.log('exist+++++++++',`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
-                        debugger
-                        //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
+                       // console.log('exist+++++++++', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+
+                        const oldObject = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`))
+                        const newObject = d
+
+                        const priceChange = oldObject.priceNew === newObject.priceNew
+                        const titleChange = oldObject.title === newObject.title
+                        const linkChange = oldObject.link === newObject.link
+                        if (priceChange && titleChange && linkChange) {
+
+                        }
+                        else {
+                            console.log('product info changed')
+                            debugger
+                            //updata data
+                            fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+                            fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                        }
+
+
+
                         //  if (_.isEqual(obj, d) === false) {
-                        debugger
-                      //  fs.unlinkSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`)
-                       // fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+
+                        //  
+                        // fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
                         // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
                         // const origin =JSON.parse(data)
                         // const updated ={...origin,...d}
                         // fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
                         //   }
                     } else {
-                        console.log('first time',`projects/${project}/data/${marka}/${subcategory}/${id}.json` )
-                        debugger
+                     //   console.log('first time', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+
                         fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
 
                     }
@@ -228,11 +248,28 @@ Apify.main(async () => {
                 debugger
             }
         }
+        walkSync(`projects/dream/data/${marka}`, (filepath) => {
+            const filename = path.basename(filepath)
+
+            const matchfound = productItems.find(f => {
+                const storedImgUrl = f.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+     
+                return storedImgUrl === filename.replace('.json','')
+            })
+
+            if (matchfound === undefined) {
+                console.log('old value deleted')
+                debugger
+                fs.unlinkSync(filepath)
+            }
+          
+        })
+
     }
     else {
         console.log('UNSUCCESSFUL DATA COLLECTION.......')
     }
-    
+
     console.log('Crawl finished.');
 });
 
