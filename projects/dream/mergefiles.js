@@ -26,7 +26,7 @@ walkSync(path.join(process.cwd(), 'data'), async (filepath) => {
 
 
 })
-
+const uniqify = (array, key) => array.reduce((prev, curr) => prev.find(a => a[key] === curr[key]) ? prev : prev.push(curr) && prev, []);
 for (let o in obj) {
     const s = o.split('-').reverse()
     const marka = s[1]
@@ -45,7 +45,8 @@ for (let o in obj) {
     if (fs.existsSync(savePath)) {
         fs.unlinkSync(savePath)
     }
-    fs.writeFileSync(savePath, JSON.stringify(data))
+   const  uniquedata =uniqify(data,'imageUrl')
+    fs.writeFileSync(savePath, JSON.stringify(uniquedata))
     debugger
 
 }
