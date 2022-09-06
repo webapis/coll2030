@@ -10,7 +10,7 @@ debugger
 let obj = {}
 
 
-walkSync(path.join(process.cwd(), 'collected-data/filesToDelete'), async (filepath) => {
+walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
 
     try {
         const data = JSON.parse(fs.readFileSync(filepath))

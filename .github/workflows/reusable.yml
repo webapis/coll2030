@@ -52,11 +52,19 @@ jobs:
       - name: aggregation step
         id: collection
         run: node main.js
-      - name: Upload artifact
+      - name: Upload artifact collected
         uses: actions/upload-artifact@v3
         with:
           name: data
           path: collected-data/${{ inputs.marka }}
+      - name: Upload artifact to olddata
+        uses: actions/upload-artifact@v3
+        with:
+          name: olddata
+          path: old-data/${{ inputs.marka }}
+      - name: Display structure of uploaded files
+        run: ls -R
+        working-directory: collected-data
         
 
 

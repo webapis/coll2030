@@ -269,8 +269,8 @@ Apify.main(async () => {
 
         if (filesToDelete.length > 0) {
             console.log('filesToDelete.length',filesToDelete.length)
-                await makeDir(`collected-data/filesToDelete`)
-            fs.appendFileSync(`collected-data/filesToDelete/${marka}.json`, JSON.stringify(filesToDelete));
+                await makeDir(`old-data`)
+            fs.appendFileSync(`old-data/${marka}.json`, JSON.stringify(filesToDelete));
         }
 
     }
