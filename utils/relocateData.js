@@ -15,17 +15,23 @@ walkSync(path.join(process.cwd(), 'collected-data/filesToDelete'), async (filepa
     try {
         const data = JSON.parse(fs.readFileSync(filepath))
 
-        for(let d of data ){
-            fs.unlinkSync(d)
-            console.log('deleted----',d)
+        for (let d of data) {
+            if (fs.existsSync(d)) {
+                fs.unlinkSync(d)
+                console.log('deleted----', d)
+
+            } else {
+                console.log('file not found-----------------------', d)
+            }
+
             debugger
         }
-     
+
 
     } catch (error) {
-         console.log('filepath', filepath)
-        console.log('error', error)
-        debugger
+        console.log('file deletion error', error)
+
+        throw error
     }
 
 
@@ -44,8 +50,8 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
         const subcategory = patharr[1]
         const project = patharr[2]
         console.log('filepath', filepath)
-        await makeDir( `projects/${project}/data/${marka}/${subcategory}`)
-        
+        await makeDir(`projects/${project}/data/${marka}/${subcategory}`)
+
         const savePath = path.join(process.cwd(), `projects/${project}/data/${marka}/${subcategory}/${filename}`)
         const data = JSON.parse(fs.readFileSync(filepath))
         if (fs.existsSync(savePath)) {
@@ -54,7 +60,7 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
         fs.writeFileSync(savePath, JSON.stringify(data))
         debugger
     } catch (error) {
-         console.log('filepath', filepath)
+        console.log('filepath', filepath)
         console.log('error', error)
         debugger
     }
