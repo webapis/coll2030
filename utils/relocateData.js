@@ -8,6 +8,31 @@ console.log('--------------------------------------------------------------')
 
 debugger
 let obj = {}
+
+
+walkSync(path.join(process.cwd(), 'collected-data/filesToDelete'), async (filepath) => {
+
+    try {
+        const data = JSON.parse(fs.readFileSync(filepath))
+
+        for(let d of data ){
+            fs.unlinkSync(d)
+            console.log('deleted----',d)
+            debugger
+        }
+     
+
+    } catch (error) {
+         console.log('filepath', filepath)
+        console.log('error', error)
+        debugger
+    }
+
+
+})
+
+
+
 walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
     try {

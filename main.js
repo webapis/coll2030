@@ -208,7 +208,7 @@ Apify.main(async () => {
                     await makeDir(`collected-data/${marka}/${project}/${subcategory}/${marka}`)
                     const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
                     if (exists) {
-                       // console.log('exist+++++++++', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+                        // console.log('exist+++++++++', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
 
                         const oldObject = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`))
                         const newObject = d
@@ -239,7 +239,7 @@ Apify.main(async () => {
                         // fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
                         //   }
                     } else {
-                     //   console.log('first time', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+                        //   console.log('first time', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
 
                         fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
 
@@ -248,22 +248,29 @@ Apify.main(async () => {
                 debugger
             }
         }
+        const filesToDelete = []
         walkSync(`projects/dream/data/${marka}`, (filepath) => {
             const filename = path.basename(filepath)
 
             const matchfound = productItems.find(f => {
                 const storedImgUrl = f.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-     
-                return storedImgUrl === filename.replace('.json','')
+
+                return storedImgUrl === filename.replace('.json', '')
             })
 
             if (matchfound === undefined) {
                 console.log('old value deleted')
                 debugger
-                fs.unlinkSync(filepath)
+                filesToDelete.push(filepath)
+                //  fs.unlinkSync(filepath)
             }
-          
+
         })
+
+        if (filesToDelete.length > 0) {
+                await makeDir(`collected-data/filesToDelete`)
+            fs.appendFileSync(`collected-data/filesToDelete/${marka}.json`, JSON.stringify(filesToDelete));
+        }
 
     }
     else {
