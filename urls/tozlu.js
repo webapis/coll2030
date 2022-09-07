@@ -8,7 +8,7 @@ const urls = [
 
 
     { url: 'https://www.tozlu.com/TR/kadin-sweatshirt', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.tozlu.com/TR/kadin-hirka', subcategory: ['hırka'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.tozlu.com/TR/kadin-hirka', subcategory: ['elbise','hırka'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-bluz', subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-tshirt', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-gomlek', subcategory: ['bluz','gömlek'], category: 'üst-giyim', node: 'dream' },
