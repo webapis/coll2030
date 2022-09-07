@@ -5,27 +5,47 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { AppContext } from '../App';
+
 export default function SearchBox() {
 
 
 
   return (
-    <AppContext.Consumer>{({ toggleFilterDrawer,matchedesktop }) => {
+    <AppContext.Consumer>{({ toggleFilterDrawer, matchedesktop, selectedSubcategory, searchInputChanged, searchProduct, search,selectSubcategory }) => {
       return <Paper
         component="form"
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%' }}
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: !matchedesktop?'100%':'30%' }}
       >
 
         <InputBase
-          sx={{ ml: 1, flex: 1 }}
-          placeholder="Ürün ara"
-          inputProps={{ 'aria-label': 'search google maps' }}
+          sx={{ ml: 1, flex: 10 }}
+          placeholder={selectedSubcategory.subcategory.toUpperCase() + " ara".toUpperCase()}
+          type="search"
+          inputProps={{ 'aria-label': 'search google maps' }} onChange={(e)=>{
+          const {value}=e.target
+          if(value===''){
+            // const {subcategory, totalSubcategory, node}= selectedSubcategory
+            // 
+            // selectSubcategory({subcategory, totalSubcategory, node})
+          } else{
+
+            searchInputChanged(e)
+          } 
+       
+          
+          }} value={search} onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              searchProduct()
+            } else{
+              
+            }
+          }}
         />
 
-        <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+        <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={searchProduct} >
           <SearchIcon />
         </IconButton>
-        {!matchedesktop &&  <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
+        {!matchedesktop && <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
           <FilterListIcon />
         </IconButton>}
 
