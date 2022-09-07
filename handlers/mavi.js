@@ -28,7 +28,7 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'mavi',
                 category:_category,
-                subcategory:_subcategory,
+              //  subcategory:_subcategory,
                 node: _node
             }
         })
@@ -56,7 +56,14 @@ async function handler(page, context) {
         }
 
         console.log('data length_____', data.length, 'url:', url)
-        return data
+        const withSub = data.map(m => {
+            const { title } = m
+            const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+            const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+            debugger
+            return { ...m, subcategory: subcat,title:title.replace(/İ/g,'i').toLowerCase() }
+        })
+        return withSub
 
 
     }

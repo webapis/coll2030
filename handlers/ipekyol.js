@@ -21,7 +21,7 @@ async function handler(page, context) {
             const longImgUrl =  item.querySelector('[data-image-src]') && item.querySelector('[data-image-src]').getAttribute('data-image-src')
             const imageUrlshort = longImgUrl&& longImgUrl.substring(longImgUrl.indexOf('https://img2-ipekyol.mncdn.com/mnresize/')+40)
             return {
-                title: 'ipekyol '+ item.querySelector('.prd-name').innerText,
+                title: 'ipekyol '+ item.querySelector('.prd-name').innerText.replace(/İ/g,'i').toLowerCase(),
         
                 priceNew,//:priceNew.replace('.','').replace(',00','').trim(),
   
@@ -31,7 +31,7 @@ async function handler(page, context) {
                 timestamp: Date.now(),
       
                 marka: 'ipekyol',
-                subcategory:_subcategory,
+             //   subcategory:_subcategory,
                 category:_category,
                 node: _node
 
@@ -62,7 +62,14 @@ async function handler(page, context) {
     }
 
     console.log('data length_____', data.length, 'url:', url)
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page, param) {

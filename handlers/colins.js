@@ -18,21 +18,27 @@ async function handler(page, context) {
             const link = productCard.querySelector('.lazy-image.product-name.track-link').href
 
             return {
-                title:'colins '+title,
+                title:'colins '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew:priceNew,//.replace(',','.'),
                 imageUrl: img.substring(img.indexOf('https://img-colinstr.mncdn.com/mnresize/')+40) ,
                 link:link.substring(link.indexOf('https://www.colins.com.tr/')+26),
                 timestamp: Date.now(),
                 marka: 'colins',
-                subcategory: _subcategory,
+              //  subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
         })
     }, subcategory, category,node)
     console.log('data length_____', data.length, 'url:', url)
-    return data
-
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 

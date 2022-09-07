@@ -17,13 +17,13 @@ debugger
             const link = product.url
   
             return {
-                title:'xint '+title,
+                title:'xint '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew:formatMoney(priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),
                 imageUrl: longImage.substring(longImage.indexOf('https://www.xint.com.tr/') + 24),
                 link,
                 timestamp: Date.now(),
                 marka: 'xint',
-                subcategory,
+               // subcategory,
                 category,
                 node
             }
@@ -32,9 +32,14 @@ debugger
 
     console.log('data length_____', data.length, 'url:', url)
 
-    debugger;
-
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

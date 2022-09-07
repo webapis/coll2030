@@ -23,13 +23,13 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img-incommerce-yargici.mncdn.com/") + 41)
             const title = productCard.querySelector('.product-box-zoom-image').alt
             return {
-                title: 'yargici ' + title,
+                title: 'yargici ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'yargici',
-                subcategory: _subcategory,
+                //subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -43,9 +43,14 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-
-    debugger;
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

@@ -19,14 +19,14 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://image.machka.com.tr/unsafe/660x0/10.116.1.50:8000//Machka/products/') + 75)
 
             return {
-                title: 'machka ' + item.querySelector('.ems-prd-title').innerText,
+                title: 'machka ' + item.querySelector('.ems-prd-title').innerText.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//: priceNew.replace('.', '').replace(',00', '').trim(),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'machka',
                 category: _category,
-                subcategory: _subcategory,
+             //   subcategory: _subcategory,
                 node: _node
             }
         })
@@ -65,7 +65,14 @@ async function handler(page, context) {
     }
 
     console.log('data length_____', data.length, 'url:', url)
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 
 
 }

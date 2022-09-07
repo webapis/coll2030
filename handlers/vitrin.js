@@ -17,13 +17,13 @@ debugger
             const link = product.url
   
             return {
-                title:'vitrin '+title,
+                title:'vitrin '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: longImage.substring(longImage.indexOf('https://www.vitrin.com.tr') + 25),
                 link,
                 timestamp: Date.now(),
                 marka: 'vitrin',
-                subcategory,
+               // subcategory,
                 category,
                 node
             }
@@ -31,10 +31,14 @@ debugger
 
 
     console.log('data length_____', data.length, 'url:', url)
-
-    debugger;
-
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

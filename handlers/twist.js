@@ -16,13 +16,13 @@ await autoScroll(page)
             const title =  productCard.querySelector('.prd-name').textContent.replace(/\n/g, '').trim()
 
             return {
-                title: 'twist '+title,
+                title: 'twist '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl:imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'twist',
-                subcategory: _subcategory,
+                //subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -32,8 +32,14 @@ await autoScroll(page)
     console.log('data length_____', data.length, 'url:', url)
 
 
-    debugger;
-    return data 
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 

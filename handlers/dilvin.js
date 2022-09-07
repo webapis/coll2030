@@ -16,13 +16,13 @@ async function handler(page, context) {
             const link = productCard.querySelector('.dl-event')? productCard.querySelector('.dl-event').href:productCard.querySelector('.image-hover.hover-nav a').href
 
             return {
-                title: 'dilvin '+title,
+                title: 'dilvin '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace(',','.'),
                 imageUrl: img.substring(img.indexOf('https://kvyfm6d9dll6.merlincdn.net/productimages/')+49),
                 link:link.substring(link.indexOf('https://www.dilvin.com.tr/')+26),
                 timestamp: Date.now(),
                 marka: 'dilvin',
-                subcategory: _subcategory,
+               // subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -32,8 +32,14 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
     debugger;
-
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+    
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 async function autoScroll(page) {
     await page.evaluate(async () => {

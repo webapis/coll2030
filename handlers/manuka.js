@@ -33,13 +33,13 @@ async function handler(page, context) {
         const link = product.url
 
         return {
-            title: 'manuka ' + title.split(' ').map(m => m.charAt(0).toUpperCase() + m.slice(1)).join(' '),
+            title: 'manuka ' + title.replace(/İ/g,'i').toLowerCase().split(' ').map(m => m.charAt(0).toUpperCase() + m.slice(1)).join(' '),
             priceNew:formatMoney(priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),
             imageUrl: longImage.substring(longImage.indexOf('https://www.manuka.com.tr') + 25),
             link,
             timestamp: Date.now(),
             marka: 'manuka',
-            subcategory,
+            //subcategory,
             category,
             node
         }
@@ -50,7 +50,14 @@ async function handler(page, context) {
 
     debugger;
 
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

@@ -3,12 +3,15 @@ require('dotenv').config()
 
 const { getGoogleToken } = require('./google/google.oauth')
 const fs = require('fs')
+const path = require('path')
 const { getSheetValues, appendSheetValues } = require('./google.sheet.js')
+const { walkSync } = require('./utils/walkSync')
 const makeDir = require('make-dir');
 const Apify = require('apify');
 
 var _ = require('lodash');
 Apify.main(async () => {
+
     await Apify.openDataset();
 
     const { utils: { log } } = Apify;
@@ -24,45 +27,49 @@ Apify.main(async () => {
 
     }
 
-
-
     const productsDataset = await Apify.openDataset(`products`);
-
-
 
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
+        try {
 
-        const { page, request: { userData: { start, subcategory, category, opts, node } } } = context
 
-        const marka = process.env.marka
-        const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
-        const { pageUrls, productCount } = await getUrls(page)
-        process.env.productCount = productCount
+            const { page, request: { userData: { start, subcategory, category, opts, node } } } = context
 
-        if (start) {
-            let order = 1
-            for (let url of pageUrls) {
-                if (pageUrls.length === order) {
-                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category, opts, node } })
-                } else {
-                    requestQueue.addRequest({ url, userData: { start: false, subcategory, category, opts, node } })
+            const marka = process.env.marka
+            const { handler, getUrls } = require(`./handlers/${process.env.marka}`);
+            const { pageUrls, productCount } = await getUrls(page)
+            process.env.productCount = productCount
+
+            if (start) {
+                let order = 1
+                for (let url of pageUrls) {
+                    if (pageUrls.length === order) {
+                        requestQueue.addRequest({ url, userData: { start: false, subcategory, category, opts, node } })
+                    } else {
+                        requestQueue.addRequest({ url, userData: { start: false, subcategory, category, opts, node } })
+                    }
+                    ++order;
                 }
-                ++order;
             }
+
+            const dataCollected = await handler(page, context)
+            if (dataCollected.length > 0) {
+                await productsDataset.pushData(dataCollected)
+
+                process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
+
+                console.log('total collected', process.env.dataLength)
+            } else {
+                console.log('unsuccessfull data collection')
+            }
+
+        } catch (error) {
+            console.log('error----1', error)
         }
 
-        const dataCollected = await handler(page, context)
-
-
-
-        await productsDataset.pushData(dataCollected)
-
-        process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
-
-        console.log('total collected', process.env.dataLength)
     }
-
+    console.log('process.env.MAX_CONCURRENCY', process.env.MAX_CONCURRENCY)
     const crawler = new Apify.PuppeteerCrawler({
         // requestList,
         requestQueue,
@@ -85,7 +92,9 @@ Apify.main(async () => {
                     '--disable-low-res-tiling',
                     '--disable-skia-runtime-opts',
                     '--disable-yuv420-biplanar',
-                    '--disable-site-isolation-trials'
+                    '--disable-site-isolation-trials',
+                    '--disable-dev-shm-usage'
+                    // '--shm-size=3gb'
 
                 ]
             }
@@ -195,34 +204,80 @@ Apify.main(async () => {
                 debugger
                 const data = groupByProject[project]
                 for (let d of data) {
-                    const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/,'').replace(/\[|\]|\,|&|=|:/g,'')
-                    await makeDir(`projects/${project}/data/${marka}/${subcategory}/${marka}`)
-                    const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
+                    const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+                    await makeDir(`collected-data/${marka}/${project}/${subcategory}/${marka}`)
+                    const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
                     if (exists) {
-                        debugger
-                     //   const obj = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`))
-                      //  if (_.isEqual(obj, d) === false) {
+                        // console.log('exist+++++++++', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+
+                        const oldObject = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`))
+                        const newObject = d
+
+                        const priceChange = oldObject.priceNew === newObject.priceNew
+                        const titleChange = oldObject.title === newObject.title
+                        const linkChange = oldObject.link === newObject.link
+                        if (priceChange && titleChange && linkChange) {
+
+                        }
+                        else {
+                            console.log('product info changed')
                             debugger
-                            fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`)
-                            fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
-                            // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
-                            // const origin =JSON.parse(data)
-                            // const updated ={...origin,...d}
-                            // fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
-                     //   }
+                            //updata data
+                            fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+                            fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                        }
+
+
+
+                        //  if (_.isEqual(obj, d) === false) {
+
+                        //  
+                        // fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+                        // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
+                        // const origin =JSON.parse(data)
+                        // const updated ={...origin,...d}
+                        // fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
+                        //   }
                     } else {
-                        debugger
-                        fs.appendFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
-                
+                        //   console.log('first time', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+
+                        fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
+
                     }
                 }
                 debugger
             }
         }
+        const filesToDelete = []
+        walkSync(`projects/dream/data/${marka}`, (filepath) => {
+            const filename = path.basename(filepath)
+
+            const matchfound = productItems.find(f => {
+                const storedImgUrl = f.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+
+                return storedImgUrl === filename.replace('.json', '')
+            })
+
+            if (matchfound === undefined) {
+                console.log('old value deleted')
+                debugger
+                filesToDelete.push(filepath)
+                //  fs.unlinkSync(filepath)
+            }
+
+        })
+
+        if (filesToDelete.length > 0) {
+            console.log('filesToDelete.length',filesToDelete.length)
+                await makeDir(`old-data/${marka}`)
+            fs.appendFileSync(`old-data/${marka}/olddata.json`, JSON.stringify(filesToDelete));
+        }
+
     }
     else {
         console.log('UNSUCCESSFUL DATA COLLECTION.......')
     }
+
     console.log('Crawl finished.');
 });
 

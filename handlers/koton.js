@@ -13,13 +13,13 @@ async function handler(page, context) {
             const longLink = productCard.querySelector('.js-product-wrapper.product-item a').href
             const shortLink = longLink.substring(longLink.indexOf('https://www.koton.com/') + 22)
             return {
-                title: 'koton ' + productCard.querySelector('img').alt,
+                title: 'koton ' + productCard.querySelector('img').alt.replace(/İ/g,'i').toLowerCase(),
                 priceNew: newPrice.trim(),//: newPrice.replace(',', '.').trim(),
                 imageUrl: imageUrlshort,
                 link: shortLink,
                 timestamp: Date.now(),
                 marka: 'koton',
-                subcategory: _subcategory,
+               // subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -29,7 +29,14 @@ async function handler(page, context) {
     debugger;
 
     console.log('data length_____', data.length, 'url:', url)
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 async function getUrls(page) {
 

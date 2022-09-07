@@ -23,7 +23,7 @@ async function handler(page, context) {
 
             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf("https://cdn.sorsware.com/") + 25)
             return {
-                title: 'oxxo ' + title,
+                title: 'oxxo ' + title.replace(/İ/g,'i').toLowerCase(),
 
                 priceNew,
 
@@ -33,7 +33,7 @@ async function handler(page, context) {
                 timestamp: Date.now(),
 
                 marka: 'oxxo',
-                subcategory: _subcategory,
+             //   subcategory: _subcategory,
                 category: _category,
                 node: _node
 
@@ -51,7 +51,14 @@ async function handler(page, context) {
 
 
     debugger;
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

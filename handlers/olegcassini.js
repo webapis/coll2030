@@ -24,7 +24,7 @@ async function handler(page, context) {
              const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.olegcassini.com.tr/") + 31)
             const title = productCard.querySelector('.proRowName a[title]').getAttribute('title')
             return {
-                title: 'olegcassini ' + title + (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
+                title: 'olegcassini ' + title.replace(/İ/g,'i').toLowerCase() + (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
 
                 priceNew,
 
@@ -34,7 +34,7 @@ async function handler(page, context) {
                 timestamp: Date.now(),
 
                 marka: 'olegcassini',
-                subcategory: _subcategory,
+             //   subcategory: _subcategory,
                 category: _category,
                 node: _node
 
@@ -52,7 +52,14 @@ async function handler(page, context) {
 
 
     debugger;
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

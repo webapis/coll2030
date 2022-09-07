@@ -69,6 +69,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: hm
+      maxconcurrency: '1'
     secrets: inherit
   adidas_job:
     uses: ./.github/workflows/reusable.yml
@@ -141,7 +142,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: quzu
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   saygigiyim_job:
     uses: ./.github/workflows/reusable.yml
@@ -252,12 +253,20 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: data
-          path: projects/dream/data
+          path: collected-data
       - name: Display structure of downloaded files
         run: ls -R
-        working-directory: projects
+        working-directory: collected-data
+      - name: Download olddata artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: olddata
+          path: old-data
       - name: Decript data
         run: 'npm run decryptData'
+      - name: relocateData
+        id: relocateata
+        run: node utils/relocateData.js
       - name: Commit report
         run: |
           git config --global user.name 'Serdar Ashirov'

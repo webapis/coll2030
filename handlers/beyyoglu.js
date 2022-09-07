@@ -16,13 +16,13 @@ async function handler(page, context) {
             const link = productCard.querySelector('.product-item__image.js-product-item-image a').href
 
             return {
-                title: 'beyyoglu '+ title,
+                title: 'beyyoglu '+ title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: img.substring(img.indexOf('https://beyyoglu.akinoncdn.com/products/') + 40),
                 link: link.substring(link.indexOf('https://www.beyyoglu.com/') + 25),
                 timestamp: Date.now(),
                 marka: 'beyyoglu',
-                subcategory: _subcategory,
+             //   subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -43,7 +43,14 @@ async function handler(page, context) {
     }
     debugger;
     console.log('data length_____', data.length, 'url:', url)
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 async function autoScroll(page) {
     await page.evaluate(async () => {

@@ -40,7 +40,7 @@ async function handler(page, context) {
 
     }).flat().map(m => {
         return {
-            title: m.title, priceNew: m.priceNew, imageUrl: m.imageUrl, link: m.link, category, subcategory, timestamp: Date.now(),
+            title: m.title, priceNew: m.priceNew, imageUrl: m.imageUrl, link: m.link, category, timestamp: Date.now(),
             marka: "zara",node
         }
     })
@@ -49,9 +49,14 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-
-    debugger;
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat,title:title.replace(/İ/g,'i').toLowerCase() }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

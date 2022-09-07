@@ -24,13 +24,13 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn2.sorsware.com/") + 26)
             const title = productCard.querySelector("img[data-src]").alt
             return {
-                title: 'addax ' + title,
+                title: 'addax ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'addax',
-                subcategory: _subcategory,
+               // subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -44,9 +44,14 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-
-    debugger;
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+     
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

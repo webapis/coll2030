@@ -17,13 +17,13 @@ async function handler(page, context) {
             const longImgUrl = obj.dimension19
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://file-penti.mncdn.com/mnresize/") + 38)
             return {
-                title: 'penti '+ obj.name,
+                title: 'penti '+ obj.name.replace(/İ/g,'i').toLowerCase(),
                 priceNew: obj.price,
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'penti',
-                subcategory: _subcategory,
+                //subcategory: _subcategory,
                 category: _category,
                 node: _node
 
@@ -36,7 +36,14 @@ async function handler(page, context) {
 
     debugger;
 
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

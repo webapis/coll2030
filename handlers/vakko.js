@@ -18,7 +18,7 @@ debugger;
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://vakko.akinoncdn.com/products/") + 37)
             const title = brand + ' ' + prodName
             return {
-                title:'vakko '+title,
+                title:'vakko '+title.replace(/İ/g,'i').toLowerCase(),
 
                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
 
@@ -28,7 +28,7 @@ debugger;
                 timestamp: Date.now(),
 
                 marka: 'vakko',
-                subcategory: _opts ? _opts.find((f) => title.includes(f)).replace('ELBİSE','ELBISE').toLowerCase() : _subcategory,
+              //  subcategory: _opts ? _opts.find((f) => title.includes(f)).replace('ELBİSE','ELBISE').toLowerCase() : _subcategory,
                 category: _category,
                 node: _node
 
@@ -40,9 +40,14 @@ debugger;
 
     console.log('data length_____', data.length, 'url:', url)
 
-
-    debugger;
-    return data
+    const withSub = data.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {

@@ -18,13 +18,13 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://lmb-adl.akinoncdn.com/products/') + 39)
             debugger;
             return {
-                title: 'adl ' + title,
+                title: 'adl ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'adl',
-                subcategory: _subcategory,
+              //  subcategory: _subcategory,
                 category: _category,
                 node: _node
             }
@@ -35,9 +35,18 @@ async function handler(page, context) {
 
 
 
-    return data.map((m) => {
+    const formatprice= data.map((m) => {
         return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
     })
+
+    const withSub = formatprice.map(m => {
+        const { title } = m
+        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
+        debugger
+        return { ...m, subcategory: subcat }
+    })
+    return withSub
 }
 
 async function getUrls(page) {
