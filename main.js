@@ -216,7 +216,8 @@ Apify.main(async () => {
                         const priceChange = oldObject.priceNew === newObject.priceNew
                         const titleChange = oldObject.title === newObject.title
                         const linkChange = oldObject.link === newObject.link
-                        if (priceChange && titleChange && linkChange) {
+                        const subcategoryChange =oldObject.subcategory===newObject.subcategory
+                        if (priceChange && titleChange && linkChange || subcategoryChange) {
 
                         }
                         else {
