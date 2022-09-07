@@ -9,7 +9,7 @@ console.log('--------------------------------------------------------------')
 debugger
 let obj = {}
 
-
+// delete old data
 walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
 
     try {
@@ -19,7 +19,6 @@ walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
             if (fs.existsSync(d)) {
                 fs.unlinkSync(d)
                 console.log('deleted----', d)
-
             } else {
                 console.log('file not found-----------------------', d)
             }
@@ -27,18 +26,15 @@ walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
             debugger
         }
 
-
     } catch (error) {
         console.log('file deletion error', error)
 
         throw error
     }
-
-
 })
 
 
-
+// add newdata
 walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
     try {
@@ -68,28 +64,33 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
 })
 
+// count all products data 
 
 
-// for (let o in obj) {
-//     const s = o.split('-').reverse()
-//     const marka = s[0]
-//     const subcategory = s[1]
-//     //  const project = s[4]
-//     const data = obj[o]
-//     // console.log('s', s)
-//     // console.log('data', data.length)
-//     // console.log('marka', marka)
-//     // console.log('subcategory', subcategory)
-//     // console.log('project', project)
-//     debugger
-//     const savePath = path.join(process.cwd(), `api/_files/data/${marka}/${subcategory}/${marka}.json`)
-//     makeDir.sync(path.dirname(savePath))
-//     // console.log('savePath', savePath)
-//     if (fs.existsSync(savePath)) {
-//         fs.unlinkSync(savePath)
-//     }
-//     fs.writeFileSync(savePath, JSON.stringify(data))
-//     debugger
+let total = 0
+const date = new Date()
+walkSync(path.join(process.cwd(), `projects/dream/data`), async () => {
 
-// }
+    try {
+        total = total + 1
+  
 
+    } catch (error) {
+        console.log('file deletion error', error)
+debugger
+        throw error
+    }
+})
+const savePatha = path.join(process.cwd(), `projects/trends/src/total-products.json`)
+if (fs.existsSync(savePatha)) {
+debugger
+    let data = JSON.parse(fs.readFileSync(savePatha,{encoding:'utf-8'}))
+   
+    //fs.unlinkSync(savePath)
+
+    fs.writeFileSync(savePatha, JSON.stringify([...data,{date, total }]))
+    debugger
+} else {
+    fs.writeFileSync(savePatha, JSON.stringify([{ date, total }]))
+    debugger
+}
