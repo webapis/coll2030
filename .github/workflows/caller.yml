@@ -11,6 +11,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: defacto
+      maxconcurrency: '10'
     secrets: inherit
   koton_job:
     uses: ./.github/workflows/reusable.yml

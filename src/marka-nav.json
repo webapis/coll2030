@@ -1,1 +1,220 @@
-[{"nav":{"totalByMarka":1,"markas":{"adl":{"totalByCatory":419,"categories":{"üst-giyim":{"totalBySubcategory":419,"subcategories":{"elbise":{"count":419}}}}},"baqa":{"totalByCatory":62,"categories":{"üst-giyim":{"totalBySubcategory":62,"subcategories":{"elbise":{"count":62}}}}},"beymen":{"totalByCatory":2251,"categories":{"üst-giyim":{"totalBySubcategory":2251,"subcategories":{"elbise":{"count":2251}}}}},"beyyoglu":{"totalByCatory":143,"categories":{"üst-giyim":{"totalBySubcategory":143,"subcategories":{"elbise":{"count":143}}}}},"colins":{"totalByCatory":85,"categories":{"üst-giyim":{"totalBySubcategory":85,"subcategories":{"elbise":{"count":85}}}}},"defacto":{"totalByCatory":633,"categories":{"üst-giyim":{"totalBySubcategory":633,"subcategories":{"elbise":{"count":633}}}}},"dilvin":{"totalByCatory":118,"categories":{"üst-giyim":{"totalBySubcategory":118,"subcategories":{"elbise":{"count":118}}}}},"hm":{"totalByCatory":760,"categories":{"üst-giyim":{"totalBySubcategory":760,"subcategories":{"elbise":{"count":760}}}}},"ipekyol":{"totalByCatory":223,"categories":{"üst-giyim":{"totalBySubcategory":223,"subcategories":{"elbise":{"count":223}}}}},"koton":{"totalByCatory":2862,"categories":{"üst-giyim":{"totalBySubcategory":2862,"subcategories":{"elbise":{"count":2862}}}}},"lcwaikiki":{"totalByCatory":3075,"categories":{"üst-giyim":{"totalBySubcategory":3075,"subcategories":{"elbise":{"count":3075}}}}},"machka":{"totalByCatory":135,"categories":{"üst-giyim":{"totalBySubcategory":135,"subcategories":{"elbise":{"count":135}}}}},"roman":{"totalByCatory":160,"categories":{"üst-giyim":{"totalBySubcategory":160,"subcategories":{"elbise":{"count":160}}}}},"twist":{"totalByCatory":91,"categories":{"üst-giyim":{"totalBySubcategory":91,"subcategories":{"elbise":{"count":91}}}}},"vakko":{"totalByCatory":184,"categories":{"üst-giyim":{"totalBySubcategory":184,"subcategories":{"elbise":{"count":164},"tulum":{"count":20}}}}},"zara":{"totalByCatory":547,"categories":{"üst-giyim":{"totalBySubcategory":547,"subcategories":{"elbise":{"count":547}}}}}}}}]
+[
+    {
+        "nav": {
+            "totalByMarka": 1,
+            "markas": {
+                "adl": {
+                    "totalByCatory": 419,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 419,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 419
+                                }
+                            }
+                        }
+                    }
+                },
+                "baqa": {
+                    "totalByCatory": 62,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 62,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 62
+                                }
+                            }
+                        }
+                    }
+                },
+                "beymen": {
+                    "totalByCatory": 2251,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 2251,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 2251
+                                }
+                            }
+                        }
+                    }
+                },
+                "beyyoglu": {
+                    "totalByCatory": 143,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 143,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 143
+                                }
+                            }
+                        }
+                    }
+                },
+                "colins": {
+                    "totalByCatory": 85,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 85,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 85
+                                }
+                            }
+                        }
+                    }
+                },
+                "defacto": {
+                    "totalByCatory": 633,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 633,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 633
+                                }
+                            }
+                        }
+                    }
+                },
+                "dilvin": {
+                    "totalByCatory": 118,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 118,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 118
+                                }
+                            }
+                        }
+                    }
+                },
+                "hm": {
+                    "totalByCatory": 760,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 760,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 760
+                                }
+                            }
+                        }
+                    }
+                },
+                "ipekyol": {
+                    "totalByCatory": 223,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 223,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 223
+                                }
+                            }
+                        }
+                    }
+                },
+                "koton": {
+                    "totalByCatory": 2862,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 2862,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 2862
+                                }
+                            }
+                        }
+                    }
+                },
+                "lcwaikiki": {
+                    "totalByCatory": 3075,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 3075,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 3075
+                                }
+                            }
+                        }
+                    }
+                },
+                "machka": {
+                    "totalByCatory": 135,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 135,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 135
+                                }
+                            }
+                        }
+                    }
+                },
+                "roman": {
+                    "totalByCatory": 160,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 160,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 160
+                                }
+                            }
+                        }
+                    }
+                },
+                "twist": {
+                    "totalByCatory": 91,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 91,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 91
+                                }
+                            }
+                        }
+                    }
+                },
+                "vakko": {
+                    "totalByCatory": 184,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 184,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 164
+                                },
+                                "tulum": {
+                                    "count": 20
+                                }
+                            }
+                        }
+                    }
+                },
+                "zara": {
+                    "totalByCatory": 547,
+                    "categories": {
+                        "üst-giyim": {
+                            "totalBySubcategory": 547,
+                            "subcategories": {
+                                "elbise": {
+                                    "count": 547
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
