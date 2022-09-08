@@ -258,6 +258,7 @@ Apify.main(async () => {
         debugger
         fs.appendFileSync(`collected-data/${marka}/dream/${marka}/data.json`, JSON.stringify(collectedData));
         debugger
+        
         walkSync(`projects/dream/data/${marka}`, (filepath) => {
             const filename = path.basename(filepath)
 

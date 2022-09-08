@@ -49,6 +49,7 @@ jobs:
         run: ls -R
         working-directory: collected-data
       - name: Download olddata artifact
+        continue-on-error: true
         uses: actions/download-artifact@v3
         with:
           name: olddata

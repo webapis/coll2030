@@ -55,6 +55,10 @@ function generateBrendReport() {
         const marka = fileName[9]
         console.log('marka...',marka)
         debugger
+        if(    markas[marka] ===undefined){
+
+            markas[marka] = { data: { [date]: 0 } } 
+        }
         markas[marka].data[date] = markas[marka].data[date] + 1
 
 
