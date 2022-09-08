@@ -11,27 +11,29 @@ debugger
 let obj = {}
 
 // delete old data
-if(fs.existsSync(path.join(process.cwd(), 'old-data') )){
+const olddataexits =fs.existsSync(path.join(process.cwd(), 'old-data') )
+debugger
+if(fs.existsSync(path.join(process.cwd(), 'old-data') ) ){
     walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
-
+debugger
         try {
             const data = JSON.parse(fs.readFileSync(filepath))
     
             for (let d of data) {
+                debugger
                 if (fs.existsSync(d)) {
+                    debugger
                     fs.unlinkSync(d)
                     console.log('deleted----', d)
                 } else {
                     console.log('file not found-----------------------', d)
                 }
-    
-           
             }
     
         } catch (error) {
             console.log('file deletion error', error)
-    
-            throw error
+    debugger
+        //    throw error
         }
     })
 }
@@ -48,7 +50,7 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
         const marka = patharr[2]
 
 
-      
+      debugger
         for(let d of collectedData){
             const {imageUrl,subcategory }=d
       
@@ -57,8 +59,9 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
             const fileName =imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
       
             const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
-   
+   debugger
             fs.writeFileSync(savePath, JSON.stringify(d))
+            debugger
        
         }
 
