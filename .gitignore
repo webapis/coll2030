@@ -37,4 +37,4 @@ projects/**/api/_files/key/**/*.json
 projects/**/api/_files/data/**/*.json
 
 collected-data 
-old-data
+old-data/*
