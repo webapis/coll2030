@@ -21,6 +21,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: lcwaikiki
+      maxconcurrency: '10'
   ipekyol_job:
     uses: ./.github/workflows/reusable.yml
     with:

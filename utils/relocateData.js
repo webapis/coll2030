@@ -24,7 +24,7 @@ walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
                 console.log('file not found-----------------------', d)
             }
 
-            debugger
+       
         }
 
     } catch (error) {
@@ -39,23 +39,27 @@ walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
 walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
     try {
-
         const dirName = path.dirname(filepath)
-        const filename = path.basename(filepath)
+        const collectedData = JSON.parse(fs.readFileSync(filepath,{encoding:'utf-8'}))
         const patharr = dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-').reverse()
-        const marka = patharr[0]
-        const subcategory = patharr[1]
-        const project = patharr[2]
-        console.log('filepath', filepath)
-        await makeDir(`projects/${project}/data/${marka}/${subcategory}`)
+        const marka = patharr[2]
 
-        const savePath = path.join(process.cwd(), `projects/${project}/data/${marka}/${subcategory}/${filename}`)
-        const data = JSON.parse(fs.readFileSync(filepath))
-        if (fs.existsSync(savePath)) {
-            fs.unlinkSync(savePath)
+        debugger;
+      
+        for(let d of collectedData){
+            const {imageUrl,subcategory }=d
+            debugger
+             makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
+            debugger
+            const fileName =imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+            debugger
+            const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
+            debugger
+            fs.writeFileSync(savePath, JSON.stringify(d))
+            debugger
         }
-        fs.writeFileSync(savePath, JSON.stringify(data))
-        debugger
+debugger
+
     } catch (error) {
         console.log('filepath', filepath)
         console.log('error', error)
