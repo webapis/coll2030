@@ -1,13 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Bar from './Bar';
 import reportWebVitals from './reportWebVitals';
+import data from './total-products.json'
+import brendReport from './total-markas.json'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const mapBrendReport = Object.entries(brendReport).map(m => {
+  const marka = m[0]
+  const data = Object.values(m[1]).map((b) => {
+    return Object.entries(b).map(l => { return { date: l[0], total: l[1] } })
+  })[0]
+  return { marka, data }
+})
+debugger
 root.render(
   <React.StrictMode>
-    <App />
+    <div style={{width:500}}>
+    <Bar data={data}  />
+    </div>
+   
+    {mapBrendReport.map((m,i)=>{
+      const {marka,data}=m
+      return <div  style={{width:500}}>
+        {marka}
+        <Bar data ={data} id={i}/>
+      </div>
+    })}
   </React.StrictMode>
 );
 

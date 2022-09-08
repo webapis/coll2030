@@ -25,7 +25,7 @@ import {  Chart,
   Tooltip,
   SubTitle} from 'chart.js'
 
-  import data from './total-products.json'
+
   Chart.register(
     ArcElement,
     LineElement,
@@ -53,7 +53,7 @@ import {  Chart,
     SubTitle
   );
 
-function App() {
+function Bar(props) {
   const inputEl = useRef(null);
 
 useEffect(()=>{
@@ -64,7 +64,7 @@ const myChart= new Chart(inputEl.current, {
         //labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: '# of Votes',
-            data: data.map(d=>{return {x:d.date,y:d.total}}),
+            data: props. data.map(d=>{return {x:d.date,y:d.total}}),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 // 'rgba(54, 162, 235, 0.2)',
@@ -103,12 +103,12 @@ return ()=> {
 },[])
 
   return (
-    <div className="App" style={{width:500,height:200}}>
-     App
+    <div className="App" >
+ 
 
-     <canvas  ref={inputEl} id="myChart" width="400" height="400" ></canvas>
+     <canvas  ref={inputEl} id={props.id} width="400" height="400" ></canvas>
     </div>
   );
 }
 
-export default App;
+export default Bar;

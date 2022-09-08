@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
+const {generateBrendReport}=require('./generateBrendReport')
 console.log('--------------------------------------------------------------')
 
 debugger
@@ -68,7 +69,7 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
 
 let total = 0
-const date = new Date()
+const date = new Date().toISOString()
 walkSync(path.join(process.cwd(), `projects/dream/data`), async () => {
 
     try {
@@ -94,3 +95,7 @@ debugger
     fs.writeFileSync(savePatha, JSON.stringify([{ date, total }]))
     debugger
 }
+
+//countAll products by brand
+
+generateBrendReport()
