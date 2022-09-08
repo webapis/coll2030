@@ -11,28 +11,28 @@ debugger
 let obj = {}
 
 // delete old data
-// walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
+walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
 
-//     try {
-//         const data = JSON.parse(fs.readFileSync(filepath))
+    try {
+        const data = JSON.parse(fs.readFileSync(filepath))
 
-//         for (let d of data) {
-//             if (fs.existsSync(d)) {
-//                 fs.unlinkSync(d)
-//                 console.log('deleted----', d)
-//             } else {
-//                 console.log('file not found-----------------------', d)
-//             }
+        for (let d of data) {
+            if (fs.existsSync(d)) {
+                fs.unlinkSync(d)
+                console.log('deleted----', d)
+            } else {
+                console.log('file not found-----------------------', d)
+            }
 
        
-//         }
+        }
 
-//     } catch (error) {
-//         console.log('file deletion error', error)
+    } catch (error) {
+        console.log('file deletion error', error)
 
-//         throw error
-//     }
-// })
+        throw error
+    }
+})
 
 
 // add newdata
