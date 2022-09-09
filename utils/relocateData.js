@@ -11,32 +11,31 @@ debugger
 let obj = {}
 
 // delete old data
-const olddataexits =fs.existsSync(path.join(process.cwd(), 'old-data') )
+
+if(fs.existsSync(path.join(process.cwd(), 'old-data') ) ){
+    walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
 debugger
-// if(fs.existsSync(path.join(process.cwd(), 'old-data') ) ){
-//     walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
-// debugger
-//         try {
-//             const data = JSON.parse(fs.readFileSync(filepath))
+        try {
+            const data = JSON.parse(fs.readFileSync(filepath))
     
-//             for (let d of data) {
-//                 debugger
-//                 if (fs.existsSync(d)) {
-//                     debugger
-//                     fs.unlinkSync(d)
-//                     console.log('deleted----', d)
-//                 } else {
-//                     console.log('file not found-----------------------', d)
-//                 }
-//             }
+            for (let d of data) {
+                debugger
+                if (fs.existsSync(d)) {
+                    debugger
+                    fs.unlinkSync(d)
+                    console.log('deleted----', d)
+                } else {
+                    console.log('file not found-----------------------', d)
+                }
+            }
     
-//         } catch (error) {
-//             console.log('file deletion error', error)
-//     debugger
-//         //    throw error
-//         }
-//     })
-// }
+        } catch (error) {
+            console.log('file deletion error', error)
+    debugger
+        //    throw error
+        }
+    })
+}
 
 
 
@@ -44,11 +43,8 @@ debugger
 walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
     try {
-        const dirName = path.dirname(filepath)
+
         const collectedData = JSON.parse(fs.readFileSync(filepath,{encoding:'utf-8'}))
-     //   const patharr = dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-').reverse()
-      //  console.log('patharr',patharr)
-   //     const marka = patharr[2]
 
            
       debugger
@@ -99,7 +95,7 @@ if (fs.existsSync(savePatha)) {
 
     let data = JSON.parse(fs.readFileSync(savePatha,{encoding:'utf-8'}))
    
-    //fs.unlinkSync(savePath)
+
 
     fs.writeFileSync(savePatha, JSON.stringify([...data,{date, total }]))
 
