@@ -46,14 +46,14 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
     try {
         const dirName = path.dirname(filepath)
         const collectedData = JSON.parse(fs.readFileSync(filepath,{encoding:'utf-8'}))
-        const patharr = dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-').reverse()
-        console.log('patharr',patharr)
-        const marka = patharr[2]
+     //   const patharr = dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-').reverse()
+      //  console.log('patharr',patharr)
+   //     const marka = patharr[2]
 
            
       debugger
         for(let d of collectedData){
-            const {imageUrl,subcategory }=d
+            const {imageUrl,subcategory,marka }=d
       
              makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
  
