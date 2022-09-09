@@ -4,7 +4,8 @@ const fs = require('fs')
 const path = require('path')
 const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
-const {generateBrendReport}=require('./generateBrendReport')
+const { generateBrendReport } = require('./generateBrendReport')
+const { generateSubcategoryReport } = require('./generateSubcategoryReport')
 console.log('--------------------------------------------------------------')
 
 debugger
@@ -12,12 +13,12 @@ let obj = {}
 
 // delete old data
 
-if(fs.existsSync(path.join(process.cwd(), 'old-data') ) ){
+if (fs.existsSync(path.join(process.cwd(), 'old-data'))) {
     walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
-debugger
+        debugger
         try {
             const data = JSON.parse(fs.readFileSync(filepath))
-    
+
             for (let d of data) {
                 debugger
                 if (fs.existsSync(d)) {
@@ -28,11 +29,11 @@ debugger
                     console.log('file not found-----------------------', d)
                 }
             }
-    
+
         } catch (error) {
             console.log('file deletion error', error)
-    debugger
-        //    throw error
+            debugger
+            //    throw error
         }
     })
 }
@@ -42,23 +43,23 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
     try {
 
-        const collectedData = JSON.parse(fs.readFileSync(filepath,{encoding:'utf-8'}))
+        const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
 
-           
-      debugger
-        for(let d of collectedData){
-            const {imageUrl,subcategory,marka }=d
-      
-             makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
- 
-            const fileName =imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-      
+
+        debugger
+        for (let d of collectedData) {
+            const { imageUrl, subcategory, marka } = d
+
+            makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
+
+            const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+
             const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
-            console.log('savePath------',savePath)
-   debugger
+            console.log('savePath------', savePath)
+            debugger
             fs.writeFileSync(savePath, JSON.stringify(d))
             debugger
-       
+
         }
 
 
@@ -72,34 +73,34 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 })
 
 // add updateddata
-if(fs.existsSync(path.join(process.cwd(), 'updated-data')) ){
+if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
     walkSync(path.join(process.cwd(), 'updated-data'), async (filepath) => {
 
         try {
-    
-            const collectedData = JSON.parse(fs.readFileSync(filepath,{encoding:'utf-8'}))
-          debugger
-            for(let d of collectedData){
-                const {imageUrl,subcategory,marka }=d
-          
-                 makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
-     
-                const fileName =imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-          
+
+            const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
+            debugger
+            for (let d of collectedData) {
+                const { imageUrl, subcategory, marka } = d
+
+                makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
+
+                const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+
                 const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
-                console.log('savePath------',savePath)
-       debugger
+                console.log('savePath------', savePath)
+                debugger
                 fs.writeFileSync(savePath, JSON.stringify(d))
                 debugger
             }
-    
+
         } catch (error) {
             console.log('filepath', filepath)
             console.log('error', error)
             debugger
         }
-    
-    
+
+
     })
 
 }
@@ -114,22 +115,22 @@ walkSync(path.join(process.cwd(), `projects/dream/data`), async () => {
 
     try {
         total = total + 1
-  
+
 
     } catch (error) {
         console.log('file deletion error', error)
-debugger
+        debugger
         throw error
     }
 })
 const savePatha = path.join(process.cwd(), `projects/trends/src/total-products.json`)
 if (fs.existsSync(savePatha)) {
 
-    let data = JSON.parse(fs.readFileSync(savePatha,{encoding:'utf-8'}))
-   
+    let data = JSON.parse(fs.readFileSync(savePatha, { encoding: 'utf-8' }))
 
 
-    fs.writeFileSync(savePatha, JSON.stringify([...data,{date, total }]))
+
+    fs.writeFileSync(savePatha, JSON.stringify([...data, { date, total }]))
 
 } else {
     fs.writeFileSync(savePatha, JSON.stringify([{ date, total }]))
@@ -139,3 +140,4 @@ if (fs.existsSync(savePatha)) {
 //countAll products by brand
 
 generateBrendReport()
+generateSubcategoryReport()

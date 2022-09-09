@@ -1,5 +1,5 @@
-const {generateBrendReport}=require('./utils/generateBrendReport')
+const {generateSubcategoryReport}=require('./utils/generateSubcategoryReport')
 debugger
-generateBrendReport()
+generateSubcategoryReport()
 
 debugger

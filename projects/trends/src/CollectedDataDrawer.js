@@ -13,7 +13,7 @@ import {actions} from './store/mainSlice'
 export default function CollectedDataDrawer() {
     const dispatch = useDispatch()
 const drawerOpen = useSelector(state=> state.main.drawerCollectedOpen)
-debugger
+
     return <Drawer open={drawerOpen} onClose={()=>{dispatch(actions.toggleCollectedDrawer())}}
         sx={{
             width: 200,

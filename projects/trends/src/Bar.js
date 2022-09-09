@@ -55,7 +55,7 @@ import {  Chart,
 
 function Bar(props) {
   const inputEl = useRef(null);
-
+debugger
 useEffect(()=>{
  
 const myChart= new Chart(inputEl.current, {
@@ -64,7 +64,7 @@ const myChart= new Chart(inputEl.current, {
         //labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: '# of Votes',
-            data: props. data.map(d=>{return {x:d.date,y:d.total}}),
+            data: props.data.map(d=>{return {x:d.date,y:d.total}}),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 // 'rgba(54, 162, 235, 0.2)',
@@ -100,7 +100,7 @@ const myChart= new Chart(inputEl.current, {
 return ()=> {
   myChart.destroy();
 }
-},[])
+},[props])
 
   return (
     <div className="App" >

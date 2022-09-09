@@ -4,6 +4,11 @@ const initialState = {
 
   collectedReport: '',
   drawerCollectedOpen: false,
+  drawerCollectedBySubcatOpen: true,
+  collectedBrend: '',
+  selectedMarka: '',
+
+  subcategories: {}
 }
 
 export const mainSlice = createSlice({
@@ -14,17 +19,32 @@ export const mainSlice = createSlice({
     toggleCollectedDrawer: (state, action) => {
 
       state.drawerCollectedOpen = !state.drawerCollectedOpen
+      state.subcategories={}
+      state.selectedMarka=''
+      state.collectedBrend=''
     },
+    toggleCollectedBySubcatDrawer: (state, action) => {
 
+      state.drawerCollectedBySubcatOpen = !state.drawerCollectedBySubcatOpen
+    },
     setCollectedReport: (state, action) => {
       state.drawerCollectedOpen = !state.drawerCollectedOpen
       state.collectedReport = action.payload
- 
-    }
 
+    },
 
+    setCollectedBrendReport: (state, action) => {
+      state.drawerCollectedBySubcatOpen = !state.drawerCollectedBySubcatOpen
+      state.collectedBrend = action.payload
+  
+    },
 
+    setSelectedMarka: (state, action) => {
+      state.selectedMarka = action.payload.marka
+      state.drawerCollectedBySubcatOpen = !state.drawerCollectedBySubcatOpen
 
+        state.subcategories = action.payload.subcategories
+    },
 
 
   },

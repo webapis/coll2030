@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 import TotalCollected from './collected-reports/TotalCollected'
 import ByBrand  from './collected-reports/ByBrand'
+import BySubcategory from './collected-reports/BySubcategory';
 import { Typography } from '@mui/material';
 import  Container from '@mui/material/Container'
 export default function App(){
@@ -13,6 +14,7 @@ const {collectedReport} =useSelector(state=>state.main)
     <Typography variant='h4'>{collectedReport}</Typography>
     {collectedReport==='Total' && <TotalCollected/> }
  {collectedReport==='By Brand' && <ByBrand/> }
+ {collectedReport==='By Category' && <BySubcategory/> }
  </Container> 
 
 }
