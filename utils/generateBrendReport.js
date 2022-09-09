@@ -53,7 +53,7 @@ function generateBrendReport() {
 
         const fileName = filepath.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
         const marka = fileName[9]
-        console.log('marka...',marka)
+    
         debugger
         if(    markas[marka] ===undefined){
 

@@ -47,6 +47,7 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
         const dirName = path.dirname(filepath)
         const collectedData = JSON.parse(fs.readFileSync(filepath,{encoding:'utf-8'}))
         const patharr = dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-').reverse()
+        console.log('patharr',patharr)
         const marka = patharr[2]
 
 
@@ -59,6 +60,7 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
             const fileName =imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
       
             const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
+            console.log('savePath------',savePath)
    debugger
             fs.writeFileSync(savePath, JSON.stringify(d))
             debugger
