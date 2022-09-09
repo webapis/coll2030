@@ -29,7 +29,7 @@ const drawerOpen = useSelector(state=> state.main.drawerCollectedOpen)
         <Toolbar />
         <Divider />
         <List>
-            {['Total', 'By Brand', 'By Category'].map((text, index) => (
+            {['Total', 'By Brand', 'By Category','Subcategory Pie'].map((text, index) => (
                 <ListItem key={text} disablePadding>
                     <ListItemButton onClick={()=>{dispatch(actions.setCollectedReport(text))}}>
 

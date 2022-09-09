@@ -4,6 +4,6 @@ import Bar from '../Bar'
 export default function TotalCollected() {
 
     return <div style={{ width: 500 }}>
-        <Bar data={data} />
+        <Bar data={data} label="products"/>
     </div>
 }

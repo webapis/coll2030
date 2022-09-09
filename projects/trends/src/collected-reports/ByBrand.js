@@ -15,7 +15,7 @@ export default function ByBrand() {
             const { marka, data } = m
             return <div style={{ width: 500 }}>
               <Typography variant='button'>  {marka}</Typography> 
-                <Bar data={data} id={i} />
+                <Bar data={data} id={i}  label={marka}/>
             </div>
         })
         }</div>  

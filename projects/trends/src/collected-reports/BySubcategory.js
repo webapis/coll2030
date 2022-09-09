@@ -20,8 +20,8 @@ debugger
             const content =Object.entries( m[1]['data']).map(m=>{return {date:m[0],total:m[1]}})
             debugger
             return <div>
-                <Typography>{subcategory}</Typography>
-                <Bar data={content}/></div>
+           
+                <Bar data={content} label={subcategory}/></div>
         })}
    <CollectedDataBySubcatDrawer/>
     </div>
