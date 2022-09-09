@@ -245,6 +245,8 @@ Apify.main(async () => {
         debugger
         fs.appendFileSync(`collected-data/${marka}/dream/${marka}/data.json`, JSON.stringify(collectedData));
         fs.appendFileSync(`updated-data/${marka}/dream/${marka}/data.json`, JSON.stringify(updatedData));
+        console.log('updateddata length',updatedData.length)
+        console.log('collected length',collectedData.length)
         debugger
 
         walkSync(`projects/dream/data/${marka}`, (filepath) => {
