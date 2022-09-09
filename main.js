@@ -193,6 +193,7 @@ Apify.main(async () => {
     // await makeDir('data');
     const filesToDelete = []
     const collectedData = []
+    const updatedData = []
     if (productItems.length > 0) {
         const productItemsWithoutDublicate = uniqify(productItems, 'imageUrl')
         const groupBySubcategory = groupBy(productItemsWithoutDublicate, 'subcategory')
@@ -208,9 +209,10 @@ Apify.main(async () => {
                 for (let d of data) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                     await makeDir(`collected-data/${marka}/${project}/${marka}`)
+                    await makeDir(`updated-data/${marka}/${project}/${marka}`)
                     const exists = fs.existsSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
                     if (exists) {
-                        // console.log('exist+++++++++', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
+
 
                         const oldObject = JSON.parse(fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`))
                         const newObject = d
@@ -227,26 +229,11 @@ Apify.main(async () => {
                             debugger
                             //updata data
                             filesToDelete.push(`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
-                            //   fs.unlinkSync(`projects/${project}/data/${marka}/${subcategory}/${id}.json`)
-                            //---  fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
-                            collectedData.push(d)
+
+                            updatedData.push(d)
                         }
-
-
-
-                        //  if (_.isEqual(obj, d) === false) {
-
-                        //  
-                        // fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
-                        // const data = fs.readFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,{encoding:'utf-8'})
-                        // const origin =JSON.parse(data)
-                        // const updated ={...origin,...d}
-                        // fs.writeFileSync(`projects/${project}/data/${marka}/${subcategory}/${marka}/${id}.json`,JSON.stringify(updated))
-                        //   }
                     } else {
-                        //   console.log('first time', `projects/${project}/data/${marka}/${subcategory}/${id}.json`)
 
-                        //--- fs.appendFileSync(`collected-data/${marka}/${project}/${subcategory}/${marka}/${id}.json`, JSON.stringify(d));
                         collectedData.push(d)
                     }
                 }
@@ -257,22 +244,19 @@ Apify.main(async () => {
         }
         debugger
         fs.appendFileSync(`collected-data/${marka}/dream/${marka}/data.json`, JSON.stringify(collectedData));
+        fs.appendFileSync(`updated-data/${marka}/dream/${marka}/data.json`, JSON.stringify(updatedData));
         debugger
-        
+
         walkSync(`projects/dream/data/${marka}`, (filepath) => {
             const filename = path.basename(filepath)
 
             const matchfound = productItems.find(f => {
                 const storedImgUrl = f.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-
                 return storedImgUrl === filename.replace('.json', '')
             })
-
             if (matchfound === undefined) {
-                console.log('old value deleted')
-             
                 filesToDelete.push(filepath)
-                //  fs.unlinkSync(filepath)
+
             }
 
         })

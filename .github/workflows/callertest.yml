@@ -54,6 +54,12 @@ jobs:
         with:
           name: olddata
           path: old-data
+      - name: Download updateddata artifact
+        continue-on-error: true
+        uses: actions/download-artifact@v3
+        with:
+          name: updateddata
+          path: updated-data
       - name: Decript data
         run: 'npm run decryptData'
       - name: relocatedata

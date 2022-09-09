@@ -37,8 +37,6 @@ debugger
     })
 }
 
-
-
 // add newdata
 walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
@@ -63,6 +61,36 @@ walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
        
         }
 
+
+    } catch (error) {
+        console.log('filepath', filepath)
+        console.log('error', error)
+        debugger
+    }
+
+
+})
+
+// add updateddata
+walkSync(path.join(process.cwd(), 'updated-data'), async (filepath) => {
+
+    try {
+
+        const collectedData = JSON.parse(fs.readFileSync(filepath,{encoding:'utf-8'}))
+      debugger
+        for(let d of collectedData){
+            const {imageUrl,subcategory,marka }=d
+      
+             makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
+ 
+            const fileName =imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+      
+            const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
+            console.log('savePath------',savePath)
+   debugger
+            fs.writeFileSync(savePath, JSON.stringify(d))
+            debugger
+        }
 
     } catch (error) {
         console.log('filepath', filepath)
