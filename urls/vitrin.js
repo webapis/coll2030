@@ -12,10 +12,10 @@ const urls = [
     { url: 'https://www.vitrin.com.tr/gomlek-modelleri', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.vitrin.com.tr/ceket-modelleri', subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.vitrin.com.tr/kaban-modelleri', subcategory: ['kaban'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.vitrin.com.tr/mont-modelleri', subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.vitrin.com.tr/mont-modelleri',  subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.vitrin.com.tr/tunik-modelleri', subcategory: ['tunik'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.vitrin.com.tr/tayt-97', subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
-    { url: 'https://www.vitrin.com.tr/sort-modelleri', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
+    { url: 'https://www.vitrin.com.tr/tayt-97',         subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
+    { url: 'https://www.vitrin.com.tr/sort-modelleri',  subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
   
 ]
 
