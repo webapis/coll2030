@@ -127,3 +127,10 @@
   included_files = ["api/_files/key/atlet/0-keywords.json"]
 [functions."atlet-navsecond"]
   included_files = ["api/_files/key/atlet/1-keywords.json"]
+
+[functions."abiye"]
+  included_files = ["api/_files/data/abiye/*.json","api/_files/nav/abiye/keywords.json"]
+[functions."abiye-navfirst"]
+  included_files = ["api/_files/key/abiye/0-keywords.json"]
+[functions."abiye-navsecond"]
+  included_files = ["api/_files/key/abiye/1-keywords.json"]

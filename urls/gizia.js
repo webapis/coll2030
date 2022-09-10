@@ -11,7 +11,7 @@ const urls = [
      { url: 'https://www.gizia.com/elbise',                      subcategory: ['elbise'], category: 'üst-giyim',opts:{category:''} ,node:'dream'},
      { url: 'https://www.gizia.com/ilkbahar-yaz-etek-modelleri', subcategory: ['etek'], category: 'alt-giyim',opts:{category:''} ,node:'dream'},
      { url: 'https://www.gizia.com/ilkbahar-yaz-pantolon-modelleri', subcategory: ['pantolon'], category: 'alt-giyim',opts:{category:''} ,node:'dream'},
-    // { url: 'https://www.gizia.com/abiye-elbiseler', subcategory: 'elbise', category: 'üst-giyim',opts:{category:'abiye'} },
+     //{ url: 'https://www.gizia.com/abiye-elbiseler', subcategory: ['abiye'], category: 'üst-giyim',opts:{category:'abiye'} },
     // { url: 'https://www.gizia.com/kir-dugunu-elbiseleri', subcategory: 'elbise', category: 'üst-giyim',opts:{category:'kır düğünü'} },
     { url: 'https://www.gizia.com/ilkbahar-yaz-sweatshirt-modelleri', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.gizia.com/ilkbahar-yaz-bluz-gomlek-modelleri', subcategory: ['bluz','gömlek'], category: 'üst-giyim', node: 'dream' },

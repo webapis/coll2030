@@ -28,7 +28,7 @@
 
     await generateKeyword({ google_access_token, spreadsheetId, range: 'kaban!A:J', node: 'dream', subcategory: 'kaban' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'atlet!A:J', node: 'dream', subcategory: 'atlet' })
-
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'abiye!A:J', node: 'dream', subcategory: 'abiye' })
 
     process.exit(0)
 
