@@ -221,7 +221,8 @@ Apify.main(async () => {
                         const titleChange = oldObject.title === newObject.title
                         const linkChange = oldObject.link === newObject.link
                         const subcategoryChange = oldObject.subcategory === newObject.subcategory
-                        if (priceChange && titleChange && linkChange || subcategoryChange) {
+                        if (priceChange && titleChange && linkChange && subcategoryChange) {
+
 
                         }
                         else {
@@ -246,7 +247,7 @@ Apify.main(async () => {
         fs.appendFileSync(`collected-data/${marka}/dream/${marka}/data.json`, JSON.stringify(collectedData));
         fs.appendFileSync(`updated-data/${marka}/dream/${marka}/data.json`, JSON.stringify(updatedData));
         console.log('updateddata length',updatedData.length)
-        console.log('collected length',collectedData.length)
+        console.log('new collected length',collectedData.length)
         debugger
 
         walkSync(`projects/dream/data/${marka}`, (filepath) => {

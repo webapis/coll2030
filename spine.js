@@ -1,5 +1,5 @@
-const {generateSubcategoryPie}=require('./utils/generateSubcategoryPie')
+const {generateUpdatedReport}=require('./utils/report/generateUpdatedReport')
 debugger
-generateSubcategoryPie()
+generateUpdatedReport()
 
 debugger
