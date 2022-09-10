@@ -6,6 +6,7 @@ const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
 const { generateBrendReport } = require('./generateBrendReport')
 const { generateSubcategoryReport } = require('./generateSubcategoryReport')
+const {generateSubcategoryPie}=require('./generateSubcategoryPie')
 console.log('--------------------------------------------------------------')
 
 debugger
@@ -141,3 +142,4 @@ if (fs.existsSync(savePatha)) {
 
 generateBrendReport()
 generateSubcategoryReport()
+generateSubcategoryPie()

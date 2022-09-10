@@ -18,7 +18,7 @@ function generateSubcategoryPie() {
         subcategories = previousreport
 
         for (let m of brandNames){
-            const current = require(`../urls/${m}`)
+            const current = require(`${process.cwd()}/urls/${m}`)
             const mappedurls = current.urls.map(m => m.subcategory).flat()
             const uniquedata = [...new Set(mappedurls)];
             subcategories  = Object.assign({}, {...subcategories,...uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {})})
@@ -27,7 +27,7 @@ function generateSubcategoryPie() {
 
     } else {
          for (let m of brandNames){
-            const current = require(`../urls/${m}`)
+            const current = require(`${process.cwd()}/urls/${m}`)
             const mappedurls = current.urls.map(m => m.subcategory).flat()
             const uniquedata = [...new Set(mappedurls)];
             subcategories  = Object.assign({}, {...subcategories,...uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {})})
