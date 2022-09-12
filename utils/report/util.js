@@ -1,6 +1,7 @@
 const { walkSync } = require('../walkSync')
 const path = require('path')
 const fs = require('fs')
+const makeDir =require('make-dir')
 function countTotal(dirpath, reportFilePath) {
     const folderPath = path.join(process.cwd(), `${dirpath}`)
 if(fs.existsSync(folderPath)){
