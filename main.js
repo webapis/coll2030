@@ -249,20 +249,23 @@ Apify.main(async () => {
         console.log('updateddata length',updatedData.length)
         console.log('new collected length',collectedData.length)
         debugger
+        if(fs.existsSync(`projects/dream/data/${marka}`)){
 
-        walkSync(`projects/dream/data/${marka}`, (filepath) => {
-            const filename = path.basename(filepath)
-
-            const matchfound = productItems.find(f => {
-                const storedImgUrl = f.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-                return storedImgUrl === filename.replace('.json', '')
+            walkSync(`projects/dream/data/${marka}`, (filepath) => {
+                const filename = path.basename(filepath)
+    
+                const matchfound = productItems.find(f => {
+                    const storedImgUrl = f.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+                    return storedImgUrl === filename.replace('.json', '')
+                })
+                if (matchfound === undefined) {
+                    filesToDelete.push(filepath)
+    
+                }
+    
             })
-            if (matchfound === undefined) {
-                filesToDelete.push(filepath)
-
-            }
-
-        })
+        }
+    
 
         if (filesToDelete.length > 0) {
             console.log('filesToDelete.length', filesToDelete.length)
