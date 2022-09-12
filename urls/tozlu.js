@@ -12,7 +12,7 @@ const urls = [
     { url: 'https://www.tozlu.com/TR/kadin-bluz',                subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-tshirt',              subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-gomlek',              subcategory: ['bluz','gömlek'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.tozlu.com/TR/kadin-giyim-tulum-salopet', subcategory: ['takım', 'tulum'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.tozlu.com/TR/kadin-giyim-tulum-salopet', subcategory: ['tulum'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-ceket',               subcategory: ['gömlek','ceket'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-mevsimlik-mont',      subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-trenckot',            subcategory: ['trençkot'], category: 'dış-giyim', node: 'dream' },

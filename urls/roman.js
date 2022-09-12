@@ -12,7 +12,7 @@ const urls = [
     { url: 'https://www.roman.com.tr/kadin-tulum',             subcategory: ['takım', 'tulum'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.roman.com.tr/kadin-ceket',             subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.roman.com.tr/kadin-mont',              subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.roman.com.tr/trenckot-yagmurluk',      subcategory: ['trençkot','yağmurluk'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.roman.com.tr/trenckot-yagmurluk',      subcategory: ['pardesü','trençkot','yağmurluk'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.roman.com.tr/kadin-sort',              subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
 ]
 

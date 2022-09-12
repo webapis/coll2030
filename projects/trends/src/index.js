@@ -7,18 +7,18 @@ import App from './App'
 import AppBarComponent from './AppBarComponent'
 import { Provider } from 'react-redux';
 import store from './store/store'
-import CollectedDataDrawer from './CollectedDataDrawer';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
-debugger
+
 root.render(
 
   <React.StrictMode>
     <Provider store={store}>
       <AppBarComponent />
-    <App/>
-      <CollectedDataDrawer />
+       <App/>
+  
     </Provider>
   </React.StrictMode>
 

@@ -102,13 +102,9 @@ return ()=> {
 }
 },[props])
 
-  return (
-    <div className="App" >
- 
-
-     <canvas  ref={inputEl} id={props.id} width="400" height="400" ></canvas>
-    </div>
-  );
+  return <canvas  ref={inputEl} id={props.id}   height="200" ></canvas>
+   
+  
 }
 
 export default Bar;

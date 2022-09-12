@@ -14,12 +14,12 @@ export default function CollectedDataDrawer() {
     const dispatch = useDispatch()
 const drawerOpen = useSelector(state=> state.main.drawerCollectedOpen)
 
-    return <Drawer open={drawerOpen} onClose={()=>{dispatch(actions.toggleCollectedDrawer())}}
+    return <Drawer  variant="permanent" open={true} onClose={()=>{dispatch(actions.toggleCollectedDrawer())}}
         sx={{
-            width: 200,
+         
             flexShrink: 0,
             '& .MuiDrawer-paper': {
-                width: 200,
+              
                 boxSizing: 'border-box',
             },
         }}

@@ -4,10 +4,10 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useDispatch } from 'react-redux';
 import { actions } from './store/mainSlice'
+
 export default function AppBarComponent() {
     const dispatch = useDispatch()
 
@@ -17,12 +17,13 @@ export default function AppBarComponent() {
     return (
         <Box >
 
-            <AppBar position="fixed">
+            <AppBar position="fixed" sx={{zIndex:100000}}>
                 
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Trends
                     </Typography>
+               
                     <Button color="inherit" onClick={handleCollectedClick}>Collected Data</Button>
                     <Button color="inherit">Accessed Data</Button>
                 </Toolbar>

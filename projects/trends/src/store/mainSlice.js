@@ -7,7 +7,7 @@ const initialState = {
   drawerCollectedBySubcatOpen: true,
   collectedBrend: '',
   selectedMarka: '',
-
+  selectedTab:0,
   subcategories: {}
 }
 
@@ -45,7 +45,9 @@ export const mainSlice = createSlice({
 
         state.subcategories = action.payload.subcategories
     },
-
+   setTab:(state,action)=>{
+    state.selectedTab=action.payload
+   }
 
   },
 })

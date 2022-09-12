@@ -4,8 +4,9 @@ const fs = require('fs')
 const path = require('path')
 const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
-const { generateBrendReport } = require('./generateBrendReport')
-const { generateSubcategoryReport } = require('./generateSubcategoryReport')
+// const { generateBrendReport } = require('./generateBrendReport')
+// const { generateSubcategoryReport } = require('./generateSubcategoryReport')
+const {generateUpdatedReport}=require('./report/generateUpdatedReport')
 const {generateSubcategoryPie}=require('./generateSubcategoryPie')
 console.log('--------------------------------------------------------------')
 
@@ -110,36 +111,37 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
 // count all products data 
 
 
-let total = 0
-const date = new Date().toISOString()
-walkSync(path.join(process.cwd(), `projects/dream/data`), async () => {
+// let total = 0
+// const date = new Date().toISOString()
+// walkSync(path.join(process.cwd(), `projects/dream/data`), async () => {
 
-    try {
-        total = total + 1
-
-
-    } catch (error) {
-        console.log('file deletion error', error)
-        debugger
-        throw error
-    }
-})
-const savePatha = path.join(process.cwd(), `projects/trends/src/total-products.json`)
-if (fs.existsSync(savePatha)) {
-
-    let data = JSON.parse(fs.readFileSync(savePatha, { encoding: 'utf-8' }))
+//     try {
+//         total = total + 1
 
 
+//     } catch (error) {
+//         console.log('file deletion error', error)
+//         debugger
+//         throw error
+//     }
+// })
+// const savePatha = path.join(process.cwd(), `projects/trends/src/total-products.json`)
+// if (fs.existsSync(savePatha)) {
 
-    fs.writeFileSync(savePatha, JSON.stringify([...data, { date, total }]))
+//     let data = JSON.parse(fs.readFileSync(savePatha, { encoding: 'utf-8' }))
 
-} else {
-    fs.writeFileSync(savePatha, JSON.stringify([{ date, total }]))
 
-}
 
-//countAll products by brand
+//     fs.writeFileSync(savePatha, JSON.stringify([...data, { date, total }]))
 
-generateBrendReport()
-generateSubcategoryReport()
+// } else {
+//     fs.writeFileSync(savePatha, JSON.stringify([{ date, total }]))
+
+// }
+
+// //countAll products by brand
+
+// generateBrendReport()
+// generateSubcategoryReport()
+generateUpdatedReport()
 generateSubcategoryPie()

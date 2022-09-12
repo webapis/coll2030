@@ -19,8 +19,8 @@ async function handler(page, context) {
             const priceNew = productCard.querySelector('.currentPrice') ? productCard.querySelector('.currentPrice').textContent.replace(/\n/g, '').replace('₺', '').trim() : productCard.querySelector('.addPriceDiscount span').textContent.replace('₺', '').trim()
             const longlink = productCard.querySelector('.detailLink').href
             const link = longlink.substring(longlink.indexOf("https://www.patirti.com/") + 24)
-            const longImgUrl = productCard.querySelector(".ndImage").src
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img1ptrti.mncdn.com/") + 28)
+            const longImgUrl =productCard.querySelector(".stImage") ? productCard.querySelector(".stImage").src :productCard.querySelector(".ndImage").src
+            const imageUrlshort = longImgUrl&&  longImgUrl.substring(longImgUrl.indexOf("https://img1ptrti.mncdn.com/") + 28)
             const title = productCard.querySelector(".ProductName").innerHTML.replace(/\n/g, '')
             return {
                 title: 'patirti ' + title.replace(/İ/g,'i').toLowerCase(),

@@ -13,19 +13,20 @@ import Divider from '@mui/material/Divider';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { actions } from '../store/mainSlice'
-import data from '../total-subcategory.json'
 
-const markas = Object.entries(data)
-export default function CollectedDataBySubcatDrawer() {
+
+
+export default function CollectedDataBySubcatDrawer({data}) {
+    const markas = Object.entries(data)
     const dispatch = useDispatch()
-    const drawerOpen = useSelector(state => state.main.drawerCollectedBySubcatOpen)
+    const {selectedMarka} = useSelector(state => state.main)
 
-    return <Drawer anchor="right" open={drawerOpen} onClose={() => { dispatch(actions.toggleCollectedBySubcatDrawer()) }}
+    return <Drawer variant="permanent"   anchor="right" open={true} onClose={() => {  }}
         sx={{
-            width: 200,
+           
             flexShrink: 0,
             '& .MuiDrawer-paper': {
-                width: 200,
+               
                 boxSizing: 'border-box',
             },
         }}

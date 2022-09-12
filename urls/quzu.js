@@ -9,7 +9,7 @@ const urls = [
     { url: 'https://www.quzu.com.tr/bluz',              subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.quzu.com.tr/bayan-tisort',      subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.quzu.com.tr/bayan-gomlek',      subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.quzu.com.tr/tulum',             subcategory: ['takım', 'tulum'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.quzu.com.tr/tulum',             subcategory: ['tulum'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.quzu.com.tr/bayan-ceket',       subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.quzu.com.tr/bayan-kaban',       subcategory: ['kaban'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.quzu.com.tr/bayan-mont',        subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },

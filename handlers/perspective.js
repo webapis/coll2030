@@ -44,7 +44,7 @@ async function handler(page, context) {
         const { title } = m
         const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
         const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
-        debugger
+     
         return { ...m, subcategory: subcat }
     })
     return withSub
@@ -53,21 +53,25 @@ async function handler(page, context) {
 async function getUrls(page) {
     const url = await page.url()
 
-    await page.waitForSelector('.Pages a')
-
-    const totalPages = await page.$eval('.Pages', element => element.querySelectorAll('a').length)
     const pageUrls = []
+    const pageExists = await page.$('.Pages a')
+    if(pageExists){
+        const totalPages = await page.$eval('.Pages', element => element.querySelectorAll('a').length)
+  
 
-    let pagesLeft = totalPages
-    for (let i = 2; i <= totalPages; i++) {
-
-
-
-        pageUrls.push(`${url}?p=` + i)
-        --pagesLeft
-
+        let pagesLeft = totalPages
+        for (let i = 2; i <= totalPages; i++) {
+    
+    
+    
+            pageUrls.push(`${url}?p=` + i)
+            --pagesLeft
+    
+    
+        }
 
     }
+  
 
     return { pageUrls, productCount: 0, pageLength: pageUrls.length + 1 }
 }

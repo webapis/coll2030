@@ -1,6 +1,6 @@
 const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { subcategory, category, start,node } } } = context
+    const { request: { userData: { subcategory, category, start, node } } } = context
 
     const url = await page.url()
     await page.waitForSelector('.product-grid-block-dynamic.product-grid-block-dynamic__container')
@@ -19,29 +19,33 @@ async function handler(page, context) {
     const data = items.filter(f => f.productGroups).map(m => [...m.productGroups]).flat().map(m => {
 
         return [...m.elements]
-    }).flat().filter(f => f.commercialComponents).map(m => [...m.commercialComponents]).flat().map(c => {
+    }).flat().filter(f => f.commercialComponents).map(m => [...m.commercialComponents]).flat().filter(f=> f.price).map(c => {
+        try {
+            return {
+                ...c, detail: {
+                    ...c.detail, colors: c.detail.colors.map(m => {
+                        const imageUrl = m.xmedia[0].path + '/w/315/' + m.xmedia[0].name + '.jpg?ts=' + m.xmedia[0].timestamp
+                        const link = c.seo.keyword + '-p' + c.seo.seoProductId + '.html'
+                        const price = m.price.toString().length === 5 ? m.price.toString().substring(0, 3) + ',' + m.price.toString().substring(3) : (m.price.toString().length === 6 ? m.price.toString().charAt(0) + '.' + m.price.toString().substring(1, 4) + ',00' : null)
 
-        return {
-            ...c, detail: {
-              ...c.detail, colors: c.detail.colors.map(m => {
-                const imageUrl =m.xmedia[0].path +'/w/315/'+m.xmedia[0].name+'.jpg?ts='+m.xmedia[0].timestamp
-                const link =c.seo.keyword+'-p'+c.seo.seoProductId+'.html'
-                const price =m.price.toString().length===5 ? m.price.toString().substring(0,3)+','+ m.price.toString().substring(3): (m.price.toString().length===6? m.price.toString().charAt(0)+'.'+m.price.toString().substring(1,4)+',00'  :null)
-          
-                return {
-                  ...m, title: "zara "+ c.name + ' ' + m.name, priceNew:price, imageUrl,link
-      
+                        return {
+                            ...m, title: "zara " + c.name + ' ' + m.name, priceNew: price, imageUrl, link
+
+                        }
+                    })
                 }
-              })
             }
-          }
+        } catch (error) {
+            debugger
+        }
+
     }).map(m => {
         return [...m.detail.colors]
 
     }).flat().map(m => {
         return {
             title: m.title, priceNew: m.priceNew, imageUrl: m.imageUrl, link: m.link, category, timestamp: Date.now(),
-            marka: "zara",node
+            marka: "zara", node
         }
     })
     // debugger;
@@ -52,10 +56,11 @@ async function handler(page, context) {
     const withSub = data.map(m => {
         const { title } = m
         const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
-        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
-        debugger
-        return { ...m, subcategory: subcat,title:title.replace(/İ/g,'i').toLowerCase() }
+        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length - 1]
+
+        return { ...m, subcategory: subcat, title: title.replace(/İ/g, 'i').toLowerCase() }
     })
+    debugger
     return withSub
 }
 
