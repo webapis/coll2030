@@ -269,6 +269,10 @@ Apify.main(async () => {
             await makeDir(`old-data/${marka}`)
             fs.appendFileSync(`old-data/${marka}/olddata.json`, JSON.stringify(filesToDelete));
         }
+        else{
+            await makeDir(`old-data/${marka}`)
+            fs.appendFileSync(`old-data/${marka}/olddata.json`, JSON.stringify([]));
+        }
 
     }
     else {
