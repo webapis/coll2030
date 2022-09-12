@@ -496,6 +496,9 @@ function countBySubcategoryDeleted(dirpath, reportFilePath) {
             const fileName = d.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
             const subcategory = fileName[4]
             debugger
+            if(markas[marka]===undefined){
+                markas[marka]={}
+            }
             if (markas[marka][subcategory] === undefined) {
                 markas[marka][subcategory] = { data: { [date]: 0 } }
             }
