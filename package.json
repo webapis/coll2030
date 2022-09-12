@@ -57,7 +57,6 @@
     "dev": "netlify dev",
     "vercel:dev": "vercel dev",
     "netlify:dream": "cd projects/dream && netlify dev",
-    "netlify:eight": "cd projects/eight && netlify dev",
     "spine": "node spine.js",
     "encryptData": "node encryptData.js",
     "decryptData": "node decryptData.js",

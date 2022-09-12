@@ -6,8 +6,8 @@ const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
 // const { generateBrendReport } = require('./generateBrendReport')
 // const { generateSubcategoryReport } = require('./generateSubcategoryReport')
-const {generateUpdatedReport}=require('./report/generateUpdatedReport')
-const {generateSubcategoryPie}=require('./generateSubcategoryPie')
+const { generateUpdatedReport } = require('./report/generateUpdatedReport')
+const { generateSubcategoryPie } = require('./generateSubcategoryPie')
 console.log('--------------------------------------------------------------')
 
 debugger
@@ -41,46 +41,16 @@ if (fs.existsSync(path.join(process.cwd(), 'old-data'))) {
 }
 
 // add newdata
-walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
-
-    try {
-
-        const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
+if (fs.existsSync(path.join(process.cwd(), 'collected-data'))) {
 
 
-        debugger
-        for (let d of collectedData) {
-            const { imageUrl, subcategory, marka } = d
-
-            makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
-
-            const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-
-            const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
-            console.log('savePath------', savePath)
-            debugger
-            fs.writeFileSync(savePath, JSON.stringify(d))
-            debugger
-
-        }
-
-
-    } catch (error) {
-        console.log('filepath', filepath)
-        console.log('error', error)
-        debugger
-    }
-
-
-})
-
-// add updateddata
-if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
-    walkSync(path.join(process.cwd(), 'updated-data'), async (filepath) => {
+    walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
 
         try {
 
             const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
+
+
             debugger
             for (let d of collectedData) {
                 const { imageUrl, subcategory, marka } = d
@@ -94,7 +64,9 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
                 debugger
                 fs.writeFileSync(savePath, JSON.stringify(d))
                 debugger
+
             }
+
 
         } catch (error) {
             console.log('filepath', filepath)
@@ -104,10 +76,44 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
 
 
     })
+}
+// add updateddata
+if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
+
+
+    if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
+        walkSync(path.join(process.cwd(), 'updated-data'), async (filepath) => {
+
+            try {
+
+                const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
+                debugger
+                for (let d of collectedData) {
+                    const { imageUrl, subcategory, marka } = d
+
+                    makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
+
+                    const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+
+                    const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
+                    console.log('savePath------', savePath)
+                    debugger
+                    fs.writeFileSync(savePath, JSON.stringify(d))
+                    debugger
+                }
+
+            } catch (error) {
+                console.log('filepath', filepath)
+                console.log('error', error)
+                debugger
+            }
+
+
+        })
+
+    }
 
 }
-
-
 // count all products data 
 
 
