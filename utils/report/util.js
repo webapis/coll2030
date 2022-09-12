@@ -3,6 +3,8 @@ const path = require('path')
 const fs = require('fs')
 function countTotal(dirpath, reportFilePath) {
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+if(fs.existsSync(folderPath)){
+
 
     let total = 0
     const date = new Date().toISOString()
@@ -32,12 +34,13 @@ function countTotal(dirpath, reportFilePath) {
         fs.writeFileSync(savePath, JSON.stringify([{ date, total }]))
         debugger
     }
-
+}
 }
 
 function countTotalCollected(dirpath, reportFilePath) {
-
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+    if(fs.existsSync(folderPath)){
+  
     let total = 0
     const date = new Date().toISOString()
     walkSync(folderPath, async () => {
@@ -66,11 +69,14 @@ function countTotalCollected(dirpath, reportFilePath) {
 
     }
 }
+}
 
 
 function countTotalCollectedByBrand(dirpath, reportFilePath){
     const dirs = fs.readdirSync(`${process.cwd()}/urls`)
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+
+    if(fs.existsSync(folderPath)){
     let markas = {}
     const date = new Date().toISOString()
     dirs.map(m => m.replace('.js', '')).map(m => {
@@ -131,6 +137,8 @@ function countTotalCollectedByBrand(dirpath, reportFilePath){
     debugger
     fs.writeFileSync(reportPath, JSON.stringify(markas))
     debugger
+
+}
 }
 
 function countTotalCollectedBySubcategory(dirpath, reportFilePath){
@@ -138,6 +146,7 @@ function countTotalCollectedBySubcategory(dirpath, reportFilePath){
     const dirs = fs.readdirSync(`${process.cwd()}/urls`)
     debugger
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+    if(fs.existsSync(folderPath)){
     const date = new Date().toISOString()
     const brandNames = dirs.map(m => m.replace('.js', ''))
 
@@ -198,12 +207,15 @@ function countTotalCollectedBySubcategory(dirpath, reportFilePath){
     debugger
     fs.writeFileSync(reportPath, JSON.stringify(markas))
     debugger
+
+}
 }
 
 function countByBrand(dirpath, reportFilePath) {
     const dirs = fs.readdirSync('./urls')
     debugger
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+    if(fs.existsSync(folderPath)){
     let markas = {}
     const date = new Date().toISOString()
     dirs.map(m => m.replace('.js', '')).map(m => {
@@ -269,6 +281,8 @@ function countByBrand(dirpath, reportFilePath) {
     debugger
     fs.writeFileSync(savePath, JSON.stringify(markas))
     debugger
+
+}
 }
 
 
@@ -277,6 +291,8 @@ function countByBrand(dirpath, reportFilePath) {
 function countByBrandDeleted(dirpath, reportFilePath) {
     const dirs = fs.readdirSync('./urls')
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+
+    if(fs.existsSync(folderPath)){
     let markas = {}
     const date = new Date().toISOString()
     dirs.map(m => m.replace('.js', '')).map(m => {
@@ -344,7 +360,7 @@ function countByBrandDeleted(dirpath, reportFilePath) {
     debugger
     fs.writeFileSync(savePath, JSON.stringify(markas))
     debugger
-
+}
 }
 
 
@@ -353,6 +369,8 @@ function countBySubcategory(dirpath, reportFilePath) {
     debugger
 
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+
+    if(fs.existsSync(folderPath)){
     const date = new Date().toISOString()
     const brandNames = dirs.map(m => m.replace('.js', ''))
 
@@ -421,6 +439,7 @@ function countBySubcategory(dirpath, reportFilePath) {
     fs.writeFileSync(reportPath, JSON.stringify(markas))
     debugger
 }
+}
 
 
 function countBySubcategoryDeleted(dirpath, reportFilePath) {
@@ -428,6 +447,7 @@ function countBySubcategoryDeleted(dirpath, reportFilePath) {
     const date = new Date().toISOString()
     const brandNames = dirs.map(m => m.replace('.js', ''))
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+    if(fs.existsSync(folderPath)){
     debugger
     let markas = {}
     const reportPath = path.join(process.cwd(), `${reportFilePath}`)
@@ -494,6 +514,8 @@ function countBySubcategoryDeleted(dirpath, reportFilePath) {
     debugger
     fs.writeFileSync(reportPath, JSON.stringify(markas))
     debugger
+
+}
 }
 
 

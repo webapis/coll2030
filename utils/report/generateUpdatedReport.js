@@ -1,6 +1,7 @@
 const { countTotal, countByBrand, countByBrandDeleted, countBySubcategory,countBySubcategoryDeleted,countTotalCollected,countTotalCollectedByBrand,countTotalCollectedBySubcategory } = require('./util')
-
+const fs =require('fs')
 function countTotalUpdated() {
+
   countTotal('updated-data', `projects/trends/src/reports/updated/total-updated.json`)
   countTotal('old-data', `projects/trends/src/reports/updated/total-deleted.json`)
   countTotal('collected-data', `projects/trends/src/reports/updated/total-newdata.json`)

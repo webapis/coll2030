@@ -1,4 +1,49 @@
 import * as React from 'react';
+
+import TreeItem from '@mui/lab/TreeItem';
+import Stack from '@mui/material/Stack';
+import Chip from '@mui/material/Chip';
+import ClearIcon from '@mui/icons-material/Clear';
+import { AppContext } from '../App';
+export default function NestedList({ groupName, keywords }) {
+
+
+    debugger
+    return (
+        <TreeItem nodeId={groupName} label={<span style={{  textTransform: 'capitalize'}}>{groupName.toLowerCase()}</span>}
+        >
+             <div    style={{padding:10 }}>
+            {keywords && keywords.map((m, i) => {
+                const { keyword, index, count } = m;
+                return <AppContext.Consumer key={i}>{({ setSelectedNavIndex, selectedNavIndex }) => {
+                    return <RenderRow handleClick={setSelectedNavIndex} selectedNavIndex={selectedNavIndex} key={index} keyword={keyword} index={index} count={count} />
+                }}</AppContext.Consumer>
+            })}
+            </div>
+        </TreeItem>
+    );
+}
+
+
+
+function RenderRow(props) {
+    const { handleClick, selectedNavIndex } = props
+    const { keyword, index, count } = props;
+
+    const matchfound = selectedNavIndex.split('-').find(f => f === index.replace('-', '')) ? true : false
+    return (
+        <Chip size="small" style={{margin:1}} color={matchfound ? 'success':'default'}   label={<div><span>{keyword}</span><span style={{backgroundColor:'#bdbdbd',padding:2,fontSize:10, borderRadius:20, marginLeft:10,color:'#fafafa'}}>{count}</span></div>} onDelete={matchfound ?() => (handleClick({ index, keyword })):null } onClick={() => handleClick({ index, keyword }) }
+        />
+        
+    );
+}
+
+
+
+
+
+/*
+import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -11,7 +56,8 @@ import ListItemText from '@mui/material/ListItemText';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Checkbox from '@mui/material/Checkbox';
 
-
+import TreeView from '@mui/lab/TreeView';
+import TreeItem from '@mui/lab/TreeItem';
 import { Typography } from '@mui/material';
 
 import { AppContext } from '../App';
@@ -78,3 +124,5 @@ function RenderRow(props) {
 }
 
 
+
+*/
