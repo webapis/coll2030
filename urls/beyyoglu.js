@@ -10,7 +10,7 @@ const urls = [
     { url: 'https://www.beyyoglu.com/kadin-gomlek', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.beyyoglu.com/kadin-tulum', subcategory: ['takım', 'tulum'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.beyyoglu.com/kadin-ceket', subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.beyyoglu.com/kadin-kaban-mont', subcategory: ['kaban','mont'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.beyyoglu.com/kadin-kaban-mont', subcategory: ['trençkot','kaban','mont'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.beyyoglu.com/kadin-tayt', subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.beyyoglu.com/kadin-sort', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
 ]
