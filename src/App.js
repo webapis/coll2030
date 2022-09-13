@@ -317,16 +317,16 @@ export default class App extends React.Component {
       </Container>
       }
       {matchedesktop && selectedSubcategory &&
-        <Stack>
+   
           <Grid container>
-            <Grid item xs={2} sx={{ paddingLeft: 5 }}>
+            <Grid item xs={2} >
               <KeywordsList />
             </Grid>
             <Grid item xs={10}>
               <ProductList />
             </Grid>
           </Grid>
-        </Stack>
+      
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
