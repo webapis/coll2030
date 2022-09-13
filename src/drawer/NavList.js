@@ -10,15 +10,17 @@ export default function NestedList({ groupName, keywords }) {
 
     debugger
     return (
-        <div nodeId={groupName} label={<span style={{  textTransform: 'capitalize'}}>{groupName.toLowerCase()}</span>}
+        <div style={{
+       
+        }} nodeId={groupName} label={<span style={{ textTransform: 'capitalize' }}>{groupName.toLowerCase()}</span>}
         >
-             <div    style={{padding:10 }}>
-            {keywords && keywords.map((m, i) => {
-                const { keyword, index, count } = m;
-                return <AppContext.Consumer key={i}>{({ setSelectedNavIndex, selectedNavIndex }) => {
-                    return <RenderRow handleClick={setSelectedNavIndex} selectedNavIndex={selectedNavIndex} key={index} keyword={keyword} index={index} count={count} />
-                }}</AppContext.Consumer>
-            })}
+            <div style={{ padding: 10 }}>
+                {keywords && keywords.map((m, i) => {
+                    const { keyword, index, count } = m;
+                    return <AppContext.Consumer key={i}>{({ setSelectedNavIndex, selectedNavIndex }) => {
+                        return <RenderRow handleClick={setSelectedNavIndex} selectedNavIndex={selectedNavIndex} key={index} keyword={keyword} index={index} count={count} />
+                    }}</AppContext.Consumer>
+                })}
             </div>
         </div>
     );
@@ -32,9 +34,9 @@ function RenderRow(props) {
 
     const matchfound = selectedNavIndex.split('-').find(f => f === index.replace('-', '')) ? true : false
     return (
-        <Chip  style={{margin:1}} color={matchfound ? 'success':'default'}   label={<div><span>{keyword}</span></div>} onDelete={matchfound ?() => (handleClick({ index, keyword })):null } onClick={() => handleClick({ index, keyword }) }
+        <Chip style={{ margin: 1 }} color={matchfound ? 'success' : 'default'} label={<div><span>{keyword}</span></div>} onDelete={matchfound ? () => (handleClick({ index, keyword })) : null} onClick={() => handleClick({ index, keyword })}
         />
-        
+
     );
 }
 

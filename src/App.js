@@ -124,6 +124,7 @@ export default class App extends React.Component {
     }
 
     this.setSelectedNavIndex = ({ keyword, index }) => {
+      window.scrollTo(0,0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
         let selectedNavIndex = null
@@ -320,7 +321,7 @@ export default class App extends React.Component {
    <Container>
           <Grid container>
             <Grid item xs={3} >
-              <KeywordsList />
+              <KeywordsList  />
             </Grid>
             <Grid item xs={9}>
               <ProductList />

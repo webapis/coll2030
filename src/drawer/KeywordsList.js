@@ -25,16 +25,11 @@ export default function KeywordsList() {
                 <div style={{ display: fetchingKeywords ? 'block' : 'none', width: '100%', height: '100vh', backgroundColor: '#fafafa', position: 'absolute', top: 0, bottom: 0, zIndex: 10, opacity: 0.7, color: 'white' }}>  <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                     <CircularProgress color="inherit" />
                 </Box></div>
-                <List
-                    sx={{ width: '100%', bgcolor: 'background.paper', marginTop: 2 }}
-                    component="nav"
-                    aria-labelledby="nested-list-subheader"
-                
-                    
+                <div style={{     height:'100vh',
+            overflowY:'scroll'}}
                 >
                      
-                          
-                          
+                  
                             {
                                 navKeywords && navKeywords.map((m, i) => {
 
@@ -52,7 +47,7 @@ export default function KeywordsList() {
                     
 
 
-                    }</List></div>
+                    }</div></div>
         })
     }</AppContext.Consumer>
 
