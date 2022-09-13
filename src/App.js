@@ -167,6 +167,8 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+
+
     this.loadSubcategories()
   }
   componentDidUpdate(prevProps, prevState) {

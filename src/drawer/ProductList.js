@@ -42,7 +42,7 @@ export default function ProductList(props) {
             }
 
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
-            <Box sx={{ width: '100%',height:'100vh', overflowY: 'scroll' }}>
+            <Box sx={{ width: '100%',height:'100vh', overflowY: 'scroll' }} id="product-container">
               <ImageList variant="standard" cols={5} gap={8}>
                 {products.length > 0 && products.map((item, i) => {
 
@@ -60,7 +60,7 @@ export default function ProductList(props) {
             </Fab>}
 
 
-            <Fab id="nav-top-btn" variant="extended" sx={{ position: 'fixed', bottom: 5, right: 5, display: 'none' }} color="primary" onClick={() => { window.scrollTo({ top: 0 }); }}>
+            <Fab id="nav-top-btn" variant="extended" sx={{ position: 'fixed', bottom: 5, right: 5, display: 'none' }} color="primary" onClick={() => { document.getElementById('product-container').scrollTo({ top: 0 }); window.scrollTo({ top: 0 }) }}>
               <NavigationIcon />
             </Fab>
             {products.length > 0 && (products.length - 1) === availableProducts && <Typography sx={{ color: '#757575', marginBottom: 10 }}>toplam:{availableProducts}ürün görüntilendi</Typography>}

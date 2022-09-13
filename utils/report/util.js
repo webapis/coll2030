@@ -10,7 +10,7 @@ if(fs.existsSync(folderPath)){
     let total = 0
     const date = new Date().toISOString()
     walkSync(folderPath, async (file) => {
-        debugger
+        
         try {
 
             const data = JSON.parse(fs.readFileSync(file, { encoding: 'utf-8' }))
@@ -18,7 +18,7 @@ if(fs.existsSync(folderPath)){
 
         } catch (error) {
             console.log('file deletion error', error)
-            debugger
+            
             throw error
         }
     })
@@ -27,13 +27,13 @@ if(fs.existsSync(folderPath)){
 
         let data = JSON.parse(fs.readFileSync(savePath, { encoding: 'utf-8' }))
         debugger
-        fs.writeFileSync(savePath, JSON.stringify([...data, { date, total }]))
-        debugger
+      //  fs.writeFileSync(savePath, JSON.stringify([...data, { date, total }]))
+        
 
     } else {
-        debugger
+        
         fs.writeFileSync(savePath, JSON.stringify([{ date, total }]))
-        debugger
+        
     }
 }
 }
@@ -52,7 +52,7 @@ function countTotalCollected(dirpath, reportFilePath) {
 
         } catch (error) {
             console.log('file deletion error', error)
-            debugger
+            
             throw error
         }
     })
@@ -118,14 +118,14 @@ function countTotalCollectedByBrand(dirpath, reportFilePath){
             return null
         })
     }
-    debugger
+    
 
     walkSync(folderPath, (filepath) => {
 
         const fileName = filepath.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
         const marka = fileName[9]
     
-        debugger
+        
         if(    markas[marka] ===undefined){
 
             markas[marka] = { data: { [date]: 0 } } 
@@ -135,9 +135,9 @@ function countTotalCollectedByBrand(dirpath, reportFilePath){
 
     })
 
-    debugger
+    
     fs.writeFileSync(reportPath, JSON.stringify(markas))
-    debugger
+    
 
 }
 }
@@ -145,13 +145,13 @@ function countTotalCollectedByBrand(dirpath, reportFilePath){
 function countTotalCollectedBySubcategory(dirpath, reportFilePath){
 
     const dirs = fs.readdirSync(`${process.cwd()}/urls`)
-    debugger
+    
     const folderPath = path.join(process.cwd(), `${dirpath}`)
     if(fs.existsSync(folderPath)){
     const date = new Date().toISOString()
     const brandNames = dirs.map(m => m.replace('.js', ''))
 
-    debugger
+    
     let markas = {}
     const reportPath = path.join(process.cwd(), `${reportFilePath}`)
     const reportexists = fs.existsSync(reportPath)
@@ -184,7 +184,7 @@ function countTotalCollectedBySubcategory(dirpath, reportFilePath){
 
         }
     }
-    debugger
+    
 
     walkSync(folderPath, (filepath) => {
 
@@ -205,16 +205,16 @@ function countTotalCollectedBySubcategory(dirpath, reportFilePath){
 
     })
 
-    debugger
+    
     fs.writeFileSync(reportPath, JSON.stringify(markas))
-    debugger
+    
 
 }
 }
 
 function countByBrand(dirpath, reportFilePath) {
     const dirs = fs.readdirSync('./urls')
-    debugger
+    
     const folderPath = path.join(process.cwd(), `${dirpath}`)
     if(fs.existsSync(folderPath)){
     let markas = {}
@@ -257,31 +257,31 @@ function countByBrand(dirpath, reportFilePath) {
             return null
         })
     }
-    debugger
+    
 
     walkSync(folderPath, (filepath) => {
-        debugger
+        
 
         const data = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
 
         data.forEach(d => {
             const { marka } = d
-            debugger
+            
             if (markas[marka] === undefined) {
 
                 markas[marka] = { data: { [date]: 0 } }
             }
             markas[marka].data[date] = markas[marka].data[date] + 1
         })
-        debugger
+        
 
 
 
     })
     const savePath = path.join(process.cwd(), `${reportFilePath}`)
-    debugger
+    
     fs.writeFileSync(savePath, JSON.stringify(markas))
-    debugger
+    
 
 }
 }
@@ -334,40 +334,40 @@ function countByBrandDeleted(dirpath, reportFilePath) {
             return null
         })
     }
-    debugger
+    
 
     walkSync(folderPath, (filepath) => {
-        debugger
+        
         const fileName = filepath.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
         const marka = fileName[8]
-        debugger
+        
         const data = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
-        debugger
+        
 
 
-        debugger
+        
         if (markas[marka] === undefined) {
 
             markas[marka] = { data: { [date]: data.length } }
         }
         markas[marka].data[date] = markas[marka].data[date] + data.length
 
-        debugger
+        
 
 
 
     })
     const savePath = path.join(process.cwd(), `${reportFilePath}`)
-    debugger
+    
     fs.writeFileSync(savePath, JSON.stringify(markas))
-    debugger
+    
 }
 }
 
 
 function countBySubcategory(dirpath, reportFilePath) {
     const dirs = fs.readdirSync(`${process.cwd()}/urls`)
-    debugger
+    
 
     const folderPath = path.join(process.cwd(), `${dirpath}`)
 
@@ -375,7 +375,7 @@ function countBySubcategory(dirpath, reportFilePath) {
     const date = new Date().toISOString()
     const brandNames = dirs.map(m => m.replace('.js', ''))
 
-    debugger
+    
     let markas = {}
     const reportPath = path.join(process.cwd(), `${reportFilePath}`)
     const reportexists = fs.existsSync(reportPath)
@@ -408,17 +408,17 @@ function countBySubcategory(dirpath, reportFilePath) {
 
         }
     }
-    debugger
+    
 
     walkSync(folderPath, (filepath) => {
-        debugger
+        
         const data = JSON.parse(fs.readFileSync(filepath))
 
-        debugger
+        
         data.forEach(d => {
-            debugger
+            
             const { marka, subcategory } = d
-            debugger
+            
             if (markas[marka][subcategory] === undefined) {
                 markas[marka][subcategory] = { data: { [date]: 0 } }
             }
@@ -428,17 +428,17 @@ function countBySubcategory(dirpath, reportFilePath) {
             if (markas[marka][subcategory].data[date] === undefined) {
                 markas[marka][subcategory].data[date] = 0
             }
-            debugger
+            
             markas[marka][subcategory].data[date] = markas[marka][subcategory].data[date] + 1
-            debugger
+            
         })
 
-        debugger
+        
     })
 
-    debugger
+    
     fs.writeFileSync(reportPath, JSON.stringify(markas))
-    debugger
+    
 }
 }
 
@@ -449,7 +449,7 @@ function countBySubcategoryDeleted(dirpath, reportFilePath) {
     const brandNames = dirs.map(m => m.replace('.js', ''))
     const folderPath = path.join(process.cwd(), `${dirpath}`)
     if(fs.existsSync(folderPath)){
-    debugger
+    
     let markas = {}
     const reportPath = path.join(process.cwd(), `${reportFilePath}`)
     const reportexists = fs.existsSync(reportPath)
@@ -482,20 +482,20 @@ function countBySubcategoryDeleted(dirpath, reportFilePath) {
 
         }
     }
-    debugger
+    
 
     walkSync(folderPath, (filepath) => {
 
         const fileName = filepath.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
 
         const marka = fileName[8]
-        debugger
+        
         const data = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
 
         data.forEach(d => {
             const fileName = d.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
             const subcategory = fileName[4]
-            debugger
+            
             if(markas[marka]===undefined){
                 markas[marka]={}
             }
@@ -515,9 +515,9 @@ function countBySubcategoryDeleted(dirpath, reportFilePath) {
 
     })
 
-    debugger
+    
     fs.writeFileSync(reportPath, JSON.stringify(markas))
-    debugger
+    
 
 }
 }

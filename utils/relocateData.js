@@ -10,21 +10,21 @@ const { generateUpdatedReport } = require('./report/generateUpdatedReport')
 const { generateSubcategoryPie } = require('./generateSubcategoryPie')
 console.log('--------------------------------------------------------------')
 
-debugger
+
 let obj = {}
 
 // delete old data
 
 if (fs.existsSync(path.join(process.cwd(), 'old-data'))) {
     walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
-        debugger
+        
         try {
             const data = JSON.parse(fs.readFileSync(filepath))
 
             for (let d of data) {
-                debugger
+                
                 if (fs.existsSync(d)) {
-                    debugger
+                    
                     fs.unlinkSync(d)
                     console.log('deleted----', d)
                 } else {
@@ -34,7 +34,7 @@ if (fs.existsSync(path.join(process.cwd(), 'old-data'))) {
 
         } catch (error) {
             console.log('file deletion error', error)
-            debugger
+            
             //    throw error
         }
     })
@@ -51,7 +51,7 @@ if (fs.existsSync(path.join(process.cwd(), 'collected-data'))) {
             const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
 
 
-            debugger
+            
             for (let d of collectedData) {
                 const { imageUrl, subcategory, marka } = d
 
@@ -61,9 +61,9 @@ if (fs.existsSync(path.join(process.cwd(), 'collected-data'))) {
 
                 const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
                 console.log('savePath------', savePath)
-                debugger
+                
                 fs.writeFileSync(savePath, JSON.stringify(d))
-                debugger
+                
 
             }
 
@@ -71,7 +71,7 @@ if (fs.existsSync(path.join(process.cwd(), 'collected-data'))) {
         } catch (error) {
             console.log('filepath', filepath)
             console.log('error', error)
-            debugger
+            
         }
 
 
@@ -87,7 +87,7 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
             try {
 
                 const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
-                debugger
+                
                 for (let d of collectedData) {
                     const { imageUrl, subcategory, marka } = d
 
@@ -97,15 +97,15 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
 
                     const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
                     console.log('savePath------', savePath)
-                    debugger
+                    
                     fs.writeFileSync(savePath, JSON.stringify(d))
-                    debugger
+                    
                 }
 
             } catch (error) {
                 console.log('filepath', filepath)
                 console.log('error', error)
-                debugger
+                
             }
 
 
@@ -127,7 +127,7 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
 
 //     } catch (error) {
 //         console.log('file deletion error', error)
-//         debugger
+//         
 //         throw error
 //     }
 // })

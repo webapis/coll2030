@@ -46,7 +46,7 @@ const placeholders = {
     oxxo: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn.sorsware.com/', detailHost: 'https://www.oxxo.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
     abiyefon: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://www.abiyefon.com/', detailHost: 'https://www.abiyefon.com/', postfix: '', imgPostFix:'?tr=w-400' },
     desa: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://cdn-ayae.akinon.net/', detailHost: 'https://www.desa.com.tr/', postfix: '', imgPostFix:'?tr=w-400' },
-    patirti: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img1ptrti.mncdn.com/', detailHost: 'https://www.patirti.com/', postfix: '', imgPostFix:'?tr=w-400' },
+    patirti: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: '', detailHost: 'https://www.patirti.com/', postfix: '', imgPostFix:'?tr=w-400' },
     yargici: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img-incommerce-yargici.mncdn.com/', detailHost: 'https://www.yargici.com/', postfix: '', imgPostFix:'?tr=w-400' },
 
 }
