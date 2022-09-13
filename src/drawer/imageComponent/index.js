@@ -79,7 +79,7 @@ export default function ImageComponent(props) {
         const selectedSubcategoryMatch = selectedSubcategory.includes(m.toLowerCase()) || m.toLowerCase().includes(selectedSubcategory)
 
 
-        return <span key={i} style={{ margin:0,padding:0,  color: '#bdbdbd', fontSize: 10, textTransform: 'capitalize', fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch || searchMatch) ? 800 : 300 }}>{m.replace(props.marka, '')}{` `}
+        return <span key={i} style={{ margin:0,padding:0,  color: '#9e9e9e', fontSize: 10, textTransform: 'capitalize', fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch || searchMatch) ? 800 : 300 }}>{m.replace(props.marka, '')}{` `}
 
 
         </span>
@@ -94,10 +94,10 @@ export default function ImageComponent(props) {
             loading="lazy"
           />
           
-          <ImageListItemBar    position='below' subtitle={<span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10, color: '#bdbdbd' }}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span>} />
+          <ImageListItemBar    position='below' subtitle={<span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10, color: '#9e9e9e' }}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span>} />
       
         </ImageListItem>
-        <div style={{fontSize:10,marginTop:-17}}>{productTitle}
+        <div style={{fontSize:10,marginTop:-5}}>{productTitle}
         </div>
       </a>
       

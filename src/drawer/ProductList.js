@@ -43,7 +43,7 @@ export default function ProductList(props) {
 
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
             <Box sx={{ width: '100%', overflowY: 'scroll' }}>
-              <ImageList variant="masonry" cols={5} gap={8}>
+              <ImageList variant="standard" cols={5} gap={8}>
                 {products.length > 0 && products.map((item, i) => {
 
                   return <ImageComponent selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
