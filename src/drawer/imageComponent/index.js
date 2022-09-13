@@ -94,7 +94,7 @@ export default function ImageComponent(props) {
             loading="lazy"
           />
           
-          <ImageListItemBar    position='below' subtitle={<span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10, color: '#bdbdbd' }}><span>{props.marka}</span> <span>{props.price} TL</span></span>} />
+          <ImageListItemBar    position='below' subtitle={<span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10, color: '#bdbdbd' }}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span>} />
       
         </ImageListItem>
         <div style={{fontSize:10,marginTop:-17}}>{productTitle}

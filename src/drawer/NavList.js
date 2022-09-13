@@ -10,7 +10,7 @@ export default function NestedList({ groupName, keywords }) {
 
     debugger
     return (
-        <TreeItem nodeId={groupName} label={<span style={{  textTransform: 'capitalize'}}>{groupName.toLowerCase()}</span>}
+        <div nodeId={groupName} label={<span style={{  textTransform: 'capitalize'}}>{groupName.toLowerCase()}</span>}
         >
              <div    style={{padding:10 }}>
             {keywords && keywords.map((m, i) => {
@@ -20,7 +20,7 @@ export default function NestedList({ groupName, keywords }) {
                 }}</AppContext.Consumer>
             })}
             </div>
-        </TreeItem>
+        </div>
     );
 }
 

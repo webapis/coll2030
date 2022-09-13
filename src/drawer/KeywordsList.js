@@ -12,7 +12,10 @@ import TreeView from '@mui/lab/TreeView';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Button from '@mui/material/Button'
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 export default function KeywordsList() {
     return <AppContext.Consumer>{
         (({ navKeywords, selectedKeywords, fetchingKeywords, setSelectedNavIndex }) => {
@@ -28,23 +31,25 @@ export default function KeywordsList() {
                     aria-labelledby="nested-list-subheader"
                 
                     
-                >{
-                        <TreeView defaultCollapseIcon={<ExpandMoreIcon />}
-                            defaultExpandIcon={<ChevronRightIcon />} expanded={navKeywords.map(m => m.groupName)}>
+                >
+                     
+                          
+                          
                             {
                                 navKeywords && navKeywords.map((m, i) => {
 
                                     const { groupName, keywords } = m
 
                                     debugger
-                                    return  <NavList   key={i} groupName={groupName} keywords={keywords} />
+                                    return   <FormControl  component="fieldset" variant="standard" >   <FormLabel  component="legend">{groupName}</FormLabel> <NavList   key={i} groupName={groupName} keywords={keywords} /> </FormControl >
                                         
 
                                        
                                     
                                 })
-                            }
-                        </TreeView>
+                            
+                           
+                    
 
 
                     }</List></div>
