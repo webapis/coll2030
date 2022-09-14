@@ -115,7 +115,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: tozlu
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   quzu_job:
     uses: ./.github/workflows/reusable.yml
