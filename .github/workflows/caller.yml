@@ -6,51 +6,59 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: machka
+      maxconcurrency: '1'
     secrets: inherit
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: defacto
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   koton_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: koton
+      maxconcurrency: '1'
     secrets: inherit
   lcwaikiki_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: lcwaikiki
-      maxconcurrency: '10'
+      maxconcurrency: '1'
   ipekyol_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: ipekyol
+      maxconcurrency: '1'
   mavi_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: mavi
+      maxconcurrency: '1'
     secrets: inherit
   adl_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: adl
+      maxconcurrency: '1'
     secrets: inherit
   roman_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: roman
+      maxconcurrency: '1'
     secrets: inherit
   beymen_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: beymen
+      maxconcurrency: '1'
     secrets: inherit
   vakko_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: vakko
+      maxconcurrency: '1'
     secrets: inherit
   zara_job:
     uses: ./.github/workflows/reusable.yml
@@ -62,6 +70,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: twist
+      maxconcurrency: '1'
     secrets: inherit
   hm_job:
     uses: ./.github/workflows/reusable.yml
@@ -85,7 +94,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: dilvin
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   colins_job:
     uses: ./.github/workflows/reusable.yml
@@ -103,13 +112,13 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: vitrin
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   xint_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: xint
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   tozlu_job:
     uses: ./.github/workflows/reusable.yml
@@ -127,37 +136,37 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: saygigiyim
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   manuka_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: manuka
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   kikiriki_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: kikiriki
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   jimmykey_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: jimmykey
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   perspective_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: perspective
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   mango_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: mango
-      maxconcurrency: '10'
+      maxconcurrency: '1'
     secrets: inherit
   olegcassini_job:
     uses: ./.github/workflows/reusable.yml
