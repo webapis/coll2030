@@ -3,11 +3,11 @@ const urls = [
     { url: 'https://www.addax.com.tr/ust-giyim/elbise', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/alt-giyim/etek', subcategory: ['etek'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/alt-giyim/pantolon', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
-    { url: 'https://www.addax.com.tr/ust-giyim/sweatshirt', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
+   
     { url: 'https://www.addax.com.tr/ust-giyim/hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.addax.com.tr/ust-giyim/bluz', subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.addax.com.tr/ust-giyim/t-shirt', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.addax.com.tr/ust-giyim/gomlek', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
+   
+   
+
     { url: 'https://www.addax.com.tr/ust-giyim/tulumtakim', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/dis-giyim/ceket', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/dis-giyim/yelek', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
@@ -16,6 +16,13 @@ const urls = [
     //https://www.addax.com.tr/ust-giyim/bustiyer/
     { url: 'https://www.addax.com.tr/alt-giyim/tayt', subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/alt-giyim/sort', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
+
+      { url: 'https://www.addax.com.tr/ust-giyim/bluz', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.addax.com.tr/ust-giyim/gomlek', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.addax.com.tr/ust-giyim/t-shirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.addax.com.tr/ust-giyim/basic-t-shirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.addax.com.tr/ust-giyim/bustiyer', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.addax.com.tr/ust-giyim/sweatshirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports = { urls }
