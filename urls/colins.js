@@ -1,13 +1,13 @@
 const urls = [
   
-    { url: 'https://www.colins.com.tr/c/kadin-elbise-212', subcategory: ['elbise'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.colins.com.tr/c/kadin-etek-239', subcategory: ['etek'], category: 'alt-giyim',node:'dream' },
+   { url: 'https://www.colins.com.tr/c/kadin-elbise-212', subcategory: ['elbise'], category: 'üst-giyim',node:'dream'},
+     { url: 'https://www.colins.com.tr/c/kadin-etek-239', subcategory: ['etek'], category: 'alt-giyim',node:'dream' },
     { url: 'https://www.colins.com.tr/c/kadin-pantolon-209', subcategory: ['pantolon'], category: 'alt-giyim',node:'dream' },
-    { url: 'https://www.colins.com.tr/c/sweatshirt-189', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
+     { url: 'https://www.colins.com.tr/c/sweatshirt-189', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.colins.com.tr/c/kadin-hirka-181', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.colins.com.tr/c/kadin-kazak-199', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.colins.com.tr/c/kadin-tshirt-187', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
-    { url: 'hhttps://www.colins.com.tr/c/kadin-kisa-kollu-gomlek-modelleri-222', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
+     { url: 'https://www.colins.com.tr/c/kadin-kisa-kollu-gomlek-modelleri-222', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.colins.com.tr/c/kadin-gomlek-modelleri-197', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
 
     { url: 'https://www.colins.com.tr/c/kadin-ceket-211', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },

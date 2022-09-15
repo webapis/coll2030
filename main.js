@@ -198,6 +198,7 @@ Apify.main(async () => {
         const productItemsWithoutDublicate = uniqify(productItems, 'imageUrl')
         const groupBySubcategory = groupBy(productItemsWithoutDublicate, 'subcategory')
         for (let subcategory in groupBySubcategory) {
+            
             debugger
             const products = groupBySubcategory[subcategory]
             debugger
