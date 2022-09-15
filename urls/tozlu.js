@@ -15,6 +15,8 @@ const urls = [
     { url: 'https://www.tozlu.com/TR/kadin-ceket',               subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-mevsimlik-mont',      subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-trenckot',            subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.tozlu.com/TR/kadin-yelek',            subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+
 
     { url: 'https://www.tozlu.com/TR/kadin-tayt',                subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-giyim-sort-kapri',    subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
@@ -25,6 +27,9 @@ const urls = [
     { url: 'https://www.tozlu.com/TR/kadin-tshirt',              subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-gomlek',              subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.tozlu.com/TR/kadin-tunik',               subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.tozlu.com/TR/kadin-atlet-basic-body',    subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.tozlu.com/TR/kadin-bustiyer',            subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.tozlu.com/TR/crop-tops-modasi',               subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 
 ]
 
