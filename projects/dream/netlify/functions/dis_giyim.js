@@ -3,6 +3,6 @@ const { netlifyDataHandler } = require('../../netlifyDataHandler')
 exports.handler = async function (event, context) {
 
 
-return await netlifyDataHandler({ event, project: 'dream', subcategory: 'dis_giyim' })
+return await netlifyDataHandler({ event,  subcategory: 'dis_giyim' })
 
 }
