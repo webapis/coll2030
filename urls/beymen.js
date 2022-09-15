@@ -10,7 +10,7 @@ const urls = [
     { url: 'https://www.beymen.com/kadin-giyim-t-shirt-10408', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.beymen.com/kadin-giyim-gomlek--bluz-10040', subcategory: ['bluz','gömlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.beymen.com/kadin-giyim-elbise-tulum-10344', subcategory: ['tulum'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.beymen.com/kadin-giyim-ceket-10033', subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.beymen.com/kadin-giyim-ceket-10033', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.beymen.com/kadin-giyim-pantolon-sort-legging-10394', subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.beymen.com/kadin-giyim-sort-10396', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
 ]

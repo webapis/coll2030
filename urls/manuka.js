@@ -7,14 +7,17 @@ const urls = [
 
 
     { url: 'https://www.manuka.com.tr/sweatshirt-kadin', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.manuka.com.tr/hirka', subcategory: ['hırka'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/hirka', subcategory: ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/suveter', subcategory: ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/triko', subcategory: ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/kazak', subcategory: ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/bluz', subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/kadin-tisort', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/kadin-gomlek', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.manuka.com.tr/kadin-ceket', subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.manuka.com.tr/kadin-mont', subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.manuka.com.tr/kaban', subcategory: ['kaban'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.manuka.com.tr/trenckot', subcategory: ['trençkot'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/kadin-ceket', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/kadin-mont', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/kaban', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/trenckot', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/tunik', subcategory: ['tunik'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/sort', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
 ]

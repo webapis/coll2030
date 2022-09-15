@@ -30,6 +30,7 @@
     await generateKeyword({ google_access_token, spreadsheetId, range: 'atlet!A:J', node: 'dream', subcategory: 'atlet' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'abiye!A:J', node: 'dream', subcategory: 'abiye' })
 
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'dis_giyim!A:J', node: 'dream', subcategory: 'dis_giyim' })
     process.exit(0)
 
 })()
@@ -44,7 +45,7 @@ async function generateKeyword({ google_access_token, spreadsheetId, range, node
 
    
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range })
-
+debugger
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const keyword = value[0]
         const parentorchild = value[1]

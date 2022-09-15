@@ -8,13 +8,13 @@ const urls = [
     { url: 'https://www.perspective.com.tr/indirim/bluz',              subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.perspective.com.tr/indirim/gomlek',            subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.perspective.com.tr/indirim/tulum',             subcategory: [ 'tulum'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.perspective.com.tr/indirim/ceket',             subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.perspective.com.tr/indirim/kaban',             subcategory: ['kaban'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.perspective.com.tr/indirim/mont',              subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.perspective.com.tr/indirim/trenckot',          subcategory: ['trençkot'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.perspective.com.tr/indirim/ceket',             subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.perspective.com.tr/indirim/kaban',             subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.perspective.com.tr/indirim/mont',              subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.perspective.com.tr/indirim/trenckot',          subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.perspective.com.tr/indirim/tayt',              subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.perspective.com.tr/indirim/sort',              subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
-
+    { url: 'https://www.perspective.com.tr/koleksiyon/tum-trikolar',   subcategory: ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}

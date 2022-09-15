@@ -27,6 +27,7 @@
   await genNav({ node: 'dream', subcategory: 'kaban' })
   await genNav({ node: 'dream', subcategory: 'atlet' })
   await genNav({ node: 'dream', subcategory: 'abiye' })
+  await genNav({ node: 'dream', subcategory: 'dis_giyim' })
   process.exit(0)
 
 })()

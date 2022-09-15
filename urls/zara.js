@@ -8,9 +8,10 @@ const urls = [
 
      { url: 'https://www.zara.com/tr/tr/kadin-tishertler-l1362.html', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.zara.com/tr/tr/kadin-gemlekler-l1217.html', subcategory: ['bluz','gömlek'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.zara.com/tr/tr/kadin-ceketler-l1114.html', subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.zara.com/tr/tr/kadin-dish-giyim-l1184.html', subcategory: ['kaban','ceket','mont','trençkot'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.zara.com/tr/tr/kadin-ceketler-l1114.html', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.zara.com/tr/tr/kadin-dish-giyim-l1184.html', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.zara.com/tr/tr/kadin-pantolonlar-shortlar-l1355.html', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
+    { url: 'https://www.zara.com/tr/tr/kadin-erge-giyim-l1152.html', subcategory: ['süveter', 'hırka', 'kazak'], category: 'alt-giyim', node: 'dream' },
 ]
 
 module.exports={urls}
