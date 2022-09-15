@@ -31,6 +31,7 @@
     await generateKeyword({ google_access_token, spreadsheetId, range: 'abiye!A:J', node: 'dream', subcategory: 'abiye' })
 
     await generateKeyword({ google_access_token, spreadsheetId, range: 'dis_giyim!A:J', node: 'dream', subcategory: 'dis_giyim' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'kazak!A:J', node: 'dream', subcategory: 'kazak' })
     process.exit(0)
 
 })()

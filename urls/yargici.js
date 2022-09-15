@@ -6,8 +6,8 @@ const urls = [
     { url: 'https://www.yargici.com/yeni-sezon-pantolon', subcategory:['pantolon'], category: 'alt-giyim',node:'dream' },
 
 
-    { url: 'https://www.yargici.com/yeni-sezon-hirka', subcategory: ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.yargici.com/yeni-sezon-kazak', subcategory: ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.yargici.com/yeni-sezon-hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.yargici.com/yeni-sezon-kazak', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.yargici.com/yeni-sezon-t-shirt', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.yargici.com/yeni-sezon-gomlek-bluz', subcategory: ['bluz','gömlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.yargici.com/yeni-sezon-ceket', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },

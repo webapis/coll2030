@@ -6,8 +6,8 @@ const urls = [
 
 
     { url: 'https://www.vitrin.com.tr/sweatshirt-modelleri', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.vitrin.com.tr/hirka-modelleri', subcategory:  ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.vitrin.com.tr/kazak-modelleri', subcategory:  ['süveter', 'hırka', 'kazak'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.vitrin.com.tr/hirka-modelleri', subcategory:  ['kazak'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.vitrin.com.tr/kazak-modelleri', subcategory:  ['kazak'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.vitrin.com.tr/bluz', subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.vitrin.com.tr/tshirt-modelleri', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.vitrin.com.tr/gomlek-modelleri', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
