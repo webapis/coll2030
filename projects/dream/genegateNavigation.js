@@ -9,7 +9,7 @@
   await genNav({ node: 'dream', subcategory: 'pantolon' })
   await genNav({ node: 'dream', subcategory: 'etek' })
   await genNav({ node: 'dream', subcategory: 'gomlek' })
-  await genNav({ node: 'dream', subcategory: 'tişört' })
+
 
   await genNav({ node: 'dream', subcategory: 'şort' })
 

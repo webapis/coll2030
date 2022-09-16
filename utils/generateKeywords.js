@@ -10,8 +10,6 @@
     await generateKeyword({ google_access_token, spreadsheetId, range: 'pantolon!A:J', node: 'dream', subcategory: 'pantolon' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:J', node: 'dream', subcategory: 'etek' })
 
-
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'tisort!A:J', node: 'dream', subcategory: 'tişört' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'gomlek!A:J', node: 'dream', subcategory: 'gomlek' })
 
     await generateKeyword({ google_access_token, spreadsheetId, range: 'sort!A:J', node: 'dream', subcategory: 'şort' })
