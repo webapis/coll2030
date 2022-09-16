@@ -7,19 +7,7 @@
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
     await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:J', node: 'dream', subcategory: 'elbise' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'pantolon!A:J', node: 'dream', subcategory: 'pantolon' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'etek!A:J', node: 'dream', subcategory: 'etek' })
 
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'gomlek!A:J', node: 'dream', subcategory: 'gomlek' })
-
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'sort!A:J', node: 'dream', subcategory: 'şort' })
-
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'tayt!A:J', node: 'dream', subcategory: 'tayt' })
-
-
-
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'dis_giyim!A:J', node: 'dream', subcategory: 'dis_giyim' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'kazak!A:J', node: 'dream', subcategory: 'kazak' })
     process.exit(0)
 
 })()

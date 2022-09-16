@@ -6,18 +6,7 @@
 
 
   await genNav({ node: 'dream', subcategory: 'elbise' })
-  await genNav({ node: 'dream', subcategory: 'pantolon' })
-  await genNav({ node: 'dream', subcategory: 'etek' })
-  await genNav({ node: 'dream', subcategory: 'gomlek' })
 
-
-  await genNav({ node: 'dream', subcategory: 'şort' })
-
-
-  await genNav({ node: 'dream', subcategory: 'tayt' })
-
-  await genNav({ node: 'dream', subcategory: 'dis_giyim' })
-  await genNav({ node: 'dream', subcategory: 'kazak' })
   process.exit(0)
 
 })()
