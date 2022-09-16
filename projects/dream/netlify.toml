@@ -32,11 +32,11 @@
   included_files = ["api/_files/key/sweatshirt/1-keywords.json"]
 
 [functions."gomlek"]
-  included_files = ["api/_files/data/gömlek/*.json","api/_files/nav/gömlek/keywords.json"]
+  included_files = ["api/_files/data/gomlek/*.json","api/_files/nav/gomlek/keywords.json"]
 [functions."gomlek-navfirst"]
-  included_files = ["api/_files/key/gömlek/0-keywords.json"]
+  included_files = ["api/_files/key/gomlek/0-keywords.json"]
 [functions."gomlek-navsecond"]
-  included_files = ["api/_files/key/gömlek/1-keywords.json"]
+  included_files = ["api/_files/key/gomlek/1-keywords.json"]
 
 
 [functions."bluz"]
