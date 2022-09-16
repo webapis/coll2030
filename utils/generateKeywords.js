@@ -12,16 +12,12 @@
 
 
     await generateKeyword({ google_access_token, spreadsheetId, range: 'tisort!A:J', node: 'dream', subcategory: 'tişört' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'gomlek!A:J', node: 'dream', subcategory: 'gömlek' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'sweatshirt!A:J', node: 'dream', subcategory: 'sweatshirt' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'gomlek!A:J', node: 'dream', subcategory: 'gomlek' })
 
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'bluz!A:J', node: 'dream', subcategory: 'bluz' })
     await generateKeyword({ google_access_token, spreadsheetId, range: 'sort!A:J', node: 'dream', subcategory: 'şort' })
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'tunik!A:J', node: 'dream', subcategory: 'tunik' })
 
     await generateKeyword({ google_access_token, spreadsheetId, range: 'tayt!A:J', node: 'dream', subcategory: 'tayt' })
 
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'atlet!A:J', node: 'dream', subcategory: 'atlet' })
 
 
     await generateKeyword({ google_access_token, spreadsheetId, range: 'dis_giyim!A:J', node: 'dream', subcategory: 'dis_giyim' })
