@@ -100,7 +100,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: colins
-      maxconcurrency: '1'
+      maxconcurrency: '10'
     secrets: inherit
   gizia_job:
     uses: ./.github/workflows/reusable.yml

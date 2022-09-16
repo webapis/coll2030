@@ -18,15 +18,20 @@ async function handler(page, context) {
                 // const { loaded, remained } = await page.$eval('.load-more-heading', el => {
                 //     return { loaded: parseInt(el.getAttribute('data-items-shown')), remained: parseInt(el.getAttribute('data-total')) }
                 // })
-                const nextPageExists = await page.evaluate(() => document.querySelector('.button.js-load-more') && document.querySelector('.button.js-load-more').classList.contains('hidden') === false)
+                const { dataTotal, dataShown } = await page.evaluate(() => {
+                    const dataTotal = parseInt(document.querySelector('.load-more-heading').getAttribute('data-total'))
+                    const dataShown = parseInt(document.querySelector('.load-more-heading').getAttribute('data-items-shown'))
 
-                if (nextPageExists === false) {
+                    return { dataTotal, dataShown }
+                })
 
+                if (dataTotal > dataShown) {
+                    await page.waitForSelector('.ajax-overlay', { hidden: true })
                     await page.click('.button.js-load-more')
                     await manualScroll(page)
 
                 } else {
-
+                    debugger
                     clearInterval(inv)
                     const data = await page.$$eval('.product-item', (productCards, _subcategory, _category, _node) => {
                         return productCards.map(productCard => {
@@ -56,7 +61,7 @@ async function handler(page, context) {
                         const { title } = m
                         const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
                         const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length - 1]
-                        debugger
+
                         return { ...m, subcategory: subcat }
                     })
 
