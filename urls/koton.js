@@ -6,8 +6,7 @@ const urls = [
 
 
 
-    { url: 'https://www.koton.com/kadin-hirka', subcategory:        ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-kazak-suveter', subcategory:['kazak'], category: 'üst-giyim', node: 'dream' },
+
 
     { url: 'https://www.koton.com/kadin-blazer-ceket',subcategory:  ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.koton.com/kadin-mont', subcategory:         ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
@@ -25,6 +24,8 @@ const urls = [
     { url: 'https://www.koton.com/kadin-gomlek', subcategory:       ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.koton.com/kadin-tunik', subcategory:        ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.koton.com/kadin-atlet', subcategory:        ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-hirka', subcategory:        ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-kazak-suveter', subcategory:['gomlek'], category: 'üst-giyim', node: 'dream' },
 
 ]
 

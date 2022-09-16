@@ -7,8 +7,7 @@ const urls = [
 
 
 
-    { url: 'https://www.patirti.com/kadin-hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.patirti.com/kadin-triko-kazak', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
 
 
     { url: 'https://www.patirti.com/kadin-mont-ceket', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
@@ -22,6 +21,8 @@ const urls = [
     { url: 'https://www.patirti.com/kadin-bluz', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.patirti.com/kadin-t-shirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.patirti.com/kadin-gomlek', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.patirti.com/kadin-hirka', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.patirti.com/kadin-triko-kazak', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports = { urls }

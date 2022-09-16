@@ -16,11 +16,12 @@ const urls = [
   
   { url: 'https://www.gizia.com/ilkbahar-yaz-sort-modelleri', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
 
-  { url: 'https://www.gizia.com/yeni-sezon-kazak-modelleri', subcategory: ['kazak'], category: 'alt-giyim', node: 'dream' },
+
 
 
   { url: 'https://www.gizia.com/ilkbahar-yaz-bluz-gomlek-modelleri', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
   { url: 'https://www.gizia.com/ilkbahar-yaz-sweatshirt-modelleri', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+  { url: 'https://www.gizia.com/yeni-sezon-kazak-modelleri', subcategory: ['gomlek'], category: 'alt-giyim', node: 'dream' },
 
 ]
 

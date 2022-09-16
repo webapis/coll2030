@@ -6,10 +6,11 @@ const urls = [
     
     { url: 'https://www.baqa.com.tr/ceket?currency=try', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.baqa.com.tr/kaban?currency=try', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.baqa.com.tr/tunik?currency=try', subcategory: ['tunik'], category: 'üst-giyim', node: 'dream' },
+   
 
     { url: 'https://www.baqa.com.tr/etek?currency=try', subcategory: ['etek'], category: 'alt-giyim',node:'dream'},
     { url: 'https://www.baqa.com.tr/bluz?currency=try', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.baqa.com.tr/tunik?currency=try', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}

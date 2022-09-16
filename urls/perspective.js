@@ -14,7 +14,6 @@ const urls = [
 
     { url: 'https://www.perspective.com.tr/indirim/tayt',              subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.perspective.com.tr/indirim/sort',              subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
-    { url: 'https://www.perspective.com.tr/koleksiyon/tum-trikolar',   subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
 
 
     { url: 'https://www.perspective.com.tr/koleksiyon/sweatshirt',        subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
@@ -22,6 +21,8 @@ const urls = [
     { url: 'https://www.perspective.com.tr/koleksiyon/tum-gomlekler',            subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.perspective.com.tr/koleksiyon/tisort',            subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.perspective.com.tr/koleksiyon/tum-tunikler',            subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.perspective.com.tr/koleksiyon/tum-trikolar',   subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+
 ]
 
 module.exports={urls}

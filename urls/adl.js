@@ -5,8 +5,7 @@ const urls = [
     { url: 'https://www.adl.com.tr/kadin-pantolon', subcategory: ['pantolon'], category: 'alt-giyim' ,node:'dream' },
 
    
-    { url: 'https://www.adl.com.tr/kadin-hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.adl.com.tr/kadin-kazak', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
   
 
     { url: 'https://www.adl.com.tr/kadin-tulum', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
@@ -26,6 +25,8 @@ const urls = [
     { url: 'https://www.adl.com.tr/kadin-bluz', subcategory:   ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.adl.com.tr/kadin-atlet', subcategory:  ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.adl.com.tr/kadin-sweatshirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.adl.com.tr/kadin-hirka', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.adl.com.tr/kadin-kazak', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 
 ]
 

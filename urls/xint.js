@@ -9,13 +9,14 @@ const urls = [
     { url: 'https://www.xint.com.tr/kadin-mont', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.xint.com.tr/kadin-yelek', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
 
-    { url: 'https://www.xint.com.tr/kadin-kazak', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
 
     { url: 'https://www.xint.com.tr/kadin-sweatshirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 
     { url: 'https://www.xint.com.tr/kadin-bluz', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.xint.com.tr/kadin-tisort', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.xint.com.tr/kadin-gomlek', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.xint.com.tr/kadin-kazak', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 
 ]
 

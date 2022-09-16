@@ -8,8 +8,6 @@ const urls = [
 
   
 
-  { url: 'https://www.jimmykey.com/tr/giyim/ust-giyim/hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-  { url: 'https://www.jimmykey.com/tr/giyim/ust-giyim/kazak', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
 
   { url: 'https://www.jimmykey.com/tr/giyim/ust-giyim/tulum', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
@@ -27,6 +25,9 @@ const urls = [
   { url: 'https://www.jimmykey.com/tr/giyim/ust-giyim/gomlek', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
   { url: 'https://www.jimmykey.com/tr/giyim/ust-giyim/sweatshirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
   { url: 'https://www.jimmykey.com/tr/giyim/ust-giyim/atlet', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+  { url: 'https://www.jimmykey.com/tr/giyim/ust-giyim/hirka', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+  { url: 'https://www.jimmykey.com/tr/giyim/ust-giyim/kazak', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+
 
 ]
 

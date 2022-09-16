@@ -6,7 +6,7 @@ const urls = [
 
   
 
-    { url: 'https://www.twist.com.tr/kadin-triko-kazak',     subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
 
     { url: 'https://www.twist.com.tr/tulum-modelleri',            subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.twist.com.tr/kadin-ceket-modelleri',      subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
@@ -20,6 +20,7 @@ const urls = [
     { url: 'https://www.twist.com.tr/bluz-modelleri',             subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.twist.com.tr/kadin-tshirt-modelleri',     subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.twist.com.tr/kadin-gomlek-modelleri',     subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.twist.com.tr/kadin-triko-kazak',     subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}

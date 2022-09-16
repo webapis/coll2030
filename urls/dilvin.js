@@ -4,8 +4,6 @@ const urls = [
     { url: 'https://www.dilvin.com.tr/etek-modelleri', subcategory: ['etek'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.dilvin.com.tr/kadin-pantolon-modelleri', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
 
-    { url: 'https://www.dilvin.com.tr/kadin-hirka-modelleri', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.dilvin.com.tr/kadin-triko-modelleri', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
 
     { url: 'https://www.dilvin.com.tr/tulum-salopet', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
@@ -27,6 +25,9 @@ const urls = [
     { url: 'https://www.dilvin.com.tr/atlet', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.dilvin.com.tr/crop-top', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.dilvin.com.tr/kadin-sweatshirt-modelleri', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    
+    { url: 'https://www.dilvin.com.tr/kadin-hirka-modelleri', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.dilvin.com.tr/kadin-triko-modelleri', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports = { urls }

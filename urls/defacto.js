@@ -5,9 +5,6 @@ const urls = [
    { url: 'https://www.defacto.com.tr/kadin-etek', subcategory: ['etek'], category: 'alt-giyim', node: 'dream' },
 
 
-    { url: 'https://www.defacto.com.tr/kadin-triko-urunleri', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.defacto.com.tr/kadin-kazak', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.defacto.com.tr/kadin-hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
 
 
 
@@ -38,6 +35,10 @@ const urls = [
     { url: 'https://www.defacto.com.tr/kadin-atlet', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.defacto.com.tr/kadin-tunik', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.defacto.com.tr/kadin-sweatshirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    
+    { url: 'https://www.defacto.com.tr/kadin-triko-urunleri', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.defacto.com.tr/kadin-kazak', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.defacto.com.tr/kadin-hirka', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 
 ]
 

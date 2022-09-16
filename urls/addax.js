@@ -4,7 +4,7 @@ const urls = [
     { url: 'https://www.addax.com.tr/alt-giyim/etek', subcategory: ['etek'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/alt-giyim/pantolon', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
    
-    { url: 'https://www.addax.com.tr/ust-giyim/hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+  
    
    
 
@@ -23,6 +23,7 @@ const urls = [
     { url: 'https://www.addax.com.tr/ust-giyim/basic-t-shirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/ust-giyim/bustiyer', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/ust-giyim/sweatshirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.addax.com.tr/ust-giyim/hirka', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports = { urls }

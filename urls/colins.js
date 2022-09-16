@@ -4,8 +4,7 @@ const urls = [
      { url: 'https://www.colins.com.tr/c/kadin-etek-239', subcategory: ['etek'], category: 'alt-giyim',node:'dream' },
     { url: 'https://www.colins.com.tr/c/kadin-pantolon-209', subcategory: ['pantolon'], category: 'alt-giyim',node:'dream' },
 
-    { url: 'https://www.colins.com.tr/c/kadin-hirka-181', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.colins.com.tr/c/kadin-kazak-199', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
 
 
 
@@ -23,6 +22,8 @@ const urls = [
     { url: 'https://www.colins.com.tr/c/kadin-gomlek-modelleri-197', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.colins.com.tr/c/kadin-tshirt-187', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.colins.com.tr/c/sweatshirt-189', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.colins.com.tr/c/kadin-hirka-181', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.colins.com.tr/c/kadin-kazak-199', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}

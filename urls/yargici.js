@@ -6,8 +6,7 @@ const urls = [
     { url: 'https://www.yargici.com/yeni-sezon-pantolon', subcategory:['pantolon'], category: 'alt-giyim',node:'dream' },
 
 
-    { url: 'https://www.yargici.com/yeni-sezon-hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.yargici.com/yeni-sezon-kazak', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
 
     { url: 'https://www.yargici.com/yeni-sezon-ceket', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.yargici.com/palto', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
@@ -18,6 +17,8 @@ const urls = [
     { url: 'https://www.yargici.com/yeni-sezon-t-shirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.yargici.com/sweatshirt-2', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.yargici.com/yeni-sezon-gomlek-bluz', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.yargici.com/yeni-sezon-hirka', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.yargici.com/yeni-sezon-kazak', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}

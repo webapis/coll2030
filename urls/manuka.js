@@ -9,10 +9,7 @@ const urls = [
 
 
 
-    { url: 'https://www.manuka.com.tr/hirka', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.manuka.com.tr/suveter', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.manuka.com.tr/triko', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.manuka.com.tr/kazak', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
 
     { url: 'https://www.manuka.com.tr/kadin-ceket', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/kadin-mont', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
@@ -29,6 +26,10 @@ const urls = [
     { url: 'https://www.manuka.com.tr/sweatshirt-kadin', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/crop',             subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/body',             subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/hirka', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/suveter', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/triko', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.manuka.com.tr/kazak', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}

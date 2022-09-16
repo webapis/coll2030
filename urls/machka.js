@@ -13,7 +13,7 @@ const urls = [
     { url: 'https://www.machka.com.tr/pardosu-modelleri-c_833?page=1', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
 
 
-    { url: 'https://www.machka.com.tr/triko-modelleri-c_834?page=1', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
 
 
 
@@ -24,6 +24,7 @@ const urls = [
     { url: 'https://www.machka.com.tr/kap?page=1',                   subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.machka.com.tr/triko-modelleri-c_834?page=1', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.machka.com.tr/penye-modelleri-c_858?page=1', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.machka.com.tr/triko-modelleri-c_834?page=1', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
   ]
 
 module.exports={urls}

@@ -10,7 +10,6 @@ const urls = [
     { url: 'https://www.zara.com/tr/tr/kadin-dish-giyim-yelekler-l1204.html', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
 
     { url: 'https://www.zara.com/tr/tr/kadin-pantolonlar-shortlar-l1355.html', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
-    { url: 'https://www.zara.com/tr/tr/kadin-erge-giyim-l1152.html', subcategory: ['kazak'], category: 'alt-giyim', node: 'dream' },
 
 
     { url: 'https://www.zara.com/tr/tr/kadin-sweatshirtler-l1320.html', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
@@ -18,6 +17,8 @@ const urls = [
     { url: 'https://www.zara.com/tr/tr/kadin-tishertler-l1362.html', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
    { url: 'https://www.zara.com/tr/tr/kadin-gemlekler-l1217.html', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
    { url: 'https://www.zara.com/tr/tr/kadin-est-giyim-l1322.html', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+   { url: 'https://www.zara.com/tr/tr/kadin-erge-giyim-l1152.html', subcategory: ['gomlek'], category: 'alt-giyim', node: 'dream' },
+
 ]
 
 module.exports={urls}

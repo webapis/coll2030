@@ -6,7 +6,7 @@ const urls = [
 
 
 
-    { url: 'https://www.oxxo.com.tr/tr/giyim/trikolar', subcategory: ['kazak'], category: 'üst-giyim', node: 'dream' },
+
     { url: 'https://www.oxxo.com.tr/tr/giyim/tulumlar', subcategory: [ 'elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.oxxo.com.tr/tr/giyim/ceketler', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.oxxo.com.tr/tr/giyim/montlar', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
@@ -20,6 +20,7 @@ const urls = [
     { url: 'https://www.oxxo.com.tr/tr/giyim/tisort', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.oxxo.com.tr/tr/giyim/gomlekler', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.oxxo.com.tr/tr/giyim/atletler', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.oxxo.com.tr/tr/giyim/trikolar', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}
