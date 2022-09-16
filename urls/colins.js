@@ -1,9 +1,11 @@
 const urls = [
   
    { url: 'https://www.colins.com.tr/c/kadin-elbise-212', subcategory: ['elbise'], category: 'üst-giyim',node:'dream'},
-     { url: 'https://www.colins.com.tr/c/kadin-etek-239', subcategory: ['etek'], category: 'alt-giyim',node:'dream' },
-    { url: 'https://www.colins.com.tr/c/kadin-pantolon-209', subcategory: ['pantolon'], category: 'alt-giyim',node:'dream' },
 
+
+     { url: 'https://www.colins.com.tr/c/kadin-etek-239', subcategory: ['pantolon'], category: 'alt-giyim',node:'dream' },
+    { url: 'https://www.colins.com.tr/c/kadin-pantolon-209', subcategory: ['pantolon'], category: 'alt-giyim',node:'dream' },
+    { url: 'https://www.colins.com.tr/c/kadin-%C5%9Fort-207', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
 
 
 
@@ -14,7 +16,7 @@ const urls = [
     { url: 'https://www.colins.com.tr/c/kadin-yelek-232', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
 
    
-    { url: 'https://www.colins.com.tr/c/kadin-%C5%9Fort-207', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
+  
 
 
     { url: 'https://www.colins.com.tr/c/kadin-atlet-195', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
