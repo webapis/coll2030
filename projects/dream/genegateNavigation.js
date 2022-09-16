@@ -8,20 +8,14 @@
   await genNav({ node: 'dream', subcategory: 'elbise' })
   await genNav({ node: 'dream', subcategory: 'pantolon' })
   await genNav({ node: 'dream', subcategory: 'etek' })
-  await genNav({ node: 'dream', subcategory: 'gömlek' })
+  await genNav({ node: 'dream', subcategory: 'gomlek' })
   await genNav({ node: 'dream', subcategory: 'tişört' })
-  await genNav({ node: 'dream', subcategory: 'sweatshirt' })
 
-
-
-  await genNav({ node: 'dream', subcategory: 'bluz' })
   await genNav({ node: 'dream', subcategory: 'şort' })
 
-  await genNav({ node: 'dream', subcategory: 'tunik' })
+
   await genNav({ node: 'dream', subcategory: 'tayt' })
 
-
-  await genNav({ node: 'dream', subcategory: 'atlet' })
   await genNav({ node: 'dream', subcategory: 'dis_giyim' })
   await genNav({ node: 'dream', subcategory: 'kazak' })
   process.exit(0)
