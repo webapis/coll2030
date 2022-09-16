@@ -2,9 +2,13 @@ const urls = [
 
     { url: 'https://www.patirti.com/kadin-elbise', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.patirti.com/kadin-tulum-ve-salopet', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.patirti.com/kadin-etek', subcategory: ['etek'], category: 'alt-giyim', node: 'dream' },
+
+
+    { url: 'https://www.patirti.com/kadin-etek', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
     { url: 'https://www.patirti.com/kadin-pantolon-salvar', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
 
+    { url: 'https://www.patirti.com/kadin-tayt', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
+    { url: 'https://www.patirti.com/kadin-sort-kapri', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
 
 
 
@@ -13,8 +17,6 @@ const urls = [
     { url: 'https://www.patirti.com/kadin-mont-ceket', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.patirti.com/kadin-yelek-modelleri', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     
-    { url: 'https://www.patirti.com/kadin-tayt', subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
-    { url: 'https://www.patirti.com/kadin-sort-kapri', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
 
 
     { url: 'https://www.patirti.com/kadin-sweat', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },

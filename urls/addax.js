@@ -30,6 +30,8 @@ const urls = [
     { url: 'https://www.addax.com.tr/ust-giyim/bustiyer', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/ust-giyim/sweatshirt', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.addax.com.tr/ust-giyim/hirka', subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },
+
+    
 ]
 
 module.exports = { urls }

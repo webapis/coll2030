@@ -1,7 +1,10 @@
 const urls = [
   
     { url: 'https://www.xint.com.tr/kadin-elbise', subcategory: ['elbise'], category: 'üst-giyim' ,node:'dream'},
-    { url: 'https://www.xint.com.tr/kadin-etek', subcategory: ['şort','etek'], category: 'alt-giyim' ,node:'dream'},
+
+
+
+    { url: 'https://www.xint.com.tr/kadin-etek', subcategory: ['pantolon'], category: 'alt-giyim' ,node:'dream'},
     { url: 'https://www.xint.com.tr/kadin-pantolon', subcategory: ['pantolon'], category: 'alt-giyim' ,node:'dream'},
   
 

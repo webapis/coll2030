@@ -4,10 +4,11 @@ const urls = [
     { url: 'https://www.manuka.com.tr/abiye',            subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
     { url: 'https://www.manuka.com.tr/jile',            subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
     { url: 'https://www.manuka.com.tr/salopet-tulum',            subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
-    { url: 'https://www.manuka.com.tr/etek',             subcategory: ['etek'], category: 'alt-giyim',node:'dream' },
+
+
+    { url: 'https://www.manuka.com.tr/etek',             subcategory: ['pantolon'], category: 'alt-giyim',node:'dream' },
     { url: 'https://www.manuka.com.tr/kadin-pantolon',   subcategory: ['pantolon'], category: 'alt-giyim',node:'dream' },
-
-
+    { url: 'https://www.manuka.com.tr/sort', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
 
 
 
@@ -16,7 +17,7 @@ const urls = [
     { url: 'https://www.manuka.com.tr/kaban', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.manuka.com.tr/trenckot', subcategory: ['dis_giyim'], category: 'dış-giyim', node: 'dream' },
 
-    { url: 'https://www.manuka.com.tr/sort', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
+
 
 
     { url: 'https://www.manuka.com.tr/bluz',             subcategory: ['gomlek'], category: 'üst-giyim', node: 'dream' },

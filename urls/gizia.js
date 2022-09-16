@@ -5,10 +5,10 @@ const urls = [
   { url: 'https://www.gizia.com/ilkbahar-yaz-tulum-modelleri', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
 
-  
-  { url: 'https://www.gizia.com/ilkbahar-yaz-etek-modelleri', subcategory: ['etek'], category: 'alt-giyim', node: 'dream' },
+
+  { url: 'https://www.gizia.com/ilkbahar-yaz-etek-modelleri', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
   { url: 'https://www.gizia.com/ilkbahar-yaz-pantolon-modelleri', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
-  { url: 'https://www.gizia.com/ilkbahar-yaz-sort-modelleri', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
+  { url: 'https://www.gizia.com/ilkbahar-yaz-sort-modelleri', subcategory: ['pantolon'], category: 'alt-giyim', node: 'dream' },
 
 
 
