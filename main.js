@@ -250,23 +250,23 @@ Apify.main(async () => {
         fs.appendFileSync(`updated-data/${marka}/${marka}.json`, JSON.stringify(updatedData));
         console.log('updateddata length', updatedData.length)
         console.log('new collected length', collectedData.length)
-        debugger
-        if (fs.existsSync(`data/${marka}`)) {
+        // debugger
+        // if (fs.existsSync(`data/${marka}`)) {
 
-            walkSync(`data/${marka}`, (filepath) => {
-                const filename = path.basename(filepath)
+        //     walkSync(`data/${marka}`, (filepath) => {
+        //         const filename = path.basename(filepath)
 
-                const matchfound = productItems.find(f => {
-                    const storedImgUrl = f.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-                    return storedImgUrl === filename.replace('.json', '')
-                })
-                if (matchfound === undefined) {
-                    filesToDelete.push(filepath)
+        //         const matchfound = productItems.find(f => {
+        //             const storedImgUrl = f.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
+        //             return storedImgUrl === filename.replace('.json', '')
+        //         })
+        //         if (matchfound === undefined) {
+        //             filesToDelete.push(filepath)
 
-                }
+        //         }
 
-            })
-        }
+        //     })
+        // }
 
 
         if (filesToDelete.length > 0) {
