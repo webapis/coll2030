@@ -124,6 +124,7 @@ export default class App extends React.Component {
     }
 
     this.setSelectedNavIndex = ({ keyword, index }) => {
+      window.scrollTo(0,0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
         let selectedNavIndex = null
@@ -166,6 +167,8 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+
+
     this.loadSubcategories()
   }
   componentDidUpdate(prevProps, prevState) {
@@ -321,16 +324,16 @@ export default class App extends React.Component {
       </Container>
       }
       {matchedesktop && selectedSubcategory &&
-        <Stack>
+   <Container>
           <Grid container>
-            <Grid item xs={2} sx={{ paddingLeft: 5 }}>
-              <KeywordsList />
+            <Grid item xs={3} >
+              <KeywordsList  />
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={9}>
               <ProductList />
             </Grid>
           </Grid>
-        </Stack>
+          </Container>
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}

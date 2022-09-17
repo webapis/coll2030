@@ -10,22 +10,22 @@ async function handler(page, context) {
 
     debugger;
 
-    await page.waitForSelector('.CategoryList')
+    await page.waitForSelector('#Katalog')
     await autoScroll(page);
 
     debugger
-    const data = await page.$$eval('.productItemWrapper', (productCards, _subcategory, _category, _opts,_node) => {
+    const data = await page.$$eval('.productItem', (productCards, _subcategory, _category, _opts,_node) => {
         return productCards.map(productCard => {
             const priceNew = productCard.querySelector('.currentPrice') ? productCard.querySelector('.currentPrice').textContent.replace(/\n/g, '').replace('₺', '').trim() : productCard.querySelector('.addPriceDiscount span').textContent.replace('₺', '').trim()
-            const longlink = productCard.querySelector('.detailLink').href
-            const link = longlink.substring(longlink.indexOf("https://www.patirti.com/") + 24)
-            const longImgUrl = productCard.querySelector(".ndImage").src
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img1ptrti.mncdn.com/") + 28)
-            const title = productCard.querySelector(".ProductName").innerHTML.replace(/\n/g, '')
+            const longlink = productCard.querySelector('a.fl').href
+        const link = longlink.substring(longlink.indexOf("https://www.patirti.com/") + 24)
+            const longImgUrl =productCard.querySelector('img').src ? productCard.querySelector('img').src :productCard.querySelector('[srcset]').getAttribute('srcset')
+       //  const imageUrlshort = longImgUrl&&  longImgUrl.substring(longImgUrl.indexOf("https://img1ptrti.mncdn.com/") + 28)
+        const title = productCard.querySelector('.productItemInfo').textContent.replace(/patırtı/gi,'')
             return {
                 title: 'patirti ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
-                imageUrl: imageUrlshort,
+                imageUrl:longImgUrl, // imageUrlshort,
                 link,
 
                 timestamp: Date.now(),
@@ -57,7 +57,7 @@ async function handler(page, context) {
         const { title } = m
         const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
         const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
-        debugger
+  
         return { ...m, subcategory: subcat }
     })
     return withSub

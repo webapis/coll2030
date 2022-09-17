@@ -62,6 +62,12 @@ jobs:
         with:
           name: olddata
           path: old-data/${{ inputs.marka }}
+      - name: Upload artifact to updateddata
+        uses: actions/upload-artifact@v3
+        with:
+          name: updateddata
+          path: updateddata-data/${{ inputs.marka }}
+        
         
 
 

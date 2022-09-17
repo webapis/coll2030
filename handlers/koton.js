@@ -26,14 +26,14 @@ async function handler(page, context) {
         })//.filter(f => f.imageUrl !== null)
 
     }, subcategory, category, node)
-    debugger;
+
 
     console.log('data length_____', data.length, 'url:', url)
     const withSub = data.map(m => {
         const { title } = m
         const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
         const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
-        debugger
+  
         return { ...m, subcategory: subcat }
     })
     return withSub
@@ -45,7 +45,7 @@ async function getUrls(page) {
     const productCount = await page.$eval('.result.-only-desktop', element => parseInt(element.textContent.replace(/[^\d]/g, "")))
     const totalPages = Math.ceil(productCount / 59)
     const pageUrls = []
-    debugger
+ 
     let pagesLeft = totalPages
     for (let i = 1; i <= totalPages; i++) {
 

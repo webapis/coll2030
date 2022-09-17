@@ -1,24 +1,36 @@
 const urls = [
   
     { url: 'https://www.koton.com/tr/kadin/giyim/elbise/c/M01-C02-N01-AK103', subcategory: ['elbise'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-etek',                                subcategory: ['etek'], category: 'alt-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-pantolon',                                subcategory: ['pantolon'], category: 'alt-giyim',node:'dream'},
 
 
-    { url: 'https://www.koton.com/kadin-sweatshirt', subcategory: ['sweatshirt'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-hirka', subcategory: ['hırka'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-bluz', subcategory: ['bluz'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-tisort', subcategory: ['tişört'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-gomlek', subcategory: ['gömlek'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-blazer-ceket', subcategory: ['ceket'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-mont', subcategory: ['mont'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-kaban', subcategory: ['kaban'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-yagmurluk', subcategory: ['yağmurluk'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-trenckot', subcategory: ['trençkot'], category: 'dış-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-tunik', subcategory: ['tunik'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-atlet', subcategory: ['atlet'], category: 'üst-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-tayt', subcategory: ['tayt'], category: 'alt-giyim', node: 'dream' },
-    { url: 'https://www.koton.com/kadin-sort', subcategory: ['şort'], category: 'alt-giyim', node: 'dream' },
+
+
+
+
+    { url: 'https://www.koton.com/kadin-blazer-ceket',subcategory:  ['elbise'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-mont', subcategory:         ['elbise'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-kaban', subcategory:        ['elbise'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-yagmurluk', subcategory:    ['elbise'], category: 'dış-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-trenckot', subcategory:     ['elbise'], category: 'dış-giyim', node: 'dream' },
+
+    { url: 'https://www.koton.com/kadin-tayt', subcategory:         ['elbise'], category: 'alt-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-sort', subcategory:         ['elbise'], category: 'alt-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-etek',         subcategory: ['elbise'], category: 'alt-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-pantolon',     subcategory: ['elbise'], category: 'alt-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-koton-jeans',     subcategory: ['elbise'], category: 'alt-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-kot-pantolon',     subcategory: ['elbise'], category: 'alt-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-kot-sort',     subcategory: ['elbise'], category: 'alt-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-kot-etek',     subcategory: ['elbise'], category: 'alt-giyim',node:'dream'},
+
+    { url: 'https://www.koton.com/kadin-sweatshirt', subcategory:   ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-bluz', subcategory:         ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-tisort', subcategory:       ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-gomlek', subcategory:       ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-tunik', subcategory:        ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-atlet', subcategory:        ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-hirka', subcategory:        ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.koton.com/kadin-kazak-suveter', subcategory:['elbise'], category: 'üst-giyim', node: 'dream' },
+
 ]
 
 module.exports={urls}
