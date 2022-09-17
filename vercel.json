@@ -1,7 +1,7 @@
 {
     "functions": {
         "api/fns/elbise.js": {
-            "includeFiles": "api/_files/data/elbise/**/*.json"
+            "includeFiles": "api/_files/**/elbise/**/*.json"
         },
         "api/fns/elbise-navfirst.js": {
             "includeFiles": "api/_files/key/elbise/0-keywords.json"
