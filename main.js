@@ -245,9 +245,9 @@ Apify.main(async () => {
 
         }
         debugger
-        console.log('collected-data/${marka}/data.json',`collected-data/${marka}/data.json`)
-        fs.appendFileSync(`collected-data/${marka}/data.json`, JSON.stringify(collectedData));
-        fs.appendFileSync(`updated-data/${marka}/data.json`, JSON.stringify(updatedData));
+        console.log('collected-data/${marka}/data.json',`collected-data/${marka}/${data}.json`)
+        fs.appendFileSync(`collected-data/${marka}/${marka}.json`, JSON.stringify(collectedData));
+        fs.appendFileSync(`updated-data/${marka}/${marka}.json`, JSON.stringify(updatedData));
         console.log('updateddata length', updatedData.length)
         console.log('new collected length', collectedData.length)
         debugger
@@ -272,10 +272,10 @@ Apify.main(async () => {
         if (filesToDelete.length > 0) {
             console.log('filesToDelete.length', filesToDelete.length)
             await makeDir(`old-data/${marka}`)
-            fs.appendFileSync(`old-data/${marka}/olddata.json`, JSON.stringify(filesToDelete));
+            fs.appendFileSync(`old-data/${marka}/${marka}.json`, JSON.stringify(filesToDelete));
         } else {
             await makeDir(`old-data/${marka}`)
-            fs.appendFileSync(`old-data/${marka}/olddata.json`, JSON.stringify([]));
+            fs.appendFileSync(`old-data/${marka}/${marka}.json`, JSON.stringify([]));
         }
 
     }
