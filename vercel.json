@@ -1,0 +1,13 @@
+{
+    "functions": {
+        "api/fns/elbise.js": {
+            "includeFiles": "api/_files/data/elbise/**/*.json"
+        },
+        "api/fns/elbise-navfirst.js": {
+            "includeFiles": "api/_files/key/elbise/0-keywords.json"
+        },
+        "api/fns/elbise-navsecond.js": {
+            "includeFiles": "api/_files/key/elbise/1-keywords.json"
+        }
+    }
+}

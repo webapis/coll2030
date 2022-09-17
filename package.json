@@ -51,7 +51,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "collection": "node main.js",
-    "mergefiles": "node utils/mergefiles.js  && node utils/genegateNavigation.js",
+    "mergefiles": "node utils/mergefiles.js",
     "generateNavigation": "node utils/genegateNavigation.js",
     "relocatedata": "node utils/relocateData.js",
     "dev": "netlify dev",

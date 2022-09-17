@@ -212,11 +212,11 @@ export default class App extends React.Component {
     let href = window.location.href
 
     if (href === 'http://localhost:3000/') {
-      host = 'http://localhost:8888/.netlify/functions'
+      host = 'http://localhost:3000/api/fns'
     } else {
-      host ='https://dream2022.netlify.app/.netlify/functions' // `https://${node}.vercel.app/api/fns`
+      host =`https://modaburada.vercel.app/api/fns`
     }
-
+//'https://dream2022.netlify.app/.netlify/functions'
 
 
     var url = `${host}/${subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ğ/g,'g') }/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
@@ -257,9 +257,9 @@ export default class App extends React.Component {
     let href = window.location.href
 
     if (href === 'http://localhost:3000/') {
-      host = 'http://localhost:8888/.netlify/functions'
+      host = 'http://localhost:3000/api/fns'
     } else {
-      host ='https://dream2022.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
+      host =`https://modaburada.vercel.app/api/fns`
     }
 
     var url = ''
