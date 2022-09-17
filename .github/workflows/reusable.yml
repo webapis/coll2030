@@ -55,7 +55,7 @@ jobs:
       - name: Upload artifact collected
         uses: actions/upload-artifact@v3
         with:
-          name: data
+          name: collecteddata
           path: collected-data/${{ inputs.marka }}
       - name: Upload artifact to olddata
         uses: actions/upload-artifact@v3

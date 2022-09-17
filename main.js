@@ -210,6 +210,7 @@ Apify.main(async () => {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                     await makeDir(`collected-data/${marka}`)
                     await makeDir(`updated-data/${marka}`)
+                    debugger
                     const exists = fs.existsSync(`data/${marka}/${subcategory}/${id}.json`)
                     if (exists) {
 

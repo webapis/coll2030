@@ -241,7 +241,7 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: data
+          name: collecteddata
           path: collected-data
       - name: Display structure of downloaded files
         run: ls -R
