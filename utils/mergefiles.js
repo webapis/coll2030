@@ -38,7 +38,7 @@ for (let o in obj) {
     // console.log('marka', marka)
     // console.log('subcategory', subcategory)
     // console.log('project', project)
-    debugger
+
     const savePath = path.join(process.cwd(), `api/_files/data/${subcategory}/${marka}.json`)
     makeDir.sync(path.dirname(savePath))
     // console.log('savePath', savePath)
@@ -47,7 +47,7 @@ for (let o in obj) {
     }
    const  uniquedata =uniqify(data,'imageUrl')
     fs.writeFileSync(savePath, JSON.stringify(uniquedata))
-    debugger
+   
 
 }
 
