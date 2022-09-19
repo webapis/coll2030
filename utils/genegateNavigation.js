@@ -162,11 +162,11 @@ async function genNav({ node, subcategory }) {
 
                 if (navKeys[comb].keywords[keyword] === undefined) {
 
-                  navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka, parentkey }
+                  navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, marka, parentkey }
                 }
                 else {
                   const count = navKeys[comb].keywords[keyword].count
-                  navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka, parentkey }
+                  navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, marka, parentkey }
                 }
 
               })
@@ -178,11 +178,11 @@ async function genNav({ node, subcategory }) {
 
             if (navKeys['0-'].keywords[keyword] === undefined) {
 
-              navKeys['0-'].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka, parentkey }
+              navKeys['0-'].keywords[keyword] = { count: 1, group: group.trim(), index, marka, parentkey }
             }
             else {
               const count = navKeys['0-'].keywords[keyword].count
-              navKeys['0-'].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka, parentkey }
+              navKeys['0-'].keywords[keyword] = { count: count + 1, group: group.trim(), index, marka, parentkey }
             }
 
           })
@@ -212,12 +212,12 @@ async function genNav({ node, subcategory }) {
     const navKeywords = map.reduce((prev, curr) => {
 
       if (prev[curr.group] === undefined) {
-        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka, parentkey: curr.parentkey }] } }
+        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, marka: curr.marka, parentkey: curr.parentkey }] } }
       } else {
 
 
         return {
-          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka, parentkey: curr.parentkey }] }
+          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, marka: curr.marka, parentkey: curr.parentkey }] }
         }
       }
 
