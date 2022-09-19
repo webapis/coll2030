@@ -212,12 +212,12 @@ async function genNav({ node, subcategory }) {
     const navKeywords = map.reduce((prev, curr) => {
 
       if (prev[curr.group] === undefined) {
-        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, marka: curr.marka, parentkey: curr.parentkey }] } }
+        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count }] } }
       } else {
 
 
         return {
-          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, marka: curr.marka, parentkey: curr.parentkey }] }
+          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count}] }
         }
       }
 
@@ -226,12 +226,14 @@ async function genNav({ node, subcategory }) {
     const sorted = Object.entries(navKeywords).map((m, i) => {
       const groupName = m[0]
 
-      const keywords = m[1]['keywords'].sort(function (a, b) {
-        var textA = a.parentkey.toUpperCase();
-        var textB = b.parentkey.toUpperCase();
+      const keywords = m[1]['keywords']
+      
+      // .sort(function (a, b) {
+      //   var textA = a.parentkey.toUpperCase();
+      //   var textB = b.parentkey.toUpperCase();
 
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      })
+      //   return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      // })
 
       return { groupName, keywords }
     }).sort(function (a, b) {
@@ -269,12 +271,7 @@ async function genNav({ node, subcategory }) {
 
   debugger
 
-  // if (fs.existsSync(`projects/${node}/api/_files/key/${subcategory}/0-keywords.json`)) {
-  //   fs.unlinkSync(`projects/${node}/api/_files/key/${subcategory}/0-keywords.json`)
-  // }
-  // if (fs.existsSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)) {
-  //   fs.unlinkSync(`projects/${node}/api/_files/key/${subcategory}/1-keywords.json`)
-  // }
+
 
 
   const savePathDir = path.join(process.cwd(), `api/_files/key/${subcategory}`)
@@ -296,22 +293,7 @@ async function genNav({ node, subcategory }) {
 
 
 
-  // if (fs.existsSync(`${process.cwd()}/src/category-nav.json`)) {
-  //   fs.unlinkSync(`${process.cwd()}/src/category-nav.json`)
-  // }
-  debugger
-  //   const categoryAsArray = Object.entries(categoryNav).map(c => {
-  // debugger
-  //     return { subcategory: c[0], total: c[1].count }
-  //   }).sort((a, b) => {
 
-  //     var textA = a['subcategory'].toUpperCase();
-  //     var textB = b['subcategory'].toUpperCase();
-  //     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-  //   })
-
-
-  //fs.appendFileSync(`${process.cwd()}/src/category-nav.json`, JSON.stringify(categoryNav));
   console.log('end....1')
 
 }
