@@ -18,7 +18,7 @@ async function genNav({ node, subcategory }) {
   console.log('subcategory', subcategory)
   const path = require('path')
   const makeDir = require('make-dir');
-  //await makeDir(`../api/_files/key/${subcategory}`)
+
   const fs = require('fs')
   const folder = path.join(process.cwd(), `api/_files/data/${subcategory}`)
   console.log('folder', folder)
@@ -46,13 +46,7 @@ async function genNav({ node, subcategory }) {
   const { productTitleMatch } = require('./productTitleMatch')
 
 
-  const categoryNav = { count: dataCollection.length, node, subcategory }
-  // const categoryNavArray = fs.readFileSync(`${process.cwd()}/src/category-nav.json`, { encoding: 'utf-8' })
-  // const categoryAsArrayObject = JSON.parse(categoryNavArray).filter(f => f.subcategory !== subcategory)
-  // categoryAsArrayObject.push(categoryNav)
 
-
-  // fs.writeFileSync(`${process.cwd()}/src/category-nav.json`, JSON.stringify(categoryAsArrayObject))
   debugger
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/${subcategory}/keywords.json`))
   let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
@@ -60,8 +54,8 @@ async function genNav({ node, subcategory }) {
   let objCounter = 0
   dataCollection.forEach(async (object) => {
 
-    // console.log('objCounter', ++objCounter)
-    const { subcategory, title, imageUrl, marka, priceNew, node } = object
+ 
+    const { subcategory, title, marka, priceNew, node } = object
 
 
     let navMatchCollection = []

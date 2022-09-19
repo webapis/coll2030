@@ -124,7 +124,7 @@ export default class App extends React.Component {
     }
 
     this.setSelectedNavIndex = ({ keyword, index }) => {
-      window.scrollTo(0,0)
+      window.scrollTo(0, 0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
         let selectedNavIndex = null
@@ -178,7 +178,7 @@ export default class App extends React.Component {
 
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
+      this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
 
@@ -186,16 +186,16 @@ export default class App extends React.Component {
 
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
+      this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
     if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       if (selectedNavIndex === '') {
-        this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
+        this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
       } else {
-        this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory,selectedSubcategory.node)
+        this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory, selectedSubcategory.node)
       }
 
     }
@@ -214,12 +214,12 @@ export default class App extends React.Component {
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:3000/api/fns'
     } else {
-      host =`https://modaburada.vercel.app/api/fns`
+      host = `https://modaburada.vercel.app/api/fns`
     }
-//'https://dream2022.netlify.app/.netlify/functions'
+    //'https://dream2022.netlify.app/.netlify/functions'
 
 
-    var url = `${host}/${subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ğ/g,'g') }/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
+    var url = `${host}/${subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
     debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) {
@@ -251,15 +251,15 @@ export default class App extends React.Component {
 
   }
 
-  fetchNavKeywords(selectedNavIndex, subcategory,node) {
-    let subcat =subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ğ/g,'g')
+  fetchNavKeywords(selectedNavIndex, subcategory, node) {
+    let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
     let href = window.location.href
 
     if (href === 'http://localhost:3000/') {
       host = 'http://localhost:3000/api/fns'
     } else {
-      host =`https://modaburada.vercel.app/api/fns`
+      host = `https://modaburada.vercel.app/api/fns`
     }
 
     var url = ''
@@ -280,9 +280,10 @@ export default class App extends React.Component {
     }
 
 
-    fetch(url).then(async (response) => response.json()).then((data) => {
+    fetch(url).then(async (response) => response.json()).then(async (data) => {
       const { keywords } = data
-
+ 
+      debugger
       this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords: keywords }))
     }).catch(err => {
 
@@ -320,16 +321,16 @@ export default class App extends React.Component {
       </Container>
       }
       {matchedesktop && selectedSubcategory &&
-   <Container>
+        <Container>
           <Grid container>
             <Grid item xs={3} >
-              <KeywordsList  />
+              <KeywordsList />
             </Grid>
             <Grid item xs={9}>
               <ProductList />
             </Grid>
           </Grid>
-          </Container>
+        </Container>
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}

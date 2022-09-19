@@ -6,7 +6,7 @@
 
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:J', node: 'dream', subcategory: 'elbise' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'elbise' })
 
     process.exit(0)
 
@@ -34,19 +34,28 @@ debugger
         const group = value[7]
         const index = value[8]
         const groupid = value[9]
-       
+        const category = value[10]
+        const subcategory = value[11]
+        debugger
         console.log('exactmatch...', exactmatch, keyword)
-        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid })
+        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid,category,subcategory })
 
     }
 
     const data = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
 
     await makeDir(`api/_files/nav/${subcategory}`)
+    await makeDir(`public/${subcategory}`)
     if (fs.existsSync(`api/_files/nav/${subcategory}/keywords.json`)) {
         fs.unlinkSync(`api/_files/nav/${subcategory}/keywords.json`)
     }
     fs.appendFileSync(`api/_files/nav/${subcategory}/keywords.json`, JSON.stringify({ [subcategory]: data }))
+
+
+    if (fs.existsSync(`public/${subcategory}/keywords.json`)) {
+        fs.unlinkSync(`public/${subcategory}/keywords.json`)
+    }
+    fs.appendFileSync(`public/${subcategory}/keywords.json`, JSON.stringify(data))
     console.log('subcategory',subcategory)
 
   

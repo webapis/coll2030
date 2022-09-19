@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const { vercelNavHandler } = require('./vercelNavHandler')
+const { vercelNavHandler } = require('../utils/vercelNavHandler')
 module.exports = (req, res) => {
 
 
