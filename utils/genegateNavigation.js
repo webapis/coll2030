@@ -33,12 +33,12 @@ async function genNav({ node, subcategory }) {
 
 
   console.log('files.length', files.length)
-
+  debugger
   const dataCollection = []
   for (let file of files) {
 
     const data = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
-
+    debugger
     const dataObjectArr = JSON.parse(data)
     dataCollection.push(...dataObjectArr)
   }
@@ -76,9 +76,8 @@ async function genNav({ node, subcategory }) {
           let exactmatch = kws.exactmatch
           let negwords = kws.negwords
 
-          let index = parseInt(kws.index.replace(/-/g,''))
-          debugger
-          if (index <=12) {
+          let group = kws.group
+          if (group === 'FIYAT ARALIĞI') {
             const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
             const startPrice = parseFloat(priceRange[0])
             const endPrice = parseFloat(priceRange[1])
