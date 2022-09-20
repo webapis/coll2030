@@ -23,7 +23,7 @@ debugger
                                     const { groupName, keywords } = m
 
                                     debugger
-                                    return   <FormControl  component="fieldset" variant="standard" >   <FormLabel  component="legend">{groupName}</FormLabel> <NavList   key={i} groupName={groupName} keywords={keywords} /> </FormControl >
+                                    return   <FormControl  component="fieldset" variant="standard" >   <FormLabel  component="legend">{groupName.substring(2)}</FormLabel> <NavList   key={i} groupName={groupName} keywords={keywords} /> </FormControl >
                                         
                                 })
                             

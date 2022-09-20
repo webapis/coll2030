@@ -305,7 +305,12 @@ debugger
         
         }
         debugger
-        return { ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m=>{return {groupName:m[0],keywords:m[1].keywords}}) } })
+        return { ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m=>{return {groupName:m[0],keywords:m[1].keywords}} ).sort(function (a, b) {
+          var textA = a.groupName;
+          var textB = b.groupName;
+  
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        }) } })
     }).catch(err => {
 
     })

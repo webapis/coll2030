@@ -12,7 +12,7 @@ export default function NestedList({ groupName, keywords }) {
     return (
         <div style={{
        
-        }} nodeId={groupName} label={<span style={{ textTransform: 'capitalize' }}>{groupName.toLowerCase()}</span>}
+        }} nodeId={groupName} label={<span style={{ textTransform: 'capitalize' }}>{groupName.substring(2)}</span>}
         >
             <div style={{ padding: 10 }}>
                 {keywords && keywords.map((m, i) => {
