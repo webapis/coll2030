@@ -16,6 +16,7 @@ const urls = [
 
     { url: 'https://www.baqa.com.tr/bluz?currency=try', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.baqa.com.tr/tunik?currency=try', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.baqa.com.tr/kap?currency=try', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}
