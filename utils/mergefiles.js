@@ -27,6 +27,7 @@ walkSync(path.join(process.cwd(), 'data'), async (filepath) => {
 
 })
 const uniqify = (array, key) => array.reduce((prev, curr) => prev.find(a => a[key] === curr[key]) ? prev : prev.push(curr) && prev, []);
+const products = []
 for (let o in obj) {
     const s = o.split('-').reverse()
     const marka = s[1]
@@ -39,17 +40,19 @@ for (let o in obj) {
     // console.log('subcategory', subcategory)
     // console.log('project', project)
 
-    const savePath = path.join(process.cwd(), `api/_files/data/${subcategory}/${marka}.json`)
-    makeDir.sync(path.dirname(savePath))
     // console.log('savePath', savePath)
-    if (fs.existsSync(savePath)) {
-        fs.unlinkSync(savePath)
-    }
-   const  uniquedata =uniqify(data,'imageUrl')
-    fs.writeFileSync(savePath, JSON.stringify(uniquedata))
-   
+
+    const uniquedata = uniqify(data, 'imageUrl')
+
+    products.push(...uniquedata)
 
 }
 
+const savePath = path.join(process.cwd(), `api/_files/data/elbise/data.json`)
+makeDir.sync(path.dirname(savePath))
+if (fs.existsSync(savePath)) {
+    fs.unlinkSync(savePath)
+}
 
+fs.writeFileSync(savePath, JSON.stringify(products))
 

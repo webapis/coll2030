@@ -1,19 +1,8 @@
 
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
-
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import NavList from './NavList';
-import ListSubheader from '@mui/material/ListSubheader';
-import List from '@mui/material/List';
 import { AppContext } from '../App';
-import TreeView from '@mui/lab/TreeView';
-
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 export default function KeywordsList() {
@@ -28,8 +17,6 @@ debugger
                 <div style={{     height:'90vh',position:'fixed',width:300,paddingTop:100,paddingBottom:20,
             overflowY:'scroll'}}
                 >
-                     
-                  
                             {
                                 navKeywords && navKeywords.map((m, i) => {
 
@@ -38,22 +25,12 @@ debugger
                                     debugger
                                     return   <FormControl  component="fieldset" variant="standard" >   <FormLabel  component="legend">{groupName}</FormLabel> <NavList   key={i} groupName={groupName} keywords={keywords} /> </FormControl >
                                         
-
-                                       
-                                    
                                 })
                             
-                           
-                    
-
 
                     }</div></div>
         })
     }</AppContext.Consumer>
-
-
-
-
 
 }
 
