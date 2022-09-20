@@ -27,6 +27,10 @@ const urls = [
     { url: 'https://www.beyyoglu.com/kadin-top', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.beyyoglu.com/kadin-sweatshirt', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.beyyoglu.com/kadin-hirka-kazak', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+
+    { url: 'https://www.beyyoglu.com/kadin-plaj-giyim', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.beyyoglu.com/kadin-jean', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.beyyoglu.com/kadin-ic-giyim', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}

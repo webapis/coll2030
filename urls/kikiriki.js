@@ -12,6 +12,13 @@ const urls = [
     { url: 'https://tr.kikiriki.com/bustiyerler', subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
 
 
+    { url: 'https://tr.kikiriki.com/mayo', subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
+
+    { url: 'https://tr.kikiriki.com/ceketler', subcategory: ['elbise'], category: 'üst-giyim',node:'dream' }, 
+    { url: 'https://tr.kikiriki.com/bodysuits', subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
+    { url: 'https://tr.kikiriki.com/kot', subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
+    { url: 'https://tr.kikiriki.com/basic', subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
+    { url: 'https://tr.kikiriki.com/layerings', subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
 ]
 
 module.exports = { urls }
