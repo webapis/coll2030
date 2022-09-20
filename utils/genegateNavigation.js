@@ -70,7 +70,7 @@ async function genNav({ node, subcategory }) {
           let negwords = kws.negwords
 
           let index =parseInt(  kws.index.replace('-','') )
-          if (index <=12) {
+          if (index >=259) {
             const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
             const startPrice = parseFloat(priceRange[0])
             const endPrice = parseFloat(priceRange[1])

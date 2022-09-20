@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: defacto
-      maxconcurrency: '1'
+      maxconcurrency: '10'
     secrets: inherit
 
   generate_nav_job:
