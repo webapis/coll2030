@@ -319,7 +319,7 @@ debugger
       <TemporaryDrawer />
       {products.length === 0 && !fetchingProduct && <Container sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
         <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
-        <ImageList center sx={{ textAlign: 'center', height: '100%' }} variant="standard" cols={matchedesktop ? 5 : 2} gap={8}>
+        <ImageList center sx={{ textAlign: 'center',  }} variant="standard" cols={matchedesktop ? 5 : 2} gap={8}>
           {subcategories.map((item, i) => {
             const { subcategory, node, count: totalSubcategory } = item
             return <ImageListItem sx={{ width: 130, height: 'auto' }} key={i} onClick={() => {

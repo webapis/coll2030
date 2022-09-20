@@ -13,7 +13,7 @@ export default function AppBarContainer() {
 
     <AppContext.Consumer>
       {(({ toggleDrawer, toggleFilterDrawer, matchedesktop, clearSubcategory }) => {
-        return <AppBar color="" position='static'>
+        return <AppBar color="" position='fixed'>
           <Toolbar>
             <IconButton
               size="large"
