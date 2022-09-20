@@ -42,10 +42,11 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
         const priceNew = this.priceNew
 
         const match = foundkeywords.filter(kws => {
-            let group = kws.group
+    
             let negwords = kws.negwords
             let exactmatch = kws.exactmatch
-            if (group === 'FIYAT ARALIĞI') {
+            let index =parseInt(  kws.index.replace('-','') )
+            if (index <=12) {
                 const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
                 const startPrice = parseFloat(priceRange[0])
                 const endPrice = parseFloat(priceRange[1])

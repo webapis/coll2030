@@ -27,7 +27,7 @@ export default function ProductList(props) {
             <CircularProgress color="inherit" />
           </Box></div>
 
-          <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
+          <Container sx={{ paddingLeft: 0, marginTop: 2,paddingTop:8 }}>
             {products.length > 0
               && <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', justifyContent: 'start' }}>
