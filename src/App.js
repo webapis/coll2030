@@ -289,17 +289,18 @@ debugger
         const { keywords } = data
         const grouped ={}
 
-        for(let k of keywords){
+        for(let kw of keywords){
   
-          const {keyword}=k
-         const groupName = keywordgroup[keyword]
+          const {k}=kw
+          debugger
+         const groupName = keywordgroup[k]
          if(grouped[groupName]===undefined){
 
-          grouped[groupName]={keywords:[k]}
+          grouped[groupName]={keywords:[kw]}
    
          }else{
       
-          grouped[groupName].keywords=[...grouped[groupName].keywords,k]
+          grouped[groupName].keywords=[...grouped[groupName].keywords,kw]
          }
 
         

@@ -200,7 +200,7 @@ async function genNav({ node, subcategory }) {
 
     const { keywords } = navKeys[nk]
 
-    const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } }).map(m=>{return {count:m.count,index:m.index,keyword:m.keyword}})
+    const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } }).filter(m=>m.index !==undefined).map(m=>{return {c:m.count,i:m.index,k:m.keyword}})
 debugger
     // const navKeywords = map.reduce((prev, curr) => {
 

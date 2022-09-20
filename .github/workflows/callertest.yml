@@ -9,7 +9,7 @@ jobs:
   test_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: koton
+      marka: defacto
       maxconcurrency: '10'
     secrets: inherit
 
