@@ -33,12 +33,12 @@ async function genNav({ node, subcategory }) {
 
 
   console.log('files.length', files.length)
-  debugger
+
   const dataCollection = []
   for (let file of files) {
 
     const data = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
-    debugger
+
     const dataObjectArr = JSON.parse(data)
     dataCollection.push(...dataObjectArr)
   }
@@ -47,7 +47,6 @@ async function genNav({ node, subcategory }) {
 
 
 
-  debugger
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/${subcategory}/keywords.json`))
   let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
 
@@ -70,8 +69,8 @@ async function genNav({ node, subcategory }) {
           let exactmatch = kws.exactmatch
           let negwords = kws.negwords
 
-          let group = kws.group
-          if (group === 'FIYAT ARALIĞI') {
+          let index =parseInt(  kws.index.replace('-','') )
+          if (index <=12) {
             const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
             const startPrice = parseFloat(priceRange[0])
             const endPrice = parseFloat(priceRange[1])
@@ -102,7 +101,7 @@ async function genNav({ node, subcategory }) {
 
               }
             } catch (error) {
-              debugger
+       
             }
 
           } else {
@@ -201,43 +200,43 @@ async function genNav({ node, subcategory }) {
 
     const { keywords } = navKeys[nk]
 
-    const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
+    const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } }).map(m=>{return {count:m.count,index:m.index,keyword:m.keyword}})
+debugger
+    // const navKeywords = map.reduce((prev, curr) => {
 
-    const navKeywords = map.reduce((prev, curr) => {
-
-      if (prev[curr.group] === undefined) {
-        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count }] } }
-      } else {
+    //   if (prev[curr.group] === undefined) {
+    //     return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count }] } }
+    //   } else {
 
 
-        return {
-          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count}] }
-        }
-      }
+    //     return {
+    //       ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count}] }
+    //     }
+    //   }
 
-    }, {})
+    // }, {})
+debugger
+    // const sorted = Object.entries(navKeywords).map((m, i) => {
+    //   const groupName = m[0]
 
-    const sorted = Object.entries(navKeywords).map((m, i) => {
-      const groupName = m[0]
-
-      const keywords = m[1]['keywords']
+    //   const keywords = m[1]['keywords']
       
-      // .sort(function (a, b) {
-      //   var textA = a.parentkey.toUpperCase();
-      //   var textB = b.parentkey.toUpperCase();
+    //   // .sort(function (a, b) {
+    //   //   var textA = a.parentkey.toUpperCase();
+    //   //   var textB = b.parentkey.toUpperCase();
 
-      //   return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      // })
+    //   //   return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    //   // })
 
-      return { groupName, keywords }
-    }).sort(function (a, b) {
-      var textA = a.groupName.toUpperCase();
-      var textB = b.groupName.toUpperCase();
-      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    })
+    //   return { groupName, keywords }
+    // }).sort(function (a, b) {
+    //   var textA = a.groupName.toUpperCase();
+    //   var textB = b.groupName.toUpperCase();
+    //   return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    // })
     const id = parseInt(nk.replace(/-/g, '').trim())
 
-    regrouped.push({ index: nk, keywords: sorted, id })
+    regrouped.push({ index: nk, keywords: map, id })
 
 
   }

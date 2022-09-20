@@ -19,8 +19,8 @@ import FormLabel from '@mui/material/FormLabel';
 export default function KeywordsList() {
     return <AppContext.Consumer>{
         (({ navKeywords, selectedKeywords, fetchingKeywords, setSelectedNavIndex }) => {
-
-
+  
+debugger
             return <div style={{ position: 'relative' }}>
                 <div style={{ display: fetchingKeywords ? 'block' : 'none', width: '100%', height: '100vh', backgroundColor: '#fafafa', position: 'absolute', top: 0, bottom: 0, zIndex: 10, opacity: 0.7, color: 'white' }}>  <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                     <CircularProgress color="inherit" />

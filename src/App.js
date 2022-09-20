@@ -11,9 +11,9 @@ import LoadingDialog from './drawer/LoadingDialog';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-
-
-
+import keywordgroup from './keywords.json'
+console.log('keywordgroup',keywordgroup)
+debugger
 export const AppContext = React.createContext();
 
 export default class App extends React.Component {
@@ -210,9 +210,8 @@ export default class App extends React.Component {
     debugger
     let host = ''
     let href = window.location.href
-
-    if (href === 'http://localhost:3000/') {
-      host = 'http://localhost:3000/api/fns'
+    if (href === 'http://localhost:8888/') {
+      host = 'http://localhost:8888/.netlify/functions'
     } else {
       host = `https://modaburada.vercel.app/api/fns`
     }
@@ -256,8 +255,8 @@ export default class App extends React.Component {
     let host = ''
     let href = window.location.href
 
-    if (href === 'http://localhost:3000/') {
-      host = 'http://localhost:3000/api/fns'
+    if (href === 'http://localhost:8888/') {
+      host = 'http://localhost:8888/.netlify/functions'
     } else {
       host = `https://modaburada.vercel.app/api/fns`
     }
@@ -281,10 +280,32 @@ export default class App extends React.Component {
 
 
     fetch(url).then(async (response) => response.json()).then(async (data) => {
-      const { keywords } = data
- 
-      debugger
-      this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords: keywords }))
+   
+debugger
+
+      
+
+      this.setState(function (state){ 
+        const { keywords } = data
+        const grouped ={}
+
+        for(let k of keywords){
+  
+          const {keyword}=k
+         const groupName = keywordgroup[keyword]
+         if(grouped[groupName]===undefined){
+
+          grouped[groupName]={keywords:[k]}
+   
+         }else{
+      
+          grouped[groupName].keywords=[...grouped[groupName].keywords,k]
+         }
+
+        
+        }
+        debugger
+        return { ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m=>{return {groupName:m[0],keywords:m[1].keywords}}) } })
     }).catch(err => {
 
     })

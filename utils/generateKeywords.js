@@ -20,9 +20,9 @@ async function generateKeyword({ google_access_token, spreadsheetId, range, node
     const { getSheetValues, appendSheetValues } = require('../google.sheet.js')
     let categoryItems = []
 
-   
+
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range })
-debugger
+    debugger
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const keyword = value[0]
         const parentorchild = value[1]
@@ -38,7 +38,7 @@ debugger
         const subcategory = value[11]
         debugger
         console.log('exactmatch...', exactmatch, keyword)
-        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid,category,subcategory })
+        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid, category, subcategory })
 
     }
 
@@ -52,12 +52,22 @@ debugger
     fs.appendFileSync(`api/_files/nav/${subcategory}/keywords.json`, JSON.stringify({ [subcategory]: data }))
 
 
-    if (fs.existsSync(`public/${subcategory}/keywords.json`)) {
-        fs.unlinkSync(`public/${subcategory}/keywords.json`)
+    if (fs.existsSync(`src/keywords.json`)) {
+        fs.unlinkSync(`src/keywords.json`)
     }
-    fs.appendFileSync(`public/${subcategory}/keywords.json`, JSON.stringify(data))
-    console.log('subcategory',subcategory)
 
-  
-  
+
+    const reduced = data.reduce((prev, curr) => {
+
+        return {
+            ...prev, [curr.keyword]: curr.subcategory
+        }
+
+    }, {})
+
+    fs.appendFileSync(`src/keywords.json`, JSON.stringify(reduced))
+    console.log('subcategory', subcategory)
+
+
+
 }

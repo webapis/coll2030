@@ -1,6 +1,8 @@
-[[redirects]]
-  from = "/atlas/*"
-  to="/.netlify/functions/atlas"
-  query = {path = ":path"}
-  status = 200
-  force = true
+[functions]
+  external_node_modules = ["taffy"]
+[functions."elbise"]
+  included_files = ["api/_files/data/elbise/*.json","api/_files/nav/elbise/keywords.json"]
+[functions."elbise-navfirst"]
+  included_files = ["api/_files/key/elbise/0-keywords.json"]
+[functions."elbise-navsecond"]
+  included_files = ["api/_files/key/elbise/1-keywords.json"]
