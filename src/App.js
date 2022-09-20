@@ -6,7 +6,7 @@ import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-import { Stack, Container, Typography } from '@mui/material';
+import {  Container, Typography } from '@mui/material';
 import LoadingDialog from './drawer/LoadingDialog';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
@@ -205,7 +205,7 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    const { selectedSubcategory: { subcategory, node }, selectedNavIndex, search } = this.state
+    const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
 
     debugger
     let host = ''
@@ -290,8 +290,8 @@ debugger
         const grouped ={}
 
         for(let kw of keywords){
-  
-          const {k}=kw
+  debugger
+          const k  =kw[2]
           debugger
          const groupName = keywordgroup[k]
          if(grouped[groupName]===undefined){

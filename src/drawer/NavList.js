@@ -1,9 +1,7 @@
 import * as React from 'react';
 
-import TreeItem from '@mui/lab/TreeItem';
-import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
-import ClearIcon from '@mui/icons-material/Clear';
+
 import { AppContext } from '../App';
 export default function NestedList({ groupName, keywords }) {
 
@@ -16,7 +14,10 @@ export default function NestedList({ groupName, keywords }) {
         >
             <div style={{ padding: 10 }}>
                 {keywords && keywords.map((m, a) => {
-                    const { k, i, c } = m;
+                
+                    const c =m[0]
+                    const i=m[1]
+                    const k =m[2]
                     return <AppContext.Consumer key={a}>{({ setSelectedNavIndex, selectedNavIndex }) => {
                         return <RenderRow handleClick={setSelectedNavIndex} selectedNavIndex={selectedNavIndex} key={i} keyword={k} index={i} count={c} />
                     }}</AppContext.Consumer>
