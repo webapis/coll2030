@@ -46,7 +46,7 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
             let negwords = kws.negwords
             let exactmatch = kws.exactmatch
             let index =parseInt(  kws.index.replace('-','') )
-            if (index >=259) {
+            if (index <=12) {
                 const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
                 const startPrice = parseFloat(priceRange[0])
                 const endPrice = parseFloat(priceRange[1])
