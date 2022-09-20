@@ -20,6 +20,10 @@ const urls = [
     { url: 'https://shop.mango.com/tr/kadin/gomlek_c78920337', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://shop.mango.com/tr/kadin/kazaklar-ve-h%C4%B1rkalar_c18200786', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
+    { url: 'https://shop.mango.com/tr/kadin/jean_c12563337', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://shop.mango.com/tr/kadin/spor-k%C4%B1yafetler_c19503847', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://shop.mango.com/tr/kadin/ic-camas%C4%B1r%C4%B1-ve-bodyler_c11690027', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://shop.mango.com/tr/kadin/pijamalar_c37765897', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 ]
 
 module.exports={urls}
