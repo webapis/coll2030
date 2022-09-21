@@ -7,7 +7,7 @@
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
     await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'elbise' })
-
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'ayakkabi!A:L', node: 'dream', subcategory: 'ayakkabi' })
     process.exit(0)
 
 })()
