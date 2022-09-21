@@ -8,6 +8,8 @@ const urls = [
 
      { url: 'https://www.lcwaikiki.com/tr-TR/TR/kadin/ayakkabi', subcategory: ['ayakkabi'], category: 'alt-giyim',node:'dream'},
 
+     { url: 'https://www.lcwaikiki.com/tr-TR/TR/kadin/aksesuar', subcategory: ['aksesuar'], category: 'alt-giyim',node:'dream'},
+
 ]
 
 module.exports={urls}

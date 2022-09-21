@@ -12,7 +12,7 @@ const urls = [
     { url: 'https://www.colins.com.tr/c/woman-outwear-259', subcategory: ['elbise'], category: 'dış-giyim', node: 'dream' },
     { url: 'https://www.colins.com.tr/c/kadin-yelek-232', subcategory: ['elbise'], category: 'dış-giyim', node: 'dream' },
 
-
+    { url: 'https://www.colins.com.tr/c/kadin-aksesuar-120', subcategory: ['aksesuar'], category: 'dış-giyim', node: 'dream' },
 ]
 
 module.exports={urls}

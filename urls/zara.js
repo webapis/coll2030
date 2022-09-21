@@ -26,6 +26,11 @@ const urls = [
 
    { url: 'https://www.zara.com/tr/tr/kadin-ayakkabilar-l1251.html', subcategory: ['ayakkabi'], category: 'alt-giyim', node: 'dream' },
 
+
+   { url: 'https://www.zara.com/tr/tr/kadin-chantalar-l1024.html', subcategory: ['aksesuar'], category: 'alt-giyim', node: 'dream' },
+   { url: 'https://www.zara.com/tr/tr/kadin-aksesuarlar-l1003.html', subcategory: ['aksesuar'], category: 'alt-giyim', node: 'dream' },
+   { url: 'https://www.zara.com/tr/tr/kadin-guzellik-parfumler-l1415.html', subcategory: ['aksesuar'], category: 'alt-giyim', node: 'dream' },
+
 ]
 
 module.exports={urls}

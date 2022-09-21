@@ -7,7 +7,8 @@ const urls = [
 
     { url: 'https://www.tozlu.com/TR/kadin-ayakkabi', subcategory: ['ayakkabi'], category: 'üst-giyim', node: 'dream' },
 
-
+    { url: 'https://www.tozlu.com/TR/kadin-canta', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.tozlu.com/TR/kadin-aksesuar', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
 
 ]
 
