@@ -97,11 +97,8 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
 
                     const savePath = path.join(process.cwd(), `data/${marka}/${subcategory}/${fileName}.json`)
                     console.log('savePath------', savePath)
-                    
                     fs.writeFileSync(savePath, JSON.stringify(d))
-                    
                 }
-
             } catch (error) {
                 console.log('filepath', filepath)
                 console.log('error', error)

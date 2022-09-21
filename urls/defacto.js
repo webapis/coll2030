@@ -1,7 +1,7 @@
 const urls = [
 
    { url: 'https://www.defacto.com.tr/kadin-giyim', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
-   { url: 'https://www.defacto.com.tr/kadin-ayakkabi', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+   { url: 'https://www.defacto.com.tr/kadin-ayakkabi', subcategory: ['ayakkabi'], category: 'üst-giyim', node: 'dream' },
   // { url: 'https://www.defacto.com.tr/kadin-elbise', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
   //   { url: 'https://www.defacto.com.tr/kadin-pantolon', subcategory: ['elbise'], category: 'alt-giyim', node: 'dream' },
   //  { url: 'https://www.defacto.com.tr/kadin-etek', subcategory: ['elbise'], category: 'alt-giyim', node: 'dream' },
