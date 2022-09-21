@@ -18,6 +18,16 @@
         },
         "api/fns/ayakkabi-navsecond.js": {
             "includeFiles": "api/_files/key/ayakkabi/1-keywords.json"
+        },
+
+        "api/fns/aksesuar.js": {
+            "includeFiles": "api/_files/**/aksesuar/**/*.json"
+        },
+        "api/fns/aksesuar-navfirst.js": {
+            "includeFiles": "api/_files/key/aksesuar/0-keywords.json"
+        },
+        "api/fns/aksesuar-navsecond.js": {
+            "includeFiles": "api/_files/key/aksesuar/1-keywords.json"
         }
     }
 }

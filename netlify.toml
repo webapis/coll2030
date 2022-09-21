@@ -14,3 +14,11 @@
   included_files = ["api/_files/key/ayakkabi/0-keywords.json"]
 [functions."ayakkabi-navsecond"]
   included_files = ["api/_files/key/ayakkabi/1-keywords.json"]
+
+
+[functions."aksesuar"]
+  included_files = ["api/_files/data/aksesuar/*.json","api/_files/nav/aksesuar/keywords.json"]
+[functions."aksesuar-navfirst"]
+  included_files = ["api/_files/key/aksesuar/0-keywords.json"]
+[functions."aksesuar-navsecond"]
+  included_files = ["api/_files/key/aksesuar/1-keywords.json"]
