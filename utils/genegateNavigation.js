@@ -236,7 +236,7 @@ debugger
     // })
     const id = parseInt(nk.replace(/-/g, '').trim())
 
-    regrouped.push({ index: nk, keywords: map, id })
+    regrouped.push({ i: nk, k: map, id })
 
 
   }
@@ -258,8 +258,8 @@ debugger
 
   })
 
-  const firstPart = mapped.filter((f) => f.fn === 0)
-  const secondPart = mapped.filter((f) => f.fn === 1)
+  const firstPart = mapped.filter((f) => f.fn === 0).map(m=>{return {i:m.i,k:m.k,id:m.id}})
+  const secondPart = mapped.filter((f) => f.fn === 1).map(m=>{return {i:m.i,k:m.k,id:m.id}})
 
 
   debugger
@@ -282,9 +282,6 @@ debugger
   }
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
-
-
-
 
 
   console.log('end....1')

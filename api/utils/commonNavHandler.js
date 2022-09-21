@@ -10,8 +10,8 @@ function commonNavHandler({subcategory,keyOrder,navindex}) {
     console.log('navindex', navindex)
 
     debugger
-    const { keywords, fn } = navkeywords().filter({ index: navindex }).get()[0]
-    return { keywords }
+    const { k } = navkeywords().filter({ i: navindex }).get()[0]
+    return { keywords:k }
 
 }
 

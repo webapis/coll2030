@@ -11,7 +11,10 @@ import LoadingDialog from './drawer/LoadingDialog';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import keywordgroup from './keywords.json'
+import elbise from './elbise/keywords.json'
+import ayakakbi from './ayakkabi/keywords.json'
+const keywordgroup ={...elbise,...ayakakbi}
+
 console.log('keywordgroup',keywordgroup)
 debugger
 export const AppContext = React.createContext();

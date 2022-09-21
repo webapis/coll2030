@@ -45,15 +45,15 @@ async function generateKeyword({ google_access_token, spreadsheetId, range, node
     const data = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
 
     await makeDir(`api/_files/nav/${subcategory}`)
-    await makeDir(`public/${subcategory}`)
+    await makeDir(`src/${subcategory}`)
     if (fs.existsSync(`api/_files/nav/${subcategory}/keywords.json`)) {
         fs.unlinkSync(`api/_files/nav/${subcategory}/keywords.json`)
     }
     fs.appendFileSync(`api/_files/nav/${subcategory}/keywords.json`, JSON.stringify({ [subcategory]: data }))
 
 
-    if (fs.existsSync(`src/keywords.json`)) {
-        fs.unlinkSync(`src/keywords.json`)
+    if (fs.existsSync(`src/${subcategory}/keywords.json`)) {
+        fs.unlinkSync(`src/${subcategory}/keywords.json`)
     }
 
 
@@ -65,7 +65,7 @@ async function generateKeyword({ google_access_token, spreadsheetId, range, node
 
     }, {})
 
-    fs.appendFileSync(`src/keywords.json`, JSON.stringify(reduced))
+    fs.appendFileSync(`src/${subcategory}/keywords.json`, JSON.stringify(reduced))
     console.log('subcategory', subcategory)
 
 
