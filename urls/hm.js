@@ -29,7 +29,7 @@ const urls = [
    { url: 'https://www2.hm.com/tr_tr/kadin/urune-gore-satin-al/hamile-giyim.html', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
 
-   { url: 'https://www2.hm.com/tr_tr/kadin/urune-gore-satin-al/ayakkabi.html', subcategory: ['ayakkabi'], category: 'üst-giyim', node: 'dream' },
+   { url: 'https://www2.hm.com/tr_tr/kadin/urune-gore-satin-al/ayakkabi.html', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
    { url: 'https://www2.hm.com/tr_tr/kadin/urune-gore-satin-al/aksesuar.html', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
 ]
 

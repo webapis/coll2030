@@ -10,7 +10,7 @@ const urls = [
     { url: 'https://www.adl.com.tr/kadin-sort', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
 
-    { url: 'https://www.adl.com.tr/kadin-ayakkabi', subcategory: ['ayakkabi'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.adl.com.tr/kadin-ayakkabi', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.adl.com.tr/kadin-canta-aksesuar', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
 
 ]

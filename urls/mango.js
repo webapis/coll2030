@@ -26,7 +26,7 @@ const urls = [
     { url: 'https://shop.mango.com/tr/kadin/pijamalar_c37765897', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
 
-    { url: 'https://shop.mango.com/tr/kadin/ayakkab%C4%B1_c10336952?page=1', subcategory: ['ayakkabi'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://shop.mango.com/tr/kadin/ayakkab%C4%B1_c10336952?page=1', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://shop.mango.com/tr/kadin/canta_c18162733?page=1', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://shop.mango.com/tr/kadin/cuzdan-ve-kozmetik-cantas%C4%B1_c13680885?page=1', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://shop.mango.com/tr/kadin/kemer_c13182505?page=1', subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },

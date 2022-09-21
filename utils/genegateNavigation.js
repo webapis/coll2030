@@ -6,7 +6,6 @@
 
 
   await genNav({ node: 'dream', subcategory: 'elbise' })
-  await genNav({ node: 'dream', subcategory: 'ayakkabi' })
   await genNav({ node: 'dream', subcategory: 'aksesuar' })
 
   process.exit(0)

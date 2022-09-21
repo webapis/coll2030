@@ -1,7 +1,7 @@
 const urls = [
     { url: 'https://www.koton.com/kadin-giyim', subcategory: ['elbise'], category: 'üst-giyim',node:'dream'},
 
-    { url: 'https://www.koton.com/kadin-ayakkabi', subcategory: ['ayakkabi'], category: 'üst-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-ayakkabi', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
     { url: 'https://www.koton.com/kadin-canta', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
     { url: 'https://www.koton.com/kadin-parfum', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
     { url: 'https://www.koton.com/kadin-kemer', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},

@@ -5,7 +5,7 @@ const urls = [
 
      { url: 'https://www.oxxo.com.tr/tr/pantolonlar', subcategory: ['elbise'], category: 'alt-giyim',node:'dream' },
 
-     { url: 'https://www.oxxo.com.tr/tr/ayakkabilar', subcategory: ['ayakkabi'], category: 'alt-giyim',node:'dream' },
+     { url: 'https://www.oxxo.com.tr/tr/ayakkabilar', subcategory: ['aksesuar'], category: 'alt-giyim',node:'dream' },
 
      { url: 'https://www.oxxo.com.tr/tr/aksesuarlar', subcategory: ['aksesuar'], category: 'alt-giyim',node:'dream' },
 
