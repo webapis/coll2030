@@ -21,6 +21,8 @@ const urls = [
     { url: 'https://www.xint.com.tr/kadin-gomlek', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.xint.com.tr/kadin-kazak', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
+    { url: 'https://www.xint.com.tr/kadin-ayakkabi', subcategory: ['ayakkabi'], category: 'üst-giyim', node: 'dream' },
+
 ]
 
 module.exports={urls}

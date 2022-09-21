@@ -23,6 +23,9 @@ const urls = [
    { url: 'https://www.zara.com/tr/tr/kadin-est-giyim-l1322.html', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
    { url: 'https://www.zara.com/tr/tr/kadin-erge-giyim-l1152.html', subcategory: ['elbise'], category: 'alt-giyim', node: 'dream' },
 
+
+   { url: 'https://www.zara.com/tr/tr/kadin-ayakkabilar-l1251.html', subcategory: ['ayakkabi'], category: 'alt-giyim', node: 'dream' },
+
 ]
 
 module.exports={urls}
