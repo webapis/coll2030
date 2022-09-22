@@ -6,16 +6,17 @@ import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-import {  Container, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import LoadingDialog from './drawer/LoadingDialog';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import Paper from '@mui/material/Paper';
 import elbise from './elbise/keywords.json'
 import ayakakbi from './ayakkabi/keywords.json'
-const keywordgroup ={...elbise,...ayakakbi}
+const keywordgroup = { ...elbise, ...ayakakbi }
 
-console.log('keywordgroup',keywordgroup)
+console.log('keywordgroup', keywordgroup)
 debugger
 export const AppContext = React.createContext();
 
@@ -283,38 +284,41 @@ export default class App extends React.Component {
 
 
     fetch(url).then(async (response) => response.json()).then(async (data) => {
-   
-debugger
 
-      
+      debugger
 
-      this.setState(function (state){ 
+
+
+      this.setState(function (state) {
         const { keywords } = data
-        const grouped ={}
+        const grouped = {}
 
-        for(let kw of keywords){
-  debugger
-          const k  =kw[2]
+        for (let kw of keywords) {
           debugger
-         const groupName = keywordgroup[k]
-         if(grouped[groupName]===undefined){
+          const k = kw[2]
+          debugger
+          const groupName = keywordgroup[k]
+          if (grouped[groupName] === undefined) {
 
-          grouped[groupName]={keywords:[kw]}
-   
-         }else{
-      
-          grouped[groupName].keywords=[...grouped[groupName].keywords,kw]
-         }
+            grouped[groupName] = { keywords: [kw] }
 
-        
+          } else {
+
+            grouped[groupName].keywords = [...grouped[groupName].keywords, kw]
+          }
+
+
         }
         debugger
-        return { ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m=>{return {groupName:m[0],keywords:m[1].keywords}} ).sort(function (a, b) {
-          var textA = a.groupName;
-          var textB = b.groupName;
-  
-          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-        }) } })
+        return {
+          ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => { return { groupName: m[0], keywords: m[1].keywords } }).sort(function (a, b) {
+            var textA = a.groupName;
+            var textB = b.groupName;
+
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+          })
+        }
+      })
     }).catch(err => {
 
     })
@@ -326,28 +330,30 @@ debugger
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-      {products.length === 0 && !fetchingProduct && <Container sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+      {products.length === 0 && !fetchingProduct && <Container sx={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+        <div>
         <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
-        <ImageList center sx={{ textAlign: 'center',  }} variant="standard" cols={matchedesktop ? 5 : 2} gap={8}>
+          <div style={{display:'flex'}}>
           {subcategories.map((item, i) => {
-            const { subcategory, node, count: totalSubcategory } = item
-            return <ImageListItem sx={{ width: 130, height: 'auto' }} key={i} onClick={() => {
+            const { subcategory, node, count: totalSubcategory, description } = item
+            return <div key={i} onClick={() => {
               selectSubcategory({ subcategory, totalSubcategory, node })
             }}>
-
+              <Paper elevation={12} style={{margin:2}}>
               <img
                 src={item.imgUrl}
-                alt={item.subcategory}
+                alt={item.description}
                 loading="lazy"
+                height="400"
 
               />
-              <ImageListItemBar
-                title={item.subcategory}
-                position="below"
-              />
-            </ImageListItem>
+              <Typography align="center" variant="h5">{description}</Typography>
+</Paper>
+            </div>
           })}
-        </ImageList>
+          </div>
+     
+        </div>
       </Container>
       }
       {matchedesktop && selectedSubcategory &&
