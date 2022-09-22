@@ -10,16 +10,6 @@
             "includeFiles": "api/_files/key/elbise/1-keywords.json"
         },
 
-        "api/fns/ayakkabi.js": {
-            "includeFiles": "api/_files/**/ayakkabi/**/*.json"
-        },
-        "api/fns/ayakkabi-navfirst.js": {
-            "includeFiles": "api/_files/key/ayakkabi/0-keywords.json"
-        },
-        "api/fns/ayakkabi-navsecond.js": {
-            "includeFiles": "api/_files/key/ayakkabi/1-keywords.json"
-        },
-
         "api/fns/aksesuar.js": {
             "includeFiles": "api/_files/**/aksesuar/**/*.json"
         },
