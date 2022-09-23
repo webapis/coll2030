@@ -55,11 +55,11 @@ if (fs.existsSync(path.join(process.cwd(), 'collected-data'))) {
             for (let d of collectedData) {
                 const { imageUrl, subcategory, marka } = d
 
-                makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
+                makeDir.sync(`data/${marka}/${subcategory}`)
 
                 const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
 
-                const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
+                const savePath = path.join(process.cwd(), `data/${marka}/${subcategory}/${fileName}.json`)
                 console.log('savePath------', savePath)
                 
                 fs.writeFileSync(savePath, JSON.stringify(d))
@@ -91,17 +91,14 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
                 for (let d of collectedData) {
                     const { imageUrl, subcategory, marka } = d
 
-                    makeDir.sync(`projects/dream/data/${marka}/${subcategory}`)
+                    makeDir.sync(`data/${marka}/${subcategory}`)
 
                     const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
 
-                    const savePath = path.join(process.cwd(), `projects/dream/data/${marka}/${subcategory}/${fileName}.json`)
+                    const savePath = path.join(process.cwd(), `data/${marka}/${subcategory}/${fileName}.json`)
                     console.log('savePath------', savePath)
-                    
                     fs.writeFileSync(savePath, JSON.stringify(d))
-                    
                 }
-
             } catch (error) {
                 console.log('filepath', filepath)
                 console.log('error', error)
@@ -149,5 +146,5 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
 
 // generateBrendReport()
 // generateSubcategoryReport()
-generateUpdatedReport()
-generateSubcategoryPie()
+// generateUpdatedReport()
+// generateSubcategoryPie()

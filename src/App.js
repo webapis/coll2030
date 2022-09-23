@@ -6,14 +6,18 @@ import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-import { Stack, Container, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import LoadingDialog from './drawer/LoadingDialog';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import Paper from '@mui/material/Paper';
+import elbise from './elbise/keywords.json'
+import ayakakbi from './ayakkabi/keywords.json'
+const keywordgroup = { ...elbise, ...ayakakbi }
 
-
-
+console.log('keywordgroup', keywordgroup)
+debugger
 export const AppContext = React.createContext();
 
 export default class App extends React.Component {
@@ -124,7 +128,7 @@ export default class App extends React.Component {
     }
 
     this.setSelectedNavIndex = ({ keyword, index }) => {
-      window.scrollTo(0,0)
+      window.scrollTo(0, 0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
         let selectedNavIndex = null
@@ -178,7 +182,7 @@ export default class App extends React.Component {
 
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
+      this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
 
@@ -186,16 +190,16 @@ export default class App extends React.Component {
 
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
+      this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
     if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       if (selectedNavIndex === '') {
-        this.fetchNavKeywords('0-', selectedSubcategory.subcategory,selectedSubcategory.node)
+        this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
       } else {
-        this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory,selectedSubcategory.node)
+        this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory, selectedSubcategory.node)
       }
 
     }
@@ -205,21 +209,20 @@ export default class App extends React.Component {
   }
 
   fetchProducts(start) {
-    const { selectedSubcategory: { subcategory, node }, selectedNavIndex, search } = this.state
+    const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
 
     debugger
     let host = ''
     let href = window.location.href
-
-    if (href === 'http://localhost:3000/') {
+    if (href === 'http://localhost:8888/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-      host ='https://dream2022.netlify.app/.netlify/functions' // `https://${node}.vercel.app/api/fns`
+      host = `https://modaburada.vercel.app/api/fns`
     }
+    //'https://dream2022.netlify.app/.netlify/functions'
 
 
-
-    var url = `${host}/${subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ğ/g,'g') }/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
+    var url = `${host}/${subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
     debugger
 
     return fetch(url, { cache: 'default' }).then(function (response) {
@@ -251,18 +254,22 @@ export default class App extends React.Component {
 
   }
 
-  fetchNavKeywords(selectedNavIndex, subcategory,node) {
-    let subcat =subcategory.replace(/ö/g,'o').replace(/ş/g,'s').replace(/ı/g,'i').replace(/ç/g,'c').replace(/ğ/g,'g')
+  fetchNavKeywords(selectedNavIndex, subcategory, node) {
+    let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
     let href = window.location.href
 
-    if (href === 'http://localhost:3000/') {
+    if (href === 'http://localhost:8888/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
+<<<<<<< HEAD
 <<<<<<< HEAD
       host = `https://coll2030.vercel.app/api/fns` //'https://dream2022.netlify.app/.netlify/functions'/
 =======
       host ='https://dream2022.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
+>>>>>>> dev
+=======
+      host = `https://modaburada.vercel.app/api/fns`
 >>>>>>> dev
     }
 
@@ -284,10 +291,42 @@ export default class App extends React.Component {
     }
 
 
-    fetch(url).then(async (response) => response.json()).then((data) => {
-      const { keywords } = data
+    fetch(url).then(async (response) => response.json()).then(async (data) => {
 
-      this.setState((state) => ({ ...state, fetchingKeywords: false, navKeywords: keywords }))
+      debugger
+
+
+
+      this.setState(function (state) {
+        const { keywords } = data
+        const grouped = {}
+
+        for (let kw of keywords) {
+          debugger
+          const k = kw[2]
+          debugger
+          const groupName = keywordgroup[k]
+          if (grouped[groupName] === undefined) {
+
+            grouped[groupName] = { keywords: [kw] }
+
+          } else {
+
+            grouped[groupName].keywords = [...grouped[groupName].keywords, kw]
+          }
+
+
+        }
+        debugger
+        return {
+          ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => { return { groupName: m[0], keywords: m[1].keywords } }).sort(function (a, b) {
+            var textA = a.groupName;
+            var textB = b.groupName;
+
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+          })
+        }
+      })
     }).catch(err => {
 
     })
@@ -299,41 +338,43 @@ export default class App extends React.Component {
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-      {products.length === 0 && !fetchingProduct && <Container sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+      {products.length === 0 && !fetchingProduct && <Container sx={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+        <div>
         <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
-        <ImageList center sx={{ textAlign: 'center', height: '100%' }} variant="standard" cols={matchedesktop ? 5 : 2} gap={8}>
+          <div style={{display:'flex'}}>
           {subcategories.map((item, i) => {
-            const { subcategory, node, count: totalSubcategory } = item
-            return <ImageListItem sx={{ width: 130, height: 'auto' }} key={i} onClick={() => {
+            const { subcategory, node, count: totalSubcategory, description } = item
+            return <div key={i} onClick={() => {
               selectSubcategory({ subcategory, totalSubcategory, node })
             }}>
-
+              <Paper elevation={12} style={{margin:2}}>
               <img
                 src={item.imgUrl}
-                alt={item.subcategory}
+                alt={item.description}
                 loading="lazy"
+                height="400"
 
               />
-              <ImageListItemBar
-                title={item.subcategory}
-                position="below"
-              />
-            </ImageListItem>
+              <Typography align="center" variant="h5">{description}</Typography>
+</Paper>
+            </div>
           })}
-        </ImageList>
+          </div>
+     
+        </div>
       </Container>
       }
       {matchedesktop && selectedSubcategory &&
-   <Container>
+        <Container>
           <Grid container>
             <Grid item xs={3} >
-              <KeywordsList  />
+              <KeywordsList />
             </Grid>
             <Grid item xs={9}>
               <ProductList />
             </Grid>
           </Grid>
-          </Container>
+        </Container>
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}

@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: defacto
-      maxconcurrency: '1'
+      maxconcurrency: '10'
     secrets: inherit
 
   generate_nav_job:
@@ -43,7 +43,7 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: data
+          name: collecteddata
           path: collected-data
       - name: Display structure of downloaded files
         run: ls -R

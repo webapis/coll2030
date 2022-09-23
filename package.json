@@ -47,7 +47,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node utils/mergefiles.js  && node utils/genegateNavigation.js && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "collection": "node main.js",
@@ -56,7 +56,7 @@
     "relocatedata": "node utils/relocateData.js",
     "dev": "netlify dev",
     "vercel:dev": "vercel dev",
-    "netlify:dream": "cd projects/dream && netlify dev",
+    "netlify:dev": "netlify dev",
     "spine": "node spine.js",
     "encryptData": "node encryptData.js",
     "decryptData": "node decryptData.js",

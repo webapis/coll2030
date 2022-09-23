@@ -36,7 +36,7 @@ async function handler(page, context) {
                             return productCards.map(productCard => {
                                 const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
                                 const longlink = productCard.querySelector('.detailLink').href
-                                const link = longlink.substring(longlink.indexOf("https://www.saygigiyim.com/") + 27)
+                                const link = longlink.substring(longlink.indexOf("https://www.bysaygi.com/") + 24)
                                 const longImgUrl = productCard.querySelector('img[data-original]') && productCard.querySelector('img[data-original]').getAttribute('data-original')
                                 //const imageUrlshort = longImgUrl&& longImgUrl.substring(longImgUrl.indexOf('https://www.quzu.com.tr/') + 24)
                                 const title = productCard.querySelector('.detailLink').getAttribute('title')

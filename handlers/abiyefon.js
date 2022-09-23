@@ -11,7 +11,7 @@ async function handler(page, context) {
     const data = await page.$$eval('.products li', (productCards, _subcategory, _category, _opts, _node) => {
         return productCards.map(productCard => {
             const priceNew = productCard.querySelector("span[data-price]") ? productCard.querySelector("span[data-price]").getAttribute('data-price').replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim() : productCard.outerHTML
-            const longlink = productCard.querySelector('.product-link') ? productCard.querySelector('.product-link').getAttribute('data-purehref') : productCard.outerHTML
+            const longlink = productCard.querySelector('.product-link') ? productCard.querySelector('.product-link').getAttribute('data-purehref') : null
             const link = longlink.substring(longlink.indexOf("/") + 1)
             const longImgUrl = productCard.querySelector('.product-list-image') ? productCard.querySelector('.product-list-image').src : productCard.outerHTML
             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://www.abiyefon.com/') + 25)
@@ -27,7 +27,7 @@ async function handler(page, context) {
                 category: _category,
                 node: _node
             }
-        }).filter(f => f.imageUrl !== null)
+        }).filter(f => f.imageUrl !== null  && f.link !==null)
     }, subcategory, category, opts, node)
 
     console.log('data length_____', data.length, 'url:', url)

@@ -27,6 +27,9 @@ const urls = [
     { url: 'https://www.machka.com.tr/triko-modelleri-c_834?page=1', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.machka.com.tr/penye-modelleri-c_858?page=1', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.machka.com.tr/triko-modelleri-c_834?page=1', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
+
+
+
   ]
 
 module.exports={urls}

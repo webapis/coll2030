@@ -26,6 +26,12 @@ const urls = [
     { url: 'https://www.perspective.com.tr/koleksiyon/tum-tunikler',            subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
     { url: 'https://www.perspective.com.tr/koleksiyon/tum-trikolar',   subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
 
+
+    { url: 'https://www.perspective.com.tr/koleksiyon/tum-ayakkabilar',   subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
+
+    { url: 'https://www.perspective.com.tr/koleksiyon/tum-cantalar',   subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
+    { url: 'https://www.perspective.com.tr/koleksiyon/tum-aksesuarlar',   subcategory: ['aksesuar'], category: 'üst-giyim', node: 'dream' },
+
 ]
 
 module.exports={urls}

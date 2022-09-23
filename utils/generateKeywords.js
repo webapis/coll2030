@@ -6,8 +6,8 @@
 
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:J', node: 'dream', subcategory: 'elbise' })
-
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'elbise' })
+    await generateKeyword({ google_access_token, spreadsheetId, range: 'aksesuar!A:L', node: 'dream', subcategory: 'aksesuar' })
     process.exit(0)
 
 })()
@@ -20,9 +20,9 @@ async function generateKeyword({ google_access_token, spreadsheetId, range, node
     const { getSheetValues, appendSheetValues } = require('../google.sheet.js')
     let categoryItems = []
 
-   
+
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range })
-debugger
+    debugger
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const keyword = value[0]
         const parentorchild = value[1]
@@ -34,21 +34,40 @@ debugger
         const group = value[7]
         const index = value[8]
         const groupid = value[9]
-       
+        const category = value[10]
+        const subcategory = value[11]
+        debugger
         console.log('exactmatch...', exactmatch, keyword)
-        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid })
+        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid, category, subcategory })
 
     }
 
     const data = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
 
-    await makeDir(`projects/${node}/api/_files/nav/${subcategory}`)
-    if (fs.existsSync(`projects/${node}/api/_files/nav/${subcategory}/keywords.json`)) {
-        fs.unlinkSync(`projects/${node}/api/_files/nav/${subcategory}/keywords.json`)
+    await makeDir(`api/_files/nav/${subcategory}`)
+    await makeDir(`src/${subcategory}`)
+    if (fs.existsSync(`api/_files/nav/${subcategory}/keywords.json`)) {
+        fs.unlinkSync(`api/_files/nav/${subcategory}/keywords.json`)
     }
-    fs.appendFileSync(`projects/${node}/api/_files/nav/${subcategory}/keywords.json`, JSON.stringify({ [subcategory]: data }))
-    console.log('subcategory',subcategory)
+    fs.appendFileSync(`api/_files/nav/${subcategory}/keywords.json`, JSON.stringify({ [subcategory]: data }))
 
-  
-  
+
+    if (fs.existsSync(`src/${subcategory}/keywords.json`)) {
+        fs.unlinkSync(`src/${subcategory}/keywords.json`)
+    }
+
+
+    const reduced = data.reduce((prev, curr) => {
+
+        return {
+            ...prev, [curr.keyword]: curr.subcategory
+        }
+
+    }, {})
+
+    fs.appendFileSync(`src/${subcategory}/keywords.json`, JSON.stringify(reduced))
+    console.log('subcategory', subcategory)
+
+
+
 }

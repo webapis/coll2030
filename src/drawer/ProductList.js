@@ -27,7 +27,7 @@ export default function ProductList(props) {
             <CircularProgress color="inherit" />
           </Box></div>
 
-          <Container sx={{ paddingLeft: 0, marginTop: 2 }}>
+          <Container sx={{ paddingLeft: 0, marginTop: 2,paddingTop:8 }}>
             {products.length > 0
               && <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', justifyContent: 'start' }}>
@@ -42,7 +42,7 @@ export default function ProductList(props) {
             }
 
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
-            <Box sx={{ width: '100%',height:'100vh', overflowY: 'scroll' }} id="product-container">
+            <Box sx={{ width: '100%', overflowY: 'scroll' }} id="product-container">
               <ImageList variant="standard" cols={5} gap={8}>
                 {products.length > 0 && products.map((item, i) => {
 

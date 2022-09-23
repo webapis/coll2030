@@ -1,6 +1,24 @@
-[[redirects]]
-  from = "/atlas/*"
-  to="/.netlify/functions/atlas"
-  query = {path = ":path"}
-  status = 200
-  force = true
+[functions]
+  external_node_modules = ["taffy"]
+[functions."elbise"]
+  included_files = ["api/_files/data/elbise/*.json","api/_files/nav/elbise/keywords.json"]
+[functions."elbise-navfirst"]
+  included_files = ["api/_files/key/elbise/0-keywords.json"]
+[functions."elbise-navsecond"]
+  included_files = ["api/_files/key/elbise/1-keywords.json"]
+
+
+[functions."ayakkabi"]
+  included_files = ["api/_files/data/ayakkabi/*.json","api/_files/nav/ayakkabi/keywords.json"]
+[functions."ayakkabi-navfirst"]
+  included_files = ["api/_files/key/ayakkabi/0-keywords.json"]
+[functions."ayakkabi-navsecond"]
+  included_files = ["api/_files/key/ayakkabi/1-keywords.json"]
+
+
+[functions."aksesuar"]
+  included_files = ["api/_files/data/aksesuar/*.json","api/_files/nav/aksesuar/keywords.json"]
+[functions."aksesuar-navfirst"]
+  included_files = ["api/_files/key/aksesuar/0-keywords.json"]
+[functions."aksesuar-navsecond"]
+  included_files = ["api/_files/key/aksesuar/1-keywords.json"]
