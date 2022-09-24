@@ -5,8 +5,11 @@
   console.log('--------------GEN NAV DATA STARTED-------------')
 
 
-  await genNav({ node: 'dream', subcategory: 'elbise' })
-  await genNav({ node: 'dream', subcategory: 'aksesuar' })
+  await genNav({ node: 'dream', subcategory: 'one' })
+  await genNav({ node: 'dream', subcategory: 'two' })
+  await genNav({ node: 'dream', subcategory: 'three' })
+  await genNav({ node: 'dream', subcategory: 'four' })
+  await genNav({ node: 'dream', subcategory: 'diger' })
 
   process.exit(0)
 
@@ -15,8 +18,7 @@
 //
 
 async function genNav({ node, subcategory }) {
-  console.log('node', node)
-  console.log('subcategory', subcategory)
+
   const path = require('path')
   const makeDir = require('make-dir');
 
@@ -55,7 +57,7 @@ async function genNav({ node, subcategory }) {
   dataCollection.forEach(async (object) => {
 
  
-    const { subcategory, title, marka, priceNew, node } = object
+    const {  title, marka, priceNew } = object
 
 
     let navMatchCollection = []

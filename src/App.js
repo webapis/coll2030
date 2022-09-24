@@ -262,15 +262,9 @@ export default class App extends React.Component {
     if (href === 'http://localhost:8888/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      host = `https://coll2030.vercel.app/api/fns` //'https://dream2022.netlify.app/.netlify/functions'/
-=======
+
       host ='https://dream2022.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
->>>>>>> dev
-=======
-      host = `https://modaburada.vercel.app/api/fns`
->>>>>>> dev
+
     }
 
     var url = ''
@@ -290,7 +284,7 @@ export default class App extends React.Component {
 
     }
 
-
+debugger
     fetch(url).then(async (response) => response.json()).then(async (data) => {
 
       debugger
@@ -300,7 +294,7 @@ export default class App extends React.Component {
       this.setState(function (state) {
         const { keywords } = data
         const grouped = {}
-
+        debugger
         for (let kw of keywords) {
           debugger
           const k = kw[2]

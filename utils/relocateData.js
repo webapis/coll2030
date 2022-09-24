@@ -1,4 +1,4 @@
-
+require('dotenv').config()
 console.log('--------------------------------------------------------------')
 const fs = require('fs')
 const path = require('path')
@@ -10,15 +10,15 @@ const { generateUpdatedReport } = require('./report/generateUpdatedReport')
 const { generateSubcategoryPie } = require('./generateSubcategoryPie')
 console.log('--------------------------------------------------------------')
 
-
+const website =process.env.WEBSITE
 let obj = {}
-
+debugger
 // delete old data
 
-if (fs.existsSync(path.join(process.cwd(), 'old-data'))) {
+if (fs.existsSync(path.join(process.cwd(), `old-data/${website}`))) {
     walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
         
-        try {
+   
             const data = JSON.parse(fs.readFileSync(filepath))
 
             for (let d of data) {
@@ -32,76 +32,51 @@ if (fs.existsSync(path.join(process.cwd(), 'old-data'))) {
                 }
             }
 
-        } catch (error) {
-            console.log('file deletion error', error)
-            
-            //    throw error
-        }
+    
     })
 }
 
 // add newdata
-if (fs.existsSync(path.join(process.cwd(), 'collected-data'))) {
+if (fs.existsSync(path.join(process.cwd(), `collected-data/${website}`))) {
 
 
-    walkSync(path.join(process.cwd(), 'collected-data'), async (filepath) => {
+    walkSync(path.join(process.cwd(), `collected-data/${website}`), async (filepath) => {
 
-        try {
-
+     
             const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
 
 
             
             for (let d of collectedData) {
-                const { imageUrl, subcategory, marka } = d
-
-                makeDir.sync(`data/${marka}/${subcategory}`)
-
+                const { imageUrl, marka } = d
+                makeDir.sync(`data/${website}/${marka}`)
                 const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-
-                const savePath = path.join(process.cwd(), `data/${marka}/${subcategory}/${fileName}.json`)
+                const savePath = path.join(process.cwd(), `data/${website}/${marka}/${fileName}.json`)
                 console.log('savePath------', savePath)
-                
                 fs.writeFileSync(savePath, JSON.stringify(d))
-                
-
             }
 
-
-        } catch (error) {
-            console.log('filepath', filepath)
-            console.log('error', error)
-            
-        }
+   
 
 
     })
 }
 // add updateddata
-if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
+if (fs.existsSync(path.join(process.cwd(), `updated-data/${website}`))) {
 
-
-    if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
-        walkSync(path.join(process.cwd(), 'updated-data'), async (filepath) => {
-            try {
+    if (fs.existsSync(path.join(process.cwd(), `updated-data/${website}`))) {
+        walkSync(path.join(process.cwd(), `updated-data/${website}`), async (filepath) => {
+      
                 const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
                 for (let d of collectedData) {
-                    const { imageUrl, subcategory, marka } = d
-                    makeDir.sync(`data/${marka}/${subcategory}`)
+                    const { imageUrl, marka } = d
+                    makeDir.sync(`data/${website}/${marka}`)
                     const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-                    const savePath = path.join(process.cwd(), `data/${marka}/${subcategory}/${fileName}.json`)
-                    console.log('savePath------', savePath)
+                    const savePath = path.join(process.cwd(), `data/${website}/${marka}/${fileName}.json`)
+                 
                     fs.writeFileSync(savePath, JSON.stringify(d))
                 }
-            } catch (error) {
-                console.log('filepath', filepath)
-                console.log('error', error)
-                
-            }
-
-
         })
-
     }
 
 }

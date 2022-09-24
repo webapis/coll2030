@@ -5,6 +5,7 @@ on:
 env:
   VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
   NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
+  WEBSITE: modaburada
 jobs:
   test_job:
     uses: ./.github/workflows/reusable.yml

@@ -1,55 +1,99 @@
-
+require('dotenv').config()
 console.log('--------------------------------------------------------------')
 const fs = require('fs')
 const path = require('path')
 const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
+const { productTitleMatch } = require('./productTitleMatch')
 console.log('--------------------------------------------------------------')
 let obj = {}
-walkSync(path.join(process.cwd(), 'data'), async (filepath) => {
+const website = process.env.WEBSITE
 
-    try {
-        const dirName = path.dirname(filepath)
-        //  console.log('filepath', filepath)
+const keywords = require(`../subcategory-keywords/${website}/keywords.json`)
+fs.rmSync(path.join(process.cwd(), `api/_files/data`), { recursive: true, force: true });
 
-        const data = JSON.parse(fs.readFileSync(filepath))
+walkSync(path.join(process.cwd(), `data/${website}`), async (filepath) => {
 
-        if (obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] === undefined) {
-            obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [data]
-        }
-        obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data]
-    } catch (error) {
-        // console.log('filepath', filepath)
-        console.log('error', error)
-        debugger
+    const dirName = path.dirname(filepath)
+    const data = JSON.parse(fs.readFileSync(filepath))
+
+    if (obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] === undefined) {
+        obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [data]
     }
+    obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data]
 
 
 })
 const uniqify = (array, key) => array.reduce((prev, curr) => prev.find(a => a[key] === curr[key]) ? prev : prev.push(curr) && prev, []);
+debugger
 for (let o in obj) {
     const s = o.split('-').reverse()
-    const marka = s[1]
-    const subcategory = s[0]
-    //  const project = s[4]
+
+    const marka = s[0]
     const data = obj[o]
-    // console.log('s', s)
-    // console.log('data', data.length)
-    // console.log('marka', marka)
-    // console.log('subcategory', subcategory)
-    // console.log('project', project)
 
-    const savePath = path.join(process.cwd(), `api/_files/data/${subcategory}/${marka}.json`)
-    makeDir.sync(path.dirname(savePath))
-    // console.log('savePath', savePath)
-    if (fs.existsSync(savePath)) {
-        fs.unlinkSync(savePath)
+    for (let d of data) {
+        const { title } = d
+            var machfound=false
+        for (let k of keywords) {
+         
+            const exactmatch = k.exact !== '' ? false : true
+            const nws = k.exclude !== '' ? k.exclude.split(',') : []
+            const match = productTitleMatch({ kw: k.subcategory, exactmatch, nws, title })
+            if (match) {
+                const savePath = path.join(process.cwd(), `api/_files/data/${k.functionName}/${marka}.json`)
+                if (fs.existsSync(savePath)) {
+                    debugger
+                    const data = fs.readFileSync(savePath, { encoding: 'utf8' })
+                    const dataObj =JSON.parse(data)
+                    debugger
+                   fs.writeFileSync(savePath,JSON.stringify([...dataObj,d]))
+                    debugger
+                }
+                else {
+                    debugger
+                    makeDir.sync(path.dirname(savePath))
+                    fs.writeFileSync(savePath, JSON.stringify([d]) )
+                    debugger
+                }
+
+                machfound=true
+            }
+            else {
+            
+            }
+        }
+
+        if(machfound===false){
+
+            const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
+            if (fs.existsSync(savePath)) {
+                debugger
+                const data = fs.readFileSync(savePath, { encoding: 'utf8' })
+                const dataObj =JSON.parse(data)
+                debugger
+               fs.writeFileSync(savePath,JSON.stringify( [...dataObj,d]))
+                debugger
+            }
+            else {
+                debugger
+                makeDir.sync(path.dirname(savePath))
+                fs.writeFileSync(savePath, JSON.stringify([d]))
+                debugger
+            }
+        }
     }
-   const  uniquedata =uniqify(data,'imageUrl')
-    fs.writeFileSync(savePath, JSON.stringify(uniquedata))
-   
 
+
+
+    // const savePath = path.join(process.cwd(), `api/_files/data/${subcategory}/${marka}.json`)
+    // makeDir.sync(path.dirname(savePath))
+
+    // if (fs.existsSync(savePath)) {
+    //     fs.unlinkSync(savePath)
+    // }
+    // const uniquedata = uniqify(data, 'imageUrl')
+    // fs.writeFileSync(savePath, JSON.stringify(uniquedata))
 }
-
 
 
