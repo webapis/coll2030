@@ -164,7 +164,6 @@ Apify.main(async () => {
 
                     }
 
-
                 })
                 function isJsonString(str) {
                     try {

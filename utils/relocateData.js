@@ -83,18 +83,12 @@ if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
 
     if (fs.existsSync(path.join(process.cwd(), 'updated-data'))) {
         walkSync(path.join(process.cwd(), 'updated-data'), async (filepath) => {
-
             try {
-
                 const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
-                
                 for (let d of collectedData) {
                     const { imageUrl, subcategory, marka } = d
-
                     makeDir.sync(`data/${marka}/${subcategory}`)
-
                     const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-
                     const savePath = path.join(process.cwd(), `data/${marka}/${subcategory}/${fileName}.json`)
                     console.log('savePath------', savePath)
                     fs.writeFileSync(savePath, JSON.stringify(d))
