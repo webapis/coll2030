@@ -217,7 +217,7 @@ export default class App extends React.Component {
     if (href === 'http://localhost:8888/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-      host = `https://modaburada.vercel.app/api/fns`
+      host = `https://coll2030.netlify.app/.netlify/functions`
     }
     //'https://dream2022.netlify.app/.netlify/functions'
 
@@ -263,7 +263,7 @@ export default class App extends React.Component {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
 
-      host ='https://dream2022.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
+      host ='https://coll2030.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
 
     }
 
