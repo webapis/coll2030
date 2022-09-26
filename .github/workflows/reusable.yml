@@ -11,7 +11,7 @@ on:
         required: false
         type: string
         default: '10'
-      website:
+      WEBSITE:
         description: 'website'
         required: true
         type: string
@@ -60,17 +60,17 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: collecteddata
-          path: collected-data/${{ inputs.website }}/${{ inputs.marka }}
+          path: collected-data/${{ inputs.WEBSITE }}/${{ inputs.marka }}
       - name: Upload artifact to olddata
         uses: actions/upload-artifact@v3
         with:
           name: olddata
-          path: old-data/${{ inputs.website }}/${{ inputs.marka }}
+          path: old-data/${{ inputs.WEBSITE }}/${{ inputs.marka }}
       - name: Upload artifact to updateddata
         uses: actions/upload-artifact@v3
         with:
           name: updateddata
-          path: updated-data/${{ inputs.website }}/${{ inputs.marka }}
+          path: updated-data/${{ inputs.WEBSITE }}/${{ inputs.marka }}
         
         
 

@@ -4,6 +4,7 @@ on:
 env:
   VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
   NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
+  WEBSITE: modaburada
   
 jobs:
   test_job:
@@ -11,7 +12,6 @@ jobs:
     with:
       marka: defacto
       maxconcurrency: '10'
-      website: modaburada
     secrets: inherit
 
   generate_nav_job:
