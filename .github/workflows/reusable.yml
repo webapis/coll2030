@@ -23,7 +23,8 @@ env:
   START_URL: ${{inputs.start_url}}
   marka: ${{inputs.marka}}
   HEADLESS: true
-  MAX_CONCURRENCY: ${{inputs.maxconcurrency}}															
+  MAX_CONCURRENCY: ${{inputs.maxconcurrency}}
+  WEBSITE: ${{inputs.WEBSITE}}											
 jobs:
   aggregator:
     runs-on: ubuntu-latest
