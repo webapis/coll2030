@@ -60,7 +60,6 @@
     "spine": "node spine.js",
     "encryptData": "node encryptData.js",
     "decryptData": "node decryptData.js",
-
     "genKeywords": "node utils/generateKeywords.js",
     "genSubCatKeywords": "node utils/generateSubcategoryKeywords.js",
     "deploymain": "vercel --token $VERCEL_TOKEN --prod --yes",

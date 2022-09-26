@@ -11,6 +11,7 @@ const { generateSubcategoryPie } = require('./generateSubcategoryPie')
 console.log('--------------------------------------------------------------')
 
 const website =process.env.WEBSITE
+console.log('website...',website)
 let obj = {}
 debugger
 // delete old data
