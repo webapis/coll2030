@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import Grid from '@mui/material/Grid'
+
 import ImageComponent from './imageComponent';
 import Container from '@mui/material/Container';
 import Chip from '@mui/material/Chip';

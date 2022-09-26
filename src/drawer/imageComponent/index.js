@@ -1,7 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import placeholders from './placeholders'
-import Typography from '@mui/material/Typography';
 import { AppContext } from '../../App';
 import { ImageListItem } from '@mui/material';
 import './hl.css'
@@ -27,13 +26,13 @@ export default function ImageComponent(props) {
 
   const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl + placeholders[props.marka].imgPostFix
   const detailHost = placeholders[props.marka].detailHost + props.link + placeholders[props.marka].postfix
-  const date2 = props.timestamp
-  const date1 = Date.now()
-  const hour = Math.floor(Math.abs(date1 - date2) / 36e5);
-  const minutesdiff = Math.abs(new Date(date1) - new Date(date2));
-  var minutes = Math.floor((minutesdiff / 1000) / 60);
-  var days = Math.floor(minutesdiff / (1000 * 60 * 60 * 24));
-  var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
+ // const date2 = props.timestamp
+ // const date1 = Date.now()
+ // const hour = Math.floor(Math.abs(date1 - date2) / 36e5);
+ // const minutesdiff = Math.abs(new Date(date1) - new Date(date2));
+  // var minutes = Math.floor((minutesdiff / 1000) / 60);
+  // var days = Math.floor(minutesdiff / (1000 * 60 * 60 * 24));
+  // var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
   useEffect(() => {
 
 
