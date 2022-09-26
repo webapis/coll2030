@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const {commonNavHandler}=require(`${process.cwd()}/api/utils/commonNavHandler`)
+const {commonNavHandler}=require('./commonNavHandler')
 debugger
 function netlifyNavHandler({ event, subcategory, keyOrder }) {
 

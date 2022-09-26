@@ -1,13 +1,13 @@
 var TAFFY = require('taffy');
 
-const { productTitleMatch } = require('../utils/productTitleMatch')
-const { orderData } = require('../utils/orderData')
+const { productTitleMatch } = require('./productTitleMatch')
+const { orderData } = require('./orderData')
 const fs = require('fs')
 const path = require('path');
 
 function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
     debugger
-    const allkeywords = require(`${process.cwd()}/api/_files/nav/${subcategory}/keywords.json`)
+    const allkeywords = require( path.join(process.cwd(),`api/_files/nav/${subcategory}/keywords.json`))
     const data = []
     debugger
     //const dirPath = path.join(`./api/_files/data/${subcategory}`)

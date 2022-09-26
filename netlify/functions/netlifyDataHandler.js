@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { commonDataHandler } = require(`${process.cwd()}/api/utils/commonDataHandler`)
+const { commonDataHandler } = require(`./commonDataHandler`)
 function netlifyDataHandler({ event, project, subcategory }) {
   if (event.httpMethod === 'OPTIONS') {
 
