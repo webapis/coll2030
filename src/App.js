@@ -1,5 +1,5 @@
 import * as React from 'react';
-import subcategories from './category-nav.json'
+
 import KeywordListDrawer from './drawer/KeywordListDrawer'
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
 import ProductList from './drawer/ProductList'
@@ -14,6 +14,9 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import Paper from '@mui/material/Paper';
 import elbise from './elbise/keywords.json'
 import ayakakbi from './ayakkabi/keywords.json'
+import subcatObj from './category-nav.json'
+
+const subcategories = Object.entries(subcatObj)
 const keywordgroup = { ...elbise, ...ayakakbi }
 
 console.log('keywordgroup', keywordgroup)
@@ -337,9 +340,12 @@ debugger
         <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
           <div style={{display:'flex'}}>
           {subcategories.map((item, i) => {
-            const { subcategory, node, count: totalSubcategory, description } = item
+            const description =item[0]
+            const subcategory =item[1][0]['functionName']
+         
+            debugger
             return <div key={i} onClick={() => {
-              selectSubcategory({ subcategory, totalSubcategory, node })
+              selectSubcategory({ subcategory, totalSubcategory:0, node:'' })
             }}>
               <Paper elevation={12} style={{margin:2}}>
               <img

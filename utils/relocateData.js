@@ -16,7 +16,7 @@ let obj = {}
 debugger
 // delete old data
 
-if (fs.existsSync(path.join(process.cwd(), `old-data/${website}`))) {
+if (fs.existsSync(path.join(process.cwd(), `old-data`))) {
     walkSync(path.join(process.cwd(), 'old-data'), async (filepath) => {
         
    
@@ -38,10 +38,10 @@ if (fs.existsSync(path.join(process.cwd(), `old-data/${website}`))) {
 }
 
 // add newdata
-if (fs.existsSync(path.join(process.cwd(), `collected-data/${website}`))) {
+if (fs.existsSync(path.join(process.cwd(), `collected-data`))) {
 
 
-    walkSync(path.join(process.cwd(), `collected-data/${website}`), async (filepath) => {
+    walkSync(path.join(process.cwd(), `collected-data`), async (filepath) => {
 
      
             const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
@@ -63,10 +63,10 @@ if (fs.existsSync(path.join(process.cwd(), `collected-data/${website}`))) {
     })
 }
 // add updateddata
-if (fs.existsSync(path.join(process.cwd(), `updated-data/${website}`))) {
+if (fs.existsSync(path.join(process.cwd(), `updated-data`))) {
 
-    if (fs.existsSync(path.join(process.cwd(), `updated-data/${website}`))) {
-        walkSync(path.join(process.cwd(), `updated-data/${website}`), async (filepath) => {
+    if (fs.existsSync(path.join(process.cwd(), `updated-data`))) {
+        walkSync(path.join(process.cwd(), `updated-data`), async (filepath) => {
       
                 const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
                 for (let d of collectedData) {

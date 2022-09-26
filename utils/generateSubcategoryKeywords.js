@@ -13,15 +13,18 @@ async function generateSubcategoryKeywords() {
     const google_access_token = await getGoogleToken()
 
     let categoryItems = []
-    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range: `${website}!A:D` })
+    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range: `${website}!A:G` })
     debugger
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
         const subcategory = value[0]
         const exact = value[1]
         const exclude = value[2]
         const functionName = value[3]
-        categoryItems.push({ subcategory, exact, exclude, functionName })
-debugger
+        const groupDescription = value[4]
+        const sort = value[5]
+        const group = value[6]
+        categoryItems.push({ subcategory, exact, exclude, functionName, groupDescription, sort, group })
+        debugger
     }
 
 
@@ -32,7 +35,12 @@ debugger
     }
     fs.appendFileSync(`subcategory-keywords/${website}/keywords.json`, JSON.stringify(categoryItems))
 
+    if (fs.existsSync(`src/category-nav.json`)) {
+        fs.unlinkSync(`src/category-nav.json`)
+    }
 
+    const grouped =groupBy([...categoryItems, { subcategory: 'diger', exact: '', exclude: '', functionName: 'diger', groupDescrption: 'diger', sort: 100, group: 'diger' }],'groupDescription')
+    fs.appendFileSync(`src/category-nav.json`, JSON.stringify(grouped))
 
 }
 
@@ -42,3 +50,11 @@ debugger
 
 })()
 
+
+
+var groupBy = function (xs, key) {
+    return xs.reduce(function (rv, x) {
+        (rv[x[key]] = rv[x[key]] || []).push(x);
+        return rv;
+    }, {});
+};

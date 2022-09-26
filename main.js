@@ -10,6 +10,9 @@ const makeDir = require('make-dir');
 const Apify = require('apify');
 
 var _ = require('lodash');
+fs.rmSync(path.join(process.cwd(), `collected-data`), { recursive: true, force: true });
+fs.rmSync(path.join(process.cwd(), `updated-data`), { recursive: true, force: true });
+fs.rmSync(path.join(process.cwd(), `old-data`), { recursive: true, force: true });
 Apify.main(async () => {
 
     await Apify.openDataset();
@@ -198,8 +201,8 @@ Apify.main(async () => {
 
                 for (let d of productItemsWithoutDublicate) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-                    await makeDir(`collected-data/${website}/${marka}`)
-                    await makeDir(`updated-data/${website}/${marka}`)
+                    await makeDir(`collected-data/${marka}`)
+                    await makeDir(`updated-data/${marka}`)
                     debugger
                     const exists = fs.existsSync(`data/${website}/${marka}/${id}.json`)
                     if (exists) {
@@ -235,9 +238,9 @@ Apify.main(async () => {
 
         
         debugger
-        console.log('collected-data/${marka}/data.json',`collected-data/${website}/${marka}/${marka}.json`)
-        fs.appendFileSync(`collected-data/${website}/${marka}/${marka}.json`, JSON.stringify(collectedData));
-        fs.appendFileSync(`updated-data/${website}/${marka}/${marka}.json`, JSON.stringify(updatedData));
+        console.log('collected-data/${marka}/data.json',`collected-data/${marka}.json`)
+        fs.appendFileSync(`collected-data/${marka}.json`, JSON.stringify(collectedData));
+        fs.appendFileSync(`updated-data/${marka}.json`, JSON.stringify(updatedData));
         console.log('updateddata length', updatedData.length)
         console.log('new collected length', collectedData.length)
         debugger
@@ -261,11 +264,11 @@ Apify.main(async () => {
 
         if (filesToDelete.length > 0) {
             console.log('filesToDelete.length', filesToDelete.length)
-            await makeDir(`old-data/${website}/${marka}`)
-            fs.appendFileSync(`old-data/${website}/${marka}/${marka}.json`, JSON.stringify(filesToDelete));
+            await makeDir(`old-data/${marka}`)
+            fs.appendFileSync(`old-data/${marka}.json`, JSON.stringify(filesToDelete));
         } else {
-            await makeDir(`old-data/${website}/${marka}`)
-            fs.appendFileSync(`old-data/${website}/${marka}/${marka}.json`, JSON.stringify([]));
+            await makeDir(`old-data/${marka}`)
+            fs.appendFileSync(`old-data/${marka}.json`, JSON.stringify([]));
         }
 
     }
