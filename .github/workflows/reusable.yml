@@ -57,6 +57,8 @@ jobs:
       - name: aggregation step
         id: collection
         run: node main.js
+      - name: echo website path
+        run: echo '${{inputs.WEBSITE}}/${{inputs.marka}}'
       - name: Upload artifact collected
         uses: actions/upload-artifact@v3
         with:
