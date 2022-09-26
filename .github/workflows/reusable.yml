@@ -11,7 +11,10 @@ on:
         required: false
         type: string
         default: '10'
-
+      WEBSITE:
+        description: 'website'
+        required: true
+        type: string
 env:
   CLOUD: true
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
