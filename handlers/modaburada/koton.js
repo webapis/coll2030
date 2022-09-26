@@ -4,7 +4,7 @@ async function handler(page, context) {
     const url = await page.url()
     await page.waitForSelector('.list__products')
 
-    const data = await page.evaluate((_subcategory, _category, _node) => {
+    const data = await page.evaluate(() => {
         const productCards = Array.from(document.querySelectorAll('.js-product-wrapper.product-item'))
         return productCards.map(productCard => {
             const newPrice = productCard.querySelector('.-actuel') ? productCard.querySelector('.-actuel').innerText.trim().replace('₺', '').replace('TL', '') : null
@@ -19,24 +19,16 @@ async function handler(page, context) {
                 link: shortLink,
                 timestamp: Date.now(),
                 marka: 'koton',
-               // subcategory: _subcategory,
-                category: _category,
-                node: _node
+ 
             }
         })//.filter(f => f.imageUrl !== null)
 
-    }, subcategory, category, node)
+    })
 
 
     console.log('data length_____', data.length, 'url:', url)
-    const withSub = data.map(m => {
-        const { title } = m
-        const subcatmatches = subcategory.filter(f => title.toLowerCase().includes(f))
-        const subcat = subcatmatches.length > 0 ? subcatmatches[0] : subcategory[subcategory.length-1]
-  
-        return { ...m, subcategory: subcat }
-    })
-    return withSub
+
+    return data
 }
 async function getUrls(page) {
 

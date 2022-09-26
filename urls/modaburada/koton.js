@@ -1,18 +1,18 @@
 const urls = [
-    { url: 'https://www.koton.com/kadin-giyim', subcategory: ['elbise'], category: 'üst-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-giyim'},
 
-    { url: 'https://www.koton.com/kadin-ayakkabi', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-canta', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-parfum', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-kemer', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-corap', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-cuzdan', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-taki', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-ayakkabi'},
+    { url: 'https://www.koton.com/kadin-canta'},
+    { url: 'https://www.koton.com/kadin-parfum'},
+    { url: 'https://www.koton.com/kadin-kemer'},
+    { url: 'https://www.koton.com/kadin-corap'},
+    { url: 'https://www.koton.com/kadin-cuzdan'},
+    { url: 'https://www.koton.com/kadin-taki'},
 
-    { url: 'https://www.koton.com/kadin-sapka', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-sac-aksesuarlari', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-kozmetik', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
-    { url: 'https://www.koton.com/kadin-sal', subcategory: ['aksesuar'], category: 'üst-giyim',node:'dream'},
+    { url: 'https://www.koton.com/kadin-sapka'},
+    { url: 'https://www.koton.com/kadin-sac-aksesuarlari'},
+    { url: 'https://www.koton.com/kadin-kozmetik'},
+    { url: 'https://www.koton.com/kadin-sal'},
 
 
 ]

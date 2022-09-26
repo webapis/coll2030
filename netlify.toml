@@ -113,7 +113,15 @@
 [functions."thirteen-navsecond"]
   included_files = ["api/_files/key/thirteen/1-keywords.json"]
 
-  
+[functions."fourteen"]
+  included_files = ["api/_files/data/fourteen/*.json","api/_files/nav/fourteen/keywords.json"]
+[functions."fourteen-navfirst"]
+  included_files = ["api/_files/key/fourteen/0-keywords.json"]
+[functions."fourteen-navsecond"]
+  included_files = ["api/_files/key/fourteen/1-keywords.json"]
+
+
+
 [functions."fifteen"]
   included_files = ["api/_files/data/fifteen/*.json","api/_files/nav/fifteen/keywords.json"]
 [functions."fifteen-navfirst"]
