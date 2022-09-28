@@ -13,13 +13,6 @@ jobs:
       maxconcurrency: '10'
       WEBSITE: modaburada
     secrets: inherit
-  koton_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: koton
-      maxconcurrency: '10'
-      WEBSITE: modaburada
-    secrets: inherit
 
   generate_nav_job:
     runs-on: ubuntu-latest
