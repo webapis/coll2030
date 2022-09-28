@@ -203,8 +203,8 @@ Apify.main(async () => {
                 for (let d of productItemsWithoutDublicate) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                     console.log('website',website)
-                    await makeDir(`collected-data/${website}/${marka}`)
-                    await makeDir(`updated-data/${website}/${marka}`)
+                    await makeDir(`collected-data/${website}`)
+                    await makeDir(`updated-data/${website}`)
                     debugger
                     const exists = fs.existsSync(`data/${website}/${marka}/${id}.json`)
                     if (exists) {
@@ -240,11 +240,10 @@ Apify.main(async () => {
 
         
         debugger
-        console.log('collected-data/${marka}/data.json',`collected-data/${marka}.json`)
-        fs.appendFileSync(`collected-data/${marka}.json`, JSON.stringify(collectedData));
-        fs.appendFileSync(`updated-data/${marka}.json`, JSON.stringify(updatedData));
-        console.log('updateddata length', updatedData.length)
-        console.log('new collected length', collectedData.length)
+  
+        fs.appendFileSync(`collected-data/${website}/${marka}.json`, JSON.stringify(collectedData));
+        fs.appendFileSync(`updated-data/${website}/${marka}.json`, JSON.stringify(updatedData));
+
         debugger
         if (fs.existsSync(`data/${website}/${marka}`)) {
 
@@ -263,9 +262,9 @@ Apify.main(async () => {
             })
         }
 
-        await makeDir(`old-data/${website}/${marka}`)
+        await makeDir(`old-data/${website}`)
         if (filesToDelete.length > 0) {
-            console.log('filesToDelete.length', filesToDelete.length)
+
          
             fs.appendFileSync(`old-data/${website}/${marka}.json`, JSON.stringify(filesToDelete));
         } else {
