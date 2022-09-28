@@ -59,21 +59,21 @@ jobs:
         run: node main.js
       - name: echo website path
         run: echo '${{inputs.WEBSITE}}/${{inputs.marka}}'
-      - name: Upload artifact collected
+      - name: Upload collected-data
         uses: actions/upload-artifact@v3
         with:
           name: collecteddata
-          path: collected-data
-      - name: Upload artifact to olddata
+          path: collected-data/${{inputs.WEBSITE}}
+      - name: Upload olddata
         uses: actions/upload-artifact@v3
         with:
           name: olddata
-          path: old-data
-      - name: Upload artifact to updateddata
+          path: old-data/${{inputs.WEBSITE}}
+      - name: Upload updateddata
         uses: actions/upload-artifact@v3
         with:
           name: updateddata
-          path: updated-data
+          path: updated-data/${{inputs.WEBSITE}}
         
         
 

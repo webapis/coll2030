@@ -21,6 +21,7 @@ Apify.main(async () => {
     const requestQueue = await Apify.openRequestQueue();
     const marka = process.env.marka// process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
     const website =process.env.WEBSITE
+    console.log('process.env.WEBSITE',process.env.WEBSITE)
     const { urls } = require(`./urls/${website}/${marka}`)
 
     for (let obj of urls) {
@@ -201,8 +202,9 @@ Apify.main(async () => {
 
                 for (let d of productItemsWithoutDublicate) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-                    await makeDir(`collected-data/${marka}`)
-                    await makeDir(`updated-data/${marka}`)
+                    console.log('website',website)
+                    await makeDir(`collected-data/${website}/${marka}`)
+                    await makeDir(`updated-data/${website}/${marka}`)
                     debugger
                     const exists = fs.existsSync(`data/${website}/${marka}/${id}.json`)
                     if (exists) {
@@ -261,14 +263,14 @@ Apify.main(async () => {
             })
         }
 
-
+        await makeDir(`old-data/${website}/${marka}`)
         if (filesToDelete.length > 0) {
             console.log('filesToDelete.length', filesToDelete.length)
-            await makeDir(`old-data/${marka}`)
-            fs.appendFileSync(`old-data/${marka}.json`, JSON.stringify(filesToDelete));
+         
+            fs.appendFileSync(`old-data/${website}/${marka}.json`, JSON.stringify(filesToDelete));
         } else {
-            await makeDir(`old-data/${marka}`)
-            fs.appendFileSync(`old-data/${marka}.json`, JSON.stringify([]));
+            
+            fs.appendFileSync(`old-data/${website}/${marka}.json`, JSON.stringify([]));
         }
 
     }
