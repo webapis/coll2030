@@ -62,17 +62,17 @@ jobs:
       - name: Upload collected-data
         uses: actions/upload-artifact@v3
         with:
-          name: collecteddata
+          name: collected-data
           path: collected-data/${{inputs.WEBSITE}}
-      - name: Upload olddata
+      - name: Upload old-data
         uses: actions/upload-artifact@v3
         with:
-          name: olddata
+          name: old-data
           path: old-data/${{inputs.WEBSITE}}
-      - name: Upload updateddata
+      - name: Upload updated-data
         uses: actions/upload-artifact@v3
         with:
-          name: updateddata
+          name: updated-data
           path: updated-data/${{inputs.WEBSITE}}
         
         
