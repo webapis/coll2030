@@ -4,32 +4,37 @@
 (async () => {
   console.log('--------------GEN NAV DATA STARTED-------------')
 
+  try {
+    await genNav({ node: 'dream', subcategory: 'one' })
+    await genNav({ node: 'dream', subcategory: 'two' })
+    await genNav({ node: 'dream', subcategory: 'three' })
+    await genNav({ node: 'dream', subcategory: 'four' })
+    await genNav({ node: 'dream', subcategory: 'five' })
+    await genNav({ node: 'dream', subcategory: 'six' })
+    await genNav({ node: 'dream', subcategory: 'seven' })
+    await genNav({ node: 'dream', subcategory: 'eight' })
+    await genNav({ node: 'dream', subcategory: 'nine' })
+    await genNav({ node: 'dream', subcategory: 'ten' })
+    await genNav({ node: 'dream', subcategory: 'eleven' })
+    await genNav({ node: 'dream', subcategory: 'twelve' })
+    await genNav({ node: 'dream', subcategory: 'thirteen' })
+    await genNav({ node: 'dream', subcategory: 'fourteen' })
+    await genNav({ node: 'dream', subcategory: 'fifteen' })
+    await genNav({ node: 'dream', subcategory: 'sixteen' })
+    await genNav({ node: 'dream', subcategory: 'seventeen' })
+    await genNav({ node: 'dream', subcategory: 'eighteen' })
+    await genNav({ node: 'dream', subcategory: 'nineteen' })
+    await genNav({ node: 'dream', subcategory: 'twenty' })
+    await genNav({ node: 'dream', subcategory: 'twenty-one' })
+    await genNav({ node: 'dream', subcategory: 'twenty-two' })
+    await genNav({ node: 'dream', subcategory: 'twenty-three' })
+    await genNav({ node: 'dream', subcategory: 'twenty-four' })
+    await genNav({ node: 'dream', subcategory: 'twenty-five' })
+  } catch (error) {
+    console.log('folder is empty')
+  }
 
-  await genNav({ node: 'dream', subcategory: 'one' })
-  await genNav({ node: 'dream', subcategory: 'two' })
-  await genNav({ node: 'dream', subcategory: 'three' })
-  await genNav({ node: 'dream', subcategory: 'four' })
-  await genNav({ node: 'dream', subcategory: 'five' })
-  await genNav({ node: 'dream', subcategory: 'six' })
-  await genNav({ node: 'dream', subcategory: 'seven' })
-  await genNav({ node: 'dream', subcategory: 'eight' })
-  await genNav({ node: 'dream', subcategory: 'nine' })
-  await genNav({ node: 'dream', subcategory: 'ten' })
-  await genNav({ node: 'dream', subcategory: 'eleven' })
-  await genNav({ node: 'dream', subcategory: 'twelve' })
-  await genNav({ node: 'dream', subcategory: 'thirteen' })
-  await genNav({ node: 'dream', subcategory: 'fourteen' })
-  await genNav({ node: 'dream', subcategory: 'fifteen' })
-  await genNav({ node: 'dream', subcategory: 'sixteen' })
-  await genNav({ node: 'dream', subcategory: 'seventeen' })
-  await genNav({ node: 'dream', subcategory: 'eighteen' })
-  await genNav({ node: 'dream', subcategory: 'nineteen' })
-  await genNav({ node: 'dream', subcategory: 'twenty' })
-  await genNav({ node: 'dream', subcategory: 'twenty-one' })
-  await genNav({ node: 'dream', subcategory: 'twenty-two' })
-  await genNav({ node: 'dream', subcategory: 'twenty-three' })
-  await genNav({ node: 'dream', subcategory: 'twenty-four' })
-  await genNav({ node: 'dream', subcategory: 'twenty-five' })
+
   // await genNav({ node: 'dream', subcategory: 'twenty-six' })
   // await genNav({ node: 'dream', subcategory: 'twenty-seven' })
   // await genNav({ node: 'dream', subcategory: 'twenty-eight' })
@@ -50,14 +55,7 @@ async function genNav({ node, subcategory }) {
 
   const fs = require('fs')
   const folder = path.join(process.cwd(), `api/_files/data/${subcategory}`)
-  console.log('folder', folder)
-  const folder1 = path.join(process.cwd(), `api/_files/data/${subcategory}`)
-  const folderexists = fs.existsSync(folder1)
-  const filess = fs.readdirSync(folder1)
-  filess.forEach(file => {
-    console.log('file', file)
-  })
-  console.log('folderexists', folderexists)
+
   const files = fs.readdirSync(folder)
 
 
@@ -65,11 +63,15 @@ async function genNav({ node, subcategory }) {
 
   const dataCollection = []
   for (let file of files) {
+    try {
+      const data = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
 
-    const data = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
+      const dataObjectArr = JSON.parse(data)
+      dataCollection.push(...dataObjectArr)
+    } catch (error) {
+      console.log('folder is empty')
+    }
 
-    const dataObjectArr = JSON.parse(data)
-    dataCollection.push(...dataObjectArr)
   }
 
   const { productTitleMatch } = require('./productTitleMatch')
