@@ -7,7 +7,7 @@ const path = require('path');
 
 function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
     debugger
-    const allkeywords = require( path.join(process.cwd(),`api/_files/nav/${subcategory}/keywords.json`))
+    const allkeywords = require( path.join(process.cwd(),`api/_files/nav/keywords.json`))
     const data = []
     debugger
     //const dirPath = path.join(`./api/_files/data/${subcategory}`)
@@ -32,7 +32,7 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
     const filterByKeyword = selectedNavIndex === '' ? function () { return true } : function filterByKeyword() {
 
         let splittedKeywordsIndex = selectedNavIndex.split('-').filter(f => f !== '')
-        let foundkeywords = allkeywords[subcategory].filter(function (f) {
+        let foundkeywords = allkeywords.filter(function (f) {
             const includes = splittedKeywordsIndex.includes(f.index)
             return includes
         })

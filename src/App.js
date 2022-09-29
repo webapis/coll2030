@@ -9,12 +9,12 @@ import Grid from '@mui/material/Grid'
 import { Container, Typography } from '@mui/material';
 import LoadingDialog from './drawer/LoadingDialog';
 import Paper from '@mui/material/Paper';
-import elbise from './elbise/keywords.json'
-import ayakakbi from './ayakkabi/keywords.json'
+import keywordgroup from './keywords.json'
+
 import subcatObj from './category-nav.json'
 
 const subcategories = Object.entries(subcatObj)
-const keywordgroup = { ...elbise, ...ayakakbi }
+
 
 console.log('keywordgroup', keywordgroup)
 debugger

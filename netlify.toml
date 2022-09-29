@@ -1,7 +1,7 @@
 [functions]
   external_node_modules = ["taffy"]
 [functions."one"]
-  included_files = ["api/_files/data/one/*.json","api/_files/nav/one/keywords.json"]
+  included_files = ["api/_files/data/one/*.json","api/_files/nav/keywords.json"]
 [functions."one-navfirst"]
   included_files = ["api/_files/key/one/0-keywords.json"]
 [functions."one-navsecond"]
@@ -9,7 +9,7 @@
 
 
 [functions."two"]
-  included_files = ["api/_files/data/two/*.json","api/_files/nav/two/keywords.json"]
+  included_files = ["api/_files/data/two/*.json","api/_files/nav/keywords.json"]
 [functions."two-navfirst"]
   included_files = ["api/_files/key/two/0-keywords.json"]
 [functions."two-navsecond"]
@@ -17,7 +17,7 @@
 
 
 [functions."three"]
-  included_files = ["api/_files/data/three/*.json","api/_files/nav/three/keywords.json"]
+  included_files = ["api/_files/data/three/*.json","api/_files/nav/keywords.json"]
 [functions."three-navfirst"]
   included_files = ["api/_files/key/three/0-keywords.json"]
 [functions."three-navsecond"]
@@ -25,7 +25,7 @@
 
 
 [functions."four"]
-  included_files = ["api/_files/data/four/*.json","api/_files/nav/four/keywords.json"]
+  included_files = ["api/_files/data/four/*.json","api/_files/nav/keywords.json"]
 [functions."four-navfirst"]
   included_files = ["api/_files/key/four/0-keywords.json"]
 [functions."four-navsecond"]
@@ -34,7 +34,7 @@
 
 
 [functions."diger"]
-  included_files = ["api/_files/data/diger/*.json","api/_files/nav/diger/keywords.json"]
+  included_files = ["api/_files/data/diger/*.json","api/_files/nav/keywords.json"]
 [functions."diger-navfirst"]
   included_files = ["api/_files/key/diger/0-keywords.json"]
 [functions."diger-navsecond"]
@@ -42,7 +42,7 @@
 
 
 [functions."five"]
-  included_files = ["api/_files/data/five/*.json","api/_files/nav/five/keywords.json"]
+  included_files = ["api/_files/data/five/*.json","api/_files/nav/keywords.json"]
 [functions."five-navfirst"]
   included_files = ["api/_files/key/five/0-keywords.json"]
 [functions."five-navsecond"]
@@ -50,7 +50,7 @@
 
 
 [functions."six"]
-  included_files = ["api/_files/data/six/*.json","api/_files/nav/six/keywords.json"]
+  included_files = ["api/_files/data/six/*.json","api/_files/nav/keywords.json"]
 [functions."six-navfirst"]
   included_files = ["api/_files/key/six/0-keywords.json"]
 [functions."six-navsecond"]
@@ -58,7 +58,7 @@
 
 
 [functions."seven"]
-  included_files = ["api/_files/data/seven/*.json","api/_files/nav/seven/keywords.json"]
+  included_files = ["api/_files/data/seven/*.json","api/_files/nav/keywords.json"]
 [functions."seven-navfirst"]
   included_files = ["api/_files/key/seven/0-keywords.json"]
 [functions."seven-navsecond"]
@@ -66,7 +66,7 @@
 
 
 [functions."eight"]
-  included_files = ["api/_files/data/eight/*.json","api/_files/nav/eight/keywords.json"]
+  included_files = ["api/_files/data/eight/*.json","api/_files/nav/keywords.json"]
 [functions."eight-navfirst"]
   included_files = ["api/_files/key/eight/0-keywords.json"]
 [functions."eight-navsecond"]
@@ -74,7 +74,7 @@
 
 
 [functions."nine"]
-  included_files = ["api/_files/data/nine/*.json","api/_files/nav/nine/keywords.json"]
+  included_files = ["api/_files/data/nine/*.json","api/_files/nav/keywords.json"]
 [functions."nine-navfirst"]
   included_files = ["api/_files/key/nine/0-keywords.json"]
 [functions."nine-navsecond"]
@@ -82,14 +82,14 @@
 
 
 [functions."ten"]
-  included_files = ["api/_files/data/ten/*.json","api/_files/nav/ten/keywords.json"]
+  included_files = ["api/_files/data/ten/*.json","api/_files/nav/keywords.json"]
 [functions."ten-navfirst"]
   included_files = ["api/_files/key/ten/0-keywords.json"]
 [functions."ten-navsecond"]
   included_files = ["api/_files/key/ten/1-keywords.json"]
 
 [functions."eleven"]
-  included_files = ["api/_files/data/eleven/*.json","api/_files/nav/eleven/keywords.json"]
+  included_files = ["api/_files/data/eleven/*.json","api/_files/nav/keywords.json"]
 [functions."eleven-navfirst"]
   included_files = ["api/_files/key/eleven/0-keywords.json"]
 [functions."eleven-navsecond"]
@@ -97,7 +97,7 @@
 
 
 [functions."twelve"]
-  included_files = ["api/_files/data/twelve/*.json","api/_files/nav/twelve/keywords.json"]
+  included_files = ["api/_files/data/twelve/*.json","api/_files/nav/keywords.json"]
 [functions."twelve-navfirst"]
   included_files = ["api/_files/key/twelve/0-keywords.json"]
 [functions."twelve-navsecond"]
@@ -107,14 +107,14 @@
 
 
 [functions."thirteen"]
-  included_files = ["api/_files/data/thirteen/*.json","api/_files/nav/thirteen/keywords.json"]
+  included_files = ["api/_files/data/thirteen/*.json","api/_files/nav/keywords.json"]
 [functions."thirteen-navfirst"]
   included_files = ["api/_files/key/thirteen/0-keywords.json"]
 [functions."thirteen-navsecond"]
   included_files = ["api/_files/key/thirteen/1-keywords.json"]
 
 [functions."fourteen"]
-  included_files = ["api/_files/data/fourteen/*.json","api/_files/nav/fourteen/keywords.json"]
+  included_files = ["api/_files/data/fourteen/*.json","api/_files/nav/keywords.json"]
 [functions."fourteen-navfirst"]
   included_files = ["api/_files/key/fourteen/0-keywords.json"]
 [functions."fourteen-navsecond"]
@@ -123,7 +123,7 @@
 
 
 [functions."fifteen"]
-  included_files = ["api/_files/data/fifteen/*.json","api/_files/nav/fifteen/keywords.json"]
+  included_files = ["api/_files/data/fifteen/*.json","api/_files/nav/keywords.json"]
 [functions."fifteen-navfirst"]
   included_files = ["api/_files/key/fifteen/0-keywords.json"]
 [functions."fifteen-navsecond"]
@@ -131,7 +131,7 @@
 
 
 [functions."sixteen"]
-  included_files = ["api/_files/data/sixteen/*.json","api/_files/nav/sixteen/keywords.json"]
+  included_files = ["api/_files/data/sixteen/*.json","api/_files/nav/keywords.json"]
 [functions."sixteen-navfirst"]
   included_files = ["api/_files/key/sixteen/0-keywords.json"]
 [functions."sixteen-navsecond"]
@@ -139,14 +139,14 @@
 
 
 [functions."seventeen"]
-  included_files = ["api/_files/data/seventeen/*.json","api/_files/nav/seventeen/keywords.json"]
+  included_files = ["api/_files/data/seventeen/*.json","api/_files/nav/keywords.json"]
 [functions."seventeen-navfirst"]
   included_files = ["api/_files/key/seventeen/0-keywords.json"]
 [functions."seventeen-navsecond"]
   included_files = ["api/_files/key/seventeen/1-keywords.json"]
 
 [functions."eighteen"]
-  included_files = ["api/_files/data/eighteen/*.json","api/_files/nav/eighteen/keywords.json"]
+  included_files = ["api/_files/data/eighteen/*.json","api/_files/nav/keywords.json"]
 [functions."eighteen-navfirst"]
   included_files = ["api/_files/key/eighteen/0-keywords.json"]
 [functions."eighteen-navsecond"]
@@ -154,7 +154,7 @@
 
 
 [functions."nineteen"]
-  included_files = ["api/_files/data/nineteen/*.json","api/_files/nav/nineteen/keywords.json"]
+  included_files = ["api/_files/data/nineteen/*.json","api/_files/nav/keywords.json"]
 [functions."nineteen-navfirst"]
   included_files = ["api/_files/key/nineteen/0-keywords.json"]
 [functions."nineteen-navsecond"]
@@ -162,7 +162,7 @@
 
 
 [functions."twenty"]
-  included_files = ["api/_files/data/twenty/*.json","api/_files/nav/twenty/keywords.json"]
+  included_files = ["api/_files/data/twenty/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-navfirst"]
   included_files = ["api/_files/key/twenty/0-keywords.json"]
 [functions."twenty-navsecond"]
@@ -170,7 +170,7 @@
 
 
 [functions."twenty-one"]
-  included_files = ["api/_files/data/twenty-one/*.json","api/_files/nav/twenty-one/keywords.json"]
+  included_files = ["api/_files/data/twenty-one/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-one-navfirst"]
   included_files = ["api/_files/key/twenty-one/0-keywords.json"]
 [functions."twenty-one-navsecond"]
@@ -178,7 +178,7 @@
 
 
 [functions."twenty-two"]
-  included_files = ["api/_files/data/twenty-two/*.json","api/_files/nav/twenty-two/keywords.json"]
+  included_files = ["api/_files/data/twenty-two/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-two-navfirst"]
   included_files = ["api/_files/key/twenty-two/0-keywords.json"]
 [functions."twenty-two-navsecond"]
@@ -186,7 +186,7 @@
 
 
 [functions."twenty-three"]
-  included_files = ["api/_files/data/twenty-three/*.json","api/_files/nav/twenty-three/keywords.json"]
+  included_files = ["api/_files/data/twenty-three/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-three-navfirst"]
   included_files = ["api/_files/key/twenty-three/0-keywords.json"]
 [functions."twenty-three-navsecond"]
@@ -194,7 +194,7 @@
 
 
 [functions."twenty-four"]
-  included_files = ["api/_files/data/twenty-four/*.json","api/_files/nav/twenty-four/keywords.json"]
+  included_files = ["api/_files/data/twenty-four/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-four-navfirst"]
   included_files = ["api/_files/key/twenty-four/0-keywords.json"]
 [functions."twenty-four-navsecond"]
@@ -202,7 +202,7 @@
 
 
 [functions."twenty-five"]
-  included_files = ["api/_files/data/twenty-five/*.json","api/_files/nav/twenty-five/keywords.json"]
+  included_files = ["api/_files/data/twenty-five/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-five-navfirst"]
   included_files = ["api/_files/key/twenty-five/0-keywords.json"]
 [functions."twenty-five-navsecond"]
@@ -210,7 +210,7 @@
 
 
 [functions."twenty-six"]
-  included_files = ["api/_files/data/twenty-six/*.json","api/_files/nav/twenty-six/keywords.json"]
+  included_files = ["api/_files/data/twenty-six/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-six-navfirst"]
   included_files = ["api/_files/key/twenty-six/0-keywords.json"]
 [functions."twenty-six-navsecond"]
@@ -218,7 +218,7 @@
 
 
 [functions."twenty-seven"]
-  included_files = ["api/_files/data/twenty-seven/*.json","api/_files/nav/twenty-seven/keywords.json"]
+  included_files = ["api/_files/data/twenty-seven/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-seven-navfirst"]
   included_files = ["api/_files/key/twenty-seven/0-keywords.json"]
 [functions."twenty-seven-navsecond"]
@@ -226,7 +226,7 @@
 
 
 [functions."twenty-eight"]
-  included_files = ["api/_files/data/twenty-eight/*.json","api/_files/nav/twenty-eight/keywords.json"]
+  included_files = ["api/_files/data/twenty-eight/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-eight-navfirst"]
   included_files = ["api/_files/key/twenty-eight/0-keywords.json"]
 [functions."twenty-eight-navsecond"]
@@ -234,7 +234,7 @@
 
 
 [functions."twenty-nine"]
-  included_files = ["api/_files/data/twenty-nine/*.json","api/_files/nav/twenty-nine/keywords.json"]
+  included_files = ["api/_files/data/twenty-nine/*.json","api/_files/nav/keywords.json"]
 [functions."twenty-nine-navfirst"]
   included_files = ["api/_files/key/twenty-nine/0-keywords.json"]
 [functions."twenty-nine-navsecond"]
@@ -242,7 +242,7 @@
 
 
 [functions."thirty"]
-  included_files = ["api/_files/data/thirty/*.json","api/_files/nav/thirty/keywords.json"]
+  included_files = ["api/_files/data/thirty/*.json","api/_files/nav/keywords.json"]
 [functions."thirty-navfirst"]
   included_files = ["api/_files/key/thirty/0-keywords.json"]
 [functions."thirty-navsecond"]

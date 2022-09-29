@@ -62,7 +62,6 @@
     "spine": "node spine.js",
     "encryptData": "node encryptData.js",
     "decryptData": "node decryptData.js",
-
     "deploymain": "vercel --token $VERCEL_TOKEN --prod --yes",
     "deploy": "cd projects/dream && netlify deploy --prod"
   },
