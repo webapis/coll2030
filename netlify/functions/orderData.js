@@ -1,5 +1,8 @@
 
 function orderData(data) {
+    try {
+        
+  
     const splittedByMarkaObj = {}
     const spliteed=data
     spliteed.forEach(element => {
@@ -31,6 +34,12 @@ function orderData(data) {
     })
 
     return orderedArray.filter(f => f !== undefined)
+
+} catch (error) {
+
+    return undefined
+ 
+}
 }
 
 module.exports = {

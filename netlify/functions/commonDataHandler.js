@@ -6,26 +6,26 @@ const fs = require('fs')
 const path = require('path');
 
 function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
-    debugger
+    
     const allkeywords = require( path.join(process.cwd(),`api/_files/nav/keywords.json`))
     const data = []
-    debugger
+    
     //const dirPath = path.join(`./api/_files/data/${subcategory}`)
     const cr =process.cwd()
-    debugger
+    
     const dirPath = `${process.cwd()}/api/_files/data/${subcategory}`
-    debugger
+    
     const files = fs.readdirSync(dirPath)
-    debugger
+    
     for (let file of files) {
 
         const dataRaw = fs.readFileSync(`${dirPath}/${file}`, { encoding: 'utf8' })
-        debugger
+        
         const dataObjectArr = JSON.parse(dataRaw)
 
         data.push(...dataObjectArr)
     }
-    debugger
+    
     const startAt = parseInt(start)
     var products = TAFFY(data);
 
@@ -64,7 +64,7 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
 
                     }
                     else {
-                        debugger
+                        
                         if (productPrice >= startPrice) {
                             return true
                         } else {
@@ -74,7 +74,7 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
 
                     }
                 } catch (error) {
-                    debugger
+                    
                 }
 
             } else {
@@ -99,7 +99,7 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
 
     var filteredData = products().filter(filterBySearch).filter(filterByKeyword).get()
 
-    debugger
+    
     var orderedData = orderData(filteredData)
     var orderedDb = TAFFY(orderedData)
 
