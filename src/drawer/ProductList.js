@@ -50,7 +50,7 @@ export default function ProductList(props) {
           </Tabs>
           
             }
-                {productImgIndexes && <ProdImageIndex setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes}/>}
+                {productImgIndexes && <ProdImageIndex  setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes}/>}
             <Box sx={{ width: '100%', overflowY: 'scroll' }} id="product-container">
               <ImageList variant="standard" cols={5} gap={8}>
                 {products.length>0  && products.map((item, i) => {

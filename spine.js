@@ -36,7 +36,7 @@
         categoryItems.push({ subcategory, fn, group, sort, group })
     }
     const placeholder = ''
-    const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_400/'
+    const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_200/'
     const imagePrefixImageKit = 'https://ik.imagekit.io/mumrjdehaou/'
     const placeholders = {
         defacto: { logo: { image: './logo/defacto.svg', width: '25%', height: '' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://dfcdn.defacto.com.tr/', detailHost: 'https://www.defacto.com.tr/', postfix: '', imgPostFix: '' },
@@ -91,95 +91,98 @@
     for (let subcat of categoryItems) {
 
         const { fn, subcategory } = subcat
-        const keywordsRoot = commonNavHandler({ subcategory: fn, keyOrder: '0', navindex: '0-' })
-        const s = keywordsRoot.keywords.filter(f => f[2] === subcategory)
+        if (true) {
 
-        if (s.length > 0) {
-            const navIndex = s[0][1]
 
-            const keyOrder = parseInt(navIndex.replace(/-/g, '').trim()) % 2
+            debugger
+            const keywordsRoot = commonNavHandler({ subcategory: fn, keyOrder: '0', navindex: '0-' })
+            const s = keywordsRoot.keywords.filter(f => f[2] === subcategory)
 
-            const { keywords } = commonNavHandler({ subcategory: fn, keyOrder, navindex: navIndex })
+            if (s.length > 0) {
+                const navIndex = s[0][1]
 
-            const mapKeywords = keywords.map((m) => {
-                const index = m[1].replace('-', '')
+                const keyOrder = parseInt(navIndex.replace(/-/g, '').trim()) % 2
 
-                const { category, subcategory } = objectify[index]
+                const { keywords } = commonNavHandler({ subcategory: fn, keyOrder, navindex: navIndex })
 
-                return { total: m[0], index: m[1], keyword: m[2], category, subcategory }
+                const mapKeywords = keywords.map((m) => {
+                    const index = m[1].replace('-', '')
 
-            })
+                    const { category, subcategory } = objectify[index]
+            
+                    return { total: m[0], index: m[1], keyword: m[2], category, subcategory }
 
-            const keywordsObj = {}
-            if (kewordImages[navIndex] === undefined) {
-                kewordImages[navIndex] = {
+                })
 
-                }
-            }
-
-            const filteredKeywords = mapKeywords.filter(f => f.category !== 'Fiyat' && f.category !== 'Ürün' && f.category !== 'Marka')
-
-            for (let n of filteredKeywords) {
-                const { total, index, keyword, category, subcategory } = n
-
-                if (keywordsObj[index] === undefined) {
-                    keywordsObj[index] = {
-                        total,
-                        keyword,
-                        category,
-                        subcategory
+                const keywordsObj = {}
+                if (kewordImages[navIndex] === undefined) {
+                    kewordImages[navIndex] = {
 
                     }
                 }
 
-                const { d, count } = commonDataHandler({ start: 0, search: '', selectedNavIndex: index, subcategory: fn })
-                const random = randomIntFromInterval(0, d.length - 1)
-                if (d[random] === undefined) {
-                    debugger
+                const filteredKeywords = mapKeywords.filter(f => f.category !== 'Fiyat' && f.category !== 'Ürün' && f.category !== 'Marka')
+
+                for (let n of filteredKeywords) {
+                    const { total, index, keyword, category, subcategory } = n
+
+                    if (keywordsObj[index] === undefined) {
+                        keywordsObj[index] = {
+                            total,
+                            keyword,
+                            category,
+                            subcategory
+                        }
+                    }
+
+                    const { d, count } = commonDataHandler({ start: 0, search: '', selectedNavIndex: index, subcategory: fn })
+                    const random = randomIntFromInterval(0, d.length - 1)
+                    if (d[random] === undefined) {
+                        debugger
+                    }
+                    const { marka, imageUrl,title } = d[random]
+                        debugger
+                    const imagePath =imagePrefixCloudinary+ placeholders[marka].imageHost + imageUrl
+debugger
+                    makedir.sync(`imgs/${fn}`)
+
+                    const fileName = keyword + path.extname(imageUrl)
+                    const filePath = path.join(process.cwd(), 'imgs', fn, fileName)
+
+                    if (fs.existsSync(filePath)) {
+                        const b64 = fs.readFileSync(filePath, { encoding: 'base64' })
+                        const ext = path.extname(filePath)
+                        keywordsObj[index].imageSrc = `data:image/${ext};base64,${b64}`
+                        keywordsObj[index].title=title
+                        console.log('exists', filePath)
+
+                    } else {
+
+                        const res = await fetch(imagePath)
+
+                        const data = await res.buffer()
+
+                        const b64 = data.toString('base64');
+                        const ext = path.extname(filePath)
+                        keywordsObj[index].imageSrc = `data:image/${ext};base64,${b64}`
+                        fs.writeFileSync(filePath, data)
+
+                    }
                 }
-                const { marka, imageUrl } = d[random]
+                debugger
+                const arr = Object.entries(keywordsObj).map(m => {
 
-                const imagePath = placeholders[marka].imageHost + imageUrl
 
-                makedir.sync(`imgs/${fn}`)
+                    return { index: m[0], ...m[1] }
+                })
 
-                const fileName = keyword + path.extname(imageUrl)
-                const filePath = path.join(process.cwd(), 'imgs', fn, fileName)
+                const groupByCategory = groupBy(arr, 'category')
+                debugger
+                fs.writeFileSync(`${process.cwd()}/public/image-indexes/${navIndex}.json`, JSON.stringify(groupByCategory))
 
-                if (fs.existsSync(filePath)) {
 
-                    const b64 = fs.readFileSync(filePath, { encoding: 'base64' })
-                    const ext = path.extname(filePath)
-                    keywordsObj[index].imageSrc = `data:image/${ext};base64,${b64}`
-                    console.log('exists', filePath)
-
-                } else {
-
-                    const res = await fetch(imagePath)
-
-                    const data = await res.buffer()
-
-                    const b64 = data.toString('base64');
-                    const ext = path.extname(filePath)
-                    keywordsObj[index].imageSrc = `data:image/${ext};base64,${b64}`
-                    fs.writeFileSync(filePath, data)
-
-                }
             }
-            debugger
-            const arr = Object.entries(keywordsObj).map(m => {
-
-           
-                return { index: m[0], ...m[1] }
-            })
-
-            const groupByCategory =groupBy(arr,'category')
-            debugger
-            fs.writeFileSync(`${process.cwd()}/public/image-indexes/${navIndex}.json`, JSON.stringify(groupByCategory))
-
-
         }
-
     }
 
     fs.writeFileSync(`${process.cwd()}/src/image-indexes.json`, JSON.stringify(kewordImages))
@@ -189,7 +192,7 @@
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
-  function groupBy(xs, key) {
+    function groupBy(xs, key) {
         return xs.reduce(function (rv, x) {
             (rv[x[key]] = rv[x[key]] || []).push(x);
             return rv;
