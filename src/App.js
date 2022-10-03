@@ -327,7 +327,7 @@ export default class App extends React.Component {
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory, fetchingKeywords, fetchingProduct, subcategories, selectSubcategory, products } = this.state
+    const { matchedesktop, selectedSubcategory, fetchingProduct, subcategories, selectSubcategory, products } = this.state
 
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
@@ -340,7 +340,7 @@ export default class App extends React.Component {
     variant="masonry" 
      >
             {subcategories.map((item, i) => {
-              const description = item[0]
+           
               const indexes = item[1]
                  return <div > <SubcategoryCard selectSubcategory={selectSubcategory} indexes={indexes}/></div>
                 
