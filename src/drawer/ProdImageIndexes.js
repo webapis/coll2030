@@ -12,7 +12,7 @@ export default function ProdImageIndex({ productImgIndexes,setSelectedNavIndex }
         return <Grid container>{groupName}
         <Grid item container>
         {groupItems.map(m => {
-            const {index,keyword,title,subcategory}=m
+            const {index,keyword,title}=m
                 console.log('m-',m)
                 return<Grid item sx={{display:'flex',flexDirection:'column',width:200}}><img onClick={()=>setSelectedNavIndex({index,keyword})} width="100" src={m.imageSrc} alt={keyword}/><span>{m.keyword}</span><span>{title}</span></Grid>
             })}
