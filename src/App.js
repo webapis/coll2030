@@ -8,7 +8,6 @@ import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
 import { Container, Typography } from '@mui/material';
 import SubcategoryCard from './drawer/SubcategoryCard';
-import Paper from '@mui/material/Paper';
 import keywordgroup from './keywords.json'
 import imageIndexes from './image-indexes.json'
 import subcatObj from './category-nav.json'
