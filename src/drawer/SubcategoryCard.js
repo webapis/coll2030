@@ -23,6 +23,7 @@ const group =indexes[0]['group']
 
           <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {indexes.map((value) => {
+        console.log('value',value)
         const labelId = `checkbox-list-secondary-label-${value}`;
     
         return (

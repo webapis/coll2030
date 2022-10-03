@@ -12,24 +12,24 @@
     await genNav({ node: 'dream', subcategory: 'five' })
     await genNav({ node: 'dream', subcategory: 'six' })
     await genNav({ node: 'dream', subcategory: 'seven' })
-    await genNav({ node: 'dream', subcategory: 'eight' })
-    await genNav({ node: 'dream', subcategory: 'nine' })
-    await genNav({ node: 'dream', subcategory: 'ten' })
-    await genNav({ node: 'dream', subcategory: 'eleven' })
-    await genNav({ node: 'dream', subcategory: 'twelve' })
-    await genNav({ node: 'dream', subcategory: 'thirteen' })
-    await genNav({ node: 'dream', subcategory: 'fourteen' })
-    await genNav({ node: 'dream', subcategory: 'fifteen' })
-    await genNav({ node: 'dream', subcategory: 'sixteen' })
-    await genNav({ node: 'dream', subcategory: 'seventeen' })
-    await genNav({ node: 'dream', subcategory: 'eighteen' })
-    await genNav({ node: 'dream', subcategory: 'nineteen' })
-    await genNav({ node: 'dream', subcategory: 'twenty' })
-    await genNav({ node: 'dream', subcategory: 'twenty-one' })
-    await genNav({ node: 'dream', subcategory: 'twenty-two' })
-    await genNav({ node: 'dream', subcategory: 'twenty-three' })
-    await genNav({ node: 'dream', subcategory: 'twenty-four' })
-    await genNav({ node: 'dream', subcategory: 'twenty-five' })
+    // await genNav({ node: 'dream', subcategory: 'eight' })
+    // await genNav({ node: 'dream', subcategory: 'nine' })
+    // await genNav({ node: 'dream', subcategory: 'ten' })
+    // await genNav({ node: 'dream', subcategory: 'eleven' })
+    // await genNav({ node: 'dream', subcategory: 'twelve' })
+    // await genNav({ node: 'dream', subcategory: 'thirteen' })
+    // await genNav({ node: 'dream', subcategory: 'fourteen' })
+    // await genNav({ node: 'dream', subcategory: 'fifteen' })
+    // await genNav({ node: 'dream', subcategory: 'sixteen' })
+    // await genNav({ node: 'dream', subcategory: 'seventeen' })
+    // await genNav({ node: 'dream', subcategory: 'eighteen' })
+    // await genNav({ node: 'dream', subcategory: 'nineteen' })
+    // await genNav({ node: 'dream', subcategory: 'twenty' })
+    // await genNav({ node: 'dream', subcategory: 'twenty-one' })
+    // await genNav({ node: 'dream', subcategory: 'twenty-two' })
+    // await genNav({ node: 'dream', subcategory: 'twenty-three' })
+    // await genNav({ node: 'dream', subcategory: 'twenty-four' })
+    // await genNav({ node: 'dream', subcategory: 'twenty-five' })
   } catch (error) {
     console.log('folder is empty')
   }
@@ -234,9 +234,6 @@ async function genNav({ node, subcategory }) {
 
 
   }
-
-
-
 
   const sorted = regrouped.sort((a, b) => {
 

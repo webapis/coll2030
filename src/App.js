@@ -336,9 +336,10 @@ export default class App extends React.Component {
       {products.length === 0 && !fetchingProduct && <Container sx={{ marginTop: 10 }}>
       <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
          
-     <ImageList  sx={{ }}cols={6} gap={8}
+     <ImageList   cols={6} gap={8}
     variant="masonry" 
      >
+    
             {subcategories.map((item, i) => {
            
               const indexes = item[1]
