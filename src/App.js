@@ -7,17 +7,17 @@ import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
 import { Container, Typography } from '@mui/material';
-import LoadingDialog from './drawer/LoadingDialog';
+import SubcategoryCard from './drawer/SubcategoryCard';
 import Paper from '@mui/material/Paper';
 import keywordgroup from './keywords.json'
-
+import imageIndexes from './image-indexes.json'
 import subcatObj from './category-nav.json'
-
+import ImageList from '@mui/material/ImageList';
 const subcategories = Object.entries(subcatObj)
 
 
 console.log('keywordgroup', keywordgroup)
-debugger
+
 export const AppContext = React.createContext();
 
 export default class App extends React.Component {
@@ -88,6 +88,7 @@ export default class App extends React.Component {
         products: [],
         fetchingProduct: false,
         open: false,
+        productImgIndexes: null
       }));
 
     }
@@ -113,20 +114,27 @@ export default class App extends React.Component {
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', subcategory)
     }
-    this.selectSubcategory = ({ subcategory, totalSubcategory, node }) => {
+    this.selectSubcategory = ({ functionName,index, totalSubcategory, node }) => {
 
+      
       this.setState(state => ({
         ...state, startAt: 0,
         selectedMarka: '',
-        selectedNavIndex: '',
+       // selectedNavIndex: '',
         selectedKeywords: [],
         navKeywords: [],
         products: [],
         fetchingProduct: false,
-        availableProducts: 0, selectedSubcategory: { subcategory, totalSubcategory, node }, open: false
+        availableProducts: 0, selectedSubcategory: { subcategory:functionName, totalSubcategory, node },selectedNavIndex:index, open: false
       }));
     }
+    this.setProductImageInexes = ({ productImgIndexes }) => {
 
+      this.setState(function (state) {
+
+        return { ...state, productImgIndexes }
+      })
+    }
     this.setSelectedNavIndex = ({ keyword, index }) => {
       window.scrollTo(0, 0)
       this.setState(function (state) {
@@ -162,11 +170,13 @@ export default class App extends React.Component {
       navKeywords: [],
       availableProducts: 0,
       search: '',
+      productImgIndexes: null,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex,
       clearSubcategory: this.clearSubcategory,
       searchInputChanged: this.searchInputChanged,
-      searchProduct: this.searchProduct
+      searchProduct: this.searchProduct,
+      setProductImageInexes:this.setProductImageInexes
     }
   }
 
@@ -208,10 +218,20 @@ export default class App extends React.Component {
     this.setState(state => ({ ...state, subcategories }))
   }
 
-  fetchProducts(start) {
+  async fetchProducts(start) {
     const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
+     let productImgIndexes=null
+    if (imageIndexes[selectedNavIndex] !== undefined) {
 
-    debugger
+      const response = await fetch(`/image-indexes/${selectedNavIndex}.json`)
+      
+       productImgIndexes = await response.json()
+
+
+      console.log('data elngt', productImgIndexes)
+      
+    }
+
     let host = ''
     let href = window.location.href
     if (href === 'http://localhost:8888/') {
@@ -223,38 +243,24 @@ export default class App extends React.Component {
 
 
     var url = `${host}/${subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
-    debugger
-
-    return fetch(url, { cache: 'default' }).then(function (response) {
 
 
+    const response = await fetch(url, { cache: 'default' })
+    const data = await response.json()
 
-      return response.json()
-    }).then(function (data) {
-      return data
-    })
-      .then((data) => {
+    const { data: products, count } = data
 
 
-        const { data: products, count } = data
+    this.setState(state => ({
+      ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length,productImgIndexes
+    }))
+    this.scrollHandled = false
 
-
-        this.setState(state => ({
-          ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
-        }))
-        this.scrollHandled = false
-
-      })
-      .catch(function (err) {
-
-        console.log('err', err)
-        return err
-      })
-
+    return
 
   }
 
-  fetchNavKeywords(selectedNavIndex, subcategory, node) {
+  async fetchNavKeywords(selectedNavIndex, subcategory) {
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
     let href = window.location.href
@@ -263,7 +269,7 @@ export default class App extends React.Component {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
 
-      host ='https://coll2030.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
+      host = 'https://coll2030.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
 
     }
 
@@ -284,45 +290,40 @@ export default class App extends React.Component {
 
     }
 
-debugger
-    fetch(url).then(async (response) => response.json()).then(async (data) => {
 
-      debugger
+    const response = await fetch(url)
 
+    const data = await response.json()
 
+    this.setState(function (state) {
+      const { keywords } = data
+      const grouped = {}
 
-      this.setState(function (state) {
-        const { keywords } = data
-        const grouped = {}
-        debugger
-        for (let kw of keywords) {
-          debugger
-          const k = kw[2]
-          debugger
-          const groupName = keywordgroup[k]
-          if (grouped[groupName] === undefined) {
+      for (let kw of keywords) {
 
-            grouped[groupName] = { keywords: [kw] }
+        const k = kw[2]
 
-          } else {
+        const groupName = keywordgroup[k]
+        if (grouped[groupName] === undefined) {
 
-            grouped[groupName].keywords = [...grouped[groupName].keywords, kw]
-          }
+          grouped[groupName] = { keywords: [kw] }
 
+        } else {
 
+          grouped[groupName].keywords = [...grouped[groupName].keywords, kw]
         }
-        debugger
-        return {
-          ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => { return { groupName: m[0], keywords: m[1].keywords } }).sort(function (a, b) {
-            var textA = a.groupName;
-            var textB = b.groupName;
 
-            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-          })
-        }
-      })
-    }).catch(err => {
 
+      }
+
+      return {
+        ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => { return { groupName: m[0], keywords: m[1].keywords } }).sort(function (a, b) {
+          var textA = a.groupName;
+          var textB = b.groupName;
+
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        })
+      }
     })
 
   }
@@ -332,33 +333,22 @@ debugger
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-      {products.length === 0 && !fetchingProduct && <Container sx={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
-        <div>
-        <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
-          <div style={{display:'flex'}}>
-          {subcategories.map((item, i) => {
-            const description =item[0]
-            const subcategory =item[1][0]['functionName']
-         
-            debugger
-            return <div key={i} onClick={() => {
-              selectSubcategory({ subcategory, totalSubcategory:0, node:'' })
-            }}>
-              <Paper elevation={12} style={{margin:2}}>
-              <img
-                src={item.imgUrl}
-                alt={item.description}
-                loading="lazy"
-                height="400"
 
-              />
-              <Typography align="center" variant="h5">{description}</Typography>
-</Paper>
-            </div>
-          })}
-          </div>
-     
-        </div>
+      {products.length === 0 && !fetchingProduct && <Container sx={{ marginTop: 10 }}>
+      <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
+         
+     <ImageList  sx={{ }}cols={6} gap={8}
+    variant="masonry" 
+     >
+            {subcategories.map((item, i) => {
+              const description = item[0]
+              const indexes = item[1]
+                 return <div > <SubcategoryCard selectSubcategory={selectSubcategory} indexes={indexes}/></div>
+                
+            })}
+         
+         </ImageList >
+    
       </Container>
       }
       {matchedesktop && selectedSubcategory &&
@@ -375,7 +365,7 @@ debugger
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
-      {(fetchingProduct || fetchingKeywords) && <LoadingDialog loading={true} />}
+     
 
     </AppContext.Provider>)
   }

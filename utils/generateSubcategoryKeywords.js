@@ -6,7 +6,15 @@ async function generateSubcategoryKeywords() {
     const makeDir = require('make-dir');
     const { getSheetValues } = require('../google.sheet.js')
     const { getGoogleToken } = require('../google/google.oauth')
+    const keywords = require('../api/_files/nav/keywords.json')
+    const keywordsObj = {}
+    for (let k of keywords) {
 
+        keywordsObj[k.keyword] = k
+
+
+    }
+    debugger
 
     const spreadsheetId = '1A4FWttdgPq2kaT2fr_Z0ke3ETfK8ndjiyEc7nvJ4xHk'
     const website = process.env.WEBSITE
@@ -24,7 +32,7 @@ async function generateSubcategoryKeywords() {
         const sort = value[5]
         const group = value[6]
         categoryItems.push({ subcategory, exact, exclude, functionName, groupDescription, sort, group })
-        debugger
+
     }
 
 
@@ -38,8 +46,23 @@ async function generateSubcategoryKeywords() {
     if (fs.existsSync(`src/category-nav.json`)) {
         fs.unlinkSync(`src/category-nav.json`)
     }
+    const mappedCatItems = categoryItems.map(m => {
+        let index = ''
 
-    const grouped =groupBy([...categoryItems, { subcategory: 'diger', exact: '', exclude: '', functionName: 'diger', groupDescrption: 'diger', sort: 100, group: 'diger' }],'groupDescription')
+        if (keywordsObj[m.subcategory] === undefined || keywordsObj[m.subcategory].index === undefined) {
+         
+            index = undefined
+            
+        }
+        else {
+            index = keywordsObj[m.subcategory].index
+        }
+
+
+        return { ...m, index: index + '-' }
+    })
+    debugger
+    const grouped = groupBy([...mappedCatItems, { subcategory: 'diger', exact: '', exclude: '', functionName: 'diger', groupDescrption: 'diger', sort: 100, group: 'diger', index: '0-' }], 'groupDescription')
     fs.appendFileSync(`src/category-nav.json`, JSON.stringify(grouped))
 
 }

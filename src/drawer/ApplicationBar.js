@@ -26,7 +26,7 @@ export default function AppBarContainer() {
               <HomeIcon />
             </IconButton>
             <Button variant="text" onClick={clearSubcategory} color="inherit">     <Typography variant="h6" component="div"    >
-              MODABURADA
+              BİRARADAMODA
             </Typography> </Button>
 
 
