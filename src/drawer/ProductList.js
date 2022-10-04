@@ -13,8 +13,7 @@ import { AppContext } from '../App';
 import { Typography } from '@mui/material';
 import SearchBox from './SearchBox'
 import ImageList from '@mui/material/ImageList';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+
 import ProdImageIndex from './ProdImageIndexes';
 export default function ProductList(props) {
 
@@ -23,7 +22,7 @@ export default function ProductList(props) {
 
   return (
     <AppContext.Consumer>
-      {({ fetchingProducts, products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords,productImgIndexes }) => {
+      {({  products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords,productImgIndexes }) => {
         return <div style={{ position: 'relative' }}>
 
 
@@ -41,15 +40,7 @@ export default function ProductList(props) {
             }
 
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
-            {products.length>0 && 
-            
-            <Tabs value={0} onChange={()=>{}} aria-label="basic tabs example">
-            <Tab label="Seçenekler" />
-            <Tab label="Bulunanlar" />
-          
-          </Tabs>
-          
-            }
+
                 {productImgIndexes && <ProdImageIndex  setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes}/>}
             <Box sx={{ width: '100%', overflowY: 'scroll' }} id="product-container">
               <ImageList variant="standard" cols={5} gap={8}>

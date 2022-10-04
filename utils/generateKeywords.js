@@ -37,7 +37,7 @@
     // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-nine' })
     // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'thirty' })
 
-   // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'diger' })
+    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'diger' })
 
     process.exit(0)
 
@@ -67,7 +67,7 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
         const groupid = value[9]
         const category = value[10]
         const subcategory = value[11]
-        debugger
+
         console.log('exactmatch...', exactmatch, keyword)
         categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid, category, subcategory })
 
@@ -89,16 +89,13 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
 
 
     const reduced = data.reduce((prev, curr) => {
-
+   
         return {
-            ...prev, [curr.keyword]: curr.subcategory
+            ...prev, [curr.keyword]: { subcategory: curr.subcategory, category: curr.category }
         }
-
     }, {})
-
+    debugger
     fs.appendFileSync(`src/keywords.json`, JSON.stringify(reduced))
-
-
 
 
 }

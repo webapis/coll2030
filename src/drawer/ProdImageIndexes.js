@@ -18,7 +18,7 @@ export default function ProdImageIndex({ productImgIndexes,setSelectedNavIndex }
         {groupItems.map(m => {
             const {index,keyword,title,productName,total}=m
                 console.log('m-',m)
-                return<Grid   md={2} item sx={{display:'flex',flexDirection:'column',width:200}}><Badge color='info' badgeContent={total} anchorOrigin={{vertical: 'top', horizontal: 'left'}}><img style={{borderRadius:25}} onClick={()=>setSelectedNavIndex({index,keyword})} width="100" src={m.imageSrc} alt={keyword}/></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keyword} {productName}</Typography></Tooltip></Grid>
+                return<Grid   md={2} item sx={{display:'flex',flexDirection:'column',width:200}}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{vertical: 'top', horizontal: 'left'}}><img style={{borderRadius:25}} onClick={()=>setSelectedNavIndex({index,keyword})} width="100" src={m.imageSrc} alt={keyword}/></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keyword} {productName}</Typography></Tooltip></Grid>
             })}
         </Grid>
        

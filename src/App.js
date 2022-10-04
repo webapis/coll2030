@@ -6,16 +6,16 @@ import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
 import Grid from '@mui/material/Grid'
-import { Container, Typography } from '@mui/material';
-import SubcategoryCard from './drawer/SubcategoryCard';
+import { Container } from '@mui/material';
+
 import keywordgroup from './keywords.json'
 import imageIndexes from './image-indexes.json'
 import subcatObj from './category-nav.json'
-import ImageList from '@mui/material/ImageList';
+
+import CategoryNavContainer from './drawer/CategoryNavContaıner';
 const subcategories = Object.entries(subcatObj)
 
 
-console.log('keywordgroup', keywordgroup)
 
 export const AppContext = React.createContext();
 
@@ -302,10 +302,12 @@ export default class App extends React.Component {
 
         const k = kw[2]
 
-        const groupName = keywordgroup[k]
+        const groupName = keywordgroup[k]['subcategory']
+        const category=keywordgroup[k]['category']
+   
         if (grouped[groupName] === undefined) {
 
-          grouped[groupName] = { keywords: [kw] }
+          grouped[groupName] = { keywords: [kw],category }
 
         } else {
 
@@ -316,7 +318,9 @@ export default class App extends React.Component {
       }
 
       return {
-        ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => { return { groupName: m[0], keywords: m[1].keywords } }).sort(function (a, b) {
+        ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => { 
+   
+          return { groupName: m[0], keywords: m[1].keywords,category:m[1].category } }).sort(function (a, b) {
           var textA = a.groupName;
           var textB = b.groupName;
 
@@ -332,18 +336,8 @@ export default class App extends React.Component {
     return (<AppContext.Provider value={this.state}>
       <ApplicationBar />
       <TemporaryDrawer />
-      {products.length === 0 && !fetchingProduct && <Container sx={{ marginTop: 10 }}>
-      <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
-     <ImageList   cols={6} gap={8}
-    variant="masonry" 
-     >
-            {subcategories.map((item, i) => {
-              const indexes = item[1]
-                 return <div > <SubcategoryCard selectSubcategory={selectSubcategory} indexes={indexes}/></div>
-            })}   
-         </ImageList >
-      </Container>
-      }
+
+      <CategoryNavContainer selectSubcategory={selectSubcategory}subcategories={subcategories} fetchingProduct={fetchingProduct} products={products}/>
       {matchedesktop && selectedSubcategory &&
         <Container>
           <Grid container>
