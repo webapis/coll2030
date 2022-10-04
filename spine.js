@@ -26,14 +26,14 @@
     const categoryItems = []
     debugger
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
-        const subcategory = value[0]
+        const productName = value[0]
         //  const exact = value[1]
         //   const exclude = value[2]
         const fn = value[3]
         // const groupDescription = value[4]
         const sort = value[5]
         const group = value[6]
-        categoryItems.push({ subcategory, fn, group, sort, group })
+        categoryItems.push({ productName:productName.toLowerCase(), fn, group, sort, group })
     }
     const placeholder = ''
     const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_200/'
@@ -90,14 +90,15 @@
     const kewordImages = {}
     for (let subcat of categoryItems) {
 
-        const { fn, subcategory } = subcat
+        const { fn, productName } = subcat
+        debugger
         if (true) {
 
 
             debugger
             const keywordsRoot = commonNavHandler({ subcategory: fn, keyOrder: '0', navindex: '0-' })
-            const s = keywordsRoot.keywords.filter(f => f[2] === subcategory)
-
+            const s = keywordsRoot.keywords.filter(f => f[2] === productName)
+debugger
             if (s.length > 0) {
                 const navIndex = s[0][1]
 
@@ -136,11 +137,16 @@
                     }
 
                     const { d, count } = commonDataHandler({ start: 0, search: '', selectedNavIndex: index, subcategory: fn })
-                    const random = randomIntFromInterval(0, d.length - 1)
-                    if (d[random] === undefined) {
+                    const filteredByProductName =d.filter(f=> f.title.toLowerCase().includes(productName))
+                    const random = randomIntFromInterval(0, filteredByProductName.length - 1)
+                    debugger
+                    if (filteredByProductName.length===0 || filteredByProductName[random] === undefined) {
                         debugger
+            
                     }
-                    const { marka, imageUrl,title } = d[random]
+                    if(filteredByProductName.length===0)
+                    continue
+                    const { marka, imageUrl,title } = filteredByProductName[random]
                         debugger
                     const imagePath =imagePrefixCloudinary+ placeholders[marka].imageHost + imageUrl
 debugger
@@ -154,6 +160,7 @@ debugger
                         const ext = path.extname(filePath)
                         keywordsObj[index].imageSrc = `data:image/${ext};base64,${b64}`
                         keywordsObj[index].title=title
+                        keywordsObj[index].productName=productName
                         console.log('exists', filePath)
 
                     } else {

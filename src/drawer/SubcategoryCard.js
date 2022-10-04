@@ -10,6 +10,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
+
 export default function SubcategoryCard({indexes,selectSubcategory}){
 const group =indexes[0]['group']
     return (
@@ -39,7 +40,10 @@ const group =indexes[0]['group']
                   src={`/static/images/avatar/${value + 1}.jpg`}
                 />
               </ListItemAvatar>
+             
               <ListItemText id={labelId} primary={value.subcategory} />
+           
+          
             </ListItemButton>
           </ListItem>
         );

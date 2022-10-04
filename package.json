@@ -60,6 +60,7 @@
     "vercel:dev": "vercel dev",
     "netlify:dev": "netlify dev",
     "spine": "node spine.js",
+    "spine2": "node spine2.js",
     "encryptData": "node encryptData.js",
     "decryptData": "node decryptData.js",
     "deploymain": "vercel --token $VERCEL_TOKEN --prod --yes",
