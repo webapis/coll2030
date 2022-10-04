@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid, Typography } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
-import Chip from '@mui/material/Chip';
+
 import Badge from '@mui/material/Badge';
 export default function ProdImageIndex({ productImgIndexes,setSelectedNavIndex }) {
 
