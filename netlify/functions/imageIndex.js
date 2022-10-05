@@ -29,14 +29,14 @@ exports.handler = async function imageIndex(event, context) {
         console.log('navindex', navindex)
     
      debugger
-        const {imageIndex}  = navkeywords().filter({ index: navindex }).get()[0]
+        const {imageIndexes}  = navkeywords().filter({ index: navindex }).get()[0]
         debugger
         return {
             statusCode: 200,
             headers: {
                 "Access-Control-Allow-Origin": "*", // Allow from anywhere 
             },
-            body: JSON.stringify(imageIndex )
+            body: JSON.stringify(imageIndexes )
         }
     } else {
 

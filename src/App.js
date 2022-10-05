@@ -231,7 +231,7 @@ export default class App extends React.Component {
     if (imageIndexes[selectedNavIndex] !== undefined) {
 
       const response = await fetch(`${host}/imageIndex?navindex=${selectedNavIndex}`)
-
+debugger
       productImgIndexes = await response.json()
       debugger
       console.log('data elngt', productImgIndexes)

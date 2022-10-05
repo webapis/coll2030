@@ -154,15 +154,15 @@
 
 
                     const fileName = keyword + path.extname(imageUrl)
-                    const filePath = path.join(process.cwd(), 'imgs', fn, productName, fileName)
+                    const filePath = path.join(process.cwd(), 'public/indexed-images', fn, productName, fileName)
                     makedir.sync(path.dirname(filePath))
                     if (fs.existsSync(filePath)) {
-                        const b64 = fs.readFileSync(filePath, { encoding: 'base64' })
-                        const ext = path.extname(filePath)
-                        keywordsObj[index].imageSrc = `data:image/${ext};base64,${b64}`
+                       // const b64 = fs.readFileSync(filePath, { encoding: 'base64' })
+                       // const ext = path.extname(filePath)
+                        keywordsObj[index].imageSrc = fileName
                         keywordsObj[index].title = title
                         keywordsObj[index].productName = productName
-                        console.log('exists', filePath)
+                      
 
                     } else {
 
@@ -170,9 +170,12 @@
 
                         const data = await res.buffer()
 
-                        const b64 = data.toString('base64');
-                        const ext = path.extname(filePath)
-                        keywordsObj[index].imageSrc = `data:image/${ext};base64,${b64}`
+                     //   const b64 = data.toString('base64');
+                      //  const ext = path.extname(filePath)
+                        keywordsObj[index].imageSrc = fileName
+                        keywordsObj[index].title = title
+                        keywordsObj[index].productName = productName
+                      
                         fs.writeFileSync(filePath, data)
 
                     }
