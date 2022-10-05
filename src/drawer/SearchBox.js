@@ -19,7 +19,7 @@ export default function SearchBox() {
 
         <InputBase
           sx={{ ml: 1, flex: 10 }}
-          placeholder={selectedSubcategory.subcategory.toUpperCase() + " ara".toUpperCase()}
+          placeholder={"Ürün ara"}
           type="search"
           inputProps={{ 'aria-label': 'search google maps' }} onChange={(e)=>{
           const {value}=e.target

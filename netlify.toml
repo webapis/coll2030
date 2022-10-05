@@ -247,3 +247,6 @@
   included_files = ["api/_files/key/thirty/0-keywords.json"]
 [functions."thirty-navsecond"]
   included_files = ["api/_files/key/thirty/1-keywords.json"]
+
+[functions."imageIndex"]
+  included_files = ["api/_files/image-indexes/image-indexes.json"]

@@ -32,26 +32,29 @@ let imageWidth =0
             break;
     }
     const imgIndex = Object.entries(productImgIndexes)
-const groupName =imgIndex[0][1][0]['category']
 
 
+debugger
 
-    return<Container sx={{paddingRight: 0}} center> <Grid container  >
-         <Grid item xs={12} sx={{backgroundColor:'#cfd8dc',marginTop:5,marginBottom:2}}><Typography variant="button" display="block">{groupName}</Typography> </Grid>
+    return<Container sx={{paddingRight: 0}} center>
+         
         {  imgIndex.map(m => {
-   
+   debugger
         const groupItems = m[1]
 
-        return groupItems.map(m => {
+        const groupName =m[0]
+        return<Grid container >
+            <Grid item xs={12} sx={{backgroundColor:'#cfd8dc',marginTop:5,marginBottom:2}}><Typography variant="button" display="block">{groupName}</Typography> </Grid>
+            {groupItems.map(m => {
             const {index,keyword,title,productName,total}=m
          
                 return<Grid xs={4} sm={2}  item sx={{display:'flex',flexDirection:'column'}}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{vertical: 'top', horizontal: 'left'}}><img style={{borderRadius:25,width:imageWidth}} onClick={()=>setSelectedNavIndex({index,keyword})} width="100" src={m.imageSrc} alt={keyword}/></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keyword} {productName}</Typography></Tooltip></Grid>
-            })
+            })}</Grid> 
        
        
        
     })
-}</Grid>  
+}
 </Container>
 
   

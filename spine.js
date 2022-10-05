@@ -33,7 +33,7 @@
         // const groupDescription = value[4]
         const sort = value[5]
         const group = value[6]
-        categoryItems.push({ productName:productName.toLowerCase(), fn, group, sort, group })
+        categoryItems.push({ productName: productName.toLowerCase(), fn, group, sort, group })
     }
     const placeholder = ''
     const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_200/'
@@ -88,6 +88,7 @@
     }
     debugger
     const kewordImages = {}
+    const imageIndexes = []
     for (let subcat of categoryItems) {
 
         const { fn, productName } = subcat
@@ -98,7 +99,7 @@
             debugger
             const keywordsRoot = commonNavHandler({ subcategory: fn, keyOrder: '0', navindex: '0-' })
             const s = keywordsRoot.keywords.filter(f => f[2] === productName)
-debugger
+            debugger
             if (s.length > 0) {
                 const navIndex = s[0][1]
 
@@ -110,7 +111,7 @@ debugger
                     const index = m[1].replace('-', '')
 
                     const { category, subcategory } = objectify[index]
-            
+
                     return { total: m[0], index: m[1], keyword: m[2], category, subcategory }
 
                 })
@@ -137,30 +138,30 @@ debugger
                     }
 
                     const { d, count } = commonDataHandler({ start: 0, search: '', selectedNavIndex: index, subcategory: fn })
-                    const filteredByProductName =d.filter(f=> f.title.toLowerCase().includes(productName))
+                    const filteredByProductName = d.filter(f => f.title.toLowerCase().includes(productName))
                     const random = randomIntFromInterval(0, filteredByProductName.length - 1)
                     debugger
-                    if (filteredByProductName.length===0 || filteredByProductName[random] === undefined) {
+                    if (filteredByProductName.length === 0 || filteredByProductName[random] === undefined) {
                         debugger
-            
+
                     }
-                    if(filteredByProductName.length===0)
-                    continue
-                    const { marka, imageUrl,title } = filteredByProductName[random]
-                        debugger
-                    const imagePath =imagePrefixCloudinary+ placeholders[marka].imageHost + imageUrl
-debugger
-                    makedir.sync(`imgs/${fn}`)
+                    if (filteredByProductName.length === 0)
+                        continue
+                    const { marka, imageUrl, title } = filteredByProductName[random]
+                    debugger
+                    const imagePath = imagePrefixCloudinary + placeholders[marka].imageHost + imageUrl
+
+
 
                     const fileName = keyword + path.extname(imageUrl)
-                    const filePath = path.join(process.cwd(), 'imgs', fn, fileName)
-
+                    const filePath = path.join(process.cwd(), 'imgs', fn, productName, fileName)
+                    makedir.sync(path.dirname(filePath))
                     if (fs.existsSync(filePath)) {
                         const b64 = fs.readFileSync(filePath, { encoding: 'base64' })
                         const ext = path.extname(filePath)
                         keywordsObj[index].imageSrc = `data:image/${ext};base64,${b64}`
-                        keywordsObj[index].title=title
-                        keywordsObj[index].productName=productName
+                        keywordsObj[index].title = title
+                        keywordsObj[index].productName = productName
                         console.log('exists', filePath)
 
                     } else {
@@ -185,10 +186,11 @@ debugger
 
                 const groupByCategory = groupBy(arr, 'category')
                 debugger
-                fs.writeFileSync(`${process.cwd()}/public/image-indexes/${navIndex}.json`, JSON.stringify(groupByCategory))
 
 
+                imageIndexes.push({ index: navIndex, imageIndexes: groupByCategory })
             }
+            fs.writeFileSync(`${process.cwd()}/api/_files/image-indexes/image-indexes.json`, JSON.stringify(imageIndexes))
         }
     }
 

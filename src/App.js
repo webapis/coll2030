@@ -113,18 +113,18 @@ export default class App extends React.Component {
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', subcategory)
     }
-    this.selectSubcategory = ({ functionName,index, totalSubcategory, node }) => {
+    this.selectSubcategory = ({ functionName, index, totalSubcategory, node }) => {
 
-      
+
       this.setState(state => ({
         ...state, startAt: 0,
         selectedMarka: '',
-       // selectedNavIndex: '',
+        // selectedNavIndex: '',
         selectedKeywords: [],
         navKeywords: [],
         products: [],
         fetchingProduct: false,
-        availableProducts: 0, selectedSubcategory: { subcategory:functionName, totalSubcategory, node },selectedNavIndex:index, open: false
+        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory, node }, selectedNavIndex: index, open: false
       }));
     }
     this.setProductImageInexes = ({ productImgIndexes }) => {
@@ -175,7 +175,7 @@ export default class App extends React.Component {
       clearSubcategory: this.clearSubcategory,
       searchInputChanged: this.searchInputChanged,
       searchProduct: this.searchProduct,
-      setProductImageInexes:this.setProductImageInexes
+      setProductImageInexes: this.setProductImageInexes
     }
   }
 
@@ -219,17 +219,6 @@ export default class App extends React.Component {
 
   async fetchProducts(start) {
     const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
-     let productImgIndexes=null
-    if (imageIndexes[selectedNavIndex] !== undefined) {
-
-      const response = await fetch(`/image-indexes/${selectedNavIndex}.json`)
-      
-       productImgIndexes = await response.json()
-
-
-      console.log('data elngt', productImgIndexes)
-      
-    }
 
     let host = ''
     let href = window.location.href
@@ -238,6 +227,18 @@ export default class App extends React.Component {
     } else {
       host = `https://coll2030.netlify.app/.netlify/functions`
     }
+    let productImgIndexes = null
+    if (imageIndexes[selectedNavIndex] !== undefined) {
+
+      const response = await fetch(`${host}/imageIndex?navindex=${selectedNavIndex}`)
+
+      productImgIndexes = await response.json()
+      debugger
+      console.log('data elngt', productImgIndexes)
+
+    }
+
+
     //'https://dream2022.netlify.app/.netlify/functions'
 
 
@@ -251,7 +252,7 @@ export default class App extends React.Component {
 
 
     this.setState(state => ({
-      ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length,productImgIndexes
+      ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length, productImgIndexes
     }))
     this.scrollHandled = false
 
@@ -303,11 +304,11 @@ export default class App extends React.Component {
         const k = kw[2]
 
         const groupName = keywordgroup[k]['subcategory']
-        const category=keywordgroup[k]['category']
-   
+        const category = keywordgroup[k]['category']
+
         if (grouped[groupName] === undefined) {
 
-          grouped[groupName] = { keywords: [kw],category }
+          grouped[groupName] = { keywords: [kw], category }
 
         } else {
 
@@ -318,9 +319,10 @@ export default class App extends React.Component {
       }
 
       return {
-        ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => { 
-   
-          return { groupName: m[0], keywords: m[1].keywords,category:m[1].category } }).sort(function (a, b) {
+        ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => {
+
+          return { groupName: m[0], keywords: m[1].keywords, category: m[1].category }
+        }).sort(function (a, b) {
           var textA = a.groupName;
           var textB = b.groupName;
 
@@ -337,7 +339,7 @@ export default class App extends React.Component {
       <ApplicationBar />
       <TemporaryDrawer />
 
-      <CategoryNavContainer selectSubcategory={selectSubcategory}subcategories={subcategories} fetchingProduct={fetchingProduct} products={products}/>
+      <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
       {matchedesktop && selectedSubcategory &&
         <Container>
           <Grid container>
@@ -352,7 +354,7 @@ export default class App extends React.Component {
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
-     
+
 
     </AppContext.Provider>)
   }
