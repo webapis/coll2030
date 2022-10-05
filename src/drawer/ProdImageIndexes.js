@@ -81,8 +81,8 @@ function ImageIndexComp({ dataSrc, setSelectedNavIndex, index, keyword ,imageWid
                     }
                 });
             }, { threshold: 0.1 });
-            window.obz = observer
-            window.obz.observe(imageElement.current)
+            window.obze = observer
+            window.obze.observe(imageElement.current)
         }
 
 
@@ -90,7 +90,7 @@ function ImageIndexComp({ dataSrc, setSelectedNavIndex, index, keyword ,imageWid
 
     }, []);
 
-    return <img style={{ borderRadius: 25, width: imageWidth }} ref={imageElement} data-intersection="true" className="figure"
+    return <img style={{ borderRadius: 25, width: imageWidth }} ref={imageElement} data-intersection="true" className="figure" alt={keyword}
         onClick={() => setSelectedNavIndex({ index, keyword })} width="100"
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAACiCAMAAAD1LOYpAAAAMFBMVEXMzMynp6efn5/Pz8+kpKTFxcW3t7fBwcG+vr7JycmxsbGcnJy7u7usrKy0tLTS0tL6gnAAAAABsElEQVR4nO3Y0W6DIBSAYTkHRETw/d92h9a167KNLNkCF/93sU5N2j8KaLssAAAAAAAAAAAAAAAAAAAA+GOaQkfSwYmr73F1aKCuWbry0EZ1UmLHLm7kpbbE9fzumGkvRx6cmNevP1/TdmxtpthYmDNRo7dR6KJOm6hbFu+sMkybmJy4kOxMFp01MYq0a7xJtrM4ekZ/l+iTvaQ8W+J9lWmCl+NczipZl4kSdSuupmtjF9k3+1N1prNY283OhftmcjlnyWWmdVGLSGmV8WqsXvy6TJSYrHDX08agXA8Nel43wDkS9ZEWXLbU2yFNyxyJYolqy6Bs1wW3OeLapDmsep8i0c6iHiI+PjJW2wpt8tijZAlT3F3Oe9NTK3aSfajtwDk8Uer7lX3ubCOzDU27AYocw9dF8ZL39LqzDcPj9l901j88Ua4Z/Ny3P1dwXUpbz0cnHp8Ka5by4YvpOj6xfv78KC8XXuvoxC8exvRlzwyLTufzSexzNvB+/FUnpcFf9Zc9i+uwdXNk4e0hrKek/vv8q7h1xMGB959ufja6EAAAAAAAAAAAAAAAAAAA4LfeAEgFD6AjkYDWAAAAAElFTkSuQmCC"
         data-src={dataSrc}
