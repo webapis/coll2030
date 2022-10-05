@@ -33,7 +33,7 @@ export default function CategoryNavContainer({ subcategories, products, fetching
         case xs === true:
             return render(1)
         case sm === true:
-            return render(2)
+            return render(1)
         case md === true:
             return render(3)
         case lg === true:
