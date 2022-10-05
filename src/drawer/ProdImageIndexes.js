@@ -89,7 +89,7 @@ function ImageIndexComp({ dataSrc, setSelectedNavIndex, index, keyword ,imageWid
 
 
 
-    }, []);
+    }, [setSelectedNavIndex]);
 
     return <img style={{ borderRadius: 25, width: imageWidth }} ref={imageElement} data-intersection="true" className="figure" alt={keyword}
         onClick={() => setSelectedNavIndex({ index, keyword })} width="100"
