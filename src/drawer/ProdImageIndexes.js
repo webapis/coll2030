@@ -91,28 +91,6 @@ function ImageIndexComp({ dataSrc, setSelectedNavIndex, index, keyword ,imageWid
 
     }, []);
 
-    useEffect(() => {
-
-
-        if (window.IntersectionObserver) {
-
-            let observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-
-                        entry.target.src = entry.target.dataset.src;
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            window.obze = observer
-            window.obze.observe(imageElement.current)
-        }
-
-
-
-
-    }, [setSelectedNavIndex]);
 
     return <img style={{ borderRadius: 25, width: imageWidth }} ref={imageElement} data-intersection="true" className="figure" alt={keyword}
         onClick={() => setSelectedNavIndex({ index, keyword })} width="100"
