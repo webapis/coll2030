@@ -36,12 +36,12 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex 
     const imgIndex = Object.entries(productImgIndexes)
 
 
-    debugger
+
 
     return <Container sx={{ paddingRight: 0 }} center>
 
         {imgIndex.map(m => {
-            debugger
+       
             const groupItems = m[1]
 
             const groupName = m[0]
@@ -49,8 +49,9 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex 
                 <Grid item xs={12} sx={{ backgroundColor: '#cfd8dc', marginTop: 5, marginBottom: 2 }}><Typography variant="button" display="block">{groupName}</Typography> </Grid>
                 {groupItems.map(m => {
                     const { index, keyword, title, productName, total, imageSrc } = m
+           
                     const src = `/indexed-images/${productName}/${imageSrc}`
-                    return <Grid xs={4} sm={2} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp  setSelectedNavIndex={setSelectedNavIndex} dataSrc={src} index={index} keywor={keyword} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keyword} {productName}</Typography></Tooltip></Grid>
+                    return <Grid xs={4} sm={2} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp  setSelectedNavIndex={setSelectedNavIndex} dataSrc={src} index={index} keyword={keyword} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keyword} {productName}</Typography></Tooltip></Grid>
                 })}</Grid>
 
 
