@@ -2,13 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 
-  collectedReport: '',
-  drawerCollectedOpen: false,
-  drawerCollectedBySubcatOpen: true,
-  collectedBrend: '',
-  selectedMarka: '',
-  selectedTab:0,
-  subcategories: {}
+    selectedSlice:''
+
 }
 
 export const mainSlice = createSlice({
@@ -16,38 +11,10 @@ export const mainSlice = createSlice({
   initialState,
   reducers: {
 
-    toggleCollectedDrawer: (state, action) => {
-
-      state.drawerCollectedOpen = !state.drawerCollectedOpen
-      state.subcategories={}
-      state.selectedMarka=''
-      state.collectedBrend=''
-    },
-    toggleCollectedBySubcatDrawer: (state, action) => {
-
-      state.drawerCollectedBySubcatOpen = !state.drawerCollectedBySubcatOpen
-    },
-    setCollectedReport: (state, action) => {
-      state.drawerCollectedOpen = !state.drawerCollectedOpen
-      state.collectedReport = action.payload
-
-    },
-
-    setCollectedBrendReport: (state, action) => {
-      state.drawerCollectedBySubcatOpen = !state.drawerCollectedBySubcatOpen
-      state.collectedBrend = action.payload
-  
-    },
-
-    setSelectedMarka: (state, action) => {
-      state.selectedMarka = action.payload.marka
-      state.drawerCollectedBySubcatOpen = !state.drawerCollectedBySubcatOpen
-
-        state.subcategories = action.payload.subcategories
-    },
-   setTab:(state,action)=>{
-    state.selectedTab=action.payload
-   }
+    setSelectedSlice:(state,action)=>{
+        state.selectedSlice=action.payload
+    }
+ 
 
   },
 })

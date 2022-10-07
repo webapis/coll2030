@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
-const { productTitleMatch } = require('./productTitleMatch')
+const { productTitleMatch } = require('../netlify/functions/productTitleMatch')
 console.log('--------------------------------------------------------------')
 let obj = {}
 const website = process.env.WEBSITE
@@ -25,7 +25,7 @@ walkSync(path.join(process.cwd(), `data/${website}`), async (filepath) => {
 
 })
 const uniqify = (array, key) => array.reduce((prev, curr) => prev.find(a => a[key] === curr[key]) ? prev : prev.push(curr) && prev, []);
-debugger
+
 for (let o in obj) {
     const s = o.split('-').reverse()
 
@@ -36,25 +36,25 @@ for (let o in obj) {
         const { title } = d
             var machfound=false
         for (let k of keywords) {
-         
+         debugger
             const exactmatch = k.exact !== '' ? false : true
             const nws = k.exclude !== '' ? k.exclude.split(',') : []
-            const match = productTitleMatch({ kw: k.subcategory, exactmatch, nws, title })
+            const match = productTitleMatch({ kw: k.keywords, exactmatch, nws, title })
             if (match) {
                 const savePath = path.join(process.cwd(), `api/_files/data/${k.functionName}/${marka}.json`)
                 if (fs.existsSync(savePath)) {
-                    debugger
+                    
                     const data = fs.readFileSync(savePath, { encoding: 'utf8' })
                     const dataObj =JSON.parse(data)
-                    debugger
+                    
                    fs.writeFileSync(savePath,JSON.stringify([...dataObj,d]))
-                    debugger
+                    
                 }
                 else {
-                    debugger
+                    
                     makeDir.sync(path.dirname(savePath))
                     fs.writeFileSync(savePath, JSON.stringify([d]) )
-                    debugger
+                    
                 }
 
                 machfound=true
@@ -68,18 +68,18 @@ for (let o in obj) {
 
             const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
             if (fs.existsSync(savePath)) {
-                debugger
+                
                 const data = fs.readFileSync(savePath, { encoding: 'utf8' })
                 const dataObj =JSON.parse(data)
-                debugger
+                
                fs.writeFileSync(savePath,JSON.stringify( [...dataObj,d]))
-                debugger
+                
             }
             else {
-                debugger
+                
                 makeDir.sync(path.dirname(savePath))
                 fs.writeFileSync(savePath, JSON.stringify([d]))
-                debugger
+                
             }
         }
     }

@@ -220,7 +220,7 @@ export default class App extends React.Component {
 
   async fetchProducts(start) {
     const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
-
+debugger
     let host = ''
     let href = window.location.href
     if (href === 'http://localhost:8888/') {
@@ -301,7 +301,7 @@ debugger
       const grouped = {}
 
       for (let kw of keywords) {
-
+debugger
         const k = kw[2]
 
         const groupName = keywordgroup[k]['subcategory']

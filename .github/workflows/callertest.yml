@@ -4,14 +4,14 @@ on:
 env:
   VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
   NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
-  WEBSITE: modaburada
+  WEBSITE: biraradamoda
 jobs:
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: defacto
       maxconcurrency: '10'
-      WEBSITE: modaburada
+      WEBSITE: biraradamoda
     secrets: inherit
 
   koton_job:
@@ -19,7 +19,7 @@ jobs:
     with:
       marka: koton
       maxconcurrency: '10'
-      WEBSITE: modaburada
+      WEBSITE: biraradamoda
     secrets: inherit
 
   generate_nav_job:

@@ -1,11 +1,11 @@
 
 import Tabs from '@mui/material/Tabs'
 import Tab  from '@mui/material/Tab'
-import { actions } from '../store/mainSlice'
+import { actions } from '../store/collectedDataSlice'
 import { useDispatch,useSelector } from 'react-redux'
 export default function TabContainer(){
     const dispatch =useDispatch()
-    const selectedTab = useSelector(state=>state.main.selectedTab)
+    const selectedTab = useSelector(state=>state.collectedData.selectedTab)
 
     return (<Tabs value={selectedTab} onChange={(event,newValue)=>{
         dispatch(actions.setTab(newValue))

@@ -28,7 +28,7 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
     
     const startAt = parseInt(start)
     var products = TAFFY(data);
-
+debugger
     const filterByKeyword = selectedNavIndex === '' ? function () { return true } : function filterByKeyword() {
 
         let splittedKeywordsIndex = selectedNavIndex.split('-').filter(f => f !== '')
@@ -85,7 +85,7 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
                     nws = negwords.split(',')
 
                 }
-                const kw = kws.keyword
+                const kw = kws.keywords
                 const match = productTitleMatch({ kw, title, exactmatch, nws })
                 return match
             }

@@ -11,8 +11,9 @@ import { actions } from './store/mainSlice'
 export default function AppBarComponent() {
     const dispatch = useDispatch()
 
-    function handleCollectedClick() {
-        dispatch(actions.toggleCollectedDrawer())
+    function handleCollectedClick(e) {
+        const {id}=e.target
+        dispatch(actions.setSelectedSlice(id))
     }
     return (
         <Box >
@@ -24,8 +25,9 @@ export default function AppBarComponent() {
                         Trends
                     </Typography>
                
-                    <Button color="inherit" onClick={handleCollectedClick}>Collected Data</Button>
-                    <Button color="inherit">Accessed Data</Button>
+                    <Button color="inherit" id='collected-data' onClick={handleCollectedClick}>Collected Data</Button>
+                    <Button color="inherit" id='accessed-data'onClick={handleCollectedClick}>Accessed Data</Button>
+                    <Button color="inherit" id='keywords' onClick={handleCollectedClick}>Keywords</Button>
                 </Toolbar>
                 
             </AppBar>

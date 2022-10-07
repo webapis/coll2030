@@ -12,14 +12,14 @@ import Divider from '@mui/material/Divider';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { actions } from '../store/mainSlice'
+import { actions } from '../store/collectedDataSlice'
 
 
 
 export default function CollectedDataBySubcatDrawer({data}) {
     const markas = Object.entries(data)
     const dispatch = useDispatch()
-    const {selectedMarka} = useSelector(state => state.main)
+    const {selectedMarka} = useSelector(state => state.collectedData)
 
     return <Drawer variant="permanent"   anchor="right" open={true} onClose={() => {  }}
         sx={{

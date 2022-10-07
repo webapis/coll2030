@@ -22,17 +22,19 @@
     const { getSheetValues } = require(`${process.cwd()}/google.sheet.js`)
     const google_access_token = await getGoogleToken()
     const spreadsheetId = '1A4FWttdgPq2kaT2fr_Z0ke3ETfK8ndjiyEc7nvJ4xHk'
-    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range: 'modaburada!A:G' })
+    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range: 'biraradamoda!A:G' })
     const categoryItems = []
     debugger
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
-        const productName = value[0]
+        const productName = value[1]
+        debugger
         //  const exact = value[1]
         //   const exclude = value[2]
-        const fn = value[3]
+        const fn = value[4]
         // const groupDescription = value[4]
-        const sort = value[5]
-        const group = value[6]
+        const sort = value[6]
+        const group = value[7]
+  
         categoryItems.push({ productName: productName.toLowerCase(), fn, group, sort, group })
     }
     const placeholder = ''
@@ -95,7 +97,6 @@
         debugger
         if (true) {
 
-
             debugger
             const keywordsRoot = commonNavHandler({ subcategory: fn, keyOrder: '0', navindex: '0-' })
             const s = keywordsRoot.keywords.filter(f => f[2] === productName)
@@ -154,7 +155,7 @@
 
 
                     const fileName = keyword + path.extname(imageUrl)
-                    const filePath = path.join(process.cwd(), 'public/indexed-images', fn, productName, fileName)
+                    const filePath = path.join(process.cwd(), 'public/indexed-images', productName, fileName)
                     makedir.sync(path.dirname(filePath))
                     if (fs.existsSync(filePath)) {
                        // const b64 = fs.readFileSync(filePath, { encoding: 'base64' })

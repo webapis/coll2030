@@ -10,7 +10,7 @@ async function generateSubcategoryKeywords() {
     const keywordsObj = {}
     for (let k of keywords) {
 
-        keywordsObj[k.keyword] = k
+        keywordsObj[k.title] = k
 
 
     }
@@ -24,14 +24,16 @@ async function generateSubcategoryKeywords() {
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range: `${website}!A:G` })
     debugger
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
-        const subcategory = value[0]
-        const exact = value[1]
-        const exclude = value[2]
-        const functionName = value[3]
-        const groupDescription = value[4]
-        const sort = value[5]
-        const group = value[6]
-        categoryItems.push({ subcategory, exact, exclude, functionName, groupDescription, sort, group })
+        const keywords = value[0]
+        const subcategory =value[1]
+        const exact = value[2]
+        const exclude = value[3]
+        const functionName = value[4]
+        const groupDescription = value[5]
+        const sort = value[6]
+        const group = value[7]
+    
+        categoryItems.push({keywords, subcategory, exact, exclude, functionName, groupDescription, sort, group })
 
     }
 
@@ -47,16 +49,17 @@ async function generateSubcategoryKeywords() {
         fs.unlinkSync(`src/category-nav.json`)
     }
     const mappedCatItems = categoryItems.map(m => {
-        let index = ''
-
-        if (keywordsObj[m.subcategory] === undefined || keywordsObj[m.subcategory].index === undefined) {
-         
-            index = undefined
-            
+        let index=''
+        if(keywordsObj[m.subcategory] ===undefined || keywordsObj[m.subcategory].index===undefined){
+            debugger
+            index=undefined
         }
-        else {
+        else{
             index = keywordsObj[m.subcategory].index
+        
         }
+
+        
 
 
         return { ...m, index: index + '-' }

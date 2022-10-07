@@ -55,25 +55,22 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
     const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range })
     debugger
     for (let value of sheetData.values.filter((c, i) => i > 0)) {
-        const keyword = value[0]
-        const parentorchild = value[1]
-        const parentkey = value[2]
-        const title = value[3]
-        const negwords = value[4]
-        const exactmatch = value[5]
-        const state = value[6]
-        const group = value[7]
-        const index = value[8]
-        const groupid = value[9]
-        const category = value[10]
-        const subcategory = value[11]
+        const keywords = value[0]
 
-        console.log('exactmatch...', exactmatch, keyword)
-        categoryItems.push({ keyword, parentorchild, parentkey, title, negwords, exactmatch, state, group, index, groupid, category, subcategory })
+        const title = value[1]
+        const exclude = value[2]
+        const exactmatch = value[3]
+
+        const index = value[4]
+        const groupid = value[5]
+        const category = value[6]
+        const subcategory = value[7]
+
+        categoryItems.push({ keywords, title, negwords:exclude, exactmatch, index, groupid, category, subcategory })
 
     }
 
-    const data = categoryItems.filter(f => f.state === undefined || f.state !== 'FALSE').filter(f => f.parentorchild === 'parent')
+    const data = categoryItems
 
     await makeDir(`api/_files/nav`)
 
@@ -91,7 +88,7 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
     const reduced = data.reduce((prev, curr) => {
    
         return {
-            ...prev, [curr.keyword]: { subcategory: curr.subcategory, category: curr.category }
+            ...prev, [curr.title]: { subcategory: curr.subcategory, category: curr.category,keywords:curr.keywords }
         }
     }, {})
     debugger

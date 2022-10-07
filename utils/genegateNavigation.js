@@ -5,13 +5,14 @@
   console.log('--------------GEN NAV DATA STARTED-------------')
 
   try {
-    await genNav({ node: 'dream', subcategory: 'one' })
-    await genNav({ node: 'dream', subcategory: 'two' })
-    await genNav({ node: 'dream', subcategory: 'three' })
-    await genNav({ node: 'dream', subcategory: 'four' })
-    await genNav({ node: 'dream', subcategory: 'five' })
-    await genNav({ node: 'dream', subcategory: 'six' })
-    await genNav({ node: 'dream', subcategory: 'seven' })
+    await genNav({ functionName: 'one' })
+    await genNav({ functionName: 'two' })
+    await genNav({ functionName: 'three' })
+    await genNav({ functionName: 'four' })
+    await genNav({ functionName: 'five' })
+    await genNav({ functionName: 'six' })
+    await genNav({ functionName: 'seven' })
+    await genNav({ functionName: 'eight' })
     // await genNav({ node: 'dream', subcategory: 'eight' })
     // await genNav({ node: 'dream', subcategory: 'nine' })
     // await genNav({ node: 'dream', subcategory: 'ten' })
@@ -40,7 +41,7 @@
   // await genNav({ node: 'dream', subcategory: 'twenty-eight' })
   // await genNav({ node: 'dream', subcategory: 'twenty-nine' })
   // await genNav({ node: 'dream', subcategory: 'thirty' })
-  await genNav({ node: 'dream', subcategory: 'diger' })
+  await genNav({ functionName: 'diger' })
 
   process.exit(0)
 
@@ -48,13 +49,13 @@
 
 //
 
-async function genNav({ node, subcategory }) {
+async function genNav({ functionName }) {
 
   const path = require('path')
   const makeDir = require('make-dir');
 
   const fs = require('fs')
-  const folder = path.join(process.cwd(), `api/_files/data/${subcategory}`)
+  const folder = path.join(process.cwd(), `api/_files/data/${functionName}`)
 
   const files = fs.readdirSync(folder)
 
@@ -74,35 +75,37 @@ async function genNav({ node, subcategory }) {
 
   }
 
-  const { productTitleMatch } = require('./productTitleMatch')
+  const { productTitleMatch } = require('../netlify/functions/productTitleMatch')
 
 
 
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
+
   let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
 
   let objCounter = 0
+  debugger
   dataCollection.forEach(async (object) => {
 
- 
-    const {  title, marka, priceNew } = object
+
+    const { title, priceNew } = object
 
 
-    let navMatchCollection = []
+    //let navMatchCollection = []
     if (title) {
 
       const keywords = allkeywords
       if (keywords && keywords.length > 0) {
 
-        const navMatch = keywords.map((m, b) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
+        const navMatch = keywords.map((m) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
 
 
           let exactmatch = kws.exactmatch
           let negwords = kws.negwords
 
-          let index =parseInt(  kws.index.replace('-','') )
-          if (index <=12) {
-            const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
+          let index = parseInt(kws.index.replace('-', ''))
+          if (index <= 12) {
+            const priceRange = kws.keywords.split('-').map(m => parseInt(m).toFixed(2))
             const startPrice = parseFloat(priceRange[0])
             const endPrice = parseFloat(priceRange[1])
 
@@ -126,7 +129,7 @@ async function genNav({ node, subcategory }) {
 
               }
             } catch (error) {
-       
+
             }
 
           } else {
@@ -136,8 +139,10 @@ async function genNav({ node, subcategory }) {
               nws = negwords.split(',')
 
             }
-            const kw = kws.keyword
+            const kw = kws.keywords
+
             const match = productTitleMatch({ kw, title, exactmatch, nws })
+
             return match
           }
 
@@ -145,62 +150,65 @@ async function genNav({ node, subcategory }) {
 
         if (navMatch.length > 0) {
 
-          navMatchCollection.push(navMatch)
+          // navMatchCollection.push(navMatch)
 
           const possibleCombination = getCombinations(navMatch.map((m) => m.index))
 
           possibleCombination.forEach(async (c, h) => {
 
-            const comb = c.split('-').filter(f => f !== '').map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
-            const mapComb = comb.split('-').filter(f => f !== '').map((m) => {
-              const obj = navMatch.find(f => f.index.replace('-', '').trim() === m)
-              return obj
+            const comb = c.split('-').filter(f=>f !=='').map(m =>parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
+        
+     
+     
+            // const mapComb = comb.split('-').filter(f => f !== '').map((m) => {
+            //   const obj = navMatch.find(f => f.index.replace('-', '').trim() === m)
+            //   return obj
+            // })
+
+            // let doubleExist = false
+            // for (let g of mapComb) {
+
+            //   let match = navMatch.filter(f => f.groupid === g.groupid)
+
+            //   if (match.length > 1) {
+            //     doubleExist = true
+
+            //   }
+
+            // }
+
+
+
+
+            if (navKeys[comb] === undefined) {
+              navKeys[comb] = { keywords: {} }
+            }
+            navMatch.forEach(nm => {
+              const { index, title } = nm
+
+              if (navKeys[comb].keywords[title] === undefined) {
+
+                navKeys[comb].keywords[title] = { count: 1, index }
+              }
+              else {
+                const count = navKeys[comb].keywords[title].count
+                navKeys[comb].keywords[title] = { count: count + 1, index }
+              }
+
             })
 
-            let doubleExist = false
-            for (let g of mapComb) {
 
-              let match = navMatch.filter(f => f.groupid === g.groupid)
-
-              if (match.length > 1) {
-                doubleExist = true
-
-              }
-
-            }
-
-            if (true) {
-
-
-              if (navKeys[comb] === undefined) {
-                navKeys[comb] = { keywords: {} }
-              }
-              navMatch.forEach(nm => {
-                const { keyword, group, index, parentkey } = nm
-
-                if (navKeys[comb].keywords[keyword] === undefined) {
-
-                  navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, marka, parentkey }
-                }
-                else {
-                  const count = navKeys[comb].keywords[keyword].count
-                  navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, marka, parentkey }
-                }
-
-              })
-
-            }
           })
           navMatch.forEach(nm => {
-            const { keyword, group, index, parentkey } = nm
+            const { index, title } = nm
 
-            if (navKeys['0-'].keywords[keyword] === undefined) {
+            if (navKeys['0-'].keywords[title] === undefined) {
 
-              navKeys['0-'].keywords[keyword] = { count: 1, group: group.trim(), index, marka, parentkey }
+              navKeys['0-'].keywords[title] = { count: 1, index }
             }
             else {
-              const count = navKeys['0-'].keywords[keyword].count
-              navKeys['0-'].keywords[keyword] = { count: count + 1, group: group.trim(), index, marka, parentkey }
+              const count = navKeys['0-'].keywords[title].count
+              navKeys['0-'].keywords[title] = { count: count + 1, index }
             }
 
           })
@@ -220,18 +228,20 @@ async function genNav({ node, subcategory }) {
   console.log('nav gen complete')
 
   let regrouped = []
-
+  debugger
   for (let nk in navKeys) {
 
     const { keywords } = navKeys[nk]
 
-    const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } }).filter(m=>m.index !==undefined).map(m=>{return [ m.count, m.index, m.keyword ] })
+    const map = Object.entries(keywords).map((m) => { return { ...m[1], title: m[0] } }).map(m => {
+
+      return [m.count, m.index, m.title]
+    })
 
 
     const id = parseInt(nk.replace(/-/g, '').trim())
 
     regrouped.push({ i: nk, k: map, id })
-
 
   }
 
@@ -249,8 +259,8 @@ async function genNav({ node, subcategory }) {
 
   })
 
-  const firstPart = mapped.filter((f) => f.fn === 0).map(m=>{return {i:m.i,k:m.k,id:m.id}})
-  const secondPart = mapped.filter((f) => f.fn === 1).map(m=>{return {i:m.i,k:m.k,id:m.id}})
+  const firstPart = mapped.filter((f) => f.fn === 0).map(m => { return { i: m.i, k: m.k } })
+  const secondPart = mapped.filter((f) => f.fn === 1).map(m => { return { i: m.i, k: m.k } })
 
 
   debugger
@@ -258,14 +268,13 @@ async function genNav({ node, subcategory }) {
 
 
 
-  const savePathDir = path.join(process.cwd(), `api/_files/key/${subcategory}`)
+  const savePathDir = path.join(process.cwd(), `api/_files/key/${functionName}`)
   await makeDir(savePathDir)
 
-  const path0 = path.join(process.cwd(), `api/_files/key/${subcategory}`, '0-keywords.json')
-  const path1 = path.join(process.cwd(), `api/_files/key/${subcategory}`, '1-keywords.json')
-  //console.log('path0', path0)
-  //console.log('path1', path1)
-    if (fs.existsSync(path0)) {
+  const path0 = path.join(process.cwd(), `api/_files/key/${functionName}`, '0-keywords.json')
+  const path1 = path.join(process.cwd(), `api/_files/key/${functionName}`, '1-keywords.json')
+
+  if (fs.existsSync(path0)) {
     fs.unlinkSync(path0)
   }
   if (fs.existsSync(path1)) {
