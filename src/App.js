@@ -226,7 +226,13 @@ export default class App extends React.Component {
     if (href === 'http://localhost:8888/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
-      host = `https://coll2030.netlify.app/.netlify/functions`
+      if (href !== 'https://www.biraradamoda.com') {
+        host = 'https://development--coll2030.netlify.app/.netlify/functions'
+      } else {
+        host = 'https://coll2030.netlify.app/.netlify/functions'
+      }
+
+
     }
     let productImgIndexes = null
     if (imageIndexes[selectedNavIndex] !== undefined) {
