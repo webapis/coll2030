@@ -47,7 +47,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "node utils/mergefiles.js  && node utils/genegateNavigation.js && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "genKeywords": "node utils/generateKeywords.js",
