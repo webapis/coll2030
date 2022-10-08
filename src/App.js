@@ -220,7 +220,7 @@ export default class App extends React.Component {
 
   async fetchProducts(start) {
     const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
-debugger
+    debugger
     let host = ''
     let href = window.location.href
     if (href === 'http://localhost:8888/') {
@@ -232,7 +232,7 @@ debugger
     if (imageIndexes[selectedNavIndex] !== undefined) {
 
       const response = await fetch(`${host}/imageIndex?navindex=${selectedNavIndex}`)
-debugger
+      debugger
       productImgIndexes = await response.json()
       debugger
       console.log('data elngt', productImgIndexes)
@@ -269,8 +269,12 @@ debugger
     if (href === 'http://localhost:8888/') {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
+      if (href !== 'https://www.biraradamoda.com') {
+        host = 'https://development--coll2030.netlify.app/.netlify/functions'
+      } else {
+        host = 'https://coll2030.netlify.app/.netlify/functions'
+      }
 
-      host = 'https://coll2030.netlify.app/.netlify/functions'             //`https://${node}.vercel.app/api/fns` 
 
     }
 
@@ -301,7 +305,7 @@ debugger
       const grouped = {}
 
       for (let kw of keywords) {
-debugger
+        debugger
         const k = kw[2]
 
         const groupName = keywordgroup[k]['subcategory']
