@@ -12,28 +12,54 @@ import groupNames from './groupNames';
 export default function KeywordsEditorContainer() {
 
   const dispatch = useDispatch()
-  const { editor,postingNewKeyword } = useSelector(state => state.keywords)
+  const { editor,postingNewKeyword,keywords } = useSelector(state => state.keywords)
 
   function handleChange(e) {
     const { name, value } = e.target
     dispatch(actions.setEditorValue({ name, value }))
   }
-
+  dispatch(actions.setPostingNewKeyword(true))
   async function handleSave() {
-    dispatch(actions.setPostingNewKeyword(true))
-    const response = await fetch('/.netlify/functions/crud', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-       },
-      body: JSON.stringify(editor)
-    });
-debugger
-    const {_id} =await response.json()
-    dispatch(actions.setAddKeywords({...editor,_id}))
-    dispatch(actions.setPostingNewKeyword(true))
+    const {_id:ID}=editor
     debugger
+    if(ID){
+      const response = await fetch('/.netlify/functions/crud', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+         },
+        body: JSON.stringify(editor)
+      });
+  
+      const result =await response.json()
+      
+      const nextState ={...keywords,[editor.groupName]:[...keywords[editor.groupName].filter(f=>f._id!==ID),{...editor,_id:ID}]}
+      
+      dispatch(actions.setUpdatedKeyword({nextState}))
+      dispatch(actions.setKeywordsToDisplay({[editor.groupName]:[...keywords[editor.groupName].filter(f=>f._id!==ID),{...editor,_id:ID}]}))
+      dispatch(actions.setPostingNewKeyword(true))
+    }else{
+      const response = await fetch('/.netlify/functions/crud', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+         },
+        body: JSON.stringify(editor)
+      });
+  
+      const {_id} =await response.json()
+      
+      const nextState ={...keywords,[editor.groupName]:[...keywords[editor.groupName],{...editor,_id}]}
+      
+      dispatch(actions.setAddedKeyword(nextState))
+      dispatch(actions.setKeywordsToDisplay({[editor.groupName]:[...keywords[editor.groupName],{...editor,_id}]}))
+      dispatch(actions.setPostingNewKeyword(true))
+      
+    }
 
+
+ 
+  
   }
 
   return <div style={{ marginTop: 100, display: 'flex', flexDirection: 'column'}}>
@@ -147,7 +173,7 @@ debugger
 
 
     <Stack spacing={2} direction="row" sx={{ marginTop: 1 }}>
-      <LoadingButton loading={postingNewKeyword} variant="contained" onClick={handleSave}  loadingIndicator="Loading…">Save</LoadingButton>
+      <LoadingButton  variant="contained" onClick={handleSave}  loadingIndicator="Loading…">Save</LoadingButton>
     </Stack>
 
   </div>

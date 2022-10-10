@@ -1,6 +1,6 @@
 
 require('dotenv').config()
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = process.env.MONGODB_URL
 
 exports.handler = async function (event, context) {
@@ -23,17 +23,17 @@ exports.handler = async function (event, context) {
 
   }
   else if (event.httpMethod === 'GET') {
-    debugger
-    const { type,_id } = event.queryStringParameters
+
+    const { type, _id } = event.queryStringParameters
 
     const client = new MongoClient(uri, { useUnifiedTopology: true });
     const db = client.db("biraradamoda");
 
     let collection = db.collection('keywords');
-    let query =type==='all'?{}:{_id}
+    let query = type === 'all' ? {} : { _id }
     let data = await collection.find(query).toArray()
 
-debugger
+
     return {
       statusCode: 200,
       headers: {
@@ -46,15 +46,15 @@ debugger
   else if (event.httpMethod === 'POST') {
     debugger
     try {
- 
+
       const { body } = event
       const objData = JSON.parse(body)
       const client = new MongoClient(uri, { useUnifiedTopology: true });
       const db = client.db("biraradamoda");
-  
+
       let collection = db.collection('keywords');
       let count = await collection.countDocuments()
-      let {insertedId} = await collection.insertOne({ ...objData, index: count + 1 })
+      let { insertedId } = await collection.insertOne({ ...objData, index: count + 1 })
 
       debugger
       return {
@@ -62,7 +62,7 @@ debugger
         headers: {
           "Access-Control-Allow-Origin": "*", // Allow from anywhere 
         },
-        body: JSON.stringify({_id:insertedId})
+        body: JSON.stringify({ _id: insertedId })
       }
     } catch (error) {
       return {
@@ -73,7 +73,7 @@ debugger
         body: "Server side error"
       }
     }
-  
+
 
   }
   else if (event.httpMethod === 'DELETE') {
@@ -94,18 +94,39 @@ debugger
   }
 
   else if (event.httpMethod === 'PUT') {
-    debugger
-    const { start, search, selectedNavIndex } = event.queryStringParameters
 
-    debugger
+    try {
+      debugger
+      const { body } = event
+      const objData = JSON.parse(body)
+      const client = new MongoClient(uri, { useUnifiedTopology: true });
+      const db = client.db("biraradamoda");
+      const id = objData._id
+      delete objData._id
+      let collection = db.collection('keywords');
+      debugger
+      let {modifiedCount} = await collection.updateOne({ _id: ObjectId(id) }, { $set: objData })
 
+      debugger
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Allow from anywhere 
+        },
+        body: JSON.stringify({
+          modifiedCount
+        })
+      }
+    } catch (error) {
 
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*", // Allow from anywhere 
-      },
-      body: JSON.stringify({ data: d, count })
+      debugger
+      return {
+        statusCode: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Allow from anywhere 
+        },
+        body: "Server side error"
+      }
     }
 
   }

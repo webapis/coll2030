@@ -13,8 +13,8 @@ const initialState = {
   addKeywords: false,
   loadingKeywords: false,
   postingNewKeyword: false,
-  filteredGroupName:'',
-  filteredKeywords:[]
+  filteredGroupName: '',
+  keywordsToDisplay: []
 }
 
 export const keywordsSlice = createSlice({
@@ -33,28 +33,46 @@ export const keywordsSlice = createSlice({
     },
     setKeywords: (state, action) => {
       state.keywords = action.payload
+      state.keywordsToDisplay = action.payload
     },
 
     setAddKeywords: (state, action) => {
       state.addKeywords = !state.addKeywords
     },
     setAddedKeyword: (state, action) => {
-      state.keywords = [...state.keywords, action.payload]
+
+      state.keywords = action.payload
+      state.addKeywords = false
+    },
+    setUpdatedKeyword: (state, action) => {
+
+      state.keywords = action.payload.nextState
+      debugger
+
+      debugger
       state.addKeywords = false
     },
     setLoadingKeywords: (state, action) => {
       state.loadingKeywords = action.payload
     },
     setPostingNewKeyword: (state, action) => {
-      debugger
+
       state.postingNewKeyword = action.payload
     },
     setKeywordsFilter: (state, action) => {
 
+      
+      state.keywordsToDisplay = action.payload.keywordsToDisplay
+      state.filteredGroupName =  action.payload.groupName
       debugger
-     state.filteredKeywords = action.payload
-      state.filteredGroupName=action.payload
-      debugger
+
+    },
+    editKeyword: (state, action) => {
+      state.addKeywords = true
+      state.editor = action.payload
+    },
+    setKeywordsToDisplay:(state,action)=>{
+      state.keywordsToDisplay = action.payload
     }
   },
 

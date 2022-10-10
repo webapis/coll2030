@@ -5,21 +5,32 @@ import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import Paper from '@mui/material/Paper';
-export default function KeywordGroup({ groupName, keywords }) {
-
+import { useDispatch,useSelector } from 'react-redux';
+import {actions}from '../store/keywordsSlice'
+export default function KeywordGroup({ groupName,keywords }) {
+    const {keywords:rootKeywords}=useSelector(state=>state.keywords)
+    const dispatch=useDispatch()
+    function editKeyword(id){
+    
+        
+        const nextState = rootKeywords[groupName].find(f=>f._id===id)
+        
+        dispatch(actions.editKeyword(nextState))
+    }
     return (
         <Paper>
         <List
             sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
             subheader={<ListSubheader>{groupName}</ListSubheader>}
         >
-            {keywords.map(m => {
-                return <ListItem secondaryAction={
-                    <IconButton edge="end" aria-label="edit">
+            { keywords.map((m,i) => {
+                
+                return <ListItem key={i} secondaryAction={
+                    <IconButton edge="end" aria-label="edit" onClick={()=>editKeyword(m._id)}>
                         <EditIcon />
                     </IconButton>
                 }>
-                    <ListItemText id="switch-list-label-wifi" primary={m.keywords} />
+                    <ListItemText name={m._id} primary={m.keywords} />
 
                 </ListItem>
             })}

@@ -42,7 +42,7 @@ export default function CollectedDataBySubcatDrawer({data}) {
                 const marka = obj[0]
                 const subcategories =obj[1]
 
-                debugger
+                
                 return <TreeItem key={marka} nodeId={marka} label={marka} onClick={() => {
                     dispatch(actions.setSelectedMarka({marka,subcategories}))
                 }}/>
@@ -101,14 +101,14 @@ export default function CollectedDataBySubcatDrawer() {
                 const marka = obj[0]
                 const subcategories = Object.entries(obj[1])
 
-                debugger
+                
                 return <TreeItem key={marka} nodeId={marka} label={marka} onClick={() => {
                     dispatch(actions.setSelectedMarka(marka))
                 }}>
                     {subcategories.map(m => {
                         const subcategory = m[0]
                         const { data } = m[1]
-                        debugger
+                        
                         return <TreeItem key={subcategory} nodeId={subcategory} label={subcategory} onClick={() => {
                             dispatch(actions.setSelectedSubcategory({ subcategory, data }))
                         }} />

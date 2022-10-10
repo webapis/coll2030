@@ -18,6 +18,6 @@ export default [{groupName:'Üst giyim',keywordsType:'category'},
 {groupName:'Renk',keywordsType:'keywords'},
 {groupName:'Marka',keywordsType:'keywords'},
 {groupName:'Fiyat',keywordsType:'keywords'},
-
+{groupName:'Ev giyim',keywordsType:'category'},
 
 ]

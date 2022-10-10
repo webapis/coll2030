@@ -8,23 +8,30 @@ import {actions} from '../store/keywordsSlice'
 export default function KeywordsFilter(){
 const dispatch=useDispatch()
 const {filteredGroupName,keywords}=useSelector(state=>state.keywords)
-debugger
+
 function handleFilter(event,newInputValue){
     let filtered ={}
-    for(let k in keywords){
-        if(k===newInputValue){
-         filtered[k]=keywords[k]
-         debugger
-         break;
+    if(newInputValue===''){
+        filtered=keywords
+    }else{
+
+        for(let k in keywords){
+            if(k===newInputValue){
+             filtered[k]=keywords[k]
+       
+             break;
+            }
+     
         }
- 
     }
+    const keywordsToDisplay=Object.entries(filtered)[0][1]
+    const groupName=Object.entries(filtered)[0][0]
 debugger
-    dispatch(actions.setKeywordsFilter(filtered))
+    dispatch(actions.setKeywordsFilter({groupName,[groupName]:keywordsToDisplay}))
 }
     return (
         <Autocomplete
-      
+            inputValue={filteredGroupName}
           disablePortal
           id="combo-box-demo"
           options={groupNames.map(m=>{return {label:m.groupName} })}

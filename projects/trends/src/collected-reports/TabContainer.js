@@ -9,7 +9,7 @@ export default function TabContainer(){
 
     return (<Tabs value={selectedTab} onChange={(event,newValue)=>{
         dispatch(actions.setTab(newValue))
-        debugger 
+         
 }}>
         <Tab color='inherit' value={0} label="collected"  />
         <Tab color='inherit' value={1} label="updated"/>

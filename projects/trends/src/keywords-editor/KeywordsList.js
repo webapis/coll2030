@@ -10,21 +10,15 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import KeywordsFilter from "./KeywordsFilter";
 export default function KeywordsList() {
-    const { keywords,filteredKeywords,addKeywords,loadingKeywords } = useSelector(state => state.keywords)
+    const { keywords,keywordsToDisplay,addKeywords,loadingKeywords } = useSelector(state => state.keywords)
   
-    const [keywordsState,setKeywordsState]=useState()
+console.log('keywords',keywords)
     const dispatch = useDispatch()
 
     useEffect(() => {
         getKeywords()
     }, [])
-    useEffect(()=>{
-        if(filteredKeywords !==null){
-            setKeywordsState(filteredKeywords)
-        }else{
-            setKeywordsState(keywords)
-        }
-    },[filteredKeywords])
+
 
     async function getKeywords() {
         dispatch(actions.setLoadingKeywords(true))
@@ -55,13 +49,13 @@ export default function KeywordsList() {
     
         {addKeywords && <Grid item xs={12}><KeywordsEditorContainer/></Grid>}
 
-        {!addKeywords && Object.entries(keywords).map(m => {
+        {!addKeywords && Object.entries(keywordsToDisplay).map((m,i) => {
             const groupName = m[0]
             const keywords = m[1]
       
-            return <Grid item xs={3}  sx={{height:400,overflow:'scroll'}}> <KeywordGroup groupName={groupName} keywords={keywords} /></Grid>
+            return <Grid key={i} item xs={12} md={3}   sx={{height:400,overflow:'scroll'}}> <KeywordGroup groupName={groupName} keywords={keywords} /></Grid>
         })}
-        <Grid item={12}>
+        <Grid item  xs={12}>
 
         {loadingKeywords &&<div>Loading Keywords...<CircularProgress/></div>}
         </Grid>
