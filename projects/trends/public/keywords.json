@@ -1,1 +1,3292 @@
-[{}]
+[
+    {
+        "keywords": "0-100",
+        "title": "0-100",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "1",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "100-200",
+        "title": "100-200",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "2",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "200-300",
+        "title": "200-300",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "3",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "300-400",
+        "title": "300-400",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "4",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "400-500",
+        "title": "400-500",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "5",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "500-600",
+        "title": "500-600",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "6",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "600-700",
+        "title": "600-700",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "7",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "700-800",
+        "title": "700-800",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "8",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "800-900",
+        "title": "800-900",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "9",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "900-1000",
+        "title": "900-1000",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "10",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "1000-1500",
+        "title": "1000-1500",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "11",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "1500",
+        "title": "1500",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "12",
+        "groupid": "1",
+        "category": "Fiyat",
+        "subcategory": "a.Fiyat"
+    },
+    {
+        "keywords": "büyük beden",
+        "title": "büyük beden",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "13",
+        "groupid": "1",
+        "category": "Beden",
+        "subcategory": "b.Büyük beden"
+    },
+    {
+        "keywords": "H&M+",
+        "title": "H&M+",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "14",
+        "groupid": "1",
+        "category": "Beden",
+        "subcategory": "b.Büyük beden"
+    },
+    {
+        "keywords": "crop",
+        "title": "crop",
+        "negwords": "ceket, yelek, blazer, yağmurluk,mont,sweatshirt,pantolon,şort,kazak,hırka,süveter,bluz,gömlek,atlet",
+        "exactmatch": "TRUE",
+        "index": "15",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "kimono",
+        "title": "kimono",
+        "negwords": "elbise",
+        "exactmatch": "TRUE",
+        "index": "16",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "elbise",
+        "title": "elbise",
+        "negwords": "abiye,ceket,tişört,kimono,sweatshirt,penye,tunik,salopet,tulum,etek",
+        "exactmatch": "TRUE",
+        "index": "17",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "abiye",
+        "title": "abiye",
+        "negwords": "tulum",
+        "exactmatch": "TRUE",
+        "index": "18",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "tulum",
+        "title": "tulum",
+        "negwords": "şort,abiye",
+        "exactmatch": "TRUE",
+        "index": "19",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "salopet",
+        "title": "salopet",
+        "negwords": "elbise",
+        "exactmatch": "TRUE",
+        "index": "20",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "kazak",
+        "title": "kazak",
+        "negwords": "tunik",
+        "exactmatch": "TRUE",
+        "index": "21",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "süveter",
+        "title": "süveter",
+        "negwords": "tunik",
+        "exactmatch": "TRUE",
+        "index": "22",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "hırka",
+        "title": "hırka",
+        "negwords": "tunik",
+        "exactmatch": "TRUE",
+        "index": "23",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "gömlek,gömle",
+        "title": "gömlek",
+        "negwords": "tulum,hırka,atlet,kap",
+        "exactmatch": "TRUE",
+        "index": "24",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "bluz,buz",
+        "title": "bluz",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "25",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "atlet",
+        "title": "atlet",
+        "negwords": "tunik",
+        "exactmatch": "TRUE",
+        "index": "26",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "büstiyer",
+        "title": "büstiyer",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "27",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "t-shirt",
+        "title": "t-shirt",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "28",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "tişört",
+        "title": "tişört",
+        "negwords": "elbise,tunik,gömlek",
+        "exactmatch": "TRUE",
+        "index": "29",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "tunik,tunic",
+        "title": "tunik",
+        "negwords": "elbise,kazak,süveter,hırka,atlet",
+        "exactmatch": "TRUE",
+        "index": "30",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "croptop",
+        "title": "croptop",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "31",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "tshirt",
+        "title": "tshirt",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "32",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "üst",
+        "title": "üst",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "33",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "sweatshirt",
+        "title": "sweatshirt",
+        "negwords": "elbise,pantolon,şort,bermuda,hırka,tunik,etek",
+        "exactmatch": "TRUE",
+        "index": "34",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "penye",
+        "title": "penye",
+        "negwords": "elbise,tunik,etek,atlet",
+        "exactmatch": "TRUE",
+        "index": "35",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "kap",
+        "title": "kap",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "36",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "body",
+        "title": "body",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "37",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "c.Üst giyim"
+    },
+    {
+        "keywords": "pantolon,trousers",
+        "title": "pantolon",
+        "negwords": "pantolon görünümlü,kapri,gömlek",
+        "exactmatch": "TRUE",
+        "index": "38",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "d.Alt giyim"
+    },
+    {
+        "keywords": "jogger",
+        "title": "jogger",
+        "negwords": "pantolon",
+        "exactmatch": "TRUE",
+        "index": "39",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "d.Alt giyim"
+    },
+    {
+        "keywords": "tayt",
+        "title": "tayt",
+        "negwords": "pantolon",
+        "exactmatch": "TRUE",
+        "index": "41",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "d.Alt giyim"
+    },
+    {
+        "keywords": "eşofman",
+        "title": "eşofman",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "42",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "d.Alt giyim"
+    },
+    {
+        "keywords": "şort",
+        "title": "şort",
+        "negwords": "etek,tulum",
+        "exactmatch": "TRUE",
+        "index": "43",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "d.Alt giyim"
+    },
+    {
+        "keywords": "bermuda",
+        "title": "bermuda",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "44",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "d.Alt giyim"
+    },
+    {
+        "keywords": "kapri",
+        "title": "kapri",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "45",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "d.Alt giyim"
+    },
+    {
+        "keywords": "etek",
+        "title": "etek",
+        "negwords": "etek detaylı, etek ucu,şort,tunik,gömlek,elbise",
+        "exactmatch": "TRUE",
+        "index": "46",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "d.Alt giyim"
+    },
+    {
+        "keywords": "yağmurluk",
+        "title": "yağmurluk",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "47",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "mont",
+        "title": "mont",
+        "negwords": "yelek,ceket,parka,kaşe",
+        "exactmatch": "TRUE",
+        "index": "48",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "trençkot",
+        "title": "trençkot",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "49",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "kaban",
+        "title": "kaban",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "50",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "ceket",
+        "title": "ceket",
+        "negwords": "ceket yaka, elbise,ceket tasarımlı,gömlek,dik yaka,mont",
+        "exactmatch": "TRUE",
+        "index": "51",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "pardösü",
+        "title": "pardösü",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "52",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "manto",
+        "title": "manto",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "53",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "palto",
+        "title": "palto",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "54",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "blazer",
+        "title": "blazer",
+        "negwords": "blazer tasarımlı",
+        "exactmatch": "TRUE",
+        "index": "55",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "yelek",
+        "title": "yelek",
+        "negwords": "gömlek",
+        "exactmatch": "TRUE",
+        "index": "56",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "parka",
+        "title": "parka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "57",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "kaşe",
+        "title": "kaşe",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "58",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "f.Dış giyim"
+    },
+    {
+        "keywords": "pijama",
+        "title": "pijama",
+        "negwords": "pijama yaka",
+        "exactmatch": "TRUE",
+        "index": "59",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "g.Ev giyim"
+    },
+    {
+        "keywords": "sabahlık",
+        "title": "sabahlık",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "60",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "g.Ev giyim"
+    },
+    {
+        "keywords": "gecelik",
+        "title": "gecelik",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "61",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "g.Ev giyim"
+    },
+    {
+        "keywords": "külot",
+        "title": "külot",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "62",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "sütyen",
+        "title": "sütyen",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "63",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "bralet",
+        "title": "bralet",
+        "negwords": "bluz",
+        "exactmatch": "TRUE",
+        "index": "64",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "bra",
+        "title": "bra",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "65",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "bikini",
+        "title": "bikini",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "66",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "mayo",
+        "title": "mayo",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "67",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "slip",
+        "title": "slip",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "68",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "string",
+        "title": "string",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "69",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "hipster",
+        "title": "hipster",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "70",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "babydoll",
+        "title": "babydoll",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "71",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "korse",
+        "title": "korse",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "72",
+        "groupid": "1",
+        "category": "Ürün",
+        "subcategory": "h.İç giyim"
+    },
+    {
+        "keywords": "defacto",
+        "title": "defacto",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "73",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "koton",
+        "title": "koton",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "74",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "lcwaikiki",
+        "title": "lcwaikiki",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "75",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "adidas",
+        "title": "adidas",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "76",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "adl",
+        "title": "adl",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "77",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "baqa",
+        "title": "baqa",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "78",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "beymen",
+        "title": "beymen",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "79",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "beyyoglu",
+        "title": "beyyoglu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "80",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "colins",
+        "title": "colins",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "81",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "butigo",
+        "title": "butigo",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "82",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "dilvin",
+        "title": "dilvin",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "83",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "dogo",
+        "title": "dogo",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "84",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "hm",
+        "title": "hm",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "85",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "ipekyol",
+        "title": "ipekyol",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "86",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "machka",
+        "title": "machka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "87",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "penti",
+        "title": "penti",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "88",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "roman",
+        "title": "roman",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "89",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "twist",
+        "title": "twist",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "90",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "vakko",
+        "title": "vakko",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "91",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "zara",
+        "title": "zara",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "92",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "gizia",
+        "title": "gizia",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "93",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "vitrin",
+        "title": "vitrin",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "94",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "xint",
+        "title": "xint",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "95",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "tozlu",
+        "title": "tozlu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "96",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "quzu",
+        "title": "quzu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "97",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "saygigiyim",
+        "title": "saygigiyim",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "98",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "manuka",
+        "title": "manuka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "99",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "kikiriki",
+        "title": "kikiriki",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "100",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "jimmykey",
+        "title": "jimmykey",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "101",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "perspective",
+        "title": "perspective",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "102",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "mango",
+        "title": "mango",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "103",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "olegcassini",
+        "title": "olegcassini",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "104",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "addax",
+        "title": "addax",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "105",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "oxxo",
+        "title": "oxxo",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "106",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "abiyefon",
+        "title": "abiyefon",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "107",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "desa",
+        "title": "desa",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "108",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "patirti",
+        "title": "patirti",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "109",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "yargici",
+        "title": "yargici",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "110",
+        "groupid": "1",
+        "category": "Marka",
+        "subcategory": "i.Marka"
+    },
+    {
+        "keywords": "bej",
+        "title": "bej",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "111",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "beyaz",
+        "title": "beyaz",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "112",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "bordo",
+        "title": "bordo",
+        "negwords": "Siyah,Turuncu,Kırmızı,Puantiyeli,Çiçekli,Çiçek Desenli,Desenli,Çiçek Baskılı,Mavi",
+        "exactmatch": "TRUE",
+        "index": "113",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "camel",
+        "title": "camel",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "114",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "ekru",
+        "title": "ekru",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "115",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "füme",
+        "title": "füme",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "116",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "fuşya",
+        "title": "fuşya",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "117",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "gri",
+        "title": "gri",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "118",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "gül",
+        "title": "gül",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "119",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "haki",
+        "title": "haki",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "120",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "hardal",
+        "title": "hardal",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "121",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "indigo",
+        "title": "indigo",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "122",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "kahverengi",
+        "title": "kahverengi",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "123",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "kiremit",
+        "title": "kiremit",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "124",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "kirmizi",
+        "title": "kirmizi",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "125",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "koyu kirmizi",
+        "title": "koyu kirmizi",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "126",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "koyu mor",
+        "title": "koyu mor",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "127",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "krem",
+        "title": "krem",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "128",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "lacivert",
+        "title": "lacivert",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "129",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "lila",
+        "title": "lila",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "130",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "mint",
+        "title": "mint",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "131",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "mor",
+        "title": "mor",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "132",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "mürdüm",
+        "title": "mürdüm",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "133",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "nar",
+        "title": "nar",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "134",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "pembe",
+        "title": "pembe",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "135",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "petrol",
+        "title": "petrol",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "136",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "pudra",
+        "title": "pudra",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "137",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "saks",
+        "title": "saks",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "138",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "sari",
+        "title": "sari",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "139",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "siyah",
+        "title": "siyah",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "140",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "somon",
+        "title": "somon",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "141",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "taba",
+        "title": "taba",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "142",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "turuncu",
+        "title": "turuncu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "143",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "vizon",
+        "title": "vizon",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "144",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "yağ yeşili",
+        "title": "yağ yeşili",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "145",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "yeşil",
+        "title": "yeşil",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "146",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "zümrüt",
+        "title": "zümrüt",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "147",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "mint yeşili",
+        "title": "mint yeşili",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "148",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "fıstık yeşili",
+        "title": "fıstık yeşili",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "149",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "siyah beyaz",
+        "title": "siyah beyaz",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "150",
+        "groupid": "1",
+        "category": "Renk",
+        "subcategory": "j.Renk"
+    },
+    {
+        "keywords": "triko",
+        "title": "triko",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "151",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "belmando",
+        "title": "belmando",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "152",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "dokulu",
+        "title": "dokulu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "153",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "gabardin",
+        "title": "gabardin",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "154",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "gofre",
+        "title": "gofre",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "155",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "havlu",
+        "title": "havlu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "156",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "jakar",
+        "title": "jakar",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "157",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "kadife",
+        "title": "kadife",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "158",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "kaşkorse",
+        "title": "kaşkorse",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "159",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "keten",
+        "title": "keten",
+        "negwords": "keten görünümlü",
+        "exactmatch": "TRUE",
+        "index": "160",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "keten görünümlü",
+        "title": "keten görünümlü",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "161",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "krep",
+        "title": "krep",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "162",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "krinkle",
+        "title": "krinkle",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "163",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "lyocell",
+        "title": "lyocell",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "164",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "maroken",
+        "title": "maroken",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "165",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "müslin",
+        "title": "müslin",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "166",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "pike",
+        "title": "pike",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "167",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "ponte",
+        "title": "ponte",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "168",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "poplin",
+        "title": "poplin",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "169",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "ribana",
+        "title": "ribana",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "170",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "saten",
+        "title": "saten",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "171",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "şifon",
+        "title": "şifon",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "172",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "skuba",
+        "title": "skuba",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "173",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "tencel",
+        "title": "tencel",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "174",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "tül",
+        "title": "tül",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "175",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "twill",
+        "title": "twill",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "176",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "vual",
+        "title": "vual",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "177",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "atlas kumaş",
+        "title": "atlas kumaş",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "178",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "fitilli",
+        "title": "fitilli",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "179",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "ipek",
+        "title": "ipek",
+        "negwords": "Ipekyol",
+        "exactmatch": "TRUE",
+        "index": "180",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "pamuk",
+        "title": "pamuk",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "181",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "şile bezi",
+        "title": "şile bezi",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "182",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "tafta",
+        "title": "tafta",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "183",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "viskon",
+        "title": "viskon",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "184",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "denim",
+        "title": "denim",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "185",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "jean",
+        "title": "jean",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "186",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "puane",
+        "title": "puane",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "187",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "brode",
+        "title": "brode",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "188",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "dalgıç",
+        "title": "dalgıç",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "189",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "dantel",
+        "title": "dantel",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "190",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "interlok",
+        "title": "interlok",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "191",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "keten karışımlı",
+        "title": "keten karışımlı",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "192",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "süet",
+        "title": "süet",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "193",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "kot",
+        "title": "kot",
+        "negwords": "koton",
+        "exactmatch": "TRUE",
+        "index": "194",
+        "groupid": "1",
+        "category": "Kumaş",
+        "subcategory": "k.Kumaş"
+    },
+    {
+        "keywords": "diz altı",
+        "title": "diz altı",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "195",
+        "groupid": "1",
+        "category": "Boyu",
+        "subcategory": "l.Boyu"
+    },
+    {
+        "keywords": "diz üstü",
+        "title": "diz üstü",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "196",
+        "groupid": "1",
+        "category": "Boyu",
+        "subcategory": "l.Boyu"
+    },
+    {
+        "keywords": "kısa",
+        "title": "kısa",
+        "negwords": "Kısa Kol,kısa kollu,kısa paça",
+        "exactmatch": "TRUE",
+        "index": "197",
+        "groupid": "1",
+        "category": "Boyu",
+        "subcategory": "l.Boyu"
+    },
+    {
+        "keywords": "maksi",
+        "title": "maksi",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "198",
+        "groupid": "1",
+        "category": "Boyu",
+        "subcategory": "l.Boyu"
+    },
+    {
+        "keywords": "maxi",
+        "title": "maxi",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "199",
+        "groupid": "1",
+        "category": "Boyu",
+        "subcategory": "l.Boyu"
+    },
+    {
+        "keywords": "midi",
+        "title": "midi",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "200",
+        "groupid": "1",
+        "category": "Boyu",
+        "subcategory": "l.Boyu"
+    },
+    {
+        "keywords": "mini",
+        "title": "mini",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "201",
+        "groupid": "1",
+        "category": "Boyu",
+        "subcategory": "l.Boyu"
+    },
+    {
+        "keywords": "uzun",
+        "title": "uzun",
+        "negwords": "Uzun Kol,UZUN KOLLU,uzun kollu",
+        "exactmatch": "TRUE",
+        "index": "202",
+        "groupid": "1",
+        "category": "Boyu",
+        "subcategory": "l.Boyu"
+    },
+    {
+        "keywords": "çiçek desen",
+        "title": "çiçek desen",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "203",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "çiçekli",
+        "title": "çiçekli",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "204",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "çilek",
+        "title": "çilek",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "205",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "çizgi",
+        "title": "çizgi",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "206",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "delik desen",
+        "title": "delik desen",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "207",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "deniz kabuğu",
+        "title": "deniz kabuğu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "208",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "etnik",
+        "title": "etnik",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "209",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "geometrik",
+        "title": "geometrik",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "210",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "gül desen",
+        "title": "gül desen",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "211",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "kamuflaj",
+        "title": "kamuflaj",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "212",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "kiraz desen",
+        "title": "kiraz desen",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "213",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "leopar",
+        "title": "leopar",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "214",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "pötikare",
+        "title": "pötikare",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "215",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "puantiye",
+        "title": "puantiye",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "216",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "şal",
+        "title": "şal",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "217",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "zebra",
+        "title": "zebra",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "218",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "mercan desenli",
+        "title": "mercan desenli",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "219",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "nar çiçeği",
+        "title": "nar çiçeği",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "220",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "düz",
+        "title": "düz",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "221",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "file",
+        "title": "file",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "222",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "nakışlı",
+        "title": "nakışlı",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "223",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "payet",
+        "title": "payet",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "224",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "ekoze",
+        "title": "ekoze",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "225",
+        "groupid": "1",
+        "category": "Desen",
+        "subcategory": "m.Desen"
+    },
+    {
+        "keywords": "kısa kollu",
+        "title": "kısa kollu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "227",
+        "groupid": "1",
+        "category": "Kol boyu",
+        "subcategory": "n.Kol boyu"
+    },
+    {
+        "keywords": "kolsuz",
+        "title": "kolsuz",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "228",
+        "groupid": "1",
+        "category": "Kol boyu",
+        "subcategory": "n.Kol boyu"
+    },
+    {
+        "keywords": "uzun kollu",
+        "title": "uzun kollu",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "229",
+        "groupid": "1",
+        "category": "Kol boyu",
+        "subcategory": "n.Kol boyu"
+    },
+    {
+        "keywords": "yarım kol",
+        "title": "yarım kol",
+        "negwords": "Uzun Kollu",
+        "exactmatch": "TRUE",
+        "index": "230",
+        "groupid": "1",
+        "category": "Kol boyu",
+        "subcategory": "n.Kol boyu"
+    },
+    {
+        "keywords": "ispanyol kol",
+        "title": "ispanyol kol",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "231",
+        "groupid": "1",
+        "category": "Kol tipi",
+        "subcategory": "o.Kol tipi"
+    },
+    {
+        "keywords": "kabarık kol",
+        "title": "kabarık kol",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "232",
+        "groupid": "1",
+        "category": "Kol tipi",
+        "subcategory": "o.Kol tipi"
+    },
+    {
+        "keywords": "karpuz kol",
+        "title": "karpuz kol",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "233",
+        "groupid": "1",
+        "category": "Kol tipi",
+        "subcategory": "o.Kol tipi"
+    },
+    {
+        "keywords": "tek kol",
+        "title": "tek kol",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "234",
+        "groupid": "1",
+        "category": "Kol tipi",
+        "subcategory": "o.Kol tipi"
+    },
+    {
+        "keywords": "yarasa kol",
+        "title": "yarasa kol",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "235",
+        "groupid": "1",
+        "category": "Kol tipi",
+        "subcategory": "o.Kol tipi"
+    },
+    {
+        "keywords": "kalp yaka",
+        "title": "kalp yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "236",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "kare yaka",
+        "title": "kare yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "237",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "kruvaze yaka",
+        "title": "kruvaze yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "238",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "madonna yaka",
+        "title": "madonna yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "239",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "balıkçı yaka",
+        "title": "balıkçı yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "240",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "bisiklet yaka",
+        "title": "bisiklet yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "241",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "carmen yaka",
+        "title": "carmen yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "242",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "degaje yaka",
+        "title": "degaje yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "243",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "dik yaka",
+        "title": "dik yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "244",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "dökümlü yaka",
+        "title": "dökümlü yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "245",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "gömlek yaka",
+        "title": "gömlek yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "246",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "hakim yaka",
+        "title": "hakim yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "247",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "halter yaka",
+        "title": "halter yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "248",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "v yaka",
+        "title": "v yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "249",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "ceket yaka",
+        "title": "ceket yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "250",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "kaçık yaka",
+        "title": "kaçık yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "251",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "kayık yaka",
+        "title": "kayık yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "252",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "polo yaka",
+        "title": "polo yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "253",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "straplez",
+        "title": "straplez",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "254",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "tek omuz",
+        "title": "tek omuz",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "255",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "u yaka",
+        "title": "u yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "256",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "bağlamalı yaka",
+        "title": "bağlamalı yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "257",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "pijama yaka",
+        "title": "pijama yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "258",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "klasik yaka",
+        "title": "klasik yaka",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "259",
+        "groupid": "1",
+        "category": "Yaka tipi",
+        "subcategory": "p.Yaka tipi"
+    },
+    {
+        "keywords": "kır düğünü",
+        "title": "kır düğünü",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "260",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "gece",
+        "title": "gece",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "261",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "düğün",
+        "title": "düğün",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "262",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "after party",
+        "title": "after party",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "263",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "davet",
+        "title": "davet",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "264",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "nişan",
+        "title": "nişan",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "265",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "parti",
+        "title": "parti",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "266",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "nikah",
+        "title": "nikah",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "267",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "mezuniyet",
+        "title": "mezuniyet",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "268",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "kokteyl",
+        "title": "kokteyl",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "269",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "q.Konsept"
+    },
+    {
+        "keywords": "ceket tasarımlı",
+        "title": "ceket tasarımlı",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "270",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "blazer tasarımlı",
+        "title": "blazer tasarımlı",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "271",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "gömlek ceket",
+        "title": "gömlek ceket",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "272",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop ceket",
+        "title": "crop ceket",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "273",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop yelek",
+        "title": "crop yelek",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "274",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop blazer",
+        "title": "crop blazer",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "275",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop yağmurluk",
+        "title": "crop yağmurluk",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "276",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop mont",
+        "title": "crop mont",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "277",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "ceket elbise",
+        "title": "ceket elbise",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "278",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "tişört elbise",
+        "title": "tişört elbise",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "279",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "gömlek elbise",
+        "title": "gömlek elbise",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "280",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "kimono elbise",
+        "title": "kimono elbise",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "281",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "sweatshirt elbise",
+        "title": "sweatshirt elbise",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "282",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "penye elbise",
+        "title": "penye elbise",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "283",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop sweatshirt elbise",
+        "title": "crop sweatshirt elbise",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "284",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "tunik elbise",
+        "title": "tunik elbise",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "285",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "gömlek pantolon takım",
+        "title": "gömlek pantolon takım",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "286",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "jogger pantolon",
+        "title": "jogger pantolon",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "287",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "pantolon görünümli tayt",
+        "title": "pantolon görünümli tayt",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "288",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "triko pantolon",
+        "title": "triko pantolon",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "289",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "şort etek",
+        "title": "şort etek",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "290",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "kapri pantolon",
+        "title": "kapri pantolon",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "291",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "sweatshirt şort",
+        "title": "sweatshirt şort",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "292",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "şort tulum",
+        "title": "şort tulum",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "293",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop top şort takım",
+        "title": "crop top şort takım",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "294",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "abiye tulum",
+        "title": "abiye tulum",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "295",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "tunik kazak",
+        "title": "tunik kazak",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "296",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop kazak",
+        "title": "crop kazak",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "297",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "gömlek tasarımlı",
+        "title": "gömlek tasarımlı",
+        "negwords": "",
+        "exactmatch": "TRUE",
+        "index": "298",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "sweatshirt hırka",
+        "title": "sweatshirt hırka",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "299",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "tunik süveter",
+        "title": "tunik süveter",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "300",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "tunik hırka",
+        "title": "tunik hırka",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "301",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop hırka",
+        "title": "crop hırka",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "302",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop süveter",
+        "title": "crop süveter",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "303",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "sweatshirt tunik",
+        "title": "sweatshirt tunik",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "304",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop bluz",
+        "title": "crop bluz",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "305",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "crop gömlek",
+        "title": "crop gömlek",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "306",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "tunik tişört",
+        "title": "tunik tişört",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "307",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "gömlek tişört",
+        "title": "gömlek tişört",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "308",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "tunik hırka",
+        "title": "tunik hırka",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "309",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "penye tunik",
+        "title": "penye tunik",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "310",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "atlet tünik",
+        "title": "atlet tünik",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "311",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "bralet bluz",
+        "title": "bralet bluz",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "312",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "etek takım",
+        "title": "etek takım",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "313",
+        "groupid": "1",
+        "category": "Seçenekler",
+        "subcategory": "r.Seçenekler"
+    },
+    {
+        "keywords": "normal bel",
+        "title": "normal bel",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "314",
+        "groupid": "1",
+        "category": "Bel Yüksekliği",
+        "subcategory": "s.Bel Yüksekliği"
+    },
+    {
+        "keywords": "yüksek bel",
+        "title": "yüksek bel",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "315",
+        "groupid": "1",
+        "category": "Bel Yüksekliği",
+        "subcategory": "s.Bel Yüksekliği"
+    },
+    {
+        "keywords": "bol paça",
+        "title": "bol paça",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "316",
+        "groupid": "1",
+        "category": "Paça",
+        "subcategory": "t.Paça"
+    },
+    {
+        "keywords": "geniş paça",
+        "title": "geniş paça",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "317",
+        "groupid": "1",
+        "category": "Paça",
+        "subcategory": "t.Paça"
+    },
+    {
+        "keywords": "düz paça",
+        "title": "düz paça",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "318",
+        "groupid": "1",
+        "category": "Paça",
+        "subcategory": "t.Paça"
+    },
+    {
+        "keywords": "atlet şort takım",
+        "title": "atlet şort takım",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "319",
+        "groupid": "1",
+        "category": "Paça",
+        "subcategory": "t.Paça"
+    },
+    {
+        "keywords": "crop atlet",
+        "title": "crop atlet",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "320",
+        "groupid": "1",
+        "category": "Paça",
+        "subcategory": "t.Paça"
+    },
+    {
+        "keywords": "penye atlet",
+        "title": "penye atlet",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "321",
+        "groupid": "1",
+        "category": "Paça",
+        "subcategory": "t.Paça"
+    },
+    {
+        "keywords": "atlet tunik",
+        "title": "atlet tunik",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "322",
+        "groupid": "1",
+        "category": "Paça",
+        "subcategory": "t.Paça"
+    },
+    {
+        "keywords": "kısa paça",
+        "title": "kısa paça",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "323",
+        "groupid": "1",
+        "category": "Paça",
+        "subcategory": "t.Paça"
+    },
+    {
+        "keywords": "hamile",
+        "title": "hamile",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "324",
+        "groupid": "1",
+        "category": "Konsept",
+        "subcategory": "y.Hamile"
+    },
+    {
+        "keywords": "kemer",
+        "title": "kemer",
+        "negwords": "kemer detaylı,kemerli",
+        "exactmatch": "",
+        "index": "325",
+        "groupid": "1",
+        "category": "Aksesuar",
+        "subcategory": "v.Aksesuar"
+    },
+    {
+        "keywords": "şapka",
+        "title": "şapka",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "326",
+        "groupid": "1",
+        "category": "Aksesuar",
+        "subcategory": "v.Aksesuar"
+    },
+    {
+        "keywords": "şal",
+        "title": "şal",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "327",
+        "groupid": "1",
+        "category": "Aksesuar",
+        "subcategory": "v.Aksesuar"
+    },
+    {
+        "keywords": "çorap",
+        "title": "çorap",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "328",
+        "groupid": "1",
+        "category": "Aksesuar",
+        "subcategory": "v.Aksesuar"
+    },
+    {
+        "keywords": "cüzdan",
+        "title": "cüzdan",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "329",
+        "groupid": "1",
+        "category": "Aksesuar",
+        "subcategory": "v.Aksesuar"
+    },
+    {
+        "keywords": "babet",
+        "title": "babet",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "330",
+        "groupid": "1",
+        "category": "Ayakkabı",
+        "subcategory": "x.Ayakkabı"
+    },
+    {
+        "keywords": "ayakkabı",
+        "title": "ayakkabı",
+        "negwords": "",
+        "exactmatch": "",
+        "index": "331",
+        "groupid": "1",
+        "category": "Ayakkabı",
+        "subcategory": "x.Ayakkabı"
+    }
+]

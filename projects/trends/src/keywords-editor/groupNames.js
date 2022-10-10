@@ -1,0 +1,23 @@
+export default [{groupName:'Üst giyim',keywordsType:'category'},
+{groupName:'Alt giyim',keywordsType:'category'},
+{groupName:'Dış giyim',keywordsType:'category'},
+{groupName:'İç giyim',keywordsType:'category'},
+{groupName:'Büyük beden',keywordsType:'category'},
+{groupName:'Aksesuar',keywordsType:'category'},
+{groupName:'Elbise',keywordsType:'category'},
+{groupName:'Hamile',keywordsType:'category'},
+{groupName:'Paça',keywordsType:'keywords'},
+{groupName:'Bel yüksekliği',keywordsType:'keywords'},
+{groupName:'Seçenekler',keywordsType:'keywords'},
+{groupName:'Konsept',keywordsType:'keywords'},
+{groupName:'Yaka Tipi',keywordsType:'keywords'},
+{groupName:'Kol tipi',keywordsType:'keywords'},
+{groupName:'Kol boyu',keywordsType:'keywords'},
+{groupName:'Desen',keywordsType:'keywords'},
+{groupName:'Kumaş',keywordsType:'keywords'},
+{groupName:'Renk',keywordsType:'keywords'},
+{groupName:'Marka',keywordsType:'keywords'},
+{groupName:'Fiyat',keywordsType:'keywords'},
+
+
+]

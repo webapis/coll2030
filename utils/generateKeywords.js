@@ -59,14 +59,12 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
 
         const title = value[1]
         const exclude = value[2]
-        const exactmatch = value[3]
-
-        const index = value[4]
-        const groupid = value[5]
-        const category = value[6]
-        const subcategory = value[7]
-
-        categoryItems.push({ keywords, title, negwords:exclude, exactmatch, index, groupid, category, subcategory })
+        const index = value[3]
+        const keywordType = value[4]
+        const groupName = value[5]
+        const functionName = value[6]
+        debugger
+        categoryItems.push({ keywords, title, exclude, index, keywordType, groupName, functionName })
 
     }
 
@@ -86,9 +84,9 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
 
 
     const reduced = data.reduce((prev, curr) => {
-   
+
         return {
-            ...prev, [curr.title]: { subcategory: curr.subcategory, category: curr.category,keywords:curr.keywords }
+            ...prev, [curr.title]: { subcategory: curr.subcategory, category: curr.category, keywords: curr.keywords }
         }
     }, {})
     debugger
