@@ -11,7 +11,7 @@ export default function KeywordsList() {
 
             return <div style={{ position: 'relative' }}>
         
-                <div style={{height:'90vh',position:'fixed',width:300,paddingTop:100,paddingBottom:20,overflowY:'scroll'}}>
+                <div style={{height:'70vh',position:'fixed',width:300,paddingTop:100,paddingBottom:20,overflowY:'scroll'}}>
                             {navKeywords && navKeywords.map((m, i) => {
 
                                     const { groupName, keywords } = m

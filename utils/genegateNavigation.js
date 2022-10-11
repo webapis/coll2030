@@ -84,8 +84,9 @@ async function genNav({ functionName }) {
           let exactmatch = kws.exactmatch
           let negwords = kws.exclude
 
-          let index = parseInt(kws.index.replace('-', ''))
-          if (index <= 12) {
+   
+          
+          if (kws.groupName ==='Fiyat') {
             const priceRange = kws.keywords.split('-').map(m => parseInt(m).toFixed(2))
             const startPrice = parseFloat(priceRange[0])
             const endPrice = parseFloat(priceRange[1])

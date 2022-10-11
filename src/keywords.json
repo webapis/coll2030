@@ -1,1 +1,1322 @@
-{"1-":{"groupName":"Ev giyim","title":"pijama"},"2-":{"groupName":"Ev giyim","title":"sabahlık"},"3-":{"groupName":"Ev giyim","title":"gecelik"},"4-":{"groupName":"Dış giyim","title":"yağmurluk"},"5-":{"groupName":"D��ş giyim","title":"mont"},"6-":{"groupName":"Dış giyim","title":"trençkot"},"7-":{"groupName":"Dış giyim","title":"kaban"},"8-":{"groupName":"Dış giyim","title":"ceket"},"9-":{"groupName":"Dış giyim","title":"pardösü"},"10-":{"groupName":"Dış giyim","title":"manto"},"11-":{"groupName":"Dış giyim","title":"palto"},"12-":{"groupName":"Dış giyim","title":"blazer"},"13-":{"groupName":"Dış giyim","title":"yelek"},"14-":{"groupName":"Dış giyim","title":"parka"},"15-":{"groupName":"Dış giyim","title":"kaşe"},"16-":{"groupName":"Büyük beden","title":"büyük beden"},"17-":{"groupName":"Büyük beden","title":"H&M+"},"18-":{"groupName":"Aksesuar","title":"kemer"},"19-":{"groupName":"Aksesuar","title":"şapka"},"20-":{"groupName":"Aksesuar","title":"şal"},"21-":{"groupName":"Aksesuar","title":"çorap"},"22-":{"groupName":"Aksesuar","title":"cüzdan"},"23-":{"groupName":"İç giyim","title":"külot"},"24-":{"groupName":"İç giyim","title":"sütyen"},"25-":{"groupName":"İç giyim","title":"bralet"},"26-":{"groupName":"İç giyim","title":"bra"},"27-":{"groupName":"İç giyim","title":"bikini"},"28-":{"groupName":"İç giyim","title":"mayo"},"29-":{"groupName":"İç giyim","title":"slip"},"30-":{"groupName":"İç giyim","title":"string"},"31-":{"groupName":"İç giyim","title":"hipster"},"32-":{"groupName":"İç giyim","title":"babydoll"},"33-":{"groupName":"İç giyim","title":"korse"},"34-":{"groupName":"Alt giyim","title":"pantolon"},"35-":{"groupName":"Alt giyim","title":"jogger"},"36-":{"groupName":"Alt giyim","title":"tayt"},"37-":{"groupName":"Alt giyim","title":"eşofman"},"38-":{"groupName":"Alt giyim","title":"şort"},"39-":{"groupName":"Alt giyim","title":"bermuda"},"40-":{"groupName":"Alt giyim","title":"kapri"},"41-":{"groupName":"Alt giyim","title":"etek"},"42-":{"groupName":"Üst giyim","title":"crop"},"43-":{"groupName":"Üst giyim","title":"kimono"},"44-":{"groupName":"Elbise","title":"elbise"},"45-":{"groupName":"Elbise","title":"abiye"},"46-":{"groupName":"Elbise","title":"tulum"},"47-":{"groupName":"Elbise","title":"salopet"},"48-":{"groupName":"Üst giyim","title":"kazak"},"49-":{"groupName":"Üst giyim","title":"süveter"},"50-":{"groupName":"Üst giyim","title":"hırka"},"51-":{"groupName":"Üst giyim","title":"gömlek"},"52-":{"groupName":"Üst giyim","title":"bluz"},"53-":{"groupName":"Üst giyim","title":"atlet"},"54-":{"groupName":"Üst giyim","title":"büstiyer"},"55-":{"groupName":"Üst giyim","title":"t-shirt"},"56-":{"groupName":"Üst giyim","title":"tişört"},"57-":{"groupName":"Üst giyim","title":"tunik"},"58-":{"groupName":"Üst giyim","title":"croptop"},"59-":{"groupName":"Üst giyim","title":"tshirt"},"60-":{"groupName":"Üst giyim","title":"üst"},"61-":{"groupName":"Üst giyim","title":"sweatshirt"},"62-":{"groupName":"Üst giyim","title":"penye"},"63-":{"groupName":"Üst giyim","title":"kap"},"64-":{"groupName":"Üst giyim","title":"body"},"65-":{"groupName":"Ayakkabı","title":"babet"},"66-":{"groupName":"Ayakkabı","title":"ayakkabı"},"67-":{"groupName":"Hamile","title":"hamile"},"68-":{"groupName":"Paça","title":"bol paça"},"69-":{"groupName":"Paça","title":"geniş paça"},"70-":{"groupName":"Paça","title":"düz paça"},"71-":{"groupName":"Paça","title":"atlet şort takım"},"72-":{"groupName":"Paça","title":"crop atlet"},"73-":{"groupName":"Paça","title":"penye atlet"},"74-":{"groupName":"Paça","title":"atlet tunik"},"75-":{"groupName":"Paça","title":"kısa paça"},"76-":{"groupName":"Bel Yüksekliği","title":"normal bel"},"77-":{"groupName":"Bel Yüksekliği","title":"yüksek bel"},"78-":{"groupName":"Seçenekler","title":"ceket tasarımlı"},"79-":{"groupName":"Seçenekler","title":"blazer tasarımlı"},"80-":{"groupName":"Seçenekler","title":"gömlek ceket"},"81-":{"groupName":"Seçenekler","title":"crop ceket"},"82-":{"groupName":"Seçenekler","title":"crop yelek"},"83-":{"groupName":"Seçenekler","title":"crop blazer"},"84-":{"groupName":"Seçenekler","title":"crop yağmurluk"},"85-":{"groupName":"Seçenekler","title":"crop mont"},"86-":{"groupName":"Seçenekler","title":"ceket elbise"},"87-":{"groupName":"Seçenekler","title":"tişört elbise"},"88-":{"groupName":"Seçenekler","title":"gömlek elbise"},"89-":{"groupName":"Seçenekler","title":"kimono elbise"},"90-":{"groupName":"Seçenekler","title":"sweatshirt elbise"},"91-":{"groupName":"Seçenekler","title":"penye elbise"},"92-":{"groupName":"Seçenekler","title":"crop sweatshirt elbise"},"93-":{"groupName":"Seçenekler","title":"tunik elbise"},"94-":{"groupName":"Seçenekler","title":"gömlek pantolon takım"},"95-":{"groupName":"Seçenekler","title":"jogger pantolon"},"96-":{"groupName":"Seçenekler","title":"pantolon görünümli tayt"},"97-":{"groupName":"Seçenekler","title":"triko pantolon"},"98-":{"groupName":"Seçenekler","title":"şort etek"},"99-":{"groupName":"Seçenekler","title":"kapri pantolon"},"100-":{"groupName":"Seçenekler","title":"sweatshirt şort"},"101-":{"groupName":"Seçenekler","title":"şort tulum"},"102-":{"groupName":"Seçenekler","title":"crop top şort takım"},"103-":{"groupName":"Seçenekler","title":"abiye tulum"},"104-":{"groupName":"Seçenekler","title":"tunik kazak"},"105-":{"groupName":"Seçenekler","title":"crop kazak"},"106-":{"groupName":"Seçenekler","title":"gömlek tasarımlı"},"107-":{"groupName":"Seçenekler","title":"sweatshirt hırka"},"108-":{"groupName":"Seçenekler","title":"tunik süveter"},"109-":{"groupName":"Seçenekler","title":"tunik hırka"},"110-":{"groupName":"Seçenekler","title":"crop hırka"},"111-":{"groupName":"Seçenekler","title":"crop süveter"},"112-":{"groupName":"Seçenekler","title":"sweatshirt tunik"},"113-":{"groupName":"Seçenekler","title":"crop bluz"},"114-":{"groupName":"Seçenekler","title":"crop gömlek"},"115-":{"groupName":"Seçenekler","title":"tunik tişört"},"116-":{"groupName":"Seçenekler","title":"gömlek tişört"},"117-":{"groupName":"Seçenekler","title":"tunik hırka"},"118-":{"groupName":"Seçenekler","title":"penye tunik"},"119-":{"groupName":"Seçenekler","title":"atlet tünik"},"120-":{"groupName":"Seçenekler","title":"bralet bluz"},"121-":{"groupName":"Seçenekler","title":"etek takım"},"122-":{"groupName":"Konsept","title":"kır düğünü"},"123-":{"groupName":"Konsept","title":"gece"},"124-":{"groupName":"Konsept","title":"düğün"},"125-":{"groupName":"Konsept","title":"after party"},"126-":{"groupName":"Konsept","title":"davet"},"127-":{"groupName":"Konsept","title":"nişan"},"128-":{"groupName":"Konsept","title":"parti"},"129-":{"groupName":"Konsept","title":"nikah"},"130-":{"groupName":"Konsept","title":"mezuniyet"},"131-":{"groupName":"Konsept","title":"kokteyl"},"132-":{"groupName":"Yaka tipi","title":"kalp yaka"},"133-":{"groupName":"Yaka tipi","title":"kare yaka"},"134-":{"groupName":"Yaka tipi","title":"kruvaze yaka"},"135-":{"groupName":"Yaka tipi","title":"madonna yaka"},"136-":{"groupName":"Yaka tipi","title":"balıkçı yaka"},"137-":{"groupName":"Yaka tipi","title":"bisiklet yaka"},"138-":{"groupName":"Yaka tipi","title":"carmen yaka"},"139-":{"groupName":"Yaka tipi","title":"degaje yaka"},"140-":{"groupName":"Yaka tipi","title":"dik yaka"},"141-":{"groupName":"Yaka tipi","title":"dökümlü yaka"},"142-":{"groupName":"Yaka tipi","title":"gömlek yaka"},"143-":{"groupName":"Yaka tipi","title":"hakim yaka"},"144-":{"groupName":"Yaka tipi","title":"halter yaka"},"145-":{"groupName":"Yaka tipi","title":"v yaka"},"146-":{"groupName":"Yaka tipi","title":"ceket yaka"},"147-":{"groupName":"Yaka tipi","title":"kaçık yaka"},"148-":{"groupName":"Yaka tipi","title":"kayık yaka"},"149-":{"groupName":"Yaka tipi","title":"polo yaka"},"150-":{"groupName":"Yaka tipi","title":"straplez"},"151-":{"groupName":"Yaka tipi","title":"tek omuz"},"152-":{"groupName":"Yaka tipi","title":"u yaka"},"153-":{"groupName":"Yaka tipi","title":"bağlamalı yaka"},"154-":{"groupName":"Yaka tipi","title":"pijama yaka"},"155-":{"groupName":"Yaka tipi","title":"klasik yaka"},"156-":{"groupName":"Yaka tipi","title":"şal yaka"},"157-":{"groupName":"Kol tipi","title":"ispanyol kol"},"158-":{"groupName":"Kol tipi","title":"kabarık kol"},"159-":{"groupName":"Kol tipi","title":"karpuz kol"},"160-":{"groupName":"Kol tipi","title":"tek kol"},"161-":{"groupName":"Kol tipi","title":"yarasa kol"},"162-":{"groupName":"Kol boyu","title":"kısa kollu"},"163-":{"groupName":"Kol boyu","title":"kolsuz"},"164-":{"groupName":"Kol boyu","title":"uzun kollu"},"165-":{"groupName":"Kol boyu","title":"yarım kol"},"166-":{"groupName":"Desen","title":"çiçek desen"},"167-":{"groupName":"Desen","title":"çiçekli"},"168-":{"groupName":"Desen","title":"çilek"},"169-":{"groupName":"Desen","title":"çizgi"},"170-":{"groupName":"Desen","title":"delik desen"},"171-":{"groupName":"Desen","title":"deniz kabuğu"},"172-":{"groupName":"Desen","title":"etnik"},"173-":{"groupName":"Desen","title":"geometrik"},"174-":{"groupName":"Desen","title":"gül desen"},"175-":{"groupName":"Desen","title":"kamuflaj"},"176-":{"groupName":"Desen","title":"kiraz desen"},"177-":{"groupName":"Desen","title":"leopar"},"178-":{"groupName":"Desen","title":"pötikare"},"179-":{"groupName":"Desen","title":"puantiye"},"180-":{"groupName":"Desen","title":"şal"},"181-":{"groupName":"Desen","title":"zebra"},"182-":{"groupName":"Desen","title":"mercan desenli"},"183-":{"groupName":"Desen","title":"nar çiçeği"},"184-":{"groupName":"Desen","title":"düz"},"185-":{"groupName":"Desen","title":"file"},"186-":{"groupName":"Desen","title":"nakışlı"},"187-":{"groupName":"Desen","title":"payet"},"188-":{"groupName":"Desen","title":"ekoze"},"189-":{"groupName":"Boyu","title":"diz altı"},"190-":{"groupName":"Boyu","title":"diz üstü"},"191-":{"groupName":"Boyu","title":"kısa"},"192-":{"groupName":"Boyu","title":"maksi"},"193-":{"groupName":"Boyu","title":"maxi"},"194-":{"groupName":"Boyu","title":"midi"},"195-":{"groupName":"Boyu","title":"mini"},"196-":{"groupName":"Boyu","title":"uzun"},"197-":{"groupName":"Kumaş","title":"triko"},"198-":{"groupName":"Kumaş","title":"belmando"},"199-":{"groupName":"Kumaş","title":"dokulu"},"200-":{"groupName":"Kumaş","title":"gabardin"},"201-":{"groupName":"Kumaş","title":"gofre"},"202-":{"groupName":"Kumaş","title":"havlu"},"203-":{"groupName":"Kumaş","title":"jakar"},"204-":{"groupName":"Kumaş","title":"kadife"},"205-":{"groupName":"Kumaş","title":"kaşkorse"},"206-":{"groupName":"Kumaş","title":"keten"},"207-":{"groupName":"Kumaş","title":"keten görünümlü"},"208-":{"groupName":"Kumaş","title":"krep"},"209-":{"groupName":"Kumaş","title":"krinkle"},"210-":{"groupName":"Kumaş","title":"lyocell"},"211-":{"groupName":"Kumaş","title":"maroken"},"212-":{"groupName":"Kumaş","title":"müslin"},"213-":{"groupName":"Kumaş","title":"pike"},"214-":{"groupName":"Kumaş","title":"ponte"},"215-":{"groupName":"Kumaş","title":"poplin"},"216-":{"groupName":"Kumaş","title":"ribana"},"217-":{"groupName":"Kumaş","title":"saten"},"218-":{"groupName":"Kumaş","title":"şifon"},"219-":{"groupName":"Kumaş","title":"skuba"},"220-":{"groupName":"Kumaş","title":"tencel"},"221-":{"groupName":"Kumaş","title":"tül"},"222-":{"groupName":"Kumaş","title":"twill"},"223-":{"groupName":"Kumaş","title":"vual"},"224-":{"groupName":"Kumaş","title":"atlas kumaş"},"225-":{"groupName":"Kumaş","title":"fitilli"},"226-":{"groupName":"Kumaş","title":"ipek"},"227-":{"groupName":"Kumaş","title":"pamuk"},"228-":{"groupName":"Kumaş","title":"şile bezi"},"229-":{"groupName":"Kumaş","title":"tafta"},"230-":{"groupName":"Kumaş","title":"viskon"},"231-":{"groupName":"Kumaş","title":"denim"},"232-":{"groupName":"Kumaş","title":"jean"},"233-":{"groupName":"Kumaş","title":"puane"},"234-":{"groupName":"Kumaş","title":"brode"},"235-":{"groupName":"Kumaş","title":"dalgıç"},"236-":{"groupName":"Kumaş","title":"dantel"},"237-":{"groupName":"Kumaş","title":"interlok"},"238-":{"groupName":"Kumaş","title":"keten karışımlı"},"239-":{"groupName":"Kumaş","title":"süet"},"240-":{"groupName":"Kumaş","title":"kot"},"241-":{"groupName":"Renk","title":"bej"},"242-":{"groupName":"Renk","title":"beyaz"},"243-":{"groupName":"Renk","title":"bordo"},"244-":{"groupName":"Renk","title":"camel"},"245-":{"groupName":"Renk","title":"ekru"},"246-":{"groupName":"Renk","title":"füme"},"247-":{"groupName":"Renk","title":"fuşya"},"248-":{"groupName":"Renk","title":"gri"},"249-":{"groupName":"Renk","title":"gül"},"250-":{"groupName":"Renk","title":"haki"},"251-":{"groupName":"Renk","title":"hardal"},"252-":{"groupName":"Renk","title":"indigo"},"253-":{"groupName":"Renk","title":"kahverengi"},"254-":{"groupName":"Renk","title":"kiremit"},"255-":{"groupName":"Renk","title":"kirmizi"},"256-":{"groupName":"Renk","title":"koyu kirmizi"},"257-":{"groupName":"Renk","title":"koyu mor"},"258-":{"groupName":"Renk","title":"krem"},"259-":{"groupName":"Renk","title":"lacivert"},"260-":{"groupName":"Renk","title":"lila"},"261-":{"groupName":"Renk","title":"mint"},"262-":{"groupName":"Renk","title":"mor"},"263-":{"groupName":"Renk","title":"mürdüm"},"264-":{"groupName":"Renk","title":"nar"},"265-":{"groupName":"Renk","title":"pembe"},"266-":{"groupName":"Renk","title":"petrol"},"267-":{"groupName":"Renk","title":"pudra"},"268-":{"groupName":"Renk","title":"saks"},"269-":{"groupName":"Renk","title":"sari"},"270-":{"groupName":"Renk","title":"siyah"},"271-":{"groupName":"Renk","title":"somon"},"272-":{"groupName":"Renk","title":"taba"},"273-":{"groupName":"Renk","title":"turuncu"},"274-":{"groupName":"Renk","title":"vizon"},"275-":{"groupName":"Renk","title":"yağ yeşili"},"276-":{"groupName":"Renk","title":"yeşil"},"277-":{"groupName":"Renk","title":"zümrüt"},"278-":{"groupName":"Renk","title":"mint yeşili"},"279-":{"groupName":"Renk","title":"fıstık yeşili"},"280-":{"groupName":"Renk","title":"siyah beyaz"},"281-":{"groupName":"Marka","title":"defacto"},"282-":{"groupName":"Marka","title":"koton"},"283-":{"groupName":"Marka","title":"lcwaikiki"},"284-":{"groupName":"Marka","title":"adidas"},"285-":{"groupName":"Marka","title":"adl"},"286-":{"groupName":"Marka","title":"baqa"},"287-":{"groupName":"Marka","title":"beymen"},"288-":{"groupName":"Marka","title":"beyyoglu"},"289-":{"groupName":"Marka","title":"colins"},"290-":{"groupName":"Marka","title":"butigo"},"291-":{"groupName":"Marka","title":"dilvin"},"292-":{"groupName":"Marka","title":"dogo"},"293-":{"groupName":"Marka","title":"hm"},"294-":{"groupName":"Marka","title":"ipekyol"},"295-":{"groupName":"Marka","title":"machka"},"296-":{"groupName":"Marka","title":"penti"},"297-":{"groupName":"Marka","title":"roman"},"298-":{"groupName":"Marka","title":"twist"},"299-":{"groupName":"Marka","title":"vakko"},"300-":{"groupName":"Marka","title":"zara"},"301-":{"groupName":"Marka","title":"gizia"},"302-":{"groupName":"Marka","title":"vitrin"},"303-":{"groupName":"Marka","title":"xint"},"304-":{"groupName":"Marka","title":"tozlu"},"305-":{"groupName":"Marka","title":"quzu"},"306-":{"groupName":"Marka","title":"saygigiyim"},"307-":{"groupName":"Marka","title":"manuka"},"308-":{"groupName":"Marka","title":"kikiriki"},"309-":{"groupName":"Marka","title":"jimmykey"},"310-":{"groupName":"Marka","title":"perspective"},"311-":{"groupName":"Marka","title":"mango"},"312-":{"groupName":"Marka","title":"olegcassini"},"313-":{"groupName":"Marka","title":"addax"},"314-":{"groupName":"Marka","title":"oxxo"},"315-":{"groupName":"Marka","title":"abiyefon"},"316-":{"groupName":"Marka","title":"desa"},"317-":{"groupName":"Marka","title":"patirti"},"318-":{"groupName":"Marka","title":"yargici"},"319-":{"groupName":"Fiyat","title":"0-100"},"320-":{"groupName":"Fiyat","title":"100-200"},"321-":{"groupName":"Fiyat","title":"200-300"},"322-":{"groupName":"Fiyat","title":"300-400"},"323-":{"groupName":"Fiyat","title":"400-500"},"324-":{"groupName":"Fiyat","title":"500-600"},"325-":{"groupName":"Fiyat","title":"600-700"},"326-":{"groupName":"Fiyat","title":"700-800"},"327-":{"groupName":"Fiyat","title":"800-900"},"328-":{"groupName":"Fiyat","title":"900-1000"},"329-":{"groupName":"Fiyat","title":"1000-1500"},"330-":{"groupName":"Fiyat","title":"1500"}}
+{
+    "1-": {
+        "groupName": "Ev giyim",
+        "title": "pijama"
+    },
+    "2-": {
+        "groupName": "Ev giyim",
+        "title": "sabahlık"
+    },
+    "3-": {
+        "groupName": "Ev giyim",
+        "title": "gecelik"
+    },
+    "4-": {
+        "groupName": "Dış giyim",
+        "title": "yağmurluk"
+    },
+    "5-": {
+        "groupName": "D��ş giyim",
+        "title": "mont"
+    },
+    "6-": {
+        "groupName": "Dış giyim",
+        "title": "trençkot"
+    },
+    "7-": {
+        "groupName": "Dış giyim",
+        "title": "kaban"
+    },
+    "8-": {
+        "groupName": "Dış giyim",
+        "title": "ceket"
+    },
+    "9-": {
+        "groupName": "Dış giyim",
+        "title": "pardösü"
+    },
+    "10-": {
+        "groupName": "Dış giyim",
+        "title": "manto"
+    },
+    "11-": {
+        "groupName": "Dış giyim",
+        "title": "palto"
+    },
+    "12-": {
+        "groupName": "Dış giyim",
+        "title": "blazer"
+    },
+    "13-": {
+        "groupName": "Dış giyim",
+        "title": "yelek"
+    },
+    "14-": {
+        "groupName": "Dış giyim",
+        "title": "parka"
+    },
+    "15-": {
+        "groupName": "Dış giyim",
+        "title": "kaşe"
+    },
+    "16-": {
+        "groupName": "Büyük beden",
+        "title": "büyük beden"
+    },
+    "17-": {
+        "groupName": "Büyük beden",
+        "title": "H&M+"
+    },
+    "18-": {
+        "groupName": "Aksesuar",
+        "title": "kemer"
+    },
+    "19-": {
+        "groupName": "Aksesuar",
+        "title": "şapka"
+    },
+    "20-": {
+        "groupName": "Aksesuar",
+        "title": "şal"
+    },
+    "21-": {
+        "groupName": "Aksesuar",
+        "title": "çorap"
+    },
+    "22-": {
+        "groupName": "Aksesuar",
+        "title": "cüzdan"
+    },
+    "23-": {
+        "groupName": "İç giyim",
+        "title": "külot"
+    },
+    "24-": {
+        "groupName": "İç giyim",
+        "title": "sütyen"
+    },
+    "25-": {
+        "groupName": "İç giyim",
+        "title": "bralet"
+    },
+    "26-": {
+        "groupName": "İç giyim",
+        "title": "bra"
+    },
+    "27-": {
+        "groupName": "İç giyim",
+        "title": "bikini"
+    },
+    "28-": {
+        "groupName": "İç giyim",
+        "title": "mayo"
+    },
+    "29-": {
+        "groupName": "İç giyim",
+        "title": "slip"
+    },
+    "30-": {
+        "groupName": "İç giyim",
+        "title": "string"
+    },
+    "31-": {
+        "groupName": "İç giyim",
+        "title": "hipster"
+    },
+    "32-": {
+        "groupName": "İç giyim",
+        "title": "babydoll"
+    },
+    "33-": {
+        "groupName": "İç giyim",
+        "title": "korse"
+    },
+    "34-": {
+        "groupName": "Alt giyim",
+        "title": "pantolon"
+    },
+    "35-": {
+        "groupName": "Alt giyim",
+        "title": "jogger"
+    },
+    "36-": {
+        "groupName": "Alt giyim",
+        "title": "tayt"
+    },
+    "37-": {
+        "groupName": "Alt giyim",
+        "title": "eşofman"
+    },
+    "38-": {
+        "groupName": "Alt giyim",
+        "title": "şort"
+    },
+    "39-": {
+        "groupName": "Alt giyim",
+        "title": "bermuda"
+    },
+    "40-": {
+        "groupName": "Alt giyim",
+        "title": "kapri"
+    },
+    "41-": {
+        "groupName": "Alt giyim",
+        "title": "etek"
+    },
+    "42-": {
+        "groupName": "Üst giyim",
+        "title": "crop"
+    },
+    "43-": {
+        "groupName": "Üst giyim",
+        "title": "kimono"
+    },
+    "44-": {
+        "groupName": "Elbise",
+        "title": "elbise"
+    },
+    "45-": {
+        "groupName": "Elbise",
+        "title": "abiye"
+    },
+    "46-": {
+        "groupName": "Elbise",
+        "title": "tulum"
+    },
+    "47-": {
+        "groupName": "Elbise",
+        "title": "salopet"
+    },
+    "48-": {
+        "groupName": "Üst giyim",
+        "title": "kazak"
+    },
+    "49-": {
+        "groupName": "Üst giyim",
+        "title": "süveter"
+    },
+    "50-": {
+        "groupName": "Üst giyim",
+        "title": "hırka"
+    },
+    "51-": {
+        "groupName": "Üst giyim",
+        "title": "gömlek"
+    },
+    "52-": {
+        "groupName": "Üst giyim",
+        "title": "bluz"
+    },
+    "53-": {
+        "groupName": "Üst giyim",
+        "title": "atlet"
+    },
+    "54-": {
+        "groupName": "Üst giyim",
+        "title": "büstiyer"
+    },
+    "55-": {
+        "groupName": "Üst giyim",
+        "title": "t-shirt"
+    },
+    "56-": {
+        "groupName": "Üst giyim",
+        "title": "tişört"
+    },
+    "57-": {
+        "groupName": "Üst giyim",
+        "title": "tunik"
+    },
+    "58-": {
+        "groupName": "Üst giyim",
+        "title": "croptop"
+    },
+    "59-": {
+        "groupName": "Üst giyim",
+        "title": "tshirt"
+    },
+    "60-": {
+        "groupName": "Üst giyim",
+        "title": "üst"
+    },
+    "61-": {
+        "groupName": "Üst giyim",
+        "title": "sweatshirt"
+    },
+    "62-": {
+        "groupName": "Üst giyim",
+        "title": "penye"
+    },
+    "63-": {
+        "groupName": "Üst giyim",
+        "title": "kap"
+    },
+    "64-": {
+        "groupName": "Üst giyim",
+        "title": "body"
+    },
+    "65-": {
+        "groupName": "Ayakkabı",
+        "title": "babet"
+    },
+    "66-": {
+        "groupName": "Ayakkabı",
+        "title": "ayakkabı"
+    },
+    "67-": {
+        "groupName": "Hamile",
+        "title": "hamile"
+    },
+    "68-": {
+        "groupName": "Paça",
+        "title": "bol paça"
+    },
+    "69-": {
+        "groupName": "Paça",
+        "title": "geniş paça"
+    },
+    "70-": {
+        "groupName": "Paça",
+        "title": "düz paça"
+    },
+    "71-": {
+        "groupName": "Paça",
+        "title": "atlet şort takım"
+    },
+    "72-": {
+        "groupName": "Paça",
+        "title": "crop atlet"
+    },
+    "73-": {
+        "groupName": "Paça",
+        "title": "penye atlet"
+    },
+    "74-": {
+        "groupName": "Paça",
+        "title": "atlet tunik"
+    },
+    "75-": {
+        "groupName": "Paça",
+        "title": "kısa paça"
+    },
+    "76-": {
+        "groupName": "Bel Yüksekliği",
+        "title": "normal bel"
+    },
+    "77-": {
+        "groupName": "Bel Yüksekliği",
+        "title": "yüksek bel"
+    },
+    "78-": {
+        "groupName": "Seçenekler",
+        "title": "ceket tasarımlı"
+    },
+    "79-": {
+        "groupName": "Seçenekler",
+        "title": "blazer tasarımlı"
+    },
+    "80-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek ceket"
+    },
+    "81-": {
+        "groupName": "Seçenekler",
+        "title": "crop ceket"
+    },
+    "82-": {
+        "groupName": "Seçenekler",
+        "title": "crop yelek"
+    },
+    "83-": {
+        "groupName": "Seçenekler",
+        "title": "crop blazer"
+    },
+    "84-": {
+        "groupName": "Seçenekler",
+        "title": "crop yağmurluk"
+    },
+    "85-": {
+        "groupName": "Seçenekler",
+        "title": "crop mont"
+    },
+    "86-": {
+        "groupName": "Seçenekler",
+        "title": "ceket elbise"
+    },
+    "87-": {
+        "groupName": "Seçenekler",
+        "title": "tişört elbise"
+    },
+    "88-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek elbise"
+    },
+    "89-": {
+        "groupName": "Seçenekler",
+        "title": "kimono elbise"
+    },
+    "90-": {
+        "groupName": "Seçenekler",
+        "title": "sweatshirt elbise"
+    },
+    "91-": {
+        "groupName": "Seçenekler",
+        "title": "penye elbise"
+    },
+    "92-": {
+        "groupName": "Seçenekler",
+        "title": "crop sweatshirt elbise"
+    },
+    "93-": {
+        "groupName": "Seçenekler",
+        "title": "tunik elbise"
+    },
+    "94-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek pantolon takım"
+    },
+    "95-": {
+        "groupName": "Seçenekler",
+        "title": "jogger pantolon"
+    },
+    "96-": {
+        "groupName": "Seçenekler",
+        "title": "pantolon görünümli tayt"
+    },
+    "97-": {
+        "groupName": "Seçenekler",
+        "title": "triko pantolon"
+    },
+    "98-": {
+        "groupName": "Seçenekler",
+        "title": "şort etek"
+    },
+    "99-": {
+        "groupName": "Seçenekler",
+        "title": "kapri pantolon"
+    },
+    "100-": {
+        "groupName": "Seçenekler",
+        "title": "sweatshirt şort"
+    },
+    "101-": {
+        "groupName": "Seçenekler",
+        "title": "şort tulum"
+    },
+    "102-": {
+        "groupName": "Seçenekler",
+        "title": "crop top şort takım"
+    },
+    "103-": {
+        "groupName": "Seçenekler",
+        "title": "abiye tulum"
+    },
+    "104-": {
+        "groupName": "Seçenekler",
+        "title": "tunik kazak"
+    },
+    "105-": {
+        "groupName": "Seçenekler",
+        "title": "crop kazak"
+    },
+    "106-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek tasarımlı"
+    },
+    "107-": {
+        "groupName": "Seçenekler",
+        "title": "sweatshirt hırka"
+    },
+    "108-": {
+        "groupName": "Seçenekler",
+        "title": "tunik süveter"
+    },
+    "109-": {
+        "groupName": "Seçenekler",
+        "title": "tunik hırka"
+    },
+    "110-": {
+        "groupName": "Seçenekler",
+        "title": "crop hırka"
+    },
+    "111-": {
+        "groupName": "Seçenekler",
+        "title": "crop süveter"
+    },
+    "112-": {
+        "groupName": "Seçenekler",
+        "title": "sweatshirt tunik"
+    },
+    "113-": {
+        "groupName": "Seçenekler",
+        "title": "crop bluz"
+    },
+    "114-": {
+        "groupName": "Seçenekler",
+        "title": "crop gömlek"
+    },
+    "115-": {
+        "groupName": "Seçenekler",
+        "title": "tunik tişört"
+    },
+    "116-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek tişört"
+    },
+    "117-": {
+        "groupName": "Seçenekler",
+        "title": "tunik hırka"
+    },
+    "118-": {
+        "groupName": "Seçenekler",
+        "title": "penye tunik"
+    },
+    "119-": {
+        "groupName": "Seçenekler",
+        "title": "atlet tünik"
+    },
+    "120-": {
+        "groupName": "Seçenekler",
+        "title": "bralet bluz"
+    },
+    "121-": {
+        "groupName": "Seçenekler",
+        "title": "etek takım"
+    },
+    "122-": {
+        "groupName": "Konsept",
+        "title": "kır düğünü"
+    },
+    "123-": {
+        "groupName": "Konsept",
+        "title": "gece"
+    },
+    "124-": {
+        "groupName": "Konsept",
+        "title": "düğün"
+    },
+    "125-": {
+        "groupName": "Konsept",
+        "title": "after party"
+    },
+    "126-": {
+        "groupName": "Konsept",
+        "title": "davet"
+    },
+    "127-": {
+        "groupName": "Konsept",
+        "title": "nişan"
+    },
+    "128-": {
+        "groupName": "Konsept",
+        "title": "parti"
+    },
+    "129-": {
+        "groupName": "Konsept",
+        "title": "nikah"
+    },
+    "130-": {
+        "groupName": "Konsept",
+        "title": "mezuniyet"
+    },
+    "131-": {
+        "groupName": "Konsept",
+        "title": "kokteyl"
+    },
+    "132-": {
+        "groupName": "Yaka tipi",
+        "title": "kalp yaka"
+    },
+    "133-": {
+        "groupName": "Yaka tipi",
+        "title": "kare yaka"
+    },
+    "134-": {
+        "groupName": "Yaka tipi",
+        "title": "kruvaze yaka"
+    },
+    "135-": {
+        "groupName": "Yaka tipi",
+        "title": "madonna yaka"
+    },
+    "136-": {
+        "groupName": "Yaka tipi",
+        "title": "balıkçı yaka"
+    },
+    "137-": {
+        "groupName": "Yaka tipi",
+        "title": "bisiklet yaka"
+    },
+    "138-": {
+        "groupName": "Yaka tipi",
+        "title": "carmen yaka"
+    },
+    "139-": {
+        "groupName": "Yaka tipi",
+        "title": "degaje yaka"
+    },
+    "140-": {
+        "groupName": "Yaka tipi",
+        "title": "dik yaka"
+    },
+    "141-": {
+        "groupName": "Yaka tipi",
+        "title": "dökümlü yaka"
+    },
+    "142-": {
+        "groupName": "Yaka tipi",
+        "title": "gömlek yaka"
+    },
+    "143-": {
+        "groupName": "Yaka tipi",
+        "title": "hakim yaka"
+    },
+    "144-": {
+        "groupName": "Yaka tipi",
+        "title": "halter yaka"
+    },
+    "145-": {
+        "groupName": "Yaka tipi",
+        "title": "v yaka"
+    },
+    "146-": {
+        "groupName": "Yaka tipi",
+        "title": "ceket yaka"
+    },
+    "147-": {
+        "groupName": "Yaka tipi",
+        "title": "kaçık yaka"
+    },
+    "148-": {
+        "groupName": "Yaka tipi",
+        "title": "kayık yaka"
+    },
+    "149-": {
+        "groupName": "Yaka tipi",
+        "title": "polo yaka"
+    },
+    "150-": {
+        "groupName": "Yaka tipi",
+        "title": "straplez"
+    },
+    "151-": {
+        "groupName": "Yaka tipi",
+        "title": "tek omuz"
+    },
+    "152-": {
+        "groupName": "Yaka tipi",
+        "title": "u yaka"
+    },
+    "153-": {
+        "groupName": "Yaka tipi",
+        "title": "bağlamalı yaka"
+    },
+    "154-": {
+        "groupName": "Yaka tipi",
+        "title": "pijama yaka"
+    },
+    "155-": {
+        "groupName": "Yaka tipi",
+        "title": "klasik yaka"
+    },
+    "156-": {
+        "groupName": "Yaka tipi",
+        "title": "şal yaka"
+    },
+    "157-": {
+        "groupName": "Kol tipi",
+        "title": "ispanyol kol"
+    },
+    "158-": {
+        "groupName": "Kol tipi",
+        "title": "kabarık kol"
+    },
+    "159-": {
+        "groupName": "Kol tipi",
+        "title": "karpuz kol"
+    },
+    "160-": {
+        "groupName": "Kol tipi",
+        "title": "tek kol"
+    },
+    "161-": {
+        "groupName": "Kol tipi",
+        "title": "yarasa kol"
+    },
+    "162-": {
+        "groupName": "Kol boyu",
+        "title": "kısa kollu"
+    },
+    "163-": {
+        "groupName": "Kol boyu",
+        "title": "kolsuz"
+    },
+    "164-": {
+        "groupName": "Kol boyu",
+        "title": "uzun kollu"
+    },
+    "165-": {
+        "groupName": "Kol boyu",
+        "title": "yarım kol"
+    },
+    "166-": {
+        "groupName": "Desen",
+        "title": "çiçek desen"
+    },
+    "167-": {
+        "groupName": "Desen",
+        "title": "çiçekli"
+    },
+    "168-": {
+        "groupName": "Desen",
+        "title": "çilek"
+    },
+    "169-": {
+        "groupName": "Desen",
+        "title": "çizgi"
+    },
+    "170-": {
+        "groupName": "Desen",
+        "title": "delik desen"
+    },
+    "171-": {
+        "groupName": "Desen",
+        "title": "deniz kabuğu"
+    },
+    "172-": {
+        "groupName": "Desen",
+        "title": "etnik"
+    },
+    "173-": {
+        "groupName": "Desen",
+        "title": "geometrik"
+    },
+    "174-": {
+        "groupName": "Desen",
+        "title": "gül desen"
+    },
+    "175-": {
+        "groupName": "Desen",
+        "title": "kamuflaj"
+    },
+    "176-": {
+        "groupName": "Desen",
+        "title": "kiraz desen"
+    },
+    "177-": {
+        "groupName": "Desen",
+        "title": "leopar"
+    },
+    "178-": {
+        "groupName": "Desen",
+        "title": "pötikare"
+    },
+    "179-": {
+        "groupName": "Desen",
+        "title": "puantiye"
+    },
+    "180-": {
+        "groupName": "Desen",
+        "title": "şal"
+    },
+    "181-": {
+        "groupName": "Desen",
+        "title": "zebra"
+    },
+    "182-": {
+        "groupName": "Desen",
+        "title": "mercan desenli"
+    },
+    "183-": {
+        "groupName": "Desen",
+        "title": "nar çiçeği"
+    },
+    "184-": {
+        "groupName": "Desen",
+        "title": "düz"
+    },
+    "185-": {
+        "groupName": "Desen",
+        "title": "file"
+    },
+    "186-": {
+        "groupName": "Desen",
+        "title": "nakışlı"
+    },
+    "187-": {
+        "groupName": "Desen",
+        "title": "payet"
+    },
+    "188-": {
+        "groupName": "Desen",
+        "title": "ekoze"
+    },
+    "189-": {
+        "groupName": "Boyu",
+        "title": "diz altı"
+    },
+    "190-": {
+        "groupName": "Boyu",
+        "title": "diz üstü"
+    },
+    "191-": {
+        "groupName": "Boyu",
+        "title": "kısa"
+    },
+    "192-": {
+        "groupName": "Boyu",
+        "title": "maksi"
+    },
+    "193-": {
+        "groupName": "Boyu",
+        "title": "maxi"
+    },
+    "194-": {
+        "groupName": "Boyu",
+        "title": "midi"
+    },
+    "195-": {
+        "groupName": "Boyu",
+        "title": "mini"
+    },
+    "196-": {
+        "groupName": "Boyu",
+        "title": "uzun"
+    },
+    "197-": {
+        "groupName": "Kumaş",
+        "title": "triko"
+    },
+    "198-": {
+        "groupName": "Kumaş",
+        "title": "belmando"
+    },
+    "199-": {
+        "groupName": "Kumaş",
+        "title": "dokulu"
+    },
+    "200-": {
+        "groupName": "Kumaş",
+        "title": "gabardin"
+    },
+    "201-": {
+        "groupName": "Kumaş",
+        "title": "gofre"
+    },
+    "202-": {
+        "groupName": "Kumaş",
+        "title": "havlu"
+    },
+    "203-": {
+        "groupName": "Kumaş",
+        "title": "jakar"
+    },
+    "204-": {
+        "groupName": "Kumaş",
+        "title": "kadife"
+    },
+    "205-": {
+        "groupName": "Kumaş",
+        "title": "kaşkorse"
+    },
+    "206-": {
+        "groupName": "Kumaş",
+        "title": "keten"
+    },
+    "207-": {
+        "groupName": "Kumaş",
+        "title": "keten görünümlü"
+    },
+    "208-": {
+        "groupName": "Kumaş",
+        "title": "krep"
+    },
+    "209-": {
+        "groupName": "Kumaş",
+        "title": "krinkle"
+    },
+    "210-": {
+        "groupName": "Kumaş",
+        "title": "lyocell"
+    },
+    "211-": {
+        "groupName": "Kumaş",
+        "title": "maroken"
+    },
+    "212-": {
+        "groupName": "Kumaş",
+        "title": "müslin"
+    },
+    "213-": {
+        "groupName": "Kumaş",
+        "title": "pike"
+    },
+    "214-": {
+        "groupName": "Kumaş",
+        "title": "ponte"
+    },
+    "215-": {
+        "groupName": "Kumaş",
+        "title": "poplin"
+    },
+    "216-": {
+        "groupName": "Kumaş",
+        "title": "ribana"
+    },
+    "217-": {
+        "groupName": "Kumaş",
+        "title": "saten"
+    },
+    "218-": {
+        "groupName": "Kumaş",
+        "title": "şifon"
+    },
+    "219-": {
+        "groupName": "Kumaş",
+        "title": "skuba"
+    },
+    "220-": {
+        "groupName": "Kumaş",
+        "title": "tencel"
+    },
+    "221-": {
+        "groupName": "Kumaş",
+        "title": "tül"
+    },
+    "222-": {
+        "groupName": "Kumaş",
+        "title": "twill"
+    },
+    "223-": {
+        "groupName": "Kumaş",
+        "title": "vual"
+    },
+    "224-": {
+        "groupName": "Kumaş",
+        "title": "atlas kumaş"
+    },
+    "225-": {
+        "groupName": "Kumaş",
+        "title": "fitilli"
+    },
+    "226-": {
+        "groupName": "Kumaş",
+        "title": "ipek"
+    },
+    "227-": {
+        "groupName": "Kumaş",
+        "title": "pamuk"
+    },
+    "228-": {
+        "groupName": "Kumaş",
+        "title": "şile bezi"
+    },
+    "229-": {
+        "groupName": "Kumaş",
+        "title": "tafta"
+    },
+    "230-": {
+        "groupName": "Kumaş",
+        "title": "viskon"
+    },
+    "231-": {
+        "groupName": "Kumaş",
+        "title": "denim"
+    },
+    "232-": {
+        "groupName": "Kumaş",
+        "title": "jean"
+    },
+    "233-": {
+        "groupName": "Kumaş",
+        "title": "puane"
+    },
+    "234-": {
+        "groupName": "Kumaş",
+        "title": "brode"
+    },
+    "235-": {
+        "groupName": "Kumaş",
+        "title": "dalgıç"
+    },
+    "236-": {
+        "groupName": "Kumaş",
+        "title": "dantel"
+    },
+    "237-": {
+        "groupName": "Kumaş",
+        "title": "interlok"
+    },
+    "238-": {
+        "groupName": "Kumaş",
+        "title": "keten karışımlı"
+    },
+    "239-": {
+        "groupName": "Kumaş",
+        "title": "süet"
+    },
+    "240-": {
+        "groupName": "Kumaş",
+        "title": "kot"
+    },
+    "241-": {
+        "groupName": "Renk",
+        "title": "bej"
+    },
+    "242-": {
+        "groupName": "Renk",
+        "title": "beyaz"
+    },
+    "243-": {
+        "groupName": "Renk",
+        "title": "bordo"
+    },
+    "244-": {
+        "groupName": "Renk",
+        "title": "camel"
+    },
+    "245-": {
+        "groupName": "Renk",
+        "title": "ekru"
+    },
+    "246-": {
+        "groupName": "Renk",
+        "title": "füme"
+    },
+    "247-": {
+        "groupName": "Renk",
+        "title": "fuşya"
+    },
+    "248-": {
+        "groupName": "Renk",
+        "title": "gri"
+    },
+    "249-": {
+        "groupName": "Renk",
+        "title": "gül"
+    },
+    "250-": {
+        "groupName": "Renk",
+        "title": "haki"
+    },
+    "251-": {
+        "groupName": "Renk",
+        "title": "hardal"
+    },
+    "252-": {
+        "groupName": "Renk",
+        "title": "indigo"
+    },
+    "253-": {
+        "groupName": "Renk",
+        "title": "kahverengi"
+    },
+    "254-": {
+        "groupName": "Renk",
+        "title": "kiremit"
+    },
+    "255-": {
+        "groupName": "Renk",
+        "title": "kirmizi"
+    },
+    "256-": {
+        "groupName": "Renk",
+        "title": "koyu kirmizi"
+    },
+    "257-": {
+        "groupName": "Renk",
+        "title": "koyu mor"
+    },
+    "258-": {
+        "groupName": "Renk",
+        "title": "krem"
+    },
+    "259-": {
+        "groupName": "Renk",
+        "title": "lacivert"
+    },
+    "260-": {
+        "groupName": "Renk",
+        "title": "lila"
+    },
+    "261-": {
+        "groupName": "Renk",
+        "title": "mint"
+    },
+    "262-": {
+        "groupName": "Renk",
+        "title": "mor"
+    },
+    "263-": {
+        "groupName": "Renk",
+        "title": "mürdüm"
+    },
+    "264-": {
+        "groupName": "Renk",
+        "title": "nar"
+    },
+    "265-": {
+        "groupName": "Renk",
+        "title": "pembe"
+    },
+    "266-": {
+        "groupName": "Renk",
+        "title": "petrol"
+    },
+    "267-": {
+        "groupName": "Renk",
+        "title": "pudra"
+    },
+    "268-": {
+        "groupName": "Renk",
+        "title": "saks"
+    },
+    "269-": {
+        "groupName": "Renk",
+        "title": "sari"
+    },
+    "270-": {
+        "groupName": "Renk",
+        "title": "siyah"
+    },
+    "271-": {
+        "groupName": "Renk",
+        "title": "somon"
+    },
+    "272-": {
+        "groupName": "Renk",
+        "title": "taba"
+    },
+    "273-": {
+        "groupName": "Renk",
+        "title": "turuncu"
+    },
+    "274-": {
+        "groupName": "Renk",
+        "title": "vizon"
+    },
+    "275-": {
+        "groupName": "Renk",
+        "title": "yağ yeşili"
+    },
+    "276-": {
+        "groupName": "Renk",
+        "title": "yeşil"
+    },
+    "277-": {
+        "groupName": "Renk",
+        "title": "zümrüt"
+    },
+    "278-": {
+        "groupName": "Renk",
+        "title": "mint yeşili"
+    },
+    "279-": {
+        "groupName": "Renk",
+        "title": "fıstık yeşili"
+    },
+    "280-": {
+        "groupName": "Renk",
+        "title": "siyah beyaz"
+    },
+    "281-": {
+        "groupName": "Marka",
+        "title": "defacto"
+    },
+    "282-": {
+        "groupName": "Marka",
+        "title": "koton"
+    },
+    "283-": {
+        "groupName": "Marka",
+        "title": "lcwaikiki"
+    },
+    "284-": {
+        "groupName": "Marka",
+        "title": "adidas"
+    },
+    "285-": {
+        "groupName": "Marka",
+        "title": "adl"
+    },
+    "286-": {
+        "groupName": "Marka",
+        "title": "baqa"
+    },
+    "287-": {
+        "groupName": "Marka",
+        "title": "beymen"
+    },
+    "288-": {
+        "groupName": "Marka",
+        "title": "beyyoglu"
+    },
+    "289-": {
+        "groupName": "Marka",
+        "title": "colins"
+    },
+    "290-": {
+        "groupName": "Marka",
+        "title": "butigo"
+    },
+    "291-": {
+        "groupName": "Marka",
+        "title": "dilvin"
+    },
+    "292-": {
+        "groupName": "Marka",
+        "title": "dogo"
+    },
+    "293-": {
+        "groupName": "Marka",
+        "title": "hm"
+    },
+    "294-": {
+        "groupName": "Marka",
+        "title": "ipekyol"
+    },
+    "295-": {
+        "groupName": "Marka",
+        "title": "machka"
+    },
+    "296-": {
+        "groupName": "Marka",
+        "title": "penti"
+    },
+    "297-": {
+        "groupName": "Marka",
+        "title": "roman"
+    },
+    "298-": {
+        "groupName": "Marka",
+        "title": "twist"
+    },
+    "299-": {
+        "groupName": "Marka",
+        "title": "vakko"
+    },
+    "300-": {
+        "groupName": "Marka",
+        "title": "zara"
+    },
+    "301-": {
+        "groupName": "Marka",
+        "title": "gizia"
+    },
+    "302-": {
+        "groupName": "Marka",
+        "title": "vitrin"
+    },
+    "303-": {
+        "groupName": "Marka",
+        "title": "xint"
+    },
+    "304-": {
+        "groupName": "Marka",
+        "title": "tozlu"
+    },
+    "305-": {
+        "groupName": "Marka",
+        "title": "quzu"
+    },
+    "306-": {
+        "groupName": "Marka",
+        "title": "saygigiyim"
+    },
+    "307-": {
+        "groupName": "Marka",
+        "title": "manuka"
+    },
+    "308-": {
+        "groupName": "Marka",
+        "title": "kikiriki"
+    },
+    "309-": {
+        "groupName": "Marka",
+        "title": "jimmykey"
+    },
+    "310-": {
+        "groupName": "Marka",
+        "title": "perspective"
+    },
+    "311-": {
+        "groupName": "Marka",
+        "title": "mango"
+    },
+    "312-": {
+        "groupName": "Marka",
+        "title": "olegcassini"
+    },
+    "313-": {
+        "groupName": "Marka",
+        "title": "addax"
+    },
+    "314-": {
+        "groupName": "Marka",
+        "title": "oxxo"
+    },
+    "315-": {
+        "groupName": "Marka",
+        "title": "abiyefon"
+    },
+    "316-": {
+        "groupName": "Marka",
+        "title": "desa"
+    },
+    "317-": {
+        "groupName": "Marka",
+        "title": "patirti"
+    },
+    "318-": {
+        "groupName": "Marka",
+        "title": "yargici"
+    },
+    "319-": {
+        "groupName": "Fiyat",
+        "title": "0-100"
+    },
+    "320-": {
+        "groupName": "Fiyat",
+        "title": "100-200"
+    },
+    "321-": {
+        "groupName": "Fiyat",
+        "title": "200-300"
+    },
+    "322-": {
+        "groupName": "Fiyat",
+        "title": "300-400"
+    },
+    "323-": {
+        "groupName": "Fiyat",
+        "title": "400-500"
+    },
+    "324-": {
+        "groupName": "Fiyat",
+        "title": "500-600"
+    },
+    "325-": {
+        "groupName": "Fiyat",
+        "title": "600-700"
+    },
+    "326-": {
+        "groupName": "Fiyat",
+        "title": "700-800"
+    },
+    "327-": {
+        "groupName": "Fiyat",
+        "title": "800-900"
+    },
+    "328-": {
+        "groupName": "Fiyat",
+        "title": "900-1000"
+    },
+    "329-": {
+        "groupName": "Fiyat",
+        "title": "1000-1500"
+    },
+    "330-": {
+        "groupName": "Fiyat",
+        "title": "1500"
+    }
+}

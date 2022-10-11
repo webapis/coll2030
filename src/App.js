@@ -287,7 +287,7 @@ export default class App extends React.Component {
 
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
-
+debugger
     if (selectedNavIndex === '') {
       url = `${host}/${subcat}-navfirst?navindex=0-`
     } else {

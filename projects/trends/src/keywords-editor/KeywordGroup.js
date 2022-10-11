@@ -30,7 +30,7 @@ export default function KeywordGroup({ groupName,keywords }) {
                         <EditIcon />
                     </IconButton>
                 }>
-                    <ListItemText name={m._id} primary={<div style={{display:'flex', justifyContent:'space-between'}}><span>{m.keywords}</span><span>{m.functionName}</span></div> } />
+                    <ListItemText name={m._id} primary={<div style={{display:'flex', justifyContent:'space-between'}}><span>{m.title}</span><span>{m.index}</span><span>{m.functionName}</span></div> } />
 
                 </ListItem>
             })}

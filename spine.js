@@ -15,28 +15,13 @@
     for (let o of keywordsfromexcell) {
         objectify[o.index] = o
 
+    }
+    debugger
 
-    }
-    debugger
-    const { getGoogleToken } = require(`${process.cwd()}/google/google.oauth`)
-    const { getSheetValues } = require(`${process.cwd()}/google.sheet.js`)
-    const google_access_token = await getGoogleToken()
-    const spreadsheetId = '1A4FWttdgPq2kaT2fr_Z0ke3ETfK8ndjiyEc7nvJ4xHk'
-    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range: 'biraradamoda!A:G' })
-    const categoryItems = []
-    debugger
-    for (let value of sheetData.values.filter((c, i) => i > 0)) {
-        const productName = value[1]
-        debugger
-        //  const exact = value[1]
-        //   const exclude = value[2]
-        const fn = value[4]
-        // const groupDescription = value[4]
-        const sort = value[6]
-        const group = value[7]
-  
-        categoryItems.push({ productName: productName.toLowerCase(), fn, group, sort, group })
-    }
+    const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
+
+
+   
     const placeholder = ''
     const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/w_200/'
     const imagePrefixImageKit = 'https://ik.imagekit.io/mumrjdehaou/'
@@ -91,7 +76,7 @@
     debugger
     const kewordImages = {}
     const imageIndexes = []
-    for (let subcat of categoryItems) {
+    for (let subcat of allkeywords) {
 
         const { fn, productName } = subcat
         debugger
