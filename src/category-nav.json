@@ -1,639 +1,635 @@
 {
-    "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek": [
-        {
-            "keywords": "pantolon,trousers",
-            "subcategory": "pantolon",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "one",
-            "groupDescription": "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek",
-            "sort": "1",
-            "index": "38-"
-        },
-        {
-            "keywords": "şort",
-            "subcategory": "şort",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "one",
-            "groupDescription": "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek",
-            "sort": "1",
-            "index": "43-"
-        },
-        {
-            "keywords": "bermuda",
-            "subcategory": "bermuda",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "one",
-            "groupDescription": "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek",
-            "sort": "1",
-            "index": "44-"
-        },
-        {
-            "keywords": "kapri",
-            "subcategory": "kapri",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "one",
-            "groupDescription": "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek",
-            "sort": "1",
-            "index": "45-"
-        },
-        {
-            "keywords": "jogger",
-            "subcategory": "jogger",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "one",
-            "groupDescription": "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek",
-            "sort": "1",
-            "index": "39-"
-        },
-        {
-            "keywords": "eşofman",
-            "subcategory": "eşofman",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "one",
-            "groupDescription": "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek",
-            "sort": "1",
-            "index": "42-"
-        },
-        {
-            "keywords": "tayt",
-            "subcategory": "tayt",
-            "exact": "TRUE",
-            "exclude": "pantolon görünümli",
-            "functionName": "one",
-            "groupDescription": "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek",
-            "sort": "1",
-            "index": "41-"
-        },
-        {
-            "keywords": "etek",
-            "subcategory": "etek",
-            "exact": "TRUE",
-            "exclude": "etek ucu,gömlek",
-            "functionName": "one",
-            "groupDescription": "pantolon,şort, bermuda, kapri,jogger, eşofman,tayt,etek",
-            "sort": "1",
-            "index": "46-"
-        }
-    ],
-    "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe": [
-        {
-            "keywords": "mont",
-            "subcategory": "mont",
-            "exact": "TRUE",
-            "exclude": "hırka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "48-"
-        },
-        {
-            "keywords": "ceket",
-            "subcategory": "ceket",
-            "exact": "TRUE",
-            "exclude": "hırka, ceket yaka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "51-"
-        },
-        {
-            "keywords": "kaban",
-            "subcategory": "kaban",
-            "exact": "TRUE",
-            "exclude": "hırka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "50-"
-        },
-        {
-            "keywords": "yağmurluk",
-            "subcategory": "yağmurluk",
-            "exact": "TRUE",
-            "exclude": "hırka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "47-"
-        },
-        {
-            "keywords": "trençkot",
-            "subcategory": "trençkot",
-            "exact": "TRUE",
-            "exclude": "hırka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "49-"
-        },
-        {
-            "keywords": "blazer",
-            "subcategory": "blazer",
-            "exact": "TRUE",
-            "exclude": "hırka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "55-"
-        },
-        {
-            "keywords": "yelek",
-            "subcategory": "yelek",
-            "exact": "TRUE",
-            "exclude": "hırka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "56-"
-        },
-        {
-            "keywords": "parka",
-            "subcategory": "parka",
-            "exact": "TRUE",
-            "exclude": "hırka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "57-"
-        },
-        {
-            "keywords": "kaşe",
-            "subcategory": "kaşe",
-            "exact": "TRUE",
-            "exclude": "hırka",
-            "functionName": "two",
-            "groupDescription": "mont, ceket, kaban, yağmurluk, trençkot, yelek, blazer, parka,kaşe",
-            "sort": "2",
-            "index": "58-"
-        }
-    ],
-    "pijama": [
+    "Ev giyim": [
         {
             "keywords": "pijama",
-            "subcategory": "pijama",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "three",
-            "groupDescription": "pijama",
-            "sort": "3",
-            "index": "59-"
-        }
-    ],
-    "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo": [
-        {
-            "keywords": "bralet",
-            "subcategory": "bralet",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "64-"
-        },
-        {
-            "keywords": "külot",
-            "subcategory": "külot",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "62-"
-        },
-        {
-            "keywords": "bra",
-            "subcategory": "bra",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "65-"
-        },
-        {
-            "keywords": "gecelik",
-            "subcategory": "gecelik",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "61-"
+            "title": "pijama",
+            "exclude": "pijama yaka",
+            "index": "1-",
+            "keywordType": "category",
+            "groupName": "Ev giyim",
+            "functionName": "one"
         },
         {
             "keywords": "sabahlık",
-            "subcategory": "sabahlık",
-            "exact": "TRUE",
+            "title": "sabahlık",
             "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "60-"
+            "index": "2-",
+            "keywordType": "category",
+            "groupName": "Ev giyim",
+            "functionName": "one"
         },
         {
-            "keywords": "sütyen",
-            "subcategory": "sütyen",
-            "exact": "TRUE",
+            "keywords": "gecelik",
+            "title": "gecelik",
             "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "63-"
-        },
-        {
-            "keywords": "korse",
-            "subcategory": "korse",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "72-"
-        },
-        {
-            "keywords": "babydoll",
-            "subcategory": "babydoll",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "71-"
-        },
-        {
-            "keywords": "hipster",
-            "subcategory": "hipster",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "70-"
-        },
-        {
-            "keywords": "string",
-            "subcategory": "string",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "69-"
-        },
-        {
-            "keywords": "slip",
-            "subcategory": "slip",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "68-"
-        },
-        {
-            "keywords": "bikini",
-            "subcategory": "bikini",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "66-"
-        },
-        {
-            "keywords": "mayo",
-            "subcategory": "mayo",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "four",
-            "groupDescription": "bralet, külot,bra, gecelik, sabahlık, sütyen,korse,bikini,mayo",
-            "sort": "4",
-            "index": "67-"
+            "index": "3-",
+            "keywordType": "category",
+            "groupName": "Ev giyim",
+            "functionName": "one"
         }
     ],
-    "plaj": [
+    "Dış giyim": [
         {
-            "keywords": "plaj",
-            "subcategory": "plaj",
-            "exact": "TRUE",
+            "keywords": "yağmurluk",
+            "title": "yağmurluk",
             "exclude": "",
-            "functionName": "five",
-            "groupDescription": "plaj",
-            "sort": "5",
-            "index": "undefined-"
+            "index": "4-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "trençkot",
+            "title": "trençkot",
+            "exclude": "",
+            "index": "6-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "kaban",
+            "title": "kaban",
+            "exclude": "",
+            "index": "7-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "ceket",
+            "title": "ceket",
+            "exclude": "ceket yaka, elbise,ceket tasarımlı,gömlek,dik yaka,mont",
+            "index": "8-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "pardösü",
+            "title": "pardösü",
+            "exclude": "",
+            "index": "9-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "manto",
+            "title": "manto",
+            "exclude": "",
+            "index": "10-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "palto",
+            "title": "palto",
+            "exclude": "",
+            "index": "11-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "blazer",
+            "title": "blazer",
+            "exclude": "blazer tasarımlı",
+            "index": "12-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "yelek",
+            "title": "yelek",
+            "exclude": "gömlek",
+            "index": "13-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "parka",
+            "title": "parka",
+            "exclude": "",
+            "index": "14-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
+        },
+        {
+            "keywords": "kaşe",
+            "title": "kaşe",
+            "exclude": "",
+            "index": "15-",
+            "keywordType": "category",
+            "groupName": "Dış giyim",
+            "functionName": "two"
         }
     ],
-    "elbise,tulum,salopet,abiye": [
+    "D��ş giyim": [
         {
-            "keywords": "elbise",
-            "subcategory": "elbise",
-            "exact": "TRUE",
-            "exclude": "abiye,tulum,salopet",
-            "functionName": "six",
-            "groupDescription": "elbise,tulum,salopet,abiye",
-            "sort": "6",
-            "index": "17-"
-        },
-        {
-            "keywords": "dress",
-            "subcategory": "dress",
-            "exact": "TRUE",
-            "exclude": "abiye,tulum,salopet",
-            "functionName": "six",
-            "groupDescription": "elbise,tulum,salopet,abiye",
-            "sort": "6",
-            "index": "undefined-"
-        },
-        {
-            "keywords": "tulum",
-            "subcategory": "tulum",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "six",
-            "groupDescription": "elbise,tulum,salopet,abiye",
-            "sort": "6",
-            "index": "19-"
-        },
-        {
-            "keywords": "salopet",
-            "subcategory": "salopet",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "six",
-            "groupDescription": "elbise,tulum,salopet,abiye",
-            "sort": "6",
-            "index": "20-"
-        },
-        {
-            "keywords": "abiye",
-            "subcategory": "abiye",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "six",
-            "groupDescription": "elbise,tulum,salopet,abiye",
-            "sort": "6",
-            "index": "18-"
+            "keywords": "mont",
+            "title": "mont",
+            "exclude": "yelek,ceket,parka,kaşe",
+            "index": "5-",
+            "keywordType": "category",
+            "groupName": "D��ş giyim",
+            "functionName": "two"
         }
     ],
-    "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono": [
+    "Büyük beden": [
         {
-            "keywords": "kazak",
-            "subcategory": "kazak",
-            "exact": "TRUE",
+            "keywords": "büyük beden",
+            "title": "büyük beden",
             "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "21-"
+            "index": "16-",
+            "keywordType": "category",
+            "groupName": "Büyük beden",
+            "functionName": "three"
         },
         {
-            "keywords": "hırka",
-            "subcategory": "hırka",
-            "exact": "TRUE",
+            "keywords": "H&M+",
+            "title": "H&M+",
             "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "23-"
-        },
-        {
-            "keywords": "süveter",
-            "subcategory": "süveter",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "22-"
-        },
-        {
-            "keywords": "bluz,buz",
-            "subcategory": "bluz",
-            "exact": "TRUE",
-            "exclude": "elbise,pijama üstü,pijama takım,ceket,yelek,tulum,hırka,atlet",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "25-"
-        },
-        {
-            "keywords": "tunik,tunic",
-            "subcategory": "tunik",
-            "exact": "TRUE",
-            "exclude": "elbise,pijama üstü,pijama takım,ceket,yelek,tulum,hırka,atlet",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "30-"
-        },
-        {
-            "keywords": "gömlek,gömle",
-            "subcategory": "gömlek",
-            "exact": "TRUE",
-            "exclude": "elbise,pijama üstü,pijama takım,yelek,tulum,hırka,atlet",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "24-"
-        },
-        {
-            "keywords": "atlet,atle",
-            "subcategory": "atlet",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "26-"
-        },
-        {
-            "keywords": "sweatshirt",
-            "subcategory": "sweatshirt",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "34-"
-        },
-        {
-            "keywords": "büstiyer",
-            "subcategory": "büstiyer",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "27-"
-        },
-        {
-            "keywords": "tişört",
-            "subcategory": "tişört",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "29-"
-        },
-        {
-            "keywords": "body",
-            "subcategory": "body",
-            "exact": "TRUE",
-            "exclude": "etek,parfüm",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "37-"
-        },
-        {
-            "keywords": "crop",
-            "subcategory": "crop",
-            "exact": "TRUE",
-            "exclude": "etek",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "15-"
-        },
-        {
-            "keywords": "crop top",
-            "subcategory": "crop top",
-            "exact": "TRUE",
-            "exclude": "etek",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "undefined-"
-        },
-        {
-            "keywords": "top",
-            "subcategory": "top",
-            "exact": "TRUE",
-            "exclude": "etek",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "undefined-"
-        },
-        {
-            "keywords": "kimono",
-            "subcategory": "kimono",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "16-"
-        },
-        {
-            "keywords": "panço",
-            "subcategory": "panço",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "seven",
-            "groupDescription": "atlet,sweatshirt,tişört,body,crop,crop top,gömlek, bluz, tunik,kazak, hırka, süveter,büstiyer,panço,kimono",
-            "sort": "7",
-            "index": "undefined-"
+            "index": "17-",
+            "keywordType": "category",
+            "groupName": "Büyük beden",
+            "functionName": "three"
         }
     ],
-    "": [
-        {
-            "keywords": "hamile",
-            "subcategory": "hamile",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "eight",
-            "groupDescription": "",
-            "sort": "8",
-            "index": "324-"
-        },
+    "Aksesuar": [
         {
             "keywords": "kemer",
-            "subcategory": "kemer",
-            "exact": "TRUE",
-            "exclude": "",
-            "functionName": "nine",
-            "groupDescription": "",
-            "sort": "9",
-            "index": "325-"
+            "title": "kemer",
+            "exclude": "kemer detaylı,kemerli,kemer detayli",
+            "index": "18-",
+            "keywordType": "category",
+            "groupName": "Aksesuar",
+            "functionName": "four"
         },
         {
             "keywords": "şapka",
-            "subcategory": "şapka",
-            "exact": "TRUE",
+            "title": "şapka",
             "exclude": "",
-            "functionName": "nine",
-            "groupDescription": "",
-            "sort": "9",
-            "index": "326-"
+            "index": "19-",
+            "keywordType": "category",
+            "groupName": "Aksesuar",
+            "functionName": "four"
         },
         {
             "keywords": "şal",
-            "subcategory": "şal",
-            "exact": "TRUE",
+            "title": "şal",
             "exclude": "",
-            "functionName": "nine",
-            "groupDescription": "",
-            "sort": "9",
-            "index": "327-"
+            "index": "20-",
+            "keywordType": "category",
+            "groupName": "Aksesuar",
+            "functionName": "four"
         },
         {
             "keywords": "çorap",
-            "subcategory": "çorap",
-            "exact": "TRUE",
+            "title": "çorap",
             "exclude": "",
-            "functionName": "nine",
-            "groupDescription": "",
-            "sort": "9",
-            "index": "328-"
+            "index": "21-",
+            "keywordType": "category",
+            "groupName": "Aksesuar",
+            "functionName": "four"
         },
         {
             "keywords": "cüzdan",
-            "subcategory": "cüzdan",
-            "exact": "TRUE",
+            "title": "cüzdan",
             "exclude": "",
-            "functionName": "nine",
-            "groupDescription": "",
-            "sort": "9",
-            "index": "329-"
+            "index": "22-",
+            "keywordType": "category",
+            "groupName": "Aksesuar",
+            "functionName": "four"
+        }
+    ],
+    "İç giyim": [
+        {
+            "keywords": "külot",
+            "title": "külot",
+            "exclude": "",
+            "index": "23-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
         },
         {
-            "keywords": "babet",
-            "subcategory": "babet",
-            "exact": "TRUE",
+            "keywords": "sütyen",
+            "title": "sütyen",
             "exclude": "",
-            "functionName": "ten",
-            "groupDescription": "",
-            "sort": "10",
-            "index": "330-"
+            "index": "24-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "bralet",
+            "title": "bralet",
+            "exclude": "bluz",
+            "index": "25-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "bra",
+            "title": "bra",
+            "exclude": "",
+            "index": "26-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "bikini",
+            "title": "bikini",
+            "exclude": "",
+            "index": "27-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "mayo",
+            "title": "mayo",
+            "exclude": "",
+            "index": "28-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "slip",
+            "title": "slip",
+            "exclude": "",
+            "index": "29-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "string",
+            "title": "string",
+            "exclude": "",
+            "index": "30-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "hipster",
+            "title": "hipster",
+            "exclude": "",
+            "index": "31-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "babydoll",
+            "title": "babydoll",
+            "exclude": "",
+            "index": "32-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        },
+        {
+            "keywords": "korse",
+            "title": "korse",
+            "exclude": "",
+            "index": "33-",
+            "keywordType": "category",
+            "groupName": "İç giyim",
+            "functionName": "five"
+        }
+    ],
+    "Alt giyim": [
+        {
+            "keywords": "pantolon,trousers",
+            "title": "pantolon",
+            "exclude": "pantolon görünümlü,kapri,gömlek",
+            "index": "34-",
+            "keywordType": "category",
+            "groupName": "Alt giyim",
+            "functionName": "six"
+        },
+        {
+            "keywords": "jogger",
+            "title": "jogger",
+            "exclude": "pantolon",
+            "index": "35-",
+            "keywordType": "category",
+            "groupName": "Alt giyim",
+            "functionName": "six"
+        },
+        {
+            "keywords": "tayt",
+            "title": "tayt",
+            "exclude": "pantolon",
+            "index": "36-",
+            "keywordType": "category",
+            "groupName": "Alt giyim",
+            "functionName": "six"
+        },
+        {
+            "keywords": "eşofman",
+            "title": "eşofman",
+            "exclude": "",
+            "index": "37-",
+            "keywordType": "category",
+            "groupName": "Alt giyim",
+            "functionName": "six"
+        },
+        {
+            "keywords": "şort",
+            "title": "şort",
+            "exclude": "etek,tulum",
+            "index": "38-",
+            "keywordType": "category",
+            "groupName": "Alt giyim",
+            "functionName": "six"
+        },
+        {
+            "keywords": "bermuda",
+            "title": "bermuda",
+            "exclude": "",
+            "index": "39-",
+            "keywordType": "category",
+            "groupName": "Alt giyim",
+            "functionName": "six"
+        },
+        {
+            "keywords": "kapri",
+            "title": "kapri",
+            "exclude": "",
+            "index": "40-",
+            "keywordType": "category",
+            "groupName": "Alt giyim",
+            "functionName": "six"
+        },
+        {
+            "keywords": "etek",
+            "title": "etek",
+            "exclude": "etek detaylı, etek ucu,şort,tunik,gömlek,elbise",
+            "index": "41-",
+            "keywordType": "category",
+            "groupName": "Alt giyim",
+            "functionName": "six"
+        }
+    ],
+    "Üst giyim": [
+        {
+            "keywords": "crop",
+            "title": "crop",
+            "exclude": "ceket, yelek, blazer, yağmurluk,mont,sweatshirt,pantolon,şort,kazak,hırka,süveter,bluz,gömlek,atlet",
+            "index": "42-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "kimono",
+            "title": "kimono",
+            "exclude": "elbise",
+            "index": "43-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "kazak",
+            "title": "kazak",
+            "exclude": "tunik",
+            "index": "48-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "süveter",
+            "title": "süveter",
+            "exclude": "tunik",
+            "index": "49-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "hırka",
+            "title": "hırka",
+            "exclude": "tunik",
+            "index": "50-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "gömlek,gömle",
+            "title": "gömlek",
+            "exclude": "tulum,hırka,atlet,kap",
+            "index": "51-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "bluz,buz",
+            "title": "bluz",
+            "exclude": "",
+            "index": "52-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "atlet",
+            "title": "atlet",
+            "exclude": "tunik",
+            "index": "53-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "büstiyer",
+            "title": "büstiyer",
+            "exclude": "",
+            "index": "54-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "t-shirt",
+            "title": "t-shirt",
+            "exclude": "",
+            "index": "55-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "tişört",
+            "title": "tişört",
+            "exclude": "elbise,tunik,gömlek",
+            "index": "56-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "tunik,tunic",
+            "title": "tunik",
+            "exclude": "elbise,kazak,süveter,hırka,atlet",
+            "index": "57-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "croptop",
+            "title": "croptop",
+            "exclude": "",
+            "index": "58-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "tshirt",
+            "title": "tshirt",
+            "exclude": "",
+            "index": "59-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "üst",
+            "title": "üst",
+            "exclude": "",
+            "index": "60-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "sweatshirt",
+            "title": "sweatshirt",
+            "exclude": "elbise,pantolon,şort,bermuda,hırka,tunik,etek",
+            "index": "61-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "penye",
+            "title": "penye",
+            "exclude": "elbise,tunik,etek,atlet",
+            "index": "62-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "kap",
+            "title": "kap",
+            "exclude": "",
+            "index": "63-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        },
+        {
+            "keywords": "body",
+            "title": "body",
+            "exclude": "",
+            "index": "64-",
+            "keywordType": "category",
+            "groupName": "Üst giyim",
+            "functionName": "seven"
+        }
+    ],
+    "Elbise": [
+        {
+            "keywords": "elbise",
+            "title": "elbise",
+            "exclude": "abiye,ceket,tişört,kimono,sweatshirt,penye,tunik,salopet,tulum,etek",
+            "index": "44-",
+            "keywordType": "category",
+            "groupName": "Elbise",
+            "functionName": "eight"
+        },
+        {
+            "keywords": "abiye",
+            "title": "abiye",
+            "exclude": "tulum",
+            "index": "45-",
+            "keywordType": "category",
+            "groupName": "Elbise",
+            "functionName": "eight"
+        },
+        {
+            "keywords": "tulum",
+            "title": "tulum",
+            "exclude": "şort,abiye",
+            "index": "46-",
+            "keywordType": "category",
+            "groupName": "Elbise",
+            "functionName": "eight"
+        },
+        {
+            "keywords": "salopet",
+            "title": "salopet",
+            "exclude": "elbise",
+            "index": "47-",
+            "keywordType": "category",
+            "groupName": "Elbise",
+            "functionName": "eight"
+        }
+    ],
+    "Ayakkabı": [
+        {
+            "keywords": "babet",
+            "title": "babet",
+            "exclude": "",
+            "index": "65-",
+            "keywordType": "category",
+            "groupName": "Ayakkabı",
+            "functionName": "nine"
         },
         {
             "keywords": "ayakkabı",
-            "subcategory": "ayakkabı",
-            "exact": "TRUE",
+            "title": "ayakkabı",
             "exclude": "",
-            "functionName": "ten",
-            "groupDescription": "",
-            "sort": "10",
-            "index": "331-"
+            "index": "66-",
+            "keywordType": "category",
+            "groupName": "Ayakkabı",
+            "functionName": "nine"
         }
     ],
-    "undefined": [
+    "Hamile": [
         {
-            "subcategory": "diger",
-            "exact": "",
+            "keywords": "hamile",
+            "title": "hamile",
+            "exclude": "",
+            "index": "67-",
+            "keywordType": "category",
+            "groupName": "Hamile",
+            "functionName": "ten"
+        }
+    ],
+    "diger": [
+        {
+            "title": "diger",
             "exclude": "",
             "functionName": "diger",
-            "groupDescrption": "diger",
-            "sort": 100,
-            "group": "diger",
+            "groupName": "diger",
             "index": "0-"
         }
     ]

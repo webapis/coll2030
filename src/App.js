@@ -113,7 +113,7 @@ export default class App extends React.Component {
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', subcategory)
     }
-    this.selectSubcategory = ({ functionName, index, totalSubcategory, node }) => {
+    this.selectSubcategory = ({ functionName, index, totalSubcategory }) => {
 
 
       this.setState(state => ({
@@ -124,7 +124,7 @@ export default class App extends React.Component {
         navKeywords: [],
         products: [],
         fetchingProduct: false,
-        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory, node }, selectedNavIndex: index, open: false
+        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory }, selectedNavIndex: index, open: false
       }));
     }
     this.setProductImageInexes = ({ productImgIndexes }) => {
@@ -135,7 +135,7 @@ export default class App extends React.Component {
       })
     }
     this.setSelectedNavIndex = ({ keyword, index }) => {
-      debugger
+      
       window.scrollTo(0, 0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
@@ -220,7 +220,7 @@ export default class App extends React.Component {
 
   async fetchProducts(start) {
     const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
-    debugger
+
     let host = ''
     let href = window.location.href
     if (href === 'http://localhost:8888/') {
@@ -235,15 +235,15 @@ export default class App extends React.Component {
 
     }
     let productImgIndexes = null
-    if (imageIndexes[selectedNavIndex] !== undefined) {
+    // if (imageIndexes[selectedNavIndex] !== undefined) {
 
-      const response = await fetch(`${host}/imageIndex?navindex=${selectedNavIndex}`)
-      debugger
-      productImgIndexes = await response.json()
-      debugger
-      console.log('data elngt', productImgIndexes)
+    //   const response = await fetch(`${host}/imageIndex?navindex=${selectedNavIndex}`)
+ 
+    //   productImgIndexes = await response.json()
 
-    }
+    //   console.log('data elngt', productImgIndexes)
+
+    // }
 
 
     //'https://dream2022.netlify.app/.netlify/functions'
@@ -268,6 +268,7 @@ export default class App extends React.Component {
   }
 
   async fetchNavKeywords(selectedNavIndex, subcategory) {
+    debugger
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
     let href = window.location.href
@@ -308,31 +309,37 @@ export default class App extends React.Component {
 
     this.setState(function (state) {
       const { keywords } = data
+   
       const grouped = {}
 
       for (let kw of keywords) {
-        debugger
-        const k = kw[2]
 
-        const groupName = keywordgroup[k]['subcategory']
-        const category = keywordgroup[k]['category']
+        const keywordIndex = kw[1]
 
+
+        const groupName = keywordgroup[keywordIndex]['groupName']
+        const keywordTitle =keywordgroup[keywordIndex]['title']
+       
+        const keywordWithTitle =[...kw,keywordTitle]
+        
         if (grouped[groupName] === undefined) {
 
-          grouped[groupName] = { keywords: [kw], category }
+          grouped[groupName] = { keywords: [keywordWithTitle]  }
 
         } else {
 
-          grouped[groupName].keywords = [...grouped[groupName].keywords, kw]
+          grouped[groupName].keywords = [...grouped[groupName].keywords, keywordWithTitle]
+        
         }
 
 
       }
+   
 
       return {
         ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => {
 
-          return { groupName: m[0], keywords: m[1].keywords, category: m[1].category }
+          return { groupName: m[0], keywords: m[1].keywords }
         }).sort(function (a, b) {
           var textA = a.groupName;
           var textB = b.groupName;
@@ -340,6 +347,8 @@ export default class App extends React.Component {
           return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         })
       }
+
+    
     })
 
   }

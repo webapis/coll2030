@@ -82,7 +82,7 @@ async function genNav({ functionName }) {
 
 
           let exactmatch = kws.exactmatch
-          let negwords = kws.negwords
+          let negwords = kws.exclude
 
           let index = parseInt(kws.index.replace('-', ''))
           if (index <= 12) {
@@ -214,9 +214,9 @@ async function genNav({ functionName }) {
 
     const { keywords } = navKeys[nk]
 
-    const map = Object.entries(keywords).map((m) => { return { ...m[1], title: m[0] } }).map(m => {
+    const map = Object.entries(keywords).map((m) => { return { ...m[1] } }).map(m => {
 
-      return [m.count, m.index, m.title]
+      return [m.count, m.index]
     })
 
 

@@ -1,5 +1,5 @@
 
-function productTitleMatch({ kw, title, exactmatch, nws }) {
+function productTitleMatch({ kw, title, nws }) {
 
     if(title){
 
