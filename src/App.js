@@ -291,7 +291,13 @@ debugger
     if (selectedNavIndex === '') {
       url = `${host}/${subcat}-navfirst?navindex=0-`
     } else {
-
+      const spl =selectedNavIndex.split('-').filter(f => f !== '')
+      //keywordgroup[keywordIndex]['groupName']
+      for(let b in  keywordgroup){
+        // if(spl.find(f=> f))
+        // const current =keywordgroup[b]
+        // debugger
+      }
       if (fn === 1) {
 
         url = `${host}/${subcat}-navsecond?navindex=${selectedNavIndex}`
@@ -319,6 +325,7 @@ debugger
 
         const groupName = keywordgroup[keywordIndex]['groupName']
         const keywordTitle =keywordgroup[keywordIndex]['title']
+         
        
         const keywordWithTitle =[...kw,keywordTitle]
         

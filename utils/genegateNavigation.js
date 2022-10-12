@@ -61,32 +61,33 @@ async function genNav({ functionName }) {
 
 
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
+  const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat')
 
-  let navKeys = { ['0-']: { navMatch: [], keywords: {} } }
+  let navKeys = { ['0-']: { matchingKeywords: [], keywords: {} } }
+  let navKeysWithCatKeys = {}
+  let catImages = {}
 
-  let objCounter = 0
-  debugger
   dataCollection.forEach(async (object) => {
 
 
-    const { title, priceNew } = object
+    const { title, priceNew, imageUrl } = object
 
 
-    //let navMatchCollection = []
+
     if (title) {
 
       const keywords = allkeywords
       if (keywords && keywords.length > 0) {
-
-        const navMatch = keywords.map((m) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
+        //--------------------------FIND MATCHING KEYWORDS WITHING PRODUCT NAME
+        const matchingKeywords = keywords.map((m) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
 
 
           let exactmatch = kws.exactmatch
           let negwords = kws.exclude
 
-   
-          
-          if (kws.groupName ==='Fiyat') {
+
+
+          if (kws.groupName === 'Fiyat') {
             const priceRange = kws.keywords.split('-').map(m => parseInt(m).toFixed(2))
             const startPrice = parseFloat(priceRange[0])
             const endPrice = parseFloat(priceRange[1])
@@ -129,44 +130,48 @@ async function genNav({ functionName }) {
           }
 
         })
+        //-------------------------IF MATCHING KEYWORDS FOUND------------------------------------------------------------------------------
+        if (matchingKeywords.length > 0) {
 
-        if (navMatch.length > 0) {
 
-          // navMatchCollection.push(navMatch)
 
-          const possibleCombination = getCombinations(navMatch.map((m) => m.index))
+          const possibleCombination = getCombinations(matchingKeywords.map((m) => m.index))
 
           possibleCombination.forEach(async (c, h) => {
 
-            const comb = c.split('-').filter(f=>f !=='').map(m =>parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
-        
-     
-     
-            // const mapComb = comb.split('-').filter(f => f !== '').map((m) => {
-            //   const obj = navMatch.find(f => f.index.replace('-', '').trim() === m)
-            //   return obj
-            // })
-
-            // let doubleExist = false
-            // for (let g of mapComb) {
-
-            //   let match = navMatch.filter(f => f.groupid === g.groupid)
-
-            //   if (match.length > 1) {
-            //     doubleExist = true
-
-            //   }
-
-            // }
-
-
-
+            const comb = c.split('-').filter(f => f !== '').map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
 
             if (navKeys[comb] === undefined) {
               navKeys[comb] = { keywords: {} }
             }
-            navMatch.forEach(nm => {
+
+            matchingKeywords.forEach(nm => {
               const { index, title } = nm
+              if (comb === '1-') {
+
+              }
+
+
+              const fnd = categoryKeywords.find(f => comb.split('-').filter(f => f !== '').includes(f.index))
+
+              const c = fnd ? true : false
+              if (c) {
+                if (navKeysWithCatKeys[comb] === undefined) {
+                  navKeysWithCatKeys[comb] = { keywords: {} }
+                }
+
+                if (navKeysWithCatKeys[comb].keywords[title] === undefined) {
+
+                  navKeysWithCatKeys[comb].keywords[title] = { count: 1, index, c, imageUrls: [{ src: imageUrl, title: object.title }] }
+                }
+                else {
+                  const count = navKeysWithCatKeys[comb].keywords[title].count
+                  const imageUrls = navKeysWithCatKeys[comb].keywords[title].imageUrls
+
+                  navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title }] }
+                }
+              }
+
 
               if (navKeys[comb].keywords[title] === undefined) {
 
@@ -179,20 +184,19 @@ async function genNav({ functionName }) {
 
             })
 
-
           })
-          navMatch.forEach(nm => {
+
+          matchingKeywords.forEach(nm => {
             const { index, title } = nm
 
             if (navKeys['0-'].keywords[title] === undefined) {
 
-              navKeys['0-'].keywords[title] = { count: 1, index }
+              navKeys['0-'].keywords[title] = { count: 1, index, c: false }
             }
             else {
               const count = navKeys['0-'].keywords[title].count
-              navKeys['0-'].keywords[title] = { count: count + 1, index }
+              navKeys['0-'].keywords[title] = { count: count + 1, index, c: false }
             }
-
           })
 
 
@@ -204,13 +208,51 @@ async function genNav({ functionName }) {
     }
   })//end
 
+  try {
+    for (let f in navKeysWithCatKeys) {
+      //find category index
+      const categoryIndexes = f.split('-').filter(f => f !== '')
+      const fnd = categoryKeywords.find(f => categoryIndexes.includes(f.index))
+
+      const current = navKeysWithCatKeys[f]
+      const keywords = current.keywords
+
+      for (let k in keywords) {
+
+        const cur = keywords[k]
+
+        if (catImages[fnd.index] === undefined) {
+          catImages[fnd.index] = { [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[0] } }
+
+        } else {
+
+          if (catImages[fnd.index][cur.index] === undefined) {
+
+            catImages[fnd.index] = { ...catImages[fnd.index], [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[0] } }
+          }
+
+        }
+
+      }
+
+
+
+
+    }
+
+  } catch (error) {
+    console.log(error)
+
+  }
 
 
 
   console.log('nav gen complete')
 
   let regrouped = []
-  debugger
+
+
+
   for (let nk in navKeys) {
 
     const { keywords } = navKeys[nk]
@@ -245,9 +287,9 @@ async function genNav({ functionName }) {
   const secondPart = mapped.filter((f) => f.fn === 1).map(m => { return { i: m.i, k: m.k } })
 
 
+
+
   debugger
-
-
 
 
   const savePathDir = path.join(process.cwd(), `api/_files/key/${functionName}`)
@@ -264,6 +306,24 @@ async function genNav({ functionName }) {
   }
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
+
+  for(let cimage in catImages){
+    if(cimage==='1'){
+      debugger
+    }
+
+    const curr =catImages[cimage]
+    const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
+    if (fs.existsSync(imageIndexPath)) {
+      const prevData =JSON.parse( fs.readFileSync(imageIndexPath,{encoding:'utf-8'}))
+      fs.unlinkSync(imageIndexPath)
+      fs.appendFileSync(imageIndexPath, JSON.stringify({...prevData,...curr}));
+    }else{
+      fs.appendFileSync(imageIndexPath, JSON.stringify(curr));
+    }
+
+ 
+  }
 
 
   console.log('end....1')

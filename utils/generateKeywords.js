@@ -56,7 +56,8 @@ debugger
     const reduced = data.reduce((prev, curr) => {
 
         return {
-            ...prev, [curr.index+"-"]: { groupName:curr.groupName,title:curr.title }
+            ...prev, [curr.index+"-"]: { groupName:curr.groupName,title:curr.title,
+                keywordType:curr.keywordType }
         }
     }, {})
     debugger
