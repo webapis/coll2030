@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+
 import Bar from '../Bar'
 import subcategoryPie from '../total-subcategory-pie.json'
 
