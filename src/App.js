@@ -259,7 +259,7 @@ export default class App extends React.Component {
 
 
     this.setState(state => ({
-      ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length, productImgIndexes
+      ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
     }))
     this.scrollHandled = false
 
@@ -268,7 +268,7 @@ export default class App extends React.Component {
   }
 
   async fetchNavKeywords(selectedNavIndex, subcategory) {
-    debugger
+    let productImgIndexes
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
     let href = window.location.href
@@ -287,17 +287,31 @@ export default class App extends React.Component {
 
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
-debugger
+
     if (selectedNavIndex === '') {
       url = `${host}/${subcat}-navfirst?navindex=0-`
     } else {
-      const spl =selectedNavIndex.split('-').filter(f => f !== '')
-      //keywordgroup[keywordIndex]['groupName']
-      for(let b in  keywordgroup){
-        // if(spl.find(f=> f))
-        // const current =keywordgroup[b]
-        // debugger
+      if(selectedNavIndex!=='0-'){
+
+        const indexes = selectedNavIndex.split('-').filter(f => f !== '')
+      
+   
+        //keywordgroup[keywordIndex]['groupName']
+        for(let b in  keywordgroup){
+          const currentIndex =b.split('-').filter(f => f !== '')
+        const indexFound = indexes.find(f=> {
+        
+          return currentIndex.includes(f)
+        })
+        if(indexFound){
+            const imageIndexesResponse =await fetch(`/image-indexes/${indexFound}.json`)
+             productImgIndexes =await imageIndexesResponse.json()
+        }
+  
+        
+        }
       }
+   
       if (fn === 1) {
 
         url = `${host}/${subcat}-navsecond?navindex=${selectedNavIndex}`
@@ -344,7 +358,7 @@ debugger
    
 
       return {
-        ...state, fetchingKeywords: false, navKeywords: Object.entries(grouped).map(m => {
+        ...state, fetchingKeywords: false,productImgIndexes, navKeywords: Object.entries(grouped).map(m => {
 
           return { groupName: m[0], keywords: m[1].keywords }
         }).sort(function (a, b) {

@@ -70,7 +70,7 @@ async function genNav({ functionName }) {
   dataCollection.forEach(async (object) => {
 
 
-    const { title, priceNew, imageUrl } = object
+    const { title, priceNew, imageUrl,marka } = object
 
 
 
@@ -162,13 +162,13 @@ async function genNav({ functionName }) {
 
                 if (navKeysWithCatKeys[comb].keywords[title] === undefined) {
 
-                  navKeysWithCatKeys[comb].keywords[title] = { count: 1, index, c, imageUrls: [{ src: imageUrl, title: object.title }] }
+                  navKeysWithCatKeys[comb].keywords[title] = { count: 1, index, c, imageUrls: [{ src: imageUrl, title: object.title,marka }] }
                 }
                 else {
                   const count = navKeysWithCatKeys[comb].keywords[title].count
                   const imageUrls = navKeysWithCatKeys[comb].keywords[title].imageUrls
 
-                  navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title }] }
+                  navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title,marka }] }
                 }
               }
 

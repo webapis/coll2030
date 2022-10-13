@@ -37,9 +37,7 @@ function RenderRow(props) {
 try {
 
     const matchfound = selectedNavIndex.split('-').find(f => f === index.replace('-', '')) ? true : false
-    if(matchfound){
-        debugger
-    }
+
 
     return (
         <Chip  style={{margin:1}} color={matchfound ? 'success':'default'}   label={<div><span>{keyword}</span><span style={{backgroundColor:'#bdbdbd',padding:2,fontSize:10, borderRadius:20, marginLeft:10,color:'#fafafa'}}>{count}</span></div>} onDelete={matchfound ?() => (handleClick({ index, keyword })):null } onClick={() => handleClick({ index, keyword}) }/>
