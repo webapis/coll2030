@@ -10,7 +10,7 @@ import TreeItem from '@mui/lab/TreeItem';
 
 import Divider from '@mui/material/Divider';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { actions } from '../store/collectedDataSlice'
 

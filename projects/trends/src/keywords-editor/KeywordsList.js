@@ -9,33 +9,35 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 
 import KeywordsFilter from "./KeywordsFilter";
+
+async function getKeywords(dispatch) {
+    dispatch(actions.setLoadingKeywords(true))
+    const response = await fetch('/.netlify/functions/crud?type=all', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+    });
+
+    const { data } = await response.json()
+    const groupByGroupName = groupBy(data, 'groupName')
+
+    dispatch(actions.setKeywords(groupByGroupName))
+    dispatch(actions.setLoadingKeywords(false))
+}
 export default function KeywordsList() {
-    const { keywords,keywordsToDisplay,addKeywords,loadingKeywords } = useSelector(state => state.keywords)
+    const { keywordsToDisplay,addKeywords,loadingKeywords } = useSelector(state => state.keywords)
   
-console.log('keywords',keywords)
+
     const dispatch = useDispatch()
+
+ 
+
 
     useEffect(() => {
         getKeywords()
     }, [])
-
-
-    async function getKeywords() {
-        dispatch(actions.setLoadingKeywords(true))
-        const response = await fetch('/.netlify/functions/crud?type=all', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-
-        });
-
-        const { data } = await response.json()
-        const groupByGroupName = groupBy(data, 'groupName')
-
-        dispatch(actions.setKeywords(groupByGroupName))
-        dispatch(actions.setLoadingKeywords(false))
-    }
 
     function handleAddKeywords(){
         dispatch(actions.setAddKeywords())

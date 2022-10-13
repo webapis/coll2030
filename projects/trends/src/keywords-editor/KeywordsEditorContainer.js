@@ -31,7 +31,7 @@ export default function KeywordsEditorContainer() {
         body: JSON.stringify(editor)
       });
   
-      const result =await response.json()
+     await response.json()
       
       const nextState ={...keywords,[editor.groupName]:[...keywords[editor.groupName].filter(f=>f._id!==ID),{...editor,_id:ID}]}
       
