@@ -10,58 +10,61 @@ import Container from "@mui/material/Container";
 
 import KeywordsFilter from "./KeywordsFilter";
 
-async function getKeywords(dispatch) {
-    dispatch(actions.setLoadingKeywords(true))
-    const response = await fetch('/.netlify/functions/crud?type=all', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        },
 
-    });
-
-    const { data } = await response.json()
-    const groupByGroupName = groupBy(data, 'groupName')
-
-    dispatch(actions.setKeywords(groupByGroupName))
-    dispatch(actions.setLoadingKeywords(false))
-}
 export default function KeywordsList() {
-    const { keywordsToDisplay,addKeywords,loadingKeywords } = useSelector(state => state.keywords)
-  
+
+    const { keywordsToDisplay, addKeywords, loadingKeywords } = useSelector(state => state.keywords)
+
 
     const dispatch = useDispatch()
+  
 
- 
 
 
     useEffect(() => {
+        const  getKeywords=async()=> {
+            dispatch(actions.setLoadingKeywords(true))
+            const response = await fetch('/.netlify/functions/crud?type=all', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+    
+            });
+    
+            const { data } = await response.json()
+            const groupByGroupName = groupBy(data, 'groupName')
+    
+            dispatch(actions.setKeywords(groupByGroupName))
+            dispatch(actions.setLoadingKeywords(false))
+        }
         getKeywords()
-    }, [])
+       
+    }, [dispatch])
 
-    function handleAddKeywords(){
+    function handleAddKeywords() {
         dispatch(actions.setAddKeywords())
     }
 
-    return<Container> <Grid container  style={{ marginTop: 100 }} gap={2}>
-<Grid item xs={12}>
-{!addKeywords && <Button onClick={handleAddKeywords}>Add Keywords</Button>}
-{!addKeywords &&<Grid item xs={12} style={{display:'flex',justifyContent:'flex-end'}}><KeywordsFilter/></Grid> }
-</Grid>
-    
-        {addKeywords && <Grid item xs={12}><KeywordsEditorContainer/></Grid>}
+    return <Container> <Grid container style={{ marginTop: 100 }} gap={2}>
+        <Grid item xs={12}>
+            {!addKeywords && <Button onClick={handleAddKeywords}>Add Keywords</Button>}
+            {!addKeywords && <Grid item xs={12} style={{ display: 'flex', justifyContent: 'flex-end' }}><KeywordsFilter /></Grid>}
+        </Grid>
 
-        {!addKeywords && Object.entries(keywordsToDisplay).map((m,i) => {
+        {addKeywords && <Grid item xs={12}><KeywordsEditorContainer /></Grid>}
+
+        {!addKeywords && Object.entries(keywordsToDisplay).map((m, i) => {
             const groupName = m[0]
             const keywords = m[1]
-      
-            return <Grid key={i} item xs={12} md={3}   sx={{height:400,overflow:'scroll'}}> <KeywordGroup groupName={groupName} keywords={keywords} /></Grid>
-        })}
-        <Grid item  xs={12}>
 
-        {loadingKeywords &&<div>Loading Keywords...<CircularProgress/></div>}
+            return <Grid key={i} item xs={12} md={3} sx={{ height: 400, overflow: 'scroll' }}> <KeywordGroup groupName={groupName} keywords={keywords} /></Grid>
+        })}
+        <Grid item xs={12}>
+
+            {loadingKeywords && <div>Loading Keywords...<CircularProgress /></div>}
         </Grid>
-       
+
     </Grid></Container>
 }
 
