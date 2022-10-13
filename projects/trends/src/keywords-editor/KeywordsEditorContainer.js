@@ -12,7 +12,7 @@ import groupNames from './groupNames';
 export default function KeywordsEditorContainer() {
 
   const dispatch = useDispatch()
-  const { editor,postingNewKeyword,keywords } = useSelector(state => state.keywords)
+  const { editor,keywords } = useSelector(state => state.keywords)
 
   function handleChange(e) {
     const { name, value } = e.target

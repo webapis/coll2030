@@ -19,7 +19,7 @@ import { actions } from '../store/collectedDataSlice'
 export default function CollectedDataBySubcatDrawer({data}) {
     const markas = Object.entries(data)
     const dispatch = useDispatch()
-    const {selectedMarka} = useSelector(state => state.collectedData)
+
 
     return <Drawer variant="permanent"   anchor="right" open={true} onClose={() => {  }}
         sx={{

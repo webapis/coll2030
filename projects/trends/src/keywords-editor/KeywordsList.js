@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from '../store/keywordsSlice'
 import { Button } from "@mui/material";
@@ -7,7 +7,7 @@ import KeywordsEditorContainer from "./KeywordsEditorContainer";
 import CircularProgress from '@mui/material/CircularProgress';
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
+
 import KeywordsFilter from "./KeywordsFilter";
 export default function KeywordsList() {
     const { keywords,keywordsToDisplay,addKeywords,loadingKeywords } = useSelector(state => state.keywords)

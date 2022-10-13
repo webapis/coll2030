@@ -12,7 +12,7 @@ import {actions} from '../store/collectedDataSlice'
 
 export default function CollectedDataDrawer() {
     const dispatch = useDispatch()
-const drawerOpen = useSelector(state=> state.collectedData.drawerCollectedOpen)
+
 
     return <Drawer  variant="permanent" open={true} onClose={()=>{dispatch(actions.toggleCollectedDrawer())}}
         sx={{
