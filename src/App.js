@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid'
 import { Container } from '@mui/material';
 
 import keywordgroup from './keywords.json'
-import imageIndexes from './image-indexes.json'
+
 import subcatObj from './category-nav.json'
 
 import CategoryNavContainer from './drawer/CategoryNavContaıner';
@@ -234,19 +234,9 @@ export default class App extends React.Component {
 
 
     }
-    let productImgIndexes = null
-    // if (imageIndexes[selectedNavIndex] !== undefined) {
-
-    //   const response = await fetch(`${host}/imageIndex?navindex=${selectedNavIndex}`)
- 
-    //   productImgIndexes = await response.json()
-
-    //   console.log('data elngt', productImgIndexes)
-
-    // }
 
 
-    //'https://dream2022.netlify.app/.netlify/functions'
+
 
 
     var url = `${host}/${subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
