@@ -36,7 +36,7 @@ export default function KeywordsList() {
 
 
     useEffect(() => {
-        getKeywords()
+        getKeywords(dispatch)
     }, [])
 
     function handleAddKeywords(){
