@@ -43,10 +43,11 @@ debugger
 
         const match = foundkeywords.filter(kws => {
     
-            let negwords = kws.negwords
+            let negwords = kws.exclude
             let exactmatch = kws.exactmatch
+            let groupName=kws.groupName
             let index =parseInt(  kws.index.replace('-','') )
-            if (index <=12) {
+            if (groupName==='Fiyat') {
                 const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
                 const startPrice = parseFloat(priceRange[0])
                 const endPrice = parseFloat(priceRange[1])

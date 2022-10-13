@@ -55,7 +55,7 @@ import {  Chart,
 
 function Bar(props) {
   const inputEl = useRef(null);
-debugger
+
 useEffect(()=>{
  
 const myChart= new Chart(inputEl.current, {

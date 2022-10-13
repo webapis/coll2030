@@ -1,1 +1,1652 @@
-{"1500":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"1500"},"0-100":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"0-100"},"100-200":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"100-200"},"200-300":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"200-300"},"300-400":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"300-400"},"400-500":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"400-500"},"500-600":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"500-600"},"600-700":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"600-700"},"700-800":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"700-800"},"800-900":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"800-900"},"900-1000":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"900-1000"},"1000-1500":{"subcategory":"a.Fiyat","category":"Fiyat","keywords":"1000-1500"},"büyük beden":{"subcategory":"b.Büyük beden","category":"Beden","keywords":"büyük beden"},"H&M+":{"subcategory":"b.Büyük beden","category":"Beden","keywords":"H&M+"},"crop":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"crop"},"kimono":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"kimono"},"elbise":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"elbise"},"abiye":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"abiye"},"tulum":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"tulum"},"salopet":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"salopet"},"kazak":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"kazak"},"süveter":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"süveter"},"hırka":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"hırka"},"gömlek":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"gömlek,gömle"},"bluz":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"bluz,buz"},"atlet":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"atlet"},"büstiyer":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"büstiyer"},"t-shirt":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"t-shirt"},"tişört":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"tişört"},"tunik":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"tunik,tunic"},"croptop":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"croptop"},"tshirt":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"tshirt"},"üst":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"üst"},"sweatshirt":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"sweatshirt"},"penye":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"penye"},"kap":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"kap"},"body":{"subcategory":"c.Üst giyim","category":"Ürün","keywords":"body"},"pantolon":{"subcategory":"d.Alt giyim","category":"Ürün","keywords":"pantolon,trousers"},"jogger":{"subcategory":"d.Alt giyim","category":"Ürün","keywords":"jogger"},"tayt":{"subcategory":"d.Alt giyim","category":"Ürün","keywords":"tayt"},"eşofman":{"subcategory":"d.Alt giyim","category":"Ürün","keywords":"eşofman"},"şort":{"subcategory":"d.Alt giyim","category":"Ürün","keywords":"şort"},"bermuda":{"subcategory":"d.Alt giyim","category":"Ürün","keywords":"bermuda"},"kapri":{"subcategory":"d.Alt giyim","category":"Ürün","keywords":"kapri"},"etek":{"subcategory":"d.Alt giyim","category":"Ürün","keywords":"etek"},"yağmurluk":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"yağmurluk"},"mont":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"mont"},"trençkot":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"trençkot"},"kaban":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"kaban"},"ceket":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"ceket"},"pardösü":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"pardösü"},"manto":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"manto"},"palto":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"palto"},"blazer":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"blazer"},"yelek":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"yelek"},"parka":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"parka"},"kaşe":{"subcategory":"f.Dış giyim","category":"Ürün","keywords":"kaşe"},"pijama":{"subcategory":"g.Ev giyim","category":"Ürün","keywords":"pijama"},"sabahlık":{"subcategory":"g.Ev giyim","category":"Ürün","keywords":"sabahlık"},"gecelik":{"subcategory":"g.Ev giyim","category":"Ürün","keywords":"gecelik"},"külot":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"külot"},"sütyen":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"sütyen"},"bralet":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"bralet"},"bra":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"bra"},"bikini":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"bikini"},"mayo":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"mayo"},"slip":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"slip"},"string":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"string"},"hipster":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"hipster"},"babydoll":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"babydoll"},"korse":{"subcategory":"h.İç giyim","category":"Ürün","keywords":"korse"},"defacto":{"subcategory":"i.Marka","category":"Marka","keywords":"defacto"},"koton":{"subcategory":"i.Marka","category":"Marka","keywords":"koton"},"lcwaikiki":{"subcategory":"i.Marka","category":"Marka","keywords":"lcwaikiki"},"adidas":{"subcategory":"i.Marka","category":"Marka","keywords":"adidas"},"adl":{"subcategory":"i.Marka","category":"Marka","keywords":"adl"},"baqa":{"subcategory":"i.Marka","category":"Marka","keywords":"baqa"},"beymen":{"subcategory":"i.Marka","category":"Marka","keywords":"beymen"},"beyyoglu":{"subcategory":"i.Marka","category":"Marka","keywords":"beyyoglu"},"colins":{"subcategory":"i.Marka","category":"Marka","keywords":"colins"},"butigo":{"subcategory":"i.Marka","category":"Marka","keywords":"butigo"},"dilvin":{"subcategory":"i.Marka","category":"Marka","keywords":"dilvin"},"dogo":{"subcategory":"i.Marka","category":"Marka","keywords":"dogo"},"hm":{"subcategory":"i.Marka","category":"Marka","keywords":"hm"},"ipekyol":{"subcategory":"i.Marka","category":"Marka","keywords":"ipekyol"},"machka":{"subcategory":"i.Marka","category":"Marka","keywords":"machka"},"penti":{"subcategory":"i.Marka","category":"Marka","keywords":"penti"},"roman":{"subcategory":"i.Marka","category":"Marka","keywords":"roman"},"twist":{"subcategory":"i.Marka","category":"Marka","keywords":"twist"},"vakko":{"subcategory":"i.Marka","category":"Marka","keywords":"vakko"},"zara":{"subcategory":"i.Marka","category":"Marka","keywords":"zara"},"gizia":{"subcategory":"i.Marka","category":"Marka","keywords":"gizia"},"vitrin":{"subcategory":"i.Marka","category":"Marka","keywords":"vitrin"},"xint":{"subcategory":"i.Marka","category":"Marka","keywords":"xint"},"tozlu":{"subcategory":"i.Marka","category":"Marka","keywords":"tozlu"},"quzu":{"subcategory":"i.Marka","category":"Marka","keywords":"quzu"},"saygigiyim":{"subcategory":"i.Marka","category":"Marka","keywords":"saygigiyim"},"manuka":{"subcategory":"i.Marka","category":"Marka","keywords":"manuka"},"kikiriki":{"subcategory":"i.Marka","category":"Marka","keywords":"kikiriki"},"jimmykey":{"subcategory":"i.Marka","category":"Marka","keywords":"jimmykey"},"perspective":{"subcategory":"i.Marka","category":"Marka","keywords":"perspective"},"mango":{"subcategory":"i.Marka","category":"Marka","keywords":"mango"},"olegcassini":{"subcategory":"i.Marka","category":"Marka","keywords":"olegcassini"},"addax":{"subcategory":"i.Marka","category":"Marka","keywords":"addax"},"oxxo":{"subcategory":"i.Marka","category":"Marka","keywords":"oxxo"},"abiyefon":{"subcategory":"i.Marka","category":"Marka","keywords":"abiyefon"},"desa":{"subcategory":"i.Marka","category":"Marka","keywords":"desa"},"patirti":{"subcategory":"i.Marka","category":"Marka","keywords":"patirti"},"yargici":{"subcategory":"i.Marka","category":"Marka","keywords":"yargici"},"bej":{"subcategory":"j.Renk","category":"Renk","keywords":"bej"},"beyaz":{"subcategory":"j.Renk","category":"Renk","keywords":"beyaz"},"bordo":{"subcategory":"j.Renk","category":"Renk","keywords":"bordo"},"camel":{"subcategory":"j.Renk","category":"Renk","keywords":"camel"},"ekru":{"subcategory":"j.Renk","category":"Renk","keywords":"ekru"},"füme":{"subcategory":"j.Renk","category":"Renk","keywords":"füme"},"fuşya":{"subcategory":"j.Renk","category":"Renk","keywords":"fuşya"},"gri":{"subcategory":"j.Renk","category":"Renk","keywords":"gri"},"gül":{"subcategory":"j.Renk","category":"Renk","keywords":"gül"},"haki":{"subcategory":"j.Renk","category":"Renk","keywords":"haki"},"hardal":{"subcategory":"j.Renk","category":"Renk","keywords":"hardal"},"indigo":{"subcategory":"j.Renk","category":"Renk","keywords":"indigo"},"kahverengi":{"subcategory":"j.Renk","category":"Renk","keywords":"kahverengi"},"kiremit":{"subcategory":"j.Renk","category":"Renk","keywords":"kiremit"},"kirmizi":{"subcategory":"j.Renk","category":"Renk","keywords":"kirmizi"},"koyu kirmizi":{"subcategory":"j.Renk","category":"Renk","keywords":"koyu kirmizi"},"koyu mor":{"subcategory":"j.Renk","category":"Renk","keywords":"koyu mor"},"krem":{"subcategory":"j.Renk","category":"Renk","keywords":"krem"},"lacivert":{"subcategory":"j.Renk","category":"Renk","keywords":"lacivert"},"lila":{"subcategory":"j.Renk","category":"Renk","keywords":"lila"},"mint":{"subcategory":"j.Renk","category":"Renk","keywords":"mint"},"mor":{"subcategory":"j.Renk","category":"Renk","keywords":"mor"},"mürdüm":{"subcategory":"j.Renk","category":"Renk","keywords":"mürdüm"},"nar":{"subcategory":"j.Renk","category":"Renk","keywords":"nar"},"pembe":{"subcategory":"j.Renk","category":"Renk","keywords":"pembe"},"petrol":{"subcategory":"j.Renk","category":"Renk","keywords":"petrol"},"pudra":{"subcategory":"j.Renk","category":"Renk","keywords":"pudra"},"saks":{"subcategory":"j.Renk","category":"Renk","keywords":"saks"},"sari":{"subcategory":"j.Renk","category":"Renk","keywords":"sari"},"siyah":{"subcategory":"j.Renk","category":"Renk","keywords":"siyah"},"somon":{"subcategory":"j.Renk","category":"Renk","keywords":"somon"},"taba":{"subcategory":"j.Renk","category":"Renk","keywords":"taba"},"turuncu":{"subcategory":"j.Renk","category":"Renk","keywords":"turuncu"},"vizon":{"subcategory":"j.Renk","category":"Renk","keywords":"vizon"},"yağ yeşili":{"subcategory":"j.Renk","category":"Renk","keywords":"yağ yeşili"},"yeşil":{"subcategory":"j.Renk","category":"Renk","keywords":"yeşil"},"zümrüt":{"subcategory":"j.Renk","category":"Renk","keywords":"zümrüt"},"mint yeşili":{"subcategory":"j.Renk","category":"Renk","keywords":"mint yeşili"},"fıstık yeşili":{"subcategory":"j.Renk","category":"Renk","keywords":"fıstık yeşili"},"siyah beyaz":{"subcategory":"j.Renk","category":"Renk","keywords":"siyah beyaz"},"triko":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"triko"},"belmando":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"belmando"},"dokulu":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"dokulu"},"gabardin":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"gabardin"},"gofre":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"gofre"},"havlu":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"havlu"},"jakar":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"jakar"},"kadife":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"kadife"},"kaşkorse":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"kaşkorse"},"keten":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"keten"},"keten görünümlü":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"keten görünümlü"},"krep":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"krep"},"krinkle":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"krinkle"},"lyocell":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"lyocell"},"maroken":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"maroken"},"müslin":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"müslin"},"pike":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"pike"},"ponte":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"ponte"},"poplin":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"poplin"},"ribana":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"ribana"},"saten":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"saten"},"şifon":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"şifon"},"skuba":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"skuba"},"tencel":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"tencel"},"tül":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"tül"},"twill":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"twill"},"vual":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"vual"},"atlas kumaş":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"atlas kumaş"},"fitilli":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"fitilli"},"ipek":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"ipek"},"pamuk":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"pamuk"},"şile bezi":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"şile bezi"},"tafta":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"tafta"},"viskon":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"viskon"},"denim":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"denim"},"jean":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"jean"},"puane":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"puane"},"brode":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"brode"},"dalgıç":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"dalgıç"},"dantel":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"dantel"},"interlok":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"interlok"},"keten karışımlı":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"keten karışımlı"},"süet":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"süet"},"kot":{"subcategory":"k.Kumaş","category":"Kumaş","keywords":"kot"},"diz altı":{"subcategory":"l.Boyu","category":"Boyu","keywords":"diz altı"},"diz üstü":{"subcategory":"l.Boyu","category":"Boyu","keywords":"diz üstü"},"kısa":{"subcategory":"l.Boyu","category":"Boyu","keywords":"kısa"},"maksi":{"subcategory":"l.Boyu","category":"Boyu","keywords":"maksi"},"maxi":{"subcategory":"l.Boyu","category":"Boyu","keywords":"maxi"},"midi":{"subcategory":"l.Boyu","category":"Boyu","keywords":"midi"},"mini":{"subcategory":"l.Boyu","category":"Boyu","keywords":"mini"},"uzun":{"subcategory":"l.Boyu","category":"Boyu","keywords":"uzun"},"çiçek desen":{"subcategory":"m.Desen","category":"Desen","keywords":"çiçek desen"},"çiçekli":{"subcategory":"m.Desen","category":"Desen","keywords":"çiçekli"},"çilek":{"subcategory":"m.Desen","category":"Desen","keywords":"çilek"},"çizgi":{"subcategory":"m.Desen","category":"Desen","keywords":"çizgi"},"delik desen":{"subcategory":"m.Desen","category":"Desen","keywords":"delik desen"},"deniz kabuğu":{"subcategory":"m.Desen","category":"Desen","keywords":"deniz kabuğu"},"etnik":{"subcategory":"m.Desen","category":"Desen","keywords":"etnik"},"geometrik":{"subcategory":"m.Desen","category":"Desen","keywords":"geometrik"},"gül desen":{"subcategory":"m.Desen","category":"Desen","keywords":"gül desen"},"kamuflaj":{"subcategory":"m.Desen","category":"Desen","keywords":"kamuflaj"},"kiraz desen":{"subcategory":"m.Desen","category":"Desen","keywords":"kiraz desen"},"leopar":{"subcategory":"m.Desen","category":"Desen","keywords":"leopar"},"pötikare":{"subcategory":"m.Desen","category":"Desen","keywords":"pötikare"},"puantiye":{"subcategory":"m.Desen","category":"Desen","keywords":"puantiye"},"şal":{"subcategory":"v.Aksesuar","category":"Aksesuar","keywords":"şal"},"zebra":{"subcategory":"m.Desen","category":"Desen","keywords":"zebra"},"mercan desenli":{"subcategory":"m.Desen","category":"Desen","keywords":"mercan desenli"},"nar çiçeği":{"subcategory":"m.Desen","category":"Desen","keywords":"nar çiçeği"},"düz":{"subcategory":"m.Desen","category":"Desen","keywords":"düz"},"file":{"subcategory":"m.Desen","category":"Desen","keywords":"file"},"nakışlı":{"subcategory":"m.Desen","category":"Desen","keywords":"nakışlı"},"payet":{"subcategory":"m.Desen","category":"Desen","keywords":"payet"},"ekoze":{"subcategory":"m.Desen","category":"Desen","keywords":"ekoze"},"kısa kollu":{"subcategory":"n.Kol boyu","category":"Kol boyu","keywords":"kısa kollu"},"kolsuz":{"subcategory":"n.Kol boyu","category":"Kol boyu","keywords":"kolsuz"},"uzun kollu":{"subcategory":"n.Kol boyu","category":"Kol boyu","keywords":"uzun kollu"},"yarım kol":{"subcategory":"n.Kol boyu","category":"Kol boyu","keywords":"yarım kol"},"ispanyol kol":{"subcategory":"o.Kol tipi","category":"Kol tipi","keywords":"ispanyol kol"},"kabarık kol":{"subcategory":"o.Kol tipi","category":"Kol tipi","keywords":"kabarık kol"},"karpuz kol":{"subcategory":"o.Kol tipi","category":"Kol tipi","keywords":"karpuz kol"},"tek kol":{"subcategory":"o.Kol tipi","category":"Kol tipi","keywords":"tek kol"},"yarasa kol":{"subcategory":"o.Kol tipi","category":"Kol tipi","keywords":"yarasa kol"},"kalp yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"kalp yaka"},"kare yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"kare yaka"},"kruvaze yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"kruvaze yaka"},"madonna yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"madonna yaka"},"balıkçı yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"balıkçı yaka"},"bisiklet yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"bisiklet yaka"},"carmen yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"carmen yaka"},"degaje yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"degaje yaka"},"dik yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"dik yaka"},"dökümlü yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"dökümlü yaka"},"gömlek yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"gömlek yaka"},"hakim yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"hakim yaka"},"halter yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"halter yaka"},"v yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"v yaka"},"ceket yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"ceket yaka"},"kaçık yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"kaçık yaka"},"kayık yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"kayık yaka"},"polo yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"polo yaka"},"straplez":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"straplez"},"tek omuz":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"tek omuz"},"u yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"u yaka"},"bağlamalı yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"bağlamalı yaka"},"pijama yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"pijama yaka"},"klasik yaka":{"subcategory":"p.Yaka tipi","category":"Yaka tipi","keywords":"klasik yaka"},"kır düğünü":{"subcategory":"q.Konsept","category":"Konsept","keywords":"kır düğünü"},"gece":{"subcategory":"q.Konsept","category":"Konsept","keywords":"gece"},"düğün":{"subcategory":"q.Konsept","category":"Konsept","keywords":"düğün"},"after party":{"subcategory":"q.Konsept","category":"Konsept","keywords":"after party"},"davet":{"subcategory":"q.Konsept","category":"Konsept","keywords":"davet"},"nişan":{"subcategory":"q.Konsept","category":"Konsept","keywords":"nişan"},"parti":{"subcategory":"q.Konsept","category":"Konsept","keywords":"parti"},"nikah":{"subcategory":"q.Konsept","category":"Konsept","keywords":"nikah"},"mezuniyet":{"subcategory":"q.Konsept","category":"Konsept","keywords":"mezuniyet"},"kokteyl":{"subcategory":"q.Konsept","category":"Konsept","keywords":"kokteyl"},"ceket tasarımlı":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"ceket tasarımlı"},"blazer tasarımlı":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"blazer tasarımlı"},"gömlek ceket":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"gömlek ceket"},"crop ceket":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop ceket"},"crop yelek":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop yelek"},"crop blazer":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop blazer"},"crop yağmurluk":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop yağmurluk"},"crop mont":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop mont"},"ceket elbise":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"ceket elbise"},"tişört elbise":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"tişört elbise"},"gömlek elbise":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"gömlek elbise"},"kimono elbise":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"kimono elbise"},"sweatshirt elbise":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"sweatshirt elbise"},"penye elbise":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"penye elbise"},"crop sweatshirt elbise":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop sweatshirt elbise"},"tunik elbise":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"tunik elbise"},"gömlek pantolon takım":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"gömlek pantolon takım"},"jogger pantolon":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"jogger pantolon"},"pantolon görünümli tayt":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"pantolon görünümli tayt"},"triko pantolon":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"triko pantolon"},"şort etek":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"şort etek"},"kapri pantolon":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"kapri pantolon"},"sweatshirt şort":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"sweatshirt şort"},"şort tulum":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"şort tulum"},"crop top şort takım":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop top şort takım"},"abiye tulum":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"abiye tulum"},"tunik kazak":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"tunik kazak"},"crop kazak":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop kazak"},"gömlek tasarımlı":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"gömlek tasarımlı"},"sweatshirt hırka":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"sweatshirt hırka"},"tunik süveter":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"tunik süveter"},"tunik hırka":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"tunik hırka"},"crop hırka":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop hırka"},"crop süveter":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop süveter"},"sweatshirt tunik":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"sweatshirt tunik"},"crop bluz":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop bluz"},"crop gömlek":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"crop gömlek"},"tunik tişört":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"tunik tişört"},"gömlek tişört":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"gömlek tişört"},"penye tunik":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"penye tunik"},"atlet tünik":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"atlet tünik"},"bralet bluz":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"bralet bluz"},"etek takım":{"subcategory":"r.Seçenekler","category":"Seçenekler","keywords":"etek takım"},"normal bel":{"subcategory":"s.Bel Yüksekliği","category":"Bel Yüksekliği","keywords":"normal bel"},"yüksek bel":{"subcategory":"s.Bel Yüksekliği","category":"Bel Yüksekliği","keywords":"yüksek bel"},"bol paça":{"subcategory":"t.Paça","category":"Paça","keywords":"bol paça"},"geniş paça":{"subcategory":"t.Paça","category":"Paça","keywords":"geniş paça"},"düz paça":{"subcategory":"t.Paça","category":"Paça","keywords":"düz paça"},"atlet şort takım":{"subcategory":"t.Paça","category":"Paça","keywords":"atlet şort takım"},"crop atlet":{"subcategory":"t.Paça","category":"Paça","keywords":"crop atlet"},"penye atlet":{"subcategory":"t.Paça","category":"Paça","keywords":"penye atlet"},"atlet tunik":{"subcategory":"t.Paça","category":"Paça","keywords":"atlet tunik"},"kısa paça":{"subcategory":"t.Paça","category":"Paça","keywords":"kısa paça"},"hamile":{"subcategory":"y.Hamile","category":"Konsept","keywords":"hamile"},"kemer":{"subcategory":"v.Aksesuar","category":"Aksesuar","keywords":"kemer"},"şapka":{"subcategory":"v.Aksesuar","category":"Aksesuar","keywords":"şapka"},"çorap":{"subcategory":"v.Aksesuar","category":"Aksesuar","keywords":"çorap"},"cüzdan":{"subcategory":"v.Aksesuar","category":"Aksesuar","keywords":"cüzdan"},"babet":{"subcategory":"x.Ayakkabı","category":"Ayakkabı","keywords":"babet"},"ayakkabı":{"subcategory":"x.Ayakkabı","category":"Ayakkabı","keywords":"ayakkabı"}}
+{
+    "1-": {
+        "groupName": "Ev giyim",
+        "title": "pijama",
+        "keywordType": "category"
+    },
+    "2-": {
+        "groupName": "Ev giyim",
+        "title": "sabahlık",
+        "keywordType": "category"
+    },
+    "3-": {
+        "groupName": "Ev giyim",
+        "title": "gecelik",
+        "keywordType": "category"
+    },
+    "4-": {
+        "groupName": "Dış giyim",
+        "title": "yağmurluk",
+        "keywordType": "category"
+    },
+    "5-": {
+        "groupName": "Dış giyim",
+        "title": "mont",
+        "keywordType": "category"
+    },
+    "6-": {
+        "groupName": "Dış giyim",
+        "title": "trençkot",
+        "keywordType": "category"
+    },
+    "7-": {
+        "groupName": "Dış giyim",
+        "title": "kaban",
+        "keywordType": "category"
+    },
+    "8-": {
+        "groupName": "Dış giyim",
+        "title": "ceket",
+        "keywordType": "category"
+    },
+    "9-": {
+        "groupName": "Dış giyim",
+        "title": "pardösü",
+        "keywordType": "category"
+    },
+    "10-": {
+        "groupName": "Dış giyim",
+        "title": "manto",
+        "keywordType": "category"
+    },
+    "11-": {
+        "groupName": "Dış giyim",
+        "title": "palto",
+        "keywordType": "category"
+    },
+    "12-": {
+        "groupName": "Dış giyim",
+        "title": "blazer",
+        "keywordType": "category"
+    },
+    "13-": {
+        "groupName": "Dış giyim",
+        "title": "yelek",
+        "keywordType": "category"
+    },
+    "14-": {
+        "groupName": "Dış giyim",
+        "title": "parka",
+        "keywordType": "category"
+    },
+    "15-": {
+        "groupName": "Dış giyim",
+        "title": "kaşe",
+        "keywordType": "category"
+    },
+    "16-": {
+        "groupName": "Büyük beden",
+        "title": "büyük beden",
+        "keywordType": "category"
+    },
+    "17-": {
+        "groupName": "Büyük beden",
+        "title": "H&M+",
+        "keywordType": "category"
+    },
+    "18-": {
+        "groupName": "Aksesuar",
+        "title": "kemer",
+        "keywordType": "category"
+    },
+    "19-": {
+        "groupName": "Aksesuar",
+        "title": "şapka",
+        "keywordType": "category"
+    },
+    "20-": {
+        "groupName": "Aksesuar",
+        "title": "şal",
+        "keywordType": "category"
+    },
+    "21-": {
+        "groupName": "Aksesuar",
+        "title": "çorap",
+        "keywordType": "category"
+    },
+    "22-": {
+        "groupName": "Aksesuar",
+        "title": "cüzdan",
+        "keywordType": "category"
+    },
+    "23-": {
+        "groupName": "İç giyim",
+        "title": "külot",
+        "keywordType": "category"
+    },
+    "24-": {
+        "groupName": "İç giyim",
+        "title": "sütyen",
+        "keywordType": "category"
+    },
+    "25-": {
+        "groupName": "İç giyim",
+        "title": "bralet",
+        "keywordType": "category"
+    },
+    "26-": {
+        "groupName": "İç giyim",
+        "title": "bra",
+        "keywordType": "category"
+    },
+    "27-": {
+        "groupName": "İç giyim",
+        "title": "bikini",
+        "keywordType": "category"
+    },
+    "28-": {
+        "groupName": "İç giyim",
+        "title": "mayo",
+        "keywordType": "category"
+    },
+    "29-": {
+        "groupName": "İç giyim",
+        "title": "slip",
+        "keywordType": "category"
+    },
+    "30-": {
+        "groupName": "İç giyim",
+        "title": "string",
+        "keywordType": "category"
+    },
+    "31-": {
+        "groupName": "İç giyim",
+        "title": "hipster",
+        "keywordType": "category"
+    },
+    "32-": {
+        "groupName": "İç giyim",
+        "title": "babydoll",
+        "keywordType": "category"
+    },
+    "33-": {
+        "groupName": "İç giyim",
+        "title": "korse",
+        "keywordType": "category"
+    },
+    "34-": {
+        "groupName": "Alt giyim",
+        "title": "pantolon",
+        "keywordType": "category"
+    },
+    "35-": {
+        "groupName": "Alt giyim",
+        "title": "jogger",
+        "keywordType": "category"
+    },
+    "36-": {
+        "groupName": "Alt giyim",
+        "title": "tayt",
+        "keywordType": "category"
+    },
+    "37-": {
+        "groupName": "Alt giyim",
+        "title": "eşofman",
+        "keywordType": "category"
+    },
+    "38-": {
+        "groupName": "Alt giyim",
+        "title": "şort",
+        "keywordType": "category"
+    },
+    "39-": {
+        "groupName": "Alt giyim",
+        "title": "bermuda",
+        "keywordType": "category"
+    },
+    "40-": {
+        "groupName": "Alt giyim",
+        "title": "kapri",
+        "keywordType": "category"
+    },
+    "41-": {
+        "groupName": "Alt giyim",
+        "title": "etek",
+        "keywordType": "category"
+    },
+    "42-": {
+        "groupName": "Üst giyim",
+        "title": "crop",
+        "keywordType": "category"
+    },
+    "43-": {
+        "groupName": "Üst giyim",
+        "title": "kimono",
+        "keywordType": "category"
+    },
+    "44-": {
+        "groupName": "Elbise",
+        "title": "elbise",
+        "keywordType": "category"
+    },
+    "45-": {
+        "groupName": "Elbise",
+        "title": "abiye",
+        "keywordType": "category"
+    },
+    "46-": {
+        "groupName": "Elbise",
+        "title": "tulum",
+        "keywordType": "category"
+    },
+    "47-": {
+        "groupName": "Elbise",
+        "title": "salopet",
+        "keywordType": "category"
+    },
+    "48-": {
+        "groupName": "Üst giyim",
+        "title": "kazak",
+        "keywordType": "category"
+    },
+    "49-": {
+        "groupName": "Üst giyim",
+        "title": "süveter",
+        "keywordType": "category"
+    },
+    "50-": {
+        "groupName": "Üst giyim",
+        "title": "hırka",
+        "keywordType": "category"
+    },
+    "51-": {
+        "groupName": "Üst giyim",
+        "title": "gömlek",
+        "keywordType": "category"
+    },
+    "52-": {
+        "groupName": "Üst giyim",
+        "title": "bluz",
+        "keywordType": "category"
+    },
+    "53-": {
+        "groupName": "Üst giyim",
+        "title": "atlet",
+        "keywordType": "category"
+    },
+    "54-": {
+        "groupName": "Üst giyim",
+        "title": "büstiyer",
+        "keywordType": "category"
+    },
+    "55-": {
+        "groupName": "Üst giyim",
+        "title": "t-shirt",
+        "keywordType": "category"
+    },
+    "56-": {
+        "groupName": "Üst giyim",
+        "title": "tişört",
+        "keywordType": "category"
+    },
+    "57-": {
+        "groupName": "Üst giyim",
+        "title": "tunik",
+        "keywordType": "category"
+    },
+    "58-": {
+        "groupName": "Üst giyim",
+        "title": "croptop",
+        "keywordType": "category"
+    },
+    "59-": {
+        "groupName": "Üst giyim",
+        "title": "tshirt",
+        "keywordType": "category"
+    },
+    "60-": {
+        "groupName": "Üst giyim",
+        "title": "üst",
+        "keywordType": "category"
+    },
+    "61-": {
+        "groupName": "Üst giyim",
+        "title": "sweatshirt",
+        "keywordType": "category"
+    },
+    "62-": {
+        "groupName": "Üst giyim",
+        "title": "penye",
+        "keywordType": "category"
+    },
+    "63-": {
+        "groupName": "Üst giyim",
+        "title": "kap",
+        "keywordType": "category"
+    },
+    "64-": {
+        "groupName": "Üst giyim",
+        "title": "body",
+        "keywordType": "category"
+    },
+    "65-": {
+        "groupName": "Ayakkabı",
+        "title": "babet",
+        "keywordType": "category"
+    },
+    "66-": {
+        "groupName": "Ayakkabı",
+        "title": "ayakkabı",
+        "keywordType": "category"
+    },
+    "67-": {
+        "groupName": "Hamile",
+        "title": "hamile",
+        "keywordType": "category"
+    },
+    "68-": {
+        "groupName": "Paça",
+        "title": "bol paça",
+        "keywordType": "keyword"
+    },
+    "69-": {
+        "groupName": "Paça",
+        "title": "geniş paça",
+        "keywordType": "keyword"
+    },
+    "70-": {
+        "groupName": "Paça",
+        "title": "düz paça",
+        "keywordType": "keyword"
+    },
+    "71-": {
+        "groupName": "Paça",
+        "title": "atlet şort takım",
+        "keywordType": "keyword"
+    },
+    "72-": {
+        "groupName": "Paça",
+        "title": "crop atlet",
+        "keywordType": "keyword"
+    },
+    "73-": {
+        "groupName": "Paça",
+        "title": "penye atlet",
+        "keywordType": "keyword"
+    },
+    "74-": {
+        "groupName": "Paça",
+        "title": "atlet tunik",
+        "keywordType": "keyword"
+    },
+    "75-": {
+        "groupName": "Paça",
+        "title": "kısa paça",
+        "keywordType": "keyword"
+    },
+    "76-": {
+        "groupName": "Bel Yüksekliği",
+        "title": "normal bel",
+        "keywordType": "keyword"
+    },
+    "77-": {
+        "groupName": "Bel Yüksekliği",
+        "title": "yüksek bel",
+        "keywordType": "keyword"
+    },
+    "78-": {
+        "groupName": "Seçenekler",
+        "title": "ceket tasarımlı",
+        "keywordType": "keyword"
+    },
+    "79-": {
+        "groupName": "Seçenekler",
+        "title": "blazer tasarımlı",
+        "keywordType": "keyword"
+    },
+    "80-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek ceket",
+        "keywordType": "keyword"
+    },
+    "81-": {
+        "groupName": "Seçenekler",
+        "title": "crop ceket",
+        "keywordType": "keyword"
+    },
+    "82-": {
+        "groupName": "Seçenekler",
+        "title": "crop yelek",
+        "keywordType": "keyword"
+    },
+    "83-": {
+        "groupName": "Seçenekler",
+        "title": "crop blazer",
+        "keywordType": "keyword"
+    },
+    "84-": {
+        "groupName": "Seçenekler",
+        "title": "crop yağmurluk",
+        "keywordType": "keyword"
+    },
+    "85-": {
+        "groupName": "Seçenekler",
+        "title": "crop mont",
+        "keywordType": "keyword"
+    },
+    "86-": {
+        "groupName": "Seçenekler",
+        "title": "ceket elbise",
+        "keywordType": "keyword"
+    },
+    "87-": {
+        "groupName": "Seçenekler",
+        "title": "tişört elbise",
+        "keywordType": "keyword"
+    },
+    "88-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek elbise",
+        "keywordType": "keyword"
+    },
+    "89-": {
+        "groupName": "Seçenekler",
+        "title": "kimono elbise",
+        "keywordType": "keyword"
+    },
+    "90-": {
+        "groupName": "Seçenekler",
+        "title": "sweatshirt elbise",
+        "keywordType": "keyword"
+    },
+    "91-": {
+        "groupName": "Seçenekler",
+        "title": "penye elbise",
+        "keywordType": "keyword"
+    },
+    "92-": {
+        "groupName": "Seçenekler",
+        "title": "crop sweatshirt elbise",
+        "keywordType": "keyword"
+    },
+    "93-": {
+        "groupName": "Seçenekler",
+        "title": "tunik elbise",
+        "keywordType": "keyword"
+    },
+    "94-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek pantolon takım",
+        "keywordType": "keyword"
+    },
+    "95-": {
+        "groupName": "Seçenekler",
+        "title": "jogger pantolon",
+        "keywordType": "keyword"
+    },
+    "96-": {
+        "groupName": "Seçenekler",
+        "title": "pantolon görünümli tayt",
+        "keywordType": "keyword"
+    },
+    "97-": {
+        "groupName": "Seçenekler",
+        "title": "triko pantolon",
+        "keywordType": "keyword"
+    },
+    "98-": {
+        "groupName": "Seçenekler",
+        "title": "şort etek",
+        "keywordType": "keyword"
+    },
+    "99-": {
+        "groupName": "Seçenekler",
+        "title": "kapri pantolon",
+        "keywordType": "keyword"
+    },
+    "100-": {
+        "groupName": "Seçenekler",
+        "title": "sweatshirt şort",
+        "keywordType": "keyword"
+    },
+    "101-": {
+        "groupName": "Seçenekler",
+        "title": "şort tulum",
+        "keywordType": "keyword"
+    },
+    "102-": {
+        "groupName": "Seçenekler",
+        "title": "crop top şort takım",
+        "keywordType": "keyword"
+    },
+    "103-": {
+        "groupName": "Seçenekler",
+        "title": "abiye tulum",
+        "keywordType": "keyword"
+    },
+    "104-": {
+        "groupName": "Seçenekler",
+        "title": "tunik kazak",
+        "keywordType": "keyword"
+    },
+    "105-": {
+        "groupName": "Seçenekler",
+        "title": "crop kazak",
+        "keywordType": "keyword"
+    },
+    "106-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek tasarımlı",
+        "keywordType": "keyword"
+    },
+    "107-": {
+        "groupName": "Seçenekler",
+        "title": "sweatshirt hırka",
+        "keywordType": "keyword"
+    },
+    "108-": {
+        "groupName": "Seçenekler",
+        "title": "tunik süveter",
+        "keywordType": "keyword"
+    },
+    "109-": {
+        "groupName": "Seçenekler",
+        "title": "tunik hırka",
+        "keywordType": "keyword"
+    },
+    "110-": {
+        "groupName": "Seçenekler",
+        "title": "crop hırka",
+        "keywordType": "keyword"
+    },
+    "111-": {
+        "groupName": "Seçenekler",
+        "title": "crop süveter",
+        "keywordType": "keyword"
+    },
+    "112-": {
+        "groupName": "Seçenekler",
+        "title": "sweatshirt tunik",
+        "keywordType": "keyword"
+    },
+    "113-": {
+        "groupName": "Seçenekler",
+        "title": "crop bluz",
+        "keywordType": "keyword"
+    },
+    "114-": {
+        "groupName": "Seçenekler",
+        "title": "crop gömlek",
+        "keywordType": "keyword"
+    },
+    "115-": {
+        "groupName": "Seçenekler",
+        "title": "tunik tişört",
+        "keywordType": "keyword"
+    },
+    "116-": {
+        "groupName": "Seçenekler",
+        "title": "gömlek tişört",
+        "keywordType": "keyword"
+    },
+    "117-": {
+        "groupName": "Seçenekler",
+        "title": "tunik hırka",
+        "keywordType": "keyword"
+    },
+    "118-": {
+        "groupName": "Seçenekler",
+        "title": "penye tunik",
+        "keywordType": "keyword"
+    },
+    "119-": {
+        "groupName": "Seçenekler",
+        "title": "atlet tünik",
+        "keywordType": "keyword"
+    },
+    "120-": {
+        "groupName": "Seçenekler",
+        "title": "bralet bluz",
+        "keywordType": "keyword"
+    },
+    "121-": {
+        "groupName": "Seçenekler",
+        "title": "etek takım",
+        "keywordType": "keyword"
+    },
+    "122-": {
+        "groupName": "Konsept",
+        "title": "kır düğünü",
+        "keywordType": "keyword"
+    },
+    "123-": {
+        "groupName": "Konsept",
+        "title": "gece",
+        "keywordType": "keyword"
+    },
+    "124-": {
+        "groupName": "Konsept",
+        "title": "düğün",
+        "keywordType": "keyword"
+    },
+    "125-": {
+        "groupName": "Konsept",
+        "title": "after party",
+        "keywordType": "keyword"
+    },
+    "126-": {
+        "groupName": "Konsept",
+        "title": "davet",
+        "keywordType": "keyword"
+    },
+    "127-": {
+        "groupName": "Konsept",
+        "title": "nişan",
+        "keywordType": "keyword"
+    },
+    "128-": {
+        "groupName": "Konsept",
+        "title": "parti",
+        "keywordType": "keyword"
+    },
+    "129-": {
+        "groupName": "Konsept",
+        "title": "nikah",
+        "keywordType": "keyword"
+    },
+    "130-": {
+        "groupName": "Konsept",
+        "title": "mezuniyet",
+        "keywordType": "keyword"
+    },
+    "131-": {
+        "groupName": "Konsept",
+        "title": "kokteyl",
+        "keywordType": "keyword"
+    },
+    "132-": {
+        "groupName": "Yaka tipi",
+        "title": "kalp yaka",
+        "keywordType": "keyword"
+    },
+    "133-": {
+        "groupName": "Yaka tipi",
+        "title": "kare yaka",
+        "keywordType": "keyword"
+    },
+    "134-": {
+        "groupName": "Yaka tipi",
+        "title": "kruvaze yaka",
+        "keywordType": "keyword"
+    },
+    "135-": {
+        "groupName": "Yaka tipi",
+        "title": "madonna yaka",
+        "keywordType": "keyword"
+    },
+    "136-": {
+        "groupName": "Yaka tipi",
+        "title": "balıkçı yaka",
+        "keywordType": "keyword"
+    },
+    "137-": {
+        "groupName": "Yaka tipi",
+        "title": "bisiklet yaka",
+        "keywordType": "keyword"
+    },
+    "138-": {
+        "groupName": "Yaka tipi",
+        "title": "carmen yaka",
+        "keywordType": "keyword"
+    },
+    "139-": {
+        "groupName": "Yaka tipi",
+        "title": "degaje yaka",
+        "keywordType": "keyword"
+    },
+    "140-": {
+        "groupName": "Yaka tipi",
+        "title": "dik yaka",
+        "keywordType": "keyword"
+    },
+    "141-": {
+        "groupName": "Yaka tipi",
+        "title": "dökümlü yaka",
+        "keywordType": "keyword"
+    },
+    "142-": {
+        "groupName": "Yaka tipi",
+        "title": "gömlek yaka",
+        "keywordType": "keyword"
+    },
+    "143-": {
+        "groupName": "Yaka tipi",
+        "title": "hakim yaka",
+        "keywordType": "keyword"
+    },
+    "144-": {
+        "groupName": "Yaka tipi",
+        "title": "halter yaka",
+        "keywordType": "keyword"
+    },
+    "145-": {
+        "groupName": "Yaka tipi",
+        "title": "v yaka",
+        "keywordType": "keyword"
+    },
+    "146-": {
+        "groupName": "Yaka tipi",
+        "title": "ceket yaka",
+        "keywordType": "keyword"
+    },
+    "147-": {
+        "groupName": "Yaka tipi",
+        "title": "kaçık yaka",
+        "keywordType": "keyword"
+    },
+    "148-": {
+        "groupName": "Yaka tipi",
+        "title": "kayık yaka",
+        "keywordType": "keyword"
+    },
+    "149-": {
+        "groupName": "Yaka tipi",
+        "title": "polo yaka",
+        "keywordType": "keyword"
+    },
+    "150-": {
+        "groupName": "Yaka tipi",
+        "title": "straplez",
+        "keywordType": "keyword"
+    },
+    "151-": {
+        "groupName": "Yaka tipi",
+        "title": "tek omuz",
+        "keywordType": "keyword"
+    },
+    "152-": {
+        "groupName": "Yaka tipi",
+        "title": "u yaka",
+        "keywordType": "keyword"
+    },
+    "153-": {
+        "groupName": "Yaka tipi",
+        "title": "bağlamalı yaka",
+        "keywordType": "keyword"
+    },
+    "154-": {
+        "groupName": "Yaka tipi",
+        "title": "pijama yaka",
+        "keywordType": "keyword"
+    },
+    "155-": {
+        "groupName": "Yaka tipi",
+        "title": "klasik yaka",
+        "keywordType": "keyword"
+    },
+    "156-": {
+        "groupName": "Yaka tipi",
+        "title": "şal yaka",
+        "keywordType": "keyword"
+    },
+    "157-": {
+        "groupName": "Kol tipi",
+        "title": "ispanyol kol",
+        "keywordType": "keyword"
+    },
+    "158-": {
+        "groupName": "Kol tipi",
+        "title": "kabarık kol",
+        "keywordType": "keyword"
+    },
+    "159-": {
+        "groupName": "Kol tipi",
+        "title": "karpuz kol",
+        "keywordType": "keyword"
+    },
+    "160-": {
+        "groupName": "Kol tipi",
+        "title": "tek kol",
+        "keywordType": "keyword"
+    },
+    "161-": {
+        "groupName": "Kol tipi",
+        "title": "yarasa kol",
+        "keywordType": "keyword"
+    },
+    "162-": {
+        "groupName": "Kol boyu",
+        "title": "kısa kollu",
+        "keywordType": "keyword"
+    },
+    "163-": {
+        "groupName": "Kol boyu",
+        "title": "kolsuz",
+        "keywordType": "keyword"
+    },
+    "164-": {
+        "groupName": "Kol boyu",
+        "title": "uzun kollu",
+        "keywordType": "keyword"
+    },
+    "165-": {
+        "groupName": "Kol boyu",
+        "title": "yarım kol",
+        "keywordType": "keyword"
+    },
+    "166-": {
+        "groupName": "Desen",
+        "title": "çiçek desen",
+        "keywordType": "keyword"
+    },
+    "167-": {
+        "groupName": "Desen",
+        "title": "çiçekli",
+        "keywordType": "keyword"
+    },
+    "168-": {
+        "groupName": "Desen",
+        "title": "çilek",
+        "keywordType": "keyword"
+    },
+    "169-": {
+        "groupName": "Desen",
+        "title": "çizgi",
+        "keywordType": "keyword"
+    },
+    "170-": {
+        "groupName": "Desen",
+        "title": "delik desen",
+        "keywordType": "keyword"
+    },
+    "171-": {
+        "groupName": "Desen",
+        "title": "deniz kabuğu",
+        "keywordType": "keyword"
+    },
+    "172-": {
+        "groupName": "Desen",
+        "title": "etnik",
+        "keywordType": "keyword"
+    },
+    "173-": {
+        "groupName": "Desen",
+        "title": "geometrik",
+        "keywordType": "keyword"
+    },
+    "174-": {
+        "groupName": "Desen",
+        "title": "gül desen",
+        "keywordType": "keyword"
+    },
+    "175-": {
+        "groupName": "Desen",
+        "title": "kamuflaj",
+        "keywordType": "keyword"
+    },
+    "176-": {
+        "groupName": "Desen",
+        "title": "kiraz desen",
+        "keywordType": "keyword"
+    },
+    "177-": {
+        "groupName": "Desen",
+        "title": "leopar",
+        "keywordType": "keyword"
+    },
+    "178-": {
+        "groupName": "Desen",
+        "title": "pötikare",
+        "keywordType": "keyword"
+    },
+    "179-": {
+        "groupName": "Desen",
+        "title": "puantiye",
+        "keywordType": "keyword"
+    },
+    "180-": {
+        "groupName": "Desen",
+        "title": "şal",
+        "keywordType": "keyword"
+    },
+    "181-": {
+        "groupName": "Desen",
+        "title": "zebra",
+        "keywordType": "keyword"
+    },
+    "182-": {
+        "groupName": "Desen",
+        "title": "mercan desenli",
+        "keywordType": "keyword"
+    },
+    "183-": {
+        "groupName": "Desen",
+        "title": "nar çiçeği",
+        "keywordType": "keyword"
+    },
+    "184-": {
+        "groupName": "Desen",
+        "title": "düz",
+        "keywordType": "keyword"
+    },
+    "185-": {
+        "groupName": "Desen",
+        "title": "file",
+        "keywordType": "keyword"
+    },
+    "186-": {
+        "groupName": "Desen",
+        "title": "nakışlı",
+        "keywordType": "keyword"
+    },
+    "187-": {
+        "groupName": "Desen",
+        "title": "payet",
+        "keywordType": "keyword"
+    },
+    "188-": {
+        "groupName": "Desen",
+        "title": "ekoze",
+        "keywordType": "keyword"
+    },
+    "189-": {
+        "groupName": "Boyu",
+        "title": "diz altı",
+        "keywordType": "keyword"
+    },
+    "190-": {
+        "groupName": "Boyu",
+        "title": "diz üstü",
+        "keywordType": "keyword"
+    },
+    "191-": {
+        "groupName": "Boyu",
+        "title": "kısa",
+        "keywordType": "keyword"
+    },
+    "192-": {
+        "groupName": "Boyu",
+        "title": "maksi",
+        "keywordType": "keyword"
+    },
+    "193-": {
+        "groupName": "Boyu",
+        "title": "maxi",
+        "keywordType": "keyword"
+    },
+    "194-": {
+        "groupName": "Boyu",
+        "title": "midi",
+        "keywordType": "keyword"
+    },
+    "195-": {
+        "groupName": "Boyu",
+        "title": "mini",
+        "keywordType": "keyword"
+    },
+    "196-": {
+        "groupName": "Boyu",
+        "title": "uzun",
+        "keywordType": "keyword"
+    },
+    "197-": {
+        "groupName": "Kumaş",
+        "title": "triko",
+        "keywordType": "keyword"
+    },
+    "198-": {
+        "groupName": "Kumaş",
+        "title": "belmando",
+        "keywordType": "keyword"
+    },
+    "199-": {
+        "groupName": "Kumaş",
+        "title": "dokulu",
+        "keywordType": "keyword"
+    },
+    "200-": {
+        "groupName": "Kumaş",
+        "title": "gabardin",
+        "keywordType": "keyword"
+    },
+    "201-": {
+        "groupName": "Kumaş",
+        "title": "gofre",
+        "keywordType": "keyword"
+    },
+    "202-": {
+        "groupName": "Kumaş",
+        "title": "havlu",
+        "keywordType": "keyword"
+    },
+    "203-": {
+        "groupName": "Kumaş",
+        "title": "jakar",
+        "keywordType": "keyword"
+    },
+    "204-": {
+        "groupName": "Kumaş",
+        "title": "kadife",
+        "keywordType": "keyword"
+    },
+    "205-": {
+        "groupName": "Kumaş",
+        "title": "kaşkorse",
+        "keywordType": "keyword"
+    },
+    "206-": {
+        "groupName": "Kumaş",
+        "title": "keten",
+        "keywordType": "keyword"
+    },
+    "207-": {
+        "groupName": "Kumaş",
+        "title": "keten görünümlü",
+        "keywordType": "keyword"
+    },
+    "208-": {
+        "groupName": "Kumaş",
+        "title": "krep",
+        "keywordType": "keyword"
+    },
+    "209-": {
+        "groupName": "Kumaş",
+        "title": "krinkle",
+        "keywordType": "keyword"
+    },
+    "210-": {
+        "groupName": "Kumaş",
+        "title": "lyocell",
+        "keywordType": "keyword"
+    },
+    "211-": {
+        "groupName": "Kumaş",
+        "title": "maroken",
+        "keywordType": "keyword"
+    },
+    "212-": {
+        "groupName": "Kumaş",
+        "title": "müslin",
+        "keywordType": "keyword"
+    },
+    "213-": {
+        "groupName": "Kumaş",
+        "title": "pike",
+        "keywordType": "keyword"
+    },
+    "214-": {
+        "groupName": "Kumaş",
+        "title": "ponte",
+        "keywordType": "keyword"
+    },
+    "215-": {
+        "groupName": "Kumaş",
+        "title": "poplin",
+        "keywordType": "keyword"
+    },
+    "216-": {
+        "groupName": "Kumaş",
+        "title": "ribana",
+        "keywordType": "keyword"
+    },
+    "217-": {
+        "groupName": "Kumaş",
+        "title": "saten",
+        "keywordType": "keyword"
+    },
+    "218-": {
+        "groupName": "Kumaş",
+        "title": "şifon",
+        "keywordType": "keyword"
+    },
+    "219-": {
+        "groupName": "Kumaş",
+        "title": "skuba",
+        "keywordType": "keyword"
+    },
+    "220-": {
+        "groupName": "Kumaş",
+        "title": "tencel",
+        "keywordType": "keyword"
+    },
+    "221-": {
+        "groupName": "Kumaş",
+        "title": "tül",
+        "keywordType": "keyword"
+    },
+    "222-": {
+        "groupName": "Kumaş",
+        "title": "twill",
+        "keywordType": "keyword"
+    },
+    "223-": {
+        "groupName": "Kumaş",
+        "title": "vual",
+        "keywordType": "keyword"
+    },
+    "224-": {
+        "groupName": "Kumaş",
+        "title": "atlas kumaş",
+        "keywordType": "keyword"
+    },
+    "225-": {
+        "groupName": "Kumaş",
+        "title": "fitilli",
+        "keywordType": "keyword"
+    },
+    "226-": {
+        "groupName": "Kumaş",
+        "title": "ipek",
+        "keywordType": "keyword"
+    },
+    "227-": {
+        "groupName": "Kumaş",
+        "title": "pamuk",
+        "keywordType": "keyword"
+    },
+    "228-": {
+        "groupName": "Kumaş",
+        "title": "şile bezi",
+        "keywordType": "keyword"
+    },
+    "229-": {
+        "groupName": "Kumaş",
+        "title": "tafta",
+        "keywordType": "keyword"
+    },
+    "230-": {
+        "groupName": "Kumaş",
+        "title": "viskon",
+        "keywordType": "keyword"
+    },
+    "231-": {
+        "groupName": "Kumaş",
+        "title": "denim",
+        "keywordType": "keyword"
+    },
+    "232-": {
+        "groupName": "Kumaş",
+        "title": "jean",
+        "keywordType": "keyword"
+    },
+    "233-": {
+        "groupName": "Kumaş",
+        "title": "puane",
+        "keywordType": "keyword"
+    },
+    "234-": {
+        "groupName": "Kumaş",
+        "title": "brode",
+        "keywordType": "keyword"
+    },
+    "235-": {
+        "groupName": "Kumaş",
+        "title": "dalgıç",
+        "keywordType": "keyword"
+    },
+    "236-": {
+        "groupName": "Kumaş",
+        "title": "dantel",
+        "keywordType": "keyword"
+    },
+    "237-": {
+        "groupName": "Kumaş",
+        "title": "interlok",
+        "keywordType": "keyword"
+    },
+    "238-": {
+        "groupName": "Kumaş",
+        "title": "keten karışımlı",
+        "keywordType": "keyword"
+    },
+    "239-": {
+        "groupName": "Kumaş",
+        "title": "süet",
+        "keywordType": "keyword"
+    },
+    "240-": {
+        "groupName": "Kumaş",
+        "title": "kot",
+        "keywordType": "keyword"
+    },
+    "241-": {
+        "groupName": "Renk",
+        "title": "bej",
+        "keywordType": "keyword"
+    },
+    "242-": {
+        "groupName": "Renk",
+        "title": "beyaz",
+        "keywordType": "keyword"
+    },
+    "243-": {
+        "groupName": "Renk",
+        "title": "bordo",
+        "keywordType": "keyword"
+    },
+    "244-": {
+        "groupName": "Renk",
+        "title": "camel",
+        "keywordType": "keyword"
+    },
+    "245-": {
+        "groupName": "Renk",
+        "title": "ekru",
+        "keywordType": "keyword"
+    },
+    "246-": {
+        "groupName": "Renk",
+        "title": "füme",
+        "keywordType": "keyword"
+    },
+    "247-": {
+        "groupName": "Renk",
+        "title": "fuşya",
+        "keywordType": "keyword"
+    },
+    "248-": {
+        "groupName": "Renk",
+        "title": "gri",
+        "keywordType": "keyword"
+    },
+    "249-": {
+        "groupName": "Renk",
+        "title": "gül",
+        "keywordType": "keyword"
+    },
+    "250-": {
+        "groupName": "Renk",
+        "title": "haki",
+        "keywordType": "keyword"
+    },
+    "251-": {
+        "groupName": "Renk",
+        "title": "hardal",
+        "keywordType": "keyword"
+    },
+    "252-": {
+        "groupName": "Renk",
+        "title": "indigo",
+        "keywordType": "keyword"
+    },
+    "253-": {
+        "groupName": "Renk",
+        "title": "kahverengi",
+        "keywordType": "keyword"
+    },
+    "254-": {
+        "groupName": "Renk",
+        "title": "kiremit",
+        "keywordType": "keyword"
+    },
+    "255-": {
+        "groupName": "Renk",
+        "title": "kirmizi",
+        "keywordType": "keyword"
+    },
+    "256-": {
+        "groupName": "Renk",
+        "title": "koyu kirmizi",
+        "keywordType": "keyword"
+    },
+    "257-": {
+        "groupName": "Renk",
+        "title": "koyu mor",
+        "keywordType": "keyword"
+    },
+    "258-": {
+        "groupName": "Renk",
+        "title": "krem",
+        "keywordType": "keyword"
+    },
+    "259-": {
+        "groupName": "Renk",
+        "title": "lacivert",
+        "keywordType": "keyword"
+    },
+    "260-": {
+        "groupName": "Renk",
+        "title": "lila",
+        "keywordType": "keyword"
+    },
+    "261-": {
+        "groupName": "Renk",
+        "title": "mint",
+        "keywordType": "keyword"
+    },
+    "262-": {
+        "groupName": "Renk",
+        "title": "mor",
+        "keywordType": "keyword"
+    },
+    "263-": {
+        "groupName": "Renk",
+        "title": "mürdüm",
+        "keywordType": "keyword"
+    },
+    "264-": {
+        "groupName": "Renk",
+        "title": "nar",
+        "keywordType": "keyword"
+    },
+    "265-": {
+        "groupName": "Renk",
+        "title": "pembe",
+        "keywordType": "keyword"
+    },
+    "266-": {
+        "groupName": "Renk",
+        "title": "petrol",
+        "keywordType": "keyword"
+    },
+    "267-": {
+        "groupName": "Renk",
+        "title": "pudra",
+        "keywordType": "keyword"
+    },
+    "268-": {
+        "groupName": "Renk",
+        "title": "saks",
+        "keywordType": "keyword"
+    },
+    "269-": {
+        "groupName": "Renk",
+        "title": "sari",
+        "keywordType": "keyword"
+    },
+    "270-": {
+        "groupName": "Renk",
+        "title": "siyah",
+        "keywordType": "keyword"
+    },
+    "271-": {
+        "groupName": "Renk",
+        "title": "somon",
+        "keywordType": "keyword"
+    },
+    "272-": {
+        "groupName": "Renk",
+        "title": "taba",
+        "keywordType": "keyword"
+    },
+    "273-": {
+        "groupName": "Renk",
+        "title": "turuncu",
+        "keywordType": "keyword"
+    },
+    "274-": {
+        "groupName": "Renk",
+        "title": "vizon",
+        "keywordType": "keyword"
+    },
+    "275-": {
+        "groupName": "Renk",
+        "title": "yağ yeşili",
+        "keywordType": "keyword"
+    },
+    "276-": {
+        "groupName": "Renk",
+        "title": "yeşil",
+        "keywordType": "keyword"
+    },
+    "277-": {
+        "groupName": "Renk",
+        "title": "zümrüt",
+        "keywordType": "keyword"
+    },
+    "278-": {
+        "groupName": "Renk",
+        "title": "mint yeşili",
+        "keywordType": "keyword"
+    },
+    "279-": {
+        "groupName": "Renk",
+        "title": "fıstık yeşili",
+        "keywordType": "keyword"
+    },
+    "280-": {
+        "groupName": "Renk",
+        "title": "siyah beyaz",
+        "keywordType": "keyword"
+    },
+    "281-": {
+        "groupName": "Marka",
+        "title": "defacto",
+        "keywordType": "keyword"
+    },
+    "282-": {
+        "groupName": "Marka",
+        "title": "koton",
+        "keywordType": "keyword"
+    },
+    "283-": {
+        "groupName": "Marka",
+        "title": "lcwaikiki",
+        "keywordType": "keyword"
+    },
+    "284-": {
+        "groupName": "Marka",
+        "title": "adidas",
+        "keywordType": "keyword"
+    },
+    "285-": {
+        "groupName": "Marka",
+        "title": "adl",
+        "keywordType": "keyword"
+    },
+    "286-": {
+        "groupName": "Marka",
+        "title": "baqa",
+        "keywordType": "keyword"
+    },
+    "287-": {
+        "groupName": "Marka",
+        "title": "beymen",
+        "keywordType": "keyword"
+    },
+    "288-": {
+        "groupName": "Marka",
+        "title": "beyyoglu",
+        "keywordType": "keyword"
+    },
+    "289-": {
+        "groupName": "Marka",
+        "title": "colins",
+        "keywordType": "keyword"
+    },
+    "290-": {
+        "groupName": "Marka",
+        "title": "butigo",
+        "keywordType": "keyword"
+    },
+    "291-": {
+        "groupName": "Marka",
+        "title": "dilvin",
+        "keywordType": "keyword"
+    },
+    "292-": {
+        "groupName": "Marka",
+        "title": "dogo",
+        "keywordType": "keyword"
+    },
+    "293-": {
+        "groupName": "Marka",
+        "title": "hm",
+        "keywordType": "keyword"
+    },
+    "294-": {
+        "groupName": "Marka",
+        "title": "ipekyol",
+        "keywordType": "keyword"
+    },
+    "295-": {
+        "groupName": "Marka",
+        "title": "machka",
+        "keywordType": "keyword"
+    },
+    "296-": {
+        "groupName": "Marka",
+        "title": "penti",
+        "keywordType": "keyword"
+    },
+    "297-": {
+        "groupName": "Marka",
+        "title": "roman",
+        "keywordType": "keyword"
+    },
+    "298-": {
+        "groupName": "Marka",
+        "title": "twist",
+        "keywordType": "keyword"
+    },
+    "299-": {
+        "groupName": "Marka",
+        "title": "vakko",
+        "keywordType": "keyword"
+    },
+    "300-": {
+        "groupName": "Marka",
+        "title": "zara",
+        "keywordType": "keyword"
+    },
+    "301-": {
+        "groupName": "Marka",
+        "title": "gizia",
+        "keywordType": "keyword"
+    },
+    "302-": {
+        "groupName": "Marka",
+        "title": "vitrin",
+        "keywordType": "keyword"
+    },
+    "303-": {
+        "groupName": "Marka",
+        "title": "xint",
+        "keywordType": "keyword"
+    },
+    "304-": {
+        "groupName": "Marka",
+        "title": "tozlu",
+        "keywordType": "keyword"
+    },
+    "305-": {
+        "groupName": "Marka",
+        "title": "quzu",
+        "keywordType": "keyword"
+    },
+    "306-": {
+        "groupName": "Marka",
+        "title": "saygigiyim",
+        "keywordType": "keyword"
+    },
+    "307-": {
+        "groupName": "Marka",
+        "title": "manuka",
+        "keywordType": "keyword"
+    },
+    "308-": {
+        "groupName": "Marka",
+        "title": "kikiriki",
+        "keywordType": "keyword"
+    },
+    "309-": {
+        "groupName": "Marka",
+        "title": "jimmykey",
+        "keywordType": "keyword"
+    },
+    "310-": {
+        "groupName": "Marka",
+        "title": "perspective",
+        "keywordType": "keyword"
+    },
+    "311-": {
+        "groupName": "Marka",
+        "title": "mango",
+        "keywordType": "keyword"
+    },
+    "312-": {
+        "groupName": "Marka",
+        "title": "olegcassini",
+        "keywordType": "keyword"
+    },
+    "313-": {
+        "groupName": "Marka",
+        "title": "addax",
+        "keywordType": "keyword"
+    },
+    "314-": {
+        "groupName": "Marka",
+        "title": "oxxo",
+        "keywordType": "keyword"
+    },
+    "315-": {
+        "groupName": "Marka",
+        "title": "abiyefon",
+        "keywordType": "keyword"
+    },
+    "316-": {
+        "groupName": "Marka",
+        "title": "desa",
+        "keywordType": "keyword"
+    },
+    "317-": {
+        "groupName": "Marka",
+        "title": "patirti",
+        "keywordType": "keyword"
+    },
+    "318-": {
+        "groupName": "Marka",
+        "title": "yargici",
+        "keywordType": "keyword"
+    },
+    "319-": {
+        "groupName": "Fiyat",
+        "title": "0-100",
+        "keywordType": "keyword"
+    },
+    "320-": {
+        "groupName": "Fiyat",
+        "title": "100-200",
+        "keywordType": "keyword"
+    },
+    "321-": {
+        "groupName": "Fiyat",
+        "title": "200-300",
+        "keywordType": "keyword"
+    },
+    "322-": {
+        "groupName": "Fiyat",
+        "title": "300-400",
+        "keywordType": "keyword"
+    },
+    "323-": {
+        "groupName": "Fiyat",
+        "title": "400-500",
+        "keywordType": "keyword"
+    },
+    "324-": {
+        "groupName": "Fiyat",
+        "title": "500-600",
+        "keywordType": "keyword"
+    },
+    "325-": {
+        "groupName": "Fiyat",
+        "title": "600-700",
+        "keywordType": "keyword"
+    },
+    "326-": {
+        "groupName": "Fiyat",
+        "title": "700-800",
+        "keywordType": "keyword"
+    },
+    "327-": {
+        "groupName": "Fiyat",
+        "title": "800-900",
+        "keywordType": "keyword"
+    },
+    "328-": {
+        "groupName": "Fiyat",
+        "title": "900-1000",
+        "keywordType": "keyword"
+    },
+    "329-": {
+        "groupName": "Fiyat",
+        "title": "1000-1500",
+        "keywordType": "keyword"
+    },
+    "330-": {
+        "groupName": "Fiyat",
+        "title": "1500",
+        "keywordType": "keyword"
+    }
+}

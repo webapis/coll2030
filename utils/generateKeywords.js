@@ -2,73 +2,39 @@
 
 
 (async () => {
-    const { getGoogleToken } = require('../google/google.oauth')
+    require('dotenv').config()
 
-    const google_access_token = await getGoogleToken()
-    const spreadsheetId = '1GLN7_-mqagdV0yoQUIGjBqs4orP9StAGwqlJXYfKwQQ'
-    await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'one' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'two' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'three' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'four' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'five' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'six' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'seven' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'eight' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'nine' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'ten' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'eleven' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twelve' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'thirteen' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'fourteen' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'fifteen' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'sixteen' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'seventeen' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'eighteen' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'nineteen' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-one' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-two' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-three' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-four' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-five' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-six' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-seven' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-eight' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'twenty-nine' })
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'thirty' })
+    await generateKeyword()
 
-    // await generateKeyword({ google_access_token, spreadsheetId, range: 'elbise!A:L', node: 'dream', subcategory: 'diger' })
 
     process.exit(0)
 
 })()
 
 
-async function generateKeyword({ google_access_token, spreadsheetId, range }) {
+async function generateKeyword() {
     const fs = require('fs')
+    const uri = process.env.MONGODB_URL
+    const { MongoClient} = require('mongodb');
     const makeDir = require('make-dir');
+debugger
+    const client = new MongoClient(uri, { useUnifiedTopology: true });
+    await client.connect()
+    const db = client.db("biraradamoda");
 
-    const { getSheetValues, appendSheetValues } = require('../google.sheet.js')
-    let categoryItems = []
+    let collection = db.collection('keywords');
+
+    let datas = await collection.find({}).toArray()
+
+    let categoryItems = datas.map((m)=>{
+        const mappedData =m
+        delete mappedData['_id']
+        return mappedData})
 
 
-    const sheetData = await getSheetValues({ access_token: google_access_token, spreadsheetId, range })
+
     debugger
-    for (let value of sheetData.values.filter((c, i) => i > 0)) {
-        const keywords = value[0]
 
-        const title = value[1]
-        const exclude = value[2]
-        const exactmatch = value[3]
-
-        const index = value[4]
-        const groupid = value[5]
-        const category = value[6]
-        const subcategory = value[7]
-
-        categoryItems.push({ keywords, title, negwords:exclude, exactmatch, index, groupid, category, subcategory })
-
-    }
 
     const data = categoryItems
 
@@ -83,16 +49,46 @@ async function generateKeyword({ google_access_token, spreadsheetId, range }) {
     if (fs.existsSync(`src/keywords.json`)) {
         fs.unlinkSync(`src/keywords.json`)
     }
-
+    if (fs.existsSync(`src/category-nav.json`)) {
+        fs.unlinkSync(`src/category-nav.json`)
+    }
 
     const reduced = data.reduce((prev, curr) => {
-   
+
         return {
-            ...prev, [curr.title]: { subcategory: curr.subcategory, category: curr.category,keywords:curr.keywords }
+            ...prev, [curr.index+"-"]: { groupName:curr.groupName,title:curr.title,
+                keywordType:curr.keywordType }
         }
     }, {})
     debugger
     fs.appendFileSync(`src/keywords.json`, JSON.stringify(reduced))
 
+    let keywordsObj={}
+    debugger
+    const mappedCatItems = categoryItems.filter(f=>f.keywordType ==='category').map(m => {
+        // debugger
+        // let index=''
+        // if(keywordsObj[m.title] ===undefined || keywordsObj[m.title].index===undefined){
+         
+        //     index=undefined
+        // }
+        // else{
+        //     index = keywordsObj[m.title].index
+        
+        // }
+
+        debugger
+        return { ...m, index: m.index + '-' }
+    })
+    debugger
+    const grouped = groupBy([...mappedCatItems, { title: 'diger', exclude: '', functionName: 'diger', groupName: 'diger', index: '0-' }], 'groupName')
+    fs.appendFileSync(`src/category-nav.json`, JSON.stringify(grouped))
 
 }
+
+function groupBy(xs, key) {
+    return xs.reduce(function (rv, x) {
+        (rv[x[key]] = rv[x[key]] || []).push(x);
+        return rv;
+    }, {});
+};

@@ -12,7 +12,8 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 
 export default function SubcategoryCard({indexes,selectSubcategory}){
-const group =indexes[0]['group']
+const group =indexes[0]['groupName']
+
     return (
         <Card sx={{}}>
           <CardContent>
@@ -24,9 +25,10 @@ const group =indexes[0]['group']
 
           <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {indexes.map((value) => {
+   
         console.log('value',value)
         const labelId = `checkbox-list-secondary-label-${value}`;
-    
+
         return (
           <ListItem
             key={value.index}
@@ -41,7 +43,7 @@ const group =indexes[0]['group']
                 />
               </ListItemAvatar>
              
-              <ListItemText id={labelId} primary={value.subcategory} />
+              <ListItemText id={labelId} primary={value.title} />
            
           
             </ListItemButton>

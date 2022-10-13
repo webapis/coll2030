@@ -42,3 +42,5 @@ old-data
 updated-data
 
 imgs/
+# Local Netlify folder
+.netlify

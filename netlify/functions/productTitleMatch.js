@@ -1,11 +1,9 @@
 
-function productTitleMatch({ kw, title, exactmatch, nws }) {
+function productTitleMatch({ kw, title, nws }) {
 
     if(title){
 
-        if(title.includes('tunic') && kw.includes('tunic')){
-            debugger
-        }
+     
 
     const match = kw.split(',').some(function (keyword) {
 
@@ -34,9 +32,7 @@ function productTitleMatch({ kw, title, exactmatch, nws }) {
 
 
     })
-    if(title.includes('tunic') && kw.includes('tunic')){
-        debugger
-    }
+
     return match
 } else{
     

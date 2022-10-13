@@ -51,7 +51,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "genKeywords": "node utils/generateKeywords.js",
-    "genSubCatKeywords": "node utils/generateSubcategoryKeywords.js",
     "collection": "node main.js",
     "relocatedata": "node utils/relocateData.js",
     "mergefiles": "node utils/mergefiles.js",

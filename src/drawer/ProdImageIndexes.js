@@ -6,9 +6,10 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
+import placeholders from './imageComponent/placeholders';
 
-export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex }) {
-
+export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,navKeywords }) {
+debugger
     const theme = useTheme();
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
@@ -33,29 +34,30 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex 
             imageWidth = 100
             break;
     }
-    const imgIndex = Object.entries(productImgIndexes)
+
 
 
 
 
     return <Container sx={{ paddingRight: 0 }} center>
 
-        {imgIndex.map(m => {
-       
-            const groupItems = m[1]
-
-            const groupName = m[0]
+        {navKeywords.map(m => {
+         const { groupName, keywords } = m
+    
             return <Grid container >
                 <Grid item xs={12} sx={{ backgroundColor: '#cfd8dc', marginTop: 5, marginBottom: 2 }}><Typography variant="button" display="block">{groupName}</Typography> </Grid>
-                {groupItems.map(m => {
-                    const { index, keyword, title, productName, total, imageSrc } = m
-           
-                    const src = `/indexed-images/${productName}/${imageSrc}`
-                    return <Grid xs={4} sm={2} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp  setSelectedNavIndex={setSelectedNavIndex} dataSrc={src} index={index} keyword={keyword} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keyword} {productName}</Typography></Tooltip></Grid>
+                {keywords.map(m => {
+                    debugger
+                    //const { index, keyword, title, productName, total, imageSrc } = m
+                    const {keywordTitle,imageUrl:{title,src:imageSrc,marka}}=productImgIndexes[m[1]]
+                    const total =m[0]
+                    const index =m[1]
+               
+                    //const src = `/indexed-images/${productName}/${imageSrc}`
+                    const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
+                
+                    return <Grid xs={4} sm={2} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp  setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={keywordTitle} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keywordTitle}</Typography></Tooltip></Grid>
                 })}</Grid>
-
-
-
         })
         }
     </Container>
