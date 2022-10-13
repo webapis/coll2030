@@ -52,7 +52,7 @@ debugger
                     const {keywordTitle,imageUrl:{title,src:imageSrc,marka}}=productImgIndexes[m[1]]
                     const total =m[0]
                     const index =m[1]
-                    const imagePlaceholder = placeholders[marka].placeholder
+               
                     //const src = `/indexed-images/${productName}/${imageSrc}`
                     const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
                 
