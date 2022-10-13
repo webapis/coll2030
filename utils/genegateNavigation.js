@@ -152,25 +152,31 @@ async function genNav({ functionName }) {
               }
 
 
-              const fnd = categoryKeywords.find(f => comb.split('-').filter(f => f !== '').includes(f.index))
-
-              const c = fnd ? true : false
-              if (c) {
-                if (navKeysWithCatKeys[comb] === undefined) {
-                  navKeysWithCatKeys[comb] = { keywords: {} }
+              const fnd = categoryKeywords.filter(f => comb.split('-').filter(f => f !== '').includes(f.index))
+        
+          
+              fnd.forEach(ds=>{
+                const c = ds ? true : false
+      
+                if (c) {
+                  if (navKeysWithCatKeys[comb] === undefined) {
+                    navKeysWithCatKeys[comb] = { keywords: {} }
+                  }
+  
+                  if (navKeysWithCatKeys[comb].keywords[title] === undefined) {
+  
+                    navKeysWithCatKeys[comb].keywords[title] = { count: 1, index, c, imageUrls: [{ src: imageUrl, title: object.title,marka }] }
+                  }
+                  else {
+                    const count = navKeysWithCatKeys[comb].keywords[title].count
+                    const imageUrls = navKeysWithCatKeys[comb].keywords[title].imageUrls
+  
+                    navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title,marka }] }
+                  }
                 }
 
-                if (navKeysWithCatKeys[comb].keywords[title] === undefined) {
-
-                  navKeysWithCatKeys[comb].keywords[title] = { count: 1, index, c, imageUrls: [{ src: imageUrl, title: object.title,marka }] }
-                }
-                else {
-                  const count = navKeysWithCatKeys[comb].keywords[title].count
-                  const imageUrls = navKeysWithCatKeys[comb].keywords[title].imageUrls
-
-                  navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title,marka }] }
-                }
-              }
+              })
+      
 
 
               if (navKeys[comb].keywords[title] === undefined) {

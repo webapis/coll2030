@@ -43,17 +43,19 @@ debugger
 
         {navKeywords.map(m => {
          const { groupName, keywords } = m
-            debugger
+    
             return <Grid container >
                 <Grid item xs={12} sx={{ backgroundColor: '#cfd8dc', marginTop: 5, marginBottom: 2 }}><Typography variant="button" display="block">{groupName}</Typography> </Grid>
                 {keywords.map(m => {
+                    debugger
                     //const { index, keyword, title, productName, total, imageSrc } = m
-                    const {keywordTitle,imageUrl:{title,src:imageSrc,marka},count:total}=productImgIndexes[m[1]]
+                    const {keywordTitle,imageUrl:{title,src:imageSrc,marka}}=productImgIndexes[m[1]]
+                    const total =m[0]
                     const index =m[1]
                     const imagePlaceholder = placeholders[marka].placeholder
                     //const src = `/indexed-images/${productName}/${imageSrc}`
                     const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
-                    debugger
+                
                     return <Grid xs={4} sm={2} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp  setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={keywordTitle} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keywordTitle}</Typography></Tooltip></Grid>
                 })}</Grid>
         })

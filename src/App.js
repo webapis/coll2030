@@ -295,21 +295,27 @@ export default class App extends React.Component {
 
         const indexes = selectedNavIndex.split('-').filter(f => f !== '')
       
-   
+        let indexFound =null
         //keywordgroup[keywordIndex]['groupName']
-        for(let b in  keywordgroup){
-          const currentIndex =b.split('-').filter(f => f !== '')
-        const indexFound = indexes.find(f=> {
-        
-          return currentIndex.includes(f)
-        })
-        if(indexFound){
-            const imageIndexesResponse =await fetch(`/image-indexes/${indexFound}.json`)
-             productImgIndexes =await imageIndexesResponse.json()
+        try {
+          for(let b in  keywordgroup){
+            const currentIndex =b.split('-').filter(f => f !== '')
+           indexFound = indexes.find(f=> {
+          
+            return currentIndex.includes(f)
+          })
+          if(indexFound){
+              const imageIndexesResponse =await fetch(`/image-indexes/${indexFound}.json`)
+              productImgIndexes =await imageIndexesResponse.json()
+          }
+    
+          
+          }
+        } catch (error) {
+          console.log('error--------',error)
+          console.log('indexFound--------',indexFound)
         }
-  
-        
-        }
+    
       }
    
       if (fn === 1) {
