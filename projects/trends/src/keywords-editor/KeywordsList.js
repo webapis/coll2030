@@ -18,7 +18,13 @@ export default function KeywordsList() {
 
     const dispatch = useDispatch()
   
+useEffect(()=>{
 
+        console.log('keywordsToDisplay',keywordsToDisplay)
+        debugger
+   
+    
+},[keywordsToDisplay])
 
 
     useEffect(() => {
@@ -34,7 +40,7 @@ export default function KeywordsList() {
     
             const { data } = await response.json()
             const groupByGroupName = groupBy(data, 'groupName')
-    
+    debugger
             dispatch(actions.setKeywords(groupByGroupName))
             dispatch(actions.setLoadingKeywords(false))
         }
@@ -54,7 +60,8 @@ export default function KeywordsList() {
 
         {addKeywords && <Grid item xs={12}><KeywordsEditorContainer /></Grid>}
 
-        {!addKeywords && Object.entries(keywordsToDisplay).map((m, i) => {
+        {!addKeywords && keywordsToDisplay && Object.entries(keywordsToDisplay).map((m, i) => {
+     
             const groupName = m[0]
             const keywords = m[1]
 
