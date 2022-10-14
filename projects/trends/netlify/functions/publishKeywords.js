@@ -34,7 +34,7 @@ debugger
 
 const body = JSON.stringify({ ref: 'main', inputs: {  } })
 
-const response = await triggerAction({ gh_action_url: `https://api.github.com/repos/webapis/coll2030/actions/workflows/generateKeywords.yml/dispatches`, ticket: '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', body })
+const response = await triggerAction({ gh_action_url: `https://api.github.com/repos/webapis/coll2030/actions/workflows/generateKeywords.yml/dispatches`, ticket: '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', body })
            debugger
       return {
         statusCode: 200,
@@ -82,6 +82,7 @@ async function triggerAction({ ticket, body, gh_action_url }) {
             body
         })
         const data = await response.json()
+        debugger
     } catch (error) {
 
     }

@@ -1,6 +1,6 @@
 name: generate keywords
 on:
-   workflow_dispatch:
+  workflow_dispatch:
 env:
   VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
   NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
