@@ -10,7 +10,7 @@ import TreeItem from '@mui/lab/TreeItem';
 
 import Divider from '@mui/material/Divider';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { actions } from '../store/collectedDataSlice'
 
@@ -19,7 +19,7 @@ import { actions } from '../store/collectedDataSlice'
 export default function CollectedDataBySubcatDrawer({data}) {
     const markas = Object.entries(data)
     const dispatch = useDispatch()
-    const {selectedMarka} = useSelector(state => state.collectedData)
+
 
     return <Drawer variant="permanent"   anchor="right" open={true} onClose={() => {  }}
         sx={{

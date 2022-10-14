@@ -105,7 +105,7 @@ CURRENCY
  https://www.olegcassini.com.tr/rehber/yaka-tipi-rehberi
  https://www.giyimvemoda.com/moda-sozlugu/kol-cesitleri-nelerdir/63
 
-
+d
        - name: publish one
         run: vercel --token ${{secrets.VERCEL_TOKEN}} --yes
 

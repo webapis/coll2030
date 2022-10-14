@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material'
+import { Grid } from '@mui/material'
 import Bar from '../Bar'
 import brendReport from '../reports/updated/by-brand-updated.json'
 const mapBrendReport = Object.entries(brendReport).map(m => {

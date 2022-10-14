@@ -14,9 +14,11 @@ function handleFilter(event,newInputValue){
     if(newInputValue===''){
         filtered=keywords
     }else{
-
+debugger
         for(let k in keywords){
+     
             if(k===newInputValue){
+                debugger
              filtered[k]=keywords[k]
        
              break;
@@ -27,7 +29,7 @@ function handleFilter(event,newInputValue){
     const keywordsToDisplay=Object.entries(filtered)[0][1]
     const groupName=Object.entries(filtered)[0][0]
 debugger
-    dispatch(actions.setKeywordsFilter({groupName,[groupName]:keywordsToDisplay}))
+    dispatch(actions.setKeywordsFilter({groupName,keywordsToDisplay:{[groupName]:keywordsToDisplay}}))
 }
     return (
         <Autocomplete

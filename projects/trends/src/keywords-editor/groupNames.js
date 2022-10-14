@@ -1,4 +1,5 @@
-export default [{groupName:'Üst giyim',keywordsType:'category'},
+
+const arr =[{groupName:'Üst giyim',keywordsType:'category'},
 {groupName:'Alt giyim',keywordsType:'category'},
 {groupName:'Dış giyim',keywordsType:'category'},
 {groupName:'İç giyim',keywordsType:'category'},
@@ -21,3 +22,5 @@ export default [{groupName:'Üst giyim',keywordsType:'category'},
 {groupName:'Ev giyim',keywordsType:'category'},
 
 ]
+
+export default arr
