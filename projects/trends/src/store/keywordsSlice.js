@@ -14,7 +14,7 @@ const initialState = {
   loadingKeywords: false,
   postingNewKeyword: false,
   filteredGroupName: '',
-  keywordsToDisplay: []
+  keywordsToDisplay: null
 }
 
 export const keywordsSlice = createSlice({
@@ -64,6 +64,7 @@ export const keywordsSlice = createSlice({
       
       state.keywordsToDisplay = action.payload.keywordsToDisplay
       state.filteredGroupName =  action.payload.groupName
+      console.log('action.payload.keywordsToDisplay',action.payload.keywordsToDisplay)
       debugger
 
     },
@@ -72,7 +73,9 @@ export const keywordsSlice = createSlice({
       state.editor = action.payload
     },
     setKeywordsToDisplay:(state,action)=>{
+      console.log('action.payload',action.payload)
       state.keywordsToDisplay = action.payload
+      debugger
     }
   },
 

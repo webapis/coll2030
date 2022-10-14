@@ -1,6 +1,6 @@
 
 require('dotenv').config()
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const uri = process.env.MONGODB_URL
 
 exports.handler = async function (event, context) {
@@ -78,7 +78,7 @@ exports.handler = async function (event, context) {
   }
   else if (event.httpMethod === 'DELETE') {
     debugger
-    const { start, search, selectedNavIndex } = event.queryStringParameters
+ 
 
     debugger
 
