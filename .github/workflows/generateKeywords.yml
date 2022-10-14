@@ -6,8 +6,6 @@ env:
   NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
   WEBSITE: biraradamoda
 jobs:
-
-
   generate_keywords_job:
     runs-on: ubuntu-latest
     steps:

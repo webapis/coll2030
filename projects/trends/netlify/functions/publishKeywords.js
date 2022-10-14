@@ -34,7 +34,7 @@ debugger
 
 const body = JSON.stringify({ ref: 'main', inputs: {  } })
 
-const response = await triggerAction({ gh_action_url: `https://api.github.com/repos/webapis/coll2030/actions/workflows/generateKeywords.yml/dispatches`, ticket: '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', body })
+const response = await triggerAction({ gh_action_url: `https://api.github.com/repos/webapis/coll2030/actions/workflows/generateKeywords.yml/dispatches`, ticket: process.env.ticket, body })
            debugger
       return {
         statusCode: 200,
