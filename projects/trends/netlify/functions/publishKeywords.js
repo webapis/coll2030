@@ -32,16 +32,16 @@ debugger
     try {      
 
 
-const body = JSON.stringify({ ref: 'main', inputs: {  } })
+const body = JSON.stringify({ ref: 'trends-master', inputs: {  } })
 
-const response = await triggerAction({ gh_action_url: `https://api.github.com/repos/webapis/coll2030/actions/workflows/generateKeywords.yml/dispatches`, ticket: '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', body })
+const response = await triggerAction({ gh_action_url: `https://api.github.com/repos/webapis/coll2030/actions/workflows/generateKeywords.yml/dispatches`, ticket: process.env.ticket, body })
            debugger
       return {
         statusCode: 200,
         headers: {
           "Access-Control-Allow-Origin": "*", // Allow from anywhere 
         },
-        body: JSON.stringify({ ref: 'trends-master' })
+        body
       }
     } catch (error) {
         debugger
@@ -82,8 +82,11 @@ async function triggerAction({ ticket, body, gh_action_url }) {
             body
         })
         const data = await response.json()
-    } catch (error) {
+        debugger
 
+        return data
+    } catch (error) {
+        console.log('error',error)
     }
 
 }
