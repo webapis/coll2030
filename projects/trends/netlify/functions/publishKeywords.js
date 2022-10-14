@@ -41,7 +41,7 @@ const response = await triggerAction({ gh_action_url: `https://api.github.com/re
         headers: {
           "Access-Control-Allow-Origin": "*", // Allow from anywhere 
         },
-        body: JSON.stringify({ ref: 'trends-master' })
+        body
       }
     } catch (error) {
         debugger
