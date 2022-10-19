@@ -46,7 +46,7 @@ export default function Keywords() {
                                     <TableCell>Title</TableCell>
                                     <TableCell align="right">Keywords</TableCell>
                                     <TableCell align="right">Exclude</TableCell>
-
+                                    <TableCell align="right">groupName</TableCell>
                                     <TableCell align="right">Disable</TableCell>
                                     <TableCell align="right">Edit</TableCell>
                                 </TableRow>
@@ -67,7 +67,7 @@ export default function Keywords() {
                                             </TableCell>
                                             <TableCell align="right">{r.keywords}</TableCell>
                                             <TableCell align="right">{r.exclude}</TableCell>
-                                         
+                                            <TableCell align="right">{r.groupName}</TableCell>
                                             <TableCell align="right">      <Switch id={r._id} checked={!r.disabled} defaultChecked onChange={toggleKeywordState} />
                                             </TableCell>
                                             <TableCell align="right">    <IconButton edge="end" aria-label="edit" onClick={() => editKeyword(r._id, name)}>
