@@ -41,9 +41,12 @@ export default function Keywords() {
                     editKeyword(id, name)
                     navigate('/keywords/editor')
                 }
-
+                function handleAdd(){
+                    addKeyword()
+                    navigate('/keywords/editor')
+                }
                 return <Container>
-                   {filteredGroupName.groupName !==''&& <Button onClick={addKeyword}>Add Keywords</Button>}
+                   {filteredGroupName.groupName !==''&& <Button onClick={handleAdd}>Add Keywords</Button>}
                     <KeywordsFilter filterKeyword={filterKeyword} />
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">

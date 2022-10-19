@@ -150,7 +150,7 @@ export default class App extends React.Component {
                 return { ...prevState, editor: {...initState.editor,functionName,groupName,keywordType} }
             })
             localStorage.setItem('editor', JSON.stringify(initState.editor))
-            window.location.replace('/keywords/editor')
+          
         }
 
         this.clearFilter=()=>{
