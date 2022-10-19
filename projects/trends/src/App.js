@@ -83,7 +83,7 @@ export default class App extends React.Component {
                 });
 
                 await response.json()
-                window.location.replace('/keywords')
+          
 
 
             } else {
@@ -98,7 +98,7 @@ export default class App extends React.Component {
 
                 await response.json()
 
-                window.location.replace('/keywords')
+              
             }
         }
 
