@@ -33,7 +33,7 @@ export default function Keywords() {
                 const filtered = arrayKeywords.filter(f => {
                     const groupName = f[0]
 
-                    return groupName.includes(filteredGroupName.name)
+                    return groupName.includes(filteredGroupName.groupName)
                 })
 
                 return <Container>
@@ -47,8 +47,8 @@ export default function Keywords() {
                                     <TableCell align="right">Keywords</TableCell>
                                     <TableCell align="right">Exclude</TableCell>
 
-                                    <TableCell align="right">groupName</TableCell>
-
+                                    <TableCell align="right">Disable</TableCell>
+                                    <TableCell align="right">Edit</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -67,7 +67,7 @@ export default function Keywords() {
                                             </TableCell>
                                             <TableCell align="right">{r.keywords}</TableCell>
                                             <TableCell align="right">{r.exclude}</TableCell>
-                                            <TableCell align="right">{name}</TableCell>
+                                         
                                             <TableCell align="right">      <Switch id={r._id} checked={!r.disabled} defaultChecked onChange={toggleKeywordState} />
                                             </TableCell>
                                             <TableCell align="right">    <IconButton edge="end" aria-label="edit" onClick={() => editKeyword(r._id, name)}>

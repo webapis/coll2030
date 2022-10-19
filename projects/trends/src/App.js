@@ -29,9 +29,10 @@ export default class App extends React.Component {
 
         this.filterKeyword = (e) => {
 
-
-            this.setState((prevState) => { return { ...prevState, filteredGroupName: groupNames.find(f => f.name === e.name) } })
-            localStorage.setItem('filteredGroupName', JSON.stringify({ ...groupNames.find(f => f.name === e.name) }))
+            const selectedGroupName =groupNames.map(m=>{return{...m,groupName:m.name,keywordType:m.keywordType,id:m.id}}).find(f => f.groupName === e.name) 
+            debugger
+            this.setState((prevState) => { return { ...prevState, filteredGroupName: selectedGroupName} })
+            localStorage.setItem('filteredGroupName', JSON.stringify({ ...selectedGroupName }))
 
 
 
@@ -65,7 +66,7 @@ export default class App extends React.Component {
         }
 
         this.saveKeyword = async () => {
-            const { editor, filteredGroupName: { keywordType, name: groupName, functionName } } = this.state
+            const { editor, filteredGroupName: { keywordType,  groupName, functionName } } = this.state
             debugger
             if (editor._id) {
                 debugger
@@ -136,7 +137,7 @@ export default class App extends React.Component {
             })
 
             localStorage.setItem('showDisabledIsChecked', !this.state.showDisabledIsChecked)
-
+          
         }
 
         this.addKeyword = () => {
@@ -147,8 +148,13 @@ export default class App extends React.Component {
             localStorage.setItem('editor', JSON.stringify(initState.editor))
             window.location.replace('/keywords/editor')
         }
+
+        this.clearFilter=()=>{
+            this.setState(prevState=>{return {...prevState,filteredGroupName:initState.filteredGroupName}})
+            localStorage.setItem('filteredGroupName', JSON.stringify({ groupName: '' }))
+        }
         this.state = {
-            addKeyword: this.addKeyword, showDisabled: this.showDisabled, saveKeyword: this.saveKeyword, setEditorValue: this.setEditorValue, filterKeyword: this.filterKeyword, editKeyword: this.editKeyword, toggleKeywordState: this.toggleKeywordState, ...initState
+            clearFilter:this.clearFilter, addKeyword: this.addKeyword, showDisabled: this.showDisabled, saveKeyword: this.saveKeyword, setEditorValue: this.setEditorValue, filterKeyword: this.filterKeyword, editKeyword: this.editKeyword, toggleKeywordState: this.toggleKeywordState, ...initState
 
         };
 

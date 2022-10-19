@@ -16,15 +16,6 @@ export default function KeywordEditor() {
 console.log('filteredGroupName',filteredGroupName)
             return <div style={{ marginTop: 100, display: 'flex', flexDirection: 'column' }}>
                 <AppBarComponent/>
-                <TextField
-                    id="outlined-multiline-flexible"
-                    label="Keywords"
-                    multiline
-                    maxRows={4}
-                    value={editor.keywords}
-                    onChange={setEditorValue}
-                    name='keywords'
-                />
                 <TextField sx={{ marginTop: 1 }}
                     id="outlined-multiline-flexible"
                     label="Title"
@@ -33,6 +24,17 @@ console.log('filteredGroupName',filteredGroupName)
                     onChange={setEditorValue}
                     name="title"
                 />
+                <TextField
+                sx={{ marginTop: 1 }}
+                    id="outlined-multiline-flexible"
+                    label="Keywords"
+                    multiline
+                    maxRows={4}
+                    value={editor.keywords}
+                    onChange={setEditorValue}
+                    name='keywords'
+                />
+ 
                 <TextField sx={{ marginTop: 1 }}
                     id="outlined-multiline-flexible"
                     label="Exclude"
