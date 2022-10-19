@@ -37,7 +37,7 @@ export default function Keywords() {
                 })
 
                 return <Container>
-                   {filteredGroupName.name !==''&& <Button onClick={addKeyword}>Add Keywords</Button>}
+                   {filteredGroupName.groupName !==''&& <Button onClick={addKeyword}>Add Keywords</Button>}
                     <KeywordsFilter filterKeyword={filterKeyword} />
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
