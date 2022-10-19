@@ -13,12 +13,13 @@ import { Container } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import Switch from '@mui/material/Switch';
 import { Button } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 
 import AppBarComponent from '../AppBarComponent';
 
 export default function Keywords() {
 
-
+    const navigate =useNavigate()
     return <div style={{ marginTop: 73 }}>
         <AppBarComponent />
         <AppContext.Consumer>{
@@ -35,6 +36,11 @@ export default function Keywords() {
 
                     return groupName.includes(filteredGroupName.groupName)
                 })
+
+                function handleEdit(id,name){
+                    editKeyword(id, name)
+                    navigate('/keywords/editor')
+                }
 
                 return <Container>
                    {filteredGroupName.groupName !==''&& <Button onClick={addKeyword}>Add Keywords</Button>}
@@ -70,7 +76,7 @@ export default function Keywords() {
                                             <TableCell align="right">{r.groupName}</TableCell>
                                             <TableCell align="right">      <Switch id={r._id} checked={!r.disabled} defaultChecked onChange={toggleKeywordState} />
                                             </TableCell>
-                                            <TableCell align="right">    <IconButton edge="end" aria-label="edit" onClick={() => editKeyword(r._id, name)}>
+                                            <TableCell align="right">    <IconButton edge="end" aria-label="edit" onClick={() => handleEdit(r._id, name)}>
                                                 <EditIcon />
                                             </IconButton></TableCell>
                                         </TableRow>

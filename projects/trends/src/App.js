@@ -6,6 +6,7 @@ import KeywordsRoutes from './keywords-editor/KeywordRoutes';
 
 import AppBarComponent from './AppBarComponent';
 import groupNames from './keywords-editor/groupNames';
+
 export const AppContext = React.createContext();
 
 const initState = {
@@ -21,6 +22,7 @@ const initState = {
     groupNames,
     showDisabledIsChecked: false
 }
+
 export default class App extends React.Component {
 
     constructor(props) {
@@ -38,6 +40,7 @@ export default class App extends React.Component {
 
         }
         this.editKeyword = (id) => {
+         
             const { keywords } = this.state
             const editor = keywords.find(f => f._id === id)
             debugger
@@ -45,7 +48,8 @@ export default class App extends React.Component {
                 return { ...prevState, editor }
             })
             localStorage.setItem('editor', JSON.stringify(editor))
-            window.location.replace('/keywords/editor')
+            //window.location.replace('/keywords/editor')
+    
         }
 
         this.setEditorValue = (e) => {
