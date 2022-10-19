@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route,HashRouter } from "react-router-dom";
 import Aggregation from './collected-reports/Aggregation';
 import Analitics from './access-reports/Analitics';
 import KeywordsRoutes from './keywords-editor/KeywordRoutes';
@@ -167,6 +167,7 @@ export default class App extends React.Component {
 
     }
     async componentDidMount() {
+       
         debugger
         await this.fetchKeywords()
 
@@ -211,14 +212,14 @@ export default class App extends React.Component {
     render() {
         return (
             <AppContext.Provider value={this.state}>
-                <BrowserRouter>
-                    <Routes>
+                <HashRouter >
+                    <Routes >
                         <Route path="/" element={<AppBarComponent />} />
                         <Route path="aggregation" element={<Aggregation />} />
                         <Route path="analitics" element={<Analitics />} />
                         <Route path="keywords/*" element={<KeywordsRoutes />} />
                     </Routes>
-                </BrowserRouter>
+                </HashRouter>
             </AppContext.Provider>
 
         );
