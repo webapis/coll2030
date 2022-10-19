@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route,HashRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Aggregation from './collected-reports/Aggregation';
 import Analitics from './access-reports/Analitics';
 import KeywordsRoutes from './keywords-editor/KeywordRoutes';
@@ -31,16 +31,16 @@ export default class App extends React.Component {
 
         this.filterKeyword = (e) => {
 
-            const selectedGroupName =groupNames.map(m=>{return{...m,groupName:m.name,keywordType:m.keywordType,id:m.id}}).find(f => f.groupName === e.name) 
+            const selectedGroupName = groupNames.map(m => { return { ...m, groupName: m.name, keywordType: m.keywordType, id: m.id } }).find(f => f.groupName === e.name)
             debugger
-            this.setState((prevState) => { return { ...prevState, filteredGroupName: selectedGroupName} })
+            this.setState((prevState) => { return { ...prevState, filteredGroupName: selectedGroupName } })
             localStorage.setItem('filteredGroupName', JSON.stringify({ ...selectedGroupName }))
 
 
 
         }
         this.editKeyword = (id) => {
-         
+
             const { keywords } = this.state
             const editor = keywords.find(f => f._id === id)
             debugger
@@ -49,7 +49,7 @@ export default class App extends React.Component {
             })
             localStorage.setItem('editor', JSON.stringify(editor))
             //window.location.replace('/keywords/editor')
-    
+
         }
 
         this.setEditorValue = (e) => {
@@ -70,7 +70,7 @@ export default class App extends React.Component {
         }
 
         this.saveKeyword = async () => {
-            const { editor, filteredGroupName: { keywordType,  groupName, functionName } } = this.state
+            const { editor, filteredGroupName: { keywordType, groupName, functionName } } = this.state
             debugger
             if (editor._id) {
                 debugger
@@ -83,7 +83,7 @@ export default class App extends React.Component {
                 });
 
                 await response.json()
-          
+
 
 
             } else {
@@ -98,7 +98,7 @@ export default class App extends React.Component {
 
                 await response.json()
 
-              
+
             }
         }
 
@@ -141,24 +141,34 @@ export default class App extends React.Component {
             })
 
             localStorage.setItem('showDisabledIsChecked', !this.state.showDisabledIsChecked)
-          
+
         }
 
         this.addKeyword = () => {
-            const {filteredGroupName:{functionName,groupName,keywordType}}=this.state
+            const { filteredGroupName: { functionName, groupName, keywordType } } = this.state
             this.setState(prevState => {
-                return { ...prevState, editor: {...initState.editor,functionName,groupName,keywordType} }
+                return { ...prevState, editor: { ...initState.editor, functionName, groupName, keywordType } }
             })
             localStorage.setItem('editor', JSON.stringify(initState.editor))
-          
+
         }
 
-        this.clearFilter=()=>{
-            this.setState(prevState=>{return {...prevState,filteredGroupName:initState.filteredGroupName}})
+        this.clearFilter = () => {
+            this.setState(prevState => { return { ...prevState, filteredGroupName: initState.filteredGroupName } })
             localStorage.setItem('filteredGroupName', JSON.stringify({ groupName: '' }))
         }
+
+        this.publishKeywords = async () => {
+            await fetch('/.netlify/functions/publishKeywords', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+        }
         this.state = {
-            clearFilter:this.clearFilter, addKeyword: this.addKeyword, showDisabled: this.showDisabled, saveKeyword: this.saveKeyword, setEditorValue: this.setEditorValue, filterKeyword: this.filterKeyword, editKeyword: this.editKeyword, toggleKeywordState: this.toggleKeywordState, ...initState
+            publishKeywords: this.publishKeywords, clearFilter: this.clearFilter, addKeyword: this.addKeyword, showDisabled: this.showDisabled, saveKeyword: this.saveKeyword, setEditorValue: this.setEditorValue, filterKeyword: this.filterKeyword, editKeyword: this.editKeyword, toggleKeywordState: this.toggleKeywordState, ...initState
 
         };
 
@@ -167,7 +177,7 @@ export default class App extends React.Component {
 
     }
     async componentDidMount() {
-       
+
         debugger
         await this.fetchKeywords()
 
