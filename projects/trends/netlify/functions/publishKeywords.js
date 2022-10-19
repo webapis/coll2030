@@ -32,7 +32,7 @@ debugger
     try {      
 
 
-const body = JSON.stringify({ ref: 'trends-master', inputs: {  } })
+const body = JSON.stringify({ ref: 'development', inputs: {  } })
 
 const response = await triggerAction({ gh_action_url: `https://api.github.com/repos/webapis/coll2030/actions/workflows/generateKeywords.yml/dispatches`, ticket: process.env.ticket, body })
            debugger
