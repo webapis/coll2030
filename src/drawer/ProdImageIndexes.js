@@ -13,7 +13,9 @@ import Tab from '@mui/material/Tab';
 import Paper from '@mui/material/Paper';
 
 export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex }) {
- 
+    debugger
+
+    debugger
     const theme = useTheme();
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
@@ -51,6 +53,12 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
         </Tabs>
         <Grid container> {navKeywords.filter(f => {
             return f.groupName !== 'Fiyat' && f.groupName !== 'Marka'
+        }).sort(function (a, b) {
+
+            const akeywords = a['keywords']
+            const bkeywords = b['keywords']
+    
+            return bkeywords.length - akeywords.length;
         }).map(m => {
             const { groupName, keywords } = m
             let colTop = 0
@@ -74,8 +82,8 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
                     colTop = 2
                     colBottom = 1
                     break;
-                    default:
 
+                default:
             }
 
             return <Grid item xs={colTop}>
