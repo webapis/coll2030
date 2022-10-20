@@ -12,12 +12,12 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Paper from '@mui/material/Paper';
 
-export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,navKeywords }) {
-debugger
-    const array =navKeywords.sort(function (a, b) {
-   
-        const akeywords =a['keywords']
-        const bkeywords =b['keywords']
+export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords }) {
+    debugger
+    const array = navKeywords.sort(function (a, b) {
+
+        const akeywords = a['keywords']
+        const bkeywords = b['keywords']
 
         return bkeywords.length - akeywords.length;
     });
@@ -53,35 +53,58 @@ debugger
 
 
     return <div sx={{ paddingRight: 0 }} center>
-<Tabs value={0} >
-    <Tab label="Anahtar kelemeler" value={0} index={0}/>
-    <Tab label="Bulunanlar" value={1} index={1}/>
-</Tabs>
-       <Grid container> {navKeywords.filter(f=>{
-         return f.groupName !=='Fiyat' && f.groupName!=='Marka'
+        <Tabs value={0} >
+            <Tab label="Anahtar kelemeler" value={0} index={0} />
+            <Tab label="Bulunanlar" value={1} index={1} />
+        </Tabs>
+        <Grid container> {navKeywords.filter(f => {
+            return f.groupName !== 'Fiyat' && f.groupName !== 'Marka'
         }).map(m => {
-         const { groupName, keywords } = m
-    
-            return <Grid item xs={keywords.length>3? 12:6}>
-                  <Paper sx={{margin:1,padding:1}}>
-                <Grid   container>
-                
-                <Grid item xs={12} sx={{   marginBottom: 2 }}>   <Divider>{groupName}</Divider> </Grid>
-              
-                {keywords.map(m => {
-                        const {keywordTitle,imageUrl:{title,src:imageSrc,marka}}=productImgIndexes[m[1]]
-                        const total =m[0]
-                        const index =m[1]
-            
-                        const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
-                        return <Grid xs={4} sm={keywords.length>3 ?2:4} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp  setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={keywordTitle} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keywordTitle}</Typography></Tooltip></Grid>
-                })}
-               
-                </Grid>
+            const { groupName, keywords } = m
+            let colTop = 0
+            let colBottom = 0
+            switch (true) {
+                case keywords.length > 3:
+                    colTop = 12
+                    colBottom = 2
+                    break;
+                case keywords.length === 3:
+                    colTop = 6
+                    colBottom = 4
+                    break;
+
+                case keywords.length === 2:
+                    colTop = 4
+                    colBottom = 6
+                    break;
+
+                case keywords.length === 1:
+                    colTop = 2
+                    colBottom = 1
+                    break;
+            }
+            //keywords.length > 3 ? 12 : 6
+            //keywords.length > 3 ? 2 : 4}
+            return <Grid item xs={colTop}>
+                <Paper sx={{ margin: 1, padding: 1 }}>
+                    <Grid container>
+
+                        <Grid item xs={12} sx={{ marginBottom: 2 }}>   <Divider>{groupName}</Divider> </Grid>
+
+                        {keywords.map(m => {
+                            const { keywordTitle, imageUrl: { title, src: imageSrc, marka } } = productImgIndexes[m[1]]
+                            const total = m[0]
+                            const index = m[1]
+
+                            const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
+                            return <Grid xs={4} sm={colBottom} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={keywordTitle} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom>{keywordTitle}</Typography></Tooltip></Grid>
+                        })}
+
+                    </Grid>
                 </Paper>
-                </Grid>
+            </Grid>
         })
-        }</Grid> 
+        }</Grid>
     </div>
 
 
@@ -90,7 +113,7 @@ debugger
 
 
 
-function ImageIndexComp({ dataSrc, setSelectedNavIndex, index, keyword ,imageWidth}) {
+function ImageIndexComp({ dataSrc, setSelectedNavIndex, index, keyword, imageWidth }) {
     const imageElement = useRef(null);
     useEffect(() => {
 
