@@ -133,8 +133,6 @@ async function genNav({ functionName }) {
         //-------------------------IF MATCHING KEYWORDS FOUND------------------------------------------------------------------------------
         if (matchingKeywords.length > 0) {
 
-
-
           const possibleCombination = getCombinations(matchingKeywords.map((m) => m.index))
 
           possibleCombination.forEach(async (c, h) => {
@@ -226,15 +224,22 @@ async function genNav({ functionName }) {
       for (let k in keywords) {
 
         const cur = keywords[k]
+        const randomImage = cur.imageUrls.length===1? 0: generateRandomInteger(cur.imageUrls.length)
+        if((k==='zebra' || k==='geometrik'|| k==='triko') && functionName==='eight'){
+          debugger
+          const imageURL = cur.imageUrls[randomImage]
+          debugger
+        }
+
 
         if (catImages[fnd.index] === undefined) {
-          catImages[fnd.index] = { [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[0] } }
+          catImages[fnd.index] = { [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
 
         } else {
 
           if (catImages[fnd.index][cur.index] === undefined) {
 
-            catImages[fnd.index] = { ...catImages[fnd.index], [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[0] } }
+            catImages[fnd.index] = { ...catImages[fnd.index], [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
           }
 
         }
@@ -295,7 +300,7 @@ async function genNav({ functionName }) {
 
 
 
-  debugger
+
 
 
   const savePathDir = path.join(process.cwd(), `api/_files/key/${functionName}`)
@@ -361,4 +366,9 @@ function getCombinations(chars) {
   return result;
 }
 
+
+
+function generateRandomInteger(max) {
+  return Math.floor(Math.random() * max);
+}
 module.exports = { getCombinations }
