@@ -5,7 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
-import Container from '@mui/material/Container';
+
 import placeholders from './imageComponent/placeholders';
 import Divider from '@mui/material/Divider';
 import Tabs from '@mui/material/Tabs';
@@ -13,15 +13,7 @@ import Tab from '@mui/material/Tab';
 import Paper from '@mui/material/Paper';
 
 export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex }) {
-    debugger
-    const array = navKeywords.sort(function (a, b) {
-
-        const akeywords = a['keywords']
-        const bkeywords = b['keywords']
-
-        return bkeywords.length - akeywords.length;
-    });
-    debugger
+ 
     const theme = useTheme();
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
@@ -82,9 +74,10 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
                     colTop = 2
                     colBottom = 1
                     break;
+                    default:
+
             }
-            //keywords.length > 3 ? 12 : 6
-            //keywords.length > 3 ? 2 : 4}
+
             return <Grid item xs={colTop}>
                 <Paper sx={{ margin: 1, padding: 1 }}>
                     <Grid container>
