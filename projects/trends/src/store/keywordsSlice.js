@@ -13,7 +13,7 @@ const initialState = {
   addKeywords: false,
   loadingKeywords: false,
   postingNewKeyword: false,
-  filteredGroupName: '',
+  filteredGroupName: {groupName:''},
   keywordsToDisplay: null
 }
 
@@ -33,48 +33,25 @@ export const keywordsSlice = createSlice({
     },
     setKeywords: (state, action) => {
       state.keywords = action.payload
-      state.keywordsToDisplay = action.payload
-    },
-
-    setAddKeywords: (state, action) => {
-      state.addKeywords = !state.addKeywords
-    },
-    setAddedKeyword: (state, action) => {
-
-      state.keywords = action.payload
-      state.addKeywords = false
-    },
-    setUpdatedKeyword: (state, action) => {
-
-      state.keywords = action.payload.nextState
-      debugger
-
-      debugger
-      state.addKeywords = false
+  debugger
     },
     setLoadingKeywords: (state, action) => {
       state.loadingKeywords = action.payload
+      debugger
     },
     setPostingNewKeyword: (state, action) => {
 
       state.postingNewKeyword = action.payload
     },
-    setKeywordsFilter: (state, action) => {
 
-      
-      state.keywordsToDisplay = action.payload.keywordsToDisplay
-      state.filteredGroupName =  action.payload.groupName
-      console.log('action.payload.keywordsToDisplay',action.payload.keywordsToDisplay)
-      debugger
-
-    },
     editKeyword: (state, action) => {
       state.addKeywords = true
       state.editor = action.payload
     },
-    setKeywordsToDisplay:(state,action)=>{
-      console.log('action.payload',action.payload)
-      state.keywordsToDisplay = action.payload
+
+
+    setFilteredGroupName:(state,action)=>{
+      state.filteredGroupName=action.payload
       debugger
     }
   },

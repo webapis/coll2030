@@ -24,8 +24,8 @@ debugger
 
     let collection = db.collection('keywords');
 
-    let datas = await collection.find({}).toArray()
-
+    let datas = await collection.find({ $or: [ { disabled: { $exists: false } }, { disabled: {$eq:false} } ] }).toArray()
+debugger
     let categoryItems = datas.map((m)=>{
         const mappedData =m
         delete mappedData['_id']

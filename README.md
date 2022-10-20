@@ -115,3 +115,20 @@ d
         run: npm run deploydream
 
         ////
+
+
+              let colTop = 0
+            let colBottom=0
+            switch (true) {
+                case keywords.length > 3:
+                    colTop = 12
+                    colBottom=3
+                case keywords.length === 3:
+                    colTop = 6
+                    colBottom=4
+                    break;
+                case keywords.length === 1:
+                    colTop = 2
+                    colBottom=1
+                    break;
+            }
