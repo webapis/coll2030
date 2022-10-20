@@ -22,7 +22,7 @@ export default function ProductList(props) {
 
   return (
     <AppContext.Consumer>
-      {({  products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords,productImgIndexes,navKeywords }) => {
+      {({  products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords,productImgIndexes,navKeywords,selectedNavIndex }) => {
         return <div style={{ position: 'relative' }}>
 
 
@@ -41,7 +41,7 @@ export default function ProductList(props) {
 
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
 
-                {productImgIndexes && <ProdImageIndex  setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords}/>}
+                {productImgIndexes && <ProdImageIndex selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords}/>}
             <Box sx={{ width: '100%', overflowY: 'scroll' }} id="product-container">
               <ImageList variant="standard" cols={5} gap={8}>
                 {products.length>0  && products.map((item, i) => {
