@@ -8,10 +8,9 @@ import Badge from '@mui/material/Badge';
 
 import placeholders from './imageComponent/placeholders';
 import Divider from '@mui/material/Divider';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+
 import Paper from '@mui/material/Paper';
-import { AppContext } from '../App'
+
 
 export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex }) {
     debugger
