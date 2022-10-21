@@ -13,6 +13,7 @@ import keywordgroup from './keywords.json'
 import subcatObj from './category-nav.json'
 
 import CategoryNavContainer from './drawer/CategoryNavContaıner';
+import TabContainer from './drawer/TabContainer';
 const subcategories = Object.entries(subcatObj)
 
 
@@ -135,7 +136,7 @@ export default class App extends React.Component {
       })
     }
     this.setSelectedNavIndex = ({ keyword, index }) => {
-      
+
       window.scrollTo(0, 0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
@@ -151,10 +152,15 @@ export default class App extends React.Component {
           selectedNavIndex = state.selectedNavIndex.concat(index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
           selectedKeywords = [...state.selectedKeywords, { keyword, index }]
         }
-        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true }
+        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true,selectedFiterTab:1 }
       })
     }
-
+    this.setSelectedFilterTab = (event,value) => {
+      debugger
+      this.setState((prevState) => {
+        return { ...prevState, selectedFiterTab: value }
+      })
+    }
     this.state = {
       selectedSubcategory: null,
       products: [],
@@ -171,6 +177,8 @@ export default class App extends React.Component {
       availableProducts: 0,
       search: '',
       productImgIndexes: null,
+      selectedFiterTab: 0,
+      setSelectedFilterTab: this.setSelectedFilterTab,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex,
       clearSubcategory: this.clearSubcategory,
@@ -281,33 +289,33 @@ export default class App extends React.Component {
     if (selectedNavIndex === '') {
       url = `${host}/${subcat}-navfirst?navindex=0-`
     } else {
-      if(selectedNavIndex!=='0-'){
+      if (selectedNavIndex !== '0-') {
 
         const indexes = selectedNavIndex.split('-').filter(f => f !== '')
-      
-        let indexFound =null
-        //keywordgroup[keywordIndex]['groupName']
+
+        let indexFound = null
+   
         try {
-          for(let b in  keywordgroup){
-            const currentIndex =b.split('-').filter(f => f !== '')
-           indexFound = indexes.find(f=> {
-          
-            return currentIndex.includes(f)
-          })
-          if(indexFound){
-              const imageIndexesResponse =await fetch(`/image-indexes/${indexFound}.json`)
-              productImgIndexes =await imageIndexesResponse.json()
-          }
-    
-          
+          for (let b in keywordgroup) {
+            const currentIndex = b.split('-').filter(f => f !== '')
+            indexFound = indexes.find(f => {
+
+              return currentIndex.includes(f)
+            })
+            if (indexFound) {
+              const imageIndexesResponse = await fetch(`/image-indexes/${indexFound}.json`)
+              productImgIndexes = await imageIndexesResponse.json()
+            }
+
+
           }
         } catch (error) {
-          console.log('error--------',error)
-          console.log('indexFound--------',indexFound)
+          console.log('error--------', error)
+          console.log('indexFound--------', indexFound)
         }
-    
+
       }
-   
+
       if (fn === 1) {
 
         url = `${host}/${subcat}-navsecond?navindex=${selectedNavIndex}`
@@ -325,7 +333,7 @@ export default class App extends React.Component {
 
     this.setState(function (state) {
       const { keywords } = data
-   
+
       const grouped = {}
 
       for (let kw of keywords) {
@@ -334,27 +342,27 @@ export default class App extends React.Component {
 
 
         const groupName = keywordgroup[keywordIndex]['groupName']
-        const keywordTitle =keywordgroup[keywordIndex]['title']
-         
-       
-        const keywordWithTitle =[...kw,keywordTitle]
-        
+        const keywordTitle = keywordgroup[keywordIndex]['title']
+
+
+        const keywordWithTitle = [...kw, keywordTitle]
+
         if (grouped[groupName] === undefined) {
 
-          grouped[groupName] = { keywords: [keywordWithTitle]  }
+          grouped[groupName] = { keywords: [keywordWithTitle] }
 
         } else {
 
           grouped[groupName].keywords = [...grouped[groupName].keywords, keywordWithTitle]
-        
+
         }
 
 
       }
-   
+
 
       return {
-        ...state, fetchingKeywords: false,productImgIndexes, navKeywords: Object.entries(grouped).map(m => {
+        ...state, fetchingKeywords: false, productImgIndexes, navKeywords: Object.entries(grouped).map(m => {
 
           return { groupName: m[0], keywords: m[1].keywords }
         }).sort(function (a, b) {
@@ -365,7 +373,7 @@ export default class App extends React.Component {
         })
       }
 
-    
+
     })
 
   }
@@ -384,13 +392,16 @@ export default class App extends React.Component {
               <KeywordsList />
             </Grid>
             <Grid item xs={9}>
+              <div style={{display:'flex', flexDirection:'column',marginTop:80}}>
+              <TabContainer/>
               <ProductList />
+              </div>
             </Grid>
           </Grid>
         </Container>
       }
 
-      {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <ProductList /></div>)}
+      {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{display:'flex',flexDirection:'column',width:'100%'}}> <TabContainer/><ProductList /></div>  </div>)}
 
 
     </AppContext.Provider>)
