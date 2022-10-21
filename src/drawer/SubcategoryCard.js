@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
+
 
 import Link from '@mui/material/Link';
 
@@ -22,22 +22,18 @@ const group =indexes[0]['groupName']
   
 
           <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {indexes.map((value) => {
+      {indexes.map((value,i) => {
    
         return (
-          <ListItem
-            key={value.index}
-       
-          
-          >
-            <Link style={{ display:'flex',width:'100%', justifyContent:'space-between'}} underline="hover" onClick={()=>selectSubcategory({functionName:value.functionName,index:value.index})}>
+        
+            <Link key={i} style={{ display:'flex',width:'100%', justifyContent:'space-between',marginBottom:5}} underline="hover" onClick={()=>selectSubcategory({functionName:value.functionName,index:value.index})}>
 
              
            <span>{value.title}</span> <span style={{color:'#9ea7aa',fontSize:14}}>0</span>
            
           
             </Link>
-          </ListItem>
+       
         );
       })}
     </List>
