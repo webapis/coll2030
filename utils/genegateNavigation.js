@@ -225,11 +225,7 @@ async function genNav({ functionName }) {
 
         const cur = keywords[k]
         const randomImage = cur.imageUrls.length===1? 0: generateRandomInteger(cur.imageUrls.length)
-        if((k==='zebra' || k==='geometrik'|| k==='triko') && functionName==='eight'){
-          debugger
-          const imageURL = cur.imageUrls[randomImage]
-          debugger
-        }
+
 
 
         if (catImages[fnd.index] === undefined) {
@@ -262,7 +258,7 @@ async function genNav({ functionName }) {
 
   let regrouped = []
 
-
+debugger
 
   for (let nk in navKeys) {
 
@@ -286,7 +282,7 @@ async function genNav({ functionName }) {
     return a.id - b.id
   })
 
-
+debugger
   const mapped = sorted.map(s => {
     const { id } = s
     const fn = id % 2
