@@ -6,14 +6,16 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-
-import Link from '@mui/material/Link';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
 
 export default function SubcategoryCard({indexes,selectSubcategory}){
 const group =indexes[0]['groupName']
 
     return (
-        <Card sx={{margin:1}}>
+        <Card sx={{}}>
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
              {group}
@@ -24,19 +26,27 @@ const group =indexes[0]['groupName']
           <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {indexes.map((value) => {
    
+        console.log('value',value)
+        const labelId = `checkbox-list-secondary-label-${value}`;
+
         return (
           <ListItem
             key={value.index}
        
-          
+            disablePadding
           >
-            <Link underline="hover" onClick={()=>selectSubcategory({functionName:value.functionName,index:value.index})}>
-
+            <ListItemButton onClick={()=>selectSubcategory({functionName:value.functionName,index:value.index})}>
+              <ListItemAvatar>
+                <Avatar
+                  alt={`Avatar n°${value + 1}`}
+                  src={`/static/images/avatar/${value + 1}.jpg`}
+                />
+              </ListItemAvatar>
              
-           {value.title}
+              <ListItemText id={labelId} primary={value.title} />
            
           
-            </Link>
+            </ListItemButton>
           </ListItem>
         );
       })}

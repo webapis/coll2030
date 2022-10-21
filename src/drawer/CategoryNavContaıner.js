@@ -17,8 +17,8 @@ export default function CategoryNavContainer({ subcategories, products, fetching
     function render(size) {
 
         return products.length === 0 && !fetchingProduct && <Container sx={{ marginTop: 10 }}>
-            <Typography align="center" variant="h5">Ürün Kategorileri</Typography>
-            <ImageList cols={size} gap={8}
+            <Typography align="center" variant="h5">Biraradamoda</Typography>
+            <ImageList cols={size}
                 variant="masonry"
             >
                 {subcategories.map((item, i) => {
