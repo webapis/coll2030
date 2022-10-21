@@ -22,11 +22,11 @@ export default function ProductList(props) {
 
   return (
     <AppContext.Consumer>
-      {({  products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords,productImgIndexes,navKeywords,selectedNavIndex }) => {
+      {({  products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords,productImgIndexes,navKeywords,selectedNavIndex ,selectedFiterTab}) => {
         return <div style={{ position: 'relative' }}>
 
 
-          <Container sx={{ paddingLeft: 0, marginTop: 2,paddingTop:8 }}>
+          <Container sx={{ paddingLeft: 0 }}>
             {products.length > 0
               && <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', justifyContent: 'start' }}>
@@ -41,10 +41,10 @@ export default function ProductList(props) {
 
             {products.length > 0 && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
 
-                {productImgIndexes && <ProdImageIndex selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords}/>}
+                {productImgIndexes  && selectedFiterTab===0 && <ProdImageIndex selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords}/>}
             <Box sx={{ width: '100%', overflowY: 'scroll' }} id="product-container">
               <ImageList variant="standard" cols={5} gap={8}>
-                {products.length>0  && products.map((item, i) => {
+                {products.length>0 && selectedFiterTab===1  && products.map((item, i) => {
                 
                   return <ImageComponent key={i+"-"} selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
                 })}
