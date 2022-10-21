@@ -15,7 +15,7 @@ const group =indexes[0]['groupName']
     return (
         <Card sx={{margin:1}}>
           <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            <Typography sx={{ fontSize:16 }} color="text.secondary" gutterBottom>
              {group}
             </Typography>
 
@@ -30,10 +30,10 @@ const group =indexes[0]['groupName']
        
           
           >
-            <Link underline="hover" onClick={()=>selectSubcategory({functionName:value.functionName,index:value.index})}>
+            <Link style={{ display:'flex',width:'100%', justifyContent:'space-between'}} underline="hover" onClick={()=>selectSubcategory({functionName:value.functionName,index:value.index})}>
 
              
-           {value.title}
+           <span>{value.title}</span> <span style={{color:'#9ea7aa',fontSize:14}}>0</span>
            
           
             </Link>
