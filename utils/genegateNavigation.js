@@ -34,7 +34,7 @@ async function genNav({ functionName }) {
 
   const path = require('path')
   const makeDir = require('make-dir');
-
+  const categoryNav =require(path.join(process.cwd(), `src/category-nav.json`))
   const fs = require('fs')
   const folder = path.join(process.cwd(), `api/_files/data/${functionName}`)
 
@@ -66,11 +66,11 @@ async function genNav({ functionName }) {
   let navKeys = { ['0-']: { matchingKeywords: [], keywords: {} } }
   let navKeysWithCatKeys = {}
   let catImages = {}
-
+  let catCounter = {}
   dataCollection.forEach(async (object) => {
 
 
-    const { title, priceNew, imageUrl,marka } = object
+    const { title, priceNew, imageUrl, marka } = object
 
 
 
@@ -84,6 +84,7 @@ async function genNav({ functionName }) {
 
           let exactmatch = kws.exactmatch
           let negwords = kws.exclude
+
 
 
 
@@ -130,6 +131,27 @@ async function genNav({ functionName }) {
           }
 
         })
+        if (matchingKeywords.length > 0) {
+
+          matchingKeywords.forEach(kws => {
+            let keywordType = kws.keywordType
+            let groupName = kws.groupName
+            if (keywordType === 'category') {
+              if (catCounter[groupName] === undefined) {
+                catCounter[groupName] = {}
+              }
+              if (catCounter[groupName][kws.title] === undefined) {
+                catCounter[groupName][kws.title] = { count: 1 }
+              } else {
+
+                catCounter[groupName][kws.title].count = catCounter[groupName][kws.title].count + 1
+              }
+            }
+          })
+
+
+        }
+
         //-------------------------IF MATCHING KEYWORDS FOUND------------------------------------------------------------------------------
         if (matchingKeywords.length > 0) {
 
@@ -151,30 +173,30 @@ async function genNav({ functionName }) {
 
 
               const fnd = categoryKeywords.filter(f => comb.split('-').filter(f => f !== '').includes(f.index))
-        
-          
-              fnd.forEach(ds=>{
+
+
+              fnd.forEach(ds => {
                 const c = ds ? true : false
-      
+
                 if (c) {
                   if (navKeysWithCatKeys[comb] === undefined) {
                     navKeysWithCatKeys[comb] = { keywords: {} }
                   }
-  
+
                   if (navKeysWithCatKeys[comb].keywords[title] === undefined) {
-  
-                    navKeysWithCatKeys[comb].keywords[title] = { count: 1, index, c, imageUrls: [{ src: imageUrl, title: object.title,marka }] }
+
+                    navKeysWithCatKeys[comb].keywords[title] = { count: 1, index, c, imageUrls: [{ src: imageUrl, title: object.title, marka }] }
                   }
                   else {
                     const count = navKeysWithCatKeys[comb].keywords[title].count
                     const imageUrls = navKeysWithCatKeys[comb].keywords[title].imageUrls
-  
-                    navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title,marka }] }
+
+                    navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title, marka }] }
                   }
                 }
 
               })
-      
+
 
 
               if (navKeys[comb].keywords[title] === undefined) {
@@ -224,12 +246,8 @@ async function genNav({ functionName }) {
       for (let k in keywords) {
 
         const cur = keywords[k]
-        const randomImage = cur.imageUrls.length===1? 0: generateRandomInteger(cur.imageUrls.length)
-        if((k==='zebra' || k==='geometrik'|| k==='triko') && functionName==='eight'){
-          debugger
-          const imageURL = cur.imageUrls[randomImage]
-          debugger
-        }
+        const randomImage = cur.imageUrls.length === 1 ? 0 : generateRandomInteger(cur.imageUrls.length)
+
 
 
         if (catImages[fnd.index] === undefined) {
@@ -262,6 +280,35 @@ async function genNav({ functionName }) {
 
   let regrouped = []
 
+  debugger
+
+  //map product couter
+  for(let c in catCounter){
+    const current=catCounter[c]
+      for(let v in current){
+        const {count} =current[v]
+
+        const curNav =categoryNav[c].map(m=>{
+          if(m.title==='pantolon'){
+            debugger
+          }
+          if(m.title===v){
+            return {...m,count:m.count? m.count+count:count}
+          }else{
+            return m
+          }
+     
+        })
+        categoryNav[c]=curNav
+      
+      }
+
+  }
+
+
+    fs.unlinkSync(path.join(process.cwd(), `src/category-nav.json`))
+    fs.appendFileSync(path.join(process.cwd(), `src/category-nav.json`), JSON.stringify(categoryNav));
+  //----------------
 
 
   for (let nk in navKeys) {
@@ -286,7 +333,7 @@ async function genNav({ functionName }) {
     return a.id - b.id
   })
 
-
+  debugger
   const mapped = sorted.map(s => {
     const { id } = s
     const fn = id % 2
@@ -318,22 +365,22 @@ async function genNav({ functionName }) {
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
 
-  for(let cimage in catImages){
-    if(cimage==='1'){
+  for (let cimage in catImages) {
+    if (cimage === '1') {
       debugger
     }
 
-    const curr =catImages[cimage]
+    const curr = catImages[cimage]
     const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
     if (fs.existsSync(imageIndexPath)) {
-      const prevData =JSON.parse( fs.readFileSync(imageIndexPath,{encoding:'utf-8'}))
+      const prevData = JSON.parse(fs.readFileSync(imageIndexPath, { encoding: 'utf-8' }))
       fs.unlinkSync(imageIndexPath)
-      fs.appendFileSync(imageIndexPath, JSON.stringify({...prevData,...curr}));
-    }else{
+      fs.appendFileSync(imageIndexPath, JSON.stringify({ ...prevData, ...curr }));
+    } else {
       fs.appendFileSync(imageIndexPath, JSON.stringify(curr));
     }
 
- 
+
   }
 
 

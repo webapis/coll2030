@@ -87,14 +87,7 @@ for (let o in obj) {
 
 
 
-    // const savePath = path.join(process.cwd(), `api/_files/data/${subcategory}/${marka}.json`)
-    // makeDir.sync(path.dirname(savePath))
 
-    // if (fs.existsSync(savePath)) {
-    //     fs.unlinkSync(savePath)
-    // }
-    // const uniquedata = uniqify(data, 'imageUrl')
-    // fs.writeFileSync(savePath, JSON.stringify(uniquedata))
 }
 
 

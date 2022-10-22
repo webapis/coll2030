@@ -5,54 +5,34 @@ import CardContent from '@mui/material/CardContent';
 
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
 
-export default function SubcategoryCard({indexes,selectSubcategory}){
-const group =indexes[0]['groupName']
 
-    return (
-        <Card sx={{}}>
-          <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-             {group}
-            </Typography>
+import Link from '@mui/material/Link';
 
-  
+export default function SubcategoryCard({ indexes, selectSubcategory }) {
+  const group = indexes[0]['groupName']
 
-          <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {indexes.map((value) => {
-   
-        console.log('value',value)
-        const labelId = `checkbox-list-secondary-label-${value}`;
+  return (
+    <Card sx={{ margin: 1 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+          {group}
+        </Typography>
 
-        return (
-          <ListItem
-            key={value.index}
-       
-            disablePadding
-          >
-            <ListItemButton onClick={()=>selectSubcategory({functionName:value.functionName,index:value.index})}>
-              <ListItemAvatar>
-                <Avatar
-                  alt={`Avatar n°${value + 1}`}
-                  src={`/static/images/avatar/${value + 1}.jpg`}
-                />
-              </ListItemAvatar>
-             
-              <ListItemText id={labelId} primary={value.title} />
-           
-          
-            </ListItemButton>
-          </ListItem>
-        );
-      })}
-    </List>
-    </CardContent>
 
-        </Card>
-      );
+
+        <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+          {indexes.map((value, i) => {
+
+            return (
+              <Link key={i} style={{ display: 'flex', width: '100%', justifyContent: 'space-between', marginBottom: 5 }} underline="hover" onClick={() => selectSubcategory({ functionName: value.functionName, index: value.index })}>
+                <span>{value.title}</span> <span style={{ color: '#9ea7aa', fontSize: 14 }}>{value.count}</span>
+              </Link>
+            );
+          })}
+        </List>
+      </CardContent>
+
+    </Card>
+  );
 }

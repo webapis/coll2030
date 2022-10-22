@@ -63,19 +63,9 @@ debugger
     debugger
     fs.appendFileSync(`src/keywords.json`, JSON.stringify(reduced))
 
-    let keywordsObj={}
+ 
     debugger
     const mappedCatItems = categoryItems.filter(f=>f.keywordType ==='category').map(m => {
-        // debugger
-        // let index=''
-        // if(keywordsObj[m.title] ===undefined || keywordsObj[m.title].index===undefined){
-         
-        //     index=undefined
-        // }
-        // else{
-        //     index = keywordsObj[m.title].index
-        
-        // }
 
         debugger
         return { ...m, index: m.index + '-' }
