@@ -7,7 +7,8 @@
             "index": "264-",
             "keywordType": "category",
             "groupName": "Ev giyim",
-            "functionName": "one"
+            "functionName": "one",
+            "count": 10
         },
         {
             "keywords": "sabahlık",
@@ -16,7 +17,8 @@
             "index": "265-",
             "keywordType": "category",
             "groupName": "Ev giyim",
-            "functionName": "one"
+            "functionName": "one",
+            "count": 3
         },
         {
             "keywords": "gecelik",
@@ -25,7 +27,8 @@
             "index": "266-",
             "keywordType": "category",
             "groupName": "Ev giyim",
-            "functionName": "one"
+            "functionName": "one",
+            "count": 1
         },
         {
             "keywords": "sss",
@@ -54,7 +57,8 @@
             "index": "267-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 26
         },
         {
             "keywords": "mont",
@@ -63,7 +67,8 @@
             "index": "268-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 71
         },
         {
             "keywords": "trençkot",
@@ -72,7 +77,8 @@
             "index": "269-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 2
         },
         {
             "keywords": "kaban",
@@ -81,7 +87,8 @@
             "index": "270-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 5
         },
         {
             "keywords": "ceket",
@@ -90,7 +97,8 @@
             "index": "271-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 18
         },
         {
             "keywords": "pardösü",
@@ -117,7 +125,8 @@
             "index": "274-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 4
         },
         {
             "keywords": "blazer",
@@ -126,7 +135,8 @@
             "index": "275-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 12
         },
         {
             "keywords": "yelek",
@@ -135,7 +145,8 @@
             "index": "276-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 6
         },
         {
             "keywords": "parka",
@@ -144,7 +155,8 @@
             "index": "277-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 19
         },
         {
             "keywords": "kaşe",
@@ -153,7 +165,8 @@
             "index": "278-",
             "keywordType": "category",
             "groupName": "Dış giyim",
-            "functionName": "two"
+            "functionName": "two",
+            "count": 1
         }
     ],
     "Büyük beden": [
@@ -164,7 +177,8 @@
             "index": "310-",
             "keywordType": "category",
             "groupName": "Büyük beden",
-            "functionName": "three"
+            "functionName": "three",
+            "count": 13
         },
         {
             "keywords": "H&M+",
@@ -184,7 +198,8 @@
             "index": "312-",
             "keywordType": "category",
             "groupName": "Aksesuar",
-            "functionName": "four"
+            "functionName": "four",
+            "count": 1
         },
         {
             "keywords": "şapka",
@@ -193,7 +208,8 @@
             "index": "313-",
             "keywordType": "category",
             "groupName": "Aksesuar",
-            "functionName": "four"
+            "functionName": "four",
+            "count": 174
         },
         {
             "keywords": "şal",
@@ -202,7 +218,8 @@
             "index": "314-",
             "keywordType": "category",
             "groupName": "Aksesuar",
-            "functionName": "four"
+            "functionName": "four",
+            "count": 2
         },
         {
             "keywords": "çorap",
@@ -211,7 +228,8 @@
             "index": "315-",
             "keywordType": "category",
             "groupName": "Aksesuar",
-            "functionName": "four"
+            "functionName": "four",
+            "count": 1
         },
         {
             "keywords": "cüzdan",
@@ -220,7 +238,8 @@
             "index": "316-",
             "keywordType": "category",
             "groupName": "Aksesuar",
-            "functionName": "four"
+            "functionName": "four",
+            "count": 1
         }
     ],
     "İç giyim": [
@@ -231,7 +250,8 @@
             "index": "253-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 444
         },
         {
             "keywords": "sütyen",
@@ -240,7 +260,8 @@
             "index": "254-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 30
         },
         {
             "keywords": "bralet",
@@ -249,7 +270,8 @@
             "index": "255-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 8
         },
         {
             "keywords": "bra",
@@ -258,7 +280,8 @@
             "index": "256-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 7
         },
         {
             "keywords": "bikini",
@@ -267,7 +290,8 @@
             "index": "257-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 129
         },
         {
             "keywords": "mayo",
@@ -276,7 +300,8 @@
             "index": "258-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 104
         },
         {
             "keywords": "slip",
@@ -285,7 +310,8 @@
             "index": "259-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 228
         },
         {
             "keywords": "string",
@@ -294,7 +320,8 @@
             "index": "260-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 37
         },
         {
             "keywords": "hipster",
@@ -303,7 +330,8 @@
             "index": "261-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 110
         },
         {
             "keywords": "babydoll",
@@ -312,7 +340,8 @@
             "index": "262-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 1
         },
         {
             "keywords": "korse",
@@ -321,7 +350,8 @@
             "index": "263-",
             "keywordType": "category",
             "groupName": "İç giyim",
-            "functionName": "five"
+            "functionName": "five",
+            "count": 13
         }
     ],
     "Alt giyim": [
@@ -332,7 +362,8 @@
             "index": "279-",
             "keywordType": "category",
             "groupName": "Alt giyim",
-            "functionName": "six"
+            "functionName": "six",
+            "count": 2
         },
         {
             "keywords": "jogger",
@@ -341,7 +372,8 @@
             "index": "280-",
             "keywordType": "category",
             "groupName": "Alt giyim",
-            "functionName": "six"
+            "functionName": "six",
+            "count": 26
         },
         {
             "keywords": "tayt",
@@ -350,7 +382,8 @@
             "index": "281-",
             "keywordType": "category",
             "groupName": "Alt giyim",
-            "functionName": "six"
+            "functionName": "six",
+            "count": 6
         },
         {
             "keywords": "eşofman",
@@ -359,7 +392,8 @@
             "index": "282-",
             "keywordType": "category",
             "groupName": "Alt giyim",
-            "functionName": "six"
+            "functionName": "six",
+            "count": 37
         },
         {
             "keywords": "şort",
@@ -368,7 +402,8 @@
             "index": "283-",
             "keywordType": "category",
             "groupName": "Alt giyim",
-            "functionName": "six"
+            "functionName": "six",
+            "count": 27
         },
         {
             "keywords": "bermuda",
@@ -377,7 +412,8 @@
             "index": "284-",
             "keywordType": "category",
             "groupName": "Alt giyim",
-            "functionName": "six"
+            "functionName": "six",
+            "count": 7
         },
         {
             "keywords": "kapri",
@@ -386,7 +422,8 @@
             "index": "285-",
             "keywordType": "category",
             "groupName": "Alt giyim",
-            "functionName": "six"
+            "functionName": "six",
+            "count": 23
         },
         {
             "keywords": "etek",
@@ -395,7 +432,8 @@
             "index": "286-",
             "keywordType": "category",
             "groupName": "Alt giyim",
-            "functionName": "six"
+            "functionName": "six",
+            "count": 8
         }
     ],
     "Üst giyim": [
@@ -406,7 +444,8 @@
             "index": "287-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 493
         },
         {
             "keywords": "kimono",
@@ -415,7 +454,8 @@
             "index": "288-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 36
         },
         {
             "keywords": "kazak",
@@ -424,7 +464,8 @@
             "index": "293-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 743
         },
         {
             "keywords": "süveter",
@@ -433,7 +474,8 @@
             "index": "294-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 102
         },
         {
             "keywords": "hırka",
@@ -442,7 +484,8 @@
             "index": "295-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 375
         },
         {
             "keywords": "gömlek,gömle",
@@ -451,7 +494,8 @@
             "index": "296-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 115
         },
         {
             "keywords": "bluz,buz",
@@ -460,7 +504,8 @@
             "index": "297-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 631
         },
         {
             "keywords": "atlet",
@@ -469,7 +514,8 @@
             "index": "298-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 758
         },
         {
             "keywords": "büstiyer",
@@ -478,7 +524,8 @@
             "index": "299-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 90
         },
         {
             "keywords": "t-shirt",
@@ -487,7 +534,8 @@
             "index": "300-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 13
         },
         {
             "keywords": "tişört",
@@ -496,7 +544,8 @@
             "index": "301-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 1460
         },
         {
             "keywords": "tunik,tunic",
@@ -505,7 +554,8 @@
             "index": "302-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 1105
         },
         {
             "keywords": "croptop",
@@ -523,7 +573,8 @@
             "index": "304-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 1585
         },
         {
             "keywords": "üst",
@@ -532,7 +583,8 @@
             "index": "305-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 247
         },
         {
             "keywords": "sweatshirt",
@@ -541,7 +593,8 @@
             "index": "306-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 1347
         },
         {
             "keywords": "penye",
@@ -559,7 +612,8 @@
             "index": "308-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 6
         },
         {
             "keywords": "body",
@@ -568,7 +622,8 @@
             "index": "309-",
             "keywordType": "category",
             "groupName": "Üst giyim",
-            "functionName": "seven"
+            "functionName": "seven",
+            "count": 70
         }
     ],
     "Elbise": [
@@ -579,7 +634,8 @@
             "index": "289-",
             "keywordType": "category",
             "groupName": "Elbise",
-            "functionName": "eight"
+            "functionName": "eight",
+            "count": 1118
         },
         {
             "keywords": "abiye",
@@ -588,7 +644,8 @@
             "index": "290-",
             "keywordType": "category",
             "groupName": "Elbise",
-            "functionName": "eight"
+            "functionName": "eight",
+            "count": 67
         },
         {
             "keywords": "tulum",
@@ -597,7 +654,8 @@
             "index": "291-",
             "keywordType": "category",
             "groupName": "Elbise",
-            "functionName": "eight"
+            "functionName": "eight",
+            "count": 73
         },
         {
             "keywords": "salopet",
@@ -606,7 +664,8 @@
             "index": "292-",
             "keywordType": "category",
             "groupName": "Elbise",
-            "functionName": "eight"
+            "functionName": "eight",
+            "count": 3
         }
     ],
     "Ayakkabı": [
@@ -617,7 +676,8 @@
             "index": "317-",
             "keywordType": "category",
             "groupName": "Ayakkabı",
-            "functionName": "nine"
+            "functionName": "nine",
+            "count": 10
         },
         {
             "keywords": "ayakkabı",
@@ -626,7 +686,8 @@
             "index": "318-",
             "keywordType": "category",
             "groupName": "Ayakkabı",
-            "functionName": "nine"
+            "functionName": "nine",
+            "count": 43
         }
     ],
     "diger": [
