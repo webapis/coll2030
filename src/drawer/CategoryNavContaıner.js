@@ -64,11 +64,11 @@ function SearchProductCategory({ subcategories, selectSubcategory }) {
     })
 
     setState(findSelectedObj)
-    debugger
+    
     
 
   }
-  debugger
+  
   return (
     <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
       <Autocomplete
