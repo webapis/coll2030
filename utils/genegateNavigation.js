@@ -287,10 +287,13 @@ async function genNav({ functionName }) {
     const current=catCounter[c]
       for(let v in current){
         const {count} =current[v]
-        debugger
+
         const curNav =categoryNav[c].map(m=>{
+          if(m.title==='pantolon'){
+            debugger
+          }
           if(m.title===v){
-            return {...m,count}
+            return {...m,count:m.count? m.count+count:count}
           }else{
             return m
           }
@@ -299,7 +302,7 @@ async function genNav({ functionName }) {
         categoryNav[c]=curNav
       
       }
-    debugger
+
   }
 
 
