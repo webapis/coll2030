@@ -197,7 +197,7 @@ export default class App extends React.Component {
     const { selectedSubcategory, selectedNavIndex, startAt } = this.state
 
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
-
+debugger
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
@@ -205,13 +205,14 @@ export default class App extends React.Component {
 
 
     if (selectedSubcategory && prevState.selectedSubcategory !== null && selectedSubcategory.subcategory !== prevState.selectedSubcategory.subcategory) {
-
+debugger
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
-    if ((selectedSubcategory && prevState.selectedNavIndex !== selectedNavIndex)) {
+    if ((selectedSubcategory && prevState.selectedNavIndex !=="" &&prevState.selectedNavIndex !== selectedNavIndex)) {
+      debugger
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
       if (selectedNavIndex === '') {
@@ -252,6 +253,7 @@ export default class App extends React.Component {
 
     const response = await fetch(url, { cache: 'default' })
     const data = await response.json()
+
 
     const { data: products, count } = data
 
