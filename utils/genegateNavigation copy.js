@@ -131,17 +131,39 @@ async function genNav({ functionName }) {
           }
 
         })
+        // if (matchingKeywords.length > 0) {
 
+        //   matchingKeywords.forEach(kws => {
+        //     let keywordType = kws.keywordType
+        //     let groupName = kws.groupName
+        //     if (keywordType === 'category') {
+        //       if (catCounter[groupName] === undefined) {
+        //         catCounter[groupName] = {}
+        //       }
+        //       if (catCounter[groupName][kws.title] === undefined) {
+        //         catCounter[groupName][kws.title] = { count: 1 }
+        //       } else {
+
+        //         catCounter[groupName][kws.title].count = catCounter[groupName][kws.title].count + 1
+        //       }
+        //     }
+        //   })
+
+
+        // }
 
         for (let k of categoryKeywords) {
           const { index, groupName } = k
-
+          if (title.includes('trençkot') && k.title==='trençkot') {
+            console.log('groupName',groupName)
+            debugger
+          }
 
           const match = matchingKeywords.find(f => {
 
             return f.index.replace('-', '') === index
           })
-          if (match && k.functionName ===functionName) {
+          if (match) {
 
             if (catCounter[groupName] === undefined) {
               catCounter[groupName] = {}
@@ -309,11 +331,9 @@ async function genNav({ functionName }) {
 
   }
 
-  if(fs.existsSync(path.join(process.cwd(), `src/category-nav-counter.json`))){
-    fs.unlinkSync(path.join(process.cwd(), `src/category-nav-counter.json`))
-  }
 
-  fs.appendFileSync(path.join(process.cwd(), `src/category-nav-counter.json`), JSON.stringify(categoryNav));
+  fs.unlinkSync(path.join(process.cwd(), `src/category-nav.json`))
+  fs.appendFileSync(path.join(process.cwd(), `src/category-nav.json`), JSON.stringify(categoryNav));
   //----------------
 
 
