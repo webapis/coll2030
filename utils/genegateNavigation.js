@@ -309,9 +309,11 @@ async function genNav({ functionName }) {
 
   }
 
+  if(fs.existsSync(path.join(process.cwd(), `src/category-nav-counter.json`))){
+    fs.unlinkSync(path.join(process.cwd(), `src/category-nav-counter.json`))
+  }
 
-  fs.unlinkSync(path.join(process.cwd(), `src/category-nav.json`))
-  fs.appendFileSync(path.join(process.cwd(), `src/category-nav.json`), JSON.stringify(categoryNav));
+  fs.appendFileSync(path.join(process.cwd(), `src/category-nav-counter.json`), JSON.stringify(categoryNav));
   //----------------
 
 

@@ -10,7 +10,7 @@ import { Container } from '@mui/material';
 
 import keywordgroup from './keywords.json'
 
-import subcatObj from './category-nav.json'
+import subcatObj from './category-nav-counter.json'
 
 import CategoryNavContainer from './drawer/CategoryNavContaıner';
 import TabContainer from './drawer/TabContainer';
@@ -200,14 +200,15 @@ export default class App extends React.Component {
 debugger
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
+    //  this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
+    this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
 
     if (selectedSubcategory && prevState.selectedSubcategory !== null && selectedSubcategory.subcategory !== prevState.selectedSubcategory.subcategory) {
 debugger
       this.setState((state) => ({ ...state, fetchingProduct: true }))
-      this.fetchProducts(0)
+    //  this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
@@ -215,9 +216,11 @@ debugger
       debugger
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
+      debugger
       if (selectedNavIndex === '') {
         this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
       } else {
+        debugger
         this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory, selectedSubcategory.node)
       }
 
