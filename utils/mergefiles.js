@@ -20,14 +20,16 @@ walkSync(path.join(process.cwd(), `data/${website}`), async (filepath) => {
     if (obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] === undefined) {
         obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [data]
     }
-    obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data]
-
-
+    else{
+        obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data]
+    }
+  
 })
-const uniqify = (array, key) => array.reduce((prev, curr) => prev.find(a => a[key] === curr[key]) ? prev : prev.push(curr) && prev, []);
+
 const categoryKeywords = keywords.filter(f => f.keywordType === 'category')
 
 for (let o in obj) {
+
     const s = o.split('-').reverse()
 
     const marka = s[0]
@@ -35,11 +37,11 @@ for (let o in obj) {
 
     for (let d of data) {
         const { title } = d
-    
+
         var machfound = false
         for (let k of categoryKeywords) {
 
-          
+
             const nws = k.exclude !== '' ? k.exclude.split(',') : []
             const match = productTitleMatch({ kw: k.keywords, nws, title })
             if (match) {
@@ -48,8 +50,11 @@ for (let o in obj) {
 
                     const data = fs.readFileSync(savePath, { encoding: 'utf8' })
                     const dataObj = JSON.parse(data)
+                    const previouslyAdded =dataObj.find(f=>f.link ===d.link)
+                    if(!previouslyAdded){
+                        fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
+                    }
 
-                    fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
 
                 }
                 else {
@@ -60,14 +65,14 @@ for (let o in obj) {
                 }
 
                 machfound = true
-            //  break;
+                //  break;
             }
 
-           
+
         }
 
 
-        
+
 
         if (machfound === false) {
 
