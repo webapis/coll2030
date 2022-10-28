@@ -13,9 +13,9 @@ import Paper from '@mui/material/Paper';
 
 
 export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex }) {
-    debugger
+    
 
-    debugger
+    
     const theme = useTheme();
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
