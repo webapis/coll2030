@@ -269,7 +269,7 @@ export default class App extends React.Component {
   }
 
   async fetchNavKeywords(selectedNavIndex, subcategory) {
-    const { groupName } = this.state
+
     
     let productImgIndexes
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')

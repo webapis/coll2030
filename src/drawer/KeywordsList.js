@@ -49,7 +49,7 @@ export default function KeywordsList() {
 
 function CategoryNav() {
     return <AppContext.Consumer>{({ groupName, selectSubcategory,selectedNavIndex }) => {
-        console.log('groupName',groupName)
+      
         return <FormControl>
             <FormLabel id="demo-radio-buttons-group-label">Kategori</FormLabel>
             <RadioGroup
@@ -63,7 +63,7 @@ function CategoryNav() {
                         return f.groupName === groupName
                     }).map((m,i) => {
                       debugger
-                        return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex===m.index} size="small" onChange={()=>selectSubcategory({functionName:m.functionName,index:m.index,groupName:m.groupName,keywordType:m.keywordType})}/>} label={m.title} />
+                        return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={()=>selectSubcategory({functionName:m.functionName,index:m.index,groupName:m.groupName,keywordType:m.keywordType})}/>} label={<div style={{textAlign:'justify'}}><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
                     })
                 }
 
