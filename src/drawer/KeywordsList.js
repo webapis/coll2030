@@ -15,7 +15,7 @@ export default function KeywordsList() {
                             {navKeywords && navKeywords.map((m, i) => {
 
                                     const { groupName, keywords } = m
-
+debugger
                                     
                                     return   <FormControl key={i+'-'}  component="fieldset" variant="standard" >   <FormLabel  component="legend">{groupName}</FormLabel> <NavList    groupName={groupName} keywords={keywords} /> </FormControl >
                                         

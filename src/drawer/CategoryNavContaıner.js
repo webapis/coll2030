@@ -28,7 +28,7 @@ export default function CategoryNavContainer({ subcategories, products, fetching
         {subcategories.map((item, i) => {
           const indexes = item[1]
 
-          return <div > <SubcategoryCard selectSubcategory={selectSubcategory} indexes={indexes} /></div>
+          return <div key={i} > <SubcategoryCard  selectSubcategory={selectSubcategory} indexes={indexes} /></div>
         })}
       </ImageList >
     </Container>
