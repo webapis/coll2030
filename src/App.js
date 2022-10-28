@@ -370,7 +370,7 @@ export default class App extends React.Component {
       categories.forEach(c => {
         const groupExist = grouped[c.groupName]
 
-        if (groupExist && c.groupName !== groupName) {
+        if (groupExist) {
           delete grouped[c.groupName]
         }
 
