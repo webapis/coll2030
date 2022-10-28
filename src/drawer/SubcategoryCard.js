@@ -23,9 +23,8 @@ export default function SubcategoryCard({ indexes, selectSubcategory }) {
 
         <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
           {indexes.map((value, i) => {
-
             return (
-              <Link key={i} style={{ display: 'flex', width: '100%', justifyContent: 'space-between', marginBottom: 5 }} underline="hover" onClick={() => selectSubcategory({ functionName: value.functionName, index: value.index })}>
+              <Link key={i} style={{ display: 'flex', width: '100%', justifyContent: 'space-between', marginBottom: 5 }} underline="hover" onClick={() => selectSubcategory({ functionName: value.functionName, index: value.index, groupName: value.groupName, keywordType: value.keywordType })}>
                 <span>{value.title}</span> <span style={{ color: '#9ea7aa', fontSize: 14 }}>{value.count}</span>
               </Link>
             );

@@ -15,7 +15,7 @@ import subcatObj from './category-nav-counter.json'
 import CategoryNavContainer from './drawer/CategoryNavContaıner';
 import TabContainer from './drawer/TabContainer';
 const subcategories = Object.entries(subcatObj)
-
+const categories = Object.values(subcatObj).flat()
 
 
 export const AppContext = React.createContext();
@@ -114,18 +114,16 @@ export default class App extends React.Component {
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', subcategory)
     }
-    this.selectSubcategory = ({ functionName, index, totalSubcategory }) => {
-
+    this.selectSubcategory = ({ functionName, index, totalSubcategory, keywordType, groupName }) => {
 
       this.setState(state => ({
         ...state, startAt: 0,
         selectedMarka: '',
-        // selectedNavIndex: '',
         selectedKeywords: [],
         navKeywords: [],
         products: [],
         fetchingProduct: false,
-        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory }, selectedNavIndex: index, open: false
+        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory }, groupName, keywordType, selectedNavIndex: index, open: false
       }));
     }
     this.setProductImageInexes = ({ productImgIndexes }) => {
@@ -152,11 +150,11 @@ export default class App extends React.Component {
           selectedNavIndex = state.selectedNavIndex.concat(index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
           selectedKeywords = [...state.selectedKeywords, { keyword, index }]
         }
-        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true,selectedFiterTab:1 }
+        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true, selectedFiterTab: 1 }
       })
     }
-    this.setSelectedFilterTab = (event,value) => {
-      debugger
+    this.setSelectedFilterTab = (event, value) => {
+
       this.setState((prevState) => {
         return { ...prevState, selectedFiterTab: value }
       })
@@ -197,30 +195,30 @@ export default class App extends React.Component {
     const { selectedSubcategory, selectedNavIndex, startAt } = this.state
 
     if ((selectedSubcategory && prevState.selectedSubcategory === null)) {
-debugger
+
       this.setState((state) => ({ ...state, fetchingProduct: true }))
       this.fetchProducts(0)
-    //  this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
-    this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory, selectedSubcategory.node)
+      //  this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
+      this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
 
     if (selectedSubcategory && prevState.selectedSubcategory !== null && selectedSubcategory.subcategory !== prevState.selectedSubcategory.subcategory) {
-debugger
+
       this.setState((state) => ({ ...state, fetchingProduct: true }))
-    //  this.fetchProducts(0)
+      //  this.fetchProducts(0)
       this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
     }
 
-    if ((selectedSubcategory && prevState.selectedNavIndex !=="" &&prevState.selectedNavIndex !== selectedNavIndex)) {
-      debugger
+    if ((selectedSubcategory && prevState.selectedNavIndex !== "" && prevState.selectedNavIndex !== selectedNavIndex)) {
+
       this.setState((state) => ({ ...state, fetchingProduct: true, products: [], fetchingKeywords: true }))
       this.fetchProducts(startAt)
-      debugger
+
       if (selectedNavIndex === '') {
         this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
       } else {
-        debugger
+
         this.fetchNavKeywords(selectedNavIndex, selectedSubcategory.subcategory, selectedSubcategory.node)
       }
 
@@ -271,6 +269,8 @@ debugger
   }
 
   async fetchNavKeywords(selectedNavIndex, subcategory) {
+
+    
     let productImgIndexes
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
@@ -299,7 +299,7 @@ debugger
         const indexes = selectedNavIndex.split('-').filter(f => f !== '')
 
         let indexFound = null
-   
+
         try {
           for (let b in keywordgroup) {
             const currentIndex = b.split('-').filter(f => f !== '')
@@ -363,7 +363,20 @@ debugger
         }
 
 
+
+
       }
+
+      categories.forEach(c => {
+        const groupExist = grouped[c.groupName]
+
+        if (groupExist) {
+          delete grouped[c.groupName]
+        }
+
+
+      })
+      
 
 
       return {
@@ -397,16 +410,16 @@ debugger
               <KeywordsList />
             </Grid>
             <Grid item xs={9}>
-              <div style={{display:'flex', flexDirection:'column',marginTop:80}}>
-              <TabContainer/>
-              <ProductList />
+              <div style={{ display: 'flex', flexDirection: 'column', marginTop: 80 }}>
+                <TabContainer />
+                <ProductList />
               </div>
             </Grid>
           </Grid>
         </Container>
       }
 
-      {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{display:'flex',flexDirection:'column',width:'100%'}}> <TabContainer/><ProductList /></div>  </div>)}
+      {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}> <TabContainer /><ProductList /></div>  </div>)}
 
 
     </AppContext.Provider>)

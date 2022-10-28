@@ -13,9 +13,9 @@ import Paper from '@mui/material/Paper';
 
 
 export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex }) {
-    debugger
+    
 
-    debugger
+    
     const theme = useTheme();
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
@@ -46,7 +46,7 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
 
 
 
-    return <div sx={{ paddingRight: 0 }} center>
+    return <div sx={{ paddingRight: 0 }} >
       
         <Grid container> {navKeywords.filter(f => {
             return f.groupName !== 'Fiyat' && f.groupName !== 'Marka'
@@ -56,7 +56,7 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
             const bkeywords = b['keywords']
 
             return bkeywords.length - akeywords.length;
-        }).map(m => {
+        }).map((m,a) => {
             const { groupName, keywords } = m
             let colTop = 0
             let colBottom = 0
@@ -83,18 +83,18 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
                 default:
             }
 
-            return <Grid item xs={colTop}>
+            return <Grid key={a} item xs={colTop}>
                 <Paper sx={{ margin: 1, padding: 1 }}>
                     <Grid container>
 
                         <Grid item xs={12} sx={{ marginBottom: 2 }}>   <Divider>{groupName}</Divider> </Grid>
 
-                        {keywords.map(m => {
+                        {keywords.map((m,i) => {
                             const { keywordTitle, imageUrl: { title, src: imageSrc, marka } } = productImgIndexes[m[1]]
                             const total = m[0]
                             const index = m[1]
                             const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
-                            return <Grid xs={4} sm={colBottom} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp title={title} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={keywordTitle} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom></Typography></Tooltip></Grid>
+                            return <Grid key={i} xs={4} sm={colBottom} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp title={title} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={keywordTitle} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom></Typography></Tooltip></Grid>
                         })}
 
                     </Grid>
