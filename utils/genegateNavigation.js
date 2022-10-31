@@ -6,15 +6,25 @@
 
   try {
     await genNav({ functionName: 'one' })
+    console.log('one ended')
     await genNav({ functionName: 'two' })
+    console.log('two ended')
     await genNav({ functionName: 'three' })
+    console.log('three ended')
     await genNav({ functionName: 'four' })
+    console.log('four ended')
     await genNav({ functionName: 'five' })
+    console.log('five ended')
     await genNav({ functionName: 'six' })
+    console.log('six ended')
     await genNav({ functionName: 'seven' })
+    console.log('seven ended')
     await genNav({ functionName: 'eight' })
+    console.log('eight ended')
     await genNav({ functionName: 'nine' })
+    console.log('nine ended')
     await genNav({ functionName: 'ten' })
+    console.log('ten ended')
 
 
   } catch (error) {
@@ -113,7 +123,7 @@ async function genNav({ functionName }) {
 
               }
             } catch (error) {
-
+debugger
             }
 
           } else {
@@ -286,7 +296,6 @@ async function genNav({ functionName }) {
 
   let regrouped = []
 
-  debugger
 
   //map product couter
   for (let c in catCounter) {
@@ -308,7 +317,7 @@ async function genNav({ functionName }) {
     }
 
   }
-
+debugger
   if(fs.existsSync(path.join(process.cwd(), `src/category-nav-counter.json`))){
     fs.unlinkSync(path.join(process.cwd(), `src/category-nav-counter.json`))
   }
@@ -339,7 +348,7 @@ async function genNav({ functionName }) {
     return a.id - b.id
   })
 
-  debugger
+
   const mapped = sorted.map(s => {
     const { id } = s
     const fn = id % 2
@@ -368,12 +377,13 @@ async function genNav({ functionName }) {
   if (fs.existsSync(path1)) {
     fs.unlinkSync(path1)
   }
+  debugger
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
 
   for (let cimage in catImages) {
     if (cimage === '1') {
-      debugger
+      
     }
 
     const curr = catImages[cimage]
