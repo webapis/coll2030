@@ -45,7 +45,7 @@ async function handler(page, context) {
     }).flat().map(m => {
         return {
             title: m.title, priceNew: m.priceNew, imageUrl: m.imageUrl, link: m.link, timestamp: Date.now(),
-            marka: "zara", node
+            marka: "zara"
         }
     })
     // debugger;
