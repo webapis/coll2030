@@ -2,7 +2,7 @@ name: caller
 on:
    workflow_dispatch:
 env:
-  WEBSITE: modaburada
+  WEBSITE: biraradamoda
 jobs:
   machka_job:
     uses: ./.github/workflows/reusable.yml
