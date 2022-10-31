@@ -1,6 +1,6 @@
 const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { } } } = context
+    const { request: { userData: {start } } } = context
 
     const url = await page.url()
 

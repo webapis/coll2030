@@ -47,7 +47,7 @@ async function handler(page, context) {
         const nextPage = `${url}?page=2`
         const requestQueue = await Apify.openRequestQueue();
         debugger;
-        requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory, category } })
+        requestQueue.addRequest({ url: nextPage, userData: { start: false } })
     } else if (nextPageExists && !start) {
         debugger;
         const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
@@ -55,7 +55,7 @@ async function handler(page, context) {
         const nextPage = pageUrl + pageNumber
         const requestQueue = await Apify.openRequestQueue();
         debugger;
-        requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory, category} })
+        requestQueue.addRequest({ url: nextPage, userData: { start: false} })
 
     }
 
