@@ -14,7 +14,7 @@ async function handler(page, context) {
     await autoScroll(page);
 
     debugger
-    const data = await page.$$eval('.product-box-container', (productCards, _subcategory, _category, _opts,_node) => {
+    const data = await page.$$eval('.product-box-container', (productCards) => {
         return productCards.map(productCard => {
             const priceNew = productCard.querySelector('.d-block.product-box-prices.product-box-price.pl-1.pr-2.text-black').textContent.replace(/\n/g, '').replace('TL', '').trim()
             const longlink = productCard.querySelector('.product-box-image-container').href

@@ -6,25 +6,25 @@
 
   try {
     await genNav({ functionName: 'one' })
-    console.log('one ended')
+
     await genNav({ functionName: 'two' })
-    console.log('two ended')
+
     await genNav({ functionName: 'three' })
-    console.log('three ended')
+ 
     await genNav({ functionName: 'four' })
-    console.log('four ended')
+
     await genNav({ functionName: 'five' })
-    console.log('five ended')
+   
     await genNav({ functionName: 'six' })
-    console.log('six ended')
+  
     await genNav({ functionName: 'seven' })
-    console.log('seven ended')
+
     await genNav({ functionName: 'eight' })
-    console.log('eight ended')
+
     await genNav({ functionName: 'nine' })
-    console.log('nine ended')
+  
     await genNav({ functionName: 'ten' })
-    console.log('ten ended')
+ 
 
 
   } catch (error) {

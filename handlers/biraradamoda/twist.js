@@ -6,7 +6,7 @@ async function handler(page, context) {
 
     await page.waitForSelector('.product-list-grid')
 await autoScroll(page)
-    const data = await page.$$eval('[data-category-name]', (productCards, _subcategory, _category,_node) => {
+    const data = await page.$$eval('[data-category-name]', (productCards) => {
         return productCards.map(productCard => {
             const priceNew = productCard.querySelector('.urunListe_satisFiyat').innerHTML.replace('₺', '').trim()
             const longlink = productCard.querySelector('.prd-lnk').href
@@ -25,7 +25,7 @@ await autoScroll(page)
 
             }
         }).filter(f => f.imageUrl !== null)
-    }, subcategory, category,node)
+    })
 
     console.log('data length_____', data.length, 'url:', url)
 
