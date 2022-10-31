@@ -36,7 +36,7 @@ debugger
             const includes = splittedKeywordsIndex.includes(f.index)
             return includes
         })
-
+debugger
 
         const title = this.title
         const priceNew = this.priceNew
@@ -48,9 +48,16 @@ debugger
             let groupName=kws.groupName
             let index =parseInt(  kws.index.replace('-','') )
             if (groupName==='Fiyat') {
-                const priceRange = kws.keyword.split('-').map(m => parseInt(m).toFixed(2))
-                const startPrice = parseFloat(priceRange[0])
-                const endPrice = parseFloat(priceRange[1])
+                debugger
+              
+                    const priceRange = kws.keywords.split('-').map(m => parseInt(m).toFixed(2))
+                    debugger
+                    const startPrice = parseFloat(priceRange[0])
+                    debugger
+                    const endPrice = parseFloat(priceRange[1])
+                    debugger
+               
+             
                 try {
                     const price = priceNew.toString().replace('.', '').replace(',', '.')
                     const productPrice = parseFloat(price)
@@ -75,7 +82,7 @@ debugger
 
                     }
                 } catch (error) {
-                    
+                    debugger
                 }
 
             } else {
