@@ -44,4 +44,3 @@ updated-data
 imgs/
 # Local Netlify folder
 .netlify
-src/category-nav-counter.json
