@@ -102,3 +102,4 @@ for (let o in obj) {
 }
 
 
+process.exit(0)
