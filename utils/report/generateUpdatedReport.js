@@ -1,11 +1,12 @@
 const { countTotal, countByBrand, countByBrandDeleted, countBySubcategory,countBySubcategoryDeleted,countTotalCollected,countTotalCollectedByBrand,countTotalCollectedBySubcategory } = require('./util')
 const fs =require('fs')
+require('dotenv').config()
 function countTotalUpdated() {
 
-  countTotal('updated-data', `projects/trends/src/reports/updated/total-updated.json`)
-  countTotal('old-data', `projects/trends/src/reports/updated/total-deleted.json`)
-  countTotal('collected-data', `projects/trends/src/reports/updated/total-newdata.json`)
-  countTotalCollected('projects/dream/data',`projects/trends/src/reports/updated/total-collected.json`)
+ // countTotal('updated-data', `projects/trends/public/reports/total-updated.json`)
+ // countTotal('old-data', `projects/trends/public/reports/total-deleted.json`)
+  countTotal('collected-data', `projects/trends/public/reports/total-newdata.json`)
+  countTotalCollected(`data/${process.env.WEBSITE}`,`projects/trends/public/reports/total-collected.json`)
 }
 
 function countByBrandUpdated() {
@@ -17,16 +18,16 @@ function countByBrandUpdated() {
 
 function countBySubcategoryUpdated() {
   debugger
-  countBySubcategory('updated-data', `projects/trends/src/reports/updated/by-subcategory-updated.json`)
-  countBySubcategory('collected-data', `projects/trends/src/reports/updated/by-subcategory-newdata.json`)
-  countBySubcategoryDeleted('old-data',`projects/trends/src/reports/updated/by-subcategory-deleted.json`)
-  countTotalCollectedBySubcategory('projects/dream/data',`projects/trends/src/reports/updated/total-collected-by-subcategory.json`)
+  //countBySubcategory('updated-data', `projects/trends/src/reports/updated/by-subcategory-updated.json`)
+  //countBySubcategory('collected-data', `projects/trends/src/reports/updated/by-subcategory-newdata.json`)
+  //countBySubcategoryDeleted('old-data',`projects/trends/src/reports/updated/by-subcategory-deleted.json`)
+  countTotalCollectedBySubcategory(`data/${process.env.WEBSITE}`,`projects/trends/public/reports/total-collected-by-subcategory.json`)
 }
 
 function generateUpdatedReport() {
     countTotalUpdated()
-    countByBrandUpdated()
-    countBySubcategoryUpdated()
+   // countByBrandUpdated()
+  countBySubcategoryUpdated()
 
 }
 

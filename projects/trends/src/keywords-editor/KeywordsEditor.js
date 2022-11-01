@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Stack from '@mui/material/Stack';
 
 import LoadingButton from '@mui/lab/LoadingButton';
-import { AppContext } from '../App';
+import { AppContext } from '../KeywordsRoute';
 import AppBarComponent from '../AppBarComponent';
 export default function KeywordEditor() {
     const navigate = useNavigate()
@@ -23,7 +23,7 @@ export default function KeywordEditor() {
             debugger
         }
         return <div style={{ marginTop: 100, display: 'flex', flexDirection: 'column' }}>
-            <AppBarComponent />
+         
             <TextField sx={{ marginTop: 1 }}
                 id="outlined-multiline-flexible"
                 label="Title"

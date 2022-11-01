@@ -13,7 +13,7 @@ console.log('--------------------------------------------------------------')
 const website =process.env.WEBSITE
 console.log('website...',website)
 let obj = {}
-debugger
+
 // delete old data
 
 if (fs.existsSync(path.join(process.cwd(), `old-data`))) {
@@ -116,5 +116,5 @@ if (fs.existsSync(path.join(process.cwd(), `updated-data`))) {
 
 // generateBrendReport()
 // generateSubcategoryReport()
-// generateUpdatedReport()
+ generateUpdatedReport()
 // generateSubcategoryPie()

@@ -1,12 +1,14 @@
+require('dotenv').config()
 const { walkSync } = require('../walkSync')
 const path = require('path')
 const fs = require('fs')
 const makeDir =require('make-dir')
 function countTotal(dirpath, reportFilePath) {
     const folderPath = path.join(process.cwd(), `${dirpath}`)
+    debugger
 if(fs.existsSync(folderPath)){
 
-
+debugger
     let total = 0
     const date = new Date().toISOString()
     walkSync(folderPath, async (file) => {
@@ -24,14 +26,14 @@ if(fs.existsSync(folderPath)){
     })
     const savePath = path.join(process.cwd(), `${reportFilePath}`)
     if (fs.existsSync(savePath)) {
-
+debugger
         let data = JSON.parse(fs.readFileSync(savePath, { encoding: 'utf-8' }))
         debugger
-      //  fs.writeFileSync(savePath, JSON.stringify([...data, { date, total }]))
+        fs.writeFileSync(savePath, JSON.stringify([...data, { date, total }]))
         
 
     } else {
-        
+        debugger
         fs.writeFileSync(savePath, JSON.stringify([{ date, total }]))
         
     }
@@ -143,15 +145,15 @@ function countTotalCollectedByBrand(dirpath, reportFilePath){
 }
 
 function countTotalCollectedBySubcategory(dirpath, reportFilePath){
-
-    const dirs = fs.readdirSync(`${process.cwd()}/urls`)
+debugger
+    const dirs = fs.readdirSync(`${process.cwd()}/urls/${process.env.WEBSITE}`)
     
     const folderPath = path.join(process.cwd(), `${dirpath}`)
     if(fs.existsSync(folderPath)){
     const date = new Date().toISOString()
     const brandNames = dirs.map(m => m.replace('.js', ''))
 
-    
+ 
     let markas = {}
     const reportPath = path.join(process.cwd(), `${reportFilePath}`)
     const reportexists = fs.existsSync(reportPath)
@@ -159,7 +161,8 @@ function countTotalCollectedBySubcategory(dirpath, reportFilePath){
         const previousreport = JSON.parse(fs.readFileSync(reportPath, { encoding: 'utf-8' }))
         markas = previousreport
         for (let m of brandNames) {
-            const current = require(`${process.cwd()}/urls/${m}`)
+        
+            const current = require(`${process.cwd()}/urls/${process.env.WEBSITE}/${m}`)
             const mappedurls = current.urls.map(m => m.subcategory).flat()
             const uniquedata = [...new Set(mappedurls)];
             const props = Object.assign({}, uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {}))
@@ -189,8 +192,10 @@ function countTotalCollectedBySubcategory(dirpath, reportFilePath){
     walkSync(folderPath, (filepath) => {
 
         const fileName = filepath.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
-        const marka = fileName[9]
+        const marka = fileName[8]
+        debugger
         const subcategory = fileName[10]
+        debugger
         if (markas[marka][subcategory] === undefined) {
             markas[marka][subcategory] = { data: { [date]: 0 } }
         }
@@ -205,7 +210,7 @@ function countTotalCollectedBySubcategory(dirpath, reportFilePath){
 
     })
 
-    
+    debugger
     fs.writeFileSync(reportPath, JSON.stringify(markas))
     
 

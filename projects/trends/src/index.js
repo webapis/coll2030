@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import { Routes, Route, HashRouter } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
-import App from './App';
-
+import KeywordsRoute from './KeywordsRoute';
+import AppBarComponent from './AppBarComponent';
+import AggregationRoute from './AggregationRoute';
+import Analitics from './access-reports/Analitics';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
@@ -12,10 +14,16 @@ root.render(
 
 
 
-  
-        <App />
-    
- 
+        <HashRouter >
+                <Routes >
+                        <Route path="/" element={<AppBarComponent />} />
+                        <Route path="aggregation" element={<AggregationRoute />} />
+                        <Route path="analitics" element={<Analitics />} />
+                        <Route path="keywords/*" element={<KeywordsRoute />} />
+                </Routes>
+        </HashRouter>
+
+
 
 
 );

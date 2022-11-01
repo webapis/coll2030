@@ -1,12 +1,10 @@
 import React from 'react';
 import { Routes, Route, HashRouter } from "react-router-dom";
-import Aggregation from './collected-reports/Aggregation';
-import Analitics from './access-reports/Analitics';
-import KeywordsRoutes from './keywords-editor/KeywordRoutes';
 
-import AppBarComponent from './AppBarComponent';
 import groupNames from './keywords-editor/groupNames';
-
+import KeywordEditor from './keywords-editor/KeywordsEditor';
+import Keywords from './keywords-editor/Keywords';
+import AppBarComponent from './AppBarComponent';
 export const AppContext = React.createContext();
 
 const initState = {
@@ -23,7 +21,7 @@ const initState = {
     showDisabledIsChecked: false
 }
 
-export default class App extends React.Component {
+export default class KeywordsRoute extends React.Component {
 
     constructor(props) {
         super(props);
@@ -222,14 +220,11 @@ export default class App extends React.Component {
     render() {
         return (
             <AppContext.Provider value={this.state}>
-                <HashRouter >
-                    <Routes >
-                        <Route path="/" element={<AppBarComponent />} />
-                        <Route path="aggregation" element={<Aggregation />} />
-                        <Route path="analitics" element={<Analitics />} />
-                        <Route path="keywords/*" element={<KeywordsRoutes />} />
-                    </Routes>
-                </HashRouter>
+                <AppBarComponent/>
+                <Routes >
+                    <Route path="editor" element={<KeywordEditor />} />
+                    <Route path="/" element={<Keywords />} />
+                </Routes>
             </AppContext.Provider>
 
         );
