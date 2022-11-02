@@ -32,7 +32,7 @@ async function handler(page, context) {
                     } else {
                         clearInterval(inv)
 
-                        const data = await page.$$eval('.productItem', (productCards, _subcategory, _category, _node) => {
+                        const data = await page.$$eval('.productItem', (productCards) => {
                             return productCards.map(productCard => {
                                 const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
                                 const longlink = productCard.querySelector('.detailLink').href
@@ -51,7 +51,7 @@ async function handler(page, context) {
 
                                 }
                             }).filter(f => f.imageUrl !== null)
-                        }, subcategory, category, node)
+                        })
 
                         debugger
                         console.log('data length_____', data.length, 'url:', url)

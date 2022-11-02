@@ -10,7 +10,7 @@ async function handler(page, context) {
     debugger;
 
 
-    const data = await page.$$eval('.productbox.clearfix.list-item', (productCards, _subcategory, _category,_node) => {
+    const data = await page.$$eval('.productbox.clearfix.list-item', (productCards) => {
         return productCards.map(productCard => {
             const title = productCard.querySelector('.lazy-image.product-name.track-link').getAttribute('title')
             const img= productCard.querySelector('.lazy-image.product-name.track-link img').src
@@ -27,7 +27,7 @@ async function handler(page, context) {
 
             }
         })
-    }, subcategory, category,node)
+    })
     console.log('data length_____', data.length, 'url:', url)
 
     

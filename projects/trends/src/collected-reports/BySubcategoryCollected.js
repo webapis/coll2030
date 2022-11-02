@@ -5,8 +5,6 @@ import * as React from 'react';
 import CollectedDataBySubcatDrawer from './CollectedDataBySubcatDrawer';
 import { useSelector } from 'react-redux';
 import Bar from '../Bar'
-
-
 import data from '../reports/updated/total-collected-by-subcategory.json'
 import { Grid } from '@mui/material';
 

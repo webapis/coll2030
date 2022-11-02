@@ -29,7 +29,7 @@ async function handler(page, context) {
 
             }
         })
-    }, subcategory, category, node)
+    })
 
     console.log('data length_____', data.length, 'url:', url)
 

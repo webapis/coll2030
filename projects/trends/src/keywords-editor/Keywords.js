@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppContext } from '../App';
+import { AppContext } from '../KeywordsRoute';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -15,13 +15,13 @@ import Switch from '@mui/material/Switch';
 import { Button } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 
-import AppBarComponent from '../AppBarComponent';
+
 
 export default function Keywords() {
 
     const navigate =useNavigate()
     return <div style={{ marginTop: 73 }}>
-        <AppBarComponent />
+      
         <AppContext.Consumer>{
             ({ keywords, filterKeyword, editKeyword,toggleKeywordState,showDisabledIsChecked,addKeyword }) => {
 

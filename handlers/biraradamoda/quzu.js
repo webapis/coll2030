@@ -32,7 +32,7 @@ async function handler(page, context) {
                 } else {
                     clearInterval(inv)
 
-                    const data = await page.$$eval('.productItem', (productCards, _subcategory, _category,_node) => {
+                    const data = await page.$$eval('.productItem', (productCards) => {
                         return productCards.map(productCard => {
                             const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
                             const longlink = productCard.querySelector('.productName a').href
@@ -48,12 +48,10 @@ async function handler(page, context) {
                                 link,
                                 timestamp: Date.now(),
                                 marka: 'quzu',
-                               // subcategory: _subcategory,
-                                category: _category,
-                                node: _node
+                  
                             }
                         }).filter(f => f.imageUrl !== null)
-                    }, subcategory, category,node)
+                    })
 
           
                     console.log('data length_____', data.length, 'url:', url)

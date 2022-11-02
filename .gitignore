@@ -33,9 +33,9 @@ turkmenistan-market-f1b9872438ea.json
 
 .vercel
 # Local Netlify folder
-api/_files/key/elbise/*.json
+# api/_files/key/elbise/*.json
 
-api/_files/data/**/*.json
+# api/_files/data/**/*.json
 
 collected-data 
 old-data
@@ -44,4 +44,3 @@ updated-data
 imgs/
 # Local Netlify folder
 .netlify
-src/category-nav-counter.json

@@ -2,214 +2,249 @@ name: caller
 on:
    workflow_dispatch:
 env:
-  WEBSITE: modaburada
+  WEBSITE: biraradamoda
 jobs:
   machka_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: machka
       maxconcurrency: '1'
+      WEBSITE: biraradamoda
     secrets: inherit
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: defacto
       maxconcurrency: '1'
+      WEBSITE: biraradamoda
     secrets: inherit
   koton_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: koton
       maxconcurrency: '1'
+      WEBSITE: biraradamoda
     secrets: inherit
   lcwaikiki_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: lcwaikiki
+      WEBSITE: biraradamoda
       maxconcurrency: '10'
   ipekyol_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: ipekyol
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
   mavi_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: mavi
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   adl_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: adl
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   roman_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: roman
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   beymen_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: beymen
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   vakko_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: vakko
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   zara_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: zara
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   twist_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: twist
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   hm_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: hm
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   baqa_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: baqa
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   beyyoglu_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: beyyoglu
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   dilvin_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: dilvin
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   colins_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: colins
+      WEBSITE: biraradamoda
       maxconcurrency: '10'
     secrets: inherit
   gizia_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: gizia
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   vitrin_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: vitrin
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   xint_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: xint
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   tozlu_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: tozlu
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   quzu_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: quzu
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   saygigiyim_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: saygigiyim
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   manuka_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: manuka
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   kikiriki_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: kikiriki
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   jimmykey_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: jimmykey
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   perspective_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: perspective
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   mango_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: mango
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   olegcassini_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: olegcassini
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   addax_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: addax
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   oxxo_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: oxxo
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   desa_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: desa
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   abiyefon_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: abiyefon
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   patirti_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: patirti
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   yargici_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: yargici
+      WEBSITE: biraradamoda
       maxconcurrency: '1'
     secrets: inherit
   merge_change_job:
@@ -243,27 +278,37 @@ jobs:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
         with:
-          name: collecteddata
+          name: collected-data
           path: collected-data
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: collected-data
       - name: Download olddata artifact
+        continue-on-error: true
         uses: actions/download-artifact@v3
         with:
-          name: olddata
+          name: old-data
           path: old-data
       - name: Download updateddata artifact
         continue-on-error: true
         uses: actions/download-artifact@v3
         with:
-          name: updateddata
+          name: updated-data
           path: updated-data
       - name: Decript data
         run: 'npm run decryptData'
-      - name: relocateData
-        id: relocateata
+      - name: relocatedata
+        id: relocateData
         run: node utils/relocateData.js
+      - name: merge files
+        id: mergefiles
+        run: node utils/mergefiles.js
+      - name: generate navigation
+        id: generatenavigation
+        run: node utils/genegateNavigation.js
+      - name: generate agregation report
+        id: genagrep
+        run: node utils/report/generateAggregationReport.js
       - name: Commit report
         run: |
           git config --global user.name 'Serdar Ashirov'

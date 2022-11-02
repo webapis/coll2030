@@ -1,7 +1,7 @@
 const Apify = require('apify');
 
 async function handler(page, context) {
-    const { request: { userData: {  } } } = context
+    const { request: { userData: {start  } } } = context
     debugger;
     const url = await page.url()
     await page.waitForSelector('.product-list-cards')
@@ -40,7 +40,7 @@ async function handler(page, context) {
             const nextPage = `${url}?page=2`
             const requestQueue = await Apify.openRequestQueue();
 
-            requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory,category} })
+            requestQueue.addRequest({ url: nextPage, userData: { start: false} })
         } else if (nextPageExists && !start) {
 
             const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
@@ -49,7 +49,7 @@ async function handler(page, context) {
             const nextPage = pageUrl + pageNumber
             const requestQueue = await Apify.openRequestQueue();
 
-            requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory,category } })
+            requestQueue.addRequest({ url: nextPage, userData: { start: false } })
 
         }
 

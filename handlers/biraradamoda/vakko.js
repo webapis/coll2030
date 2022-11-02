@@ -7,7 +7,7 @@ debugger;
     await page.waitForSelector('.category__products')
 
 
-    const data = await page.$$eval('.category__products .product__each', (productCards, _subcategory, _category, _opts,_node) => {
+    const data = await page.$$eval('.category__products .product__each', (productCards) => {
         return productCards.map(productCard => {
             const brand = productCard.querySelector('.product__each--brand__name').textContent.replace('\n', '').trim()
             const prodName = productCard.querySelector('.product__each--name-text').textContent.replace('\n', '').trim()

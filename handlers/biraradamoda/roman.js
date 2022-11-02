@@ -7,7 +7,7 @@ async function handler(page, context) {
     await page.waitForSelector('.category-product-list')
 
 
-    const data = await page.$$eval('.category-product-list .item.triple-view.instock', (productCards, _subcategory, _category,_node) => {
+    const data = await page.$$eval('.category-product-list .item.triple-view.instock', (productCards) => {
         return productCards.map(productCard => {
 
             const title = productCard.querySelector('.product-list-name') && productCard.querySelector('.product-list-name').textContent
@@ -28,7 +28,7 @@ async function handler(page, context) {
 
             }
         })
-    }, subcategory, category,node)
+    })
 
     console.log('data length_____', data.length, 'url:', url)
 
