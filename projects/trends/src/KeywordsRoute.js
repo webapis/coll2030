@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import groupNames from './keywords-editor/groupNames';
 import KeywordEditor from './keywords-editor/KeywordsEditor';

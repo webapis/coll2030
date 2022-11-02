@@ -15,7 +15,7 @@ import Switch from '@mui/material/Switch';
 import { Button } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 
-import AppBarComponent from '../AppBarComponent';
+
 
 export default function Keywords() {
 

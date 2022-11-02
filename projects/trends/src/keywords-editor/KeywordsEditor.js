@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 import LoadingButton from '@mui/lab/LoadingButton';
 import { AppContext } from '../KeywordsRoute';
-import AppBarComponent from '../AppBarComponent';
+
 export default function KeywordEditor() {
     const navigate = useNavigate()
 

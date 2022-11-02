@@ -1,8 +1,5 @@
 import React from 'react';
-import { Routes, Route, HashRouter } from "react-router-dom";
 
-import ByBrandCollected from './collected-reports/ByBrandCollected'
-import groupNames from './keywords-editor/groupNames';
 import AppBarComponent from './AppBarComponent';
 import ReportSelector from './collected-reports/ReportSelector';
 import ReportList from './collected-reports/ReportList';
