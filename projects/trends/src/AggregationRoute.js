@@ -5,9 +5,7 @@ import ReportSelector from './collected-reports/ReportSelector';
 import ReportList from './collected-reports/ReportList';
 export const AggregationContext = React.createContext();
 
-const initState = {
-    report: ''
-}
+
 
 export default class AggregationRoute extends React.Component {
 
