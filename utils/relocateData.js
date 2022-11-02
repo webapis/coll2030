@@ -5,7 +5,7 @@ const path = require('path')
 const makeDir = require('make-dir');
 const { walkSync } = require('./walkSync')
 
-const { generateAggregationReport } = require('./report/generateAggregationReport')
+
 
 console.log('--------------------------------------------------------------')
 
@@ -81,4 +81,4 @@ if (fs.existsSync(path.join(process.cwd(), `updated-data`))) {
 
 }
 
-generateAggregationReport()
+
