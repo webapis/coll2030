@@ -1,5 +1,5 @@
 const { countTotal, countByBrand, countByBrandDeleted, countBySubcategory,countBySubcategoryDeleted,countTotalCollected,countTotalCollectedByBrand,countTotalCollectedBySubcategory } = require('./util')
-const fs =require('fs')
+
 require('dotenv').config()
 function countTotalUpdated() {
 
@@ -24,12 +24,11 @@ function countBySubcategoryUpdated() {
   countTotalCollectedBySubcategory(`data/${process.env.WEBSITE}`,`projects/trends/public/reports/total-collected-by-subcategory.json`)
 }
 
-function generateUpdatedReport() {
+
     countTotalUpdated()
    // countByBrandUpdated()
   countBySubcategoryUpdated()
 
-}
 
 
-module.exports = { generateUpdatedReport }
+

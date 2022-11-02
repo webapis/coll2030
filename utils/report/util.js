@@ -145,76 +145,44 @@ function countTotalCollectedByBrand(dirpath, reportFilePath){
 }
 
 function countTotalCollectedBySubcategory(dirpath, reportFilePath){
-debugger
-    const dirs = fs.readdirSync(`${process.cwd()}/urls/${process.env.WEBSITE}`)
-    
-    const folderPath = path.join(process.cwd(), `${dirpath}`)
-    if(fs.existsSync(folderPath)){
+    const keywords = require(`${process.cwd()}/api/_files/nav/keywords.json`)
+
+    const categories = keywords.filter(f => f.keywordType === 'category')
+    const categoriesCallected = Object.values(require(`${process.cwd()}/src/category-nav-counter.json`)).flat()
+    const previousreport = require(`${process.cwd()}/projects/trends/public/reports/total-collected-by-subcategory.json`)
     const date = new Date().toISOString()
-    const brandNames = dirs.map(m => m.replace('.js', ''))
-
- 
-    let markas = {}
-    const reportPath = path.join(process.cwd(), `${reportFilePath}`)
-    const reportexists = fs.existsSync(reportPath)
-    if (reportexists) {
-        const previousreport = JSON.parse(fs.readFileSync(reportPath, { encoding: 'utf-8' }))
-        markas = previousreport
-        for (let m of brandNames) {
-        
-            const current = require(`${process.cwd()}/urls/${process.env.WEBSITE}/${m}`)
-            const mappedurls = current.urls.map(m => m.subcategory).flat()
-            const uniquedata = [...new Set(mappedurls)];
-            const props = Object.assign({}, uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {}))
-            if (markas[m] === undefined) {
-                markas[m] = {
-                    ...props
-                }
-            }
-
-        }
-    } else {
-        for (let m of brandNames) {
-            const current = require(`${process.cwd()}/urls/${m}`)
-            const mappedurls = current.urls.map(m => m.subcategory).flat()
-            const uniquedata = [...new Set(mappedurls)];
-            const props = Object.assign({}, uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {}))
-            if (markas[m] === undefined) {
-                markas[m] = {
-                    ...props
-                }
-            }
-
-        }
+    debugger
+    for (let cat of categories) {
+    
+      let count = categoriesCallected.find(f => f.title === cat.title).count
+      let precountExist = previousreport.find(f => f.title === cat.title)
+      //previously counted and last time also counted
+      if (precountExist && count) {
+    
+        precountExist.data = [...precountExist.data, { date, total: count }]
+      }
+      //first time count counted
+      else if (!precountExist && count) {
+    
+        previousreport.push({ data: [{ date, total: count }], title: cat.title })
+      }
+      //counting missed
+      else if (precountExist && !count) {
+    
+        precountExist = { data: [{ date, total: 0 }], title: cat.title }
+      }
+    
+    
     }
     
-
-    walkSync(folderPath, (filepath) => {
-
-        const fileName = filepath.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
-        const marka = fileName[8]
-        debugger
-        const subcategory = fileName[10]
-        debugger
-        if (markas[marka][subcategory] === undefined) {
-            markas[marka][subcategory] = { data: { [date]: 0 } }
-        }
-        if (markas[marka][subcategory].data === undefined) {
-            markas[marka][subcategory].data = { [date]: 0 }
-        }
-        if (markas[marka][subcategory].data[date] === undefined) {
-            markas[marka][subcategory].data[date] = 0
-        }
-        markas[marka][subcategory].data[date] = markas[marka][subcategory].data[date] + 1
-
-
-    })
-
-    debugger
-    fs.writeFileSync(reportPath, JSON.stringify(markas))
     
-
-}
+    
+    const updatedReport = previousreport
+    debugger
+    fs.unlinkSync('./projects/trends/public/reports/total-collected-by-subcategory.json')
+    fs.writeFileSync('./projects/trends/public/reports/total-collected-by-subcategory.json', JSON.stringify(updatedReport))
+    
+    debugger
 }
 
 function countByBrand(dirpath, reportFilePath) {

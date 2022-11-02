@@ -1,6 +1,38 @@
-const title ='Kapüşonlu Fermuarlı Yağmurluk'
-const keyword ='Kap'
-const regex ='(^|\\s)'+keyword+'(\\s|\\b)'.replace(' ','')
-const result =title.split(' ').find(f=>f===keyword)?true:false
+const keywords = require(`${process.cwd()}/api/_files/nav/keywords.json`)
+const fs = require('fs')
+const categories = keywords.filter(f => f.keywordType === 'category')
+const categoriesCallected = Object.values(require(`${process.cwd()}/src/category-nav-counter.json`)).flat()
+const previousreport = require(`${process.cwd()}/projects/trends/public/reports/total-collected-by-subcategory.json`)
+const date = new Date().toISOString()
+debugger
+for (let cat of categories) {
+
+  let count = categoriesCallected.find(f => f.title === cat.title).count
+  let precountExist = previousreport.find(f => f.title === cat.title)
+  //previously counted and last time also counted
+  if (precountExist && count) {
+
+    precountExist.data = [...precountExist.data, { date, total: count }]
+  }
+  //first time count counted
+  else if (!precountExist && count) {
+
+    previousreport.push({ data: [{ date, total: count }], title: cat.title })
+  }
+  //counting missed
+  else if (precountExist && !count) {
+
+    precountExist = { data: [{ date, total: 0 }], title: cat.title }
+  }
+
+
+}
+
+
+
+const updatedReport = previousreport
+debugger
+fs.unlinkSync('./projects/trends/public/reports/total-collected-by-subcategory.json')
+fs.writeFileSync('./projects/trends/public/reports/total-collected-by-subcategory.json', JSON.stringify(updatedReport))
 
 debugger
