@@ -149,7 +149,7 @@ function countTotalCollectedBySubcategory() {
 
     const categories = keywords.filter(f => f.keywordType === 'category')
     const categoriesCallected = Object.values(require(`${process.cwd()}/src/category-nav-counter.json`)).flat()
-    const previousreport = require(`${process.cwd()}/projects/trends/public/reports/total-collected-by-subcategory.json`)
+    const previousreport = require(`${process.cwd()}/projects/trends/public/reports/total-collected-by-subcategory-bar.json`)
     const date = new Date().toISOString()
     debugger
     for (let cat of categories) {
@@ -182,8 +182,8 @@ function countTotalCollectedBySubcategory() {
 
     const updatedReport = previousreport
     debugger
-    fs.unlinkSync('./projects/trends/public/reports/total-collected-by-subcategory.json')
-    fs.writeFileSync('./projects/trends/public/reports/total-collected-by-subcategory.json', JSON.stringify(updatedReport))
+    fs.unlinkSync('./projects/trends/public/reports/total-collected-by-subcategory-bar.json')
+    fs.writeFileSync('./projects/trends/public/reports/total-collected-by-subcategory-bar.json', JSON.stringify(updatedReport))
 
     debugger
 }
