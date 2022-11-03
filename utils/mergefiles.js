@@ -23,7 +23,7 @@
             .map(dirent => dirent.name)
 
     const dirnames = getDirectories(path.join(process.cwd(), `data/${website}`))
-    const promises = []
+
     for (let dirName of dirnames) {
 
         console.log('dirname merge started', dirName)
@@ -118,9 +118,6 @@
             }
 
 
-            Promise.all(promises).then((m) => {
-                console.log('done')
-            })
 
         }
         console.log('dirname merged', dirName)
@@ -128,6 +125,8 @@
 
 
     }
+
+    
     debugger
 
     async function saveToOther({ marka, d }) {
