@@ -28,7 +28,8 @@ export default function ReportSelector() {
           <MenuItem value='total-deleted'>Deleted</MenuItem>
           <MenuItem value='total-newdata'>New Data</MenuItem>
           <MenuItem value='total-updated'>Updated</MenuItem>
-          <MenuItem value='total-collected-by-subcategory'>Collected Subcategories</MenuItem>
+          <MenuItem value='total-collected-by-subcategory-bar'>Collected Subcategories bar</MenuItem>
+          <MenuItem value='collected-subcategory-pie'>Collected Subcategories pie</MenuItem>
           <MenuItem value='by-subcategory-deleted'>Deleted Subcategories</MenuItem>
           <MenuItem value='by-subcategory-updated'>Updated Subcategories</MenuItem>
         </Select>
