@@ -19,19 +19,21 @@ export default function ReportSelector() {
           label="Reports"
           onChange={setReport}
         >
-
-          <MenuItem value='by-brand-collected'>Brand Collected</MenuItem>
+         <MenuItem value='total-collected-bar'>Total Collected Bar</MenuItem>
+          <MenuItem value='total-collected-by-brand-bar'>Brand Collected Bar</MenuItem>
+         <MenuItem value='total-collected-by-subcategory-bar'>Collected Subcategories bar</MenuItem>
+          <MenuItem value='collected-subcategory-pie'>Collected Subcategories pie</MenuItem>
+          {/* <MenuItem value='by-brand-collected'>Brand Collected</MenuItem>
           <MenuItem value='by-brand-updated'>Brand Updated</MenuItem>
           <MenuItem value='by-brand-deleted'>Brand Deleted</MenuItem>
           <MenuItem value='by-brand-newdata'>Brand NewData</MenuItem>
-          <MenuItem value='total-collected'>Collected</MenuItem>
+         
           <MenuItem value='total-deleted'>Deleted</MenuItem>
           <MenuItem value='total-newdata'>New Data</MenuItem>
           <MenuItem value='total-updated'>Updated</MenuItem>
-          <MenuItem value='total-collected-by-subcategory-bar'>Collected Subcategories bar</MenuItem>
-          <MenuItem value='collected-subcategory-pie'>Collected Subcategories pie</MenuItem>
+         
           <MenuItem value='by-subcategory-deleted'>Deleted Subcategories</MenuItem>
-          <MenuItem value='by-subcategory-updated'>Updated Subcategories</MenuItem>
+          <MenuItem value='by-subcategory-updated'>Updated Subcategories</MenuItem> */}
         </Select>
       </FormControl>
     }}</AggregationContext.Consumer>

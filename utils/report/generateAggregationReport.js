@@ -6,14 +6,14 @@ function countTotalUpdated() {
  // countTotal('updated-data', `projects/trends/public/reports/total-updated.json`)
  // countTotal('old-data', `projects/trends/public/reports/total-deleted.json`)
   countTotal('collected-data', `projects/trends/public/reports/total-newdata.json`)
-  countTotalCollected(`data/${process.env.WEBSITE}`,`projects/trends/public/reports/total-collected.json`)
+  countTotalCollected(`data/${process.env.WEBSITE}`,`projects/trends/public/reports/total-collected-bar.json`)
 }
 
 function countByBrandUpdated() {
-  countByBrand('updated-data', `projects/trends/src/reports/updated/by-brand-updated.json`)
-  countByBrand('collected-data', `projects/trends/src/reports/updated/by-brand-newdata.json`)
-  countByBrandDeleted('old-data', `projects/trends/src/reports/updated/by-brand-deleted.json`)
-  countTotalCollectedByBrand('projects/dream/data',`projects/trends/src/reports/updated/total-collected-by-brand.json`)
+ // countByBrand('updated-data', `projects/trends/src/reports/updated/by-brand-updated.json`)
+ // countByBrand('collected-data', `projects/trends/src/reports/updated/by-brand-newdata.json`)
+ // countByBrandDeleted('old-data', `projects/trends/src/reports/updated/by-brand-deleted.json`)
+  countTotalCollectedByBrand()
 }
 
 function countBySubcategoryUpdated() {
@@ -27,8 +27,8 @@ function countBySubcategoryUpdated() {
 
 
     countTotalUpdated()
-   // countByBrandUpdated()
-  countBySubcategoryUpdated()
+    countByBrandUpdated()
+    countBySubcategoryUpdated()
 
 
 
