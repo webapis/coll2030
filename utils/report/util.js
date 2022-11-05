@@ -5,10 +5,10 @@ const fs = require('fs')
 const makeDir = require('make-dir')
 function countTotal(dirpath, reportFilePath) {
     const folderPath = path.join(process.cwd(), `${dirpath}`)
-    debugger
+
     if (fs.existsSync(folderPath)) {
 
-        debugger
+
         let total = 0
         const date = new Date().toISOString()
         walkSync(folderPath, async (file) => {
@@ -26,14 +26,14 @@ function countTotal(dirpath, reportFilePath) {
         })
         const savePath = path.join(process.cwd(), `${reportFilePath}`)
         if (fs.existsSync(savePath)) {
-            debugger
+
             let data = JSON.parse(fs.readFileSync(savePath, { encoding: 'utf-8' }))
-            debugger
+
             fs.writeFileSync(savePath, JSON.stringify([...data, { date, total }]))
 
 
         } else {
-            debugger
+
             fs.writeFileSync(savePath, JSON.stringify([{ date, total }]))
 
         }
@@ -62,86 +62,92 @@ function countTotalCollected(dirpath, reportFilePath) {
         if (fs.existsSync(savePatha)) {
 
             let data = JSON.parse(fs.readFileSync(savePatha, { encoding: 'utf-8' }))
+            fs.unlinkSync(savePatha)
+            if (data.length === 0) {
+      
+                fs.writeFileSync(savePatha, JSON.stringify([{ data: [{ date, total }] }]))
+            } else {
+           
+                fs.writeFileSync(savePatha, JSON.stringify([{ data: [...data[0].data, { date, total }] }]))
+            }
+  
 
 
-
-            fs.writeFileSync(savePatha, JSON.stringify([...data, { date, total }]))
 
         } else {
-            fs.writeFileSync(savePatha, JSON.stringify([{ date, total }]))
+            fs.writeFileSync(savePatha, JSON.stringify([{ data: [{ date, total }] }]))
 
         }
     }
 }
 
 
-function countTotalCollectedByBrand(dirpath, reportFilePath) {
-    const dirs = fs.readdirSync(`${process.cwd()}/urls`)
-    const folderPath = path.join(process.cwd(), `${dirpath}`)
+function countTotalCollectedByBrand() {
 
+    const dirpath = `data/${process.env.WEBSITE}`
+    const reportPath = path.join(`${process.cwd()}`, `projects/trends/public/reports/total-collected-by-brand-bar.json`)
+    const previousreport = JSON.parse(fs.readFileSync(path.join(`${process.cwd()}`, `projects/trends/public/reports/total-collected-by-brand-bar.json`), { encoding: 'utf-8' }))
+    debugger
+    const dirs = fs.readdirSync(`${process.cwd()}/urls/${process.env.WEBSITE}`)
+    debugger
+    const folderPath = path.join(process.cwd(), `${dirpath}`)
+    const date = new Date().toISOString()
+    debugger
     if (fs.existsSync(folderPath)) {
         let markas = {}
-        const date = new Date().toISOString()
-        dirs.map(m => m.replace('.js', '')).map(m => {
-            if (markas[m] === undefined) {
-
-                markas[m] = { data: { [date]: 0 } }
-            }
-
-            return null
-        })
-
-        const reportPath = path.join(process.cwd(), `${reportFilePath}`)
-        const reportexists = fs.existsSync(reportPath)
-        if (reportexists) {
-            const previousreport = JSON.parse(fs.readFileSync(reportPath, { encoding: 'utf-8' }))
-            markas = previousreport
-            dirs.map(m => m.replace('.js', '')).map(m => {
-                if (markas[m] === undefined) {
-
-                    markas[m] = { data: { [date]: 0 } }
-                }
-                if (markas[m].data[date] === undefined) {
-                    markas[m] = { data: { ...markas[m].data, [date]: 0 } }
-                }
-
-                return null
-            })
-        } else {
-
-            dirs.map(m => m.replace('.js', '')).map(m => {
-                if (markas[m] === undefined) {
-
-                    markas[m] = { data: { [date]: 0 } }
-                }
-                if (markas[m].data[date] === undefined) {
-                    markas[m] = { data: { ...markas[m].data, [date]: 0 } }
-                }
-                return null
-            })
-        }
-
-
+    
         walkSync(folderPath, (filepath) => {
-
+    
             const fileName = filepath.replace(/[\\]/g, "-").replace(/[/]/g, "-").split('-')
-            const marka = fileName[9]
-
-
+            const marka = fileName[8]
+    
             if (markas[marka] === undefined) {
-
-                markas[marka] = { data: { [date]: 0 } }
+    
+                markas[marka] = { data: { count: 0 } }
             }
-            markas[marka].data[date] = markas[marka].data[date] + 1
-
-
+            markas[marka].data.count = markas[marka].data.count + 1
+    
         })
-
-
-        fs.writeFileSync(reportPath, JSON.stringify(markas))
-
-
+        for (let m of dirs) {
+            const current = m.replace('.js', '')
+            debugger
+    
+    
+    
+            const obj = markas[current]
+     
+            if (obj) {
+                const exists = previousreport.length > 0 && previousreport.find(f => f.title === current)
+                if (exists) {
+                    exists.data = [...exists.data, { date, total: obj.data.count }]
+    
+                } else {
+                    previousreport.push({ title: current, data: [{ date, total: obj.data.count }] })
+                    debugger
+                }
+    
+            }else{
+                const exists = previousreport.length > 0 && previousreport.find(f => f.title === current)
+                if (exists) {
+                    exists.data = [...exists.data, { date, total: 0 }]
+    
+                } else {
+                    previousreport.push({ title: current, data: [{ date, total: 0 }] })
+                    debugger
+                } 
+            }
+    
+    
+    
+            debugger
+    
+        }
+    
+        fs.writeFileSync(reportPath, JSON.stringify(previousreport))
+    
+    
     }
+    
 }
 
 function countTotalCollectedBySubcategory() {
@@ -151,7 +157,7 @@ function countTotalCollectedBySubcategory() {
     const categoriesCallected = Object.values(require(`${process.cwd()}/src/category-nav-counter.json`)).flat()
     const previousreport = require(`${process.cwd()}/projects/trends/public/reports/total-collected-by-subcategory-bar.json`)
     const date = new Date().toISOString()
-    debugger
+
     for (let cat of categories) {
 
         let count = categoriesCallected.find(f => f.title === cat.title).count
@@ -181,11 +187,11 @@ function countTotalCollectedBySubcategory() {
 
 
     const updatedReport = previousreport
-    debugger
+
     fs.unlinkSync('./projects/trends/public/reports/total-collected-by-subcategory-bar.json')
     fs.writeFileSync('./projects/trends/public/reports/total-collected-by-subcategory-bar.json', JSON.stringify(updatedReport))
 
-    debugger
+
 }
 
 function countTotalCollectedBySubcategoryPie() {
@@ -195,17 +201,17 @@ function countTotalCollectedBySubcategoryPie() {
     const categoriesCallected = Object.values(require(`${process.cwd()}/src/category-nav-counter.json`)).flat()
     const previousreport = require(`${process.cwd()}/projects/trends/public/reports/collected-subcategory-pie.json`)
     const date = new Date().toISOString()
-    debugger
+
 
 
 
 
     const updatedReport = [...previousreport, { data: categoriesCallected, date }]
-    debugger
+
     fs.unlinkSync('./projects/trends/public/reports/collected-subcategory-pie.json')
     fs.writeFileSync('./projects/trends/public/reports/collected-subcategory-pie.json', JSON.stringify(updatedReport))
 
-    debugger
+
 
 }
 function countByBrand(dirpath, reportFilePath) {
