@@ -1,6 +1,6 @@
 
  import ReactDOM from 'react-dom/client';
- import TagManager from 'react-gmt-module'
+ import TagManager from 'react-gtm-module'
 import App from './App'
 
 const tagManagerArgs = {
