@@ -1,6 +1,15 @@
 
  import ReactDOM from 'react-dom/client';
+ import TagManager from 'react-gmt-module'
 import App from './App'
+
+const tagManagerArgs = {
+    gtmId: 'GTM-MMJQR6C',
+   // dataLayerName: 'PageDataLayer'
+}
+ 
+TagManager.initialize(tagManagerArgs)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
  root.render(
 
