@@ -4,12 +4,15 @@
 
     require('dotenv').config()
     console.log('--------------------------------------------------------------')
+    const plimit = require('p-limit')
 
     const path = require('path')
     const makeDir = require('make-dir');
     const { walkSync } = require('./walkSync')
     const { productTitleMatch } = require('../netlify/functions/productTitleMatch')
     const fs = require('graceful-fs')
+    const limit = plimit(5);
+
     console.log('--------------------------------------------------------------')
 
 
@@ -25,92 +28,40 @@
     const dirnames = getDirectories(path.join(process.cwd(), `data/${website}`))
 
     for (let dirName of dirnames) {
-
+        const functionObj = { diger: {} }
+        debugger
         console.log('dirname merge started', dirName)
-        let obj = {}
+
+        let markaProducts = []
         walkSync(path.join(process.cwd(), `data/${website}/${dirName}`), async (filepath) => {
 
-            //console.log(filepath)
-
-            const dirName = path.dirname(filepath)
             const data = JSON.parse(fs.readFileSync(filepath))
-
-            if (obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] === undefined) {
-                obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [data]
-            }
-            else {
-                obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")] = [...obj[dirName.replace(/[\\]/g, "-").replace(/[/]/g, "-")], data]
-            }
+            markaProducts.push(data)
 
         })
-        const categoryKeywords = keywords.filter(f => f.keywordType === 'category')
 
-        for (let o in obj) {
-            // console.log(o)
-            const s = o.split('-').reverse()
-
-            const marka = s[0]
-            const data = obj[o]
-
-            for (let d of data) {
-                const { title } = d
-
-                var machfound = false
-                for (let k of categoryKeywords) {
+        let i = 0
+        for (let mp of markaProducts) {
+            i++
+            const { title, marka } = mp
+            const categoryKeywords = keywords.filter(f => f.keywordType === 'category')
+            var machfound = false
+            for (let k of categoryKeywords) {
 
 
-                    const nws = k.exclude !== '' ? k.exclude.split(',') : []
-                    const match = productTitleMatch({ kw: k.keywords, nws, title })
-                    if (match) {
-                        await saveToFunctionName({ k, marka, d })
-
-                        // const savePath = path.join(process.cwd(), `api/_files/data/${k.functionName}/${marka}.json`)
-                        // console.log('savePath', savePath)
-                        // if (fs.existsSync(savePath)) {
-
-                        //     const data = fs.readFileSync(savePath, { encoding: 'utf8' })
-                        //     const dataObj = JSON.parse(data)
-                        //     const previouslyAdded = dataObj.find(f => f.link === d.link)
-                        //     if (!previouslyAdded) {
-                        //         fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
-                        //     }
-
-
-                        // }
-                        // else {
-
-                        //     makeDir.sync(path.dirname(savePath))
-                        //     fs.writeFileSync(savePath, JSON.stringify([d]))
-
-                        // }
-
-                        machfound = true
-                        //  break;
+                const nws = k.exclude !== '' ? k.exclude.split(',') : []
+                const match = productTitleMatch({ kw: k.keywords, nws, title })
+                if (match) {
+                    if (functionObj[k.functionName] === undefined) {
+                        functionObj[k.functionName] = {}
                     }
+                    if (functionObj[k.functionName][marka] === undefined) {
+                        functionObj[k.functionName][marka] = []
+                    }
+                    functionObj[k.functionName][marka] = [...functionObj[k.functionName][marka], mp]
 
-
-                }
-
-
-                if (machfound === false) {
-
-                    // const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
-                    // if (fs.existsSync(savePath)) {
-
-                    //     const data = fs.readFileSync(savePath, { encoding: 'utf8' })
-                    //     const dataObj = JSON.parse(data)
-
-                    //     fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
-
-                    // }
-                    // else {
-
-                    //     makeDir.sync(path.dirname(savePath))
-                    //     fs.writeFileSync(savePath, JSON.stringify([d]))
-
-                    // }
-                    await saveToOther({ marka, d })
-
+                    machfound = true
+                    //  break;
 
                 }
 
@@ -118,50 +69,75 @@
             }
 
 
+            if (machfound === false) {
+                if (functionObj['diger'][marka] === undefined) {
+                    functionObj['diger'][marka] = []
+                }
+                functionObj['diger'][marka] = [...functionObj['diger'][marka], mp]
 
+            }
+            if (i === markaProducts.length) {
+                for(let fnName in functionObj){
+                    const current =functionObj[fnName][marka]
+                    const savePath = path.join(process.cwd(), `api/_files/data/${fnName}/${marka}.json`)
+                    makeDir.sync(path.dirname(savePath))
+                    debugger
+                    if(current && current.length>0){
+                        fs.writeFileSync(savePath, JSON.stringify(current))
+                    }
+                    else{
+                        console.log('current',current,fnName, marka)
+                    }
+                
+                    debugger
+                }
+
+            }
         }
+
+        debugger
+
         console.log('dirname merged', dirName)
 
 
-
     }
 
-    
+
     debugger
 
-    async function saveToOther({ marka, d }) {
+    function saveToOther({ marka, d }) {
         const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
-        const exists = await existsAsync(savePath)
+        const exists = fs.existsSync(savePath)
         if (exists) {
-            const data = await fs.promises.readFile(savePath, { encoding: 'utf8' })
+            const data = fs.readFileSync(savePath, { encoding: 'utf8' })
             const dataObj = JSON.parse(data)
 
-            await fs.promises.writeFile(savePath, JSON.stringify([...dataObj, d]))
+            fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
         } else {
-            await makeDir(path.dirname(savePath))
-            await fs.promises.writeFile(savePath, JSON.stringify([d]))
+            makeDir.sync(path.dirname(savePath))
+            fs.writeFileSync(savePath, JSON.stringify([d]))
         }
     }
 
 
 
-    async function saveToFunctionName({ k, marka, d }) {
+    function saveToFunctionName({ k, marka, d }) {
 
 
         const savePath = path.join(process.cwd(), `api/_files/data/${k.functionName}/${marka}.json`)
 
 
-        const exists = await existsAsync(savePath)
+        const exists = fs.existsSync(savePath)
         debugger
 
         if (exists) {
-            const data = await fs.promises.readFile(savePath, { encoding: 'utf8' })
+            const data = fs.readFileSync(savePath, { encoding: 'utf8' })
             const dataObj = JSON.parse(data)
 
-            await fs.promises.writeFile(savePath, JSON.stringify([...dataObj, d]))
+            fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
         } else {
-            await makeDir(path.dirname(savePath))
-            await fs.promises.writeFile(savePath, JSON.stringify([d]))
+            makeDir.sync(path.dirname(savePath))
+            fs.writeFileSync(savePath, JSON.stringify([d]))
         }
 
 
@@ -169,14 +145,6 @@
 
 
 
-    function existsAsync(path) {
 
-        return new Promise(function (resolve, reject) {
-            fs.exists(path, function (exists) {
-                resolve(exists);
-
-            })
-        })
-    }
 
 })()
