@@ -45,7 +45,7 @@
 
   //await genNav({ functionName: 'diger' })
 
-  process.exit(0)
+//  process.exit(0)
 
 })()
 
