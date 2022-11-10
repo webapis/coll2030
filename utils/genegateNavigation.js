@@ -10,25 +10,25 @@
     await genNav({ functionName: 'two' })
 
     await genNav({ functionName: 'three' })
- 
+
     await genNav({ functionName: 'four' })
 
     await genNav({ functionName: 'five' })
-   
+
     await genNav({ functionName: 'six' })
-  
+
     await genNav({ functionName: 'seven' })
 
     await genNav({ functionName: 'eight' })
 
     await genNav({ functionName: 'nine' })
-  
+
     await genNav({ functionName: 'ten' })
- 
+
 
 
   } catch (error) {
-    console.log('folder is empty')
+    console.log('folder is empty', error)
   }
 
 
@@ -123,7 +123,7 @@ async function genNav({ functionName }) {
 
               }
             } catch (error) {
-debugger
+              debugger
             }
 
           } else {
@@ -151,7 +151,7 @@ debugger
 
             return f.index.replace('-', '') === index
           })
-          if (match && k.functionName ===functionName) {
+          if (match && k.functionName === functionName) {
 
             if (catCounter[groupName] === undefined) {
               catCounter[groupName] = {}
@@ -317,8 +317,8 @@ debugger
     }
 
   }
-debugger
-  if(fs.existsSync(path.join(process.cwd(), `src/category-nav-counter.json`))){
+  debugger
+  if (fs.existsSync(path.join(process.cwd(), `src/category-nav-counter.json`))) {
     fs.unlinkSync(path.join(process.cwd(), `src/category-nav-counter.json`))
   }
 
@@ -380,21 +380,26 @@ debugger
   debugger
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
-
+  fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
   for (let cimage in catImages) {
-    if (cimage === '1') {
+    try {
+      const curr = catImages[cimage]
+      const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
+      if (fs.existsSync(imageIndexPath)) {
       
+        const prevData = JSON.parse(fs.readFileSync(imageIndexPath, { encoding: 'utf-8' }))
+        fs.unlinkSync(imageIndexPath)
+        fs.appendFileSync(imageIndexPath, JSON.stringify({ ...prevData, ...curr }));
+      } else {
+        fs.appendFileSync(imageIndexPath, JSON.stringify(curr));
+      }
+    } catch (error) {
+      console.log('image-indexes', error)
+      throw error
     }
 
-    const curr = catImages[cimage]
-    const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
-    if (fs.existsSync(imageIndexPath)) {
-      const prevData = JSON.parse(fs.readFileSync(imageIndexPath, { encoding: 'utf-8' }))
-      fs.unlinkSync(imageIndexPath)
-      fs.appendFileSync(imageIndexPath, JSON.stringify({ ...prevData, ...curr }));
-    } else {
-      fs.appendFileSync(imageIndexPath, JSON.stringify(curr));
-    }
+
+
 
 
   }
