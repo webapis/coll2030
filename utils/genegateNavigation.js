@@ -380,7 +380,7 @@ async function genNav({ functionName }) {
   debugger
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
-  fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
+//  fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
 
   for (let cimage in catImages) {
     try {
