@@ -381,10 +381,12 @@ async function genNav({ functionName }) {
   fs.appendFileSync(path0, JSON.stringify(firstPart));
   fs.appendFileSync(path1, JSON.stringify(secondPart));
   fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
+
   for (let cimage in catImages) {
     try {
       const curr = catImages[cimage]
       const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
+      makeDir.sync(path.join(process.cwd(), `public/image-indexes`))
       if (fs.existsSync(imageIndexPath)) {
       
         const prevData = JSON.parse(fs.readFileSync(imageIndexPath, { encoding: 'utf-8' }))
