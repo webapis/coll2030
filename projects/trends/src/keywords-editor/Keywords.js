@@ -46,7 +46,7 @@ export default function Keywords() {
                     navigate('/keywords/editor')
                 }
                 return <Container>
-                   {filteredGroupName.groupName !==''&& <Button onClick={handleAdd}>Add Keywords</Button>}
+                   {filteredGroupName &&  filteredGroupName.groupName !==''&& <Button onClick={handleAdd}>Add Keywords</Button>}
                     <KeywordsFilter filterKeyword={filterKeyword} />
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
