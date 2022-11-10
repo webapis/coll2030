@@ -39,6 +39,15 @@ jobs:
       - name: generate keywords
         id: generatekeywords
         run: node utils/generateKeywords.js
+      - name: merge files
+        id: mergefiles
+        run: node utils/mergefiles.js
+      - name: generate navigation
+        id: generatenavigation
+        run: node utils/genegateNavigation.js
+      - name: generate agregation report
+        id: genagrep
+        run: node utils/report/generateAggregationReport.js
       - name: Commit report
         run: |
           git config --global user.name 'Serdar Ashirov'
