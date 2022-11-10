@@ -8,7 +8,7 @@
     const fs = require('fs')
     const path = require('path')
     const plimit = require('p-limit')
-    const limit = plimit(4);
+    const limit = plimit(3);
     fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
     const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
     await Promise.all(fnNames.map((name) => {
@@ -406,7 +406,7 @@ async function genNav({ functionName }) {
       const curr = catImages[cimage]
       const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
       await makeDir(path.join(process.cwd(), `public/image-indexes`))
-      if (await fs.promises.exists(imageIndexPath)) {
+      if (await existsAsync(imageIndexPath)) {
         const rawData = await fs.promises.readFile(imageIndexPath, { encoding: 'utf-8' })
         const prevData = JSON.parse(rawData)
         await fs.promises.unlink(imageIndexPath)
