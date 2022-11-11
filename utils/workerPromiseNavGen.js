@@ -2,7 +2,7 @@
 const {
     Worker, isMainThread
 } = require('node:worker_threads');
-function workerPromise({ functionName }) {
+async function workerPromise({ functionName }) {
 console.log('workerPromise functionName--',functionName)
     if (isMainThread) {
 

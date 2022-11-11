@@ -15,7 +15,7 @@
 
             console.log('functionName', functionName)
             if (fs.existsSync(path.join(process.cwd(), `api/_files/data/${functionName}`))) {
-                return limit(() => workerPromise({ functionName }))
+                return limit(async () =>await workerPromise({ functionName }))
             }
             else return null
 
