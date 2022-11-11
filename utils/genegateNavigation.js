@@ -5,6 +5,7 @@ console.log('--------------GEN NAV DATA STARTED-------------')
 const {
  parentPort, workerData
 } = require('node:worker_threads');
+console.log('workerData---',workerData)
 const { functionName } = workerData
 
 genNav({ functionName })
