@@ -6,9 +6,9 @@ const {
  parentPort, workerData
 } = require('node:worker_threads');
 console.log('workerData---',workerData)
-const { functionName } = workerData
+//const { functionName } = workerData
 
-genNav({ functionName })
+//genNav({ functionName })
 
 async function genNav({ functionName }) {
 
