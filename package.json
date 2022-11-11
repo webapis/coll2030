@@ -55,7 +55,7 @@
     "relocatedata": "node utils/relocateData.js",
     "genKeywords": "node utils/generateKeywords.js",
     "mergefiles": "node utils/mergefiles.js",
-    "generateNavigation": "node utils/genegateNavigation.js",
+    "generateNavigation": "node utils/NavGenRunner.js",
     "generateAgrRep": "node utils/report/generateAggregationReport.js",
     "dev": "netlify dev",
     "vercel:dev": "vercel dev",

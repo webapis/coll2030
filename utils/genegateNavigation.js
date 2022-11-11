@@ -1,74 +1,24 @@
 
 
 
-(async () => {
-  console.log('--------------GEN NAV DATA STARTED-------------')
+console.log('--------------GEN NAV DATA STARTED-------------')
+const {
+ parentPort, workerData
+} = require('node:worker_threads');
+const { functionName } = workerData
 
-  try {
-    const fs = require('fs')
-    const path = require('path')
-    const plimit = require('p-limit')
-    const limit = plimit(3);
-    fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-    const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
-    await Promise.all(fnNames.map((name) => {
-
-      console.log('name', name)
-      return limit(() => genNav({ functionName: name }))
-    }))
-
-
-    // genNav({ functionName: 'two' })
-
-    // genNav({ functionName: 'three' })
-
-    // genNav({ functionName: 'four' })
-
-    // genNav({ functionName: 'five' })
-
-    // genNav({ functionName: 'six' })
-
-    // genNav({ functionName: 'seven' })
-
-    // genNav({ functionName: 'eight' })
-
-    // genNav({ functionName: 'nine' })
-
-    // genNav({ functionName: 'ten' })
-
-
-
-  } catch (error) {
-    console.log('folder is empty', error)
-  }
-
-
-  //await genNav({ functionName: 'diger' })
-
-//  process.exit(0)
-
-})()
-
-//
+genNav({ functionName })
 
 async function genNav({ functionName }) {
-  function existsAsync(path) {
 
-    return new Promise(function (resolve, reject) {
-      fs.exists(path, function (exists) {
-        resolve(exists);
-
-      })
-    })
-  }
   const path = require('path')
   const makeDir = require('make-dir');
-  const categoryNav = require(path.join(process.cwd(), `src/category-nav.json`))
+
   const fs = require('fs')
   const folder = path.join(process.cwd(), `api/_files/data/${functionName}`)
-
-  const files = await fs.promises.readdir(folder)
-
+ 
+  const files = await fs.readdirSync(folder)
+debugger
 
   console.log('files.length', files.length)
 
@@ -86,8 +36,6 @@ async function genNav({ functionName }) {
   }
 
   const { productTitleMatch } = require('../netlify/functions/productTitleMatch')
-
-
 
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
   const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat')
@@ -316,34 +264,7 @@ async function genNav({ functionName }) {
   let regrouped = []
 
 
-  //map product couter
-  for (let c in catCounter) {
-    const current = catCounter[c]
-    for (let v in current) {
-      const { count } = current[v]
-
-      const curNav = categoryNav[c].map(m => {
-
-        if (m.title === v) {
-          return { ...m, count: m.count ? m.count + count : count }
-        } else {
-          return m
-        }
-
-      })
-      categoryNav[c] = curNav
-
-    }
-
-  }
-  debugger
-  if (await existsAsync(path.join(process.cwd(), `src/category-nav-counter.json`))) {
-    await fs.promises.unlink(path.join(process.cwd(), `src/category-nav-counter.json`))
-  }
-
-  await fs.promises.appendFile(path.join(process.cwd(), `src/category-nav-counter.json`), JSON.stringify(categoryNav));
-  //----------------
-
+ 
 
   for (let nk in navKeys) {
 
@@ -385,48 +306,46 @@ async function genNav({ functionName }) {
 
 
   const savePathDir = path.join(process.cwd(), `api/_files/key/${functionName}`)
-  await makeDir(savePathDir)
+  makeDir.sync(savePathDir)
 
   const path0 = path.join(process.cwd(), `api/_files/key/${functionName}`, '0-keywords.json')
   const path1 = path.join(process.cwd(), `api/_files/key/${functionName}`, '1-keywords.json')
 
-  if (await existsAsync(path0)) {
-    await fs.promises.unlink(path0)
+  if (fs.existsSync(path0)) {
+    fs.unlinkSync(path0)
   }
-  if (await existsAsync(path1)) {
-    await fs.promises.unlink(path1)
-  }
-  debugger
-  await fs.promises.appendFile(path0, JSON.stringify(firstPart));
-  await fs.promises.appendFile(path1, JSON.stringify(secondPart));
-  //  fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-
-  for (let cimage in catImages) {
-    try {
-      const curr = catImages[cimage]
-      const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
-      await makeDir(path.join(process.cwd(), `public/image-indexes`))
-      if (await existsAsync(imageIndexPath)) {
-        const rawData = await fs.promises.readFile(imageIndexPath, { encoding: 'utf-8' })
-        const prevData = JSON.parse(rawData)
-        await fs.promises.unlink(imageIndexPath)
-        await fs.promises.appendFile(imageIndexPath, JSON.stringify({ ...prevData, ...curr }));
-      } else {
-        await fs.promises.appendFile(imageIndexPath, JSON.stringify(curr));
-      }
-    } catch (error) {
-      console.log('image-indexes', error)
-      throw error
-    }
-
-
-
-
-
+  if (fs.existsSync(path1)) {
+    fs.unlinkSync(path1)
   }
 
+  fs.appendFileSync(path0, JSON.stringify(firstPart));
+  fs.appendFileSync(path1, JSON.stringify(secondPart));
 
-  console.log('end....1')
+
+
+  // for (let cimage in catImages) {
+  //   debugger
+  //   try {
+  //     const curr = catImages[cimage]
+  //     const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
+  //     makeDir.sync(path.join(process.cwd(), `public/image-indexes`))
+  //     if (fs.existsSync(imageIndexPath)) {
+  //       const rawData = fs.readFileSync(imageIndexPath, { encoding: 'utf-8' })
+  //       const prevData = JSON.parse(rawData)
+  //       fs.unlinkSync(imageIndexPath)
+  //       fs.appendFileSync(imageIndexPath, JSON.stringify({ ...prevData, ...curr }));
+  //     } else {
+  //       fs.appendFileSync(imageIndexPath, JSON.stringify(curr));
+  //     }
+  //   } catch (error) {
+  //     console.log('image-indexes', error)
+  //     throw error
+  //   }
+
+  // }
+debugger
+  parentPort.postMessage(JSON.stringify({catCounter,catImages}))
+  // console.log('end....',functionName)
 
 }
 
