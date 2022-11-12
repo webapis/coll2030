@@ -79,7 +79,7 @@ jobs:
         run: node utils/mergefiles.js
       - name: generate navigation
         id: generatenavigation
-        run: node utils/genegateNavigation.js
+        run: node utils/NavGenRunner.js
       - name: generate agregation report
         id: genagrep
         run: node utils/report/generateAggregationReport.js
