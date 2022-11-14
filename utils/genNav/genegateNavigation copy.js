@@ -3,7 +3,7 @@
 
 console.log('--------------GEN NAV DATA STARTED-------------')
 const {
- parentPort, workerData
+  parentPort, workerData
 } = require('node:worker_threads');
 
 const { functionName } = workerData
@@ -12,14 +12,18 @@ genNav({ functionName })
 
 async function genNav({ functionName }) {
 
+
+  
   const path = require('path')
   const makeDir = require('make-dir');
-
+  const plimit = require('p-limit')
+  const limit = plimit(5);
+  const { workerIndex } = require('./dataCollWorker/workerIndex')
   const fs = require('fs')
   const folder = path.join(process.cwd(), `api/_files/data/${functionName}`)
- 
+
   const files = await fs.readdirSync(folder)
-debugger
+  debugger
 
   console.log('files.length', files.length)
 
@@ -36,11 +40,11 @@ debugger
 
   }
 
-  const { productTitleMatch } = require('../netlify/functions/productTitleMatch')
+  const { productTitleMatch } = require('../../netlify/functions/productTitleMatch')
 
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
   const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat')
-
+debugger
   let navKeys = { ['0-']: { matchingKeywords: [], keywords: {} } }
   let navKeysWithCatKeys = {}
   let catImages = {}
@@ -219,6 +223,8 @@ debugger
   })//end
 
   try {
+
+debugger
     for (let f in navKeysWithCatKeys) {
       //find category index
       const categoryIndexes = f.split('-').filter(f => f !== '')
@@ -249,8 +255,6 @@ debugger
       }
 
 
-
-
     }
 
   } catch (error) {
@@ -265,7 +269,7 @@ debugger
   let regrouped = []
 
 
- 
+
 
   for (let nk in navKeys) {
 
@@ -344,8 +348,8 @@ debugger
   //   }
 
   // }
-debugger
-  parentPort.postMessage(JSON.stringify({catCounter,catImages}))
+  debugger
+  parentPort.postMessage(JSON.stringify({ catCounter, catImages }))
   // console.log('end....',functionName)
 
 }
@@ -376,8 +380,17 @@ function getCombinations(chars) {
 }
 
 
-
+function splitToChunks(array, parts) {
+  let result = [];
+  for (let i = parts; i > 0; i--) {
+      result.push(array.splice(0, Math.ceil(array.length / i)));
+  }
+  return result;
+}
 function generateRandomInteger(max) {
   return Math.floor(Math.random() * max);
 }
+
+
+
 module.exports = { getCombinations }

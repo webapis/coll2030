@@ -5,12 +5,12 @@
     const plimit = require('p-limit')
     const makeDir = require('make-dir')
     const { workerPromise } = require('./workerPromiseNavGen')
-    const limit = plimit(10);
+    const limit = plimit(3);
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-         const fnNames = ['one', 'two', 'three','four', 'five', 'six', 'seven','eight', 'nine','ten', 'diger']
-        //  const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
-     //   const fnNames = ['ten']
+      //   const fnNames = ['one', 'two', 'three','four', 'five', 'six', 'seven','eight', 'nine','ten', 'diger']
+       //   const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
+       const fnNames = ['one']
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -78,7 +78,7 @@
         debugger
 
         for (let cimage in catImages) {
-            debugger
+      
             try {
 
                 const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
