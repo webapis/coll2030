@@ -57,7 +57,7 @@ jobs:
           git config --global user.email 'webapis@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}
           git add .
-          git commit -m "Automated report. Generate Keywords."
+          git commit -m "Automated report. Generate Keywords.."
           git push
 
           
