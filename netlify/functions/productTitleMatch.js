@@ -6,7 +6,7 @@ function productTitleMatch({ kw, title, nws }) {
      
 
     const match = kw.split(',').some(function (keyword) {
-      let  regex ='(^|\\s)'+keyword+'(\\s|\\b)'.replace(' ','')
+     // let  regex ='(^|\\s)'+keyword+'(\\s|\\b)'.replace(' ','')
         if (nws.length > 0) {
             if (nws.filter((f) => title.indexOf(f) !== -1).length > 0) {
                 return false
@@ -14,7 +14,7 @@ function productTitleMatch({ kw, title, nws }) {
 
                // if (exactmatch) {
          
-                    return title.toLowerCase().match(new RegExp(regex))//.replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
+                    return title.toLowerCase().split(' ').find(f=>f===keyword.toLowerCase())//.replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
                // } else {
 
                  //   return title.toLowerCase().replace(/\s/g, ',').split(',').filter(f => f === keyword || f.indexOf(keyword) === 0).length > 0
@@ -23,7 +23,7 @@ function productTitleMatch({ kw, title, nws }) {
 
         } else {
            // if (exactmatch) {
-                return title.toLowerCase().match(new RegExp(regex))//.replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
+                return title.toLowerCase().split(' ').find(f=>f===keyword.toLowerCase())//.replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
             //}// else {
               //  return title.toLowerCase().replace(/\s/g, ',').split(',').filter(f => f === keyword || f.indexOf(keyword) === 0).length > 0
           //  }
