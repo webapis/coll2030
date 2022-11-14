@@ -8,7 +8,7 @@ function productTitleMatch({ kw, title, nws }) {
     const match = kw.split(',').some(function (keyword) {
      // let  regex ='(^|\\s)'+keyword+'(\\s|\\b)'.replace(' ','')
         if (nws.length > 0) {
-            if (nws.filter((f) => title.indexOf(f) !== -1).length > 0) {
+            if (nws.filter((f) => title.toLowerCase().indexOf(f.toLowerCase()) !== -1).length > 0) {
                 return false
             } else {
 
