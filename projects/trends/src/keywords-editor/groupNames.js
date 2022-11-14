@@ -13,7 +13,7 @@ const arr = [
     {id:10, name: 'Bel yüksekliği', keywordType: 'keyword' },
     {id:11, name: 'Seçenekler', keywordType: 'keyword' },
     {id:12, name: 'Konsept', keywordType: 'keyword' },
-    {id:13, name: 'Yaka Tipi', keywordType: 'keyword' },
+    {id:13, name: 'Yaka tipi', keywordType: 'keyword' },
     {id:14, name: 'Kol tipi', keywordType: 'keyword' },
     {id:15, name: 'Kol boyu', keywordType: 'keyword' },
     {id:16, name: 'Desen', keywordType: 'keyword' },
