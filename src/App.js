@@ -216,6 +216,7 @@ export default class App extends React.Component {
       this.fetchProducts(startAt)
 
       if (selectedNavIndex === '') {
+        debugger
         this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
       } else {
 
@@ -229,8 +230,11 @@ export default class App extends React.Component {
   }
 
   async fetchProducts(start) {
+    try {
+      
+   
     const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
-
+debugger
     let host = ''
     let href = window.location.href
     if (href === 'http://localhost:8888/') {
@@ -266,11 +270,15 @@ export default class App extends React.Component {
 
     return
 
+  } catch (error) {
+      debugger
+  }
+
   }
 
   async fetchNavKeywords(selectedNavIndex, subcategory) {
 
-    
+    debugger
     let productImgIndexes
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
@@ -319,6 +327,8 @@ export default class App extends React.Component {
           console.log('indexFound--------', indexFound)
         }
 
+      } else{
+        debugger
       }
 
       if (fn === 1) {

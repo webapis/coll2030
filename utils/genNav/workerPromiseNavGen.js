@@ -8,7 +8,7 @@ console.log('workerPromise functionName--',functionName)
 
         return new Promise((resolve, reject) => {
             const encode_worker = new Worker(`${process.cwd()}/utils/genNav/genegateNavigation.js`, { workerData: { functionName } });
-debugger
+
             // encode_worker.on('message', (transcode_data) => {
             //     log.info("%o", transcode_data);
             //     resolve(transcode_data);

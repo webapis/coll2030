@@ -9,13 +9,9 @@ function productTitleMatch({ kw, title, nws }) {
             // let  regex ='(^|\\s)'+keyword+'(\\s|\\b)'.replace(' ','')
             if (nws.length > 0) {
                 if (nws.filter((f) => {
-                    if (f.toLowerCase() === 'şal detaylı') {
-                        debugger
-                    }
+              
                     const exists = title.toLowerCase().indexOf(f.toLowerCase()) !== -1
-                    if (f.toLowerCase() === 'şal detaylı') {
-                        debugger
-                    }
+             
                     return exists
                 }).length > 0) {
 
