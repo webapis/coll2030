@@ -29,7 +29,7 @@
 
     for (let dirName of dirnames) {
         const functionObj = { diger: {} }
-        debugger
+        
         console.log('dirname merge started', dirName)
 
         let markaProducts = []
@@ -50,6 +50,7 @@
 
 
                 const nws = k.exclude !== '' ? k.exclude.split(',') : []
+      
                 const match = productTitleMatch({ kw: k.keywords, nws, title })
                 if (match) {
                     if (functionObj[k.functionName] === undefined) {
@@ -81,7 +82,7 @@
                     const current =functionObj[fnName][marka]
                     const savePath = path.join(process.cwd(), `api/_files/data/${fnName}/${marka}.json`)
                     makeDir.sync(path.dirname(savePath))
-                    debugger
+                
                     if(current && current.length>0){
                         fs.writeFileSync(savePath, JSON.stringify(current))
                     }
@@ -89,13 +90,13 @@
                         console.log('current',current,fnName, marka)
                     }
                 
-                    debugger
+                
                 }
 
             }
         }
 
-        debugger
+        
 
         console.log('dirname merged', dirName)
 
@@ -103,7 +104,7 @@
     }
 
 
-    debugger
+    
 
     function saveToOther({ marka, d }) {
         const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
@@ -128,7 +129,7 @@
 
 
         const exists = fs.existsSync(savePath)
-        debugger
+        
 
         if (exists) {
             const data = fs.readFileSync(savePath, { encoding: 'utf8' })

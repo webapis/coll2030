@@ -2,217 +2,446 @@
 
 
 (async () => {
-  console.log('--------------REMOVING DUBLICATE DATA STARTED-------------')
-  const { importData, exportData } = require('../utils/mongoDb')
+  console.log('--------------GEN NAV DATA STARTED-------------')
 
-  await importData({ collectionName: 'data', folder: 'data' })
+  try {
+    await genNav({ functionName: 'one' })
+    await genNav({ functionName: 'two' })
+    await genNav({ functionName: 'three' })
+    await genNav({ functionName: 'four' })
+    await genNav({ functionName: 'five' })
+    await genNav({ functionName: 'six' })
+    await genNav({ functionName: 'seven' })
+    await genNav({ functionName: 'eight' })
+    await genNav({ functionName: 'nine' })
+    await genNav({ functionName: 'ten' })
 
-  await genNav()
+
+  } catch (error) {
+    console.log('folder is empty')
+  }
 
 
+  await genNav({ functionName: 'diger' })
 
-  await exportData({ exportPath: `${process.cwd()}/api/_files/kadin/data.json`, collectionName: 'data', aggegation: [] })
-  console.log('-------------REMOVING DUBLICATE DATA COMPLETE---------------')
   process.exit(0)
 
 })()
 
+//
 
+async function genNav({ functionName }) {
 
-
-
-async function genNav() {
-
-
-
-
-  var TAFFY = require('taffy');
-  const fs = require('fs')
-  const { mongoClient } = require('../utils/mongoDb')
-  const { productTitleMatch } = require('../api/kadin/productTitleMatch')
+  const path = require('path')
   const makeDir = require('make-dir');
+  const categoryNav = require(path.join(process.cwd(), `src/category-nav.json`))
+  const fs = require('fs')
+  const folder = path.join(process.cwd(), `api/_files/data/${functionName}`)
 
-  const dataCollection = await mongoClient({ collectionName: 'data' })
+  const files = fs.readdirSync(folder)
 
-  await makeDir('public/nav-keywords')
-  await makeDir(`public/nav-data/elbise`)
-  const categoryNav = {}
-  const { getCombinations } = require('../nav-keys/combination')
 
-  const allkeywords = fs.existsSync(`${process.cwd()}/api/_files/kadin/keywords.json`) && require(`${process.cwd()}/api/_files/kadin/keywords.json`)
-  let navKeys = { start: { navMatch: [], keywords: {} } }
+  console.log('files.length', files.length)
 
-  let objCounter = 0
-  await dataCollection.find().forEach(async (object) => {
+  const dataCollection = []
+  for (let file of files) {
+    try {
+      const data = fs.readFileSync(`${folder}/${file}`, { encoding: 'utf8' })
 
-    ++objCounter
-    console.log('objCounter...', objCounter)
-    const { subcategory, title, imageUrl, marka } = object
-    if (categoryNav[subcategory] === undefined) {
-      categoryNav[subcategory] = { count: 0 }
-    }
-    else {
-      categoryNav[subcategory].count = categoryNav[subcategory].count + 1
+      const dataObjectArr = JSON.parse(data)
+      dataCollection.push(...dataObjectArr)
+    } catch (error) {
+      console.log('folder is empty')
     }
 
-    let navMatchCollection = []
+  }
+
+  const { productTitleMatch } = require('../netlify/functions/productTitleMatch')
+
+
+
+  const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
+  const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat')
+
+  let navKeys = { ['0-']: { matchingKeywords: [], keywords: {} } }
+  let navKeysWithCatKeys = {}
+  let catImages = {}
+  let catCounter = {}
+  dataCollection.forEach(async (object) => {
+
+
+    const { title, priceNew, imageUrl, marka } = object
+
+
+
     if (title) {
 
-      let matchfound = false
-
-      const keywords = allkeywords[subcategory]
-
-
+      const keywords = allkeywords
       if (keywords && keywords.length > 0) {
+        //--------------------------FIND MATCHING KEYWORDS WITHING PRODUCT NAME
+        const matchingKeywords = keywords.map((m) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
 
 
-        const navMatch = keywords.map((m, i) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
-
-          //  let parentKeyWord = kws.parentkey
           let exactmatch = kws.exactmatch
-          let negwords = kws.negwords
-          //  let keywordTitle = kws.title
-          //   let group = kws.group
+          let negwords = kws.exclude
 
-          let nws = []
-          if (negwords) {
-            nws = negwords.split(',')
+
+
+
+          if (kws.groupName === 'Fiyat') {
+            const priceRange = kws.keywords.split('-').map(m => parseInt(m).toFixed(2))
+            const startPrice = parseFloat(priceRange[0])
+            const endPrice = parseFloat(priceRange[1])
+
+            try {
+              const price = priceNew.toString().replace('.', '').replace(',', '.')
+              const productPrice = parseFloat(price)
+              if (endPrice) {
+                if (productPrice >= startPrice && productPrice <= endPrice) {
+                  return true
+                } else {
+                  return false;
+                }
+              }
+              else {
+
+                if (productPrice >= startPrice) {
+                  return true
+                } else {
+                  return false
+                }
+
+              }
+            } catch (error) {
+
+            }
+
+          } else {
+
+            let nws = []
+            if (negwords) {
+              nws = negwords.split(',')
+
+            }
+            const kw = kws.keywords
+
+            const match = productTitleMatch({ kw, title, exactmatch, nws })
+
+            return match
+          }
+
+        })
+        // if (matchingKeywords.length > 0) {
+
+        //   matchingKeywords.forEach(kws => {
+        //     let keywordType = kws.keywordType
+        //     let groupName = kws.groupName
+        //     if (keywordType === 'category') {
+        //       if (catCounter[groupName] === undefined) {
+        //         catCounter[groupName] = {}
+        //       }
+        //       if (catCounter[groupName][kws.title] === undefined) {
+        //         catCounter[groupName][kws.title] = { count: 1 }
+        //       } else {
+
+        //         catCounter[groupName][kws.title].count = catCounter[groupName][kws.title].count + 1
+        //       }
+        //     }
+        //   })
+
+
+        // }
+
+        for (let k of categoryKeywords) {
+          const { index, groupName } = k
+          if (title.includes('trençkot') && k.title==='trençkot') {
+            console.log('groupName',groupName)
+            debugger
+          }
+
+          const match = matchingKeywords.find(f => {
+
+            return f.index.replace('-', '') === index
+          })
+          if (match) {
+
+            if (catCounter[groupName] === undefined) {
+              catCounter[groupName] = {}
+            }
+            if (catCounter[groupName][k.title] === undefined) {
+              catCounter[groupName][k.title] = { count: 1 }
+            } else {
+
+              catCounter[groupName][k.title].count = catCounter[groupName][k.title].count + 1
+            }
 
           }
 
-          const kw = kws.keyword
-          const match = productTitleMatch({ kw, title, exactmatch, nws })
 
+        }
 
-          return match
-        })
+        //-------------------------IF MATCHING KEYWORDS FOUND------------------------------------------------------------------------------
+        if (matchingKeywords.length > 0) {
 
-        if (navMatch.length > 0) {
-          navMatchCollection.push(navMatch)
+          const possibleCombination = getCombinations(matchingKeywords.map((m) => m.index))
 
-          const possibleCombination = getCombinations(navMatch.map((m) => m.index))
+          possibleCombination.forEach(async (c, h) => {
 
-          possibleCombination.forEach(async (comb) => {
+            const comb = c.split('-').filter(f => f !== '').map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
 
             if (navKeys[comb] === undefined) {
               navKeys[comb] = { keywords: {} }
             }
-            navMatch.forEach(nm => {
-              const { keyword, group, index } = nm
 
-              if (navKeys[comb].keywords[keyword] === undefined) {
+            matchingKeywords.forEach(nm => {
+              const { index, title } = nm
+              if (comb === '1-') {
 
-                navKeys[comb].keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka }
+              }
+
+
+              const fnd = categoryKeywords.filter(f => comb.split('-').filter(f => f !== '').includes(f.index))
+
+
+              fnd.forEach(ds => {
+                const c = ds ? true : false
+
+                if (c) {
+                  if (navKeysWithCatKeys[comb] === undefined) {
+                    navKeysWithCatKeys[comb] = { keywords: {} }
+                  }
+
+                  if (navKeysWithCatKeys[comb].keywords[title] === undefined) {
+
+                    navKeysWithCatKeys[comb].keywords[title] = { count: 1, index, c, imageUrls: [{ src: imageUrl, title: object.title, marka }] }
+                  }
+                  else {
+                    const count = navKeysWithCatKeys[comb].keywords[title].count
+                    const imageUrls = navKeysWithCatKeys[comb].keywords[title].imageUrls
+
+                    navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title, marka }] }
+                  }
+                }
+
+              })
+
+
+
+              if (navKeys[comb].keywords[title] === undefined) {
+
+                navKeys[comb].keywords[title] = { count: 1, index }
               }
               else {
-                const count = navKeys[comb].keywords[keyword].count
-                navKeys[comb].keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka }
+                const count = navKeys[comb].keywords[title].count
+                navKeys[comb].keywords[title] = { count: count + 1, index }
               }
 
             })
 
-
-
           })
 
-          navMatch.forEach(nm => {
-            const { keyword, group, index } = nm
+          matchingKeywords.forEach(nm => {
+            const { index, title } = nm
 
-            if (navKeys.start.keywords[keyword] === undefined) {
+            if (navKeys['0-'].keywords[title] === undefined) {
 
-              navKeys.start.keywords[keyword] = { count: 1, group: group.trim(), index, imageUrl, marka }
+              navKeys['0-'].keywords[title] = { count: 1, index, c: false }
             }
             else {
-              const count = navKeys.start.keywords[keyword].count
-              navKeys.start.keywords[keyword] = { count: count + 1, group: group.trim(), index, imageUrl, marka }
+              const count = navKeys['0-'].keywords[title].count
+              navKeys['0-'].keywords[title] = { count: count + 1, index, c: false }
             }
-
           })
+
 
         }
 
 
       }
 
+    }
+  })//end
+
+  try {
+    for (let f in navKeysWithCatKeys) {
+      //find category index
+      const categoryIndexes = f.split('-').filter(f => f !== '')
+      const fnd = categoryKeywords.find(f => categoryIndexes.includes(f.index))
+
+      const current = navKeysWithCatKeys[f]
+      const keywords = current.keywords
+
+      for (let k in keywords) {
+
+        const cur = keywords[k]
+        const randomImage = cur.imageUrls.length === 1 ? 0 : generateRandomInteger(cur.imageUrls.length)
 
 
+
+        if (catImages[fnd.index] === undefined) {
+          catImages[fnd.index] = { [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
+
+        } else {
+
+          if (catImages[fnd.index][cur.index] === undefined) {
+
+            catImages[fnd.index] = { ...catImages[fnd.index], [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
+          }
+
+        }
+
+      }
 
 
 
 
     }
-  })//end
 
-  fs.rmSync(`${process.cwd()}/public/nav-data`, { recursive: true, force: true });
+  } catch (error) {
+    console.log(error)
+
+  }
+
 
 
   console.log('nav gen complete')
 
   let regrouped = []
+
+  debugger
+
+  //map product couter
+  for (let c in catCounter) {
+    const current = catCounter[c]
+    for (let v in current) {
+      const { count } = current[v]
+
+      const curNav = categoryNav[c].map(m => {
+
+        if (m.title === v) {
+          return { ...m, count: m.count ? m.count + count : count }
+        } else {
+          return m
+        }
+
+      })
+      categoryNav[c] = curNav
+
+    }
+
+  }
+
+
+  fs.unlinkSync(path.join(process.cwd(), `src/category-nav.json`))
+  fs.appendFileSync(path.join(process.cwd(), `src/category-nav.json`), JSON.stringify(categoryNav));
+  //----------------
+
+
   for (let nk in navKeys) {
+
     const { keywords } = navKeys[nk]
 
-    const map = Object.entries(keywords).map((m) => { return { ...m[1], keyword: m[0] } })
+    const map = Object.entries(keywords).map((m) => { return { ...m[1] } }).map(m => {
 
-    const navKeywords = map.reduce((prev, curr) => {
-
-      if (prev[curr.group] === undefined) {
-        return { ...prev, [curr.group]: { keywords: [{ keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka }] } }
-      } else {
-
-
-        return {
-          ...prev, [curr.group]: { keywords: [...prev[curr.group].keywords, { keyword: curr.keyword, index: curr.index, count: curr.count, imageUrl: curr.imageUrl, marka: curr.marka }] }
-        }
-      }
-
-    }, {})
-
-    const sorted = Object.entries(navKeywords).map((m, i) => {
-      const groupName = m[0]
-
-      const keywords = m[1]['keywords'].sort(function (a, b) {
-        var textA = a.keyword.toUpperCase();
-        var textB = b.keyword.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      })
-
-      return { groupName, keywords }
-    }).sort(function (a, b) {
-      var textA = a.groupName.toUpperCase();
-      var textB = b.groupName.toUpperCase();
-      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      return [m.count, m.index]
     })
 
-    regrouped.push({ index: nk, keywords: sorted })
 
+    const id = parseInt(nk.replace(/-/g, '').trim())
+
+    regrouped.push({ i: nk, k: map, id })
 
   }
-  debugger
-  await makeDir(`api/_files/nav`)
-  if (fs.existsSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)) {
-    fs.unlinkSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`)
-  }
-  fs.appendFileSync(`${process.cwd()}/api/_files/nav/nav-keywords.json`, JSON.stringify(regrouped));
 
-  if (fs.existsSync(`${process.cwd()}/src/category-nav.json`)) {
-    fs.unlinkSync(`${process.cwd()}/src/category-nav.json`)
-  }
-  const categoryAsArray = Object.entries(categoryNav).map(c => {
-    debugger
-    return {subcategory:c[0],total:c[1].count}
-  }).sort((a, b) => {
-    debugger
-    var textA = a['subcategory'].toUpperCase();
-    var textB = b['subcategory'].toUpperCase();
-    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+  const sorted = regrouped.sort((a, b) => {
+
+
+    return a.id - b.id
   })
-  fs.appendFileSync(`${process.cwd()}/src/category-nav.json`, JSON.stringify(categoryAsArray));
+
+  debugger
+  const mapped = sorted.map(s => {
+    const { id } = s
+    const fn = id % 2
+    return { ...s, fn }
+
+  })
+
+  const firstPart = mapped.filter((f) => f.fn === 0).map(m => { return { i: m.i, k: m.k } })
+  const secondPart = mapped.filter((f) => f.fn === 1).map(m => { return { i: m.i, k: m.k } })
+
+
+
+
+
+
+
+  const savePathDir = path.join(process.cwd(), `api/_files/key/${functionName}`)
+  await makeDir(savePathDir)
+
+  const path0 = path.join(process.cwd(), `api/_files/key/${functionName}`, '0-keywords.json')
+  const path1 = path.join(process.cwd(), `api/_files/key/${functionName}`, '1-keywords.json')
+
+  if (fs.existsSync(path0)) {
+    fs.unlinkSync(path0)
+  }
+  if (fs.existsSync(path1)) {
+    fs.unlinkSync(path1)
+  }
+  fs.appendFileSync(path0, JSON.stringify(firstPart));
+  fs.appendFileSync(path1, JSON.stringify(secondPart));
+
+  for (let cimage in catImages) {
+    if (cimage === '1') {
+      debugger
+    }
+
+    const curr = catImages[cimage]
+    const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
+    if (fs.existsSync(imageIndexPath)) {
+      const prevData = JSON.parse(fs.readFileSync(imageIndexPath, { encoding: 'utf-8' }))
+      fs.unlinkSync(imageIndexPath)
+      fs.appendFileSync(imageIndexPath, JSON.stringify({ ...prevData, ...curr }));
+    } else {
+      fs.appendFileSync(imageIndexPath, JSON.stringify(curr));
+    }
+
+
+  }
+
+
   console.log('end....1')
-
-
 
 }
 
 
 
+function sliceIntoChunks(arr, chunkSize) {
+  const res = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    const chunk = arr.slice(i, i + chunkSize);
+    res.push(chunk);
+  }
+  return res;
+}
+
+
+
+function getCombinations(chars) {
+  var result = [];
+  var f = function (prefix, chars) {
+    for (var i = 0; i < chars.length; i++) {
+      result.push(prefix + chars[i]);
+      f(prefix + chars[i], chars.slice(i + 1));
+    }
+  }
+  f('', chars);
+  return result;
+}
+
+
+
+function generateRandomInteger(max) {
+  return Math.floor(Math.random() * max);
+}
+module.exports = { getCombinations }

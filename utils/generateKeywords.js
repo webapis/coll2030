@@ -26,10 +26,10 @@ debugger
 
     let datas = await collection.find({ $or: [ { disabled: { $exists: false } }, { disabled: {$eq:false} } ] }).toArray()
 debugger
-    let categoryItems = datas.map((m)=>{
+    let categoryItems = datas.map((m,i)=>{
         const mappedData =m
         delete mappedData['_id']
-        return mappedData})
+        return {...mappedData,index:(i+1).toString()}})
 
 
 

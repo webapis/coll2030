@@ -36,7 +36,7 @@ debugger
             const includes = splittedKeywordsIndex.includes(f.index)
             return includes
         })
-debugger
+
 
         const title = this.title
         const priceNew = this.priceNew
@@ -48,14 +48,14 @@ debugger
             let groupName=kws.groupName
             let index =parseInt(  kws.index.replace('-','') )
             if (groupName==='Fiyat') {
-                debugger
+       
               
                     const priceRange = kws.keywords.split('-').map(m => parseInt(m).toFixed(2))
-                    debugger
+             
                     const startPrice = parseFloat(priceRange[0])
-                    debugger
+                  
                     const endPrice = parseFloat(priceRange[1])
-                    debugger
+                  
                
              
                 try {

@@ -79,10 +79,13 @@ jobs:
         run: node utils/mergefiles.js
       - name: generate navigation
         id: generatenavigation
-        run: node utils/genegateNavigation.js
+        run: node utils/genNav/NavGenRunner.js
       - name: generate agregation report
         id: genagrep
         run: node utils/report/generateAggregationReport.js
+      - name: build
+        id: build
+        run: npm run build
       - name: Commit report
         run: |
           git config --global user.name 'Serdar Ashirov'
