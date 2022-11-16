@@ -84,17 +84,17 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
             }
 
             return <Grid key={a} item xs={colTop}>
-                <Paper sx={{ margin: 1, padding: 1 }}>
+                <Paper elevation={0}  sx={{ margin: 1, padding: 1 }}>
                     <Grid container>
 
-                        <Grid item xs={12} sx={{ marginBottom: 2 }}>   <Divider>{groupName}</Divider> </Grid>
+                        <Grid item xs={12} sx={{ marginBottom: 2 }}>   <Divider id={groupName}> <Chip  size="small" label={groupName} /></Divider> </Grid>
 
                         {keywords.map((m,i) => {
                             const { keywordTitle, imageUrl: { title, src: imageSrc, marka } } = productImgIndexes[m[1]]
                             const total = m[0]
                             const index = m[1]
                             const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
-                            return <Grid key={i} xs={4} sm={colBottom} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp title={title} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={keywordTitle} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom></Typography></Tooltip></Grid>
+                            return <Grid key={i} xs={3} sm={colBottom} item sx={{ display: 'flex', flexDirection: 'column' }}><Badge max={999} color='info' badgeContent={total} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp title={title} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={keywordTitle} imageWidth={imageWidth} /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom></Typography></Tooltip></Grid>
                         })}
 
                     </Grid>

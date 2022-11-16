@@ -54,7 +54,7 @@ export default function CategoryNavContainer({ subcategories, products, fetching
 
 
 function SearchProductCategory({ subcategories, selectSubcategory }) {
-  const [state, setState] = useState()
+  const [state, setState] = useState({title:''})
   const flatten = Object.values(subcategories.map(m => m[1])).flat()
 
   function handleInputChange(event, value) {
@@ -62,7 +62,7 @@ function SearchProductCategory({ subcategories, selectSubcategory }) {
     const findSelectedObj = flatten.find(f => {
       return f.title === value
     })
-
+debugger
     setState(findSelectedObj)
     
     
@@ -74,10 +74,10 @@ function SearchProductCategory({ subcategories, selectSubcategory }) {
       <Autocomplete
         sx={{ width: 500 }}
         id="free-solo-demo"
-        inputValue=''
+        inputValue={state.title}
         onInputChange={handleInputChange}
         options={flatten.map((option) => option.title)}
-        renderInput={(params) => <div style={{ display: 'flex' }}><TextField {...params} label="Ürün kategorileri" /><Button variant="outlined" onClick={()=>selectSubcategory({functionName:state.functionName,index:state.index})}>Ara</Button></div>}
+        renderInput={(params) => <div style={{ display: 'flex' }}><TextField {...params} label="Ürün kategorileri" /><Button disabled={state.title===''} variant="outlined" onClick={()=>selectSubcategory({functionName: state.functionName, index: state.index, groupName: state.groupName, keywordType: state.keywordType})}>Ara</Button></div>}
       />
 
 

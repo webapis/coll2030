@@ -29,15 +29,15 @@ export default class App extends React.Component {
 
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
-       //  document.getElementById("navbar").style.top = "63px";
+        //  document.getElementById("navbar").style.top = "0";
 
-      //  document.getElementById('navbar').style.visibility = "visible"
+        // document.getElementById('static-nav').style.visibility = "visible"
 
       } else {
 
-      //  document.getElementById("navbar").style.top = "-260px";
+        //document.getElementById("navbar").style.top = "-260px";
 
-       // document.getElementById('navbar').style.visibility = "hidden"
+        // document.getElementById('static-nav').style.visibility = "hidden"
       }
       prevScrollpos = currentScrollPos;
 
@@ -216,7 +216,7 @@ export default class App extends React.Component {
       this.fetchProducts(startAt)
 
       if (selectedNavIndex === '') {
-        
+        debugger
         this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
       } else {
 
@@ -231,54 +231,54 @@ export default class App extends React.Component {
 
   async fetchProducts(start) {
     try {
-
-
-      const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
       
-      let host = ''
-      let href = window.location.href
-      if (href === 'http://localhost:8888/') {
-        host = 'http://localhost:8888/.netlify/functions'
+   
+    const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
+debugger
+    let host = ''
+    let href = window.location.href
+    if (href === 'http://localhost:8888/') {
+      host = 'http://localhost:8888/.netlify/functions'
+    } else {
+      if (href !== 'https://www.biraradamoda.com') {
+        host = 'https://development--coll2030.netlify.app/.netlify/functions'
       } else {
-        if (href !== 'https://www.biraradamoda.com') {
-          host = 'https://development--coll2030.netlify.app/.netlify/functions'
-        } else {
-          host = 'https://coll2030.netlify.app/.netlify/functions'
-        }
-
-
+        host = 'https://coll2030.netlify.app/.netlify/functions'
       }
 
 
-
-
-
-      var url = `${host}/${subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
-
-
-      const response = await fetch(url, { cache: 'default' })
-      const data = await response.json()
-
-
-      const { data: products, count } = data
-
-
-      this.setState(state => ({
-        ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
-      }))
-      this.scrollHandled = false
-
-      return
-
-    } catch (error) {
-      
     }
+
+
+
+
+
+    var url = `${host}/${subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
+
+
+    const response = await fetch(url, { cache: 'default' })
+    const data = await response.json()
+
+
+    const { data: products, count } = data
+
+
+    this.setState(state => ({
+      ...state, products: state.startAt === 0 ? products : [...state.products, ...products], fetchingProduct: false, availableProducts: count, startAt: state.startAt + products.length
+    }))
+    this.scrollHandled = false
+
+    return
+
+  } catch (error) {
+      debugger
+  }
 
   }
 
   async fetchNavKeywords(selectedNavIndex, subcategory) {
 
-    
+    debugger
     let productImgIndexes
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
@@ -327,8 +327,8 @@ export default class App extends React.Component {
           console.log('indexFound--------', indexFound)
         }
 
-      } else {
-        
+      } else{
+        debugger
       }
 
       if (fn === 1) {
@@ -386,7 +386,7 @@ export default class App extends React.Component {
 
 
       })
-
+      
 
 
       return {
@@ -414,28 +414,20 @@ export default class App extends React.Component {
 
       <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
       {matchedesktop && selectedSubcategory &&
-      <Container>
-        <Grid
-          container
-          spacing={0}
-
-          justifyContent="center"
-          style={{ minHeight: '100vh' }}
-        >
-          <Grid  xs={2} item style={{  }}>
-
-            <KeywordsList />
-</Grid>
-
-            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 80 }}>
-            
-
-              <ProductList />
+        <Container>
+          <Grid container>
+            <Grid item xs={3} >
+              <KeywordsList />
             </Grid>
-
+            <Grid item xs={9}>
+              <div style={{ display: 'flex', flexDirection: 'column', marginTop: 80 }}>
+                <TabContainer />
+   
+                <ProductList />
+              </div>
+            </Grid>
           </Grid>
-
-          </Container>
+        </Container>
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}> <TabContainer /><ProductList /></div>  </div>)}
