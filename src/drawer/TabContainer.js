@@ -15,7 +15,7 @@ export default function TabContainer() {
                 <Tab label="Bulunanlar" index={1} />
                
             </Tabs> 
-        <SearchBox/>
+ 
                 </div>
          
        

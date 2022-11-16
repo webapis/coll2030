@@ -9,7 +9,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
+
 import ListItemText from '@mui/material/ListItemText';
 import subcatObj from '../category-nav-counter.json'
 const categories = Object.values(subcatObj).flat()
@@ -18,9 +18,9 @@ export default function KeywordsList() {
         (({ navKeywords }) => {
 
 
-            return <div style={{position:'relative'}}>
+            return <div style={{ position: 'relative' }}>
 
-                <div style={{    paddingTop: 100, position:'fixed'}}>
+                <div style={{ paddingTop: 100, position: 'fixed' }}>
                     <div>
                         <CategoryNav />
                     </div>
@@ -28,14 +28,21 @@ export default function KeywordsList() {
                         {navKeywords && navKeywords.map((m, i) => {
 
                             const { groupName, keywords } = m
-                          
+                  
+                   
+                            return <ListItemButton onClick={() => {
+                                
+                                const ancortab = document.getElementById('ancc')
 
-                            return      <ListItemButton
-                      
-                    
-                          >
-                            <ListItemText primary={groupName} />
-                          </ListItemButton>
+                                window.scrollTo(0, document.getElementById(groupName).offsetTop -ancortab.offsetTop)
+                            
+
+                            }}
+
+
+                            >
+                                <ListItemText primary={groupName} />
+                            </ListItemButton>
 
                         })
 
@@ -56,29 +63,29 @@ export default function KeywordsList() {
 
 
 function CategoryNav() {
-    return <AppContext.Consumer>{({ groupName, selectSubcategory,selectedNavIndex }) => {
-      
+    return <AppContext.Consumer>{({ groupName, selectSubcategory, selectedNavIndex }) => {
+
         return <FormControl>
             <FormLabel id="demo-radio-buttons-group-label">Kategori</FormLabel>
-            <div style={{maxHeight:300, overflow:'auto'}}>
-            <RadioGroup
-         
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name={groupName}
-             
-            >
-                {
-                    categories.filter(f => {
-                        return f.groupName === groupName
-                    }).map((m,i) => {
-                 
-                        return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={()=>selectSubcategory({functionName:m.functionName,index:m.index,groupName:m.groupName,keywordType:m.keywordType})}/>} label={<div style={{textAlign:'justify'}}><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
-                    })
-                }
+            <div style={{ maxHeight: 300, overflow: 'auto' }}>
+                <RadioGroup
+
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="female"
+                    name={groupName}
+
+                >
+                    {
+                        categories.filter(f => {
+                            return f.groupName === groupName
+                        }).map((m, i) => {
+
+                            return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType })} />} label={<div style={{ textAlign: 'justify' }}><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
+                        })
+                    }
 
 
-            </RadioGroup>
+                </RadioGroup>
             </div>
         </FormControl>
 

@@ -29,15 +29,15 @@ export default class App extends React.Component {
 
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
-         document.getElementById("navbar").style.top = "63px";
+       //  document.getElementById("navbar").style.top = "63px";
 
-        document.getElementById('navbar').style.visibility = "visible"
+      //  document.getElementById('navbar').style.visibility = "visible"
 
       } else {
 
-        document.getElementById("navbar").style.top = "-260px";
+      //  document.getElementById("navbar").style.top = "-260px";
 
-        document.getElementById('navbar').style.visibility = "hidden"
+       // document.getElementById('navbar').style.visibility = "hidden"
       }
       prevScrollpos = currentScrollPos;
 
@@ -216,7 +216,7 @@ export default class App extends React.Component {
       this.fetchProducts(startAt)
 
       if (selectedNavIndex === '') {
-        debugger
+        
         this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
       } else {
 
@@ -234,7 +234,7 @@ export default class App extends React.Component {
 
 
       const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
-      debugger
+      
       let host = ''
       let href = window.location.href
       if (href === 'http://localhost:8888/') {
@@ -271,14 +271,14 @@ export default class App extends React.Component {
       return
 
     } catch (error) {
-      debugger
+      
     }
 
   }
 
   async fetchNavKeywords(selectedNavIndex, subcategory) {
 
-    debugger
+    
     let productImgIndexes
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
@@ -328,7 +328,7 @@ export default class App extends React.Component {
         }
 
       } else {
-        debugger
+        
       }
 
       if (fn === 1) {
