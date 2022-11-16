@@ -7,14 +7,15 @@ body {
   #navbar {
 
     position:fixed;
-    width: 100vw;
-    padding-top: 20px;
+
     transition: top 0.3s;
     z-index: 100000000;
-    background: rgba(252, 252, 252, 1) !important;
+    background: rgb(252, 252, 252) !important;
 
   }
 
 
 
-  
+  body{
+  background:   rgb(252, 252, 252) !important
+  }

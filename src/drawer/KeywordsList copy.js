@@ -7,10 +7,7 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+
 import subcatObj from '../category-nav-counter.json'
 const categories = Object.values(subcatObj).flat()
 export default function KeywordsList() {
@@ -18,30 +15,25 @@ export default function KeywordsList() {
         (({ navKeywords }) => {
 
 
-            return <div style={{position:'relative'}}>
+            return <div style={{ position: 'relative' }}>
 
-                <div style={{    paddingTop: 100, position:'fixed'}}>
+                <div style={{ height: '70vh', position: 'fixed', width: 300, paddingTop: 100, paddingBottom: 20, overflowY: 'scroll' }}>
                     <div>
                         <CategoryNav />
                     </div>
-                    <List>
+                    <div>
                         {navKeywords && navKeywords.map((m, i) => {
 
                             const { groupName, keywords } = m
                           
 
-                            return      <ListItemButton
-                      
-                    
-                          >
-                            <ListItemText primary={groupName} />
-                          </ListItemButton>
+                            return <FormControl key={i + '-'} component="fieldset" variant="standard" >   <FormLabel component="legend">{groupName}</FormLabel> <NavList groupName={groupName} keywords={keywords} /> </FormControl >
 
                         })
 
 
                         }
-                    </List>
+                    </div>
                 </div></div>
         })
     }</AppContext.Consumer>
@@ -60,13 +52,11 @@ function CategoryNav() {
       
         return <FormControl>
             <FormLabel id="demo-radio-buttons-group-label">Kategori</FormLabel>
-            <div style={{maxHeight:300, overflow:'auto'}}>
             <RadioGroup
-         
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue="female"
                 name={groupName}
-             
+                sx={{ height: 300 }}
             >
                 {
                     categories.filter(f => {
@@ -79,7 +69,6 @@ function CategoryNav() {
 
 
             </RadioGroup>
-            </div>
         </FormControl>
 
     }}</AppContext.Consumer>

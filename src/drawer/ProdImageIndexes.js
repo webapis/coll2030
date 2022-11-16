@@ -84,10 +84,10 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
             }
 
             return <Grid key={a} item xs={colTop}>
-                <Paper sx={{ margin: 1, padding: 1 }}>
+                <Paper elevation={0}  sx={{ margin: 1, padding: 1 }}>
                     <Grid container>
 
-                        <Grid item xs={12} sx={{ marginBottom: 2 }}>   <Divider>{groupName}</Divider> </Grid>
+                        <Grid item xs={12} sx={{ marginBottom: 2 }}>   <Divider> <Chip  size="small" label={groupName} /></Divider> </Grid>
 
                         {keywords.map((m,i) => {
                             const { keywordTitle, imageUrl: { title, src: imageSrc, marka } } = productImgIndexes[m[1]]

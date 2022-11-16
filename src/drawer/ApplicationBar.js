@@ -13,7 +13,7 @@ export default function AppBarContainer() {
 
     <AppContext.Consumer>
       {(({  clearSubcategory }) => {
-        return <AppBar color="" position='fixed'>
+        return <AppBar color="" position='fixed' elevation={0} sx={{background: 'rgb(252, 252, 252) !important'}}>
           <Toolbar>
             <IconButton
               size="large"
