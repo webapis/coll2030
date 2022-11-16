@@ -21,7 +21,7 @@ export default function HorizontalKeywords() {
 
                     {navKeywords && navKeywords.map((m, i) => {
 
-                        const { groupName, keywords } = m
+                        const { groupName } = m
 
 
                         return <Tab icon={<Chip sx={{textTransform:'capitalize'}} label={groupName} size="small" />} />

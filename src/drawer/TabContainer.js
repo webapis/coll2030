@@ -3,7 +3,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { AppContext } from '../App'
 
-import SearchBox from './SearchBox';
+
 export default function TabContainer() {
 
     return <AppContext.Consumer>

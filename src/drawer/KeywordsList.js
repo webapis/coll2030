@@ -1,6 +1,6 @@
 
 
-import NavList from './NavList';
+//import NavList from './NavList';
 import { AppContext } from '../App';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
@@ -27,7 +27,7 @@ export default function KeywordsList() {
                     <List>
                         {navKeywords && navKeywords.map((m, i) => {
 
-                            const { groupName, keywords } = m
+                            const { groupName } = m
                   
                    
                             return <ListItemButton onClick={() => {

@@ -11,9 +11,7 @@ import Fab from '@mui/material/Fab';
 import Box from '@mui/material/Box';
 import { AppContext } from '../App';
 import { Typography } from '@mui/material';
-import SearchBox from './SearchBox'
 import ImageList from '@mui/material/ImageList';
-import TabContainer from './TabContainer';
 import HorizontalKeywords from './HorizontalKeywords';
 import ProdImageIndex from './ProdImageIndexes';
 export default function ProductList(props) {
