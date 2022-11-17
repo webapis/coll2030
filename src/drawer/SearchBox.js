@@ -13,6 +13,7 @@ export default function SearchBox() {
   return (
     <AppContext.Consumer>{({ toggleFilterDrawer, matchedesktop, selectedSubcategory, searchInputChanged, searchProduct, search,selectSubcategory }) => {
       return <Paper
+      elevation={0}
         component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: !matchedesktop?'100%':'30%' }}
       >

@@ -34,23 +34,21 @@ export default function ProductList(props) {
                     return <Chip key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} />
                   })}
                 </div>
-                <Container id="navbar" style={{ position: 'fixed', top: 63, width: '100%', color: 'inherit', backgroundColor: 'inherit' }}>
+                <Container id="navbar" style={{ position: 'fixed', top: 120, width: '100%', color: 'inherit', backgroundColor: 'inherit' }}>
 
-                  <div style={{ display: 'flex'}}>
-                    <HorizontalKeywords />
-                    <div>
-                      <Typography sx={{ color: '#757575', opacity: '0.7', marginTop: 2 }}>toplam:{availableProducts} ürün bulundu</Typography>
-                    </div>
+                <div style={{ display: 'flex'}}>
+              
+           
 
 
-                  </div>
-                  <div id="ancc"></div>
+            </div>
+                 
                 </Container>
 
               </div>
             }
 
-            {false && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
+          
             <div >
 
 
