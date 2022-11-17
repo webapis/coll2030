@@ -34,16 +34,7 @@ export default function ProductList(props) {
                     return <Chip key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} />
                   })}
                 </div>
-                <Container id="navbar" style={{ position: 'fixed', top: 120, width: '100%', color: 'inherit', backgroundColor: 'inherit' }}>
-
-                <div style={{ display: 'flex'}}>
-              
-           
-
-
-            </div>
-                 
-                </Container>
+   
 
               </div>
             }

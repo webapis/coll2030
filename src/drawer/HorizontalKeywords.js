@@ -9,8 +9,8 @@ export default function HorizontalKeywords() {
 
     return <AppContext.Consumer>{({ navKeywords,availableProducts }) => {
         return (
-            <Container center >
-                <div style={{display:'flex', justifyContent:'center'}}>
+            <div center >
+                <div style={{display:'flex', justifyContent:'center',margin:0,padding:0}}>
                 <Tabs
                     centered
                     value={0}
@@ -39,7 +39,7 @@ export default function HorizontalKeywords() {
                 <div id="ancc"></div>
                 </div>
 
-            </Container>
+            </div>
         );
     }}</AppContext.Consumer>
 }
