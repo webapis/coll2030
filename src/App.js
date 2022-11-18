@@ -29,15 +29,15 @@ export default class App extends React.Component {
 
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
-       //  document.getElementById("navbar").style.top = "63px";
+        //  document.getElementById("navbar").style.top = "63px";
 
-      //  document.getElementById('navbar').style.visibility = "visible"
+        //  document.getElementById('navbar').style.visibility = "visible"
 
       } else {
 
-      //  document.getElementById("navbar").style.top = "-260px";
+        //  document.getElementById("navbar").style.top = "-260px";
 
-       // document.getElementById('navbar').style.visibility = "hidden"
+        // document.getElementById('navbar').style.visibility = "hidden"
       }
       prevScrollpos = currentScrollPos;
 
@@ -216,7 +216,7 @@ export default class App extends React.Component {
       this.fetchProducts(startAt)
 
       if (selectedNavIndex === '') {
-        
+
         this.fetchNavKeywords('0-', selectedSubcategory.subcategory, selectedSubcategory.node)
       } else {
 
@@ -234,7 +234,7 @@ export default class App extends React.Component {
 
 
       const { selectedSubcategory: { subcategory }, selectedNavIndex, search } = this.state
-      
+
       let host = ''
       let href = window.location.href
       if (href === 'http://localhost:8888/') {
@@ -271,14 +271,14 @@ export default class App extends React.Component {
       return
 
     } catch (error) {
-      
+
     }
 
   }
 
   async fetchNavKeywords(selectedNavIndex, subcategory) {
 
-    
+
     let productImgIndexes
     let subcat = subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')
     let host = ''
@@ -328,7 +328,7 @@ export default class App extends React.Component {
         }
 
       } else {
-        
+
       }
 
       if (fn === 1) {
@@ -412,30 +412,23 @@ export default class App extends React.Component {
       <ApplicationBar />
       <TemporaryDrawer />
 
-      <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
+      <CategoryNavContainer  selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
       {matchedesktop && selectedSubcategory &&
-      <Container>
-        <Grid
-          container
-          spacing={0}
-
-          justifyContent="center"
-          style={{ minHeight: '100vh' }}
-        >
-          <Grid  xs={2} item style={{  }}>
-
-            <KeywordsList />
-</Grid>
-
+        <Container>
+          <Grid
+            container
+            spacing={0}
+            justifyContent="center"
+            style={{ minHeight: '100vh' }}
+          >
+            <Grid xs={2} item >
+              <KeywordsList />
+            </Grid>
             <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 80 }}>
-            
-
               <ProductList />
             </Grid>
-
           </Grid>
-
-          </Container>
+        </Container>
       }
 
       {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}> <TabContainer /><ProductList /></div>  </div>)}

@@ -2,16 +2,16 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Typography } from '@mui/material';
-import Container from '@mui/material/Container';
+
 import Chip from '@mui/material/Chip';
 import { AppContext } from "../App";
 export default function HorizontalKeywords() {
 
-    return <AppContext.Consumer>{({ navKeywords,availableProducts }) => {
+    return <AppContext.Consumer>{({ navKeywords,availableProducts,products }) => {
         return (
             <div center >
                 <div style={{display:'flex', justifyContent:'center',margin:0,padding:0}}>
-                <Tabs
+                    {navKeywords && navKeywords.length>0 &&                 <Tabs
                     centered
                     value={0}
                 
@@ -25,7 +25,7 @@ export default function HorizontalKeywords() {
 
 
 
-                        {navKeywords && navKeywords.map((m, i) => {
+                        {navKeywords && navKeywords.length>0 && navKeywords.map((m, i) => {
 
                             const { groupName } = m
 
@@ -34,8 +34,10 @@ export default function HorizontalKeywords() {
                         })
                         }
                     </div>
-                </Tabs>
-                <Typography sx={{ color: '#757575',alignSelf:'center',opacity:0.7 }}>{availableProducts} Ürün Sayısı</Typography>
+                </Tabs> }
+
+                {products && products.length>0  && <Typography sx={{ color: '#757575',alignSelf:'center',opacity:0.7 }}>{availableProducts} Ürün Sayısı</Typography> }
+                
                 <div id="ancc"></div>
                 </div>
 

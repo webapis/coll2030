@@ -129,12 +129,10 @@ debugger
               catCounter[groupName] = {}
             }
             if (catCounter[groupName][k.title] === undefined) {
-              catCounter[groupName][k.title] = { count: 1,imageUrls: [{ src: imageUrl, title: object.title, marka }] }//--------------------------------------------------------------------------
+              catCounter[groupName][k.title] = { count: 1 }
             } else {
-              const imageUrls = catCounter[groupName][k.title].imageUrls
-              
-              catCounter[groupName][k.title]={count: catCounter[groupName][k.title].count + 1,imageUrls: [...imageUrls, { src: imageUrl, title: object.title, marka }]}
-            
+
+              catCounter[groupName][k.title].count = catCounter[groupName][k.title].count + 1
             }
 
           }
@@ -157,7 +155,9 @@ debugger
 
             matchingKeywords.forEach(nm => {
               const { index, title } = nm
+              if (comb === '1-') {
 
+              }
 
 
               const fnd = categoryKeywords.filter(f => comb.split('-').filter(f => f !== '').includes(f.index))
@@ -237,6 +237,8 @@ debugger
 
         const cur = keywords[k]
         const randomImage = cur.imageUrls.length === 1 ? 0 : generateRandomInteger(cur.imageUrls.length)
+
+
 
         if (catImages[fnd.index] === undefined) {
           catImages[fnd.index] = { [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }

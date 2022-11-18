@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 import { AppContext } from '../App';
 import { Typography } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
-import HorizontalKeywords from './HorizontalKeywords';
+
 import ProdImageIndex from './ProdImageIndexes';
 export default function ProductList(props) {
 

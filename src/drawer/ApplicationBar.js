@@ -9,6 +9,7 @@ import TabContainer from './TabContainer';
 import Container from '@mui/material/Container';
 import { AppContext } from '../App';
 import SearchBox from './SearchBox';
+import HorizontalCatNavigation from './HorizontalCatNavigation';
 import HorizontalKeywords from './HorizontalKeywords'
 
 export default function AppBarContainer() {
@@ -16,7 +17,7 @@ export default function AppBarContainer() {
   return (
 
     <AppContext.Consumer>
-      {(({ clearSubcategory, products }) => {
+      {(({ clearSubcategory, products, navKeywords }) => {
         return <AppBar color="" position='fixed' elevation={0} >
           <div>
 
@@ -37,7 +38,7 @@ export default function AppBarContainer() {
                 </Typography> </Button>
               </div>
 
-              {products && products.length > 0 && ([<TabContainer />, <SearchBox />])}
+              {navKeywords && navKeywords.length > 0 && ([<TabContainer />, <SearchBox />])}
 
 
 
@@ -45,12 +46,12 @@ export default function AppBarContainer() {
 
 
           </div>
-     
+          {/* {navKeywords && navKeywords.length === 0 && <HorizontalCatNavigation />} */}
 
-            <HorizontalKeywords/>
+          <HorizontalKeywords />
+       
 
 
-        
         </AppBar>
       })}
 

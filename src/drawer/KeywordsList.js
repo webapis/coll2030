@@ -66,7 +66,7 @@ function CategoryNav() {
     return <AppContext.Consumer>{({ groupName, selectSubcategory, selectedNavIndex }) => {
 
         return <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label">Kategori</FormLabel>
+            <FormLabel id="demo-radio-buttons-group-label">{groupName}</FormLabel>
             <div style={{ maxHeight: 300, overflow: 'auto' }}>
                 <RadioGroup
 
