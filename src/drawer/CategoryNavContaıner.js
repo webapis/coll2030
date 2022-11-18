@@ -32,6 +32,7 @@ export default function CategoryNavContainer({ subcategories, products, fetching
 
             return <div key={i} style={{display:'flex',flexDirection:'column'}}><img onClick={()=>selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType?m.keywordType:'category' })} style={{borderRadius:6, marginRight:4}} height={180} src={imageSource} alt={title} /><span style={{fontSize:10,opacity:0.7}}>{keyword}</span></div>
           }
+          return null
 
 
 

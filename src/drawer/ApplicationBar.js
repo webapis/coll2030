@@ -1,6 +1,5 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
@@ -9,7 +8,7 @@ import TabContainer from './TabContainer';
 import Container from '@mui/material/Container';
 import { AppContext } from '../App';
 import SearchBox from './SearchBox';
-import HorizontalCatNavigation from './HorizontalCatNavigation';
+
 import HorizontalKeywords from './HorizontalKeywords'
 
 export default function AppBarContainer() {
