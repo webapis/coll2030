@@ -12,7 +12,7 @@ import Box from '@mui/material/Box';
 import { AppContext } from '../App';
 import { Typography } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
-import HorizontalKeywords from './HorizontalKeywords';
+
 import ProdImageIndex from './ProdImageIndexes';
 export default function ProductList(props) {
 
@@ -34,23 +34,12 @@ export default function ProductList(props) {
                     return <Chip key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} />
                   })}
                 </div>
-                <Container id="navbar" style={{ position: 'fixed', top: 63, width: '100%', color: 'inherit', backgroundColor: 'inherit' }}>
-
-                  <div style={{ display: 'flex'}}>
-                    <HorizontalKeywords />
-                    <div>
-                      <Typography sx={{ color: '#757575', opacity: '0.7', marginTop: 2 }}>toplam:{availableProducts} ürün bulundu</Typography>
-                    </div>
-
-
-                  </div>
-                  <div id="ancc"></div>
-                </Container>
+   
 
               </div>
             }
 
-            {false && <Typography sx={{ color: '#757575' }}>toplam:{availableProducts} ürün bulundu</Typography>}
+          
             <div >
 
 

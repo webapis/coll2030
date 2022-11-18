@@ -1,51 +1,48 @@
 import * as React from 'react';
 
-
+import placeholders from './imageComponent/placeholders';
 import { Container, Typography } from '@mui/material';
-import SubcategoryCard from './SubcategoryCard';
-import { useTheme } from '@mui/material/styles';
-import ImageList from '@mui/material/ImageList';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Autocomplete from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { useState } from 'react';
+
+
 export default function CategoryNavContainer({ subcategories, products, fetchingProduct, selectSubcategory }) {
-  const theme = useTheme();
-  const xs = useMediaQuery(theme.breakpoints.down('xs'));
-  const sm = useMediaQuery(theme.breakpoints.down('sm'));
-  const md = useMediaQuery(theme.breakpoints.down('md'));
-  const lg = useMediaQuery(theme.breakpoints.down('lg'));
 
-  function render(size) {
 
-    return products.length === 0 && !fetchingProduct && <Container sx={{ marginTop: 10 }}>
-      <Typography align="center" variant="h5">Biraradamoda</Typography>
-      <SearchProductCategory subcategories={subcategories}  selectSubcategory={selectSubcategory}/>
-      <ImageList cols={size}
-        variant="masonry"
-      >
-        {subcategories.map((item, i) => {
-          const indexes = item[1]
 
-          return <div key={i} > <SubcategoryCard  selectSubcategory={selectSubcategory} indexes={indexes} /></div>
-        })}
-      </ImageList >
-    </Container>
-  }
+  return products.length === 0 && !fetchingProduct && <Container sx={{ marginTop: 12 }}>
+    {subcategories.sort(function (a, b) {
+      
+      debugger
+    return b[1].length - a[1].length;
+}).map((m,b) => {
+      const groupName = m[0]
+      const images = m[1]
+      debugger
+ 
 
-  switch (true) {
-    case xs === true:
-      return render(1)
-    case sm === true:
-      return render(1)
-    case md === true:
-      return render(3)
-    case lg === true:
-      return render(6)
-    default:
-      return render(6)
-  }
+      return <div key={b} >
+        <Typography variant="h5" gutterBottom textAlign='center'>{groupName}</Typography>
+        <div style={{display:'flex',flexWrap:'nowrap',overflowX:'auto',padding:4}}>
+        {images.map((m,i) => {
+
+          if (m.imageUrls) {
+
+            const { imageUrls: { marka, src, title }, title: keyword } = m
+            debugger
+            const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + src + placeholders[marka].imgPostFix
+
+            return <div key={i} style={{display:'flex',flexDirection:'column'}}><img onClick={()=>selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType?m.keywordType:'category' })} style={{borderRadius:6, marginRight:4}} height={180} src={imageSource} alt={title} /><span style={{fontSize:10,opacity:0.7}}>{keyword}</span></div>
+          }
+          return null
+
+
+
+        })}</div>
+</div>
+
+    })}
+  </Container>
+
+
 
 
 }
@@ -53,34 +50,3 @@ export default function CategoryNavContainer({ subcategories, products, fetching
 
 
 
-function SearchProductCategory({ subcategories, selectSubcategory }) {
-  const [state, setState] = useState({title:''})
-  const flatten = Object.values(subcategories.map(m => m[1])).flat()
-
-  function handleInputChange(event, value) {
-
-    const findSelectedObj = flatten.find(f => {
-      return f.title === value
-    })
-debugger
-    setState(findSelectedObj)
-    
-    
-
-  }
-  
-  return (
-    <div style={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
-      <Autocomplete
-        sx={{ width: 500 }}
-        id="free-solo-demo"
-        inputValue={state.title}
-        onInputChange={handleInputChange}
-        options={flatten.map((option) => option.title)}
-        renderInput={(params) => <div style={{ display: 'flex' }}><TextField {...params} label="Ürün kategorileri" /><Button disabled={state.title===''} variant="outlined" onClick={()=>selectSubcategory({functionName: state.functionName, index: state.index, groupName: state.groupName, keywordType: state.keywordType})}>Ara</Button></div>}
-      />
-
-
-    </div>
-  );
-}

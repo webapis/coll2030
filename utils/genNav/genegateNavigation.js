@@ -129,10 +129,12 @@ debugger
               catCounter[groupName] = {}
             }
             if (catCounter[groupName][k.title] === undefined) {
-              catCounter[groupName][k.title] = { count: 1 }
+              catCounter[groupName][k.title] = { count: 1,imageUrls: [{ src: imageUrl, title: object.title, marka }] }//--------------------------------------------------------------------------
             } else {
-
-              catCounter[groupName][k.title].count = catCounter[groupName][k.title].count + 1
+              const imageUrls = catCounter[groupName][k.title].imageUrls
+              
+              catCounter[groupName][k.title]={count: catCounter[groupName][k.title].count + 1,imageUrls: [...imageUrls, { src: imageUrl, title: object.title, marka }]}
+            
             }
 
           }
@@ -155,9 +157,7 @@ debugger
 
             matchingKeywords.forEach(nm => {
               const { index, title } = nm
-              if (comb === '1-') {
 
-              }
 
 
               const fnd = categoryKeywords.filter(f => comb.split('-').filter(f => f !== '').includes(f.index))
@@ -237,8 +237,6 @@ debugger
 
         const cur = keywords[k]
         const randomImage = cur.imageUrls.length === 1 ? 0 : generateRandomInteger(cur.imageUrls.length)
-
-
 
         if (catImages[fnd.index] === undefined) {
           catImages[fnd.index] = { [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
@@ -328,29 +326,9 @@ debugger
 
 
 
-  // for (let cimage in catImages) {
-  //   debugger
-  //   try {
-  //     const curr = catImages[cimage]
-  //     const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
-  //     makeDir.sync(path.join(process.cwd(), `public/image-indexes`))
-  //     if (fs.existsSync(imageIndexPath)) {
-  //       const rawData = fs.readFileSync(imageIndexPath, { encoding: 'utf-8' })
-  //       const prevData = JSON.parse(rawData)
-  //       fs.unlinkSync(imageIndexPath)
-  //       fs.appendFileSync(imageIndexPath, JSON.stringify({ ...prevData, ...curr }));
-  //     } else {
-  //       fs.appendFileSync(imageIndexPath, JSON.stringify(curr));
-  //     }
-  //   } catch (error) {
-  //     console.log('image-indexes', error)
-  //     throw error
-  //   }
-
-  // }
   debugger
   parentPort.postMessage(JSON.stringify({ catCounter, catImages }))
-  // console.log('end....',functionName)
+
 
 }
 

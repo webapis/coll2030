@@ -23,7 +23,7 @@ async function genNav({ functionName }) {
   const folder = path.join(process.cwd(), `api/_files/data/${functionName}`)
 
   const files = await fs.readdirSync(folder)
-
+  debugger
 
   console.log('files.length', files.length)
 
@@ -57,9 +57,7 @@ debugger
 
 
     if (title) {
-if(title.includes('panço')){
-  debugger
-}
+
       const keywords = allkeywords
       if (keywords && keywords.length > 0) {
         //--------------------------FIND MATCHING KEYWORDS WITHING PRODUCT NAME
@@ -68,6 +66,9 @@ if(title.includes('panço')){
 
           let exactmatch = kws.exactmatch
           let negwords = kws.exclude
+
+
+
 
           if (kws.groupName === 'Fiyat') {
             const priceRange = kws.keywords.split('-').map(m => parseInt(m).toFixed(2))
@@ -112,9 +113,7 @@ if(title.includes('panço')){
           }
 
         })
-        if(title.includes('panço')){
-          debugger
-        }
+
 
         for (let k of categoryKeywords) {
           const { index, groupName } = k
@@ -124,8 +123,8 @@ if(title.includes('panço')){
 
             return f.index.replace('-', '') === index
           })
-       
-           if (match && k.functionName === functionName) {
+          if (match && k.functionName === functionName) {
+
             if (catCounter[groupName] === undefined) {
               catCounter[groupName] = {}
             }
@@ -161,14 +160,13 @@ if(title.includes('panço')){
               }
 
 
-
               const fnd = categoryKeywords.filter(f => comb.split('-').filter(f => f !== '').includes(f.index))
-             
+
 
               fnd.forEach(ds => {
                 const c = ds ? true : false
 
-               if (c) {
+                if (c) {
                   if (navKeysWithCatKeys[comb] === undefined) {
                     navKeysWithCatKeys[comb] = { keywords: {} }
                   }
@@ -183,7 +181,7 @@ if(title.includes('panço')){
 
                     navKeysWithCatKeys[comb].keywords[title] = { count: count + 1, index, c, imageUrls: [...imageUrls, { src: imageUrl, title: object.title, marka }] }
                   }
-               }
+                }
 
               })
 
@@ -227,37 +225,37 @@ if(title.includes('panço')){
   try {
 
 debugger
-for (let f in navKeysWithCatKeys) {
-  //find category index
-  const categoryIndexes = f.split('-').filter(f => f !== '')
-  const fnd = categoryKeywords.find(f => categoryIndexes.includes(f.index))
-debugger
-  const current = navKeysWithCatKeys[f]
-  const keywords = current.keywords
+    for (let f in navKeysWithCatKeys) {
+      //find category index
+      const categoryIndexes = f.split('-').filter(f => f !== '')
+      const fnd = categoryKeywords.find(f => categoryIndexes.includes(f.index))
 
-  for (let k in keywords) {
+      const current = navKeysWithCatKeys[f]
+      const keywords = current.keywords
 
-    const cur = keywords[k]
-    const randomImage = cur.imageUrls.length === 1 ? 0 : generateRandomInteger(cur.imageUrls.length)
+      for (let k in keywords) {
+
+        const cur = keywords[k]
+        const randomImage = cur.imageUrls.length === 1 ? 0 : generateRandomInteger(cur.imageUrls.length)
 
 
 
-    if (catImages[fnd.index] === undefined) {
-      catImages[fnd.index] = { [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
+        if (catImages[fnd.index] === undefined) {
+          catImages[fnd.index] = { [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
 
-    } else {
+        } else {
 
-      if (catImages[fnd.index][cur.index] === undefined) {
+          if (catImages[fnd.index][cur.index] === undefined) {
 
-        catImages[fnd.index] = { ...catImages[fnd.index], [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
+            catImages[fnd.index] = { ...catImages[fnd.index], [cur.index]: { count: cur.count, keywordTitle: k, imageUrl: cur.imageUrls[randomImage] } }
+          }
+
+        }
+
       }
 
+
     }
-
-  }
-
-
-}
 
   } catch (error) {
     console.log(error)
@@ -330,29 +328,9 @@ debugger
 
 
 
-  // for (let cimage in catImages) {
-  //   debugger
-  //   try {
-  //     const curr = catImages[cimage]
-  //     const imageIndexPath = path.join(process.cwd(), `public/image-indexes`, `${cimage}.json`)
-  //     makeDir.sync(path.join(process.cwd(), `public/image-indexes`))
-  //     if (fs.existsSync(imageIndexPath)) {
-  //       const rawData = fs.readFileSync(imageIndexPath, { encoding: 'utf-8' })
-  //       const prevData = JSON.parse(rawData)
-  //       fs.unlinkSync(imageIndexPath)
-  //       fs.appendFileSync(imageIndexPath, JSON.stringify({ ...prevData, ...curr }));
-  //     } else {
-  //       fs.appendFileSync(imageIndexPath, JSON.stringify(curr));
-  //     }
-  //   } catch (error) {
-  //     console.log('image-indexes', error)
-  //     throw error
-  //   }
-
-  // }
   debugger
   parentPort.postMessage(JSON.stringify({ catCounter, catImages }))
-  // console.log('end....',functionName)
+
 
 }
 
