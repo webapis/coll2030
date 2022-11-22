@@ -50,5 +50,5 @@ const placeholders = {
     yargici: { logo: { image: './logo/manuka.webp', width: '40%', height: 'auto' }, imagePrefix: imagePrefixImageKit, placeholder, imageHost: 'https://img-incommerce-yargici.mncdn.com/', detailHost: 'https://www.yargici.com/', postfix: '', imgPostFix:'?tr=w-400' },
 
 }
-
+window.placeholders=placeholders
 export default placeholders

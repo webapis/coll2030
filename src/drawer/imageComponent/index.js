@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import placeholders from './placeholders'
+import placeholders from './placeholders.json'
 import { AppContext } from '../../App';
 import { ImageListItem } from '@mui/material';
 import './hl.css'

@@ -4,7 +4,9 @@
     const path = require('path')
     const plimit = require('p-limit')
     const makeDir = require('make-dir')
+   // const placeholders = require('../../src/drawer/imageComponent/placeholders.json')
     const { workerPromise } = require('./workerPromiseNavGen')
+   // const { fetchImages } = require('../fetchImages')
 
 
     const limit = plimit(5);
@@ -17,7 +19,7 @@
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
           const fnNames = ['one', 'two', 'three','four', 'five', 'six', 'seven','eight', 'nine','ten', 'diger']
 
-       // const fnNames = ['one']
+        //const fnNames = ['one']
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -33,7 +35,7 @@
 
             return { ...prev, ...nxt }
         }, {})
-        debugger
+
 
         const categoryNav = require(path.join(process.cwd(), `src/category-nav.json`))
         for (let c in catCounter) {
@@ -48,6 +50,7 @@
                     if (m.title === v) {
 
                         return { ...m, count: m.count ? m.count + count : count, imageUrls: m.imageUrls ? [...m.imageUrls, ...imageUrls] : [...imageUrls] }
+
                     } else {
 
                         return m
@@ -58,30 +61,43 @@
                 categoryNav[c] = curNav
 
             }
-           
+
         }
 
 
-        debugger
+
         if (fs.existsSync(path.join(process.cwd(), `src/category-nav-counter.json`))) {
             fs.unlinkSync(path.join(process.cwd(), `src/category-nav-counter.json`))
         }
 
         for (let c in categoryNav) {
             const current = categoryNav[c]
-            current.forEach(f=>{
-                if(f.imageUrls && f.imageUrls.length>0){
+            for await(let f of current){
+                if (f.imageUrls && f.imageUrls.length > 0) {
 
-                    const randomImage = f.imageUrls.length === 1 ? 0 : generateRandomInteger(f.imageUrls.length-1)
-            
-                    const imageUrls = f.imageUrls[randomImage]
-                    f.imageUrls=imageUrls
+                    const randomImage1 = f.imageUrls.length === 1 ? 0 : generateRandomInteger(f.imageUrls.length - 1)
+                    const randomImage2 = f.imageUrls.length === 1 ? 0 : generateRandomInteger(f.imageUrls.length - 1)
+                    const randomImageOne = f.imageUrls[randomImage1]
+                    const randomImageTwo = f.imageUrls[randomImage2]
+                    // const { marka } = imageUrls
+                    // const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/h_200/'
+                    // const imageSource = imagePrefixCloudinary + placeholders[marka].imageHost.trim() + imageUrls.src 
+             
+                    // const filename =path.basename(imageUrls.src)
+                    // debugger
+                    // await fetchImages({ url: imageSource, filepath: `${process.cwd()}/sprites/${filename}` })
+                    debugger
+
+                    f.imageUrls = [randomImageOne,randomImageTwo]
                 }
-           
-            
+            }
+            current.forEach(f => {
+          
+
+
             })
-       
-       
+
+
 
 
         }

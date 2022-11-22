@@ -6,7 +6,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 
-import placeholders from './imageComponent/placeholders';
+import placeholders from './imageComponent/placeholders.json';
 import Divider from '@mui/material/Divider';
 
 import Paper from '@mui/material/Paper';
