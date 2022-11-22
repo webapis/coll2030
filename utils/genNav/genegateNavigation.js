@@ -224,7 +224,7 @@ debugger
 
   try {
 
-debugger
+
     for (let f in navKeysWithCatKeys) {
       //find category index
       const categoryIndexes = f.split('-').filter(f => f !== '')
@@ -326,7 +326,7 @@ debugger
 
 
 
-  debugger
+
   parentPort.postMessage(JSON.stringify({ catCounter, catImages }))
 
 
