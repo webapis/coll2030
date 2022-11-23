@@ -4,9 +4,9 @@
     const path = require('path')
     const plimit = require('p-limit')
     const makeDir = require('make-dir')
-   // const placeholders = require('../../src/drawer/imageComponent/placeholders.json')
+    // const placeholders = require('../../src/drawer/imageComponent/placeholders.json')
     const { workerPromise } = require('./workerPromiseNavGen')
-   // const { fetchImages } = require('../fetchImages')
+    // const { fetchImages } = require('../fetchImages')
 
 
     const limit = plimit(5);
@@ -17,9 +17,9 @@
 
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-          const fnNames = ['one', 'two', 'three','four', 'five', 'six', 'seven','eight', 'nine','ten', 'diger']
+        const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
 
-        //const fnNames = ['one']
+        // const fnNames = ['one']
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -72,27 +72,34 @@
 
         for (let c in categoryNav) {
             const current = categoryNav[c]
-            for await(let f of current){
+            for await (let f of current) {
+                debugger
                 if (f.imageUrls && f.imageUrls.length > 0) {
+                    const filterApplicable=f.imageUrls.filter(j => {
+                        const result = j.title.split(' ')[j.title.split(' ').length - 1] === f.title
 
-                    const randomImage1 = f.imageUrls.length === 1 ? 0 : generateRandomInteger(f.imageUrls.length - 1)
-                    const randomImage2 = f.imageUrls.length === 1 ? 0 : generateRandomInteger(f.imageUrls.length - 1)
-                    const randomImageOne = f.imageUrls[randomImage1]
-                    const randomImageTwo = f.imageUrls[randomImage2]
+                        return result
+                    })
+                    const filtered = filterApplicable.length > 0 ? filterApplicable : f.imageUrls
+
+                    const randomImage1 = filtered.length === 1 ? 0 : generateRandomInteger(filtered.length - 1)
+                    const randomImage2 = filtered.length === 1 ? 0 : generateRandomInteger(filtered.length - 1)
+                    const randomImageOne = filtered[randomImage1]
+                    const randomImageTwo = filtered[randomImage2]
                     // const { marka } = imageUrls
                     // const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/h_200/'
                     // const imageSource = imagePrefixCloudinary + placeholders[marka].imageHost.trim() + imageUrls.src 
-             
+
                     // const filename =path.basename(imageUrls.src)
                     // debugger
                     // await fetchImages({ url: imageSource, filepath: `${process.cwd()}/sprites/${filename}` })
                     debugger
 
-                    f.imageUrls = [randomImageOne,randomImageTwo]
+                    f.imageUrls = [randomImageOne, randomImageTwo]
                 }
             }
             current.forEach(f => {
-          
+
 
 
             })

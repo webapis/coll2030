@@ -26,19 +26,14 @@ export default function CategoryNavContainer({ subcategories, products, fetching
             debugger
             if (m.imageUrls) {
 
-              const { imageUrls, title: keyword } = m
-              const { src } = imageUrls[0]
-              const classname = '_' + src.substring(src.lastIndexOf('/') + 1, src.indexOf('.jpg')).replace(/\./g, '')
-
-              debugger
+              const { imageUrls:{filename:classname,title}, title: keyword } = m
+      
+         
              // const imageSource = placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + src + placeholders[marka].imgPostFix
 
-              return <div key={i} style={{ display: 'flex', flexDirection: 'column' }}><span className={classname} onClick={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category' })} style={{ borderRadius: 6, marginRight: 4 }} height={180} ></span><span style={{ fontSize: 10, opacity: 0.7 }}>{keyword}</span></div>
+              return <div key={i} style={{ display: 'flex', flexDirection: 'column' }}><span className={classname } name={title} onClick={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category' })} style={{ borderRadius: 6, marginRight: 4 }} height={180} ></span><span style={{ fontSize: 10, opacity: 0.7 }}>{keyword}</span></div>
             }
             return null
-
-
-
           })}</div>
       </div>
 

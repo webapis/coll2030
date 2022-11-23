@@ -23,7 +23,7 @@ async function genNav({ functionName }) {
   const folder = path.join(process.cwd(), `api/_files/data/${functionName}`)
 
   const files = await fs.readdirSync(folder)
-  debugger
+
 
   console.log('files.length', files.length)
 
@@ -44,7 +44,7 @@ async function genNav({ functionName }) {
 
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
   const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat')
-debugger
+
   let navKeys = { ['0-']: { matchingKeywords: [], keywords: {} } }
   let navKeysWithCatKeys = {}
   let catImages = {}

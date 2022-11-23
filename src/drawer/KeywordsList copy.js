@@ -8,7 +8,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import subcatObj from '../category-nav-counter.json'
+import subcatObj from '../category-nav-counter-image.json'
 const categories = Object.values(subcatObj).flat()
 export default function KeywordsList() {
     return <AppContext.Consumer>{
