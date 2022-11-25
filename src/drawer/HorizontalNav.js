@@ -1,6 +1,6 @@
 import { useRef,useEffect } from 'react';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-
+import Chip from '@mui/material/Chip';
 import Fab from '@mui/material/Fab';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -29,8 +29,10 @@ function HorizontalNav({navitems,selectSubcategory}) {
 
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-      {items.map((m,id) => (
-        <Card
+
+      {items.map((m,id) => {
+
+       return <Card
       
           itemId={id} // NOTE: itemId is required for track items
           title={m.title}
@@ -40,7 +42,7 @@ function HorizontalNav({navitems,selectSubcategory}) {
           m={m}
           selectSubcategory={selectSubcategory}
         />
-      ))}
+})}
     </ScrollMenu>
   );
 }
@@ -106,7 +108,7 @@ function Card({ onClick, title,m,selectSubcategory,itemId }) {
       <div  style={{ display: 'flex', flexDirection:'column' }}>
  
                 <img alt={title}  ref={imageElement} src={dataURL}  height={200} data-src={`https://res.cloudinary.com/codergihub/image/upload/h_300/categories/${title}.jpg`} onClick={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category' })} style={{ borderRadius: 6, marginRight: 4 }}  />
-                <span style={{ fontSize: 14,opacity:0.7 ,textAlign:'center',padding:3}}>{title}</span></div>
+                <span style={{ fontSize: 14,opacity:0.8 ,textAlign:'center',padding:3,display:'flex',justifyContent:'space-around'}}><span>{title}</span><Chip style={{opacity:0.6,fontSize:12}} size="small"  label={new Intl.NumberFormat().format(m.count)}/> </span></div>
 
     </div>
   );
