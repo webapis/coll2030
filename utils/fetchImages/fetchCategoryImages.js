@@ -59,7 +59,8 @@ async function fetchCategoryImages() {
         const categories = m[1]
         categories.forEach(cat => {
             const { imageUrls, title } = cat
-
+            
+debugger
             promises.push(limit(async () => await fetchPromise({ imageUrls, groupName, title })))
 
         })

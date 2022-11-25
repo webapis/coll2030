@@ -74,40 +74,38 @@
             const current = categoryNav[c]
             for await (let f of current) {
                 debugger
-                if (f.imageUrls && f.imageUrls.length > 0) {
-                    const filterApplicable=f.imageUrls.filter(j => {
-                        const result = j.title.split(' ')[j.title.split(' ').length - 1] === f.title
+                delete f.imageUrls
+                // if (f.imageUrls && f.imageUrls.length > 0) {
+                //     const filterApplicable=f.imageUrls.filter(j => {
+                //         debugger
+                //         const result = j.title.split(' ')[j.title.split(' ').length - 1] === f.title && !j.src.includes('main')
 
-                        return result
-                    })
-                    const filtered = filterApplicable.length > 0 ? filterApplicable : f.imageUrls
+                //         return result
+                //     })
+                //     const filtered = filterApplicable.length > 0 ? filterApplicable : f.imageUrls
 
-                    const randomImage1 = filtered.length === 1 ? 0 : generateRandomInteger(filtered.length - 1)
-                    const randomImage2 = filtered.length === 1 ? 0 : generateRandomInteger(filtered.length - 1)
-                    const randomImageOne = filtered[randomImage1]
-                    const randomImageTwo = filtered[randomImage2]
-                    // const { marka } = imageUrls
-                    // const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/h_200/'
-                    // const imageSource = imagePrefixCloudinary + placeholders[marka].imageHost.trim() + imageUrls.src 
+                //     const randomImage1 = filtered.length === 1 ? 0 : generateRandomInteger(filtered.length - 1)
+                //     const randomImage2 = filtered.length === 1 ? 0 : generateRandomInteger(filtered.length - 1)
+                //     const randomImageOne = filtered[randomImage1]
+                //     const randomImageTwo = filtered[randomImage2]
+                //     // const { marka } = imageUrls
+                //     // const imagePrefixCloudinary = 'https://res.cloudinary.com/codergihub/image/fetch/h_200/'
+                //     // const imageSource = imagePrefixCloudinary + placeholders[marka].imageHost.trim() + imageUrls.src 
 
-                    // const filename =path.basename(imageUrls.src)
-                    // debugger
-                    // await fetchImages({ url: imageSource, filepath: `${process.cwd()}/sprites/${filename}` })
-                    debugger
+                //     // const filename =path.basename(imageUrls.src)
+                //     // debugger
+                //     // await fetchImages({ url: imageSource, filepath: `${process.cwd()}/sprites/${filename}` })
+                //     debugger
 
-                    f.imageUrls = [randomImageOne, randomImageTwo]
-                }
+                //    delete f.imageUrls// [randomImageOne, randomImageTwo]
+                // }
             }
-            current.forEach(f => {
-
-
-
-            })
 
 
 
 
-        }
+
+         }
 
         fs.appendFileSync(path.join(process.cwd(), `src/category-nav-counter.json`), JSON.stringify(categoryNav));
 

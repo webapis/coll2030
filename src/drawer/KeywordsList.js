@@ -11,7 +11,7 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 
 import ListItemText from '@mui/material/ListItemText';
-import subcatObj from '../category-nav-counter-image.json'
+import subcatObj from '../category-nav-counter.json'
 const categories = Object.values(subcatObj).flat()
 export default function KeywordsList() {
     return <AppContext.Consumer>{

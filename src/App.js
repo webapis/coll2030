@@ -10,7 +10,7 @@ import { Container } from '@mui/material';
 
 import keywordgroup from './keywords.json'
 
-import subcatObj from './category-nav-counter-image.json'
+import subcatObj from './category-nav-counter.json'
 
 import CategoryNavContainer from './drawer/CategoryNavContaıner';
 import TabContainer from './drawer/TabContainer';
