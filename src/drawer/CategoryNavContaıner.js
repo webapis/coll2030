@@ -17,7 +17,7 @@ export default function CategoryNavContainer({ subcategories, products, fetching
       },0)
       return {groupName,images:images.sort((a,b)=>b.count-a.count),totalGroup}
     }).sort((a,b)=>{
-      debugger
+  
      return b.totalGroup-a.totalGroup}).map((m, b) => {
       const {groupName,images,totalGroup} = m
   
