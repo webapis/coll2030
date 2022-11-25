@@ -9,16 +9,18 @@ export default function CategoryNavContainer({ subcategories, products, fetching
 
 
   return products.length === 0 && !fetchingProduct && <Container sx={{ marginTop: 5 }}>
-    {subcategories.sort(function (a, b) {
-
-
-      return b[1].length - a[1].length;
-    }).filter((f)=>f[0]!=='diger').map((m, b) => {
-      const groupName = m[0]
-      const images = m[1]
+    {subcategories.filter((f)=>f[0]!=='diger').map((g)=>{
+      const groupName = g[0]
+      const images = g[1]
       let totalGroup=images.reduce((prev,curr)=>{
         return prev+curr.count
       },0)
+      return {groupName,images:images.sort((a,b)=>b.count-a.count),totalGroup}
+    }).sort((a,b)=>{
+      debugger
+     return b.totalGroup-a.totalGroup}).map((m, b) => {
+      const {groupName,images,totalGroup} = m
+  
 
 
       return <div key={b}>
