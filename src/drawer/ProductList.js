@@ -31,7 +31,7 @@ export default function ProductList(props) {
                 <div >
                   {selectedKeywords.map((m, i) => {
                     const { index, keyword } = m
-                    return <Chip key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} />
+                    return <Chip key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} size="small"/>
                   })}
                 </div>
    

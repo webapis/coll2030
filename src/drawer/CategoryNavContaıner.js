@@ -1,14 +1,14 @@
 import * as React from 'react';
 
 import { Container, Typography } from '@mui/material';
-
+import Grid from '@mui/material/Grid';
 import HorizontalNav from './HorizontalNav';
 import Chip from '@mui/material/Chip';
 export default function CategoryNavContainer({ subcategories, products, fetchingProduct, selectSubcategory }) {
 
 
 
-  return products.length === 0 && !fetchingProduct && <Container sx={{ marginTop: 5 }}>
+  return products.length === 0 && !fetchingProduct && <Grid container sx={{ marginTop: 5 }}>
     {subcategories.filter((f)=>f[0]!=='diger').map((g)=>{
       const groupName = g[0]
       const images = g[1]
@@ -23,17 +23,18 @@ export default function CategoryNavContainer({ subcategories, products, fetching
   
 
 
-      return <div key={b}>
+      return[ <Grid item xs={3}></Grid>, <Grid item xs={6}  key={b}>
         <div style={{display:'flex', justifyContent:'center',paddingTop:25}}>
          < Typography variant="h5" gutterBottom textAlign='center'>{groupName}  <Chip style={{opacity:0.6,fontSize:12}} size="small"  label={new Intl.NumberFormat().format(totalGroup)+' ürün'}/></Typography>
        
         </div>
       
           <HorizontalNav   navitems={images} m={m} selectSubcategory={selectSubcategory}/>
-      </div>
-
+      </Grid>,
+       <Grid item xs={3}></Grid>
+      ]
     })}
-  </Container>
+  </Grid>
 
 
 

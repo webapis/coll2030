@@ -15,7 +15,7 @@ export default function SearchBox() {
       return <Paper
       elevation={0}
         component="form"
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: !matchedesktop?'100%':'30%' }}
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '10%' }}
       >
 
         <InputBase

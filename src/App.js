@@ -424,7 +424,7 @@ export default class App extends React.Component {
             <Grid xs={2} item >
               <KeywordsList />
             </Grid>
-            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 80 }}>
+            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 40 }}>
               <ProductList />
             </Grid>
           </Grid>
