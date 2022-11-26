@@ -298,9 +298,9 @@ export default class App extends React.Component {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
       if (href !== 'https://www.biraradamoda.com') {
-        host = 'https://development--coll2030.netlify.app/.netlify/functions'
+        host = 'https://development--fashion2023.netlify.app/.netlify/functions'
       } else {
-        host = 'https://coll2030.netlify.app/.netlify/functions'
+        host = 'https://fashion2023.netlify.app/.netlify/functions'
       }
 
 
