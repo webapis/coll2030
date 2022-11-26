@@ -21,7 +21,7 @@ export default function ProductList(props) {
 
   return (
     <AppContext.Consumer>
-      {({ products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords, productImgIndexes, navKeywords, selectedNavIndex, selectedFiterTab }) => {
+      {({indexTabName,indexTab, products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords, productImgIndexes, navKeywords, selectedNavIndex, selectedFiterTab }) => {
         return <div style={{ position: 'relative', paddingBottom: 600 }}>
 
 
@@ -31,7 +31,7 @@ export default function ProductList(props) {
                 <div >
                   {selectedKeywords.map((m, i) => {
                     const { index, keyword } = m
-                    return <Chip key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} />
+                    return <Chip key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} size="small"/>
                   })}
                 </div>
    
@@ -43,10 +43,10 @@ export default function ProductList(props) {
             <div >
 
 
-              {productImgIndexes && selectedFiterTab === 0 && <ProdImageIndex selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />}
+              {productImgIndexes && indexTab !== 0 && <ProdImageIndex indexTabName={indexTabName} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />}
               <Box sx={{ width: '100%', overflowY: 'scroll' }} id="product-container">
                 <ImageList variant="standard" cols={5} gap={8}>
-                  {products.length > 0 && selectedFiterTab === 1 && products.map((item, i) => {
+                  {products.length > 0 && indexTab === 0 && products.map((item, i) => {
 
                     return <ImageComponent key={i + "-"} selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
                   })}

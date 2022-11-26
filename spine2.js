@@ -1,9 +1,10 @@
-const data =require('./spine2.json')
-const taffdb =require('taffy')
 
-var db = taffdb(data)
+(async()=>{
+    const sharp = require('sharp');
+    const fs =require('fs')
+    const buffer =fs.readFileSync('./public/category-sprite/sprite.jpg')
+    await sharp(buffer)
+    .jpeg()
+    .toFile('./public/category-sprite/sprite-compressed.jpg');
 
-console.log('db',db.insert({name:"by"}))
-
-
-console.log('db',db().get())
+})()

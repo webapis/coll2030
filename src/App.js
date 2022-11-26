@@ -150,7 +150,7 @@ export default class App extends React.Component {
           selectedNavIndex = state.selectedNavIndex.concat(index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
           selectedKeywords = [...state.selectedKeywords, { keyword, index }]
         }
-        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true, selectedFiterTab: 1 }
+        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true, indexTab: 0 }
       })
     }
     this.setSelectedFilterTab = (event, value) => {
@@ -159,7 +159,15 @@ export default class App extends React.Component {
         return { ...prevState, selectedFiterTab: value }
       })
     }
+    this.setIndexTab=(event,value)=>{
+      const {id}=event.currentTarget
+     console.log('id',id)
+      this.setState((prevState) => {
+        return { ...prevState, indexTab: value,indexTabName:id }
+      })
+    }
     this.state = {
+      indexTabName:'Tümü',
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
@@ -176,6 +184,8 @@ export default class App extends React.Component {
       search: '',
       productImgIndexes: null,
       selectedFiterTab: 0,
+      indexTab:0,
+      setIndexTab:this.setIndexTab,
       setSelectedFilterTab: this.setSelectedFilterTab,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex,
@@ -288,9 +298,9 @@ export default class App extends React.Component {
       host = 'http://localhost:8888/.netlify/functions'
     } else {
       if (href !== 'https://www.biraradamoda.com') {
-        host = 'https://development--coll2030.netlify.app/.netlify/functions'
+        host = 'https://development--fashion2023.netlify.app/.netlify/functions'
       } else {
-        host = 'https://coll2030.netlify.app/.netlify/functions'
+        host = 'https://fashion2023.netlify.app/.netlify/functions'
       }
 
 
@@ -424,7 +434,7 @@ export default class App extends React.Component {
             <Grid xs={2} item >
               <KeywordsList />
             </Grid>
-            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 80 }}>
+            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 40 }}>
               <ProductList />
             </Grid>
           </Grid>

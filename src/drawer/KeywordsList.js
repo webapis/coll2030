@@ -8,9 +8,10 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
 
-import ListItemText from '@mui/material/ListItemText';
+// import ListItemButton from '@mui/material/ListItemButton';
+
+// import ListItemText from '@mui/material/ListItemText';
 import subcatObj from '../category-nav-counter.json'
 const categories = Object.values(subcatObj).flat()
 export default function KeywordsList() {
@@ -20,12 +21,12 @@ export default function KeywordsList() {
 
             return <div style={{ position: 'relative' }}>
 
-                <div style={{ paddingTop: 100, position: 'fixed' }}>
+                <div style={{ marginTop: 70, position: 'fixed',zIndex:1000000 }}>
                     <div>
                         <CategoryNav />
                     </div>
                     <List>
-                        {navKeywords && navKeywords.map((m, i) => {
+                        {/* {navKeywords && navKeywords.map((m, i) => {
 
                             const { groupName } = m
                   
@@ -47,7 +48,7 @@ export default function KeywordsList() {
                         })
 
 
-                        }
+                        } */}
                     </List>
                 </div></div>
         })
@@ -67,7 +68,7 @@ function CategoryNav() {
 
         return <FormControl>
             <FormLabel id="demo-radio-buttons-group-label">{groupName}</FormLabel>
-            <div style={{ maxHeight: 300, overflow: 'auto' }}>
+            <div style={{ maxHeight: '85vh', overflow: 'auto' }}>
                 <RadioGroup
 
                     aria-labelledby="demo-radio-buttons-group-label"
@@ -78,9 +79,9 @@ function CategoryNav() {
                     {
                         categories.filter(f => {
                             return f.groupName === groupName
-                        }).map((m, i) => {
-
-                            return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType })} />} label={<div style={{ textAlign: 'justify' }}><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
+                        }).sort((a,b)=>b.count-a.count).map((m, i) => {
+                         
+                            return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType })} />} label={<div ><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
                         })
                     }
 
