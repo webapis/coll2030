@@ -6,22 +6,20 @@ import Box from '@mui/material/Box';
 import { AppContext } from "../App";
 export default function HorizontalKeywords() {
 
-    return <AppContext.Consumer>{({ navKeywords,availableProducts,products }) => {
+    return <AppContext.Consumer>{({ navKeywords,setIndexTab,indexTab }) => {
         return (
             <Box style={{width:'70%'}}  >
               
                     {navKeywords && navKeywords.length>0 &&                 <Tabs
               
-                    value={0}
-                       
+                    value={indexTab}
+                    onChange={setIndexTab}
                     variant="scrollable"
                     scrollButtons
                     allowScrollButtonsMobile
                     aria-label="scrollable force tabs example"
                     centered
                 >
-          
-
 
                     <Tab  label="Tümü"  style={{textTransform:'capitalize'}} />
                         {navKeywords && navKeywords.length>0 && navKeywords.map((m, i) => {
@@ -29,7 +27,7 @@ export default function HorizontalKeywords() {
                             const { groupName } = m
 
 
-                            return <Tab style={{textTransform:'capitalize'}}  label={groupName} />
+                            return <Tab style={{textTransform:'capitalize'}}  label={groupName} id={groupName} />
                         })
                         }
                   

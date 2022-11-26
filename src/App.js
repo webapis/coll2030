@@ -150,7 +150,7 @@ export default class App extends React.Component {
           selectedNavIndex = state.selectedNavIndex.concat(index).split('-').filter(f => f !== "").map(m => parseInt(m)).sort((a, b) => a - b).map(m => m + "-").join('')
           selectedKeywords = [...state.selectedKeywords, { keyword, index }]
         }
-        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true, selectedFiterTab: 1 }
+        return { ...state, startAt: 0, selectedNavIndex, selectedKeywords, fetchingKeywords: true, indexTab: 0 }
       })
     }
     this.setSelectedFilterTab = (event, value) => {
@@ -159,7 +159,15 @@ export default class App extends React.Component {
         return { ...prevState, selectedFiterTab: value }
       })
     }
+    this.setIndexTab=(event,value)=>{
+      const {id}=event.currentTarget
+     console.log('id',id)
+      this.setState((prevState) => {
+        return { ...prevState, indexTab: value,indexTabName:id }
+      })
+    }
     this.state = {
+      indexTabName:'Tümü',
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
@@ -176,6 +184,8 @@ export default class App extends React.Component {
       search: '',
       productImgIndexes: null,
       selectedFiterTab: 0,
+      indexTab:0,
+      setIndexTab:this.setIndexTab,
       setSelectedFilterTab: this.setSelectedFilterTab,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex,

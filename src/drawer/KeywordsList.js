@@ -80,7 +80,7 @@ function CategoryNav() {
                         categories.filter(f => {
                             return f.groupName === groupName
                         }).sort((a,b)=>b.count-a.count).map((m, i) => {
-                            debugger
+                         
                             return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType })} />} label={<div ><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
                         })
                     }

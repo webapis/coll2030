@@ -12,10 +12,10 @@ import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 
 
-export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex }) {
+export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex,indexTabName }) {
     
+console.log('indexTabName',indexTabName)
 
-    
     const theme = useTheme();
     const xs = useMediaQuery(theme.breakpoints.down('xs'));
     const sm = useMediaQuery(theme.breakpoints.down('sm'));
@@ -47,15 +47,16 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
 
 
     return <div sx={{ paddingRight: 0 }} >
-      
-        <Grid container> {navKeywords.filter(f => {
-            return f.groupName !== 'Fiyat' && f.groupName !== 'Marka'
-        }).sort(function (a, b) {
-
+        <Grid container> {navKeywords.sort(function (a, b) {
             const akeywords = a['keywords']
             const bkeywords = b['keywords']
 
             return bkeywords.length - akeywords.length;
+        }).filter(g=>{
+
+
+
+            return g.groupName===indexTabName
         }).map((m,a) => {
             const { groupName, keywords } = m
             let colTop = 0
