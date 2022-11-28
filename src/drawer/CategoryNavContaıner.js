@@ -25,7 +25,7 @@ export default function CategoryNavContainer({ subcategories, products, fetching
 
       return[ <Grid item xs={3}></Grid>, <Grid item xs={6}  key={b}>
         <div style={{display:'flex', justifyContent:'center',paddingTop:25}}>
-         < Typography variant="h5" gutterBottom textAlign='center'>{groupName}  <Chip style={{opacity:0.6,fontSize:12}} size="small"  label={new Intl.NumberFormat().format(totalGroup)+' ürün'}/></Typography>
+         < Typography variant="h2" style={{fontSize:20}} gutterBottom textAlign='center'>{groupName}  <Chip style={{opacity:0.6,fontSize:12}} size="small"  label={new Intl.NumberFormat().format(totalGroup)+' ürün'}/></Typography>
        
         </div>
       

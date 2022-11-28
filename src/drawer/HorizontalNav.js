@@ -2,7 +2,7 @@ import { useRef,useEffect } from 'react';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import Chip from '@mui/material/Chip';
 import Fab from '@mui/material/Fab';
-
+import { Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import React from 'react';
@@ -111,7 +111,7 @@ function Card({ onClick, title,m,selectSubcategory,itemId }) {
 
  
                 <img alt={title}  ref={imageElement} src={dataURL} width={172}   data-src={`https://res.cloudinary.com/codergihub/image/upload/h_400/categories/${title}.jpg`} onClick={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category' })} style={{ borderRadius: 6, marginRight: 4 }}  />
-                <span style={{ fontSize: 14,opacity:0.8 ,textAlign:'center',padding:3,display:'flex',justifyContent:'space-around'}}><span>{title}</span><Chip style={{opacity:0.6,fontSize:12}} size="small"  label={new Intl.NumberFormat().format(m.count)+' türü'}/> </span></div>
+               <Typography variant="h4"><span style={{ fontSize: 14,opacity:0.8 ,textAlign:'center',padding:3,display:'flex',justifyContent:'space-around'}}><span>{title}</span><Chip style={{opacity:0.6,fontSize:12}} size="small"  label={new Intl.NumberFormat().format(m.count)+' türü'}/> </span></Typography> </div>
 
   );
 }
