@@ -11,7 +11,7 @@ import { Container } from '@mui/material';
 import keywordgroup from './keywords.json'
 
 import subcatObj from './category-nav-counter.json'
-
+import { Helmet } from "react-helmet";
 import CategoryNavContainer from './drawer/CategoryNavContaıner';
 import TabContainer from './drawer/TabContainer';
 const subcategories = Object.entries(subcatObj)
@@ -159,15 +159,15 @@ export default class App extends React.Component {
         return { ...prevState, selectedFiterTab: value }
       })
     }
-    this.setIndexTab=(event,value)=>{
-      const {id}=event.currentTarget
-     console.log('id',id)
+    this.setIndexTab = (event, value) => {
+      const { id } = event.currentTarget
+      console.log('id', id)
       this.setState((prevState) => {
-        return { ...prevState, indexTab: value,indexTabName:id }
+        return { ...prevState, indexTab: value, indexTabName: id }
       })
     }
     this.state = {
-      indexTabName:'Tümü',
+      indexTabName: 'Tümü',
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
@@ -184,8 +184,8 @@ export default class App extends React.Component {
       search: '',
       productImgIndexes: null,
       selectedFiterTab: 0,
-      indexTab:0,
-      setIndexTab:this.setIndexTab,
+      indexTab: 0,
+      setIndexTab: this.setIndexTab,
       setSelectedFilterTab: this.setSelectedFilterTab,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
       setSelectedNavIndex: this.setSelectedNavIndex,
@@ -419,10 +419,18 @@ export default class App extends React.Component {
     const { matchedesktop, selectedSubcategory, fetchingProduct, subcategories, selectSubcategory, products } = this.state
 
     return (<AppContext.Provider value={this.state}>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description"
+          content={ new Date().toLocaleDateString()+" Moda markaları tek yerde ara. İstediğin giyim ürünü hızlı ve anında bul. Fiyat karşılaştır. Markadan satın al."} />
+        <title>Tüm Marka Giyimler bir arada - BİRARADAMODA</title>
+      </Helmet>
       <ApplicationBar />
       <TemporaryDrawer />
 
-      <CategoryNavContainer  selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
+      <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
       {matchedesktop && selectedSubcategory &&
         <Container>
           <Grid
