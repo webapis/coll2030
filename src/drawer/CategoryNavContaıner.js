@@ -23,7 +23,7 @@ export default function CategoryNavContainer({ subcategories, products, fetching
   
 
 
-      return[ <Grid item xs={3}></Grid>, <Grid item xs={6}  key={b}>
+      return[ <Grid item xs={0} sm={1} md={3}></Grid>, <Grid item xs={12} sm={10} md={6}   key={b}>
         <div style={{display:'flex', justifyContent:'center',paddingTop:25}}>
          < Typography variant="h2" style={{fontSize:20}} gutterBottom textAlign='center'>{groupName}  <Chip style={{opacity:0.6,fontSize:12}} size="small"  label={new Intl.NumberFormat().format(totalGroup)+' ürün'}/></Typography>
        
@@ -31,7 +31,7 @@ export default function CategoryNavContainer({ subcategories, products, fetching
       
           <HorizontalNav   navitems={images} m={m} selectSubcategory={selectSubcategory}/>
       </Grid>,
-       <Grid item xs={3}></Grid>
+       <Grid item xs={0} sm={1} md={3}></Grid>
       ]
     })}
   </Grid>

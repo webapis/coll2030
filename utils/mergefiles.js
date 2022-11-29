@@ -87,7 +87,7 @@
                         fs.writeFileSync(savePath, JSON.stringify(current))
                     }
                     else{
-                        console.log('current',current,fnName, marka)
+                      
                     }
                 
                 
@@ -98,7 +98,7 @@
 
         
 
-        console.log('dirname merged', dirName)
+    
 
 
     }
