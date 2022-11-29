@@ -21,7 +21,7 @@ Apify.main(async () => {
     const requestQueue = await Apify.openRequestQueue();
     const marka = process.env.marka// process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
     const website =process.env.WEBSITE
-    console.log('process.env.WEBSITE',process.env.WEBSITE)
+  
     const { urls } = require(`./urls/${website}/${marka}`)
 
     for (let obj of urls) {
@@ -63,7 +63,7 @@ Apify.main(async () => {
 
                 process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
 
-                console.log('total collected', process.env.dataLength)
+               
             } else {
                 console.log('unsuccessfull data collection')
             }
@@ -73,7 +73,8 @@ Apify.main(async () => {
         }
 
     }
-    console.log('process.env.MAX_CONCURRENCY', process.env.MAX_CONCURRENCY)
+ 
+    
     const crawler = new Apify.PuppeteerCrawler({
         // requestList,
         requestQueue,
@@ -132,15 +133,8 @@ Apify.main(async () => {
                 page.on('response', async response => {
                     const request = response.request();
 
-                    // if (request.url().includes('https://shop.mango.com/services/productlist/products')) {
-                    //     const json = await response.json();
-                    //     const _url = response._url
-                    //     console.log('JSON_url---------------------------------------------------------', _url)
-
-                    //     await Apify.pushData(json);
-
-                    // }
-
+  
+                    
                     const status = response.status()
                     if (status === 200) {
                         try {
@@ -202,7 +196,8 @@ Apify.main(async () => {
 
                 for (let d of productItemsWithoutDublicate) {
                     const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-                    console.log('website',website)
+                  
+                    
                     await makeDir(`collected-data/${website}`)
                     await makeDir(`updated-data/${website}`)
                     debugger
