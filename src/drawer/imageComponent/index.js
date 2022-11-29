@@ -2,9 +2,9 @@
 import React, { useEffect, useRef } from 'react';
 import placeholders from './placeholders.json'
 import { AppContext } from '../../App';
-import { ImageListItem } from '@mui/material';
+
 import './hl.css'
-import ImageListItemBar from '@mui/material/ImageListItemBar';
+
 
 export default function ImageComponent(props) {
 
@@ -26,10 +26,10 @@ export default function ImageComponent(props) {
 
   const imageSource = placeholders[props.marka].imagePrefix.trim() + placeholders[props.marka].imageHost.trim() + props.imageUrl + placeholders[props.marka].imgPostFix
   const detailHost = placeholders[props.marka].detailHost + props.link + placeholders[props.marka].postfix
- // const date2 = props.timestamp
- // const date1 = Date.now()
- // const hour = Math.floor(Math.abs(date1 - date2) / 36e5);
- // const minutesdiff = Math.abs(new Date(date1) - new Date(date2));
+  // const date2 = props.timestamp
+  // const date1 = Date.now()
+  // const hour = Math.floor(Math.abs(date1 - date2) / 36e5);
+  // const minutesdiff = Math.abs(new Date(date1) - new Date(date2));
   // var minutes = Math.floor((minutesdiff / 1000) / 60);
   // var days = Math.floor(minutesdiff / (1000 * 60 * 60 * 24));
   // var month = Math.round(minutesdiff / (2e3 * 3600 * 365.25));
@@ -78,28 +78,31 @@ export default function ImageComponent(props) {
         const selectedSubcategoryMatch = selectedSubcategory.includes(m.toLowerCase()) || m.toLowerCase().includes(selectedSubcategory)
 
 
-        return <span key={i} style={{ margin:0,padding:0,  color: '#9e9e9e', fontSize: 10, textTransform: 'capitalize', fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch || searchMatch) ? 800 : 300 }}>{m.replace(props.marka, '')}{` `}
+        return <span key={i} style={{ margin: 0, padding: 0, color: '#9e9e9e', fontSize: 10, textTransform: 'capitalize', fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch || searchMatch) ? 800 : 300 }}>{m.replace(props.marka, '')}{` `}
 
 
         </span>
       })
-      return <a style={{ color: '#bdbdbd', textDecoration: 'none'}} href={detailHost} target="_blank" rel="noreferrer">
-        <ImageListItem  sx={{margin:0,padding:0}}>
-          <img ref={imageEl} data-intersection="true" className="figure"
+      return <a style={{ color: '#bdbdbd', textDecoration: 'none' }} href={detailHost} target="_blank" rel="noreferrer">
 
-            src={imagePlaceholder}
-            data-src={imageSource.trim()}
-            alt={props.title}
-            loading="lazy"
-          />
-          
-          <ImageListItemBar    position='below' subtitle={<span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10, color: '#9e9e9e' }}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span>} />
-      
-        </ImageListItem>
-        <div style={{fontSize:10,marginTop:-5}}>{productTitle}
+        <img ref={imageEl} data-intersection="true" className="figure"
+          width='100%'
+          src={imagePlaceholder}
+          data-src={imageSource.trim()}
+          alt={props.title}
+          loading="lazy"
+        />
+
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{marginBottom:10}}> 
+            <span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10, color: '#9e9e9e' }}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span></div>
+          <div style={{ fontSize: 10, marginTop: -5 }}>{productTitle}
+          </div>
         </div>
+
       </a>
-      
+
     })}
 
     </AppContext.Consumer >

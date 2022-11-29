@@ -37,10 +37,10 @@ export default function AppBarContainer() {
                 <Button variant="text" onClick={clearSubcategory} color="inherit">     <Typography variant="h6" component="div"    >
                   BİRARADAMODA
                 </Typography> </Button>
-                <Typography variant='h1' style={{fontSize:14,textTransform:'capitalize',opacity:0.7,marginTop:-10}}>Tüm Kadın Marka Giyimleri tek yerden hızlı ve kaliteli ara</Typography>
+                <Typography variant='h1' style={{fontSize:14,textTransform:'capitalize',opacity:0.7,marginTop:-10}}>İstediğin Kadın Marka Giyimleri Tek Yerde Hızlı Ara ve Bul</Typography>
                 </div>
              
-                {navKeywords && navKeywords.length > 0 && ([ <HorizontalKeywords/>,<SearchBox/>])}
+                {navKeywords && navKeywords.length > 0 && ([ <HorizontalKeywords key='aa'/>,<SearchBox key='bb' />])}
               </Toolbar>
 
              
@@ -50,7 +50,7 @@ export default function AppBarContainer() {
                   {selectedKeywords.map((m, i) => {
                     const { index, keyword } = m
                     debugger
-                    return <Chip color='info' key={i} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} size="small"/>
+                    return <Chip color='info' key={i+'-'} label={m.keyword} onDelete={() => setSelectedNavIndex({ index, keyword })} size="small"/>
                   })}
                 </div>
    

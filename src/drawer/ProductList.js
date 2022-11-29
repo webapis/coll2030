@@ -3,7 +3,7 @@ import React from 'react';
 
 
 import ImageComponent from './imageComponent';
-import Container from '@mui/material/Container';
+
 import Chip from '@mui/material/Chip';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import Fab from '@mui/material/Fab';
@@ -11,8 +11,8 @@ import Fab from '@mui/material/Fab';
 import Box from '@mui/material/Box';
 import { AppContext } from '../App';
 import { Typography } from '@mui/material';
-import ImageList from '@mui/material/ImageList';
 
+import Grid from '@mui/material/Grid';
 import ProdImageIndex from './ProdImageIndexes';
 export default function ProductList(props) {
 
@@ -25,7 +25,7 @@ export default function ProductList(props) {
         return <div style={{ position: 'relative', paddingBottom: 600 }}>
 
 
-          <Container sx={{ paddingLeft: 0, paddingTop: 3 }}>
+          <div style={{paddingTop: 3 }}>
             {products.length > 0
               && <div style={{ position: 'relative' }}>
                 <div >
@@ -41,16 +41,14 @@ export default function ProductList(props) {
 
           
             <div >
-
-
               {productImgIndexes && indexTab !== 0 && <ProdImageIndex indexTabName={indexTabName} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />}
-              <Box sx={{ width: '100%', overflowY: 'scroll' }} id="product-container">
-                <ImageList variant="standard" cols={5} gap={8}>
+              <Box sx={{ width: '100%', overflowY: 'auto' }} id="product-container">
+                <Grid container  gap={1}>
                   {products.length > 0 && indexTab === 0 && products.map((item, i) => {
 
-                    return <ImageComponent key={i + "-"} selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} />
+                    return<Grid key={i} item xs={6} sm={4} md={3} sx={{display:'flex',justifyContent:'center'}}> <Box sx={{width:{xs:150,sm:200,md:200}}}> <ImageComponent key={i + "-"} selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} /></Box></Grid>
                   })}
-                </ImageList>
+                </Grid>
 
               </Box>
             </div>
@@ -63,7 +61,7 @@ export default function ProductList(props) {
               <NavigationIcon />
             </Fab>
             {products.length > 0 && (products.length - 1) === availableProducts && <Typography sx={{ color: '#757575', marginBottom: 10 }}>toplam:{availableProducts}ürün görüntilendi</Typography>}
-          </Container>
+          </div>
         </div>
       }}
     </AppContext.Consumer>

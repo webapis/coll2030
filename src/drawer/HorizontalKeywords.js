@@ -18,7 +18,7 @@ export default function HorizontalKeywords() {
                     scrollButtons
                     allowScrollButtonsMobile
                     aria-label="scrollable force tabs example"
-                    centered
+               
                 >
 
                     <Tab  label="Tümü"  style={{textTransform:'capitalize'}} />
@@ -27,7 +27,7 @@ export default function HorizontalKeywords() {
                             const { groupName } = m
 
 
-                            return <Tab style={{textTransform:'capitalize'}}  label={groupName} id={groupName} />
+                            return <Tab key={i+'k'} style={{textTransform:'capitalize'}}  label={groupName} id={groupName} />
                         })
                         }
                   

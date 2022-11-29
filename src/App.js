@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import KeywordListDrawer from './drawer/KeywordListDrawer'
+//import KeywordListDrawer from './drawer/KeywordListDrawer'
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
 import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
@@ -13,7 +13,7 @@ import keywordgroup from './keywords.json'
 import subcatObj from './category-nav-counter.json'
 import { Helmet } from "react-helmet";
 import CategoryNavContainer from './drawer/CategoryNavContaıner';
-import TabContainer from './drawer/TabContainer';
+
 const subcategories = Object.entries(subcatObj)
 const categories = Object.values(subcatObj).flat()
 
@@ -430,26 +430,26 @@ export default class App extends React.Component {
       <ApplicationBar />
       <TemporaryDrawer />
 
-      <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
+       <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} /> 
       {matchedesktop && selectedSubcategory &&
-        <Container>
+        <Container >
           <Grid
             container
             spacing={0}
             justifyContent="center"
             style={{ minHeight: '100vh' }}
           >
-            <Grid xs={2} item >
+            <Grid xs={0} md={2} item >
               <KeywordsList />
             </Grid>
-            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 40 }}>
+            <Grid xs={12} md={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 65 }}>
               <ProductList />
             </Grid>
           </Grid>
         </Container>
       }
 
-      {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}> <TabContainer /><ProductList /></div>  </div>)}
+      {/* {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{ display: 'flex', flexDirection: 'column', width: '100%', backgroundColor:'yellow' }}> <TabContainer /><ProductList /></div>  </div>)} */}
 
 
     </AppContext.Provider>)
