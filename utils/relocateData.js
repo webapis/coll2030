@@ -26,9 +26,9 @@ if (fs.existsSync(path.join(process.cwd(), `old-data`))) {
                 if (fs.existsSync(d)) {
                     
                     fs.unlinkSync(d)
-                    console.log('deleted----', d)
+                   
                 } else {
-                    console.log('file not found-----------------------', d)
+                 
                 }
             }
 
@@ -52,7 +52,7 @@ if (fs.existsSync(path.join(process.cwd(), `collected-data`))) {
                 makeDir.sync(`data/${website}/${marka}`)
                 const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                 const savePath = path.join(process.cwd(), `data/${website}/${marka}/${fileName}.json`)
-                console.log('savePath------', savePath)
+              
                 fs.writeFileSync(savePath, JSON.stringify(d))
             }
 

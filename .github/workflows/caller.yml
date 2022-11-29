@@ -63,7 +63,7 @@ jobs:
     with:
       marka: beymen
       WEBSITE: biraradamoda
-      maxconcurrency: '1'
+      maxconcurrency: '5'
     secrets: inherit
   vakko_job:
     uses: ./.github/workflows/reusable.yml

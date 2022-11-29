@@ -14,14 +14,6 @@ jobs:
       WEBSITE: biraradamoda
     secrets: inherit
 
-  koton_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: koton
-      maxconcurrency: '10'
-      WEBSITE: biraradamoda
-    secrets: inherit
-
   generate_nav_job:
     runs-on: ubuntu-latest
     needs: [defacto_job,koton_job]
