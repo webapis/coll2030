@@ -430,7 +430,7 @@ export default class App extends React.Component {
       <ApplicationBar />
       <TemporaryDrawer />
 
-      <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
+       <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} /> 
       {matchedesktop && selectedSubcategory &&
         <Container>
           <Grid
@@ -449,7 +449,7 @@ export default class App extends React.Component {
         </Container>
       }
 
-      {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}> <TabContainer /><ProductList /></div>  </div>)}
+      {/* {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{ display: 'flex', flexDirection: 'column', width: '100%', backgroundColor:'yellow' }}> <TabContainer /><ProductList /></div>  </div>)} */}
 
 
     </AppContext.Provider>)
