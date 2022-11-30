@@ -49,7 +49,7 @@ export default function AppBarContainer() {
                     BİRARADAMODA
                   </Typography> </Button>
 
-                  <Typography variant='h1' style={{ fontSize: 14, textTransform: 'capitalize', opacity: 0.7, marginTop: -10 }}>Kadın Marka Giyimleri Tek Yerde Ara</Typography>
+                  <Typography variant='h1' style={{ fontSize: 14, textTransform: 'capitalize', opacity: 0.7, marginTop: -10 }}>Kadın Marka Giyimleri Birarada Ara</Typography>
                   {/* <IconButton
                     size="small"
                     edge="start"
