@@ -3,8 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-import HomeIcon from '@mui/icons-material/Home';
-import SearchIcon from '@mui/icons-material/Search';
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
