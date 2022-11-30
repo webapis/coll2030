@@ -14,7 +14,7 @@ import { Typography } from '@mui/material';
 
 import Grid from '@mui/material/Grid';
 import ProdImageIndex from './ProdImageIndexes';
-export default function ProductList(props) {
+export default function ProductList() {
 
 
 

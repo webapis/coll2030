@@ -26,10 +26,10 @@ export default function AppBarContainer() {
 
             <Toolbar sx={{ display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column', sm: 'column', md: 'row' } }}>
 
-              <Container center className='brend-container'  >
+              <Container center className='brend-container' sx={{display:{xs:'block',sm:'block',md:'flex',lg:'flex'}}} >
 
 
-                <Box >
+                <Box sx={{flex:1}}>
                   {!matchedesktop && navKeywords && navKeywords.length>0&&<IconButton
                     size="large"
                     edge="start"
@@ -56,7 +56,10 @@ export default function AppBarContainer() {
 
                   <Typography variant='h1' style={{ fontSize: 14, textTransform: 'capitalize', opacity: 0.7, marginTop: -10 }}>İstediğin Kadın Marka Giyimleri Tek Yerde Hızlı Ara ve Bul</Typography>
                 </Box>
+                <div>
                 {navKeywords && navKeywords.length > 0 && <HorizontalKeywords  />}
+                </div>
+            
               </Container>
 
             </Toolbar>

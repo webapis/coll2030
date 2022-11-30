@@ -416,7 +416,7 @@ export default class App extends React.Component {
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory, fetchingProduct, subcategories, selectSubcategory, products,navKeywords ,toggleFilterDrawer, filterDrawerIsOpen, fetchingKeywords } = this.state
+    const { matchedesktop, selectedSubcategory, fetchingProduct, subcategories, selectSubcategory, products,navKeywords ,toggleFilterDrawer, filterDrawerIsOpen } = this.state
 
     return (<AppContext.Provider value={this.state}>
       <Helmet>
