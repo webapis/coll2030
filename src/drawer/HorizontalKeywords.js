@@ -21,7 +21,7 @@ export default function HorizontalKeywords() {
                
                 >
 
-                    <Tab  label="Tümü"  style={{textTransform:'capitalize'}} />
+                    <Tab  label="Sonuç"  style={{textTransform:'capitalize'}} />
                         {navKeywords && navKeywords.length>0 && navKeywords.map((m, i) => {
 
                             const { groupName } = m

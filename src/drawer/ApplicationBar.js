@@ -44,8 +44,14 @@ export default function AppBarContainer() {
                   </IconButton>
                   }}/>}
                 
-                   <IconButton
-                    size="large"
+      
+                  <Button variant="text" onClick={clearSubcategory} color="inherit">     <Typography variant="h6" component="div"    >
+                    BİRARADAMODA
+                  </Typography> </Button>
+
+                  <Typography variant='h1' style={{ fontSize: 14, textTransform: 'capitalize', opacity: 0.7, marginTop: -10 }}>Kadın Marka Giyimleri Tek Yerde Ara</Typography>
+                  {/* <IconButton
+                    size="small"
                     edge="start"
                     color="inherit"
        
@@ -53,15 +59,12 @@ export default function AppBarContainer() {
                     onClick={clearSubcategory}
                   >
                     <SearchIcon />
-                  </IconButton> 
-                  <Button variant="text" onClick={clearSubcategory} color="inherit">     <Typography variant="h6" component="div"    >
-                    BİRARADAMODA
-                  </Typography> </Button>
-
-                  <Typography variant='h1' style={{ fontSize: 14, textTransform: 'capitalize', opacity: 0.7, marginTop: -10 }}>İstediğin Kadın Marka Giyimleri Tek Yerde Ara</Typography>
+                  </IconButton>  */}
                 </Box>
-                <div>
+                
+                <div style={{display:'flex'}}>
                 {navKeywords && navKeywords.length > 0 && <HorizontalKeywords  />}
+             
                 </div>
             
               </Container>
