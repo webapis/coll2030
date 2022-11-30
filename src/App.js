@@ -456,7 +456,8 @@ export default class App extends React.Component {
           <Drawer sx={{ width: 250 }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
         </div>
       }} />}
-
+      <hr/>
+<div style={{textAlign:'center', padding:10}}>©2022 Biraradamoda | tüm hakları saklıdır.</div>
     </AppContext.Provider>)
   }
 }

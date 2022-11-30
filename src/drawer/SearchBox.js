@@ -11,7 +11,7 @@ export default function SearchBox() {
 
 
   return (
-    <AppContext.Consumer>{({ toggleFilterDrawer, matchedesktop, selectedSubcategory, searchInputChanged, searchProduct, search,selectSubcategory }) => {
+    <AppContext.Consumer>{({  searchInputChanged, searchProduct, search }) => {
       return <Paper
       elevation={0}
         component="form"
