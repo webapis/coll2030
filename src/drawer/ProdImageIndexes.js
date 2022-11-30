@@ -84,7 +84,7 @@ console.log('indexTabName',indexTabName)
                 default:
             }
 
-            return <Grid key={a} item xs={colTop}>
+            return <Grid key={a} item xs={colTop} sx={{marginTop:{xs:12, sm:12,md:5}}}>
                 <Paper elevation={0}  sx={{ margin: 1, padding: 1 }}>
                     <Grid container>
 

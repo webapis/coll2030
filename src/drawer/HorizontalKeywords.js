@@ -8,7 +8,7 @@ export default function HorizontalKeywords() {
 
     return <AppContext.Consumer>{({ navKeywords,setIndexTab,indexTab }) => {
         return (
-            <Box style={{width:'70%'}}  >
+            <Box style={{width:'100%', display:'flex', justifyContent:'end'}}  >
               
                     {navKeywords && navKeywords.length>0 &&                 <Tabs
               
