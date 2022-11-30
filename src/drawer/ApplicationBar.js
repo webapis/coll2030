@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -43,21 +44,21 @@ export default function AppBarContainer() {
                   </IconButton>
                   }}/>}
                 
-                  <IconButton
+                   <IconButton
                     size="large"
                     edge="start"
                     color="inherit"
-                    aria-label="menu"
+       
 
                     onClick={clearSubcategory}
                   >
-                    <HomeIcon />
-                  </IconButton>
+                    <SearchIcon />
+                  </IconButton> 
                   <Button variant="text" onClick={clearSubcategory} color="inherit">     <Typography variant="h6" component="div"    >
                     BİRARADAMODA
                   </Typography> </Button>
 
-                  <Typography variant='h1' style={{ fontSize: 14, textTransform: 'capitalize', opacity: 0.7, marginTop: -10 }}>İstediğin Kadın Marka Giyimleri Tek Yerde Hızlı Ara ve Bul</Typography>
+                  <Typography variant='h1' style={{ fontSize: 14, textTransform: 'capitalize', opacity: 0.7, marginTop: -10 }}>İstediğin Kadın Marka Giyimleri Tek Yerde Ara</Typography>
                 </Box>
                 <div>
                 {navKeywords && navKeywords.length > 0 && <HorizontalKeywords  />}

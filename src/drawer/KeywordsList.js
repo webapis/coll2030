@@ -1,56 +1,30 @@
 
-
-//import NavList from './NavList';
 import { AppContext } from '../App';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import List from '@mui/material/List';
+import Breadcrumbs from '@mui/material/Breadcrumbs';
 import { Box } from '@mui/material';
 
-// import ListItemButton from '@mui/material/ListItemButton';
-
-// import ListItemText from '@mui/material/ListItemText';
+import Link from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
+import HomeIcon from '@mui/icons-material/Home';
 import subcatObj from '../category-nav-counter.json'
 const categories = Object.values(subcatObj).flat()
 export default function KeywordsList() {
     return <AppContext.Consumer>{
-        (({ navKeywords }) => {
+        (() => {
 
 
             return <div style={{ position: 'relative' }}>
 
                 <Box sx={{ marginTop:{xs:0,md:10}, position:{xs:'static',md:'fixed'},zIndex:1000000 }}>
-                    <div>
+                 
                         <CategoryNav />
-                    </div>
-                    <List>
-                        {/* {navKeywords && navKeywords.map((m, i) => {
-
-                            const { groupName } = m
-                  
                    
-                            return <ListItemButton onClick={() => {
-                                
-                                const ancortab = document.getElementById('ancc')
 
-                                window.scrollTo(0, document.getElementById(groupName).offsetTop -ancortab.offsetTop)
-                            
-
-                            }}
-
-
-                            >
-                                <ListItemText primary={groupName} />
-                            </ListItemButton>
-
-                        })
-
-
-                        } */}
-                    </List>
                 </Box></div>
         })
     }</AppContext.Consumer>
@@ -65,10 +39,25 @@ export default function KeywordsList() {
 
 
 function CategoryNav() {
-    return <AppContext.Consumer>{({ groupName, selectSubcategory, selectedNavIndex }) => {
+    return <AppContext.Consumer>{({ groupName, selectSubcategory, selectedNavIndex,clearSubcategory }) => {
 
         return <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label">{groupName}</FormLabel>
+               <Breadcrumbs separator="›" aria-label="breadcrumb">
+               <IconButton
+                    size="small"
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+
+                    onClick={clearSubcategory}
+                  >
+                    <HomeIcon />
+                  </IconButton>
+               <span underline="hover" key="1" color="inherit" href="/">
+               {groupName}
+    </span>
+      </Breadcrumbs>
+        
             <div style={{ maxHeight: '85vh', overflow: 'auto' }}>
                 <RadioGroup
 
