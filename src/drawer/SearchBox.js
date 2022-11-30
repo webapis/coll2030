@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import FilterListIcon from '@mui/icons-material/FilterList';
+
 import { AppContext } from '../App';
 
 export default function SearchBox() {
@@ -46,9 +46,7 @@ export default function SearchBox() {
         <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={searchProduct} >
           <SearchIcon />
         </IconButton>
-        {!matchedesktop && <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleFilterDrawer}>
-          <FilterListIcon />
-        </IconButton>}
+   
 
 
       </Paper>

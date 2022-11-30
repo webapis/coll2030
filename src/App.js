@@ -13,7 +13,7 @@ import keywordgroup from './keywords.json'
 import subcatObj from './category-nav-counter.json'
 import { Helmet } from "react-helmet";
 import CategoryNavContainer from './drawer/CategoryNavContaıner';
-
+import ResponseComponent from './drawer/ResponseComponent';
 const subcategories = Object.entries(subcatObj)
 const categories = Object.values(subcatObj).flat()
 
@@ -171,7 +171,7 @@ export default class App extends React.Component {
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
-      matchedesktop: (600 < window.innerWidth),
+      matchedesktop: (window.innerWidth > 700),
       open: false,
       toggleDrawer: this.toggleDrawer,
       subcategories: [], selectSubcategory: this.selectSubcategory,
@@ -416,7 +416,7 @@ export default class App extends React.Component {
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory, fetchingProduct, subcategories, selectSubcategory, products,navKeywords ,toggleFilterDrawer, filterDrawerIsOpen } = this.state
+    const { selectedSubcategory, fetchingProduct, subcategories, selectSubcategory, products, navKeywords, toggleFilterDrawer, filterDrawerIsOpen } = this.state
 
     return (<AppContext.Provider value={this.state}>
       <Helmet>
@@ -424,15 +424,16 @@ export default class App extends React.Component {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description"
-          content={ new Date().toLocaleDateString()+" Moda markaları tek yerde ara. İstediğin giyim ürünü hızlı ve anında bul. Fiyat karşılaştır. Markadan satın al."} />
+          content={new Date().toLocaleDateString() + " Moda markaları tek yerde ara. İstediğin giyim ürünü hızlı ve anında bul. Fiyat karşılaştır. Markadan satın al."} />
         <title>Tüm Marka Giyimler bir arada - BİRARADAMODA</title>
       </Helmet>
       <ApplicationBar />
       <TemporaryDrawer />
 
-       <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} /> 
-      {matchedesktop && selectedSubcategory &&
-        <Container >
+      <CategoryNavContainer selectSubcategory={selectSubcategory} subcategories={subcategories} fetchingProduct={fetchingProduct} products={products} />
+      {selectedSubcategory && <ResponseComponent minWidth={701} render={() => {
+
+        return <Container >
           <Grid
             container
             spacing={0}
@@ -440,18 +441,21 @@ export default class App extends React.Component {
             style={{ minHeight: '100vh' }}
           >
             <Grid xs={2} item >
-            <KeywordsList/>
+              <KeywordsList />
             </Grid>
             <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 65 }}>
               <ProductList />
             </Grid>
           </Grid>
         </Container>
-      }
+      }} />}
+      {navKeywords && navKeywords.length && <ResponseComponent maxWidth={700} render={() => {
 
-       {!matchedesktop && <ProductList />} 
-       {!matchedesktop && navKeywords && navKeywords.length>0 && <Drawer sx={{width:250}} anchor='left'  open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList/></Drawer>} 
-
+        return <div>
+          <ProductList />
+          <Drawer sx={{ width: 250 }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
+        </div>
+      }} />}
 
     </AppContext.Provider>)
   }

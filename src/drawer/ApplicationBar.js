@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import { AppContext } from '../App';
-
+import ResponseComponent from './ResponseComponent';
 import { Toolbar } from '@mui/material';
 import HorizontalKeywords from './HorizontalKeywords'
 
@@ -18,7 +18,7 @@ export default function AppBarContainer() {
   return (
 
     <AppContext.Consumer>
-      {(({ clearSubcategory, products, navKeywords, setSelectedNavIndex, selectedKeywords, toggleFilterDrawer, matchedesktop }) => {
+      {(({ clearSubcategory, products, navKeywords, setSelectedNavIndex, selectedKeywords, toggleFilterDrawer }) => {
         return <AppBar color="" position='fixed' elevation={0} >
           <div>
 
@@ -30,7 +30,8 @@ export default function AppBarContainer() {
 
 
                 <Box sx={{flex:1}}>
-                  {!matchedesktop && navKeywords && navKeywords.length>0&&<IconButton
+                  {navKeywords && navKeywords.length>0 && <ResponseComponent maxWidth={700} render={()=>{
+                    return <IconButton
                     size="large"
                     edge="start"
                     color="inherit"
@@ -39,7 +40,9 @@ export default function AppBarContainer() {
                     onClick={toggleFilterDrawer}
                   >
                     <MenuIcon />
-                  </IconButton>}
+                  </IconButton>
+                  }}/>}
+                
                   <IconButton
                     size="large"
                     edge="start"
