@@ -53,9 +53,10 @@ function CategoryNav() {
                   >
                     <HomeIcon />
                   </IconButton>
-               <span underline="hover" key="1" color="inherit" href="/">
+               <span  >
                {groupName}
     </span>
+ 
       </Breadcrumbs>
         
             <div style={{ maxHeight: '85vh', overflow: 'auto' }}>
