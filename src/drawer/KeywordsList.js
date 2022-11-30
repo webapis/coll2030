@@ -8,6 +8,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import List from '@mui/material/List';
+import { Box } from '@mui/material';
 
 // import ListItemButton from '@mui/material/ListItemButton';
 
@@ -21,7 +22,7 @@ export default function KeywordsList() {
 
             return <div style={{ position: 'relative' }}>
 
-                <div style={{ marginTop: 70, position: 'fixed',zIndex:1000000 }}>
+                <Box sx={{ marginTop:{xs:0,md:10}, position:{xs:'static',md:'fixed'},zIndex:1000000 }}>
                     <div>
                         <CategoryNav />
                     </div>
@@ -50,7 +51,7 @@ export default function KeywordsList() {
 
                         } */}
                     </List>
-                </div></div>
+                </Box></div>
         })
     }</AppContext.Consumer>
 

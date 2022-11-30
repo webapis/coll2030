@@ -42,11 +42,11 @@ export default function ProductList(props) {
           
             <div >
               {productImgIndexes && indexTab !== 0 && <ProdImageIndex indexTabName={indexTabName} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />}
-              <Box sx={{ width: '100%', overflowY: 'auto' }} id="product-container">
-                <Grid container  gap={1}>
+              <Box sx={{ width: '100%', overflowY: 'auto',marginTop:{xs:15,sm:10,md:5} }} id="product-container">
+                <Grid container  gap={1} sx={{display:'flex',justifyContent:'center'}}>
                   {products.length > 0 && indexTab === 0 && products.map((item, i) => {
 
-                    return<Grid key={i} item xs={6} sm={4} md={3} sx={{display:'flex',justifyContent:'center'}}> <Box sx={{width:{xs:150,sm:200,md:200}}}> <ImageComponent key={i + "-"} selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} /></Box></Grid>
+                    return<Grid key={i} item xs={5} sm={2} md={2} sx={{display:'flex',justifyContent:'center'}}> <ImageComponent key={i + "-"} selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} /></Grid>
                   })}
                 </Grid>
 

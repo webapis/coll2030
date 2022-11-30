@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-//import KeywordListDrawer from './drawer/KeywordListDrawer'
 import TemporaryDrawer from "./drawer/TemporaryDrawer"
 import ProductList from './drawer/ProductList'
 import ApplicationBar from './drawer/ApplicationBar';
 import KeywordsList from './drawer/KeywordsList';
+import Drawer from '@mui/material/Drawer';
 import Grid from '@mui/material/Grid'
 import { Container } from '@mui/material';
 
@@ -416,7 +416,7 @@ export default class App extends React.Component {
 
   }
   render() {
-    const { matchedesktop, selectedSubcategory, fetchingProduct, subcategories, selectSubcategory, products } = this.state
+    const { matchedesktop, selectedSubcategory, fetchingProduct, subcategories, selectSubcategory, products,navKeywords ,toggleFilterDrawer, filterDrawerIsOpen, fetchingKeywords } = this.state
 
     return (<AppContext.Provider value={this.state}>
       <Helmet>
@@ -439,17 +439,18 @@ export default class App extends React.Component {
             justifyContent="center"
             style={{ minHeight: '100vh' }}
           >
-            <Grid xs={0} md={2} item >
-              <KeywordsList />
+            <Grid xs={2} item >
+            <KeywordsList/>
             </Grid>
-            <Grid xs={12} md={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 65 }}>
+            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 65 }}>
               <ProductList />
             </Grid>
           </Grid>
         </Container>
       }
 
-      {/* {!matchedesktop && (<div><KeywordListDrawer style={{ width: 300 }} /> <div style={{ display: 'flex', flexDirection: 'column', width: '100%', backgroundColor:'yellow' }}> <TabContainer /><ProductList /></div>  </div>)} */}
+       {!matchedesktop && <ProductList />} 
+       {!matchedesktop && navKeywords && navKeywords.length>0 && <Drawer sx={{width:250}} anchor='left'  open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList/></Drawer>} 
 
 
     </AppContext.Provider>)
