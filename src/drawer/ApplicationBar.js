@@ -25,7 +25,7 @@ export default function AppBarContainer() {
 
             <Toolbar sx={{ display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column', sm: 'column', md: 'row' } }}>
 
-              <Container center className='brend-container' sx={{display:{xs:'block',sm:'block',md:'flex',lg:'flex'}}} >
+              <Container  className='brend-container' sx={{display:{xs:'block',sm:'block',md:'flex',lg:'flex'}}} >
 
 
                 <Box sx={{flex:1}}>

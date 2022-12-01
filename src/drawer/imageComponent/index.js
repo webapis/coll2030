@@ -2,8 +2,10 @@
 import React, { useEffect, useRef } from 'react';
 import placeholders from './placeholders.json'
 import { AppContext } from '../../App';
+import Link from '@mui/material/Link';
 
 import './hl.css'
+import { Typography } from '@mui/material';
 
 
 export default function ImageComponent(props) {
@@ -78,12 +80,12 @@ export default function ImageComponent(props) {
         const selectedSubcategoryMatch = selectedSubcategory.includes(m.toLowerCase()) || m.toLowerCase().includes(selectedSubcategory)
 
 
-        return <span key={i} style={{ margin: 0, padding: 0, color: '#9e9e9e', fontSize: 10, textTransform: 'capitalize', fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch || searchMatch) ? 800 : 300 }}>{m.replace(props.marka, '')}{` `}
+        return <span key={i} style={{ margin: 0, padding: 0,  fontSize: 10, textTransform: 'capitalize', fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch || searchMatch) ? 800 : 300 }}>{m.replace(props.marka, '')}{` `}
 
 
         </span>
       })
-      return <a style={{ color: '#bdbdbd', textDecoration: 'none' }} href={detailHost} target="_blank" rel="noreferrer">
+      return <Link underline="hover"  href={detailHost} target="_blank" rel="noreferrer">
 
         <img ref={imageEl} data-intersection="true" className="figure"
           width='100%'
@@ -96,12 +98,12 @@ export default function ImageComponent(props) {
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{marginBottom:10}}> 
-            <span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10, color: '#9e9e9e' }}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span></div>
-          <div style={{ fontSize: 10, marginTop: -5 }}>{productTitle}
-          </div>
+            <span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10,color:'#424242'}}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span></div>
+          <Typography  style={{ fontSize: 10, marginTop: -5 }} >{productTitle}
+          </Typography>
         </div>
 
-      </a>
+      </Link>
 
     })}
 
