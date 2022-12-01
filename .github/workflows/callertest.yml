@@ -11,7 +11,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: jimmykey
-      maxconcurrency: '10'
+      maxconcurrency: '1'
       WEBSITE: biraradamoda
     secrets: inherit
 
