@@ -19,7 +19,7 @@ async function handler(page, context) {
             const priceNew = productCard.querySelector('.PPrice') && productCard.querySelector('.PPrice').textContent.trim().replace('₺', '')
             const longlink = productCard.querySelector('.PrdImgsBox a').href
             const link = longlink.substring(longlink.indexOf("https://www.jimmykey.com/tr/") + 28)
-            const imageUrlshort = imageUrl && imageUrl.substring(imageUrl.indexOf("https://cdn.sorsware.com/") + 25)
+            const imageUrlshort = imageUrl && imageUrl.substring(imageUrl.indexOf("https://cdn2.sorsware.com/") + 26)
 
             return {
                 title: 'jimmykey ' + title.replace(/İ/g,'i').toLowerCase(),
