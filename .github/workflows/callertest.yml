@@ -7,7 +7,7 @@ env:
   WEBSITE: biraradamoda
 jobs:
 
-  beymen_job:
+  jimmykey_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: jimmykey
