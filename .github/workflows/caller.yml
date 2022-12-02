@@ -250,7 +250,7 @@ jobs:
   merge_change_job:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [defacto_job,machka_job,lcwaikiki_job,koton_job,ipekyol_job,mavi_job,adl_job,roman_job,beymen_job,vakko_job,zara_job,twist_job,hm_job,baqa_job,beyyoglu_job,dilvin_job,colins_job,gizia_job,vitrin_job,xint_job,saygigiyim_job,manuka_job,kikiriki_job,jimmykey_job,perspective_job,mango_job,olegcassini_job,addax_job,oxxo_job,abiyefon_job,patirti_job,yargici_job]
+    needs: [defacto_job,machka_job,lcwaikiki_job,koton_job,ipekyol_job,mavi_job,adl_job,roman_job,beymen_job,vakko_job,zara_job,twist_job,hm_job,baqa_job,beyyoglu_job,dilvin_job,colins_job,gizia_job,vitrin_job,xint_job,saygigiyim_job,manuka_job,kikiriki_job,perspective_job,mango_job,olegcassini_job,addax_job,oxxo_job,abiyefon_job,patirti_job,yargici_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
