@@ -98,8 +98,8 @@ export default function ImageComponent(props) {
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div > 
-            <span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10,color:'#424242'}}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span></div>
-          <Typography  variant="caption" display="block"  >{productTitle}
+            <Typography style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 12,color:'#424242'}}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></Typography></div>
+          <Typography  variant="caption" display="block"  sx={{lineHeight:1.3,textTransform:'capitalize'}}>{productTitle}
           </Typography>
         </div>
 

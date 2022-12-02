@@ -38,35 +38,25 @@ export default function KeywordsList() {
 
 
 function CategoryNav() {
-    return <AppContext.Consumer>{({ groupName, selectSubcategory, selectedNavIndex,clearSubcategory }) => {
-
+    return <AppContext.Consumer>{({ groupName, selectSubcategory, selectedNavIndex }) => {
         return <FormControl>
-
-
-
-        
             <div style={{ maxHeight: '85vh', overflow: 'auto' }}>
                 <RadioGroup
-
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue="female"
                     name={groupName}
-
                 >
                     {
                         categories.filter(f => {
                             return f.groupName === groupName
                         }).sort((a,b)=>b.count-a.count).map((m, i) => {
-                 
-                            return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType,subcatTitle:m.title })} />} label={<div ><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
+                 const matchFound =selectedNavIndex.split('-').find(f=>f===m.index.replace('-',''))
+                            return <FormControlLabel id={m.index}  key={i} value={m.keywords} control={<Radio checked={matchFound} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType,subcatTitle:m.title })} />} label={<div ><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
                         })
                     }
-
-
                 </RadioGroup>
             </div>
         </FormControl>
-
     }}</AppContext.Consumer>
 }
 
