@@ -27,7 +27,7 @@ debugger
 
             return <div key={a}>
             
-                    <Grid container gap={1} style={{ display:'flex',justifyContent:'center'}} sx={{marginTop:{xs:17,sm:17,md:2}}}>
+                    <Grid container gap={1} style={{ display:'flex',justifyContent:'center'}} sx={{marginTop:{xs:20,sm:20,md:2}}}>
 
                         <Grid item xs={12} sx={{ marginBottom: 2 }}>   <Divider id={groupName}> <Chip  size="small" label={groupName} /></Divider> </Grid>
 

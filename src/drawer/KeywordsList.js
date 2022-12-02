@@ -19,7 +19,7 @@ export default function KeywordsList() {
 
             return <div style={{ position: 'relative' }}>
 
-                <Box sx={{ marginTop:{xs:18,md:10}, position:{xs:'static',md:'fixed'},zIndex:1000000 }}>
+                <Box sx={{ marginTop:{xs:20,md:10}, position:{xs:'static',md:'fixed'},zIndex:1000000 }}>
                  
                         <CategoryNav />
                    

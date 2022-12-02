@@ -56,7 +56,7 @@ export default function AppBarContainer() {
                 
                 <div style={{ display:'flex', flexDirection:'column',flex:4}}>
                 {navKeywords && navKeywords.length > 0 && <HorizontalKeywords />}
-                {products && products.length>0 &&    <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end'}}>
+                {products && products.length>0 &&    <Box sx={{ display:'flex', width:'100%',flexDirection:{xs:'column', sm:'column',md:'row'}, justifyContent:'space-between', alignItems:{xs:'flex-start',md:'flex-end'}}}>
                 
                 <Breadcrumbs separator="›" aria-label="breadcrumb">
                 <IconButton
@@ -73,7 +73,7 @@ export default function AppBarContainer() {
                   <Link  color="inherit"  underline="none">{subcatTitle}</Link>
                   </Breadcrumbs>
                   <Typography sx={{textAlign:'end', opacity:0.5}}>Toplam: {availableProducts} Ürün bulundu</Typography>
-                  </div>}
+                  </Box>}
              
                 </div>
             
