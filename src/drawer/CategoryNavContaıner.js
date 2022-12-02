@@ -11,7 +11,8 @@ export default function CategoryNavContainer({ subcategories, products, fetching
   return products.length === 0 && !fetchingProduct && <Grid container sx={{ marginTop: 5 }}>
     {subcategories.filter((f)=>f[0]!=='diger').map((g)=>{
       const groupName = g[0]
-      const images = g[1]
+      const images = g[1].filter(f=> f.count !==undefined)
+      debugger
       let totalGroup=images.reduce((prev,curr)=>{
         return prev+curr.count
       },0)
