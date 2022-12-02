@@ -2,23 +2,24 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
+import HomeIcon from '@mui/icons-material/Home';
+
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import { AppContext } from '../App';
 import ResponseComponent from './ResponseComponent';
-import { Toolbar } from '@mui/material';
+import { Link, Toolbar } from '@mui/material';
 import HorizontalKeywords from './HorizontalKeywords'
-
+import Breadcrumbs from '@mui/material/Breadcrumbs';
 export default function AppBarContainer() {
 
   return (
 
     <AppContext.Consumer>
-      {(({ clearSubcategory, products, navKeywords, setSelectedNavIndex, selectedKeywords, toggleFilterDrawer }) => {
-        return <AppBar color="" position='fixed' elevation={0} >
+      {(({groupName,subcatTitle, clearSubcategory, products, navKeywords, setSelectedNavIndex, selectedKeywords, toggleFilterDrawer,availableProducts }) => {
+        return <AppBar color="" position='fixed' elevation={0} id="navbar">
           <div>
 
 
@@ -28,7 +29,7 @@ export default function AppBarContainer() {
               <Container  className='brend-container' sx={{display:{xs:'block',sm:'block',md:'flex',lg:'flex'}}} >
 
 
-                <Box sx={{flex:1}}>
+                <Box sx={{flex:1,display:'flex', justifyContent:'start'}}>
                   {navKeywords && navKeywords.length>0 && <ResponseComponent maxWidth={700} render={()=>{
                     return <IconButton
                     size="large"
@@ -42,31 +43,43 @@ export default function AppBarContainer() {
                   </IconButton>
                   }}/>}
                 
-      
-                  <Button variant="text" onClick={clearSubcategory} color="inherit">     <Typography variant="h6" component="div"    >
-                    BİRARADAMODA
-                  </Typography> </Button>
+                  <div style={{paddingTop:10, display:'flex', width:'100%'}}>
+                  <Typography variant="h6" component="div" style={{flex:1}}>
+                    
+                    BİRARADAMODA 
+                    <Typography  style={{fontSize:14,lineHeight:0.5, marginLeft:2,flex:4, opacity:0.7}}>Kadın Marka Giyimleri</Typography>
+                  </Typography>
+                  
+                  </div>
 
-                  <Typography variant='h1' style={{ fontSize: 14, textTransform: 'capitalize', opacity: 0.7, marginTop: -10 }}>Kadın Marka Giyimleri Birarada Ara</Typography>
-                  {/* <IconButton
+                </Box>
+                
+                <div style={{ display:'flex', flexDirection:'column',flex:4}}>
+                {navKeywords && navKeywords.length > 0 && <HorizontalKeywords />}
+                <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end'}}>
+                <Breadcrumbs separator="›" aria-label="breadcrumb">
+                <IconButton
                     size="small"
                     edge="start"
                     color="inherit"
-       
+                    aria-label="menu"
 
                     onClick={clearSubcategory}
                   >
-                    <SearchIcon />
-                  </IconButton>  */}
-                </Box>
-                
-                <div style={{display:'flex'}}>
-                {navKeywords && navKeywords.length > 0 && <HorizontalKeywords  />}
-             
+                    <HomeIcon />
+                  </IconButton>
+                  <Link  color="inherit"  underline="hover"      onClick={clearSubcategory}>{groupName}</Link>
+                  <Link  color="inherit"  underline="none">{subcatTitle}</Link>
+                  </Breadcrumbs>
+                  <Typography sx={{textAlign:'end', opacity:0.5}}>Toplam: {availableProducts} Ürün bulundu</Typography>
+                  </div>
                 </div>
             
               </Container>
+           
 
+            
+            
             </Toolbar>
 
 

@@ -9,7 +9,7 @@ export default function HorizontalKeywords() {
     return <AppContext.Consumer>{({ navKeywords,setIndexTab,indexTab }) => {
         debugger
         return (
-            <Box style={{width:'100%', display:'flex', justifyContent:'end'}}  >
+            <Box style={{width:'100%', display:'flex', justifyContent:'center'}}  >
               
                     {navKeywords && navKeywords.length>0 &&                 <Tabs
               
@@ -22,13 +22,13 @@ export default function HorizontalKeywords() {
                
                 >
 
-                    <Tab  label="Sonuç"  style={{textTransform:'capitalize'}} />
+                    <Tab  label="Sonuç"  style={{textTransform:'capitalize',fontSize:16}} />
                         {navKeywords && navKeywords.length>0 && navKeywords.map((m, i) => {
 
                             const { groupName } = m
 
 
-                            return <Tab key={i+'k'} style={{textTransform:'capitalize'}}  label={groupName} id={groupName} />
+                            return <Tab key={i+'k'} style={{textTransform:'capitalize',fontSize:16}}  label={groupName} id={groupName} />
                         })
                         }
                   
