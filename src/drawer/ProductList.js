@@ -21,7 +21,7 @@ export default function ProductList() {
 
   return (
     <AppContext.Consumer>
-      {({indexTabName,indexTab, products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords, productImgIndexes, navKeywords, selectedNavIndex, selectedFiterTab }) => {
+      {({indexTabName,subcatTitle,indexTab, products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords, productImgIndexes, navKeywords, selectedNavIndex, selectedFiterTab }) => {
         return <div style={{ position: 'relative', paddingBottom: 600 }}>
 
 
@@ -41,9 +41,10 @@ export default function ProductList() {
 
           
             <div >
-              {productImgIndexes && indexTab !== 0 && <ProdImageIndex indexTabName={indexTabName} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />}
+              {productImgIndexes && indexTab !== 0 && <ProdImageIndex subcatTitle={subcatTitle} indexTabName={indexTabName} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />}
               <Box sx={{ width: '100%', overflowY: 'auto',marginTop:{xs:15,sm:10,md:5} }} id="product-container">
                 <Grid container  gap={1} sx={{display:'flex',justifyContent:'center'}}>
+                {products.length > 0 && indexTab===0 &&  <Grid item  xs={12} sm={12} md={12}><Typography sx={{textAlign:'end', opacity:0.5}}>Toplam: {availableProducts} Ürün bulundu</Typography></Grid>}
                   {products.length > 0 && indexTab === 0 && products.map((item, i) => {
 
                     return<Grid key={i} item xs={5} sm={2} md={2} sx={{display:'flex',justifyContent:'center'}}> <ImageComponent key={i + "-"} selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} /></Grid>

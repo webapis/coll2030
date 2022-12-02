@@ -114,10 +114,12 @@ export default class App extends React.Component {
       this.fetchProducts(0)
       this.fetchNavKeywords('0-', subcategory)
     }
-    this.selectSubcategory = ({ functionName, index, totalSubcategory, keywordType, groupName }) => {
+    this.selectSubcategory = ({ functionName, index, totalSubcategory, keywordType, groupName,subcatTitle }) => {
 
       this.setState(state => ({
         ...state, startAt: 0,
+        indexTab: 0,
+        subcatTitle,
         selectedMarka: '',
         selectedKeywords: [],
         navKeywords: [],
@@ -173,6 +175,7 @@ export default class App extends React.Component {
       fetchingProduct: false,
       matchedesktop: (window.innerWidth > 700),
       open: false,
+      subcatTitle:'',
       toggleDrawer: this.toggleDrawer,
       subcategories: [], selectSubcategory: this.selectSubcategory,
       startAt: 0,

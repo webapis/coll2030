@@ -8,9 +8,9 @@ import Badge from '@mui/material/Badge';
 import placeholders from './imageComponent/placeholders.json';
 import Divider from '@mui/material/Divider';
 
-export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex,indexTabName }) {
+export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex, navKeywords, selectedNavIndex,indexTabName,subcatTitle }) {
     
-
+debugger
 
     return  <div container > {navKeywords.sort(function (a, b) {
             const akeywords = a['keywords']
@@ -32,13 +32,14 @@ export default function ProdImageIndex({ productImgIndexes, setSelectedNavIndex,
                         <Grid item xs={12} sx={{ marginBottom: 2 }}>   <Divider id={groupName}> <Chip  size="small" label={groupName} /></Divider> </Grid>
 
                         {keywords.map((m,i) => {
+                            debugger
                             const { keywordTitle, imageUrl: { title, src: imageSrc, marka } } = productImgIndexes[m[1]]
                             const total = m[0]
                             const index = m[1]
                 
                             const imageSource =placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
                     
-                            const groupNameTitle =keywordTitle.toLowerCase()===groupName.toLowerCase()?  (keywordTitle+' '+window.selectedCategory).toLowerCase():(keywordTitle+' '+groupName+' '+window.selectedCategory).toLowerCase()
+                            const groupNameTitle =keywordTitle.toLowerCase()===groupName.toLowerCase()?  (keywordTitle+' '+subcatTitle).toLowerCase():(keywordTitle+' '+groupName+' '+subcatTitle).toLowerCase()
                             return <Grid key={i} xs={5} sm={2} md={2}  item><Badge max={5555555} sx={{position:'relative'}}  badgeContent={<span style={{backgroundColor:'#9e9e9e',opacity:0.4,position:'absolute',left:14,top:14, padding:1,minWidth:25,minHeight:15,textAlign:'center',lineHeight:2,borderRadius:25,color:'white'}}>{total}</span>} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp title={title} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={groupNameTitle}  /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom></Typography></Tooltip></Grid>
                         })}
 

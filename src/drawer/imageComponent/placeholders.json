@@ -137,7 +137,7 @@
         },
         "imagePrefix": "https://ik.imagekit.io/mumrjdehaou/",
         "placeholder": "./placeholder-img/placeholder.jpg",
-        "imageHost": "https://cdn.beymen.com/mnresize/",
+        "imageHost": "https://cdn.beymen.com/mnresize/431/-/",
         "detailHost": "https://www.beymen.com/",
         "postfix": "",
         "imgPostFix": "?tr=w-400"

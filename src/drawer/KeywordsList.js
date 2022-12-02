@@ -56,7 +56,7 @@ function CategoryNav() {
                <span  >
                {groupName}
     </span>
- 
+
       </Breadcrumbs>
         
             <div style={{ maxHeight: '85vh', overflow: 'auto' }}>
@@ -71,10 +71,8 @@ function CategoryNav() {
                         categories.filter(f => {
                             return f.groupName === groupName
                         }).sort((a,b)=>b.count-a.count).map((m, i) => {
-                         if(selectedNavIndex.includes(m.index)){
-                            window.selectedCategory=m.title
-                         }
-                            return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType })} />} label={<div ><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
+                 
+                            return <FormControlLabel key={i} value={m.keywords} control={<Radio checked={selectedNavIndex.includes(m.index)} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType,subcatTitle:m.title })} />} label={<div ><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
                         })
                     }
 

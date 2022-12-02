@@ -80,7 +80,7 @@ export default function ImageComponent(props) {
         const selectedSubcategoryMatch = selectedSubcategory.includes(m.toLowerCase()) || m.toLowerCase().includes(selectedSubcategory)
 
 
-        return <span key={i} style={{ margin: 0, padding: 0,  fontSize: 10, textTransform: 'capitalize', fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch || searchMatch) ? 800 : 300 }}>{m.replace(props.marka, '')}{` `}
+        return <span key={i} style={{  textTransform: 'capitalize', fontWeight: (selectedKeywordMatch || selectedSubcategoryMatch || searchMatch) ? 800 : 300 }}>{m.replace(props.marka, '')}{` `}
 
 
         </span>
@@ -97,9 +97,9 @@ export default function ImageComponent(props) {
 
 
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{marginBottom:10}}> 
+          <div > 
             <span style={{ display: 'flex', justifyContent: 'space-between', margin: 0, padding: 0, fontSize: 10,color:'#424242'}}><span>{props.marka.toUpperCase()}</span> <span>{props.price} TL</span></span></div>
-          <Typography  style={{ fontSize: 10, marginTop: -5 }} >{productTitle}
+          <Typography  variant="caption" display="block"  >{productTitle}
           </Typography>
         </div>
 
