@@ -22,7 +22,7 @@ export default function ProductList() {
   return (
     <AppContext.Consumer>
       {({indexTabName,subcatTitle,indexTab, products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords, productImgIndexes, navKeywords, selectedNavIndex, selectedFiterTab }) => {
-        return <div style={{ position: 'relative', paddingBottom: 600 }}>
+        return <div style={{ position: 'relative'}}>
 
 
           <div style={{paddingTop: 3 }}>
