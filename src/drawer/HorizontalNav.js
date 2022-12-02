@@ -110,8 +110,8 @@ function Card({ onClick, title,m,selectSubcategory,itemId }) {
 
       tabIndex={0}
     >
-      <img alt={title}  ref={imageElement} src={window.dataURL}    data-src={`https://res.cloudinary.com/codergihub/image/upload/h_400/categories/${title}.jpg`} onClick={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category' })} style={{ borderRadius: 6, marginRight: 4 }}  />
-      <Typography sx={{fontSize:{xs:8,sm:14,md:16}}} variant="h4"><Box sx={{opacity:0.8 ,textAlign:'center',padding:0,display:'flex',alignContent:'center',justifyContent:'space-around', flexDirection:{xs:'column',sm:'column',md:'row'}}}><Link onClick={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category' })} >{title}</Link><Chip sx={{fontSize:{xs:8,sm:14,md:16} }} style={{opacity:0.6, backgroundColor:'#f1f1f1'}} size="small"  label={new Intl.NumberFormat().format(m.count)+' türü'}/> </Box></Typography> </Box>
+      <img alt={title}  ref={imageElement} src={window.dataURL}    data-src={`https://res.cloudinary.com/codergihub/image/upload/h_400/categories/${title}.jpg`} onClick={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category',subcatTitle:title })} style={{ borderRadius: 6, marginRight: 4 }}  />
+      <Typography sx={{fontSize:{xs:8,sm:14,md:16}}} variant="h4"><Box sx={{opacity:0.8 ,textAlign:'center',padding:0,display:'flex',alignContent:'center',justifyContent:'space-around', flexDirection:{xs:'column',sm:'column',md:'row'}}}><Link onClick={() => selectSubcategory({subcatTitle:title, functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category' })} >{title}</Link><Chip sx={{fontSize:{xs:8,sm:14,md:16} }} style={{opacity:0.6, backgroundColor:'#f1f1f1'}} size="small"  label={new Intl.NumberFormat().format(m.count)+' türü'}/> </Box></Typography> </Box>
 
   );
 }

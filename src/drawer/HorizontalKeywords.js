@@ -7,6 +7,7 @@ import { AppContext } from "../App";
 export default function HorizontalKeywords() {
 
     return <AppContext.Consumer>{({ navKeywords,setIndexTab,indexTab }) => {
+        debugger
         return (
             <Box style={{width:'100%', display:'flex', justifyContent:'end'}}  >
               
