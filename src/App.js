@@ -29,15 +29,15 @@ export default class App extends React.Component {
 
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
-        //  document.getElementById("navbar").style.top = "63px";
+         document.getElementById("navbar").style.top = "0px";
 
-        //  document.getElementById('navbar').style.visibility = "visible"
+          document.getElementById('navbar').style.visibility = "visible"
 
       } else {
 
-        //  document.getElementById("navbar").style.top = "-260px";
+          document.getElementById("navbar").style.top = "-260px";
 
-        // document.getElementById('navbar').style.visibility = "hidden"
+         document.getElementById('navbar').style.visibility = "hidden"
       }
       prevScrollpos = currentScrollPos;
 
@@ -127,6 +127,7 @@ export default class App extends React.Component {
         fetchingProduct: false,
         availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory }, groupName, keywordType, selectedNavIndex: index, open: false
       }));
+      window.scrollTo(0, 0)
     }
     this.setProductImageInexes = ({ productImgIndexes }) => {
 

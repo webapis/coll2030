@@ -5,12 +5,11 @@ import FormControl from '@mui/material/FormControl';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
+
 import { Box } from '@mui/material';
 
 
-import IconButton from '@mui/material/IconButton';
-import HomeIcon from '@mui/icons-material/Home';
+
 import subcatObj from '../category-nav-counter.json'
 const categories = Object.values(subcatObj).flat()
 export default function KeywordsList() {
@@ -20,7 +19,7 @@ export default function KeywordsList() {
 
             return <div style={{ position: 'relative' }}>
 
-                <Box sx={{ marginTop:{xs:0,md:10}, position:{xs:'static',md:'fixed'},zIndex:1000000 }}>
+                <Box sx={{ marginTop:{xs:18,md:10}, position:{xs:'static',md:'fixed'},zIndex:1000000 }}>
                  
                         <CategoryNav />
                    
@@ -42,22 +41,9 @@ function CategoryNav() {
     return <AppContext.Consumer>{({ groupName, selectSubcategory, selectedNavIndex,clearSubcategory }) => {
 
         return <FormControl>
-               <Breadcrumbs separator="›" aria-label="breadcrumb">
-               <IconButton
-                    size="small"
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
 
-                    onClick={clearSubcategory}
-                  >
-                    <HomeIcon />
-                  </IconButton>
-               <span  >
-               {groupName}
-    </span>
 
-      </Breadcrumbs>
+
         
             <div style={{ maxHeight: '85vh', overflow: 'auto' }}>
                 <RadioGroup
