@@ -7,7 +7,7 @@ import { AppContext } from "../App";
 export default function HorizontalKeywords() {
 
     return <AppContext.Consumer>{({ navKeywords,setIndexTab,indexTab }) => {
-        debugger
+  
         return (
             <Box style={{width:'100%', display:'flex', justifyContent:'center'}}  >
               
@@ -26,7 +26,7 @@ export default function HorizontalKeywords() {
                         {navKeywords && navKeywords.length>0 && navKeywords.map((m, i) => {
 
                             const { groupName } = m
-debugger
+
 
                             return <Tab key={i+'k'} style={{textTransform:'capitalize',fontSize:16}}  label={groupName} id={groupName} />
                         })

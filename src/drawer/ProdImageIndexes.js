@@ -24,7 +24,7 @@ debugger
             return g.groupName===indexTabName
         }).map((m,a) => {
             const { groupName, keywords } = m
-
+debugger
             return <div key={a}>
             
                     <Grid container gap={1} style={{ display:'flex',justifyContent:'center'}} sx={{marginTop:{xs:20,sm:20,md:2}}}>
@@ -40,6 +40,7 @@ debugger
                             const imageSource =placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
                     
                             const groupNameTitle =keywordTitle.toLowerCase()===groupName.toLowerCase()?  (keywordTitle+' '+subcatTitle).toLowerCase():(keywordTitle+' '+groupName+' '+subcatTitle).toLowerCase()
+                       
                             return <Grid key={i} xs={5} sm={2} md={2}  item><Badge max={5555555} sx={{position:'relative'}}  badgeContent={<span style={{backgroundColor:'#9e9e9e',opacity:0.4,position:'absolute',left:14,top:14, padding:1,minWidth:25,minHeight:15,textAlign:'center',lineHeight:2,borderRadius:25,color:'white'}}>{total}</span>} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}><ImageIndexComp title={title} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} dataSrc={imageSource} index={index} keyword={groupNameTitle}  /></Badge><Tooltip title={title} placement="top"><Typography variant="caption" display="block" gutterBottom></Typography></Tooltip></Grid>
                         })}
 
