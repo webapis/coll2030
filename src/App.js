@@ -42,10 +42,10 @@ export default class App extends React.Component {
       prevScrollpos = currentScrollPos;
 
       var myButtom = document.getElementById('nav-top-btn')
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        myButtom.style.display = "block";
+      if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 )&& myButtom && myButtom.style) {
+         myButtom.style.display = "block";
       } else {
-        myButtom.style.display = "none";
+       myButtom.style.display = "none";
       }
 
       if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight && this.scrollHandled === false) {
@@ -112,7 +112,7 @@ export default class App extends React.Component {
         products: [], fetchingProduct: true
       }))
       this.fetchProducts(0)
-      this.fetchNavKeywords('0-', subcategory)
+     this.fetchNavKeywords('0-', subcategory)
     }
     this.selectSubcategory = ({ functionName, index, totalSubcategory, keywordType, groupName,subcatTitle }) => {
 
@@ -251,7 +251,7 @@ export default class App extends React.Component {
 
       let host = ''
       let href = window.location.href
-      if (href === 'http://localhost:8888/') {
+      if (href.includes('localhost')) {
         host = 'http://localhost:8888/.netlify/functions'
       } else {
         if (href !== 'https://www.biraradamoda.com') {
@@ -298,9 +298,11 @@ export default class App extends React.Component {
     let host = ''
     let href = window.location.href
 
-    if (href === 'http://localhost:8888/') {
+    if (href.includes('localhost')) {
+ 
       host = 'http://localhost:8888/.netlify/functions'
     } else {
+ 
       if (href !== 'https://www.biraradamoda.com') {
         host = 'https://development--fashion2023.netlify.app/.netlify/functions'
       } else {
@@ -322,7 +324,7 @@ export default class App extends React.Component {
 
         let indexFound = null
 
-        try {
+      
           for (let b in keywordgroup) {
             const currentIndex = b.split('-').filter(f => f !== '')
             indexFound = indexes.find(f => {
@@ -336,10 +338,7 @@ export default class App extends React.Component {
 
 
           }
-        } catch (error) {
-          console.log('error--------', error)
-          console.log('indexFound--------', indexFound)
-        }
+        
 
       } else {
 
@@ -361,6 +360,8 @@ export default class App extends React.Component {
     const data = await response.json()
 
     this.setState(function (state) {
+  
+     
       const { keywords } = data
 
       const grouped = {}
@@ -369,8 +370,9 @@ export default class App extends React.Component {
 
         const keywordIndex = kw[1]
 
-
+     
         const groupName = keywordgroup[keywordIndex]['groupName']
+     
         const keywordTitle = keywordgroup[keywordIndex]['title']
 
 
@@ -415,8 +417,8 @@ export default class App extends React.Component {
         })
       }
 
-
-    })
+   
+    })//
 
   }
   render() {
