@@ -13,7 +13,7 @@ import ResponseComponent from './ResponseComponent';
 import { Link, Toolbar } from '@mui/material';
 import HorizontalKeywords from './HorizontalKeywords'
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-import SearchBox from './SearchBox'
+
 export default function AppBarContainer() {
 
   return (
