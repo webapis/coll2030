@@ -59,9 +59,12 @@ async function genNav({ functionName }) {
     if (title) {
 
       const keywords = allkeywords
+   
       if (keywords && keywords.length > 0) {
         //--------------------------FIND MATCHING KEYWORDS WITHING PRODUCT NAME
-        const matchingKeywords = keywords.map((m) => { return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
+        const matchingKeywords = keywords.map((m) => { 
+
+          return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
 
 
           let exactmatch = kws.exactmatch
@@ -95,7 +98,7 @@ async function genNav({ functionName }) {
 
               }
             } catch (error) {
-              debugger
+    
             }
 
           } else {
@@ -106,9 +109,15 @@ async function genNav({ functionName }) {
 
             }
             const kw = kws.keywords
-
+            if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
+              debugger
+            }
+     
             const match = productTitleMatch({ kw, title, exactmatch, nws })
-
+            if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
+              debugger
+            }
+     
             return match
           }
 

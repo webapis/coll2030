@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-
+import SearchBox from './SearchBox';
 import Box from '@mui/material/Box';
 import { AppContext } from "../App";
 export default function HorizontalKeywords() {
@@ -31,6 +31,7 @@ export default function HorizontalKeywords() {
                             return <Tab key={i+'k'} style={{textTransform:'capitalize',fontSize:16}}  label={groupName} id={groupName} />
                         })
                         }
+                        <SearchBox/>
                   
                 </Tabs> }
 
