@@ -13,7 +13,7 @@ import { AppContext } from '../App';
 import { Typography } from '@mui/material';
 import SearchBox from './SearchBox'
 import Grid from '@mui/material/Grid';
-import ProdImageIndex from './ProdImageIndexes';
+//import ProdImageIndex from './ProdImageIndexes';
 import ResponseComponent from './ResponseComponent';
 export default function ProductList() {
 
