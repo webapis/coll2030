@@ -42,7 +42,7 @@ debugger
             const keyword = m[2]
             const index = m[1]
             const total = m[0]
-            const { keywordTitle, imageUrl: { title, src: imageSrc, marka } } = productImgIndexes[m[1]]
+            const {  imageUrl: {  src: imageSrc, marka } } = productImgIndexes[m[1]]
             debugger
             const imageSource =placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
     
