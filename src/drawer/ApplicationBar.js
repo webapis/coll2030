@@ -64,7 +64,7 @@ export default function AppBarContainer() {
                 </Box>
 
                 <div style={{ display: 'flex', flexDirection: 'column', flex: 4 }}>
-                  {navKeywords && navKeywords.length > 0 && <HorizontalKeywords />}
+                  {navKeywords && navKeywords.length > 0 && products.length>0&& <HorizontalKeywords />}
                   {products && products.length > 0 && <Box sx={{ display: 'flex', width: '100%', flexDirection: { xs: 'column', sm: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', md: 'flex-end' } }}>
 
                     <Breadcrumbs separator="›" aria-label="breadcrumb">
