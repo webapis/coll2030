@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import HomeIcon from '@mui/icons-material/Home';
-
+import SearchIcon from '@mui/icons-material/Search';
 import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -12,6 +12,7 @@ import { AppContext } from '../App';
 import ResponseComponent from './ResponseComponent';
 import { Link, Toolbar } from '@mui/material';
 import HorizontalKeywords from './HorizontalKeywords'
+
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 
 export default function AppBarContainer() {
@@ -19,7 +20,7 @@ export default function AppBarContainer() {
   return (
 
     <AppContext.Consumer>
-      {(({ groupName, subcatTitle, clearSubcategory, products, navKeywords, setSelectedNavIndex, selectedKeywords, toggleFilterDrawer, availableProducts }) => {
+      {(({searchInputVisible,displaySearchInput, groupName, subcatTitle, clearSubcategory, products, navKeywords, setSelectedNavIndex, selectedKeywords, toggleFilterDrawer, availableProducts }) => {
         return <AppBar color="" position='fixed' elevation={0} id="navbar">
           <div>
 
@@ -50,6 +51,13 @@ export default function AppBarContainer() {
                       BİRARADAMODA
                       <Typography style={{ fontSize: 14, lineHeight: 0.5, marginLeft: 2, flex: 4, opacity: 0.7 }}>Kadın Marka Giyimleri</Typography>
                     </Typography>
+                    {navKeywords && navKeywords.length>0 &&      <ResponseComponent maxWidth={700} render={() => (
+                      <IconButton onClick={()=>displaySearchInput(!searchInputVisible)}>
+                      <SearchIcon />
+                      </IconButton>
+                  
+                    )} />}
+               
 
                   </div>
 
@@ -75,7 +83,7 @@ export default function AppBarContainer() {
                     </Breadcrumbs>
                     <Typography sx={{ textAlign: 'end', opacity: 0.5 }}>Toplam: {availableProducts} Ürün bulundu</Typography>
                   </Box>}
-                
+
                 </div>
 
               </Container>

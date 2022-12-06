@@ -8,47 +8,64 @@ import { Typography } from '@mui/material';
 import { Box } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { AppContext } from '../App';
 import Link from '@mui/material/Link';
-
-function HorizontalNavKey({ productImgIndexes, selectSubcategory }) {
-  const [items] = React.useState(productImgIndexes);
+import placeholders from './imageComponent/placeholders.json';
+function HorizontalNavKey({ selectSubcategory }) {
 
   const [selected, setSelected] = React.useState([]);
 
-
   const isItemSelected = (id) => !!selected.find((el) => el === id);
-
   const handleClick =
     (id) =>
       () => {
         const itemSelected = isItemSelected(id);
-
         setSelected((currentSelected) =>
           itemSelected
             ? currentSelected.filter((el) => el !== id)
             : currentSelected.concat(id)
         );
       };
-
   return (
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+    <AppContext.Consumer>{({ navKeywords, subcatTitle, setSelectedNavIndex, indexTabName,productImgIndexes }) => {
+      debugger
+      return navKeywords.filter(g => {
+        return g.groupName === indexTabName
+      }).map((m, a) => {
+        const { groupName, keywords } = m
 
-      {items && Object.entries(items).map((m, id) => {
+debugger
+ 
         debugger
-        return <Card
+        return <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+          {keywords && keywords.sort((a, b) => b[0] - a[0]).map((m, id) => {
+            const keyword = m[2]
+            const index = m[1]
+            const total = m[0]
+            const { keywordTitle, imageUrl: { title, src: imageSrc, marka } } = productImgIndexes[m[1]]
+            debugger
+            const imageSource =placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
+    
+            return <Card
+            groupName={groupName}
+              subcatTitle={subcatTitle}
+              itemId={id} // NOTE: itemId is required for track items
+              title={keyword}
+              keyword={keyword}
+              total={total}
+              key={id}
+              onClick={handleClick(id)}
+              selected={isItemSelected(id)}
+              index={index}
+              imageSource={imageSource}
+              setSelectedNavIndex={setSelectedNavIndex}
+            />
 
-          itemId={id} // NOTE: itemId is required for track items
-          title={m.title}
-          key={id}
-          onClick={handleClick(id)}
-          selected={isItemSelected(id)}
-          m={m}
-          selectSubcategory={selectSubcategory}
-        />
+          })}
 
-      })}
-
-    </ScrollMenu>
+        </ScrollMenu>
+      })
+    }}</AppContext.Consumer>
   );
 }
 
@@ -79,7 +96,8 @@ function RightArrow() {
 
 
 
-function Card({ onClick, title, m, selectSubcategory, itemId }) {
+function Card({ onClick, title, itemId, subcatTitle, total, setSelectedNavIndex, index, keyword,groupName ,imageSource}) {
+
   const visibility = React.useContext(VisibilityContext);
   const imageElement = useRef(null);
   useEffect(() => {
@@ -99,20 +117,17 @@ function Card({ onClick, title, m, selectSubcategory, itemId }) {
       window.obze.observe(imageElement.current)
     }
 
-
-
-
   }, [visibility, itemId]);
-
+//`https://res.cloudinary.com/codergihub/image/upload/h_400/keywords/${subcatTitle}/${groupName.replace('ç','c')}/${title}.jpg`
   return (
-    <Box sx={{ width: { xs: 83, sm: 120, md: 176 } }} style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+    <Box sx={{ width: { xs: 83, sm: 100, md: 100 } }} style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
 
       onClick={() => onClick(visibility)}
 
       tabIndex={0}
     >
-      <img alt={title} ref={imageElement} src={window.dataURL} data-src={`https://res.cloudinary.com/codergihub/image/upload/h_400/categories/${title}.jpg`} onClick={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category', subcatTitle: title })} style={{ borderRadius: 6, marginRight: 4 }} />
-      <Typography sx={{ fontSize: { xs: 8, sm: 14, md: 16 } }} variant="h4"><Box sx={{ opacity: 0.8, textAlign: 'center', padding: 0, display: 'flex', alignContent: 'center', justifyContent: 'space-around', flexDirection: { xs: 'column', sm: 'column', md: 'row' } }}><Link onClick={() => selectSubcategory({ subcatTitle: title, functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType ? m.keywordType : 'category' })} >{title}</Link><Chip sx={{ fontSize: { xs: 8, sm: 14, md: 16 } }} style={{ opacity: 0.6, backgroundColor: '#f1f1f1' }} size="small" label={new Intl.NumberFormat().format(m.count) + ' türü'} /> </Box></Typography> </Box>
+      <img alt={title} ref={imageElement} src={window.dataURL} data-src={imageSource} onClick={() => setSelectedNavIndex({ index, keyword })} style={{ borderRadius: 6, marginRight: 4 }} />
+      <Typography sx={{ fontSize: { xs: 8, sm: 8, md: 12 } }} variant="h4"><Box sx={{ opacity: 0.8, textAlign: 'center', padding: 0, display: 'flex', alignContent: 'center', justifyContent: 'space-around', flexDirection: 'column' }}><Link onClick={() => setSelectedNavIndex({ index, keyword })} >{title}</Link><Chip sx={{ fontSize: { xs: 8, sm: 8, md: 12 } }} style={{ opacity: 0.6, backgroundColor: '#f1f1f1' }} size="small" label={new Intl.NumberFormat().format(total) + ' türü'} /> </Box></Typography> </Box>
 
   );
 }

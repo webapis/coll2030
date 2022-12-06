@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 
+import { Button } from '@mui/material';
 import { AppContext } from '../App';
 
 export default function SearchBox() {
@@ -13,9 +12,9 @@ export default function SearchBox() {
   return (
     <AppContext.Consumer>{({  searchInputChanged, searchProduct, search }) => {
       return <Paper
-      elevation={0}
+      elevation={1}
         component="form"
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 200 }}
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:{xs:'100%',md:'50%'} }}
       >
 
         <InputBase
@@ -25,9 +24,7 @@ export default function SearchBox() {
           inputProps={{ 'aria-label': 'search google maps' }} onChange={(e)=>{
           const {value}=e.target
           if(value===''){
-            // const {subcategory, totalSubcategory, node}= selectedSubcategory
-            // 
-            // selectSubcategory({subcategory, totalSubcategory, node})
+
           } else{
 
             searchInputChanged(e)
@@ -43,9 +40,9 @@ export default function SearchBox() {
           }}
         />
 
-        <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={searchProduct} >
-          <SearchIcon />
-        </IconButton>
+        <Button disabled={search===''} type="button" sx={{ p: '10px' }} aria-label="search" onClick={searchProduct} >
+          Ara
+        </Button>
    
 
 

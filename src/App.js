@@ -29,23 +29,23 @@ export default class App extends React.Component {
 
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
-         document.getElementById("navbar").style.top = "0px";
+        document.getElementById("navbar").style.top = "0px";
 
-          document.getElementById('navbar').style.visibility = "visible"
+        document.getElementById('navbar').style.visibility = "visible"
 
       } else {
 
-          document.getElementById("navbar").style.top = "-260px";
+        document.getElementById("navbar").style.top = "-260px";
 
-         document.getElementById('navbar').style.visibility = "hidden"
+        document.getElementById('navbar').style.visibility = "hidden"
       }
       prevScrollpos = currentScrollPos;
 
       var myButtom = document.getElementById('nav-top-btn')
-      if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20 )&& myButtom && myButtom.style) {
-         myButtom.style.display = "block";
+      if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) && myButtom && myButtom.style) {
+        myButtom.style.display = "block";
       } else {
-       myButtom.style.display = "none";
+        myButtom.style.display = "none";
       }
 
       if ((window.innerHeight + window.scrollY) + 2000 >= document.body.offsetHeight && this.scrollHandled === false) {
@@ -109,12 +109,13 @@ export default class App extends React.Component {
         selectedNavIndex: '',
         selectedKeywords: [],
         navKeywords: [],
+
         products: [], fetchingProduct: true
       }))
       this.fetchProducts(0)
-     this.fetchNavKeywords('0-', subcategory)
+      this.fetchNavKeywords('0-', subcategory)
     }
-    this.selectSubcategory = ({ functionName, index, totalSubcategory, keywordType, groupName,subcatTitle }) => {
+    this.selectSubcategory = ({ functionName, index, totalSubcategory, keywordType, groupName, subcatTitle }) => {
 
       this.setState(state => ({
         ...state, startAt: 0,
@@ -137,7 +138,7 @@ export default class App extends React.Component {
       })
     }
     this.setSelectedNavIndex = ({ keyword, index }) => {
-
+debugger
       window.scrollTo(0, 0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
@@ -169,14 +170,21 @@ export default class App extends React.Component {
         return { ...prevState, indexTab: value, indexTabName: id }
       })
     }
+
+    this.displaySearchInput = (value) => {
+      this.setState((prevState) => {
+        return { ...prevState, searchInputVisible: value }
+      })
+    }
     this.state = {
+      searchInputVisible: false,
       indexTabName: 'Tümü',
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
       matchedesktop: (window.innerWidth > 700),
       open: false,
-      subcatTitle:'',
+      subcatTitle: '',
       toggleDrawer: this.toggleDrawer,
       subcategories: [], selectSubcategory: this.selectSubcategory,
       startAt: 0,
@@ -189,6 +197,7 @@ export default class App extends React.Component {
       productImgIndexes: null,
       selectedFiterTab: 0,
       indexTab: 0,
+      displaySearchInput:this.displaySearchInput,
       setIndexTab: this.setIndexTab,
       setSelectedFilterTab: this.setSelectedFilterTab,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
@@ -299,10 +308,10 @@ export default class App extends React.Component {
     let href = window.location.href
 
     if (href.includes('localhost')) {
- 
+
       host = 'http://localhost:8888/.netlify/functions'
     } else {
- 
+
       if (href !== 'https://www.biraradamoda.com') {
         host = 'https://development--fashion2023.netlify.app/.netlify/functions'
       } else {
@@ -324,21 +333,21 @@ export default class App extends React.Component {
 
         let indexFound = null
 
-      
-          for (let b in keywordgroup) {
-            const currentIndex = b.split('-').filter(f => f !== '')
-            indexFound = indexes.find(f => {
 
-              return currentIndex.includes(f)
-            })
-            if (indexFound) {
-              const imageIndexesResponse = await fetch(`/image-indexes/${indexFound}.json`)
-              productImgIndexes = await imageIndexesResponse.json()
-            }
+        for (let b in keywordgroup) {
+          const currentIndex = b.split('-').filter(f => f !== '')
+          indexFound = indexes.find(f => {
 
-
+            return currentIndex.includes(f)
+          })
+          if (indexFound) {
+            const imageIndexesResponse = await fetch(`/image-indexes/${indexFound}.json`)
+            productImgIndexes = await imageIndexesResponse.json()
           }
-        
+
+
+        }
+
 
       } else {
 
@@ -360,8 +369,8 @@ export default class App extends React.Component {
     const data = await response.json()
 
     this.setState(function (state) {
-  
-     
+
+
       const { keywords } = data
 
       const grouped = {}
@@ -370,9 +379,9 @@ export default class App extends React.Component {
 
         const keywordIndex = kw[1]
 
-     
+
         const groupName = keywordgroup[keywordIndex]['groupName']
-     
+
         const keywordTitle = keywordgroup[keywordIndex]['title']
 
 
@@ -417,7 +426,7 @@ export default class App extends React.Component {
         })
       }
 
-   
+
     })//
 
   }
@@ -449,7 +458,7 @@ export default class App extends React.Component {
             <Grid xs={2} item >
               <KeywordsList />
             </Grid>
-            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 65 }}>
+            <Grid xs={10} item style={{ display: 'flex', flexDirection: 'column', marginTop: 0 }}>
               <ProductList />
             </Grid>
           </Grid>
@@ -462,8 +471,8 @@ export default class App extends React.Component {
           <Drawer sx={{ width: 250 }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
         </div>
       }} />}
-      <hr/>
-<div style={{textAlign:'center', padding:10}}>©2022 Biraradamoda | tüm hakları saklıdır.</div>
+      <hr />
+      <div style={{ textAlign: 'center', padding: 10 }}>©2022 Biraradamoda | tüm hakları saklıdır.</div>
     </AppContext.Provider>)
   }
 }
