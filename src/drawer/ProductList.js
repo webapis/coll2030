@@ -7,13 +7,14 @@ import ImageComponent from './imageComponent';
 import Chip from '@mui/material/Chip';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import Fab from '@mui/material/Fab';
-
+import HorizontalNavKey from './HorizontalNavKey'
 import Box from '@mui/material/Box';
 import { AppContext } from '../App';
 import { Typography } from '@mui/material';
-
+import SearchBox from './SearchBox'
 import Grid from '@mui/material/Grid';
 import ProdImageIndex from './ProdImageIndexes';
+import ResponseComponent from './ResponseComponent';
 export default function ProductList() {
 
 
@@ -21,7 +22,7 @@ export default function ProductList() {
 
   return (
     <AppContext.Consumer>
-      {({ indexTabName, subcatTitle, indexTab, products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords, productImgIndexes, navKeywords, selectedNavIndex, selectedFiterTab }) => {
+      {({searchInputVisible, indexTabName, subcatTitle, indexTab, products, selectedSubcategory, availableProducts, setSelectedNavIndex, selectedKeywords, productImgIndexes, navKeywords, selectedNavIndex, selectedFiterTab }) => {
         return <div style={{ position: 'relative' }}>
 
 
@@ -41,12 +42,17 @@ export default function ProductList() {
 
 
             <div >
-              {productImgIndexes && indexTab !== 0 && <ProdImageIndex subcatTitle={subcatTitle} indexTabName={indexTabName} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />}
-              <Box sx={{ width: '100%', overflowY: 'auto', marginTop: { xs: 19, sm: 10, md: 5 } }} id="product-container">
-                <Grid container gap={1} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <ResponseComponent minWidth={701}render={()=>(<Grid item xs={12} sx={{display:'flex', justifyContent:'flex-end', marginTop:{md:10}}}><SearchBox/></Grid>)}/>
+                  {searchInputVisible &&   <Grid item xs={12} sx={{display:'flex', justifyContent:'flex-end',marginTop:20}}><SearchBox/></Grid> }
+                  {products.length>0  && <Grid item xs={12} sx={{marginTop:{xs:20,md:1}}}><HorizontalNavKey productImgIndexes={productImgIndexes}/></Grid>}
+              {/* {productImgIndexes && indexTab !== 0 && <ProdImageIndex subcatTitle={subcatTitle} indexTabName={indexTabName} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />} */}
+              <Box sx={{ width: '100%', overflowY: 'auto', marginTop: { xs: 1, sm: 10, md: 5 } }} id="product-container">
+                <Grid container gap={1} sx={{ display: 'flex', justifyContent: {xs:'center',md:'end'} }}>
+                 
+                
 
                   {/* {products.length > 0 && indexTab===0 &&  <Grid item  xs={12} sm={12} md={12}><Typography sx={{textAlign:'end', opacity:0.5}}>Toplam: {availableProducts} Ürün bulundu</Typography></Grid>} */}
-                  {products.length > 0 && indexTab === 0 && products.map((item, i) => {
+                  {products.length > 0 && products.map((item, i) => {
 
                     return <Grid key={i} item xs={5} sm={2} md={2} sx={{ display: 'flex', justifyContent: 'center' }}> <ImageComponent key={i + "-"} selectedSubcategory={selectedSubcategory && selectedSubcategory.subcategory} plcHolder={item.plcHolder} imageUrl={item.imageUrl} title={item.title} marka={item.marka} link={item.link} timestamp={item.timestamp} price={item.priceNew} /></Grid>
                   })}
