@@ -20,20 +20,15 @@ const categories = Object.entries(subcatObj)
 
 debugger
 export default function KeywordsList() {
-    return <AppContext.Consumer>{
-        (() => {
+    return <div id="side-nav" >
 
-
-            return <div id="side-nav" >
-
-                <Box sx={{ marginTop: { xs: 0, md: 10}}}>
+                <Box sx={{ marginTop: { xs: 0, md: 15}}}>
 
                     <CategoryNav />
 
 
                 </Box></div>
-        })
-    }</AppContext.Consumer>
+   
 
 }
 
@@ -45,13 +40,13 @@ export default function KeywordsList() {
 
 
 function CategoryNav() {
-    return <AppContext.Consumer>{({ groupName, selectSubcategory, selectedNavIndex }) => {
+    return <AppContext.Consumer>{({ groupNameAccordion, selectSubcategory, selectedNavIndex,setGroupName }) => {
 
 
         return categories.map(m => {
             const gName = m[0]
             const cats = m[1]
-            return <CategoryAccordion selectedGroupName={groupName} groupName={gName} selectSubcategory={selectSubcategory} selectedNavIndex={selectedNavIndex} categories={cats} />
+            return <CategoryAccordion setGroupName={setGroupName} selectedGroupName={groupNameAccordion} groupName={gName} selectSubcategory={selectSubcategory} selectedNavIndex={selectedNavIndex} categories={cats} />
         })
     }}</AppContext.Consumer>
 }
@@ -61,6 +56,7 @@ function CategoryNav() {
 
 
 function RadioGroupContainer({ groupName, selectSubcategory, selectedNavIndex, categories }) {
+
     return <FormControl>
         <div style={{ maxHeight: '100vh', overflow: 'auto' }}>
             <RadioGroup
@@ -70,7 +66,10 @@ function RadioGroupContainer({ groupName, selectSubcategory, selectedNavIndex, c
             >
                 {
                     categories.sort((a, b) => b.count - a.count).map((m, i) => {
-                        const matchFound = selectedNavIndex.split('-').find(f => f === m.index.replace('-', ''))
+                        const matchFound = (selectedNavIndex.split('-').find(f => f === m.index.replace('-', '') ))
+                        if(matchFound){
+                            console.log(selectedNavIndex,m.index)
+                        }
                         return <FormControlLabel id={m.index} key={i} value={m.keywords} control={<Radio checked={matchFound} size="small" onChange={() => selectSubcategory({ functionName: m.functionName, index: m.index, groupName: m.groupName, keywordType: m.keywordType, subcatTitle: m.title })} />} label={<div ><span>{m.title}</span><span style={{ color: '#9ea7aa', fontSize: 14 }}> {m.count}</span></div>} />
                     })
                 }
@@ -81,19 +80,20 @@ function RadioGroupContainer({ groupName, selectSubcategory, selectedNavIndex, c
 
 
 
-function CategoryAccordion({ groupName, selectSubcategory, selectedNavIndex, categories, selectedGroupName }) {
+function CategoryAccordion({setGroupName, groupName, selectSubcategory, selectedNavIndex, categories, selectedGroupName }) {
     return (
     
-            <Accordion >
+            <Accordion  expanded={groupName===selectedGroupName}   onChange={()=>setGroupName(groupName)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id={groupName}
+                 
                 >
                     <Typography>{groupName}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <RadioGroupContainer groupName={groupName} selectSubcategory={selectSubcategory} selectedNavIndex={selectedNavIndex} categories={categories} />
+                    {groupName===selectedGroupName&&<RadioGroupContainer selectedGroupName={selectedGroupName} groupName={groupName} selectSubcategory={selectSubcategory} selectedNavIndex={selectedNavIndex} categories={categories} />}
 
                 </AccordionDetails>
             </Accordion>

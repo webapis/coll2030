@@ -120,7 +120,7 @@ export default class App extends React.Component {
       this.fetchNavKeywords('0-', subcategory)
     }
     this.selectSubcategory = ({ functionName, index, totalSubcategory, keywordType, groupName, subcatTitle }) => {
-
+debugger
       this.setState(state => ({
         ...state, startAt: 0,
         indexTab: 0,
@@ -130,7 +130,7 @@ export default class App extends React.Component {
         navKeywords: [],
         products: [],
         fetchingProduct: false,
-        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory }, groupName, keywordType, selectedNavIndex: index, open: false
+        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory },groupNameAccordion:groupName, groupName, keywordType, selectedNavIndex: index, open: false
       }));
       window.scrollTo(0, 0)
     }
@@ -180,6 +180,12 @@ export default class App extends React.Component {
         return { ...prevState, searchInputVisible: value }
       })
     }
+
+    this.setGroupName =(groupName)=>{
+      this.setState((prevState)=>{
+        return {...prevState,groupNameAccordion:groupName}
+      })
+    }
     this.state = {
       searchInputVisible: false,
       indexTabName: 'Tümü',
@@ -201,6 +207,7 @@ export default class App extends React.Component {
       productImgIndexes: null,
       selectedFiterTab: 0,
       indexTab: 0,
+      setGroupName:this.setGroupName,
       displaySearchInput: this.displaySearchInput,
       setIndexTab: this.setIndexTab,
       setSelectedFilterTab: this.setSelectedFilterTab,
