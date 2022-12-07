@@ -21,7 +21,7 @@ export default function AppBarContainer() {
 
     <AppContext.Consumer>
       {(({searchInputVisible,displaySearchInput, groupName, subcatTitle, clearSubcategory, products, navKeywords, setSelectedNavIndex, selectedKeywords, toggleFilterDrawer, availableProducts }) => {
-        return <AppBar color="" position='fixed' elevation={0} id="navbar">
+        return <AppBar color=""  elevation={0} id="navbar">
           <div>
 
 
@@ -32,7 +32,7 @@ export default function AppBarContainer() {
 
 
                 <Box sx={{ flex: 1, display: 'flex', justifyContent: 'start' }}>
-                  {navKeywords && navKeywords.length > 0 && <ResponseComponent maxWidth={700} render={() => {
+                  { <ResponseComponent maxWidth={700} render={() => {
                     return <IconButton
                       size="large"
                       edge="start"

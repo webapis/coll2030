@@ -30,14 +30,25 @@ export default class App extends React.Component {
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0px";
-
         document.getElementById('navbar').style.visibility = "visible"
+        if (document.getElementById('side-nav')) {
+          document.getElementById('side-nav').style.transition = "0.5s";
+          document.getElementById('side-nav').style.top = "0px";
+          document.getElementById('side-nav').style.position = "fixed";
+        }
+
+
 
       } else {
 
         document.getElementById("navbar").style.top = "-260px";
-
         document.getElementById('navbar').style.visibility = "hidden"
+        if (document.getElementById('side-nav')) {
+          document.getElementById('side-nav').style.transition = "0.5s";
+          document.getElementById('side-nav').style.position = "static";
+        }
+
+
       }
       prevScrollpos = currentScrollPos;
 
@@ -138,7 +149,7 @@ export default class App extends React.Component {
       })
     }
     this.setSelectedNavIndex = ({ keyword, index }) => {
-debugger
+      debugger
       window.scrollTo(0, 0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
@@ -197,7 +208,7 @@ debugger
       productImgIndexes: null,
       selectedFiterTab: 0,
       indexTab: 0,
-      displaySearchInput:this.displaySearchInput,
+      displaySearchInput: this.displaySearchInput,
       setIndexTab: this.setIndexTab,
       setSelectedFilterTab: this.setSelectedFilterTab,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
@@ -464,13 +475,12 @@ debugger
           </Grid>
         </Container>
       }} />}
-      {navKeywords && navKeywords.length && <ResponseComponent maxWidth={700} render={() => {
+      {navKeywords && navKeywords.length > 0 && <ProductList />}
+      <ResponseComponent maxWidth={700} render={() => {
 
-        return <div>
-          <ProductList />
-          <Drawer sx={{ width: 250 }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
-        </div>
-      }} />}
+        return <Drawer variant="temporary" sx={{ width: 250 }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
+
+      }} />
       <hr />
       <div style={{ textAlign: 'center', padding: 10 }}>©2022 Biraradamoda | tüm hakları saklıdır.</div>
     </AppContext.Provider>)
