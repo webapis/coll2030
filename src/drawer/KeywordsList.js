@@ -24,7 +24,7 @@ export default function KeywordsList() {
         (() => {
 
 
-            return <div id="side-nav">
+            return <div id="side-nav" >
 
                 <Box sx={{ marginTop: { xs: 0, md: 10}}}>
 

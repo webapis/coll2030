@@ -31,11 +31,7 @@ export default class App extends React.Component {
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0px";
         document.getElementById('navbar').style.visibility = "visible"
-        if (document.getElementById('side-nav')) {
-          document.getElementById('side-nav').style.transition = "0.5s";
-          document.getElementById('side-nav').style.top = "0px";
-          document.getElementById('side-nav').style.position = "fixed";
-        }
+
 
 
 
@@ -43,10 +39,7 @@ export default class App extends React.Component {
 
         document.getElementById("navbar").style.top = "-260px";
         document.getElementById('navbar').style.visibility = "hidden"
-        if (document.getElementById('side-nav')) {
-          document.getElementById('side-nav').style.transition = "0.5s";
-          document.getElementById('side-nav').style.position = "static";
-        }
+
 
 
       }
