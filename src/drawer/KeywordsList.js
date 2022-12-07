@@ -18,24 +18,14 @@ import subcatObj from '../category-nav-counter.json'
 
 const categories = Object.entries(subcatObj)
 
-debugger
+
 export default function KeywordsList() {
     return <div id="side-nav" >
-
-                <Box sx={{ marginTop: { xs: 0, md: 15}}}>
-
+                <Box sx={{ marginTop: { xs: 0, md: 15},width:'100%'}}>
                     <CategoryNav />
-
-
                 </Box></div>
    
-
 }
-
-
-
-
-
 
 
 
@@ -46,7 +36,7 @@ function CategoryNav() {
         return categories.map(m => {
             const gName = m[0]
             const cats = m[1]
-            return <CategoryAccordion setGroupName={setGroupName} selectedGroupName={groupNameAccordion} groupName={gName} selectSubcategory={selectSubcategory} selectedNavIndex={selectedNavIndex} categories={cats} />
+            return <CategoryAccordion style={{display:'flex',justifyContent:'stretch' }} setGroupName={setGroupName} selectedGroupName={groupNameAccordion} groupName={gName} selectSubcategory={selectSubcategory} selectedNavIndex={selectedNavIndex} categories={cats} />
         })
     }}</AppContext.Consumer>
 }
@@ -58,7 +48,6 @@ function CategoryNav() {
 function RadioGroupContainer({ groupName, selectSubcategory, selectedNavIndex, categories }) {
 
     return <FormControl>
-        <div style={{ maxHeight: '100vh', overflow: 'auto' }}>
             <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue="female"
@@ -74,7 +63,7 @@ function RadioGroupContainer({ groupName, selectSubcategory, selectedNavIndex, c
                     })
                 }
             </RadioGroup>
-        </div>
+  
     </FormControl>
 }
 
@@ -83,7 +72,7 @@ function RadioGroupContainer({ groupName, selectSubcategory, selectedNavIndex, c
 function CategoryAccordion({setGroupName, groupName, selectSubcategory, selectedNavIndex, categories, selectedGroupName }) {
     return (
     
-            <Accordion  expanded={groupName===selectedGroupName}   onChange={()=>setGroupName(groupName)}>
+            <Accordion style={{width:'40vh'}} expanded={groupName===selectedGroupName}   onChange={()=>setGroupName(groupName)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"

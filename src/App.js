@@ -127,6 +127,7 @@ debugger
         subcatTitle,
         selectedMarka: '',
         selectedKeywords: [],
+        filterDrawerIsOpen:false,
         navKeywords: [],
         products: [],
         fetchingProduct: false,
@@ -478,7 +479,7 @@ debugger
       {navKeywords && navKeywords.length > 0 && <ProductList />}
       <ResponseComponent maxWidth={700} render={() => {
 
-        return <Drawer variant="temporary" sx={{ width: 250 }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
+        return <Drawer variant="temporary" sx={{ display:'flex',justifyContent:'stretch' }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
 
       }} />
       <hr />
