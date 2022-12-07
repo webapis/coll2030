@@ -88,7 +88,7 @@ function ImageIndexComp({ dataSrc, setSelectedNavIndex, index, keyword, selected
 
     const render = <Link     onClick={() => setSelectedNavIndex({ index, keyword })} underline="hover"  href="#" style={{width:'100%'}}>
         <img style={{ borderRadius: 15 }} width='100%' ref={imageElement} data-intersection="true" className="figure" alt={keyword}
-           // onClick={() => setSelectedNavIndex({ index, keyword })}
+       
             src={window.dataURL}
             data-src={dataSrc}
             loading="lazy"
@@ -99,7 +99,7 @@ function ImageIndexComp({ dataSrc, setSelectedNavIndex, index, keyword, selected
 
     const render2 = <Link     onClick={() => setSelectedNavIndex({ index, keyword })} underline="hover" href="#" style={{ position: 'relative' }}>
         <img style={{ borderRadius: 15 }} width='100%' ref={imageElement} data-intersection="true" className="figure" alt={keyword}
-           // onClick={() => setSelectedNavIndex({ index, keyword })} 
+       
             src={window.dataURL}
             data-src={dataSrc}
             loading="lazy"

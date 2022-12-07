@@ -30,14 +30,18 @@ export default class App extends React.Component {
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0px";
-
         document.getElementById('navbar').style.visibility = "visible"
+
+
+
 
       } else {
 
         document.getElementById("navbar").style.top = "-260px";
-
         document.getElementById('navbar').style.visibility = "hidden"
+
+
+
       }
       prevScrollpos = currentScrollPos;
 
@@ -116,17 +120,18 @@ export default class App extends React.Component {
       this.fetchNavKeywords('0-', subcategory)
     }
     this.selectSubcategory = ({ functionName, index, totalSubcategory, keywordType, groupName, subcatTitle }) => {
-
+debugger
       this.setState(state => ({
         ...state, startAt: 0,
         indexTab: 0,
         subcatTitle,
         selectedMarka: '',
         selectedKeywords: [],
+        filterDrawerIsOpen:false,
         navKeywords: [],
         products: [],
         fetchingProduct: false,
-        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory }, groupName, keywordType, selectedNavIndex: index, open: false
+        availableProducts: 0, selectedSubcategory: { subcategory: functionName, totalSubcategory },groupNameAccordion:groupName, groupName, keywordType, selectedNavIndex: index, open: false
       }));
       window.scrollTo(0, 0)
     }
@@ -138,7 +143,7 @@ export default class App extends React.Component {
       })
     }
     this.setSelectedNavIndex = ({ keyword, index }) => {
-debugger
+      debugger
       window.scrollTo(0, 0)
       this.setState(function (state) {
         const indexExist = state.selectedNavIndex.split('-').find(f => index !== "" && index.replace('-', "") === f)
@@ -176,9 +181,15 @@ debugger
         return { ...prevState, searchInputVisible: value }
       })
     }
+
+    this.setGroupName =(groupName)=>{
+      this.setState((prevState)=>{
+        return {...prevState,groupNameAccordion:groupName}
+      })
+    }
     this.state = {
       searchInputVisible: false,
-      indexTabName: 'Tümü',
+      indexTabName: 'Seçenekler',
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
@@ -197,7 +208,8 @@ debugger
       productImgIndexes: null,
       selectedFiterTab: 0,
       indexTab: 0,
-      displaySearchInput:this.displaySearchInput,
+      setGroupName:this.setGroupName,
+      displaySearchInput: this.displaySearchInput,
       setIndexTab: this.setIndexTab,
       setSelectedFilterTab: this.setSelectedFilterTab,
       toggleFilterDrawer: this.toggleFilterDrawer, filterDrawerIsOpen: false,
@@ -464,15 +476,15 @@ debugger
           </Grid>
         </Container>
       }} />}
-      {navKeywords && navKeywords.length && <ResponseComponent maxWidth={700} render={() => {
+      {navKeywords && navKeywords.length > 0 && <ProductList />}
+      <ResponseComponent maxWidth={700} render={() => {
 
-        return <div>
-          <ProductList />
-          <Drawer sx={{ width: 250 }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
-        </div>
-      }} />}
+        return <Drawer variant="temporary" sx={{ display:'flex',justifyContent:'stretch' }} anchor='left' open={filterDrawerIsOpen} onClose={toggleFilterDrawer}><KeywordsList /></Drawer>
+
+      }} />
       <hr />
-      <div style={{ textAlign: 'center', padding: 10 }}>©2022 Biraradamoda | tüm hakları saklıdır.</div>
+      {products.length>0 && <div style={{ textAlign: 'center', padding: 10 }}>©2022 Biraradamoda | tüm hakları saklıdır.</div>}
+     
     </AppContext.Provider>)
   }
 }

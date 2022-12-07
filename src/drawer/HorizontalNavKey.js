@@ -28,7 +28,7 @@ function HorizontalNavKey({ selectSubcategory }) {
       };
   return (
     <AppContext.Consumer>{({ navKeywords, subcatTitle, setSelectedNavIndex, indexTabName,productImgIndexes }) => {
-      debugger
+      
       return navKeywords.filter(g => {
         return g.groupName === indexTabName
       }).map((m, a) => {
@@ -36,14 +36,14 @@ function HorizontalNavKey({ selectSubcategory }) {
 
 debugger
  
-        debugger
+        
         return <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
           {keywords && keywords.sort((a, b) => b[0] - a[0]).map((m, id) => {
             const keyword = m[2]
             const index = m[1]
             const total = m[0]
             const {  imageUrl: {  src: imageSrc, marka } } = productImgIndexes[m[1]]
-            debugger
+            
             const imageSource =placeholders[marka].imagePrefix.trim() + placeholders[marka].imageHost.trim() + imageSrc + placeholders[marka].imgPostFix
     
             return <Card
