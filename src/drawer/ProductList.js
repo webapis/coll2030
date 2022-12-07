@@ -44,7 +44,7 @@ export default function ProductList() {
             <div >
             <ResponseComponent minWidth={701}render={()=>(<Grid item xs={12} sx={{display:'flex', justifyContent:'flex-end', marginTop:{md:10}}}><SearchBox/></Grid>)}/>
                   {searchInputVisible &&   <Grid item xs={12} sx={{display:'flex', justifyContent:'flex-end',marginTop:20}}><SearchBox/></Grid> }
-                  {products.length>0  && <Grid item xs={12} sx={{marginTop:{xs:20,md:1}}}><HorizontalNavKey productImgIndexes={productImgIndexes}/></Grid>}
+                  {products.length>0 && productImgIndexes && <Grid item xs={12} sx={{marginTop:{xs:20,md:1}}}><HorizontalNavKey productImgIndexes={productImgIndexes}/></Grid>}
               {/* {productImgIndexes && indexTab !== 0 && <ProdImageIndex subcatTitle={subcatTitle} indexTabName={indexTabName} selectedNavIndex={selectedNavIndex} setSelectedNavIndex={setSelectedNavIndex} productImgIndexes={productImgIndexes} navKeywords={navKeywords} />} */}
               <Box sx={{ width: '100%', overflowY: 'auto', marginTop: { xs: 1, sm: 10, md: 5 } }} id="product-container">
                 <Grid container gap={1} sx={{ display: 'flex', justifyContent: {xs:'center',md:'end'} }}>

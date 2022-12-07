@@ -188,7 +188,7 @@ debugger
     }
     this.state = {
       searchInputVisible: false,
-      indexTabName: 'Tümü',
+      indexTabName: 'Seçenekler',
       selectedSubcategory: null,
       products: [],
       fetchingProduct: false,
@@ -482,7 +482,8 @@ debugger
 
       }} />
       <hr />
-      <div style={{ textAlign: 'center', padding: 10 }}>©2022 Biraradamoda | tüm hakları saklıdır.</div>
+      {products.length>0 && <div style={{ textAlign: 'center', padding: 10 }}>©2022 Biraradamoda | tüm hakları saklıdır.</div>}
+     
     </AppContext.Provider>)
   }
 }

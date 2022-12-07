@@ -34,7 +34,7 @@ function HorizontalNavKey({ selectSubcategory }) {
       }).map((m, a) => {
         const { groupName, keywords } = m
 
-
+debugger
  
         
         return <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
