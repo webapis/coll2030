@@ -72,7 +72,7 @@ function RadioGroupContainer({ groupName, selectSubcategory, selectedNavIndex, c
 function CategoryAccordion({setGroupName, groupName, selectSubcategory, selectedNavIndex, categories, selectedGroupName }) {
     return (
     
-            <Accordion sx={{width:{xs:'30vh',sm:'15vh',md:'20vh'}}} expanded={groupName===selectedGroupName}   onChange={()=>setGroupName(groupName)}>
+            <Accordion sx={{width:{xs:'50vh',sm:'15vh',md:'20vh'}}} expanded={groupName===selectedGroupName}   onChange={()=>setGroupName(groupName)}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
