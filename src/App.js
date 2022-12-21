@@ -276,16 +276,13 @@ debugger
         host = 'http://localhost:8888/.netlify/functions'
       } else {
         if (href !== 'https://www.biraradamoda.com') {
-          host = 'https://development--coll2030.netlify.app/.netlify/functions'
+          host = 'https://development--fashion2023.netlify.app/.netlify/functions'
         } else {
-          host = 'https://coll2030.netlify.app/.netlify/functions'
+          host = 'https://fashion2023.netlify.app/.netlify/functions'
         }
 
 
       }
-
-
-
 
 
       var url = `${host}/${subcategory.replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ı/g, 'i').replace(/ç/g, 'c').replace(/ğ/g, 'g')}/?start=` + start + '&selectedNavIndex=' + selectedNavIndex + '&search=' + search
@@ -335,7 +332,7 @@ debugger
 
     var url = ''
     const fn = parseInt(selectedNavIndex.replace(/-/g, '').trim()) % 2
-
+debugger
     if (selectedNavIndex === '') {
       url = `${host}/${subcat}-navfirst?navindex=0-`
     } else {
@@ -374,7 +371,7 @@ debugger
       }
 
     }
-
+debugger
 
     const response = await fetch(url)
 
@@ -410,8 +407,6 @@ debugger
         }
 
 
-
-
       }
 
       categories.forEach(c => {
@@ -423,7 +418,6 @@ debugger
 
 
       })
-
 
 
       return {
