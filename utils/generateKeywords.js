@@ -49,6 +49,9 @@ debugger
     if (fs.existsSync(`src/keywords.json`)) {
         fs.unlinkSync(`src/keywords.json`)
     }
+    if (fs.existsSync(`public/keywords.json`)) {
+        fs.unlinkSync(`public/keywords.json`)
+    }
     if (fs.existsSync(`src/category-nav.json`)) {
         fs.unlinkSync(`src/category-nav.json`)
     }
@@ -62,7 +65,7 @@ debugger
     }, {})
     debugger
     fs.appendFileSync(`src/keywords.json`, JSON.stringify(reduced))
-
+    fs.appendFileSync(`public/keywords.json`, JSON.stringify(reduced))
  
     debugger
     const mappedCatItems = categoryItems.filter(f=>f.keywordType ==='category').map(m => {

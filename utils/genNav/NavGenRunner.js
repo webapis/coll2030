@@ -69,7 +69,9 @@
         if (fs.existsSync(path.join(process.cwd(), `src/category-nav-counter.json`))) {
             fs.unlinkSync(path.join(process.cwd(), `src/category-nav-counter.json`))
         }
-
+        if (fs.existsSync(path.join(process.cwd(), `public/category-nav-counter.json`))) {
+            fs.unlinkSync(path.join(process.cwd(), `public/category-nav-counter.json`))
+        }
         for (let c in categoryNav) {
             const current = categoryNav[c]
             for await (let f of current) {
@@ -108,7 +110,7 @@
          }
 
         fs.appendFileSync(path.join(process.cwd(), `src/category-nav-counter.json`), JSON.stringify(categoryNav));
-
+        fs.appendFileSync(path.join(process.cwd(), `public/category-nav-counter.json`), JSON.stringify(categoryNav));
         const catImages = result.filter(f => f !== null).reduce((prev, curr, i) => {
             const nxt = JSON.parse(curr).catImages
             const upd = {}
