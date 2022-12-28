@@ -18,7 +18,7 @@ async function handler(page, context) {
             return {
                 title: 'beyyoglu '+ title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
-                imageUrl: img.substring(img.indexOf('https://beyyoglu.akinoncdn.com/products/') + 40),
+                imageUrl: img.substring(img.indexOf('https://179a38.cdn.akinoncloud.com/products/') + 44),
                 link: link.substring(link.indexOf('https://www.beyyoglu.com/') + 25),
                 timestamp: Date.now(),
                 marka: 'beyyoglu',
