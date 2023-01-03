@@ -76,7 +76,7 @@ npm config set proxy http://proxy_host:port
 //    data-src={`https://ik.imagekit.io/mumrjdehaou/${props.imageUrl}?tr=w-250`}
 
 
-
+https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 3 * * *'
