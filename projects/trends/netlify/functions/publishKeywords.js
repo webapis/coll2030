@@ -32,17 +32,17 @@ debugger
     try {      
 
 
-const body = JSON.stringify({ ref: 'development', inputs: {  } })
+const body = JSON.stringify({ ref: 'master', inputs: {  } })
 
 const response = await triggerAction({ gh_action_url: `https://api.github.com/repos/codergihub/fasion/actions/workflows/generateKeywords.yml/dispatches`, ticket: process.env.GH_TOKEN, body })
            debugger
-      // return {
-      //   statusCode: 200,
-      //   headers: {
-      //     "Access-Control-Allow-Origin": "*", // Allow from anywhere 
-      //   },
-      //   body
-      // }
+      return {
+        statusCode: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "*", // Allow from anywhere 
+        },
+        body
+      }
     } catch (error) {
         debugger
       return {
