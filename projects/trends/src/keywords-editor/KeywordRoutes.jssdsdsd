@@ -8,6 +8,4 @@ export default function KeywordsRoutes() {
                 <Route path="/" element={<Keywords />} />
         </Routes>
 
-
-
 }
