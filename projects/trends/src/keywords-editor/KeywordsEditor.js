@@ -12,8 +12,7 @@ export default function KeywordEditor() {
 
 
     return <AppContext.Consumer>{({ editor, filteredGroupName, setEditorValue, saveKeyword }) => {
-        console.log('editor', editor)
-        console.log('filteredGroupName', filteredGroupName)
+
 
         async function handleSave() {
             await saveKeyword()
