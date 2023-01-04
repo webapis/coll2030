@@ -53,16 +53,24 @@
       
                 const match = productTitleMatch({ kw: k.keywords, nws, title })
                 if (match) {
-                    if (functionObj[k.functionName] === undefined) {
-                        functionObj[k.functionName] = {}
-                    }
-                    if (functionObj[k.functionName][marka] === undefined) {
-                        functionObj[k.functionName][marka] = []
-                    }
-                    functionObj[k.functionName][marka] = [...functionObj[k.functionName][marka], mp]
+                  
+                        if (functionObj[k.functionName] === undefined) {
+                            functionObj[k.functionName] = {}
+                        }
+                        if (functionObj[k.functionName][marka] === undefined) {
+                            functionObj[k.functionName][marka] = []
+                        }
 
-                    machfound = true
-                    //  break;
+                        const previouslyAdded =functionObj[k.functionName][marka].find(f=>f.imageUrl===mp.imageUrl)
+                            if(!previouslyAdded){
+                                functionObj[k.functionName][marka] = [...functionObj[k.functionName][marka], mp]
+                            }
+                
+    
+                        machfound = true
+                        //  break;
+                    
+                
 
                 }
 
