@@ -36,6 +36,9 @@ jobs:
         run: 'npm install'
       - name: Decript data
         run: 'npm run decryptData'
+      - name: generate keywords
+        id: generatekeywords
+        run: node utils/generateKeywords.js
       - name: merge files
         id: mergefiles
         run: node utils/mergefiles.js
