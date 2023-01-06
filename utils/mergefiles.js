@@ -25,7 +25,7 @@
             .filter(dirent => dirent.isDirectory())
             .map(dirent => dirent.name)
 
-    const dirnames = getDirectories(path.join(process.cwd(), `data/${website}`))
+    const dirnames = getDirectories(path.join(process.cwd(), `data/${website}/${process.env.GENDER}`))
 
     for (let dirName of dirnames) {
         const functionObj = { diger: {} }
@@ -33,7 +33,7 @@
         console.log('dirname merge started', dirName)
 
         let markaProducts = []
-        walkSync(path.join(process.cwd(), `data/${website}/${dirName}`), async (filepath) => {
+        walkSync(path.join(process.cwd(), `data/${website}/${process.env.GENDER}/${dirName}`), async (filepath) => {
 
             const data = JSON.parse(fs.readFileSync(filepath))
             markaProducts.push(data)

@@ -10,7 +10,7 @@ jobs:
   beyyoglu_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: beyyoglu
+      marka: defacto
       maxconcurrency: '1'
       WEBSITE: biraradamoda
     secrets: inherit
