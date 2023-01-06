@@ -28,7 +28,8 @@ env:
   marka: ${{inputs.marka}}
   HEADLESS: true
   MAX_CONCURRENCY: ${{inputs.maxconcurrency}}
-  WEBSITE: ${{inputs.WEBSITE}}									
+  WEBSITE: ${{inputs.WEBSITE}}
+  GENDER:	${{inputs.GENDER}}							
 jobs:
   aggregator:
     runs-on: ubuntu-latest
