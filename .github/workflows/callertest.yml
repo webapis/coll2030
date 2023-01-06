@@ -5,7 +5,7 @@ env:
   VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
   NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
   WEBSITE: biraradamoda
-  GENDER: kadin
+  GENDER: erkek
 jobs:
 
   beyyoglu_job:
@@ -13,7 +13,6 @@ jobs:
     with:
       marka: defacto
       maxconcurrency: '1'
-      WEBSITE: biraradamoda
     secrets: inherit
 
   generate_nav_job:
