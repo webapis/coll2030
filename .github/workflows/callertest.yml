@@ -13,6 +13,8 @@ jobs:
     with:
       marka: defacto
       maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: erkek
     secrets: inherit
 
   generate_nav_job:
