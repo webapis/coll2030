@@ -13,7 +13,6 @@ jobs:
     with:
       marka: defacto
       maxconcurrency: '1'
-      gender:'erkek'
     secrets: inherit
 
   generate_nav_job:
