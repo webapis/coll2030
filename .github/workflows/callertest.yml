@@ -5,6 +5,7 @@ env:
   VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
   NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
   WEBSITE: biraradamoda
+  GENDER: kadin
 jobs:
 
   beyyoglu_job:
