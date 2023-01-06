@@ -49,7 +49,7 @@ if (fs.existsSync(path.join(process.cwd(), `collected-data`))) {
             
             for (let d of collectedData) {
                 const { imageUrl, marka } = d
-                makeDir.sync(`data/${website}/${marka}`)
+                makeDir.sync(`data/${website}/${process.env.GENDER}/${marka}`)
                 const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                 const savePath = path.join(process.cwd(), `data/${website}/${process.env.GENDER}/${marka}/${fileName}.json`)
               
@@ -70,7 +70,7 @@ if (fs.existsSync(path.join(process.cwd(), `updated-data`))) {
                 const collectedData = JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
                 for (let d of collectedData) {
                     const { imageUrl, marka } = d
-                    makeDir.sync(`data/${website}/${marka}`)
+                    makeDir.sync(`data/${website}/${process.env.GENDER}/${marka}`)
                     const fileName = imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
                     const savePath = path.join(process.cwd(), `data/${website}/${process.env.GENDER}/${marka}/${fileName}.json`)
                  
