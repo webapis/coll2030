@@ -15,6 +15,10 @@ on:
         description: 'website'
         required: true
         type: string
+      GENDER:
+        description: 'gender'
+        required: true
+        type: string
 env:
   CLOUD: true
   GOOGLE_REFRESH_TOKEN: ${{secrets.GOOGLE_REFRESH_TOKEN}}
