@@ -25,13 +25,11 @@ env:
   HEADLESS: true
   MAX_CONCURRENCY: ${{inputs.maxconcurrency}}
   WEBSITE: ${{inputs.WEBSITE}}
-  GENDER: ${{github.base_ref}}											
+  GENDER: ${{secrets.GENDER}}											
 jobs:
   aggregator:
     runs-on: ubuntu-latest
     steps:
-      - name: echo branchname
-        run: echo '${{github.base_ref}}'
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -77,3 +75,8 @@ jobs:
         with:
           name: updated-data
           path: updated-data/${{inputs.WEBSITE}}
+        
+        
+
+
+
