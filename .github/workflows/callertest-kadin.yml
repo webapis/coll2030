@@ -9,7 +9,7 @@ env:
 jobs:
 
   beyyoglu_job:
-    uses: ./.github/workflows/reusable-kadin.yml
+    uses: ./.github/workflows/reusable.yml
     with:
       marka: defacto
       maxconcurrency: '1'
