@@ -20,9 +20,9 @@ Apify.main(async () => {
     const { utils: { log } } = Apify;
     const requestQueue = await Apify.openRequestQueue();
     const marka = process.env.marka// process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
-    const website =process.env.WEBSITE
-  
-    const { urls } = require(`./urls/${website}/${marka}`)
+    const website = process.env.WEBSITE
+
+    const { urls } = require(`./urls/${website}/${process.env.GENDER}/${marka}`)
 
     for (let obj of urls) {
 
@@ -40,7 +40,7 @@ Apify.main(async () => {
 
             const { page, request: { userData: { start, opts } } } = context
 
-        
+
             const { handler, getUrls } = require(`./handlers/${website}/${process.env.marka}`);
             const { pageUrls, productCount } = await getUrls(page)
             process.env.productCount = productCount
@@ -63,7 +63,7 @@ Apify.main(async () => {
 
                 process.env.dataLength = parseInt(process.env.dataLength) + dataCollected.length
 
-               
+
             } else {
                 console.log('unsuccessfull data collection')
             }
@@ -73,8 +73,8 @@ Apify.main(async () => {
         }
 
     }
- 
-    
+
+
     const crawler = new Apify.PuppeteerCrawler({
         // requestList,
         requestQueue,
@@ -133,8 +133,8 @@ Apify.main(async () => {
                 page.on('response', async response => {
                     const request = response.request();
 
-  
-                    
+
+
                     const status = response.status()
                     if (status === 200) {
                         try {
@@ -194,48 +194,48 @@ Apify.main(async () => {
     if (productItems.length > 0) {
         const productItemsWithoutDublicate = uniqify(productItems, 'imageUrl')
 
-                for (let d of productItemsWithoutDublicate) {
-                    const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
-                  
-                    
-                    await makeDir(`collected-data/${website}`)
-                    await makeDir(`updated-data/${website}`)
-                    debugger
-                    const exists = fs.existsSync(`data/${website}/${marka}/${id}.json`)
-                    if (exists) {
+        for (let d of productItemsWithoutDublicate) {
+            const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
 
 
-                        const oldObject = JSON.parse(fs.readFileSync(`data/${website}/${marka}/${id}.json`))
-                        const newObject = d
-
-                        const priceChange = oldObject.priceNew === newObject.priceNew
-                        const titleChange = oldObject.title === newObject.title
-                        const linkChange = oldObject.link === newObject.link
-                 
-                        if (priceChange && titleChange && linkChange) {
+            await makeDir(`collected-data/${website}`)
+            await makeDir(`updated-data/${website}`)
+            debugger
+            const exists = fs.existsSync(`data/${website}/${marka}/${id}.json`)
+            if (exists) {
 
 
-                        }
-                        else {
-                            console.log('product info changed')
-                            debugger
-                            //updata data
-                            filesToDelete.push(`data/${website}/${marka}/${id}.json`)
+                const oldObject = JSON.parse(fs.readFileSync(`data/${website}/${marka}/${id}.json`))
+                const newObject = d
 
-                            updatedData.push(d)
-                        }
-                    } else {
+                const priceChange = oldObject.priceNew === newObject.priceNew
+                const titleChange = oldObject.title === newObject.title
+                const linkChange = oldObject.link === newObject.link
 
-                        collectedData.push(d)
-                    }
+                if (priceChange && titleChange && linkChange) {
+
+
                 }
-                debugger
-            
+                else {
+                    console.log('product info changed')
+                    debugger
+                    //updata data
+                    filesToDelete.push(`data/${website}/${marka}/${id}.json`)
 
+                    updatedData.push(d)
+                }
+            } else {
 
-        
+                collectedData.push(d)
+            }
+        }
         debugger
-  
+
+
+
+
+        debugger
+
         fs.appendFileSync(`collected-data/${website}/${marka}.json`, JSON.stringify(collectedData));
         fs.appendFileSync(`updated-data/${website}/${marka}.json`, JSON.stringify(updatedData));
 
@@ -260,10 +260,10 @@ Apify.main(async () => {
         await makeDir(`old-data/${website}`)
         if (filesToDelete.length > 0) {
 
-         
+
             fs.appendFileSync(`old-data/${website}/${marka}.json`, JSON.stringify(filesToDelete));
         } else {
-            
+
             fs.appendFileSync(`old-data/${website}/${marka}.json`, JSON.stringify([]));
         }
 
