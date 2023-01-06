@@ -201,11 +201,11 @@ Apify.main(async () => {
             await makeDir(`collected-data/${website}`)
             await makeDir(`updated-data/${website}`)
             debugger
-            const exists = fs.existsSync(`data/${website}/${marka}/${id}.json`)
+            const exists = fs.existsSync(`data/${website}/${process.env.GENDER}/${marka}/${id}.json`)
             if (exists) {
 
 
-                const oldObject = JSON.parse(fs.readFileSync(`data/${website}/${marka}/${id}.json`))
+                const oldObject = JSON.parse(fs.readFileSync(`data/${website}/${process.env.GENDER}/${marka}/${id}.json`))
                 const newObject = d
 
                 const priceChange = oldObject.priceNew === newObject.priceNew
@@ -220,7 +220,7 @@ Apify.main(async () => {
                     console.log('product info changed')
                     debugger
                     //updata data
-                    filesToDelete.push(`data/${website}/${marka}/${id}.json`)
+                    filesToDelete.push(`data/${website}/${process.env.GENDER}/${marka}/${id}.json`)
 
                     updatedData.push(d)
                 }
@@ -240,9 +240,9 @@ Apify.main(async () => {
         fs.appendFileSync(`updated-data/${website}/${marka}.json`, JSON.stringify(updatedData));
 
         debugger
-        if (fs.existsSync(`data/${website}/${marka}`)) {
+        if (fs.existsSync(`data/${website}/${process.env.GENDER}/${marka}`)) {
 
-            walkSync(`data/${website}/${marka}`, (filepath) => {
+            walkSync(`data/${website}/${process.env.GENDER}/${marka}`, (filepath) => {
                 const filename = path.basename(filepath)
 
                 const matchfound = productItems.find(f => {
