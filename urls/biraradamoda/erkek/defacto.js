@@ -1,6 +1,6 @@
 const urls = [
 
-   { url: 'https://www.defacto.com.tr/erkek-pantolon'},
+   { url: 'https://www.defacto.com.tr/erkek-giyim'},
 
 ]
 
