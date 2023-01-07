@@ -1,4 +1,4 @@
-name: caller erkek
+name: callererkek
 on:
    workflow_dispatch:
 

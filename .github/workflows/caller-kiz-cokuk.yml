@@ -1,4 +1,4 @@
-name: caller erkek cocuk
+name: caller_kiz_cocuk
 on:
    workflow_dispatch:
 
