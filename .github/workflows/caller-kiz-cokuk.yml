@@ -1,4 +1,4 @@
-name: caller_kiz_cocuk
+name: caller_kcocuk
 on:
    workflow_dispatch:
 
@@ -29,6 +29,14 @@ jobs:
       WEBSITE: biraradamoda
       GENDER: kcocuk
       maxconcurrency: '10'
+    secrets: inherit
+  beymen_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: beymen
+      WEBSITE: biraradamoda
+      GENDER: erkek
+      maxconcurrency: '5'
     secrets: inherit
   hm_job:
     uses: ./.github/workflows/reusable.yml
