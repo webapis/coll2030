@@ -1,10 +1,10 @@
-name: caller erkek
+name: caller erkek cocuk
 on:
    workflow_dispatch:
 
 env:
   WEBSITE: biraradamoda
-  GENDER: erkek
+  GENDER: kcocuk
 jobs:
   defacto_job:
     uses: ./.github/workflows/reusable.yml
@@ -12,7 +12,7 @@ jobs:
       marka: defacto
       maxconcurrency: '1'
       WEBSITE: biraradamoda
-      GENDER: erkek
+      GENDER: kcocuk
     secrets: inherit
   koton_job:
     uses: ./.github/workflows/reusable.yml
@@ -20,104 +20,35 @@ jobs:
       marka: koton
       maxconcurrency: '1'
       WEBSITE: biraradamoda
-      GENDER: erkek
+      GENDER: kcocuk
     secrets: inherit
   lcwaikiki_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: lcwaikiki
       WEBSITE: biraradamoda
-      GENDER: erkek
+      GENDER: kcocuk
       maxconcurrency: '10'
-  mavi_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: mavi
-      WEBSITE: biraradamoda
-      GENDER: erkek
-      maxconcurrency: '1'
-    secrets: inherit
-  beymen_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: beymen
-      WEBSITE: biraradamoda
-      GENDER: erkek
-      maxconcurrency: '5'
-    secrets: inherit
-  vakko_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: vakko
-      WEBSITE: biraradamoda
-      GENDER: erkek
-      maxconcurrency: '1'
-    secrets: inherit
-  zara_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: zara
-      WEBSITE: biraradamoda
-      GENDER: erkek
-      maxconcurrency: '1'
     secrets: inherit
   hm_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: hm
       WEBSITE: biraradamoda
-      GENDER: erkek
+      GENDER: kcocuk
       maxconcurrency: '1'
     secrets: inherit
-  beyyoglu_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: beyyoglu
-      WEBSITE: biraradamoda
-      GENDER: erkek
-      maxconcurrency: '1'
-    secrets: inherit
-  colins_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: colins
-      WEBSITE: biraradamoda
-      GENDER: erkek
-      maxconcurrency: '10'
-    secrets: inherit
-  xint_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: xint
-      WEBSITE: biraradamoda
-      GENDER: erkek
-      maxconcurrency: '1'
-    secrets: inherit
-  # tozlu_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     marka: tozlu
-  #     WEBSITE: biraradamoda
-  #     maxconcurrency: '1'
-  #   secrets: inherit
-  # desa_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     marka: desa
-  #     WEBSITE: biraradamoda
-  #     maxconcurrency: '1'
-  #   secrets: inherit
   merge_change_job:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [defacto_job,lcwaikiki_job,koton_job,mavi_job,beymen_job,vakko_job,zara_job,hm_job,beyyoglu_job,colins_job,xint_job]
+    needs: [defacto_job,lcwaikiki_job,koton_job,mavi_job,beymen_job,vakko_job,hm_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-          ref: erkek
+          ref: kcocuk
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
