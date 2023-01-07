@@ -1,8 +1,6 @@
 name: callerkadin
 on:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 3 * * *'
+   workflow_dispatch:
 
 env:
   WEBSITE: biraradamoda

@@ -1,35 +1,19 @@
 const urls = [
   
-    { url: 'https://www.zara.com/tr/tr/erkek-gemlekler-l737.html?v1=2204881', subcategory: ['elbise'], category: 'üst-giyim',node:'dream' },
-
-
-//     { url: 'https://www.zara.com/tr/tr/kadin-etekler-l1299.html',   subcategory: ['elbise'], category: 'alt-giyim',node:'dream' },
-//     {url:'https://www.zara.com/tr/tr/kadin-pantolonlar-l1335.html', subcategory:['elbise'],category:'alt-giyim',node:'dream'},
-//     { url: 'https://www.zara.com/tr/tr/kadin-pantolonlar-shortlar-l1355.html', subcategory: ['elbise'], category: 'alt-giyim', node: 'dream' },
-
-
-
-//     { url: 'https://www.zara.com/tr/tr/kadin-ceketler-l1114.html', subcategory: ['elbise'], category: 'dış-giyim', node: 'dream' },
-//     { url: 'https://www.zara.com/tr/tr/kadin-dish-giyim-l1184.html', subcategory: ['elbise'], category: 'dış-giyim', node: 'dream' },
-//     { url: 'https://www.zara.com/tr/tr/kadin-dish-giyim-yelekler-l1204.html', subcategory: ['elbise'], category: 'dış-giyim', node: 'dream' },
-
-   
-
-
-//     { url: 'https://www.zara.com/tr/tr/kadin-sweatshirtler-l1320.html', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
-
-//     { url: 'https://www.zara.com/tr/tr/kadin-tishertler-l1362.html', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
-//    { url: 'https://www.zara.com/tr/tr/kadin-gemlekler-l1217.html', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
-//    { url: 'https://www.zara.com/tr/tr/kadin-est-giyim-l1322.html', subcategory: ['elbise'], category: 'üst-giyim', node: 'dream' },
-//    { url: 'https://www.zara.com/tr/tr/kadin-erge-giyim-l1152.html', subcategory: ['elbise'], category: 'alt-giyim', node: 'dream' },
-
-
-//    { url: 'https://www.zara.com/tr/tr/kadin-ayakkabilar-l1251.html', subcategory: ['aksesuar'], category: 'alt-giyim', node: 'dream' },
-
-
-//    { url: 'https://www.zara.com/tr/tr/kadin-chantalar-l1024.html', subcategory: ['aksesuar'], category: 'alt-giyim', node: 'dream' },
-//    { url: 'https://www.zara.com/tr/tr/kadin-aksesuarlar-l1003.html', subcategory: ['aksesuar'], category: 'alt-giyim', node: 'dream' },
-//    { url: 'https://www.zara.com/tr/tr/kadin-guzellik-parfumler-l1415.html', subcategory: ['aksesuar'], category: 'alt-giyim', node: 'dream' },
+    { url: 'https://www.zara.com/tr/tr/erkek-gemlekler-l737.html?v1=2204881' },
+    { url: 'https://www.zara.com/tr/tr/erkek-ceket-yelek-l1650.html?v1=2206373' },
+    { url: 'https://www.zara.com/tr/tr/erkek-blazerlar-l608.html?v1=2204836' },
+    { url: 'https://www.zara.com/tr/tr/man-overshirts-l3174.html?v1=2204784' },
+    { url: 'https://www.zara.com/tr/tr/erkek-erge-giyim-l681.html?v1=2206375' },
+    { url: 'https://www.zara.com/tr/tr/erkek-sweatshirtler-l821.html?v1=2204863' },
+    { url: 'https://www.zara.com/tr/tr/erkek-pantolonlar-l838.html?v1=2206461' },
+    { url: 'https://www.zara.com/tr/tr/erkek-tishertler-l855.html?v1=2206614' },
+    { url: 'https://www.zara.com/tr/tr/erkek-polo-yakalar-l733.html?v1=2206446' },
+    { url: 'https://www.zara.com/tr/tr/erkek-takim-elbiseler-l808.html?v1=2204814' },
+    { url: 'https://www.zara.com/tr/tr/erkek-bermudalar-l592.html?v1=2204967' },
+    { url: 'https://www.zara.com/tr/tr/erkek-ayakkabilar-l769.html?v1=2206091' },
+    { url: 'https://www.zara.com/tr/tr/erkek-chantalar-l563.html?v1=2207124' },
+    { url: 'https://www.zara.com/tr/tr/erkek-aksesuarlar-l537.html?v1=2206721' },
 
 ]
 
