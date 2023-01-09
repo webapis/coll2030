@@ -35,7 +35,7 @@ jobs:
     with:
       marka: beymen
       WEBSITE: biraradamoda
-      GENDER: erkek
+      GENDER: kcocuk
       maxconcurrency: '5'
     secrets: inherit
   hm_job:
@@ -107,8 +107,8 @@ jobs:
         id: generatenavigation
         run: node utils/genNav/NavGenRunner.js
       - name: generate agregation report
-        id: genagrep
-        run: node utils/report/generateAggregationReport.js
+        # id: genagrep
+        # run: node utils/report/generateAggregationReport.js
       - name: build
         id: build
         run: npm run build

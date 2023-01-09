@@ -340,8 +340,8 @@ jobs:
         id: generatenavigation
         run: node utils/genNav/NavGenRunner.js
       - name: generate agregation report
-        id: genagrep
-        run: node utils/report/generateAggregationReport.js
+        # id: genagrep
+        # run: node utils/report/generateAggregationReport.js
       - name: build
         id: build
         run: npm run build
