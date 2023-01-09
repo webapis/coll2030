@@ -88,7 +88,7 @@ function countTotalCollectedByBrand() {
     const reportPath = path.join(`${process.cwd()}`, `projects/trends/public/reports/total-collected-by-brand-bar.json`)
     const previousreport = JSON.parse(fs.readFileSync(path.join(`${process.cwd()}`, `projects/trends/public/reports/total-collected-by-brand-bar.json`), { encoding: 'utf-8' }))
     debugger
-    const dirs = fs.readdirSync(`${process.cwd()}/urls/${process.env.WEBSITE}`)
+    const dirs = fs.readdirSync(`${process.cwd()}/urls/${process.env.WEBSITE}/${process.env.GENDER}`)
     debugger
     const folderPath = path.join(process.cwd(), `${dirpath}`)
     const date = new Date().toISOString()
@@ -385,7 +385,7 @@ function countBySubcategory(dirpath, reportFilePath) {
             const previousreport = JSON.parse(fs.readFileSync(reportPath, { encoding: 'utf-8' }))
             markas = previousreport
             for (let m of brandNames) {
-                const current = require(`${process.cwd()}/urls/${m}`)
+                const current = require(`${process.cwd()}/urls/${process.env.GENDER}/${m}`)
                 const mappedurls = current.urls.map(m => m.subcategory).flat()
                 const uniquedata = [...new Set(mappedurls)];
                 const props = Object.assign({}, uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {}))
@@ -398,7 +398,7 @@ function countBySubcategory(dirpath, reportFilePath) {
             }
         } else {
             for (let m of brandNames) {
-                const current = require(`${process.cwd()}/urls/${m}`)
+                const current = require(`${process.cwd()}/urls/${process.env.GENDER}/${m}`)
                 const mappedurls = current.urls.map(m => m.subcategory).flat()
                 const uniquedata = [...new Set(mappedurls)];
                 const props = Object.assign({}, uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {}))
@@ -446,7 +446,7 @@ function countBySubcategory(dirpath, reportFilePath) {
 
 
 function countBySubcategoryDeleted(dirpath, reportFilePath) {
-    const dirs = fs.readdirSync(`${process.cwd()}/urls`)
+    const dirs = fs.readdirSync(`${process.cwd()}/urls/${process.env.GENDER}`)
     const date = new Date().toISOString()
     const brandNames = dirs.map(m => m.replace('.js', ''))
     const folderPath = path.join(process.cwd(), `${dirpath}`)
@@ -459,7 +459,7 @@ function countBySubcategoryDeleted(dirpath, reportFilePath) {
             const previousreport = JSON.parse(fs.readFileSync(reportPath, { encoding: 'utf-8' }))
             markas = previousreport
             for (let m of brandNames) {
-                const current = require(`${process.cwd()}/urls/${m}`)
+                const current = require(`${process.cwd()}/urls/${process.env.GENDER}/${m}`)
                 const mappedurls = current.urls.map(m => m.subcategory).flat()
                 const uniquedata = [...new Set(mappedurls)];
                 const props = Object.assign({}, uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {}))
@@ -472,7 +472,7 @@ function countBySubcategoryDeleted(dirpath, reportFilePath) {
             }
         } else {
             for (let m of brandNames) {
-                const current = require(`${process.cwd()}/urls/${m}`)
+                const current = require(`${process.cwd()}/urls/${process.env.GENDER}/${m}`)
                 const mappedurls = current.urls.map(m => m.subcategory).flat()
                 const uniquedata = [...new Set(mappedurls)];
                 const props = Object.assign({}, uniquedata.reduce((a, v) => ({ ...a, [v]: { data: { [date]: 0 } } }), {}))

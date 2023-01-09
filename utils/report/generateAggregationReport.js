@@ -6,7 +6,7 @@ function countTotalUpdated() {
  // countTotal('updated-data', `projects/trends/public/reports/total-updated.json`)
  // countTotal('old-data', `projects/trends/public/reports/total-deleted.json`)
   countTotal('collected-data', `projects/trends/public/reports/total-newdata.json`)
-  countTotalCollected(`data/${process.env.WEBSITE}`,`projects/trends/public/reports/total-collected-bar.json`)
+  countTotalCollected(`data/${process.env.WEBSITE}/${process.env.GENDER}`,`projects/trends/public/reports/total-collected-bar.json`)
 }
 
 function countByBrandUpdated() {
@@ -21,7 +21,7 @@ function countBySubcategoryUpdated() {
   //countBySubcategory('updated-data', `projects/trends/src/reports/updated/by-subcategory-updated.json`)
   //countBySubcategory('collected-data', `projects/trends/src/reports/updated/by-subcategory-newdata.json`)
   //countBySubcategoryDeleted('old-data',`projects/trends/src/reports/updated/by-subcategory-deleted.json`)
-  countTotalCollectedBySubcategory(`data/${process.env.WEBSITE}`,`projects/trends/public/reports/total-collected-by-subcategory.json`)
+  countTotalCollectedBySubcategory(`data/${process.env.WEBSITE}/${process.env.GENDER}`,`projects/trends/public/reports/total-collected-by-subcategory.json`)
   countTotalCollectedBySubcategoryPie()
 }
 
