@@ -1,6 +1,8 @@
 
 function productTitleMatch({ kw, title, nws }) {
-  
+    if(kw==='bluz'){
+        debugger
+      }
 
     if (title) {
 
@@ -23,7 +25,7 @@ function productTitleMatch({ kw, title, nws }) {
 
                     return false
                 } else {
-                    if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
+                    if(kw==='bluz'  && title.toLowerCase().indexOf('bluz')!=-1){
                         debugger
                       }
                
@@ -38,7 +40,10 @@ function productTitleMatch({ kw, title, nws }) {
 
             } else {
 
-           
+                if(keyword==='bluz'){
+                    debugger
+                  }
+    
                 // if (exactmatch) {
                 return title.toLowerCase().indexOf(keyword.toLowerCase()) !==-1 //.replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
                 //}// else {

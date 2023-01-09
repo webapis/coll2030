@@ -17,9 +17,9 @@
 
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-     const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
+    // const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
 
-      //  const fnNames = ['one']
+        const fnNames = ['seven']
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -76,7 +76,7 @@
             const current = categoryNav[c]
             let updatedArray=[]
             for await (let f of current) {
-            debugger
+   
             if( f.imageUrls){
                 f.imageUrls.filter((f,i)=> i<2)
                 updatedArray.push({...f,imageUrls:f.imageUrls.filter((f,i)=> i<2)})
