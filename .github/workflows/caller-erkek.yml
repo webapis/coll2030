@@ -167,7 +167,7 @@ jobs:
       - name: generate navigation
         id: generatenavigation
         run: node utils/genNav/NavGenRunner.js
-      - name: generate agregation report
+      # - name: generate agregation report
         # id: genagrep
         # run: node utils/report/generateAggregationReport.js
       - name: build
