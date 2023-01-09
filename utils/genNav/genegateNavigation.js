@@ -109,14 +109,10 @@ async function genNav({ functionName }) {
 
             }
             const kw = kws.keywords
-            if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
-              debugger
-            }
+
      
             const match = productTitleMatch({ kw, title, exactmatch, nws })
-            if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
-              debugger
-            }
+
      
             return match
           }

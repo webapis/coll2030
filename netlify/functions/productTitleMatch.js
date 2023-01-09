@@ -1,6 +1,6 @@
 
 function productTitleMatch({ kw, title, nws }) {
-    if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
+    if(kw==='bluz'){
         debugger
       }
 
@@ -9,16 +9,12 @@ function productTitleMatch({ kw, title, nws }) {
 
 
         const match = kw.split(',').some(function (keyword) {
-            if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
-                debugger
-              }
+          
        
             // let  regex ='(^|\\s)'+keyword+'(\\s|\\b)'.replace(' ','')
        
             if (nws.length > 0) {
-                if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
-                    debugger
-                  }
+
            
                 if (nws.filter((f) => {
               
@@ -29,7 +25,7 @@ function productTitleMatch({ kw, title, nws }) {
 
                     return false
                 } else {
-                    if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
+                    if(kw==='bluz'  && title.toLowerCase().indexOf('bluz')!=-1){
                         debugger
                       }
                
@@ -43,10 +39,11 @@ function productTitleMatch({ kw, title, nws }) {
                 }
 
             } else {
-                if(kw==='yüksek bel'  && title.toLowerCase().indexOf('yüksek bel')!=-1){
+
+                if(keyword==='bluz'){
                     debugger
                   }
-           
+    
                 // if (exactmatch) {
                 return title.toLowerCase().indexOf(keyword.toLowerCase()) !==-1 //.replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
                 //}// else {
