@@ -17,9 +17,9 @@
 
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-      const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
+     const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
 
-        // const fnNames = ['six']
+      //  const fnNames = ['one']
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -74,9 +74,14 @@
         }
         for (let c in categoryNav) {
             const current = categoryNav[c]
+            let updatedArray=[]
             for await (let f of current) {
-            
-                delete f.imageUrls
+            debugger
+            if( f.imageUrls){
+                f.imageUrls.filter((f,i)=> i<2)
+                updatedArray.push({...f,imageUrls:f.imageUrls.filter((f,i)=> i<2)})
+            }
+             
                 // if (f.imageUrls && f.imageUrls.length > 0) {
                 //     const filterApplicable=f.imageUrls.filter(j => {
                 //         debugger
@@ -103,7 +108,7 @@
                 // }
             }
 
-
+            categoryNav[c]=updatedArray
 
 
 
