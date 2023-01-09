@@ -17,9 +17,9 @@
 
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-    // const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
+     const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
 
-        const fnNames = ['seven']
+        //const fnNames = ['seven']
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
