@@ -35,7 +35,7 @@ jobs:
     with:
       marka: beymen
       WEBSITE: biraradamoda
-      GENDER: erkek
+      GENDER: ecocuk
       maxconcurrency: '5'
     secrets: inherit
   hm_job:
