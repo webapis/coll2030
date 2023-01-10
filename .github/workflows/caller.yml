@@ -6,6 +6,7 @@ on:
 
 env:
   WEBSITE: biraradamoda
+  GENDER: kadin
 jobs:
   machka_job:
     uses: ./.github/workflows/reusable.yml
@@ -13,6 +14,7 @@ jobs:
       marka: machka
       maxconcurrency: '1'
       WEBSITE: biraradamoda
+      GENDER: kadin
     secrets: inherit
   defacto_job:
     uses: ./.github/workflows/reusable.yml
@@ -20,6 +22,7 @@ jobs:
       marka: defacto
       maxconcurrency: '1'
       WEBSITE: biraradamoda
+      GENDER: kadin
     secrets: inherit
   koton_job:
     uses: ./.github/workflows/reusable.yml
@@ -27,24 +30,28 @@ jobs:
       marka: koton
       maxconcurrency: '1'
       WEBSITE: biraradamoda
+      GENDER: kadin
     secrets: inherit
   lcwaikiki_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: lcwaikiki
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '10'
   ipekyol_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: ipekyol
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
   mavi_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: mavi
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   adl_job:
@@ -52,6 +59,7 @@ jobs:
     with:
       marka: adl
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   roman_job:
@@ -59,6 +67,7 @@ jobs:
     with:
       marka: roman
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   beymen_job:
@@ -66,6 +75,7 @@ jobs:
     with:
       marka: beymen
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '5'
     secrets: inherit
   vakko_job:
@@ -73,6 +83,7 @@ jobs:
     with:
       marka: vakko
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   zara_job:
@@ -80,6 +91,7 @@ jobs:
     with:
       marka: zara
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   twist_job:
@@ -87,6 +99,7 @@ jobs:
     with:
       marka: twist
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   hm_job:
@@ -94,6 +107,7 @@ jobs:
     with:
       marka: hm
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   baqa_job:
@@ -101,6 +115,7 @@ jobs:
     with:
       marka: baqa
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   beyyoglu_job:
@@ -108,6 +123,7 @@ jobs:
     with:
       marka: beyyoglu
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   dilvin_job:
@@ -115,6 +131,7 @@ jobs:
     with:
       marka: dilvin
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   colins_job:
@@ -122,6 +139,7 @@ jobs:
     with:
       marka: colins
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '10'
     secrets: inherit
   gizia_job:
@@ -129,6 +147,7 @@ jobs:
     with:
       marka: gizia
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   vitrin_job:
@@ -136,6 +155,7 @@ jobs:
     with:
       marka: vitrin
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   xint_job:
@@ -143,6 +163,7 @@ jobs:
     with:
       marka: xint
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   # tozlu_job:
@@ -164,6 +185,7 @@ jobs:
     with:
       marka: saygigiyim
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   manuka_job:
@@ -171,6 +193,7 @@ jobs:
     with:
       marka: manuka
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   kikiriki_job:
@@ -178,6 +201,7 @@ jobs:
     with:
       marka: kikiriki
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   # jimmykey_job:
