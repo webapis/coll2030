@@ -4,6 +4,7 @@ on:
 
 env:
   WEBSITE: biraradamoda
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
   GENDER: kadin
 jobs:
   machka_job:
@@ -330,6 +331,9 @@ jobs:
           path: updated-data
       - name: Decript data
         run: 'npm run decryptData'
+      - name: generate keywords
+        id: generatekeywords
+        run: node utils/generateKeywords.js
       - name: relocatedata
         id: relocateData
         run: node utils/relocateData.js
