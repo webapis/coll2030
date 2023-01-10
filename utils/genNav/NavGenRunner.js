@@ -80,8 +80,6 @@
             if( f.imageUrls){
                 f.imageUrls.filter((f,i)=> i<2)
                 updatedArray.push({...f,imageUrls:f.imageUrls.filter((f,i)=> i<2)})
-            }else{
-                updatedArray.push(f)
             }
              
                 // if (f.imageUrls && f.imageUrls.length > 0) {
