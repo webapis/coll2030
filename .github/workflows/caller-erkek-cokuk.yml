@@ -4,6 +4,7 @@ on:
 
 env:
   WEBSITE: biraradamoda
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
   GENDER: ecocuk
 jobs:
   defacto_job:
