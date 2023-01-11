@@ -216,6 +216,7 @@ jobs:
     with:
       marka: perspective
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   mango_job:
@@ -223,6 +224,7 @@ jobs:
     with:
       marka: mango
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   olegcassini_job:
@@ -230,6 +232,7 @@ jobs:
     with:
       marka: olegcassini
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   # addax_job:
@@ -244,6 +247,7 @@ jobs:
     with:
       marka: oxxo
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   # desa_job:
@@ -258,6 +262,7 @@ jobs:
     with:
       marka: abiyefon
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   patirti_job:
@@ -265,6 +270,7 @@ jobs:
     with:
       marka: patirti
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   yargici_job:
@@ -272,6 +278,7 @@ jobs:
     with:
       marka: yargici
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   merge_change_job:
