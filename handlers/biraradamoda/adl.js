@@ -18,7 +18,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://lmb-adl.akinoncdn.com/products/') + 39)
             debugger;
             return {
-                title: 'adl ' + title.replace(/İ/g,'i').toLowerCase(),
+                title: 'adl ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
@@ -34,7 +34,7 @@ async function handler(page, context) {
 
 
     const formatprice= data.map((m) => {
-        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),title:m.title+" _"+process.env.GENDER  }
     })
 
 

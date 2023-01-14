@@ -18,7 +18,7 @@ async function handler(page, context) {
             const link = productCard.querySelector('.lazy-image.product-name.track-link').href
 
             return {
-                title:'colins '+title.replace(/İ/g,'i').toLowerCase(),
+                title:'colins '+title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
                 priceNew:priceNew,//.replace(',','.'),
                 imageUrl: img.substring(img.indexOf('https://img-colinstr.mncdn.com/mnresize/')+40) ,
                 link:link.substring(link.indexOf('https://www.colins.com.tr/')+26),
@@ -31,7 +31,7 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
     
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 

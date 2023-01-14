@@ -17,7 +17,7 @@ async function handler(page, context) {
             const link = product.url
         debugger;
             return {
-                title:'dogo '+title.replace(/İ/g,'i').toLowerCase(),
+                title:'dogo '+title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
                 priceNew,
                 imageUrl: longImage.substring(longImage.indexOf('https://www.dogostore.com/') + 26),
                 link,
@@ -32,7 +32,7 @@ async function handler(page, context) {
 
     debugger;
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

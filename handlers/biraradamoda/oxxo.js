@@ -23,7 +23,7 @@ async function handler(page, context) {
 
             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf("https://cdn.sorsware.com/") + 25)
             return {
-                title: 'oxxo ' + title.replace(/İ/g,'i').toLowerCase(),
+                title: 'oxxo ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
 
                 priceNew,
 
@@ -49,7 +49,7 @@ async function handler(page, context) {
 
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

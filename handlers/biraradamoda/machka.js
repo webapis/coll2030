@@ -19,7 +19,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://image.machka.com.tr/unsafe/660x0/10.116.1.50:8000//Machka/products/') + 75)
 
             return {
-                title: 'machka ' + item.querySelector('.ems-prd-title').innerText.replace(/İ/g,'i').toLowerCase(),
+                title: 'machka ' + item.querySelector('.ems-prd-title').innerText.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
                 priceNew,//: priceNew.replace('.', '').replace(',00', '').trim(),
                 imageUrl: imageUrlshort,
                 link,
@@ -64,7 +64,7 @@ async function handler(page, context) {
 
     console.log('data length_____', data.length, 'url:', url)
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 
 
 }

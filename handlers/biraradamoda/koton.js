@@ -13,7 +13,7 @@ async function handler(page, context) {
             const longLink = productCard.querySelector('.js-product-wrapper.product-item a').href
             const shortLink = longLink.substring(longLink.indexOf('https://www.koton.com/') + 22)
             return {
-                title: 'koton ' + productCard.querySelector('img').alt.replace(/İ/g,'i').toLowerCase(),
+                title: 'koton ' + productCard.querySelector('img').alt.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
                 priceNew: newPrice.trim(),//: newPrice.replace(',', '.').trim(),
                 imageUrl: imageUrlshort,
                 link: shortLink,
@@ -28,7 +28,7 @@ async function handler(page, context) {
 
     console.log('data length_____', data.length, 'url:', url)
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 async function getUrls(page) {
 

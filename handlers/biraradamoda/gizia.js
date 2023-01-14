@@ -31,7 +31,7 @@ async function handler(page, context) {
         const link = product.url
 
         return {
-            title: 'gizia ' + title.replace(/İ/g,'i').toLowerCase(),
+            title: 'gizia ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
             priceNew:formatMoney(priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),
             imageUrl: longImage.substring(longImage.indexOf('https://pic.gizia.com/') + 22),
             link,
@@ -45,7 +45,7 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

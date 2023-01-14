@@ -46,7 +46,7 @@ async function handler(page, context) {
                        console.log('data length_____', data.length, 'url:', url)
 
                  
-                    return resolve(data)
+                    return resolve(data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }}))
 
                 }
 

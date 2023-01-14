@@ -39,7 +39,7 @@ async function handler(page, context) {
         const imageUrl = m.images[0].img1Src
         const link = m.linkAnchor
         return {
-            title: 'mango ' + m.shortDescription + ' ' + m.label,
+            title: 'mango ' + m.shortDescription + ' ' + m.label+" _"+process.env.GENDER,
             priceNew: m.price.salePrice.replace('TL', '').trim(),//.replace('.','').replace(',','.').trim(),
 
             imageUrl: imageUrl.substring(imageUrl.indexOf('https://st.mngbcn.com/') + 22),
@@ -59,7 +59,7 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

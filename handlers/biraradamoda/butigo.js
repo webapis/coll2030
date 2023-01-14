@@ -17,7 +17,7 @@ async function handler(page,context) {
             const priceNew =obj.price
             const link = obj.url
             return {
-                title: 'butigo '+title.replace(/İ/g,'i').toLowerCase(),
+                title: 'butigo '+title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
    
                 priceNew,
 
@@ -38,7 +38,7 @@ async function handler(page,context) {
 
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

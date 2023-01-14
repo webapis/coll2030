@@ -14,7 +14,7 @@ async function handler(page,context) {
 
             
             return {
-                title: 'lcwaikiki '+title.replace(/İ/g,'i').toLowerCase(),
+                title: 'lcwaikiki '+title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
 
                 priceNew: priceNew.replace('TL', '').trim(),//.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrl.substring(imageUrl.indexOf('https://img-lcwaikiki.mncdn.com/') + 32),
@@ -31,7 +31,7 @@ async function handler(page,context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

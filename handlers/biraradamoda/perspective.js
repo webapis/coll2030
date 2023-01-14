@@ -18,7 +18,7 @@ async function handler(page, context) {
 
             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf("https://cdn.sorsware.com/") + 25)
             return {
-                title: 'perspective ' + title.replace(/İ/g,'i').toLowerCase(),
+                title: 'perspective ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
 
                 priceNew,//: priceNew.replace('.', '').replace(',', '.').trim(),
 
@@ -38,7 +38,7 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

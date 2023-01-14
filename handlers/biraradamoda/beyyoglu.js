@@ -16,7 +16,7 @@ async function handler(page, context) {
             const link = productCard.querySelector('.product-item__image.js-product-item-image a').href
 
             return {
-                title: 'beyyoglu '+ title.replace(/İ/g,'i').toLowerCase(),
+                title: 'beyyoglu '+ title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
                 priceNew,
                 imageUrl: img.substring(img.indexOf('https://179a38.cdn.akinoncloud.com/products/') + 44),
                 link: link.substring(link.indexOf('https://www.beyyoglu.com/') + 25),
@@ -42,7 +42,7 @@ async function handler(page, context) {
     debugger;
     console.log('data length_____', data.length, 'url:', url)
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 async function autoScroll(page) {
     await page.evaluate(async () => {

@@ -16,7 +16,7 @@ async function handler(page, context) {
             const link = productCard.querySelector('.dl-event')? productCard.querySelector('.dl-event').href:productCard.querySelector('.image-hover.hover-nav a').href
 
             return {
-                title: 'dilvin '+title.replace(/İ/g,'i').toLowerCase(),
+                title: 'dilvin '+title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
                 priceNew,//:priceNew.replace(',','.'),
                 imageUrl: img.substring(img.indexOf('https://kvyfm6d9dll6.merlincdn.net/productimages/')+49),
                 link:link.substring(link.indexOf('https://www.dilvin.com.tr/')+26),
@@ -30,7 +30,7 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 async function autoScroll(page) {
     await page.evaluate(async () => {

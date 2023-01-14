@@ -17,7 +17,7 @@ async function handler(page, context) {
             const longImgUrl = obj.dimension19
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://file-penti.mncdn.com/mnresize/") + 38)
             return {
-                title: 'penti '+ obj.name.replace(/İ/g,'i').toLowerCase(),
+                title: 'penti '+ obj.name.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
                 priceNew: obj.price,
                 imageUrl: imageUrlshort,
                 link,
@@ -35,7 +35,7 @@ async function handler(page, context) {
     debugger;
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

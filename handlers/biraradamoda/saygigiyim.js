@@ -58,7 +58,7 @@ async function handler(page, context) {
                         debugger
         
 
-                        return resolve(data)
+                        return resolve(data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }}))
 
                     }
 

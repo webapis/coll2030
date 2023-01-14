@@ -21,7 +21,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('//sky-static.mavi.com/sys-master/maviTrImages/') + 46)
 
             return {
-                title: 'mavi '+ productDesc.replace(/\n/g,'')+' '+productTitle.replace(/\n/g,''),
+                title: 'mavi '+ productDesc.replace(/\n/g,'')+' '+productTitle.replace(/\n/g,'')+" _"+process.env.GENDER,
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
@@ -55,7 +55,7 @@ async function handler(page, context) {
 
         console.log('data length_____', data.length, 'url:', url)
 
-        return data
+        return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 
 
     }
