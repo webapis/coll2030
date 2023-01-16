@@ -66,7 +66,7 @@ async function handler(page, context) {
 
                             resolve(data.map((m) => {
                                 return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
-                            }))
+                            }).map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }}))
                             clearInterval(inv)
 
                         }

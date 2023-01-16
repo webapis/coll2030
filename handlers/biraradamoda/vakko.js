@@ -39,7 +39,7 @@ debugger;
     console.log('data length_____', data.length, 'url:', url)
 debugger
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

@@ -49,7 +49,7 @@ async function handler(page, context) {
 
 
 
-    return data
+    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {

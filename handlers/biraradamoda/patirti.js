@@ -52,7 +52,7 @@ async function handler(page, context) {
     })
 
 
-    return formatprice
+    return formatprice.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 
 }
 

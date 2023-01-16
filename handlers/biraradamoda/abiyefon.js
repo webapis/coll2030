@@ -29,7 +29,7 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
     const formatprice = data.map((m) => {
-        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),title:m.title+" _"+process.env.GENDER }
     })
 
 
