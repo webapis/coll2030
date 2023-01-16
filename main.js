@@ -21,7 +21,7 @@ Apify.main(async () => {
     const requestQueue = await Apify.openRequestQueue();
     const marka = process.env.marka// process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
     const website = process.env.WEBSITE
-
+console.log('main',process.env.GENDER)
     const { urls } = require(`./urls/${website}/${process.env.GENDER}/${marka}`)
 
     for (let obj of urls) {
