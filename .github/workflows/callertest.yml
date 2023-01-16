@@ -1,4 +1,4 @@
-name: caller
+name: callertest
 on:
    workflow_dispatch:
 
