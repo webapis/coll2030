@@ -21,7 +21,8 @@ Apify.main(async () => {
     const requestQueue = await Apify.openRequestQueue();
     const marka = process.env.marka// process.env.START_URL.match(/(?<=www.).*(?=.com)/g)[0]
     const website = process.env.WEBSITE
-console.log('main',process.env.GENDER)
+    console.log('main running')
+    console.log('main', process.env.GENDER)
     const { urls } = require(`./urls/${website}/${process.env.GENDER}/${marka}`)
 
     for (let obj of urls) {
@@ -192,7 +193,7 @@ console.log('main',process.env.GENDER)
     const collectedData = []
     const updatedData = []
     if (productItems.length > 0) {
-       // const productItemsWithoutDublicate = uniqify(productItems, 'imageUrl')
+        // const productItemsWithoutDublicate = uniqify(productItems, 'imageUrl')
 
         for (let d of productItems) {
             const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
