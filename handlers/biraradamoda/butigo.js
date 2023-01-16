@@ -17,7 +17,7 @@ async function handler(page,context) {
             const priceNew =obj.price
             const link = obj.url
             return {
-                title: 'butigo '+title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
+                title: 'butigo '+title.replace(/İ/g,'i').toLowerCase(),
    
                 priceNew,
 

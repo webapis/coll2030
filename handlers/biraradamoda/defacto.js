@@ -20,7 +20,7 @@ async function handler(page, context) {
             const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
    
             return {
-                title: 'defacto ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
+                title: 'defacto ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

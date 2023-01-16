@@ -16,7 +16,7 @@ async function handler(page, context) {
             const link = productCard.querySelector('.dl-event')? productCard.querySelector('.dl-event').href:productCard.querySelector('.image-hover.hover-nav a').href
 
             return {
-                title: 'dilvin '+title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
+                title: 'dilvin '+title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,//:priceNew.replace(',','.'),
                 imageUrl: img.substring(img.indexOf('https://kvyfm6d9dll6.merlincdn.net/productimages/')+49),
                 link:link.substring(link.indexOf('https://www.dilvin.com.tr/')+26),

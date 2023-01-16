@@ -24,7 +24,7 @@ async function handler(page, context) {
              const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.olegcassini.com.tr/") + 31)
             const title = productCard.querySelector('.proRowName a[title]').getAttribute('title')
             return {
-                title: 'olegcassini ' + title.replace(/İ/g,'i').toLowerCase() +" _"+process.env.GENDER,
+                title: 'olegcassini ' + title.replace(/İ/g,'i').toLowerCase(),
 
                 priceNew,
 

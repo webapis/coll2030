@@ -19,7 +19,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.beymen.com/mnresize/{width}/{height}/") + 49)
 
             return {
-                title: 'beymen ' + title + ' ' + desc+" _"+process.env.GENDER,
+                title: 'beymen ' + title + ' ' + desc,
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

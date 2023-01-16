@@ -41,7 +41,7 @@ async function handler(page, context) {
                             const title = productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim()
 
                             return {
-                                title: 'hm ' + title.replace(/İ/g, 'i').toLowerCase()+" _"+process.env.GENDER,
+                                title: 'hm ' + title.replace(/İ/g, 'i').toLowerCase(),
                                 priceNew: priceNew.replace('&nbsp;', '.'),//:priceNew.replace('.','').replace(',','.').trim(),
                                 imageUrl: imageUrlshort,
                                 link,

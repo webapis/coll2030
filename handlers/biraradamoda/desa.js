@@ -47,7 +47,7 @@ async function handler(page, context) {
                                     const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://cdn-ayae.akinon.net/') + 28)
                                     const title = productCard.querySelector(".product-name a") ? productCard.querySelector(".product-name a").innerHTML : productCard.outerHTML
                                     return {
-                                        title: 'desa ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
+                                        title: 'desa ' + title.replace(/İ/g,'i').toLowerCase(),//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
                                         priceNew,
                                         imageUrl: imageUrlshort,
                                         link,

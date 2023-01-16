@@ -21,7 +21,7 @@ async function handler(page, context) {
             const longImgUrl =  item.querySelector('[data-image-src]') && item.querySelector('[data-image-src]').getAttribute('data-image-src')
             const imageUrlshort = longImgUrl&& longImgUrl.substring(longImgUrl.indexOf('https://img2-ipekyol.mncdn.com/mnresize/')+40)
             return {
-                title: 'ipekyol '+ item.querySelector('.prd-name').innerText.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
+                title: 'ipekyol '+ item.querySelector('.prd-name').innerText.replace(/İ/g,'i').toLowerCase(),
         
                 priceNew,//:priceNew.replace('.','').replace(',00','').trim(),
   

@@ -15,7 +15,7 @@ async function handler(page, context) {
             const link = productCard.querySelector('.detailLink.detailUrl').href
 
             return {
-                title: 'baqa ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
+                title: 'baqa ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: longimg,
                 link: link.substring(link.indexOf('https://www.baqa.com.tr/') + 24),

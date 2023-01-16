@@ -31,7 +31,7 @@ async function handler(page, context) {
         const link = product.url
 
         return {
-            title: 'gizia ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
+            title: 'gizia ' + title.replace(/İ/g,'i').toLowerCase(),
             priceNew:formatMoney(priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),
             imageUrl: longImage.substring(longImage.indexOf('https://pic.gizia.com/') + 22),
             link,

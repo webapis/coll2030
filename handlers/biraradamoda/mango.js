@@ -39,7 +39,7 @@ async function handler(page, context) {
         const imageUrl = m.images[0].img1Src
         const link = m.linkAnchor
         return {
-            title: 'mango ' + m.shortDescription + ' ' + m.label+" _"+process.env.GENDER,
+            title: 'mango ' + m.shortDescription + ' ' + m.label,
             priceNew: m.price.salePrice.replace('TL', '').trim(),//.replace('.','').replace(',','.').trim(),
 
             imageUrl: imageUrl.substring(imageUrl.indexOf('https://st.mngbcn.com/') + 22),

@@ -18,7 +18,7 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://lmb-adl.akinoncdn.com/products/') + 39)
             debugger;
             return {
-                title: 'adl ' + title.replace(/İ/g,'i').toLowerCase()+" _"+process.env.GENDER,
+                title: 'adl ' + title.replace(/İ/g,'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
