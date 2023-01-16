@@ -192,9 +192,9 @@ Apify.main(async () => {
     const collectedData = []
     const updatedData = []
     if (productItems.length > 0) {
-        const productItemsWithoutDublicate = uniqify(productItems, 'imageUrl')
+       // const productItemsWithoutDublicate = uniqify(productItems, 'imageUrl')
 
-        for (let d of productItemsWithoutDublicate) {
+        for (let d of productItems) {
             const id = d.imageUrl.replace(/[/]/g, '-').replace(/[.jpg]/g, '').replace(/[?]/, '').replace(/\[|\]|\,|&|=|:/g, '')
 
 
