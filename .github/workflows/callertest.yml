@@ -1,25 +1,23 @@
-name: callertest
+name: caller
 on:
    workflow_dispatch:
-env:
-  VERCEL_TOKEN: ${{secrets.VERCEL_TOKEN}}
-  NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
-  WEBSITE: biraradamoda
-  GENDER: erkek
-jobs:
 
-  beyyoglu_job:
+env:
+  WEBSITE: biraradamoda
+  GENDER: kadin
+jobs:
+  defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: defacto
       maxconcurrency: '1'
       WEBSITE: biraradamoda
-      GENDER: erkek
+      GENDER: kadin
     secrets: inherit
-
-  generate_nav_job:
+  merge_change_job:
     runs-on: ubuntu-latest
-    needs: [beyyoglu_job]
+    if: ${{ always() }}
+    needs: [defacto_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -75,9 +73,9 @@ jobs:
       - name: generate navigation
         id: generatenavigation
         run: node utils/genNav/NavGenRunner.js
-      - name: generate agregation report
-        id: genagrep
-        run: node utils/report/generateAggregationReport.js
+      # - name: generate agregation report
+      #   id: genagrep
+      #   run: node utils/report/generateAggregationReport.js
       - name: build
         id: build
         run: npm run build

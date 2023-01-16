@@ -18,24 +18,24 @@ async function handler(page, context) {
             const link = longlink.substring(longlink.indexOf("defacto.com.tr/") + 15)
             const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
             const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://dfcdn.defacto.com.tr/") + 29)
-   
+
             return {
-                title: 'defacto ' + title.replace(/İ/g,'i').toLowerCase(),
+                title: 'defacto ' + title.replace(/İ/g, 'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'defacto',
             }
-        }).filter(f => f.imageUrl !== null && f.title.length>10)
+        }).filter(f => f.imageUrl !== null && f.title.length > 10)
     })
 
     console.log('data length_____', data.length, 'url:', url)
 
 
-
+    console.log(`process.env.GENDER `, process.env.GENDER)
     const formatprice = data.map((m) => {
-        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),title:m.title+" _"+process.env.GENDER  }
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }), title: m.title + " _" + process.env.GENDER }
     })
 
 
