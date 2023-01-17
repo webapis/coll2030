@@ -6,7 +6,7 @@ env:
   WEBSITE: biraradamoda
   GENDER: kadin
 jobs:
-  test_job:
+  network_job:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: network
@@ -14,10 +14,26 @@ jobs:
       WEBSITE: biraradamoda
       GENDER: kadin
     secrets: inherit
+  sementa_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: sementa
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: kadin
+    secrets: inherit
+  tiffanytomato_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: tiffanytomato
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: kadin
+    secrets: inherit
   merge_change_job:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [test_job]
+    needs: [network_job,sementa_job,tiffanytomato_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
