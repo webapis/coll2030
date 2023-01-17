@@ -7,6 +7,30 @@ env:
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GENDER: erkek
 jobs:
+  tiffanytomato_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: tiffanytomato
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: erkek
+    secrets: inherit
+  network_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: network
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: erkek
+    secrets: inherit
+  sementa_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: sementa
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: erkek
+    secrets: inherit
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
@@ -111,7 +135,7 @@ jobs:
   merge_change_job:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [defacto_job,lcwaikiki_job,koton_job,mavi_job,beymen_job,vakko_job,zara_job,hm_job,beyyoglu_job,colins_job,xint_job]
+    needs: [sementa_job,network_job,tiffanytomato_job,defacto_job,lcwaikiki_job,koton_job,mavi_job,beymen_job,vakko_job,zara_job,hm_job,beyyoglu_job,colins_job,xint_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
