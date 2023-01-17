@@ -6,10 +6,10 @@ env:
   WEBSITE: biraradamoda
   GENDER: kadin
 jobs:
-  defacto_job:
+  test_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: defacto
+      marka: network
       maxconcurrency: '1'
       WEBSITE: biraradamoda
       GENDER: kadin
@@ -17,7 +17,7 @@ jobs:
   merge_change_job:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [defacto_job]
+    needs: [test_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
