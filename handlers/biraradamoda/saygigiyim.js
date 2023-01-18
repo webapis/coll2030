@@ -7,6 +7,7 @@ async function handler(page, context) {
 
     // onetrust-accept-btn-handler
     const productExist = await page.$('.appliedFilter.FiltrelemeUrunAdet span')
+    debugger
     const acceptcookies = await page.$('.seg-popup-close')
     if (acceptcookies) {
         await page.click('.seg-popup-close')
@@ -16,16 +17,14 @@ async function handler(page, context) {
             try {
 
                 let inv = setInterval(async () => {
-                    // const { loaded, remained } = await page.$eval('.load-more-heading', el => {
-                    //     return { loaded: parseInt(el.getAttribute('data-items-shown')), remained: parseInt(el.getAttribute('data-total')) }
-                    // })
+       
                     const totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
                     const collected = await page.evaluate(() => document.querySelectorAll('#ProductPageProductList .productItem').length)
-                    debugger
-                    console.log('collected', collected)
+               
+                    console.log('collected', collected,totalProducts)
 
                     if (totalProducts > collected) {
-                        debugger
+                      
                         //  await page.click('.button.js-load-more')
                         await manualScroll(page)
 
