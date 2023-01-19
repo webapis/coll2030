@@ -37,7 +37,7 @@ Apify.main(async () => {
 
     process.env.dataLength = 0
     const handlePageFunction = async (context) => {
-        try {
+      
 
             const { page, request: { userData: { start, opts } } } = context
 
@@ -67,11 +67,11 @@ Apify.main(async () => {
 
             } else {
                 console.log('unsuccessfull data collection')
+
+                throw 'unsuccessfull data collection' 
             }
 
-        } catch (error) {
-            console.log('error----1', error)
-        }
+      
 
     }
 

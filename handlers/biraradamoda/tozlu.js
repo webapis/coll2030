@@ -17,17 +17,16 @@ async function handler(page, context) {
 
     return new Promise((resolve, reject) => {
         try {
-            let inv = setInterval(async () => {
 
-                const totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
-                const collected = await page.evaluate(() => document.querySelectorAll('.ItemOrj.col-4').length)
+                let totalProducts = 0
+                let collected = 0
+                let inv = setInterval(async () => {
 
+            
                 console.log('collected', collected)
 
-                if (totalProducts > collected) {
-                    await manualScroll(page)
-
-                } else {
+                if (totalProducts>0 && totalProducts === collected) {
+                 
                     clearInterval(inv)
                     debugger
                     const { items } = await dataset.getData()
@@ -48,6 +47,11 @@ async function handler(page, context) {
                  
                     return resolve(data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }}))
 
+                } else {
+                    await manualScroll(page)
+                     totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
+                     collected = await page.evaluate(() => document.querySelectorAll('.ItemOrj.col-4').length)
+    
                 }
 
             }, 100)
