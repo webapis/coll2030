@@ -6,10 +6,10 @@ env:
   WEBSITE: biraradamoda
   GENDER: kadin
 jobs:
-  sementa_job:
-    uses: ./.github/workflows/reusable.yml
+  tozlu_job:
+    uses: ./.github/workflows/reusabletest.yml
     with:
-      marka: sementa
+      marka: tozlu
       maxconcurrency: '1'
       WEBSITE: biraradamoda
       GENDER: kadin
@@ -17,7 +17,7 @@ jobs:
   merge_change_job:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [sementa_job]
+    needs: [tozlu_job]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
