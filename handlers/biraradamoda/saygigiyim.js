@@ -15,55 +15,59 @@ async function handler(page, context) {
     if (productExist) {
         return new Promise((resolve, reject) => {
             try {
-
+                let totalProducts = 0
+                let collected = 0
                 let inv = setInterval(async () => {
        
-                    const totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
-                    const collected = await page.evaluate(() => document.querySelectorAll('#ProductPageProductList .productItem').length)
+
                
                     console.log('collected', collected,totalProducts)
 
-                    if (totalProducts > collected) {
-                      
+                    if (totalProducts>0 && totalProducts === collected) {
+                              clearInterval(inv)
+
+                              const data = await page.$$eval('.productItem', (productCards) => {
+                                return productCards.map(productCard => {
+                                    const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
+                                    const longlink = productCard.querySelector('.detailLink').href
+                                    const link = longlink.substring(longlink.indexOf("https://www.bysaygi.com/") + 24)
+                                    const longImgUrl = productCard.querySelector('img[data-original]') && productCard.querySelector('img[data-original]').getAttribute('data-original')
+                                    //const imageUrlshort = longImgUrl&& longImgUrl.substring(longImgUrl.indexOf('https://www.quzu.com.tr/') + 24)
+                                    const title = productCard.querySelector('.detailLink').getAttribute('title')
+    
+                                    return {
+                                        title: 'saygigiyim ' + title.replace(/İ/g, 'i').toLowerCase(),
+                                        priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
+                                        imageUrl: longImgUrl,
+                                        link,
+                                        timestamp: Date.now(),
+                                        marka: 'saygigiyim',
+    
+                                    }
+                                }).filter(f => f.imageUrl !== null)
+                            })
+    
+                            debugger
+                            console.log('data length_____', data.length, 'url:', url)
+                            debugger
+            
+                            const remap =data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
+                            return resolve(remap)
                         //  await page.click('.button.js-load-more')
-                        await manualScroll(page)
+                  
 
                     } else {
-                        clearInterval(inv)
 
-                        const data = await page.$$eval('.productItem', (productCards) => {
-                            return productCards.map(productCard => {
-                                const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
-                                const longlink = productCard.querySelector('.detailLink').href
-                                const link = longlink.substring(longlink.indexOf("https://www.bysaygi.com/") + 24)
-                                const longImgUrl = productCard.querySelector('img[data-original]') && productCard.querySelector('img[data-original]').getAttribute('data-original')
-                                //const imageUrlshort = longImgUrl&& longImgUrl.substring(longImgUrl.indexOf('https://www.quzu.com.tr/') + 24)
-                                const title = productCard.querySelector('.detailLink').getAttribute('title')
-
-                                return {
-                                    title: 'saygigiyim ' + title.replace(/İ/g, 'i').toLowerCase(),
-                                    priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
-                                    imageUrl: longImgUrl,
-                                    link,
-                                    timestamp: Date.now(),
-                                    marka: 'saygigiyim',
-
-                                }
-                            }).filter(f => f.imageUrl !== null)
-                        })
-
-                        debugger
-                        console.log('data length_____', data.length, 'url:', url)
-                        debugger
-        
-                        const remap =data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
-                        return resolve(remap)
+                        await manualScroll(page)
+                        totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
+                        collected = await page.evaluate(() => document.querySelectorAll('#ProductPageProductList .productItem').length)
 
                     }
 
-                }, 170)
+                }, 50)
                 // clearInterval(inv)
             } catch (error) {
+                console.log('error------',error)
                 debugger
                 return reject(error)
             }
