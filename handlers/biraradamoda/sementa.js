@@ -9,6 +9,7 @@ if(start){
     const dataset = await Apify.openDataset();
     const requestQueue = await Apify.openRequestQueue();
     const { items } = await dataset.getData()
+    console.log('items',items)
     debugger
     const {COUNT:productCount} =items[0]['CATEGORIES'][0]['CHILDREN'][0]
 
