@@ -29,15 +29,13 @@
 
     for (let dirName of dirnames) {
         const functionObj = { diger: {} }
-        
-        console.log('dirname merge started', dirName)
 
+        makeDir.sync(path.dirname(`data/${website}/${process.env.GENDER}/${dirName}`))
+        
         let markaProducts = []
         walkSync(path.join(process.cwd(), `data/${website}/${process.env.GENDER}/${dirName}`), async (filepath) => {
-
             const data = JSON.parse(fs.readFileSync(filepath))
             markaProducts.push(data)
-
         })
 
         let i = 0
@@ -103,11 +101,6 @@
 
             }
         }
-
-        
-
-    
-
 
     }
 

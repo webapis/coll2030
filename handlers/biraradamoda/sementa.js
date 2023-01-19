@@ -1,37 +1,59 @@
-
+const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: {} } } = context
+    const { request: { userData: { start} } } = context
     debugger;
     const url = await page.url()
 
     await page.waitForSelector('#katalog')
+if(start){
+    const dataset = await Apify.openDataset();
+    const requestQueue = await Apify.openRequestQueue();
+    const { items } = await dataset.getData()
+    const {COUNT:productCount} =items[0]['CATEGORIES'][0]
 
-    await autoScroll(page)
-    debugger;
 
+    const totalPages = Math.ceil(productCount / 32)
+    const pageUrls = []
+
+    let pagesLeft = totalPages
+    for (let i = 1; i <= totalPages; i++) {
+
+        pageUrls.push(`${url}?pg=` + i)
+        --pagesLeft
+
+
+    }
+    debugger
+    for (let url of pageUrls) {
+
+
+        await requestQueue.addRequest({ url, userData: { start: false } })
+
+    }
+}
 
     const data = await page.$$eval('.productItem', (productCards) => {
         return productCards.map(productCard => {
-             const title = productCard.querySelector(".vitrinUrunAdi.detailLink").getAttribute('title')
-              const img= productCard.querySelector(".imgInner img").src
-              const priceNew =productCard.querySelector(".currentPrice").innerHTML.replace('TL', '').replace(/\n/g, '').trim()
-             const link = productCard.querySelector(".vitrinUrunAdi.detailLink").href
+            const title = productCard.querySelector(".vitrinUrunAdi.detailLink").getAttribute('title')
+            const img = productCard.querySelector(".imgInner img").src
+            const priceNew = productCard.querySelector(".currentPrice").innerHTML.replace('TL', '').replace(/\n/g, '').trim()
+            const link = productCard.querySelector(".vitrinUrunAdi.detailLink").href
 
             return {
-                 title:'sementa '+title.replace(/İ/g,'i').toLowerCase(),
-                 priceNew:priceNew,//.replace(',','.'),
-                 imageUrl: img.substring(img.indexOf('https://cdn.sementa.com/')+24) ,
-                 link:link.substring(link.indexOf('https://www.sementa.com/')+24),
-                 timestamp: Date.now(),
-                 marka: 'sementa',
+                title: 'sementa ' + title.replace(/İ/g, 'i').toLowerCase(),
+                priceNew: priceNew,//.replace(',','.'),
+                imageUrl: img.substring(img.indexOf('https://cdn.sementa.com/') + 24),
+                link: link.substring(link.indexOf('https://www.sementa.com/') + 24),
+                timestamp: Date.now(),
+                marka: 'sementa',
 
             }
         })
     })
     console.log('data length_____', data.length, 'url:', url)
-debugger
-    
-    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
+    debugger
+
+    return data.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
 }
 
 
