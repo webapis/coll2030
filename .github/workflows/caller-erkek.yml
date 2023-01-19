@@ -115,6 +115,7 @@ jobs:
     with:
       marka: tozlu
       WEBSITE: biraradamoda
+      GENDER: erkek
       maxconcurrency: '1'
     secrets: inherit
   # desa_job:

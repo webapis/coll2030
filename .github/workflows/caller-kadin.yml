@@ -194,6 +194,7 @@ jobs:
     with:
       marka: tozlu
       WEBSITE: biraradamoda
+      GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
   # quzu_job:
