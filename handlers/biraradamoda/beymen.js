@@ -6,7 +6,7 @@ async function handler(page, context) {
 
     await page.waitForSelector('#productList')
 
-
+debugger
     const data = await page.$$eval('#productList div[data-page]', (productCards) => {
         return productCards.map(productCard => {
 
