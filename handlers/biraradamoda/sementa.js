@@ -9,9 +9,10 @@ if(start){
     const dataset = await Apify.openDataset();
     const requestQueue = await Apify.openRequestQueue();
     const { items } = await dataset.getData()
-    const {COUNT:productCount} =items[0]['CATEGORIES'][0]
+    debugger
+    const {COUNT:productCount} =items[0]['CATEGORIES'][0]['CHILDREN'][0]
 
-
+debugger
     const totalPages = Math.ceil(productCount / 32)
     const pageUrls = []
 
