@@ -32,6 +32,8 @@ debugger
         await requestQueue.addRequest({ url, userData: { start: false } })
 
     }
+
+    await dataset.drop()
 }
 
     const data = await page.$$eval('.productItem', (productCards) => {
