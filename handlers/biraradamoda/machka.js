@@ -1,13 +1,13 @@
-const Apify = require('apify');
 
 async function handler(page, context) {
-    const { request: { userData: {start  } } } = context
+    const { request: { userData: { } } } = context
+    debugger;
     const url = await page.url()
-    debugger;
+
     await page.waitForSelector('.ems-prd-list-page');
-    debugger;
-    await page.waitForSelector('.ems-prd');
-    debugger;
+debugger
+    await autoScroll(page)
+
     const data = await page.$$eval('.ems-prd', (items, _subcategory, _category,_node) => {
 
         return items.map(item => {
@@ -33,44 +33,48 @@ async function handler(page, context) {
 
     debugger;
     console.log('data length_____', data.length)
-
-    const isNotHidden = await page.$eval('.btn.btn-size01.load-next', (elem) => {
-        return window.getComputedStyle(elem).getPropertyValue('display') !== 'none'
-    });
-    debugger;
-
-
-    if (isNotHidden && start) {
-
-        debugger;
-        const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
-        const pageNumber = parseInt(url.substr(url.lastIndexOf("=") + 1)) + 1
-
-        const nextPage = pageUrl + pageNumber
-        const requestQueue = await Apify.openRequestQueue();
-        requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory, category } })
-        debugger;
-    } else if (isNotHidden && !start) {
-        debugger;
-        const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
-        const pageNumber = parseInt(url.substr(url.lastIndexOf("=") + 1)) + 1
-
-        const nextPage = pageUrl + pageNumber
-        const requestQueue = await Apify.openRequestQueue();
-        debugger;
-        requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory, category } })
-
-    }
-
-    console.log('data length_____', data.length, 'url:', url)
-
-    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
-
+return data.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
 
 }
 
-async function getUrls(page, param) {
 
-    return { pageUrls: [], productCount: 0, pageLength: 0 }
+
+
+
+async function autoScroll(page) {
+    await page.evaluate(async () => {
+
+
+        await new Promise((resolve, reject) => {
+            var totalHeight = 0;
+            var distance = 100;
+            let inc = 0
+            var timer = setInterval(() => {
+                var scrollHeight = document.body.scrollHeight;
+                var toth = 7775
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+
+                if (totalHeight >= scrollHeight - window.innerHeight) {
+                    if (inc === 200) {
+                        clearInterval(timer);
+                        resolve();
+                    } else {
+                        inc = inc + 1
+                    }
+
+                } else {
+                    inc = 0
+                }
+            }, 50);
+        });
+    });
+}
+async function getUrls(page) {
+
+    const pageUrls = []
+
+
+    return { pageUrls, productCount: 0, pageLength: pageUrls.length + 1 }
 }
 module.exports = { handler, getUrls }
