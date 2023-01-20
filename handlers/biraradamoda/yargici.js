@@ -2,7 +2,7 @@
 
 
 async function handler(page, context) {
-    const { request: { userData: {  } } } = context
+    const { request: { userData: { } } } = context
     debugger;
 
 
@@ -23,13 +23,13 @@ async function handler(page, context) {
             const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://img-incommerce-yargici.mncdn.com/") + 41)
             const title = productCard.querySelector('.product-box-zoom-image').alt
             return {
-                title: 'yargici ' + title.replace(/İ/g,'i').toLowerCase(),
+                title: 'yargici ' + title.replace(/İ/g, 'i').toLowerCase(),
                 priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'yargici',
-  
+
             }
         })
     })
@@ -41,7 +41,7 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url)
 
 
-    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
+    return data.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
 }
 
 async function getUrls(page) {
@@ -64,13 +64,20 @@ async function autoScroll(page) {
 
                 window.scrollBy(0, distance);
                 totalHeight += distance;
-                inc = inc + 1
+
 
                 if (totalHeight >= scrollHeight - window.innerHeight) {
-                    clearInterval(timer);
-                    resolve(true);
+                    if (inc === 200) {
+                        clearInterval(timer);
+                        resolve(true);
+                    } else {
+                        inc = inc + 1
+                    }
+
+                } else {
+                    inc = 0
                 }
-            }, 150);
+            }, 50);
         });
     });
 }

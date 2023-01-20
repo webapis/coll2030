@@ -78,11 +78,11 @@ Apify.main(async () => {
 
     const crawler = new Apify.PuppeteerCrawler({
         // requestList,
-        requestQueue,
-        maxConcurrency: parseInt(process.env.MAX_CONCURRENCY) || 1,
-        handlePageTimeoutSecs: 600,
-        // maxRequestRetries:4,
-        // navigationTimeoutSecs:120,
+         requestQueue,
+         maxConcurrency: parseInt(process.env.MAX_CONCURRENCY) || 1,
+         handlePageTimeoutSecs: 600,
+         maxRequestRetries:4,
+         navigationTimeoutSecs:120,
         launchContext: {
             // Chrome with stealth should work for most websites.
             // If it doesn't, feel free to remove this.
@@ -271,6 +271,7 @@ Apify.main(async () => {
     }
     else {
         console.log('UNSUCCESSFUL DATA COLLECTION.......')
+        throw 'UNSUCCESSFUL DATA COLLECTION.......'
     }
 
     console.log('Crawl finished.');
