@@ -14,24 +14,14 @@ async function handler(page, context) {
 
     return new Promise((resolve, reject) => {
         try {
-
+            let totalProducts = 0
+            let collected = 0
             let inv = setInterval(async () => {
-                // const { loaded, remained } = await page.$eval('.load-more-heading', el => {
-                //     return { loaded: parseInt(el.getAttribute('data-items-shown')), remained: parseInt(el.getAttribute('data-total')) }
-                // })
-                const totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
-                const collected = await page.evaluate(() => document.querySelectorAll('#ProductPageProductList .productItem').length)
 
                 console.log('collected', collected)
 
-                if (totalProducts > collected) {
-
-                    //  await page.click('.button.js-load-more')
-                    await manualScroll(page)
-
-                } else {
+                if (totalProducts>0 && totalProducts === collected) {
                     clearInterval(inv)
-
                     const data = await page.$$eval('.productItem', (productCards) => {
                         return productCards.map(productCard => {
                             const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
@@ -59,11 +49,19 @@ async function handler(page, context) {
 
                     
                     return resolve(data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }}))
+             
 
+                } else {
+                 
+                    await manualScroll(page)
+
+                     totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
+                     collected = await page.evaluate(() => document.querySelectorAll('#ProductPageProductList .productItem').length)
+    
                 }
 
-            }, 150)
-            // clearInterval(inv)
+            }, 50)
+        
         } catch (error) {
             debugger
             return reject(error)
