@@ -59,13 +59,17 @@ async function autoScroll(page) {
                 totalHeight += distance;
                 inc = inc + 1
                 if (totalHeight >= scrollHeight - window.innerHeight) {
-                 
+                    if (inc === 200) {
                         clearInterval(timer);
                         resolve();
-                 
+                    } else {
+                        inc = inc + 1
+                    }
 
+                } else {
+                    inc = 0
                 }
-            }, 200);
+            }, 50);
         });
     });
 }
