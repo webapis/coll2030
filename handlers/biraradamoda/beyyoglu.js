@@ -28,17 +28,17 @@ async function handler(page, context) {
     })
 
 
-    if (start) {
-        await page.waitForSelector('pz-pagination')
-        const productCount = await page.$eval('pz-pagination', element => parseInt(element.getAttribute('total')))
-        console.log('productCount',productCount)
-        const totalPages = Math.ceil(productCount / 24)
-        for (let i = 2; i <= totalPages; i++) {
-            const nextPage = `${url}?page=` + i
-            const requestQueue = await Apify.openRequestQueue();
-            requestQueue.addRequest({ url: nextPage, userData: { start: false, subcategory, category } })
-        }
-    }
+    // if (start) {
+    //     await page.waitForSelector('pz-pagination')
+    //     const productCount = await page.$eval('pz-pagination', element => parseInt(element.getAttribute('total')))
+    //     console.log('productCount',productCount)
+    //     const totalPages = Math.ceil(productCount / 24)
+    //     for (let i = 2; i <= totalPages; i++) {
+    //         const nextPage = `${url}?page=` + i
+    //         const requestQueue = await Apify.openRequestQueue();
+    //         requestQueue.addRequest({ url: nextPage, userData: { start: false } })
+    //     }
+    // }
     debugger;
     console.log('data length_____', data.length, 'url:', url)
 
@@ -59,10 +59,13 @@ async function autoScroll(page) {
                 totalHeight += distance;
                 inc = inc + 1
                 if (totalHeight >= scrollHeight - window.innerHeight) {
-                    clearInterval(timer);
-                    resolve();
+                 
+                        clearInterval(timer);
+                        resolve();
+                 
+
                 }
-            }, 100);
+            }, 200);
         });
     });
 }

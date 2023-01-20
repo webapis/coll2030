@@ -63,7 +63,7 @@ async function autoScroll(page) {
                 } else {
                     inc = 0
                 }
-            }, 50);
+            }, 100);
         });
     });
 }
