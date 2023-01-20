@@ -10,7 +10,7 @@ jobs:
   single_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: sementa
+      marka: machka
       maxconcurrency: '1'
       WEBSITE: biraradamoda
       GENDER: kadin
