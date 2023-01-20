@@ -26,7 +26,8 @@ function commonDataHandler({ start, search, selectedNavIndex,subcategory }) {
         data.push(...dataObjectArr)
     }
     
-    const startAt = parseInt(start)
+    const startAt = parseInt(start)===1?0:(parseInt(start)-1)*100
+    console.log('startAt----',startAt)
     var products = TAFFY(data);
 debugger
     const filterByKeyword = selectedNavIndex === '' ? function () { return true } : function filterByKeyword() {
