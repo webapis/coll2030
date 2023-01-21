@@ -6,6 +6,10 @@ async function handler(page, context) {
 
     await page.waitForSelector('#katalog')
 
+   const priceType = await page.$("[data-value='USD']")
+   if (priceType) {
+       await page.click("[data-value='USD']")
+   }
     await autoScroll(page)
 
     const data = await page.$$eval('.productItem', (productCards) => {
