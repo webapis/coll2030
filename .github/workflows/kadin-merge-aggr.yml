@@ -33,28 +33,10 @@ jobs:
             ${{ runner.os }}-
       - name: Install dependencies
         run: 'npm install'
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: collected-data
-          path: collected-data
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: collected-data
-      - name: Download olddata artifact
-        continue-on-error: true
-        uses: actions/download-artifact@v3
-        with:
-          name: old-data
-          path: old-data
-      - name: Download updateddata artifact
-        continue-on-error: true
-        uses: actions/download-artifact@v3
-        with:
-          name: updated-data
-          path: updated-data
       - name: Decript data
         run: 'npm run decryptData'
+      - name: Download data
+        run: 'node utils/downloadData.js'       
       - name: generate keywords
         id: generatekeywords
         run: node utils/generateKeywords.js

@@ -35,7 +35,9 @@ async function compressFile({ fileName, data }) {
 
 }
 
-async function downloadCollection(gender) {
+async function downloadCollection() {
+
+    const gender =process.env.GENDER
 
     await getZipFiles(gender)
 
