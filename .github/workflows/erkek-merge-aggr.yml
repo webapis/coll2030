@@ -1,6 +1,8 @@
 name: erkek-merge-aggr
 on:
-   workflow_dispatch:
+  schedule:
+    # At 05:00 on Monday, Wednesday, and Friday..
+    - cron:  '0 5 * * 1,3,5'
 env:
   WEBSITE: biraradamoda
   MONGODB_URL: ${{secrets.MONGODB_URL}}

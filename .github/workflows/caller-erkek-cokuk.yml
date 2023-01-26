@@ -1,7 +1,8 @@
 name: caller_ecocuk
 on:
-   workflow_dispatch:
-
+  schedule:
+    # At 00:00 on Monday, Wednesday, and Friday.
+    - cron:  '0 0 * * 1,3,5'
 env:
   WEBSITE: biraradamoda
   MONGODB_URL: ${{secrets.MONGODB_URL}}
