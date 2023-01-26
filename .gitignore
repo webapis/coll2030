@@ -44,3 +44,6 @@ updated-data
 imgs/
 # Local Netlify folder
 .netlify
+zip-data
+unzipped-data
+data

@@ -25,18 +25,17 @@
             .filter(dirent => dirent.isDirectory())
             .map(dirent => dirent.name)
 
-    //const dirnames = getDirectories(path.join(process.cwd(), `unzipped-data`))
-debugger
+    const dirnames = getDirectories(path.join(process.cwd(), `data/${website}/${process.env.GENDER}`))
 
+    for (let dirName of dirnames) {
         const functionObj = { diger: {} }
 
-      //  makeDir.sync(path.dirname(`data/${website}/${process.env.GENDER}/${dirName}`))
+        makeDir.sync(path.dirname(`data/${website}/${process.env.GENDER}/${dirName}`))
         
         let markaProducts = []
-        walkSync(path.join(process.cwd(), `unzipped-data`), async (filepath) => {
+        walkSync(path.join(process.cwd(), `data/${website}/${process.env.GENDER}/${dirName}`), async (filepath) => {
             const data = JSON.parse(fs.readFileSync(filepath))
-       
-            markaProducts.push(...data)
+            markaProducts.push(data)
         })
 
         let i = 0
@@ -56,7 +55,6 @@ debugger
                         if (functionObj[k.functionName] === undefined) {
                             functionObj[k.functionName] = {}
                         }
-                        
                         if (functionObj[k.functionName][marka] === undefined) {
                             functionObj[k.functionName][marka] = []
                         }
@@ -65,6 +63,8 @@ debugger
                             if(!previouslyAdded){
                                 functionObj[k.functionName][marka] = [...functionObj[k.functionName][marka], mp]
                             }
+                
+    
                         machfound = true
                         //  break;
                     
@@ -102,7 +102,7 @@ debugger
             }
         }
 
-    
+    }
 
 
     
