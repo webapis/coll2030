@@ -26,89 +26,98 @@
     //         .map(dirent => dirent.name)
 
     //const dirnames = getDirectories(path.join(process.cwd(), `unzipped-data`))
-debugger
+    debugger
 
-        const functionObj = { diger: {} }
+    const functionObj = { diger: {} }
 
-      //  makeDir.sync(path.dirname(`data/${website}/${process.env.GENDER}/${dirName}`))
+    //  makeDir.sync(path.dirname(`data/${website}/${process.env.GENDER}/${dirName}`))
+
+    let markaProducts = []
+    walkSync(path.join(process.cwd(), `unzipped-data`), async (filepath) => {
+        const data = JSON.parse(fs.readFileSync(filepath))
+
+        markaProducts.push(...data)
+    })
+
+    console.log('PRODUCTS TO MERGE', markaProducts.length)
+    console.log('process.env.GENDER',process.env.GENDER)
+    const gender = process.env.GENDER
+    if ((gender === 'kadin' && markaProducts.length < 31000) ||
+        (gender === 'erkek' && markaProducts.length < 23000) ||
+        (gender === 'ecocuk' && markaProducts.length < 5000) ||
+        (gender === 'kcocuk' && markaProducts.length < 5000)) {
+        throw 'Error Not enoght product data'
         
-        let markaProducts = []
-        walkSync(path.join(process.cwd(), `unzipped-data`), async (filepath) => {
-            const data = JSON.parse(fs.readFileSync(filepath))
-       
-            markaProducts.push(...data)
-        })
+    }
 
-        console.log('PRODUCTS TO MERGE',markaProducts.length)
-
-        let i = 0
-        for (let mp of markaProducts) {
-            i++
-            const { title, marka } = mp
-            const categoryKeywords = keywords.filter(f => f.keywordType === 'category')
-            var machfound = false
-            for (let k of categoryKeywords) {
+    let i = 0
+    for (let mp of markaProducts) {
+        i++
+        const { title, marka } = mp
+        const categoryKeywords = keywords.filter(f => f.keywordType === 'category')
+        var machfound = false
+        for (let k of categoryKeywords) {
 
 
-                const nws = k.exclude !== '' ? k.exclude.split(',') : []
-      
-                const match = productTitleMatch({ kw: k.keywords, nws, title })
-                if (match) {
-                  
-                        if (functionObj[k.functionName] === undefined) {
-                            functionObj[k.functionName] = {}
-                        }
-                        
-                        if (functionObj[k.functionName][marka] === undefined) {
-                            functionObj[k.functionName][marka] = []
-                        }
+            const nws = k.exclude !== '' ? k.exclude.split(',') : []
 
-                        const previouslyAdded =functionObj[k.functionName][marka].find(f=>f.imageUrl===mp.imageUrl)
-                            if(!previouslyAdded){
-                                functionObj[k.functionName][marka] = [...functionObj[k.functionName][marka], mp]
-                            }
-                        machfound = true
-                        //  break;
-                    
-                
+            const match = productTitleMatch({ kw: k.keywords, nws, title })
+            if (match) {
 
+                if (functionObj[k.functionName] === undefined) {
+                    functionObj[k.functionName] = {}
                 }
+
+                if (functionObj[k.functionName][marka] === undefined) {
+                    functionObj[k.functionName][marka] = []
+                }
+
+                const previouslyAdded = functionObj[k.functionName][marka].find(f => f.imageUrl === mp.imageUrl)
+                if (!previouslyAdded) {
+                    functionObj[k.functionName][marka] = [...functionObj[k.functionName][marka], mp]
+                }
+                machfound = true
+                //  break;
+
 
 
             }
 
 
-            if (machfound === false) {
-                if (functionObj['diger'][marka] === undefined) {
-                    functionObj['diger'][marka] = []
-                }
-                functionObj['diger'][marka] = [...functionObj['diger'][marka], mp]
-
-            }
-            console.log('functionObj',functionObj)
-            if (i === markaProducts.length) {
-                for(let fnName in functionObj){
-                    const current =functionObj[fnName][marka]
-                    const savePath = path.join(process.cwd(), `api/_files/data/${fnName}/${marka}.json`)
-                    makeDir.sync(path.dirname(savePath))
-                
-                    if(current && current.length>0){
-                        fs.writeFileSync(savePath, JSON.stringify(current))
-                    }
-                    else{
-                      
-                    }
-                
-                
-                }
-
-            }
         }
 
-    
+
+        if (machfound === false) {
+            if (functionObj['diger'][marka] === undefined) {
+                functionObj['diger'][marka] = []
+            }
+            functionObj['diger'][marka] = [...functionObj['diger'][marka], mp]
+
+        }
+        console.log('functionObj', functionObj)
+        if (i === markaProducts.length) {
+            for (let fnName in functionObj) {
+                const current = functionObj[fnName][marka]
+                const savePath = path.join(process.cwd(), `api/_files/data/${fnName}/${marka}.json`)
+                makeDir.sync(path.dirname(savePath))
+
+                if (current && current.length > 0) {
+                    fs.writeFileSync(savePath, JSON.stringify(current))
+                }
+                else {
+
+                }
 
 
-    
+            }
+
+        }
+    }
+
+
+
+
+
 
     // function saveToOther({ marka, d }) {
     //     const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
@@ -133,7 +142,7 @@ debugger
 
 
     //     const exists = fs.existsSync(savePath)
-        
+
 
     //     if (exists) {
     //         const data = fs.readFileSync(savePath, { encoding: 'utf8' })
