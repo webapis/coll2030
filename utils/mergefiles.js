@@ -85,6 +85,7 @@ debugger
                 functionObj['diger'][marka] = [...functionObj['diger'][marka], mp]
 
             }
+            console.log('functionObj',functionObj)
             if (i === markaProducts.length) {
                 for(let fnName in functionObj){
                     const current =functionObj[fnName][marka]
@@ -109,43 +110,43 @@ debugger
 
     
 
-    function saveToOther({ marka, d }) {
-        const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
-        const exists = fs.existsSync(savePath)
-        if (exists) {
-            const data = fs.readFileSync(savePath, { encoding: 'utf8' })
-            const dataObj = JSON.parse(data)
+    // function saveToOther({ marka, d }) {
+    //     const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
+    //     const exists = fs.existsSync(savePath)
+    //     if (exists) {
+    //         const data = fs.readFileSync(savePath, { encoding: 'utf8' })
+    //         const dataObj = JSON.parse(data)
 
-            fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
-        } else {
-            makeDir.sync(path.dirname(savePath))
-            fs.writeFileSync(savePath, JSON.stringify([d]))
-        }
-    }
-
-
-
-    function saveToFunctionName({ k, marka, d }) {
+    //         fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
+    //     } else {
+    //         makeDir.sync(path.dirname(savePath))
+    //         fs.writeFileSync(savePath, JSON.stringify([d]))
+    //     }
+    // }
 
 
-        const savePath = path.join(process.cwd(), `api/_files/data/${k.functionName}/${marka}.json`)
+
+    // function saveToFunctionName({ k, marka, d }) {
 
 
-        const exists = fs.existsSync(savePath)
+    //     const savePath = path.join(process.cwd(), `api/_files/data/${k.functionName}/${marka}.json`)
+
+
+    //     const exists = fs.existsSync(savePath)
         
 
-        if (exists) {
-            const data = fs.readFileSync(savePath, { encoding: 'utf8' })
-            const dataObj = JSON.parse(data)
+    //     if (exists) {
+    //         const data = fs.readFileSync(savePath, { encoding: 'utf8' })
+    //         const dataObj = JSON.parse(data)
 
-            fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
-        } else {
-            makeDir.sync(path.dirname(savePath))
-            fs.writeFileSync(savePath, JSON.stringify([d]))
-        }
+    //         fs.writeFileSync(savePath, JSON.stringify([...dataObj, d]))
+    //     } else {
+    //         makeDir.sync(path.dirname(savePath))
+    //         fs.writeFileSync(savePath, JSON.stringify([d]))
+    //     }
 
 
-    }
+    // }
 
 
 
