@@ -276,13 +276,13 @@ jobs:
       GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
-  desa_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: desa
-      WEBSITE: biraradamoda
-      maxconcurrency: '1'
-    secrets: inherit
+  # desa_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: desa
+  #     WEBSITE: biraradamoda
+  #     maxconcurrency: '1'
+  #   secrets: inherit
   abiyefon_job:
     uses: ./.github/workflows/reusable.yml
     with:
