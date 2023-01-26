@@ -16,14 +16,14 @@
     console.log('--------------------------------------------------------------')
 
 
-    const website = process.env.WEBSITE
+    // const website = process.env.WEBSITE
 
     const keywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
     fs.rmSync(path.join(process.cwd(), `api/_files/data`), { recursive: true, force: true });
-    const getDirectories = source =>
-        fs.readdirSync(source, { withFileTypes: true })
-            .filter(dirent => dirent.isDirectory())
-            .map(dirent => dirent.name)
+    // const getDirectories = source =>
+    //     fs.readdirSync(source, { withFileTypes: true })
+    //         .filter(dirent => dirent.isDirectory())
+    //         .map(dirent => dirent.name)
 
     //const dirnames = getDirectories(path.join(process.cwd(), `unzipped-data`))
 debugger
@@ -38,6 +38,8 @@ debugger
        
             markaProducts.push(...data)
         })
+
+        console.log('PRODUCTS TO MERGE',markaProducts.length)
 
         let i = 0
         for (let mp of markaProducts) {
