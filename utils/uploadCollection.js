@@ -37,7 +37,7 @@ async function compressFile({ fileName, data }) {
 
 async function downloadCollection() {
 
-    const gender =process.env.GENDER
+    const gender = process.env.GENDER
 
     await getZipFiles(gender)
 
@@ -54,10 +54,10 @@ async function unzipFiles(gender) {
             promises.push(filepath)
 
         })
-
+console.log('uzip file length',promises.length)
         for (let a of promises) {
             debugger
-            await unzipSingleFile(a,gender)
+            await unzipSingleFile(a, gender)
         }
 
     } catch (error) {
@@ -67,7 +67,7 @@ async function unzipFiles(gender) {
 
 }
 
-async function unzipSingleFile(zippedfilePath,gender) {
+async function unzipSingleFile(zippedfilePath, gender) {
     debugger
     const unzippedFilePath = zippedfilePath.replace(gender, 'unzipped-data').replace('.gz', '')
     const folderPath = path.dirname(unzippedFilePath)
@@ -76,9 +76,10 @@ async function unzipSingleFile(zippedfilePath,gender) {
     const fileContents = fs.createReadStream(zippedfilePath);
     const writeStream = fs.createWriteStream(unzippedFilePath);
     const unzip = zlib.createGunzip();
-debugger
+    debugger
     return new Promise((resolve, reject) => {
         writeStream.on('close', () => {
+            console.log('unzip complete')
             resolve(true)
         })
         writeStream.on('error', (error) => {
@@ -102,7 +103,7 @@ async function getZipFiles(gender) {
 
     //------Git database / Get a tree endpoint------
     /*required to retrieve list of file and folder into*/
-    const treeResponse = await fetch(`https://api.github.com/repos/webapis/keyword-editor/git/trees/${sha}?recursive=1`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization:  `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
+    const treeResponse = await fetch(`https://api.github.com/repos/webapis/keyword-editor/git/trees/${sha}?recursive=1`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
     const treeData = await treeResponse.json()
     const { tree } = treeData
         ;
@@ -118,7 +119,7 @@ async function getContent(filepath) {
     const folderPath = path.dirname(filepath)
     debugger
     await makeDir(folderPath)
-    const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${filepath}`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization:  `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
+    const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${filepath}`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
 
     var file = fs.createWriteStream(filepath);
 

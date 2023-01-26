@@ -1,4 +1,6 @@
-const { downloadCollection } = require('./uploadCollection')
 
 
-downloadCollection()
+(async()=>{
+    const { downloadCollection } = require('./uploadCollection')
+await downloadCollection()
+})

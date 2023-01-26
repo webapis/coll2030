@@ -40,9 +40,6 @@ jobs:
       - name: generate keywords
         id: generatekeywords
         run: node utils/generateKeywords.js
-      - name: relocatedata
-        id: relocateData
-        run: node utils/relocateData.js
       - name: merge files
         id: mergefiles
         run: node utils/mergefiles.js
