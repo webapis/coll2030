@@ -29,7 +29,7 @@ env:
   HEADLESS: true
   MAX_CONCURRENCY: ${{inputs.maxconcurrency}}
   WEBSITE: ${{inputs.WEBSITE}}
-  GENDER: ${{inputs.GENDER}}			
+  GENDER: ${{inputs.GENDER}}
 jobs:
   aggregator:
     runs-on: ubuntu-latest
@@ -63,22 +63,3 @@ jobs:
       - name: aggregation step
         id: collection
         run: node main.js
-      - name: echo website path
-        run: echo '${{inputs.WEBSITE}}/${{inputs.marka}}'
-      - name: Upload collected-data
-        uses: actions/upload-artifact@v3
-        with:
-          name: collected-data
-          path: collected-data/${{inputs.WEBSITE}}
-      - name: Upload old-data
-        uses: actions/upload-artifact@v3
-        with:
-          name: old-data
-          path: old-data/${{inputs.WEBSITE}}
-      - name: Upload updated-data
-        uses: actions/upload-artifact@v3
-        with:
-          name: updated-data
-          path: updated-data/${{inputs.WEBSITE}}
-        
-        
