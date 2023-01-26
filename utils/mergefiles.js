@@ -38,7 +38,7 @@
 
         markaProducts.push(...data)
     })
-
+debugger
     console.log('PRODUCTS TO MERGE', markaProducts.length)
     console.log('process.env.GENDER',process.env.GENDER)
     const gender = process.env.GENDER
@@ -96,17 +96,30 @@
         }
    
         if (i === markaProducts.length) {
+   
             for (let fnName in functionObj) {
-                const current = functionObj[fnName][marka]
-                const savePath = path.join(process.cwd(), `api/_files/data/${fnName}/${marka}.json`)
-                makeDir.sync(path.dirname(savePath))
 
-                if (current && current.length > 0) {
-                    fs.writeFileSync(savePath, JSON.stringify(current))
-                }
-                else {
+                const fnc =functionObj[fnName]
+debugger
+                for(let m in fnc){
+                 
+                    debugger
+                    const current = functionObj[fnName][m]
+                    const savePath = path.join(process.cwd(), `api/_files/data/${fnName}/${m}.json`)
+                    makeDir.sync(path.dirname(savePath))
+    
+                    if (current && current.length > 0) {
+                        fs.writeFileSync(savePath, JSON.stringify(current))
+                    }
+                    else {
+    
+                    }
 
                 }
+
+
+                debugger
+             
 
 
             }

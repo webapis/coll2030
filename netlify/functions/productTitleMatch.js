@@ -1,8 +1,6 @@
 
 function productTitleMatch({ kw, title, nws }) {
-    if(kw==='bluz'){
-        debugger
-      }
+
 
     if (title) {
 
@@ -25,9 +23,7 @@ function productTitleMatch({ kw, title, nws }) {
 
                     return false
                 } else {
-                    if(kw==='bluz'  && title.toLowerCase().indexOf('bluz')!=-1){
-                        debugger
-                      }
+    
                
                     // if (exactmatch) {
                         return  title.toLowerCase().indexOf(keyword.toLowerCase()) !==-1
