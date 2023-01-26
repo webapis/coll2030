@@ -260,13 +260,14 @@ jobs:
       GENDER: kadin
       maxconcurrency: '1'
     secrets: inherit
-  addax_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: addax
-      WEBSITE: biraradamoda
-      maxconcurrency: '1'
-    secrets: inherit
+  # addax_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: addax
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
   oxxo_job:
     uses: ./.github/workflows/reusable.yml
     with:
