@@ -38,7 +38,8 @@ async function compressFile({ fileName, data }) {
 async function downloadCollection() {
 
     const gender = process.env.GENDER
-
+    console.log('gender', gender)
+    
     await getZipFiles(gender)
 
     await unzipFiles(gender)
@@ -54,7 +55,7 @@ async function unzipFiles(gender) {
             promises.push(filepath)
 
         })
-console.log('uzip file length',promises.length)
+        console.log('uzip file length', promises.length)
         for (let a of promises) {
             debugger
             await unzipSingleFile(a, gender)
