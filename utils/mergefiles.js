@@ -94,7 +94,7 @@
             functionObj['diger'][marka] = [...functionObj['diger'][marka], mp]
 
         }
-        console.log('functionObj', functionObj)
+   
         if (i === markaProducts.length) {
             for (let fnName in functionObj) {
                 const current = functionObj[fnName][marka]
