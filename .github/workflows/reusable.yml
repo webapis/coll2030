@@ -29,7 +29,8 @@ env:
   HEADLESS: true
   MAX_CONCURRENCY: ${{inputs.maxconcurrency}}
   WEBSITE: ${{inputs.WEBSITE}}
-  GENDER: ${{inputs.GENDER}}			
+  GENDER: ${{inputs.GENDER}}
+  GH_TOKED: ${{secrets.GH_TOKEN }}			
 jobs:
   aggregator:
     runs-on: ubuntu-latest

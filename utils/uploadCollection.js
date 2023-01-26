@@ -1,4 +1,4 @@
-
+require('dotenv').config()
 const fs = require('fs')
 var zlib = require('zlib');
 const fetch = require('node-fetch')
@@ -12,7 +12,7 @@ async function uploadCollection({ fileName, data, gender }) {
     let buff = fs.readFileSync(`${fileName}.json.gz`);
     let base64data = buff.toString('base64');
 
-    const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token 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`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', content: base64data, branch: 'main' }) })
+    const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', content: base64data, branch: 'main' }) })
 
     console.log('upload response', response)
 }
@@ -93,14 +93,14 @@ async function getZipFiles(gender) {
     //Retrieved source code will be copied to project branch of forked agregators repo
     //---- List branches endpoint----
     /*required for the next endoint*/
-    const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/branches`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization: `token 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`, "X-GitHub-Api-Version": "2022-11-28" } })
+    const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/branches`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
     const data = await response.json()
     const mainSha = data.find(d => d.name === 'main')
     const { commit: { sha } } = mainSha
 
     //------Git database / Get a tree endpoint------
     /*required to retrieve list of file and folder into*/
-    const treeResponse = await fetch(`https://api.github.com/repos/webapis/keyword-editor/git/trees/${sha}?recursive=1`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization: `token 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`, "X-GitHub-Api-Version": "2022-11-28" } })
+    const treeResponse = await fetch(`https://api.github.com/repos/webapis/keyword-editor/git/trees/${sha}?recursive=1`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization:  `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
     const treeData = await treeResponse.json()
     const { tree } = treeData
         ;
@@ -116,7 +116,7 @@ async function getContent(filepath) {
     const folderPath = path.dirname(filepath)
     debugger
     await makeDir(folderPath)
-    const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${filepath}`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization: `token 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`, "X-GitHub-Api-Version": "2022-11-28" } })
+    const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${filepath}`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization:  `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
 
     var file = fs.createWriteStream(filepath);
 
