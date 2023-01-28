@@ -1,8 +1,6 @@
 name: callererkek
 on:
-  schedule:
-    # At 00:00 on Monday, Wednesday, and Friday.
-    - cron:  '0 0 * * 1,3,5'
+   workflow_dispatch:
 
 env:
   WEBSITE: biraradamoda
