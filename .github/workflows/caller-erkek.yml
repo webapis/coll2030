@@ -17,14 +17,14 @@ jobs:
       WEBSITE: biraradamoda
       GENDER: erkek
     secrets: inherit
-  sementa_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      marka: sementa
-      maxconcurrency: '1'
-      WEBSITE: biraradamoda
-      GENDER: erkek
-    secrets: inherit
+  # sementa_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: sementa
+  #     maxconcurrency: '1'
+  #     WEBSITE: biraradamoda
+  #     GENDER: erkek
+  #   secrets: inherit
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
