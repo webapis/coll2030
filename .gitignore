@@ -45,7 +45,5 @@ imgs/
 # Local Netlify folder
 .netlify
 zip-data
-
-kcocuk
-ecocuk
 unzipped-data
+zipped-files

@@ -70,7 +70,7 @@ async function unzipFiles(gender) {
 
     const promises = []
     try {
-        walkSync(path.join(process.cwd(), `/${gender}`), async (filepath) => {
+        walkSync(path.join(process.cwd(), `/zipped-files`), async (filepath) => {
             debugger
             promises.push(filepath)
 
@@ -78,7 +78,7 @@ async function unzipFiles(gender) {
         console.log('uzip file length', promises.length)
         for (let a of promises) {
             debugger
-            await unzipSingleFile(a, gender)
+            await unzipSingleFile(a)
         }
 
     } catch (error) {
@@ -88,9 +88,9 @@ async function unzipFiles(gender) {
 
 }
 
-async function unzipSingleFile(zippedfilePath, gender) {
+async function unzipSingleFile(zippedfilePath) {
     debugger
-    const unzippedFilePath = zippedfilePath.replace(gender, 'unzipped-data').replace('.gz', '')
+    const unzippedFilePath = zippedfilePath.replace('zipped-files', 'unzipped-data').replace('.gz', '')
     const folderPath = path.dirname(unzippedFilePath)
     await makeDir(folderPath)
 
@@ -137,12 +137,12 @@ async function getZipFiles(gender) {
 }
 
 async function getContent(filepath) {
-    const folderPath = path.dirname(filepath)
+    const fileName = path.basename(filepath)
     debugger
-    await makeDir(folderPath)
+    await makeDir('zipped-files')
     const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${filepath}`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
 
-    var file = fs.createWriteStream(filepath);
+    var file = fs.createWriteStream(`zipped-files/${fileName}`);
 
     //     const data = await response.json()
 
