@@ -5,10 +5,19 @@ async function handler(page, context) {
     const url = await page.url()
 
     await page.waitForSelector('#katalog')
-    const priceType = await page.$("[data-value='TL']")
-    if (priceType) {
-        await page.click("[data-value='TL']")
-    }
+    debugger
+    await page.waitForSelector('#header-wrap > div > div.row > div > div > div.pos-r.fr.d-flex.forDesktop > div:nth-child(3) > span')
+    debugger
+    await page.hover("#header-wrap > div > div.row > div > div > div.pos-r.fr.d-flex.forDesktop > div:nth-child(3) > span")
+    debugger
+   const exits= await page.$("[data-value='TL']")
+    debugger
+if(exits){
+    await page.click("[data-value='TL']")
+    await page.reload()
+}
+
+    debugger
     await autoScroll(page)
 
     const data = await page.$$eval('.productItem', (productCards) => {

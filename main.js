@@ -99,10 +99,12 @@ Apify.main(async () => {
                     '--disable-skia-runtime-opts',
                     '--disable-yuv420-biplanar',
                     '--disable-site-isolation-trials',
-                    '--disable-dev-shm-usage'
+                    '--disable-dev-shm-usage',
+                    //'--lang=en-US,en'
                     // '--shm-size=3gb'
 
-                ]
+                ],
+                env: { LANGUAGE: "en_US" }
             }
 
         },
@@ -115,6 +117,8 @@ Apify.main(async () => {
                 const { page } = crawlingContext;
 
                 await page.setDefaultNavigationTimeout(0);
+
+
                 await page.setRequestInterception(true);
                 page.on('request', req => {
                     const resourceType = req.resourceType();
