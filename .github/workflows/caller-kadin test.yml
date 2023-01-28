@@ -1,0 +1,309 @@
+name: caller-kadin-test
+on:
+   workflow_dispatch:
+
+env:
+  WEBSITE: biraradamoda
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GENDER: kadin
+jobs:
+  # tiffanytomato_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: tiffanytomato
+  #     maxconcurrency: '1'
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #   secrets: inherit
+  # network_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: network
+  #     maxconcurrency: '1'
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #   secrets: inherit
+  sementa_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: sementa
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: kadin
+    secrets: inherit
+  # machka_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: machka
+  #     maxconcurrency: '1'
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #   secrets: inherit
+  # defacto_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: defacto
+  #     maxconcurrency: '1'
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #   secrets: inherit
+  # koton_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: koton
+  #     maxconcurrency: '1'
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #   secrets: inherit
+  # lcwaikiki_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: lcwaikiki
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '10'
+  # ipekyol_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: ipekyol
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  # mavi_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: mavi
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # adl_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: adl
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # roman_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: roman
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # beymen_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: beymen
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '5'
+  #   secrets: inherit
+  # vakko_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: vakko
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # zara_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: zara
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # twist_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: twist
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # hm_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: hm
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # baqa_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: baqa
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # beyyoglu_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: beyyoglu
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # dilvin_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: dilvin
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # colins_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: colins
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '10'
+  #   secrets: inherit
+  # gizia_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: gizia
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # vitrin_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: vitrin
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # xint_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: xint
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # tozlu_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: tozlu
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # quzu_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: quzu
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # saygigiyim_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: saygigiyim
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # manuka_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: manuka
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # kikiriki_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: kikiriki
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # # jimmykey_job:
+  # #   uses: ./.github/workflows/reusable.yml
+  # #   with:
+  # #     marka: jimmykey
+  # #     WEBSITE: biraradamoda
+  # #     maxconcurrency: '1'
+  # #   secrets: inherit
+  # perspective_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: perspective
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # mango_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: mango
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # olegcassini_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: olegcassini
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # # addax_job:
+  # #   uses: ./.github/workflows/reusable.yml
+  # #   with:
+  # #     marka: addax
+  # #     WEBSITE: biraradamoda
+  # #     GENDER: kadin
+  # #     maxconcurrency: '1'
+  # #   secrets: inherit
+  # oxxo_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: oxxo
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # # desa_job:
+  # #   uses: ./.github/workflows/reusable.yml
+  # #   with:
+  # #     marka: desa
+  # #     WEBSITE: biraradamoda
+  # #     maxconcurrency: '1'
+  # #   secrets: inherit
+  # abiyefon_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: abiyefon
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # patirti_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: patirti
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
+  # yargici_job:
+  #   uses: ./.github/workflows/reusable.yml
+  #   with:
+  #     marka: yargici
+  #     WEBSITE: biraradamoda
+  #     GENDER: kadin
+  #     maxconcurrency: '1'
+  #   secrets: inherit
