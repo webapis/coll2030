@@ -38,16 +38,16 @@
 
         markaProducts.push(...data)
     })
-debugger
+    debugger
     console.log('PRODUCTS TO MERGE', markaProducts.length)
-    console.log('process.env.GENDER',process.env.GENDER)
+    console.log('process.env.GENDER', process.env.GENDER)
     const gender = process.env.GENDER
     if ((gender === 'kadin' && markaProducts.length < 31000) ||
         (gender === 'erkek' && markaProducts.length < 23000) ||
         (gender === 'ecocuk' && markaProducts.length < 5000) ||
         (gender === 'kcocuk' && markaProducts.length < 5000)) {
         throw 'Error Not enoght product data'
-        
+
     }
 
     let i = 0
@@ -91,35 +91,35 @@ debugger
             if (functionObj['diger'][marka] === undefined) {
                 functionObj['diger'][marka] = []
             }
-            functionObj['diger'][marka] = [...functionObj['diger'][marka], mp]
+            functionObj['diger'][marka] = [...functionObj['diger'][marka], { ...mp, title: mp.title + ' diger' }]
 
         }
-   
+
         if (i === markaProducts.length) {
-   
+
             for (let fnName in functionObj) {
 
-                const fnc =functionObj[fnName]
-debugger
-                for(let m in fnc){
-                 
-                    debugger
+                const fnc = functionObj[fnName]
+
+                for (let m in fnc) {
+
+
                     const current = functionObj[fnName][m]
                     const savePath = path.join(process.cwd(), `api/_files/data/${fnName}/${m}.json`)
                     makeDir.sync(path.dirname(savePath))
-    
+
                     if (current && current.length > 0) {
                         fs.writeFileSync(savePath, JSON.stringify(current))
                     }
                     else {
-    
+
                     }
 
                 }
 
 
-                debugger
-             
+
+
 
 
             }
@@ -129,7 +129,21 @@ debugger
 
 
 
+    // for (let marka in functionObj['diger']) {
+    //     const current = functionObj['diger'][marka]
+    //     const savePath = path.join(process.cwd(), `api/_files/data/diger/${marka}.json`)
+    //     const exists = fs.existsSync(savePath)
+    //     if (exists) {
+    //         const data = fs.readFileSync(savePath, { encoding: 'utf8' })
+    //         const dataObj = JSON.parse(data)
 
+    //         fs.writeFileSync(savePath, JSON.stringify([...dataObj, ...current]))
+    //     } else {
+    //         makeDir.sync(path.dirname(savePath))
+    //         fs.writeFileSync(savePath, JSON.stringify([...current]))
+    //     }
+    //     debugger
+    // }
 
 
     // function saveToOther({ marka, d }) {

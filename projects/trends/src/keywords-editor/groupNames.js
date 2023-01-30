@@ -20,7 +20,7 @@ const arr = [
     {id:19, name: 'Marka', keywordType: 'keyword' },
     {id:20, name: 'Fiyat', keywordType: 'keyword' },
     {id:21, name: 'Ayakkabı', keywordType: 'category', functionName: 'nine' },
-
+    {id:22, name: 'Diger', keywordType: 'category', functionName: 'diger' },
 
 ]
 

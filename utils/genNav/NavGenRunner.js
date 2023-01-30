@@ -17,9 +17,9 @@
 
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-     const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
+        const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
 
-        //const fnNames = ['seven']
+        // const fnNames = ['diger']
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -41,10 +41,10 @@
         for (let c in catCounter) {
 
             const current = catCounter[c]
-
+            debugger
             for (let v in current) {
                 const { count, imageUrls } = current[v]
-
+                debugger
                 const curNav = categoryNav[c].map(m => {
 
                     if (m.title === v) {
@@ -74,14 +74,14 @@
         }
         for (let c in categoryNav) {
             const current = categoryNav[c]
-            let updatedArray=[]
+            let updatedArray = []
             for await (let f of current) {
-   
-            if( f.imageUrls){
-                f.imageUrls.filter((f,i)=> i<2)
-                updatedArray.push({...f,imageUrls:f.imageUrls.filter((f,i)=> i<2)})
-            }
-             
+
+                if (f.imageUrls) {
+                    f.imageUrls.filter((f, i) => i < 2)
+                    updatedArray.push({ ...f, imageUrls: f.imageUrls.filter((f, i) => i < 2) })
+                }
+
                 // if (f.imageUrls && f.imageUrls.length > 0) {
                 //     const filterApplicable=f.imageUrls.filter(j => {
                 //         debugger
@@ -108,11 +108,11 @@
                 // }
             }
 
-            categoryNav[c]=updatedArray
+            categoryNav[c] = updatedArray
 
 
 
-         }
+        }
 
         fs.appendFileSync(path.join(process.cwd(), `src/category-nav-counter.json`), JSON.stringify(categoryNav));
         fs.appendFileSync(path.join(process.cwd(), `public/category-nav-counter.json`), JSON.stringify(categoryNav));
@@ -131,10 +131,10 @@
                 }
 
             }
-       
+
             return { ...prev, ...upd }
         }, {})
-    
+
 
         for (let cimage in catImages) {
 
@@ -156,7 +156,7 @@
         }
 
         console.log('all workers complete')
-    //  process.exit(0)
+        //  process.exit(0)
 
     } catch (error) {
         console.log('error.', error)
