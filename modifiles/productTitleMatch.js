@@ -26,8 +26,8 @@ function productTitleMatch({ kw, title, nws }) {
     
                
                     // if (exactmatch) {
-                       // return  title.toLowerCase().indexOf(keyword.toLowerCase()) !==-1
-                       return title.toLowerCase().split(' ').find(t=> t===keyword.toLowerCase())//.replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
+                        return  title.toLowerCase().indexOf(keyword.toLowerCase()) !==-1
+                      //  return title.toLowerCase().split(' ').find(t=> t===keyword.toLowerCase())//.replace(/\s/g, ',').split(',').filter(f => f === keyword).length > 0
                     // } else {
 
                     //   return title.toLowerCase().replace(/\s/g, ',').split(',').filter(f => f === keyword || f.indexOf(keyword) === 0).length > 0
@@ -45,8 +45,7 @@ function productTitleMatch({ kw, title, nws }) {
                 //}// else {
                 //  return title.toLowerCase().replace(/\s/g, ',').split(',').filter(f => f === keyword || f.indexOf(keyword) === 0).length > 0
                 //  }
-                 // return title.toLowerCase().indexOf(keyword.toLowerCase()) !==-1
-               return   title.toLowerCase().split(' ').find(t=> t===keyword.toLowerCase())
+                  return title.toLowerCase().indexOf(keyword.toLowerCase()) !==-1
             }
 
 

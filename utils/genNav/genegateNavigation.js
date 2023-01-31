@@ -43,8 +43,8 @@ async function genNav({ functionName }) {
   const { productTitleMatch } = require('../../netlify/functions/productTitleMatch')
 
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
-  const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat')
-
+  const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat'  && f.functionName===functionName)
+debugger
   let navKeys = { ['0-']: { matchingKeywords: [], keywords: {} } }
   let navKeysWithCatKeys = {}
   let catImages = {}
@@ -123,12 +123,14 @@ async function genNav({ functionName }) {
         for (let k of categoryKeywords) {
           const { index, groupName } = k
 
-
+  
           const match = matchingKeywords.find(f => {
 
-            return f.index.replace('-', '') === index
+            return parseInt( f.index.replace('-', '')) === parseInt( index)
           })
-          if (match && k.functionName === functionName) {
+
+          //   if (match && k.functionName === functionName) {
+          if (match) {
 
             if (catCounter[groupName] === undefined) {
               catCounter[groupName] = {}
@@ -165,7 +167,7 @@ async function genNav({ functionName }) {
 
 
 
-              const fnd = categoryKeywords.filter(f => comb.split('-').filter(f => f !== '').includes(f.index))
+              const fnd = categoryKeywords.filter(f => comb.split('-').filter(c => c !== '').map(m=> m.toString() ).includes( f.index.toString()))
 
 
               fnd.forEach(ds => {
@@ -233,7 +235,7 @@ async function genNav({ functionName }) {
     for (let f in navKeysWithCatKeys) {
       //find category index
       const categoryIndexes = f.split('-').filter(f => f !== '')
-      const fnd = categoryKeywords.find(f => categoryIndexes.includes(f.index))
+      const fnd = categoryKeywords.find(fd => categoryIndexes.includes(fd.index.toString()))
 
       const current = navKeysWithCatKeys[f]
       const keywords = current.keywords

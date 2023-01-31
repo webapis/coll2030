@@ -19,7 +19,8 @@
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
         const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'diger']
 
-        // const fnNames = ['diger']
+      //  const fnNames = ['one']
+         debugger
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -29,17 +30,20 @@
             else return null
 
         }))
-
+debugger
         const catCounter = result.filter(f => f !== null).reduce((prev, curr, i) => {
             const nxt = JSON.parse(curr).catCounter
 
             return { ...prev, ...nxt }
         }, {})
-
+debugger
 
         const categoryNav = require(path.join(process.cwd(), `src/category-nav.json`))
+        debugger
         for (let c in catCounter) {
-
+            if(c==='diger'){
+                debugger
+            }
             const current = catCounter[c]
             debugger
             for (let v in current) {
@@ -74,6 +78,10 @@
         }
         for (let c in categoryNav) {
             const current = categoryNav[c]
+            if(c==='diger'){
+                debugger
+            }
+    
             let updatedArray = []
             for await (let f of current) {
 
