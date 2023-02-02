@@ -23,6 +23,14 @@ jobs:
   #     WEBSITE: biraradamoda
   #     GENDER: erkek
   #   secrets: inherit
+  penti_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: penti
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: erkek
+    secrets: inherit
   defacto_job:
     uses: ./.github/workflows/reusable.yml
     with:
