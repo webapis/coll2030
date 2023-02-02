@@ -17,9 +17,9 @@
 
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-       const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten','diger']
+    // const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten','diger']
 
-      // const fnNames = ['diger']
+      const fnNames = ['two']
          debugger
         const result = await Promise.all(fnNames.map((functionName) => {
 
@@ -41,9 +41,7 @@ debugger
         const categoryNav = require(path.join(process.cwd(), `src/category-nav.json`))
         debugger
         for (let c in catCounter) {
-            if(c==='diger'){
-                debugger
-            }
+
             const current = catCounter[c]
             debugger
             for (let v in current) {

@@ -13,7 +13,7 @@ genNav({ functionName })
 async function genNav({ functionName }) {
 
 
-  
+
   const path = require('path')
   const makeDir = require('make-dir');
   const plimit = require('p-limit')
@@ -43,8 +43,8 @@ async function genNav({ functionName }) {
   const { productTitleMatch } = require('../../netlify/functions/productTitleMatch')
 
   const allkeywords = require(path.join(process.cwd(), `api/_files/nav/keywords.json`))
-  const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat'  && f.functionName===functionName)
-debugger
+  const categoryKeywords = allkeywords.filter(f => f.keywordType === 'category' && f.groupName !== 'Fiyat' && f.functionName === functionName)
+  debugger
   let navKeys = { ['0-']: { matchingKeywords: [], keywords: {} } }
   let navKeysWithCatKeys = {}
   let catImages = {}
@@ -59,12 +59,13 @@ debugger
     if (title) {
 
       const keywords = allkeywords
-   
+
       if (keywords && keywords.length > 0) {
         //--------------------------FIND MATCHING KEYWORDS WITHING PRODUCT NAME
-        const matchingKeywords = keywords.map((m) => { 
+        const matchingKeywords = keywords.map((m) => {
 
-          return { ...m, index: m.index.toString() + '-' } }).filter((kws) => {
+          return { ...m, index: m.index.toString() + '-' }
+        }).filter((kws) => {
 
 
           let exactmatch = kws.exactmatch
@@ -98,7 +99,7 @@ debugger
 
               }
             } catch (error) {
-    
+
             }
 
           } else {
@@ -110,25 +111,25 @@ debugger
             }
             const kw = kws.keywords
 
-     
+
             const match = productTitleMatch({ kw, title, exactmatch, nws })
 
-     
+
             return match
           }
 
         })
 
-
+        debugger
         for (let k of categoryKeywords) {
           const { index, groupName } = k
+          debugger
 
-  
           const match = matchingKeywords.find(f => {
 
-            return parseInt( f.index.replace('-', '')) === parseInt( index)
+            return parseInt(f.index.replace('-', '')) === parseInt(index)
           })
-
+debugger
           //   if (match && k.functionName === functionName) {
           if (match) {
 
@@ -136,12 +137,12 @@ debugger
               catCounter[groupName] = {}
             }
             if (catCounter[groupName][k.title] === undefined) {
-              catCounter[groupName][k.title] = { count: 1,imageUrls: [{ src: imageUrl, title: object.title, marka }] }//--------------------------------------------------------------------------
+              catCounter[groupName][k.title] = { count: 1, imageUrls: [{ src: imageUrl, title: object.title, marka }] }//--------------------------------------------------------------------------
             } else {
               const imageUrls = catCounter[groupName][k.title].imageUrls
-              
-              catCounter[groupName][k.title]={count: catCounter[groupName][k.title].count + 1,imageUrls: [...imageUrls, { src: imageUrl, title: object.title, marka }]}
-            
+
+              catCounter[groupName][k.title] = { count: catCounter[groupName][k.title].count + 1, imageUrls: [...imageUrls, { src: imageUrl, title: object.title, marka }] }
+
             }
 
           }
@@ -167,7 +168,7 @@ debugger
 
 
 
-              const fnd = categoryKeywords.filter(f => comb.split('-').filter(c => c !== '').map(m=> m.toString() ).includes( f.index.toString()))
+              const fnd = categoryKeywords.filter(f => comb.split('-').filter(c => c !== '').map(m => m.toString()).includes(f.index.toString()))
 
 
               fnd.forEach(ds => {
@@ -274,7 +275,7 @@ debugger
   let regrouped = []
 
 
-
+  debugger
 
   for (let nk in navKeys) {
 
@@ -368,7 +369,7 @@ function getCombinations(chars) {
 function splitToChunks(array, parts) {
   let result = [];
   for (let i = parts; i > 0; i--) {
-      result.push(array.splice(0, Math.ceil(array.length / i)));
+    result.push(array.splice(0, Math.ceil(array.length / i)));
   }
   return result;
 }
