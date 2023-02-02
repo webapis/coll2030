@@ -59,7 +59,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: penti
-      maxconcurrency: '1'
+      maxconcurrency: '5'
       WEBSITE: biraradamoda
       GENDER: kadin
     secrets: inherit
