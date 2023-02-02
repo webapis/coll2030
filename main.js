@@ -82,7 +82,7 @@ Apify.main(async () => {
         maxConcurrency: parseInt(process.env.MAX_CONCURRENCY) || 1,
         handlePageTimeoutSecs: 600,
         //   maxRequestRetries:4,
-        //   navigationTimeoutSecs:120,
+          navigationTimeoutSecs:120,
         launchContext: {
             // Chrome with stealth should work for most websites.
             // If it doesn't, feel free to remove this.
