@@ -60,7 +60,7 @@ debugger
 
         return {
             ...prev, [curr.index+"-"]: { groupName:curr.groupName,title:curr.title,
-                keywordType:curr.keywordType }
+                keywordType:curr.keywordType,keywords:curr.keywords }
         }
     }, {})
     debugger

@@ -120,16 +120,16 @@ async function genNav({ functionName }) {
 
         })
 
-    
+        debugger
         for (let k of categoryKeywords) {
           const { index, groupName } = k
-
+          debugger
 
           const match = matchingKeywords.find(f => {
 
             return parseInt(f.index.replace('-', '')) === parseInt(index)
           })
-
+debugger
           //   if (match && k.functionName === functionName) {
           if (match) {
 
@@ -234,7 +234,6 @@ async function genNav({ functionName }) {
 
 
     for (let f in navKeysWithCatKeys) {
-      debugger
       //find category index
       const categoryIndexes = f.split('-').filter(f => f !== '')
       const fnd = categoryKeywords.find(fd => categoryIndexes.includes(fd.index.toString()))
