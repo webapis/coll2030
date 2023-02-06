@@ -17,10 +17,10 @@
 
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-       const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten','diger']
+     const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten','diger']
 
-      // const fnNames = ['diger']
-         debugger
+    //  const fnNames = ['one']
+      
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -30,7 +30,7 @@
             else return null
 
         }))
-debugger
+
         const catCounter = result.filter(f => f !== null).reduce((prev, curr, i) => {
             const nxt = JSON.parse(curr).catCounter
 
@@ -41,16 +41,17 @@ debugger
         const categoryNav = require(path.join(process.cwd(), `src/category-nav.json`))
         debugger
         for (let c in catCounter) {
-            if(c==='diger'){
-                debugger
-            }
+       
             const current = catCounter[c]
-            debugger
-            for (let v in current) {
-                const { count, imageUrls } = current[v]
-                debugger
-                const curNav = categoryNav[c].map(m => {
+         
 
+        
+                for (let v in current) {
+                    const { count, imageUrls } = current[v]
+                
+              if(categoryNav[c]!==undefined){
+                const curNav = categoryNav[c].map(m => {
+    
                     if (m.title === v) {
 
                         return { ...m, count: m.count ? m.count + count : count, imageUrls: m.imageUrls ? [...m.imageUrls, ...imageUrls] : [...imageUrls] }
@@ -63,8 +64,14 @@ debugger
                 })
 
                 categoryNav[c] = curNav
-
-            }
+              }
+                
+    
+                
+    
+                }
+          
+      
 
         }
 
