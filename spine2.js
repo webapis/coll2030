@@ -3,14 +3,14 @@
 // (async ()=>{
 //   const fs = require('fs')
 // const fetch = require('node-fetch')
+// debugger
+// const response = await fetch(`https://api.github.com/repos/webapis/coll2030/contents/${filepath}`, { method: 'get', headers: { Accept: "application/vnd.github+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
 
-//   const response = await fetch(`https://github.com/codergihub/fasion/tree/kadin/public/image-indexes`, { method: 'get' })
 //   debugger
 //   const data = await response.json()
 
 //   debugger
-// })()
-
+// })
 
 
 
@@ -45,4 +45,15 @@ async function extractArchive(filepath) {
   }
 }
 
-extractArchive("./test.zip");
+
+(()=>{
+  var targz = require('tar.gz');
+  var compress = new targz().compress('public/image-indexes', 'store.tar.gz',
+  function(err){
+           if(err)
+           console.log(err);
+           console.log('The compression has ended!');
+  });
+})()
+
+//extractArchive("./test.zip");
