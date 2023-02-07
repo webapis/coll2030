@@ -62,7 +62,7 @@
     "eject": "react-scripts eject",
     "collection": "node main.js",
     "genKeywords": "node utils/generateKeywords.js",
-    "downloadData":"node utils/downloadData.js",
+    "downloadData": "node utils/downloadData.js",
     "mergefiles": "node utils/mergefiles.js",
     "generateNavigation": "node utils/genNav/NavGenRunner.js",
     "generateAgrRep": "node utils/report/generateAggregationReport.js",

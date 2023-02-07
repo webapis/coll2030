@@ -4,6 +4,8 @@
     const path = require('path')
     const plimit = require('p-limit')
     const makeDir = require('make-dir')
+    var AdmZip = require("adm-zip");
+    var zip = new AdmZip();
     // const placeholders = require('../../src/drawer/imageComponent/placeholders.json')
     const { workerPromise } = require('./workerPromiseNavGen')
     // const { fetchImages } = require('../fetchImages')
@@ -17,10 +19,10 @@
 
     try {
         fs.rmSync(path.join(process.cwd(), `public/image-indexes`), { recursive: true, force: true });
-     const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten','diger']
+        // const fnNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten','diger']
 
-    //  const fnNames = ['one']
-      
+        const fnNames = ['one']
+
         const result = await Promise.all(fnNames.map((functionName) => {
 
             console.log('functionName', functionName)
@@ -36,42 +38,42 @@
 
             return { ...prev, ...nxt }
         }, {})
-debugger
+        debugger
 
         const categoryNav = require(path.join(process.cwd(), `src/category-nav.json`))
         debugger
         for (let c in catCounter) {
-       
+
             const current = catCounter[c]
-         
 
-        
-                for (let v in current) {
-                    const { count, imageUrls } = current[v]
-                
-              if(categoryNav[c]!==undefined){
-                const curNav = categoryNav[c].map(m => {
-    
-                    if (m.title === v) {
 
-                        return { ...m, count: m.count ? m.count + count : count, imageUrls: m.imageUrls ? [...m.imageUrls, ...imageUrls] : [...imageUrls] }
 
-                    } else {
+            for (let v in current) {
+                const { count, imageUrls } = current[v]
 
-                        return m
-                    }
+                if (categoryNav[c] !== undefined) {
+                    const curNav = categoryNav[c].map(m => {
 
-                })
+                        if (m.title === v) {
 
-                categoryNav[c] = curNav
-              }
-                
-    
-                
-    
+                            return { ...m, count: m.count ? m.count + count : count, imageUrls: m.imageUrls ? [...m.imageUrls, ...imageUrls] : [...imageUrls] }
+
+                        } else {
+
+                            return m
+                        }
+
+                    })
+
+                    categoryNav[c] = curNav
                 }
-          
-      
+
+
+
+
+            }
+
+
 
         }
 
@@ -85,10 +87,10 @@ debugger
         }
         for (let c in categoryNav) {
             const current = categoryNav[c]
-            if(c==='diger'){
+            if (c === 'diger') {
                 debugger
             }
-    
+
             let updatedArray = []
             for await (let f of current) {
 
@@ -162,6 +164,7 @@ debugger
                     fs.unlinkSync(imageIndexPath)
                 }
                 fs.appendFileSync(imageIndexPath, JSON.stringify({ ...catImages[cimage] }));
+                zip.addFile(`${cimage}.json`, Buffer.from(JSON.stringify({ ...catImages[cimage] }), "utf8"), "entry comment goes here");
 
             } catch (error) {
                 console.log('image-indexes', error)
@@ -169,7 +172,7 @@ debugger
             }
 
         }
-
+         zip.writeZip(`public/image-indexes.zip`);
         console.log('all workers complete')
         //  process.exit(0)
 
