@@ -4,8 +4,7 @@
     const path = require('path')
     const plimit = require('p-limit')
     const makeDir = require('make-dir')
-    var AdmZip = require("adm-zip");
-    var zip = new AdmZip();
+    var targz = require('tar.gz');
     // const placeholders = require('../../src/drawer/imageComponent/placeholders.json')
     const { workerPromise } = require('./workerPromiseNavGen')
     // const { fetchImages } = require('../fetchImages')
@@ -164,7 +163,7 @@
                     fs.unlinkSync(imageIndexPath)
                 }
                 fs.appendFileSync(imageIndexPath, JSON.stringify({ ...catImages[cimage] }));
-                zip.addFile(`${cimage}.json`, Buffer.from(JSON.stringify({ ...catImages[cimage] }), "utf8"), "entry comment goes here");
+
 
             } catch (error) {
                 console.log('image-indexes', error)
@@ -172,9 +171,13 @@
             }
 
         }
-         zip.writeZip(`public/image-indexes.zip`);
-        console.log('all workers complete')
-        //  process.exit(0)
+  
+    var compress = new targz().compress('public/image-indexes', 'public/indexes.tar.gz',
+    function (err) {
+      if (err)
+        console.log(err);
+      console.log('The compression has ended!');
+    });
 
     } catch (error) {
         console.log('error.', error)
