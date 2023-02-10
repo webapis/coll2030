@@ -7,6 +7,14 @@ env:
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GENDER: kcocuk
 jobs:
+  tozlu_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: kcocuk
+      WEBSITE: biraradamoda
+      GENDER: ecocuk
+      maxconcurrency: '5'
+    secrets: inherit
   penti_job:
     uses: ./.github/workflows/reusable.yml
     with:
