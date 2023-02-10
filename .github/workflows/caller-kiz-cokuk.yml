@@ -10,9 +10,9 @@ jobs:
   tozlu_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: kcocuk
+      marka: tozlu
       WEBSITE: biraradamoda
-      GENDER: ecocuk
+      GENDER: kcocuk
       maxconcurrency: '5'
     secrets: inherit
   penti_job:
