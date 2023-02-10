@@ -5,6 +5,7 @@ on:
 env:
   WEBSITE: biraradamoda
   MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
   GENDER: kcocuk
 jobs:
   tozlu_job:

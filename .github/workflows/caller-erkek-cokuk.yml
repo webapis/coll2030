@@ -5,6 +5,7 @@ env:
   WEBSITE: biraradamoda
   MONGODB_URL: ${{secrets.MONGODB_URL}}
   GENDER: ecocuk
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:
   tozlu_job:
     uses: ./.github/workflows/reusable.yml
