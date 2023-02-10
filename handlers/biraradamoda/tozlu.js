@@ -1,88 +1,65 @@
 
-const Apify = require('apify');
+const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
-    const { request: { userData: {  } } } = context
+    const { request: { userData: { } } } = context
 
     const url = await page.url()
 
-    await page.waitForSelector('#ProductPageProductList')
-    const dataset = await Apify.openDataset();
-    // onetrust-accept-btn-handler
-
-    const acceptcookies = await page.$('.seg-popup-close')
-    if (acceptcookies) {
-        await page.click('.seg-popup-close')
-    }
+    await page.waitForSelector('#ProductPageProductList .ItemOrj.col-4')
 
 
-    return new Promise((resolve, reject) => {
-        try {
+    const data = await page.$$eval('#ProductPageProductList .ItemOrj.col-4', (productCards) => {
+        return productCards.map(productCard => {
 
-                let totalProducts = 0
-                let collected = 0
-                let inv = setInterval(async () => {
+            const imageUrl = productCard.querySelector('[data-original]').getAttribute('data-original')
+            const title = productCard.querySelector('.productName.detailUrl a').innerHTML.trim()
+            const priceNew = productCard.querySelector('.discountPrice span').innerHTML.replace('TL', '').replace(/\n/g, '').trim()
+            const longlink = productCard.querySelector('.productName.detailUrl a').href
+            const link = longlink.substring(longlink.indexOf("https://www.tozlu.com/") + 22)
+            // const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
+            const imageUrlshort = imageUrl.substring(imageUrl.indexOf("https://img.tozlu.com/") + 22)
 
-            
-                console.log('collected', collected)
-
-                if (totalProducts>0 && totalProducts === collected) {
-                 
-                    clearInterval(inv)
-                    debugger
-                    const { items } = await dataset.getData()
-                    const data = items.filter(f => f.products).map(p => [...p.products]).flat().map(m => {
-                 
-                         return {
-                           title: 'tozlu ' +m.name.replace(/İ/g,'i').toLowerCase(),
-                           priceNew: m.productSellPriceStr.replace('TL','').trim(),//.replace('.','').replace(',','.').trim() ,
-                           imageUrl: ('https://img.tozlu.com/Uploads/UrunResimleri/thumb/'+m.imageName).replace('https://img.tozlu.com/',''),
-                           link:m.defaultUrl,
-                           timestamp: Date.now(),
-                           marka: 'tozlu',
-
-                         }
-                       })
-                       console.log('data length_____', data.length, 'url:', url)
-
-                 
-                    return resolve(data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }}))
-
-                } else {
-                    await manualScroll(page)
-                     totalProducts = await page.evaluate(() => parseInt(document.querySelector('.appliedFilter.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
-                     collected = await page.evaluate(() => document.querySelectorAll('.ItemOrj.col-4').length)
-    
-                }
-
-            }, 100)
-        } catch (error) {
-            debugger
-            return reject(error)
-        }
+            return {
+                title: 'tozlu ' + title.replace(/İ/g, 'i').toLowerCase(),
+                priceNew,
+                imageUrl: imageUrlshort,
+                link,
+                timestamp: Date.now(),
+                marka: 'tozlu',
+            }
+        }).filter(f => f.imageUrl !== null && f.title.length > 10)
     })
-}
+    debugger
+    console.log('data length_____', data.length, 'url:', url, process.env.GENDER)
 
 
+    console.log("process.env.GENDER ")
+    const formatprice = data.map((m) => {
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }), title: m.title + " _" + process.env.GENDER }
+    })
 
 
-
-async function manualScroll(page) {
-    await page.evaluate(async () => {
-        var totalHeight = 0;
-        var distance = 100;
-        let inc = 0
-        window.scrollBy(0, distance);
-        totalHeight += distance;
-        inc = inc + 1
-    });
+    return formatprice
 }
 
 async function getUrls(page) {
-
+    const url = await page.url()
+    await page.waitForSelector('.appliedFilter.FiltrelemeUrunAdet span')
+    const productCount = await page.$eval('.appliedFilter.FiltrelemeUrunAdet span', element => parseInt(element.innerHTML.replace(/[^\d]/g, "")))
+    const totalPages = Math.ceil(productCount / 50)
     const pageUrls = []
 
+    let pagesLeft = totalPages
+    for (let i = 2; i <= totalPages; i++) {
 
 
-    return { pageUrls, productCount: 0, pageLength: pageUrls.length + 1 }
+
+        pageUrls.push(`${url}?sayfa=` + i)
+        --pagesLeft
+
+
+    }
+
+    return { pageUrls, productCount, pageLength: pageUrls.length + 1 }
 }
 module.exports = { handler, getUrls }
