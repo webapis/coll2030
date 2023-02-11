@@ -15,51 +15,51 @@ jobs:
       GENDER: ecocuk
       maxconcurrency: '5'
     secrets: inherit
-  # penti_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     marka: penti
-  #     maxconcurrency: '1'
-  #     WEBSITE: biraradamoda
-  #     GENDER: ecocuk
-  #   secrets: inherit
-  # defacto_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     marka: defacto
-  #     maxconcurrency: '1'
-  #     WEBSITE: biraradamoda
-  #     GENDER: ecocuk
-  #   secrets: inherit
-  # koton_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     marka: koton
-  #     maxconcurrency: '1'
-  #     WEBSITE: biraradamoda
-  #     GENDER: ecocuk
-  #   secrets: inherit
-  # lcwaikiki_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     marka: lcwaikiki
-  #     WEBSITE: biraradamoda
-  #     GENDER: ecocuk
-  #     maxconcurrency: '10'
-  #   secrets: inherit
-  # beymen_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     marka: beymen
-  #     WEBSITE: biraradamoda
-  #     GENDER: ecocuk
-  #     maxconcurrency: '5'
-  #   secrets: inherit
-  # hm_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     marka: hm
-  #     WEBSITE: biraradamoda
-  #     GENDER: ecocuk
-  #     maxconcurrency: '1'
-  #   secrets: inherit
+  penti_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: penti
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: ecocuk
+    secrets: inherit
+  defacto_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: defacto
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: ecocuk
+    secrets: inherit
+  koton_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: koton
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: ecocuk
+    secrets: inherit
+  lcwaikiki_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: lcwaikiki
+      WEBSITE: biraradamoda
+      GENDER: ecocuk
+      maxconcurrency: '10'
+    secrets: inherit
+  beymen_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: beymen
+      WEBSITE: biraradamoda
+      GENDER: ecocuk
+      maxconcurrency: '5'
+    secrets: inherit
+  hm_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: hm
+      WEBSITE: biraradamoda
+      GENDER: ecocuk
+      maxconcurrency: '1'
+    secrets: inherit
