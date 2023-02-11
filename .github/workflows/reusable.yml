@@ -30,6 +30,7 @@ env:
   MAX_CONCURRENCY: ${{inputs.maxconcurrency}}
   WEBSITE: ${{inputs.WEBSITE}}
   GENDER: ${{inputs.GENDER}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:
   aggregator:
     runs-on: ubuntu-latest
