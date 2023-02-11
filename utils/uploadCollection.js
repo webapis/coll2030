@@ -22,7 +22,10 @@ async function uploadCollection({ fileName, data, gender, marka }) {
         let base64data = buff.toString('base64');
     
         const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content',sha, content: base64data, branch: 'main' }) })
-        console.log('upload response0', response)
+
+        if(!response.ok){
+            throw response
+        }
     }
     else{
         await compressFile({ fileName, data, gender })
@@ -31,7 +34,9 @@ async function uploadCollection({ fileName, data, gender, marka }) {
             let base64data = buff.toString('base64');
             const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', content: base64data, branch: 'main' }) })
         
-            console.log('upload response1', response)
+            if(!response.ok){
+                throw response
+            }
     }
   
     
