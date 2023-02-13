@@ -31,7 +31,6 @@ jobs:
       WEBSITE: ${{inputs.WEBSITE}}
       marka: ${{inputs.marka}}
     secrets: inherit
-    environments: inherit
   erkek_job:
     uses: ./.github/workflows/reusable.yml
     with:
