@@ -18,10 +18,7 @@ on:
         type: string
         default: 'biraradamoda'
 env:
-  WEBSITE: biraradamoda
   GH_TOKEN: ${{secrets.GH_TOKEN}}
-  MARKA: koton
-  MAXCONCURRENCY: 5
 jobs:
   kadin_job:
     uses: ./.github/workflows/reusable.yml
