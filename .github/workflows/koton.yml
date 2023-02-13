@@ -16,7 +16,7 @@ jobs:
       WEBSITE: ${{WEBSITE}}
       marka: ${{MARKA}}
     secrets: inherit
-  erkek_job:
+  # erkek_job:
   #   uses: ./.github/workflows/reusable.yml
   #   with:
   #     GENDER: erkek
