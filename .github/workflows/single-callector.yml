@@ -20,8 +20,8 @@ jobs:
   penti_job:
     uses: ./.github/workflows/reusable.yml
     with:
-      marka: ${{secrets.marka}}
+      marka: ${{inputs.marka}}
       maxconcurrency: '1'
       WEBSITE: biraradamoda
-      GENDER: ${{secrets.gender}}
+      GENDER: ${{inputs.gender}}
     secrets: inherit
