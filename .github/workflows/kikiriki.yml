@@ -1,0 +1,30 @@
+name: kikiriki
+on:
+   workflow_dispatch:
+    inputs:
+      marka:
+        description: 'marka'
+        required: false
+        type: string
+        default: 'kikiriki'
+      maxconcurrency:
+        description: 'maxconcurrency'
+        required: false
+        type: string
+        default: '5'
+      WEBSITE:
+        description: 'website'
+        required: false
+        type: string
+        default: 'biraradamoda'
+env:
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+jobs:
+  kadin_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: kadin
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
+    secrets: inherit

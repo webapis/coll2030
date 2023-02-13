@@ -1,19 +1,15 @@
 
 
-const Apify = require('apify');
+
 async function handler(page, context) {
     const { request: { userData: {  } } } = context
     debugger;
 
-
     const url = await page.url()
-
-    debugger;
 
     await page.waitForSelector('#katalog')
     await autoScroll(page);
-    const dataset = await Apify.openDataset();
-    const { items } = await dataset.getData()
+
     debugger
     const data = await page.$$eval('.productItem', (productCards) => {
         return productCards.map(productCard => {

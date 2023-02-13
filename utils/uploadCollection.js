@@ -250,7 +250,7 @@ function mergePrevAndNewData({ gender, marka, data }) {
                 if (currentPrice === prevPrice) {
 
                     return {
-                        ...matchC, timestamp: p.timestamp
+                        ...matchC
                     }
                 } else {
                     if (p.h) {
@@ -274,9 +274,7 @@ function mergePrevAndNewData({ gender, marka, data }) {
                 if (currentPrice === prevPrice) {
 
                     return {
-                        ...c,
-                        timestamp: matchP.
-                            timestamp
+                        ...c
                     }
                 } else {
                     if (matchP.h) {
