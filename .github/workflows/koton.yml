@@ -5,26 +5,34 @@ on:
 env:
   WEBSITE: biraradamoda
   GH_TOKEN: ${{secrets.GH_TOKEN}}
-  marka: koton
-  maxconcurrency: 5
+  MARKA: koton
+  MAXCONCURRENCY: 5
 jobs:
   kadin_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
+      maxconcurrency: ${{env.MAXCONCURRENCY}}
+      marka: ${{env.MARKA}}
     secrets: inherit
   erkek_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: erkek
+      maxconcurrency: ${{env.MAXCONCURRENCY}}
+      marka: ${{env.MARKA}}
     secrets: inherit
   kcocuk_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kcocuk
+      maxconcurrency: ${{env.MAXCONCURRENCY}}
+      marka: ${{env.MARKA}}
     secrets: inherit
   ecocuk_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: ecocuk
+      maxconcurrency: ${{env.MAXCONCURRENCY}}
+      marka: ${{env.MARKA}}
     secrets: inherit
