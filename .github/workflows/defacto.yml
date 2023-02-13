@@ -1,0 +1,40 @@
+name: single-callector
+on:
+   workflow_dispatch:
+
+env:
+  WEBSITE: biraradamoda
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+jobs:
+  kadin_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: defacto
+      maxconcurrency: 5
+      WEBSITE: biraradamoda
+      GENDER: kadin
+    secrets: inherit
+  erkek_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: defacto
+      maxconcurrency: 5
+      WEBSITE: biraradamoda
+      GENDER: erkek
+    secrets: inherit
+  kcocuk_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: defacto
+      maxconcurrency: 5
+      WEBSITE: biraradamoda
+      GENDER: kcocuk
+    secrets: inherit
+  ecocuk_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: defacto
+      maxconcurrency: 5
+      WEBSITE: biraradamoda
+      GENDER: ecocuk
+    secrets: inherit
