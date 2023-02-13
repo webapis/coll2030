@@ -6,41 +6,42 @@ const makeDir = require('make-dir')
 const path = require('path')
 const { walkSync } = require('./walkSync')
 async function uploadCollection({ fileName, data, gender, marka }) {
-    console.log('process.env.GH_TOKEN__',process.env.GH_TOKEN)
+    console.log('process.env.GH_TOKEN__', process.env.GH_TOKEN)
     const responsesha = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'get', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
     debugger
-    console.log('responsesha',responsesha)
-    if(responsesha.ok){
+    console.log('responsesha', responsesha)
+    if (responsesha.ok) {
         debugger
-        const {sha} = await responsesha.json()
+        const { sha } = await responsesha.json()
         await getSingleContent(`${gender}/${marka}.json.gz`)
         await unzipSingleContent(`single-content/${gender}/${marka}.json.gz`)
         const updatedData = mergePrevAndNewData({ gender, marka, data })
-        await compressFile({ fileName, data:updatedData, gender })
-    debugger
+        debugger
+        await compressFile({ fileName, data: updatedData, gender })
+        debugger
         let buff = fs.readFileSync(`${fileName}.json.gz`);
         let base64data = buff.toString('base64');
-    
-        const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content',sha, content: base64data, branch: 'main' }) })
 
-        if(!response.ok){
+        const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', sha, content: base64data, branch: 'main' }) })
+
+        if (!response.ok) {
             throw response
         }
     }
-    else{
+    else {
         await compressFile({ fileName, data, gender })
         debugger
-            let buff = fs.readFileSync(`${fileName}.json.gz`);
-            let base64data = buff.toString('base64');
-            const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', content: base64data, branch: 'main' }) })
-        
-            if(!response.ok){
-                throw response
-            }
+        let buff = fs.readFileSync(`${fileName}.json.gz`);
+        let base64data = buff.toString('base64');
+        const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', content: base64data, branch: 'main' }) })
+
+        if (!response.ok) {
+            throw response
+        }
     }
-  
-    
-  
+
+
+
 
 }
 
@@ -183,7 +184,7 @@ async function getSingleContent(filepath) {
     makeDir.sync('single-content/' + folderPath)
 
     const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${filepath}`, { method: 'get', headers: { Accept: "application/vnd.github.raw", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
-debugger
+    debugger
     var file = fs.createWriteStream('single-content/' + filepath);
 
     //     const data = await response.json()
@@ -234,35 +235,64 @@ async function unzipSingleContent(zippedfilePath) {
 
 }
 
- function mergePrevAndNewData({ gender, marka, data }) {
+function mergePrevAndNewData({ gender, marka, data }) {
 
     const prevDataRaw = fs.readFileSync(`single-content/${gender}/${marka}.json`, { encoding: 'utf8' })
     const prevData = JSON.parse(prevDataRaw)
-    const mergedData = prevData.map((m) => {
-        const match = data.find(f => f.imageUrl === m.imageUrl)
-        const prevPrice = parseFloat(m.priceNew)
+    debugger
+    let mergedData = []
+    if (prevData.length >= data.length) {
+        mergedData = prevData.map((p) => {
+            const matchC = data.find(c => c.imageUrl === p.imageUrl)
+            const prevPrice = parseFloat(p.priceNew)
 
-        if (match) {
-            const currentPrice = parseFloat(match.priceNew)
-            if (currentPrice === prevPrice) {
+            if (matchC) {
+                const currentPrice = parseFloat(matchC.priceNew)
+                if (currentPrice === prevPrice) {
 
-                return {
-                    ...match, priceNew: m.priceNew,
-                    timestamp: m.
-                        timestamp
+                    return {
+                        ...matchC, timestamp: p.timestamp
+                    }
+                } else {
+                    if (m.h) {
+                        return { ...matchC, h: [...p.h, { d: matchC.timestamp, p: matchC.priceNew }] }
+                    } else {
+                        return { ...matchC, h: [{ d: matchC.timestamp, p: matchC.priceNew }] }
+                    }
                 }
             } else {
-                if (m.h) {
-                    return { ...match, h: [...m.h, { d: match.timestamp, p: match.priceNew }] }
-                } else {
-                    return { ...match, h: [{ d: m.timestamp, p: m.priceNew }, { d: match.timestamp, p: match.priceNew }] }
-                }
+                return p
             }
-        } else {
-            return m
-        }
-    })
-    return mergedData
+        })
+        return mergedData
+    } else {
+        mergedData = data.map((c) => {
+            const matchP = prevData.find(f => f.imageUrl === c.imageUrl)
+            const currentPrice = parseFloat(c.priceNew)
+
+            if (matchP) {
+                const prevPrice = parseFloat(matchP.priceNew)
+                if (currentPrice === prevPrice) {
+
+                    return {
+                        ...c,
+                        timestamp: matchP.
+                            timestamp
+                    }
+                } else {
+                    if (matchP.h) {
+                        return { ...c, h: [...matchP.h, { d: c.timestamp, p: c.priceNew }] }
+                    } else {
+                        return { ...c, h: [{ d: c.timestamp, p: c.priceNew }] }
+                    }
+                }
+            } else {
+                return c
+            }
+        })
+        return mergedData
+    }
+
 
 }
 
