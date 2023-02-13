@@ -1,0 +1,30 @@
+name: koton
+on:
+   workflow_dispatch:
+
+env:
+  WEBSITE: biraradamoda
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+  marka: koton
+  maxconcurrency: 5
+jobs:
+  kadin_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: kadin
+    secrets: inherit
+  erkek_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: erkek
+    secrets: inherit
+  kcocuk_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: kcocuk
+    secrets: inherit
+  ecocuk_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: ecocuk
+    secrets: inherit
