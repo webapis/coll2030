@@ -1,4 +1,4 @@
-name: addax
+name: machka
 on:
    workflow_dispatch:
     inputs:
@@ -6,7 +6,7 @@ on:
         description: 'marka'
         required: false
         type: string
-        default: 'addax'
+        default: 'machka'
       maxconcurrency:
         description: 'maxconcurrency'
         required: false

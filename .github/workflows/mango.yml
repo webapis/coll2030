@@ -1,4 +1,4 @@
-name: addax
+name: mango
 on:
    workflow_dispatch:
     inputs:
@@ -6,12 +6,12 @@ on:
         description: 'marka'
         required: false
         type: string
-        default: 'addax'
+        default: 'mango'
       maxconcurrency:
         description: 'maxconcurrency'
         required: false
         type: string
-        default: '1'
+        default: '5'
       WEBSITE:
         description: 'website'
         required: false

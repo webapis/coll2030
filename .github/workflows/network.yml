@@ -1,4 +1,4 @@
-name: addax
+name: network
 on:
    workflow_dispatch:
     inputs:
@@ -6,12 +6,12 @@ on:
         description: 'marka'
         required: false
         type: string
-        default: 'addax'
+        default: 'network'
       maxconcurrency:
         description: 'maxconcurrency'
         required: false
         type: string
-        default: '1'
+        default: '5'
       WEBSITE:
         description: 'website'
         required: false
@@ -24,6 +24,14 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
+    secrets: inherit
+  erkek_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: erkek
       maxconcurrency: ${{inputs.maxconcurrency}}
       WEBSITE: ${{inputs.WEBSITE}}
       marka: ${{inputs.marka}}

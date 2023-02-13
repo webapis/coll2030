@@ -1,4 +1,4 @@
-name: addax
+name: colins
 on:
    workflow_dispatch:
     inputs:
@@ -6,7 +6,7 @@ on:
         description: 'marka'
         required: false
         type: string
-        default: 'addax'
+        default: 'colins'
       maxconcurrency:
         description: 'maxconcurrency'
         required: false
@@ -24,6 +24,14 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
+    secrets: inherit
+  erkek_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: erkek
       maxconcurrency: ${{inputs.maxconcurrency}}
       WEBSITE: ${{inputs.WEBSITE}}
       marka: ${{inputs.marka}}

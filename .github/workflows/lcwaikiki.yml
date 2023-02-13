@@ -1,4 +1,4 @@
-name: patirti
+name: lcwaikiki
 on:
    workflow_dispatch:
     inputs:
@@ -6,12 +6,12 @@ on:
         description: 'marka'
         required: false
         type: string
-        default: 'patirti'
+        default: 'lcwaikiki'
       maxconcurrency:
         description: 'maxconcurrency'
         required: false
         type: string
-        default: '1'
+        default: '5'
       WEBSITE:
         description: 'website'
         required: false
@@ -32,6 +32,22 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: erkek
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
+    secrets: inherit
+  kcocuk_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: kcocuk
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
+    secrets: inherit
+  ecocuk_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: ecocuk
       maxconcurrency: ${{inputs.maxconcurrency}}
       WEBSITE: ${{inputs.WEBSITE}}
       marka: ${{inputs.marka}}
