@@ -5,8 +5,14 @@ async function handler(page, context) {
     const url = await page.url()
     debugger
     await page.waitForSelector('.ProductList')
-
-
+    
+    const acceptcookies = await page.$('#personaPersonaclickExitClose')
+    if (acceptcookies) {
+        await page.click('#personaPersonaclickExitClose')
+    }
+//document.querySelector('.DottetArea .Pages')
+//document.querySelector('#personaPersonaclickExitClose')
+//Array.from(document.querySelectorAll('.DottetArea .Pages [data-pgno]')).map(m=>m.innerHTML)
     const data = await page.$$eval('.Prd', (productCards) => {
         return productCards.map(productCard => {
 
@@ -47,7 +53,7 @@ async function getUrls(page) {
     const pageUrls = []
     const pageExists = await page.$('.Pages a')
     if(pageExists){
-        const totalPages = await page.$eval('.Pages', element => element.querySelectorAll('a').length)
+        const totalPages = await page.evaluate(()=>Array.from(document.querySelectorAll('.DottetArea .Pages [data-pgno]')).map(m=>m.innerHTML))
   
 
         let pagesLeft = totalPages

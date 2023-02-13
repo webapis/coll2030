@@ -1,0 +1,27 @@
+name: single-callector
+on:
+   workflow_dispatch:
+    inputs:
+      marka:
+        description: 'marka'
+        required: true
+        type: string
+      gender:
+        description: 'gender'
+        required: true
+        type: string
+
+env:
+  WEBSITE: biraradamoda
+  MONGODB_URL: ${{secrets.MONGODB_URL}}
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+  # GENDER: ${{inputs.gender}}
+jobs:
+  penti_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      marka: ${{secrets.marka}}
+      maxconcurrency: '1'
+      WEBSITE: biraradamoda
+      GENDER: ${{secrets.gender}}
+    secrets: inherit

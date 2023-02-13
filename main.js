@@ -80,7 +80,7 @@ Apify.main(async () => {
         // requestList,
         requestQueue,
         maxConcurrency: parseInt(process.env.MAX_CONCURRENCY) || 1,
-        handlePageTimeoutSecs: 600,
+        handlePageTimeoutSecs: 3600,
         //   maxRequestRetries:4,
           navigationTimeoutSecs:60,
         launchContext: {
