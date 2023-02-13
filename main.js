@@ -193,6 +193,7 @@ Apify.main(async () => {
 
 
     if (productItems.length > 0) {
+        console.log('productItems',productItems.length)
         debugger
         await uploadCollection({ fileName: `${marka}`, data: productItems, gender: process.env.GENDER,marka })
 
