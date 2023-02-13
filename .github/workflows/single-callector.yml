@@ -11,7 +11,7 @@ on:
         required: true
         type: string
       maxconcurrency:
-        description: 'gender'
+        description: 'maxconcurrency'
         required: true
         type: string
 
