@@ -13,6 +13,7 @@ jobs:
     with:
       GENDER: kadin
       maxconcurrency: $MAXCONCURRENCY
+      WEBSITE: $WEBSITE
       marka: $MARKA
     secrets: inherit
   erkek_job:
@@ -20,6 +21,7 @@ jobs:
     with:
       GENDER: erkek
       maxconcurrency: $MAXCONCURRENCY
+      WEBSITE: $WEBSITE
       marka: $MARKA
     secrets: inherit
   kcocuk_job:
@@ -27,6 +29,7 @@ jobs:
     with:
       GENDER: kcocuk
       maxconcurrency: $MAXCONCURRENCY
+      WEBSITE: $WEBSITE
       marka: $MARKA
     secrets: inherit
   ecocuk_job:
@@ -34,5 +37,6 @@ jobs:
     with:
       GENDER: ecocuk
       maxconcurrency: $MAXCONCURRENCY
+      WEBSITE: $WEBSITE
       marka: $MARKA
     secrets: inherit
