@@ -46,8 +46,8 @@ async function getUrls(page) {
     const url = await page.url()
 
     await page.waitForSelector('.search-total-count')
-    const productCount = await page.$eval('.search-total-count', element => parseInt(element.innerHTML))
-    const totalPages = Math.ceil(productCount / 48)
+    const totalPages = await page.evaluate(()=>Math.max(...Array.from(document.querySelectorAll('.pz-pagination__list [data-page]')).map(m=>m.getAttribute('data-page')).filter(Number).map(m=>parseInt(m))))
+   // const totalPages = Math.ceil(productCount / 48)
     const pageUrls = []
 
     let pagesLeft = totalPages

@@ -10,6 +10,10 @@ on:
         description: 'gender'
         required: true
         type: string
+      maxconcurrency:
+        description: 'gender'
+        required: true
+        type: string
 
 env:
   WEBSITE: biraradamoda
@@ -21,7 +25,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: ${{inputs.marka}}
-      maxconcurrency: '1'
+      maxconcurrency: ${{inputs.maxconcurrency}}
       WEBSITE: biraradamoda
       GENDER: ${{inputs.gender}}
     secrets: inherit
