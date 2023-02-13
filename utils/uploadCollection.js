@@ -253,7 +253,7 @@ function mergePrevAndNewData({ gender, marka, data }) {
                         ...matchC, timestamp: p.timestamp
                     }
                 } else {
-                    if (m.h) {
+                    if (p.h) {
                         return { ...matchC, h: [...p.h, { d: matchC.timestamp, p: matchC.priceNew }] }
                     } else {
                         return { ...matchC, h: [{ d: matchC.timestamp, p: matchC.priceNew }] }
