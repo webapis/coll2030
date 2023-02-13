@@ -1,4 +1,4 @@
-name: single-callector
+name: defacto
 on:
    workflow_dispatch:
 
