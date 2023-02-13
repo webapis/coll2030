@@ -1,7 +1,22 @@
 name: koton
 on:
    workflow_dispatch:
-
+    inputs:
+      marka:
+        description: 'marka'
+        required: false
+        type: string
+        default: 'koton'
+      maxconcurrency:
+        description: 'maxconcurrency'
+        required: false
+        type: string
+        default: '5'
+      WEBSITE:
+        description: 'website'
+        required: false
+        type: string
+        default: 'biraradamoda'
 env:
   WEBSITE: biraradamoda
   GH_TOKEN: ${{secrets.GH_TOKEN}}
@@ -12,31 +27,32 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
-      maxconcurrency: ${{MAXCONCURRENCY}}
-      WEBSITE: ${{WEBSITE}}
-      marka: ${{MARKA}}
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
     secrets: inherit
-  # erkek_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     GENDER: erkek
-  #     maxconcurrency: $MAXCONCURRENCY
-  #     WEBSITE: $WEBSITE
-  #     marka: $MARKA
-  #   secrets: inherit
-  # kcocuk_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     GENDER: kcocuk
-  #     maxconcurrency: $MAXCONCURRENCY
-  #     WEBSITE: $WEBSITE
-  #     marka: $MARKA
-  #   secrets: inherit
-  # ecocuk_job:
-  #   uses: ./.github/workflows/reusable.yml
-  #   with:
-  #     GENDER: ecocuk
-  #     maxconcurrency: $MAXCONCURRENCY
-  #     WEBSITE: $WEBSITE
-  #     marka: $MARKA
-  #   secrets: inherit
+    environments: inherit
+  erkek_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: erkek
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
+    secrets: inherit
+  kcocuk_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: kcocuk
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
+    secrets: inherit
+  ecocuk_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: ecocuk
+      maxconcurrency: ${{inputs.maxconcurrency}}
+      WEBSITE: ${{inputs.WEBSITE}}
+      marka: ${{inputs.marka}}
+    secrets: inherit
