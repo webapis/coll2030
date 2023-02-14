@@ -1,7 +1,8 @@
 name: addax
 on:
   schedule:
-    - cron:  '0 0 * * 1'
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 3 * * *'
     inputs:
       marka:
         description: 'marka'
