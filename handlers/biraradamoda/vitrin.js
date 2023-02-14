@@ -38,8 +38,8 @@ debugger
     const url = await page.url()
     await page.waitForSelector('.productPager')
 
-    const totalPages = await page.$eval('.productPager', element => parseInt(element.querySelectorAll('a[title]')[element.querySelectorAll('a[title]').length-2].getAttribute('title').replace(/[^\d]/g,'')))
-debugger
+    const totalPages = await page.evaluate(()=>Math.max(...Array.from(document.querySelectorAll('.productPager a[title]')).map(m=>m.getAttribute('title').replace(/[^\d]/g,'')).filter(Number).map(m=>parseInt(m))))
+    debugger
     const pageUrls = []
 
     let pagesLeft = totalPages
