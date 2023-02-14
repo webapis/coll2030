@@ -12,7 +12,7 @@ on:
           description: 'maxconcurrency'
           required: false
           type: string
-          default: '1'
+          default: '5'
         WEBSITE:
           description: 'website'
           required: false
