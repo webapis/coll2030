@@ -2,11 +2,8 @@
 
 async function handler(page, context) {
     const { request: { userData: { } } } = context
-    debugger;
     const url = await page.url()
-
     await page.waitForSelector('.appliedFilter.FiltrelemeUrunAdet span')
-
     const data = await page.$$eval('.productItem', (productCards) => {
         return productCards.map(productCard => {
             const priceNew = productCard.querySelector('.discountPrice span').textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
@@ -142,13 +139,13 @@ async function getUrls(page) {
     const productCount = await page.evaluate(() => parseInt(document.querySelector('.FiltrelemeUrunAdet span').innerHTML.replace(/[^\d]/g, '')))
     const totalPages = Math.ceil(productCount / 99)
     const pageUrls = []
-debugger
+
     let pagesLeft = totalPages
     for (let i = 2; i <= totalPages; i++) {
 
 
 
-        pageUrls.push(`${url}?sayfa=` + i +'&currency=try')
+        pageUrls.push(`${url}?sayfa=` + i )
         --pagesLeft
 
 
