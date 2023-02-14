@@ -2,16 +2,16 @@
 
 
 async function handler(page, context) {
-    const { request: { userData: { } } } = context
+    const { request: { userData: {start } } } = context
     debugger;
-
+//close-button-1545222288830
 
     const url = await page.url()
 
     debugger;
 
     await page.waitForSelector('.product-list-container')
-    await autoScroll(page);
+   // await autoScroll(page);
 
     debugger
     const data = await page.$$eval('.product-box-container', (productCards) => {
@@ -46,40 +46,26 @@ async function handler(page, context) {
 
 async function getUrls(page) {
 
-    return { pageUrls: [], productCount: 0, pageLength: 0 }
+    const url = await page.url()
+
+    const totalPages = await page.evaluate(()=>Math.max(...Array.from(document.querySelectorAll('.pager-container .individual-page a')).map(m=> m.innerHTML).filter(Number).map(m=>parseInt(m))))
+
+    const pageUrls = []
+debugger
+    let pagesLeft = totalPages
+    for (let i = 2; i <= totalPages; i++) {
+
+
+
+        pageUrls.push(`${url}?pagenumber=` + i)
+        --pagesLeft
+
+
+    }
+
+    return { pageUrls, productCount:0, pageLength: pageUrls.length + 1 }
 }
 
-async function autoScroll(page) {
 
-    await page.evaluate(async () => {
-
-
-        await new Promise((resolve, reject) => {
-            var totalHeight = 0;
-            var distance = 100;
-            let inc = 0
-            var timer = setInterval(async () => {
-
-                var scrollHeight = document.body.scrollHeight;
-
-                window.scrollBy(0, distance);
-                totalHeight += distance;
-
-
-                if (totalHeight >= scrollHeight - window.innerHeight) {
-                    if (inc === 200) {
-                        clearInterval(timer);
-                        resolve(true);
-                    } else {
-                        inc = inc + 1
-                    }
-
-                } else {
-                    inc = 0
-                }
-            }, 50);
-        });
-    });
-}
 module.exports = { handler, getUrls }
 

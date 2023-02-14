@@ -114,42 +114,8 @@ d
       - name: publish two
         run: npm run deploydream
 
-        ////
-
-
-              let colTop = 0
-            let colBottom=0
-            switch (true) {
-                case keywords.length > 3:
-                    colTop = 12
-                    colBottom=3
-                case keywords.length === 3:
-                    colTop = 6
-                    colBottom=4
-                    break;
-                case keywords.length === 1:
-                    colTop = 2
-                    colBottom=1
-                    break;
-            }
 
 
 
 
-                // {
-    //     "keywords": "diger",
-    //     "title": "diger",
-    //     "exclude": "",
-    //     "keywordType": "keyword",
-    //     "groupName": "diger",
-    //     "index": "211"
-    // },
-    // {
-    //     "keywords": "diger",
-    //     "title": "diger",
-    //     "exclude": "",
-    //     "index": "212",
-    //     "keywordType": "category",
-    //     "groupName": "diger",
-    //     "functionName": "diger"
-    // }
+
