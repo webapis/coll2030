@@ -1,6 +1,6 @@
 name: abiyefon1
 on:
- schedule:
+  schedule:
     - cron:  '0 0 * * 1'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
