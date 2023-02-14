@@ -2,7 +2,7 @@ name: abiyefon
 on:
   schedule:
     - cron:  '0 0 * * 1'
-  inputs:
+    inputs:
       marka:
         description: 'marka'
         required: false
