@@ -2,6 +2,7 @@ name: abiyefon
 on:
   schedule:
     - cron:  '0 0 * * 1'
+   workflow_dispatch: # adding the workflow_dispatch so it can be triggered manually
     inputs:
       marka:
         description: 'marka'
