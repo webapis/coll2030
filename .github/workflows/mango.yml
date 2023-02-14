@@ -1,13 +1,13 @@
-name: abiyefon
+name: mango
 on:
   schedule:
-    - cron:  0 0 * * 1
+    - cron:  '0 0 * * 6'
       inputs:
         marka:
           description: 'marka'
           required: false
           type: string
-          default: 'abiyefon'
+          default: 'mango'
         maxconcurrency:
           description: 'maxconcurrency'
           required: false

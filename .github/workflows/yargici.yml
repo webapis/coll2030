@@ -1,13 +1,13 @@
-name: abiyefon
+name: yargici
 on:
   schedule:
-    - cron:  0 0 * * 1
+    - cron:  '0 0 * * 7'
       inputs:
         marka:
           description: 'marka'
           required: false
           type: string
-          default: 'abiyefon'
+          default: 'yargici'
         maxconcurrency:
           description: 'maxconcurrency'
           required: false

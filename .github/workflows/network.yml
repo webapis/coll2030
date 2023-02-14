@@ -1,23 +1,23 @@
-name: zara
+name: network
 on:
   schedule:
-    - cron:  '0 0 * * 5'
-    inputs:
-      marka:
-        description: 'marka'
-        required: false
-        type: string
-        default: 'zara'
-      maxconcurrency:
-        description: 'maxconcurrency'
-        required: false
-        type: string
-        default: '1'
-      WEBSITE:
-        description: 'website'
-        required: false
-        type: string
-        default: 'biraradamoda'
+    - cron:  '0 0 * * 7'
+      inputs:
+        marka:
+          description: 'marka'
+          required: false
+          type: string
+          default: 'network'
+        maxconcurrency:
+          description: 'maxconcurrency'
+          required: false
+          type: string
+          default: '5'
+        WEBSITE:
+          description: 'website'
+          required: false
+          type: string
+          default: 'biraradamoda'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

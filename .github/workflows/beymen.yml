@@ -1,23 +1,23 @@
-name: hm
+name: beymen
 on:
   schedule:
-    - cron:  '0 0 * * 1'
-    inputs:
-      marka:
-        description: 'marka'
-        required: false
-        type: string
-        default: 'hm'
-      maxconcurrency:
-        description: 'maxconcurrency'
-        required: false
-        type: string
-        default: '1'
-      WEBSITE:
-        description: 'website'
-        required: false
-        type: string
-        default: 'biraradamoda'
+    - cron:  '0 0 * * 2'
+      inputs:
+        marka:
+          description: 'marka'
+          required: false
+          type: string
+          default: 'beymen'
+        maxconcurrency:
+          description: 'maxconcurrency'
+          required: false
+          type: string
+          default: '5'
+        WEBSITE:
+          description: 'website'
+          required: false
+          type: string
+          default: 'biraradamoda'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

@@ -1,23 +1,23 @@
-name: lcwaikiki
+name: penti
 on:
   schedule:
-    - cron:  '0 0 * * 5'
-    inputs:
-      marka:
-        description: 'marka'
-        required: false
-        type: string
-        default: 'lcwaikiki'
-      maxconcurrency:
-        description: 'maxconcurrency'
-        required: false
-        type: string
-        default: '5'
-      WEBSITE:
-        description: 'website'
-        required: false
-        type: string
-        default: 'biraradamoda'
+    - cron:  '0 0 * * 2'
+      inputs:
+        marka:
+          description: 'marka'
+          required: false
+          type: string
+          default: 'penti'
+        maxconcurrency:
+          description: 'maxconcurrency'
+          required: false
+          type: string
+          default: '5'
+        WEBSITE:
+          description: 'website'
+          required: false
+          type: string
+          default: 'biraradamoda'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

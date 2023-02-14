@@ -1,23 +1,23 @@
-name: patirti
+name: vakko
 on:
   schedule:
-    - cron:  '0 0 * * 2'
-    inputs:
-      marka:
-        description: 'marka'
-        required: false
-        type: string
-        default: 'patirti'
-      maxconcurrency:
-        description: 'maxconcurrency'
-        required: false
-        type: string
-        default: '1'
-      WEBSITE:
-        description: 'website'
-        required: false
-        type: string
-        default: 'biraradamoda'
+    - cron:  '0 0 * * 4'
+      inputs:
+        marka:
+          description: 'marka'
+          required: false
+          type: string
+          default: 'vakko'
+        maxconcurrency:
+          description: 'maxconcurrency'
+          required: false
+          type: string
+          default: '5'
+        WEBSITE:
+          description: 'website'
+          required: false
+          type: string
+          default: 'biraradamoda'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

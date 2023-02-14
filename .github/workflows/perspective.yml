@@ -1,13 +1,13 @@
-name: abiyefon
+name: perspective
 on:
   schedule:
-    - cron:  0 0 * * 1
+    - cron:  '0 0 * * 2'
       inputs:
         marka:
           description: 'marka'
           required: false
           type: string
-          default: 'abiyefon'
+          default: 'perspective'
         maxconcurrency:
           description: 'maxconcurrency'
           required: false

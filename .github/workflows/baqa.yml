@@ -1,18 +1,18 @@
-name: abiyefon
+name: baqa
 on:
   schedule:
-    - cron:  0 0 * * 1
+    - cron:  '0 0 * * 2'
       inputs:
         marka:
           description: 'marka'
           required: false
           type: string
-          default: 'abiyefon'
+          default: 'baqa'
         maxconcurrency:
           description: 'maxconcurrency'
           required: false
           type: string
-          default: '5'
+          default: '1'
         WEBSITE:
           description: 'website'
           required: false
