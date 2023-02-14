@@ -4,7 +4,7 @@ const urls = [
     { url: 'https://www.vitrin.com.tr/alt-giyim'},
     { url: 'https://www.vitrin.com.tr/dis-giyim'},
     { url: 'https://www.vitrin.com.tr/elbise-modelleri'},
-    { url: 'https://www.vitrin.com.tr/abiye'},
+    { url: 'https://www.vitrin.com.tr/abiye'}
 
     // { url: 'https://www.vitrin.com.tr/etek-modelleri',     subcategory: ['elbise'], category: 'alt-giyim',node:'dream' },
     // { url: 'https://www.vitrin.com.tr/pantolon-modelleri', subcategory: ['elbise'], category: 'alt-giyim',node:'dream' },
