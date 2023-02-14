@@ -51,11 +51,11 @@ async function getUrls(page) {
     const url = await page.url()
 
     const pageUrls = []
-    const pageExists = await page.$('.Pages a')
-    if(pageExists){
-        const totalPages = await page.evaluate(()=>Array.from(document.querySelectorAll('.DottetArea .Pages [data-pgno]')).map(m=>m.innerHTML))
   
-
+    
+        const totalPages = await page.evaluate(()=>Math.max(...Array.from(document.querySelectorAll('.DottetArea .Pages [data-pgno]')).map(m=>m.innerHTML).filter(Number).map(m => parseInt(m))))
+  
+debugger
         let pagesLeft = totalPages
         for (let i = 2; i <= totalPages; i++) {
     
@@ -67,7 +67,7 @@ async function getUrls(page) {
     
         }
 
-    }
+    
   
 
     return { pageUrls, productCount: 0, pageLength: pageUrls.length + 1 }

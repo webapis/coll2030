@@ -7,7 +7,7 @@ const urls = [
     { url: 'https://www.roman.com.tr/tum-dis-giyim'},
     { url: 'https://www.roman.com.tr/outlet' },
     { url: 'https://www.roman.com.tr/beachwear' },
-    { url: 'https://www.roman.com.tr/mayo-ve-bikini' },
+   // { url: 'https://www.roman.com.tr/mayo-ve-bikini' },
 
      { url: 'https://www.roman.com.tr/ayakkabi' },
     { url: 'https://www.roman.com.tr/kadin-canta' },
