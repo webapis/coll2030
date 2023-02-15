@@ -11,15 +11,15 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
-      maxconcurrency: ${{ vars.maxconcurrency}}
-      WEBSITE: ${{ vars.WEBSITE }}
-      marka: ${{ vars.marka }}
+      maxconcurrency: ${{ env.maxconcurrency}}
+      WEBSITE: ${{ env.WEBSITE }}
+      marka: ${{ env.marka }}
     secrets: inherit
   erkek_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: erkek
-      maxconcurrency: ${{ vars.maxconcurrency}}
-      WEBSITE: ${{ vars.WEBSITE }}
-      marka: ${{ vars.marka }}
+      maxconcurrency: ${{ env.maxconcurrency}}
+      WEBSITE: ${{ env.WEBSITE }}
+      marka: ${{ env.marka }}
     secrets: inherit
