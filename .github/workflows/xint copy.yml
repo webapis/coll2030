@@ -9,19 +9,21 @@ env:
 jobs:
   kadin_job:
     runs-on: ubuntu-latest
-    uses: ./.github/workflows/reusable.yml
-    with:
-      GENDER: kadin
-      maxconcurrency: $maxconcurrency
-      WEBSITE: $WEBSITE
-      marka: $marka
-    secrets: inherit
+    steps:
+      uses: ./.github/workflows/reusable.yml
+      with:
+        GENDER: kadin
+        maxconcurrency: $maxconcurrency
+        WEBSITE: $WEBSITE
+        marka: $marka
+      secrets: inherit
   erkek_job:
     runs-on: ubuntu-latest
-    uses: ./.github/workflows/reusable.yml
-    with:
-      GENDER: erkek
-      maxconcurrency: $maxconcurrency
-      WEBSITE: $WEBSITE
-      marka: $marka
-    secrets: inherit
+      steps:
+      uses: ./.github/workflows/reusable.yml
+      with:
+        GENDER: erkek
+        maxconcurrency: $maxconcurrency
+        WEBSITE: $WEBSITE
+        marka: $marka
+      secrets: inherit
