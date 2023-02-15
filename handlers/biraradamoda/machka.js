@@ -16,7 +16,7 @@ debugger
             const longlink = item.querySelector('.ems-prd-link.btn-full').href
             const link = longlink.substring(longlink.indexOf('https://www.machka.com.tr/urun/') + 31)
             const longImgUrl = item.querySelector('.ems-responsive-item').getAttribute('data-image-src')
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://image.machka.com.tr/unsafe/660x0/10.116.1.50:8000//Machka/products/') + 75)
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('https://machka.mncdn.com/mnresize/660/-//Machka/products/') + 57)
 
             return {
                 title: 'machka ' + item.querySelector('.ems-prd-title').innerText.replace(/İ/g,'i').toLowerCase(),

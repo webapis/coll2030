@@ -1,0 +1,26 @@
+name: xintcopy
+on:
+  schedule:
+    - cron:  '0 0 * * 3'
+env: 
+  GH_TOKEN: ${{secrets.GH_TOKEN}}
+  WEBSITE: 'biraradamoda'
+  maxconcurrency: '5'
+  marka: 'xint'
+jobs:
+  kadin_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: kadin
+      maxconcurrency: $maxconcurrency
+      WEBSITE: $WEBSITE
+      marka: $marka
+    secrets: inherit
+  erkek_job:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: erkek
+      maxconcurrency: $maxconcurrency
+      WEBSITE: $WEBSITE
+      marka: $marka
+    secrets: inherit
