@@ -2,22 +2,6 @@ name: patirti
 on:
   schedule:
     - cron:  '0 0 * * 2'
-      inputs:
-        marka:
-          description: 'marka'
-          required: false
-          type: string
-          default: 'patirti'
-        maxconcurrency:
-          description: 'maxconcurrency'
-          required: false
-          type: string
-          default: '1'
-        WEBSITE:
-          description: 'website'
-          required: false
-          type: string
-          default: 'biraradamoda'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:
@@ -25,15 +9,15 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
-      maxconcurrency: ${{inputs.maxconcurrency}}
-      WEBSITE: ${{inputs.WEBSITE}}
-      marka: ${{inputs.marka}}
+      maxconcurrency: '5'
+      WEBSITE: 'biraradamoda'
+      marka: 'patirti'
     secrets: inherit
   erkek_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: erkek
-      maxconcurrency: ${{inputs.maxconcurrency}}
-      WEBSITE: ${{inputs.WEBSITE}}
-      marka: ${{inputs.marka}}
+      maxconcurrency: '5'
+      WEBSITE: 'biraradamoda'
+      marka: 'patirti'
     secrets: inherit

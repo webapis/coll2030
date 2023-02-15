@@ -25,7 +25,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       marka: ${{inputs.marka}}
-      maxconcurrency: ${{inputs.maxconcurrency}}
+      maxconcurrency: '5'
       WEBSITE: biraradamoda
       GENDER: ${{inputs.gender}}
     secrets: inherit

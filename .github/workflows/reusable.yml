@@ -27,8 +27,8 @@ env:
   START_URL: ${{inputs.start_url}}
   marka: ${{inputs.marka}}
   HEADLESS: true
-  MAX_CONCURRENCY: ${{inputs.maxconcurrency}}
-  WEBSITE: ${{inputs.WEBSITE}}
+  MAX_CONCURRENCY: '5'
+  WEBSITE: 'biraradamoda'
   GENDER: ${{inputs.GENDER}}
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

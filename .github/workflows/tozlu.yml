@@ -2,22 +2,6 @@ name: tozlu
 on:
   schedule:
     - cron:  '0 0 * * 6'
-      inputs:
-        marka:
-          description: 'marka'
-          required: false
-          type: string
-          default: 'tozlu'
-        maxconcurrency:
-          description: 'maxconcurrency'
-          required: false
-          type: string
-          default: '5'
-        WEBSITE:
-          description: 'website'
-          required: false
-          type: string
-          default: 'biraradamoda'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:
@@ -25,31 +9,31 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
-      maxconcurrency: ${{inputs.maxconcurrency}}
-      WEBSITE: ${{inputs.WEBSITE}}
-      marka: ${{inputs.marka}}
+      maxconcurrency: '5'
+      WEBSITE: 'biraradamoda'
+      marka: 'tozlu'
     secrets: inherit
   erkek_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: erkek
-      maxconcurrency: ${{inputs.maxconcurrency}}
-      WEBSITE: ${{inputs.WEBSITE}}
-      marka: ${{inputs.marka}}
+      maxconcurrency: '5'
+      WEBSITE: 'biraradamoda'
+      marka: 'tozlu'
     secrets: inherit
   kcocuk_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kcocuk
-      maxconcurrency: ${{inputs.maxconcurrency}}
-      WEBSITE: ${{inputs.WEBSITE}}
-      marka: ${{inputs.marka}}
+      maxconcurrency: '5'
+      WEBSITE: 'biraradamoda'
+      marka: 'tozlu'
     secrets: inherit
   ecocuk_job:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: ecocuk
-      maxconcurrency: ${{inputs.maxconcurrency}}
-      WEBSITE: ${{inputs.WEBSITE}}
-      marka: ${{inputs.marka}}
+      maxconcurrency: '5'
+      WEBSITE: 'biraradamoda'
+      marka: 'tozlu'
     secrets: inherit
