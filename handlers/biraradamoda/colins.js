@@ -12,8 +12,8 @@ async function handler(page, context) {
             let inv = setInterval(async () => {
 
 
-
-                console.log('collected', collected, totalProducts)
+           
+               
 
                 if (totalProducts > 0 && collected >= totalProducts) {
                     clearInterval(inv)
@@ -46,14 +46,18 @@ async function handler(page, context) {
 
 
                 } else {
-
-                    await manualScroll(page)
-                    totalProducts = await page.evaluate(() => parseInt(document.querySelector('#product-count').innerHTML.replace(/[^\d]/g, '')))
-                    collected = await page.evaluate(() => document.querySelectorAll('.productbox.clearfix.list-item').length)
+                    const hiddenLoading = await page.evaluate(()=>document.querySelector('.loading').style.visibility==='hidden')
+                    if(hiddenLoading){
+                        await manualScroll(page)
+                        totalProducts = await page.evaluate(() => parseInt(document.querySelector('#product-count').innerHTML.replace(/[^\d]/g, '')))
+                        collected = await page.evaluate(() => document.querySelectorAll('.productbox.clearfix.list-item').length)
+                        console.log('collected', collected, totalProducts)
+                    }
+                   
 
                 }
 
-            }, 250)
+            }, 50)
             // clearInterval(inv)
         } catch (error) {
             console.log('error------', error)
