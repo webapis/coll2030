@@ -67,7 +67,7 @@ async function handler(page, context) {
 
                     }
 
-                }, 50)
+                }, 150)
                 // clearInterval(inv)
             } catch (error) {
                 console.log('error------',error)
@@ -95,7 +95,7 @@ async function getUrls(page) {
 async function manualScroll(page) {
     await page.evaluate(async () => {
         var totalHeight = 0;
-        var distance = 100;
+        var distance = 200;
         let inc = 0
         window.scrollBy(0, distance);
         totalHeight += distance;
