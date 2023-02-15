@@ -8,6 +8,7 @@ env:
   marka: 'xint'
 jobs:
   kadin_job:
+    runs-on: ubuntu-latest
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
@@ -16,6 +17,7 @@ jobs:
       marka: $marka
     secrets: inherit
   erkek_job:
+    runs-on: ubuntu-latest
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: erkek
