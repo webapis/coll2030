@@ -8,22 +8,18 @@ env:
   marka: 'xint'
 jobs:
   kadin_job:
-    runs-on: ubuntu-latest
-    steps:
-      uses: ./.github/workflows/reusable.yml
-      with:
-        GENDER: kadin
-        maxconcurrency: $maxconcurrency
-        WEBSITE: $WEBSITE
-        marka: $marka
-      secrets: inherit
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: kadin
+      maxconcurrency: ${{ vars.maxconcurrency}}
+      WEBSITE: ${{ vars.WEBSITE }}
+      marka: ${{ vars.marka }}
+    secrets: inherit
   erkek_job:
-    runs-on: ubuntu-latest
-      steps:
-      uses: ./.github/workflows/reusable.yml
-      with:
-        GENDER: erkek
-        maxconcurrency: $maxconcurrency
-        WEBSITE: $WEBSITE
-        marka: $marka
-      secrets: inherit
+    uses: ./.github/workflows/reusable.yml
+    with:
+      GENDER: erkek
+      maxconcurrency: ${{ vars.maxconcurrency}}
+      WEBSITE: ${{ vars.WEBSITE }}
+      marka: ${{ vars.marka }}
+    secrets: inherit
