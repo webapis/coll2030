@@ -9,7 +9,7 @@ jobs:
     uses: ./.github/workflows/reusable.yml
     with:
       GENDER: kadin
-      maxconcurrency: '5'
+      maxconcurrency: '3'
       WEBSITE: 'biraradamoda'
       marka: 'gizia'
     secrets: inherit
