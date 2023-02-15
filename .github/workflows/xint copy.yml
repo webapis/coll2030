@@ -1,7 +1,6 @@
 name: xintcopy
 on:
-  schedule:
-    - cron:  '0 0 * * 3'
+   workflow_dispatch:
 env: 
   GH_TOKEN: ${{secrets.GH_TOKEN}}
   WEBSITE: 'biraradamoda'
