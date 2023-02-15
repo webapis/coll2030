@@ -3,10 +3,11 @@ async function handler(page, context) {
     const { request: { userData: { } } } = context
 
     const url = await page.url()
-
-    await page.waitForSelector('.owl-stage')
-  //  await autoScroll(page)
-
+debugger
+    await page.waitForSelector('.category-product')
+    debugger
+  await autoScroll(page)
+debugger
     const data = await page.$$eval('.product', (productCards) => {
         return productCards.map(productCard => {
 
@@ -29,7 +30,7 @@ async function handler(page, context) {
 
     console.log('data length_____', data.length, 'url:', url)
 
-
+debugger
     return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 async function autoScroll(page) {
@@ -55,18 +56,18 @@ async function autoScroll(page) {
     });
 }
 async function getUrls(page) {
-    const url = await page.url()
-    const nextPageExists = await page.$('.pagination .last')
-    const pageUrls = []
-    if(nextPageExists){
+    //const url = await page.url()
+    // const nextPageExists = await page.$('.pagination .last')
+     const pageUrls = []
+    // if(nextPageExists){
    
-        const totalPages = await page.$eval('.pagination .last', element => parseInt(element.href.substring( element.href.lastIndexOf('=')+1)))
-        debugger;
-        for (let i = 2; i <= totalPages; i++) {
-            pageUrls.push(`${url}?rpg=` + i)
+    //     const totalPages = await page.$eval('.pagination .last', element => parseInt(element.href.substring( element.href.lastIndexOf('=')+1)))
+    //     debugger;
+    //     for (let i = 2; i <= totalPages; i++) {
+    //         pageUrls.push(`${url}?rpg=` + i)
     
-        }
-    }
+    //     }
+    // }
 
 
     return { pageUrls, productCount: 0, pageLength: pageUrls.length + 1 }
