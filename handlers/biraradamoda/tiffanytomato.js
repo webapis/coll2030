@@ -18,7 +18,7 @@ async function handler(page, context) {
               const link = productCard.querySelector(".image a").href
 
             return {
-                  title:'tiffanytomato '+title.replace(/İ/g,'i').toLowerCase(),
+                  title:'tiffanytomato '+title.replace(/İ/g,'i').toLowerCase().replaceAll('-',' '),
                   priceNew:priceNew,//.replace(',','.'),
                  imageUrl: img.substring(img.indexOf('https://www.tiffanytomato.com.tr/')+33) ,
                  link:link.substring(link.indexOf('https://www.tiffanytomato.com.tr/')+33),
