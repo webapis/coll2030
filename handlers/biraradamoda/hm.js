@@ -1,70 +1,64 @@
 
+const Apify = require('apify');
 async function handler(page, context) {
-    const { request: { userData: { } } } = context
+    const { request: { userData: { start } } } = context
 
     const url = await page.url()
+    if (start) {
+        const total = await page.evaluate(() => parseInt(document.querySelector('.filter-pagination').innerHTML.replace(/[^\d]/g, '')))
+        debugger
+        const updatedUrl = url + `?sort=stock&image-size=small&image=model&offset=0&page-size=${total}`
+        const requestQueue = await Apify.openRequestQueue();
+        debugger;
+        requestQueue.addRequest({ url: updatedUrl, userData: { start: false } })
+        return []
+    } else {
+        debugger
+        // await page.waitForSelector(() => {
+        //     const productCounter = document.querySelectorAll('.product-item').length
+        //     const total = parseInt(document.querySelector('.filter-pagination').innerHTML.replace(/[^\d]/g, ''))
 
-    await page.waitForSelector('.products-listing.small')
-    // onetrust-accept-btn-handler
+        //     return total === productCounter
+        // })
 
-    const acceptcookies = await page.$('#onetrust-accept-btn-handler')
-    if (acceptcookies) {
-        await page.click('#onetrust-accept-btn-handler')
-    }
+        // onetrust-accept-btn-handler
 
-    return new Promise((resolve, reject) => {
-        try {
-            let inv = setInterval(async () => {
+        const acceptcookies = await page.$('#onetrust-accept-btn-handler')
+        if (acceptcookies) {
+            await page.click('#onetrust-accept-btn-handler')
+        }
 
-                const { dataTotal, dataShown } = await page.evaluate(() => {
-                    const dataTotal = parseInt(document.querySelector('.load-more-heading').getAttribute('data-total'))
-                    const dataShown = parseInt(document.querySelector('.load-more-heading').getAttribute('data-items-shown'))
+        const data = await page.$$eval('.product-item', (productCards) => {
+            return productCards.map(productCard => {
+                const priceNew = productCard.querySelector('.price.regular').innerHTML.replace('TL', '').trim()
+                const longlink = productCard.querySelector('.item-heading a').href
+                const link = longlink.substring(longlink.indexOf("https://www2.hm.com/tr_tr/") + 26)
+                const longImgUrl = productCard.querySelector('[data-src]').getAttribute('data-src')
+                const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("//lp2.hm.com/hmgoepprod?set=source[") + 35)
+                const title = productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim()
 
-                    return { dataTotal, dataShown }
-                })
-
-                if (dataTotal > dataShown) {
-                    await page.waitForSelector('.ajax-overlay', { hidden: true })
-                    await page.click('.button.js-load-more')
-                    await manualScroll(page)
-
-                } else {
-                    debugger
-                    clearInterval(inv)
-                    const data = await page.$$eval('.product-item', (productCards) => {
-                        return productCards.map(productCard => {
-                            const priceNew = productCard.querySelector('.price.regular').innerHTML.replace('TL', '').trim()
-                            const longlink = productCard.querySelector('.item-heading a').href
-                            const link = longlink.substring(longlink.indexOf("https://www2.hm.com/tr_tr/") + 26)
-                            const longImgUrl = productCard.querySelector('[data-src]').getAttribute('data-src')
-                            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("//lp2.hm.com/hmgoepprod?set=source[") + 35)
-                            const title = productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim()
-
-                            return {
-                                title: 'hm ' + title.replace(/İ/g, 'i').toLowerCase(),
-                                priceNew: priceNew.replace('&nbsp;', '.'),//:priceNew.replace('.','').replace(',','.').trim(),
-                                imageUrl: imageUrlshort,
-                                link,
-                                timestamp: Date.now(),
-                                marka: 'hm',
-
-                            }
-                        })
-                    })
-                    console.log('data length_____', data.length, 'url:', url)
-
-
-
-                    return resolve(data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }}))
+                return {
+                    title: 'hm ' + title.replace(/İ/g, 'i').toLowerCase(),
+                    priceNew: priceNew.replace('&nbsp;', '.'),//:priceNew.replace('.','').replace(',','.').trim(),
+                    imageUrl: imageUrlshort,
+                    link,
+                    timestamp: Date.now(),
+                    marka: 'hm',
 
                 }
+            })
+        })
+        console.log('data length_____', data.length, 'url:', url)
 
-            }, 3000)
-        } catch (error) {
-            console.log('err', error)
-            return resolve([])
-        }
-    })
+
+
+        return data.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
+
+
+
+
+    }
+
 }
 
 

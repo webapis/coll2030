@@ -66,9 +66,9 @@ Apify.main(async () => {
 
 
         } else {
-            console.log('unsuccessfull data collection')
+            console.log('unsuccessfull page data collection')
 
-            throw 'unsuccessfull data collection'
+          // throw 'unsuccessfull data collection'
         }
 
 
@@ -194,13 +194,15 @@ Apify.main(async () => {
 
     if (productItems.length > 0) {
         console.log('productItems',productItems.length)
+        const uniqueProductCollection =uniqify(productItems,'imageUrl')
+        console.log('uniqueProductCollection',uniqueProductCollection.length)
         debugger
-        await uploadCollection({ fileName: `${marka}`, data: productItems, gender: process.env.GENDER,marka })
+        await uploadCollection({ fileName: `${marka}`, data: uniqueProductCollection, gender: process.env.GENDER,marka })
 
     }
     else {
-        console.log('UNSUCCESSFUL DATA COLLECTION.......')
-        throw 'UNSUCCESSFUL DATA COLLECTION.......'
+        console.log('EMPTY DATA COLLECTION.......')
+      //  throw 'UNSUCCESSFUL DATA COLLECTION.......'
     }
 
     console.log('Crawl finished.');
