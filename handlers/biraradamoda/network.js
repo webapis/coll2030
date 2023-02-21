@@ -15,7 +15,7 @@ async function handler(page, context) {
             const link = longlink.substring(longlink.indexOf("https://www.network.com.tr/") + 27)
             const imageUrlshort = imageUrl && imageUrl.substring(imageUrl.indexOf("https://img-network.mncdn.com/mnresize/") + 39)
             return {
-                title: 'network ' + title.replace(/İ/g, 'i').toLowerCase(),
+                title: 'network ' + title.replace(/İ/g, 'i').toLowerCase().replaceAll('-',' '),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,

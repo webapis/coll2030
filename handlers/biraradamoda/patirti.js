@@ -9,10 +9,10 @@ async function handler(page, context) {
 
     return new Promise((resolve, reject) => {
         try {
-
+            let counter = 0
             let inv = setInterval(async () => {
 
-                const hasNoMoreProduct = await page.evaluate(() => document.querySelector('.noMoreProducts').style.display !== 'none')
+                const hasNoMoreProduct = false
 
                 if (hasNoMoreProduct) {
 
@@ -51,10 +51,16 @@ async function handler(page, context) {
                     return resolve(formatprice.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } }))
 
                 } else {
-                    await manualScroll(page)
+                    if (counter < 100) {
+                        await manualScroll(page)
+                        hasNoMoreProduct = await page.evaluate(() => document.querySelector('.noMoreProducts').style.display !== 'none')
+                    } else {
+                        hasNoMoreProduct = true
+                    }
+
                 }
 
-            }, 100)
+            }, 150)
         } catch (error) {
             debugger
             return reject(error)
