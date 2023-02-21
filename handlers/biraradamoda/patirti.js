@@ -51,12 +51,12 @@ async function handler(page, context) {
                     return resolve(formatprice.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } }))
 
                 } else {
-                    if (counter < 100) {
+                  
                         await manualScroll(page)
+                      
                         hasNoMoreProduct = await page.evaluate(() => document.querySelector('.noMoreProducts').style.display !== 'none')
-                    } else {
-                        hasNoMoreProduct = true
-                    }
+                        console.log('hasNoMoreProduct',hasNoMoreProduct)
+                   
 
                 }
 
