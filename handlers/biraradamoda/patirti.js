@@ -10,17 +10,18 @@ async function handler(page, context) {
     await page.waitForSelector('#Katalog')
     await page.waitForSelector('.productItem')
     const productItems = await page.evaluate(() => document.querySelectorAll('.productItem').length)
+    const noMoreProducts = await page.evaluate(() => document.querySelector(".noMoreProducts").style.display === 'none')
     debugger
     if (productItems >= 20 && start) {
 
         await requestQueue.addRequest({ url: `${url}?page=2`, userData: { start: false } })
 
-    } else if (productItems >= 20 && !start) {
+    } else if (productItems >= 20 && !start && noMoreProducts === false) {
         debugger
         const currentPage = url.substring(url.indexOf('='))
         const nextPage = parseInt(url.substring(url.indexOf('=') + 1)) + 1
         const nextUrl = url.replace(currentPage, `=${nextPage}`)
-debugger
+        debugger
         await requestQueue.addRequest({ url: nextUrl, userData: { start: false } })
     }
 
