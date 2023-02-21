@@ -16,7 +16,7 @@ async function handler(page, context) {
 
         await requestQueue.addRequest({ url: `${url}?page=2`, userData: { start: false } })
 
-    } else if (productItems >= 20 && !start && noMoreProducts === false) {
+    } else if (productItems >= 20 && !start) {
         debugger
         const currentPage = url.substring(url.indexOf('='))
         const nextPage = parseInt(url.substring(url.indexOf('=') + 1)) + 1
