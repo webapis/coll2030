@@ -10,9 +10,10 @@ async function handler(page, context) {
     return new Promise((resolve, reject) => {
         try {
             let counter = 0
+            let hasNoMoreProduct = false
             let inv = setInterval(async () => {
 
-                const hasNoMoreProduct = false
+        
 
                 if (hasNoMoreProduct) {
 
