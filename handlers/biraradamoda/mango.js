@@ -60,14 +60,16 @@ async function handler(page, context) {
 
     console.log('data length_____', data.length, 'url:', url)
 
-
-    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
+    const uniqueData =uniqify(data,'imageUrl')
+    return uniqueData.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 }
 
 async function getUrls(page) {
 
     return { pageUrls: [], productCount: 0, pageLength: 0 }
 }
+const uniqify = (array, key) => array.reduce((prev, curr) => prev.find(a => a[key] === curr[key]) ? prev : prev.push(curr) && prev, []);
+
 
 async function autoScroll(page) {
     await page.evaluate(async () => {
