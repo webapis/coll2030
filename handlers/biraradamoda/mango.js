@@ -11,6 +11,7 @@ async function handler(page, context) {
 
     await page.waitForSelector('.catalog')
     await page.waitForSelector('li[data-imgsize]')
+    debugger
     await autoScroll(page);
 
     const { items } = await dataset.getData()
