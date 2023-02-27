@@ -16,8 +16,7 @@ async function handler(page, context) {
             const priceNew = productCard.querySelector('.discountPrice span').innerHTML.replace('TL', '').replace(/\n/g, '').trim()
             const longlink = productCard.querySelector('.productName.detailUrl a').href
             const link = longlink.substring(longlink.indexOf("https://www.tozlu.com/") + 22)
-            // const longImgUrl = imageUrl && 'https:' + imageUrl.substring(imageUrl.lastIndexOf('//'), imageUrl.lastIndexOf('.jpg') + 4)
-            const imageUrlshort = imageUrl.substring(imageUrl.indexOf("https://img.tozlu.com/") + 22)
+            const imageUrlshort = imageUrl.substring(imageUrl.indexOf("https://static.ticimax.cloud/") + 29)
 
             return {
                 title: 'tozlu ' + title.replace(/İ/g, 'i').toLowerCase(),
