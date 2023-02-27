@@ -11,7 +11,7 @@ async function handler(page, context) {
     const data = await page.$$eval('.list-content-product-item', (productCards) => {
         return productCards.map(productCard => {
 
-            const imageUrl = productCard.querySelector('.img2').getAttribute('src')
+            const imageUrl = productCard.querySelector('.img2')&&  productCard.querySelector('.img2').getAttribute('src')
             const title = productCard.querySelector('.product-name').innerHTML.trim()
             const priceNew = productCard.querySelector('.product-sale-price-list')? productCard.querySelector('.product-sale-price-list').textContent.trim().replace('TL', ''): productCard.querySelector('.product-sale-price').textContent.trim().replace('TL', '')
             const longlink = productCard.querySelector('.img-holder a').href
