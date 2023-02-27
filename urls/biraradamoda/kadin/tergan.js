@@ -7,6 +7,7 @@ const urls = [
     { url: 'https://www.tergan.com.tr/kadin-aksesuar'},  
     { url: 'https://www.tergan.com.tr/kadin-babet'},  
     { url: 'https://www.tergan.com.tr/kadin-bot'},  
+    { url: 'https://www.tergan.com.tr/unisex-aksesuar'},  
 
 
 ]
