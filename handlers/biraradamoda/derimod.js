@@ -15,7 +15,7 @@ async function handler(page, context) {
             const title = productCard.querySelector('.product-name').innerHTML.trim()
             const priceNew = productCard.querySelector('.product-sale-price-list')? productCard.querySelector('.product-sale-price-list').textContent.trim().replace('TL', ''): productCard.querySelector('.product-sale-price').textContent.trim().replace('TL', '')
             const longlink = productCard.querySelector('.img-holder a').href
-            const link = longlink.substring(longlink.indexOf("defacto.com.tr/") + 15)
+            const link = longlink.substring(longlink.indexOf("https://www.derimod.com.tr/") + 27)
             const imageUrlshort = imageUrl && imageUrl.substring(imageUrl.indexOf("https://c0a146.cdn.akinoncloud.com/products/") + 44)
             return {
                 title: 'derimod ' + title.replace(/İ/g,'i').toLowerCase(),
