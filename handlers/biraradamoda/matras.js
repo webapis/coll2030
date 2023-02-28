@@ -11,7 +11,7 @@ async function handler(page, context) {
         return productCards.map(productCard => {
 
             const imageUrl = productCard.querySelector('.product_image img').src
-            const title = productCard.querySelector('.product_name') ? productCard.querySelector('.product_name').innerHTML.trim() : null
+            const title = productCard.querySelector('.product_name') ? productCard.querySelector('.product_name').textContent.replaceAll('\n','') : null
             const priceNew = productCard.querySelector('.turkcell-price span') ? productCard.querySelector('.turkcell-price span').innerHTML.replaceAll('\n', '').replace('TL', '') : null
             const longlink = productCard.querySelector('.product_image a').href
             const link = longlink.substring(longlink.indexOf("https://www.matras.com/") + 23)
