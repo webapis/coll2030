@@ -1,12 +1,11 @@
 const urls = [
   
-    { url: 'https://www.desa.com.tr/erkek-deri-giyim' },
-    { url: 'https://www.desa.com.tr/erkek-ayakkabi' },
-    { url: 'https://www.desa.com.tr/erkek-canta' },
-    { url: 'https://www.desa.com.tr/erkek-aksesuar' },
+    { url: 'https://www.desa.com.tr/sitemap.xml'},
+    // { url: 'https://www.desa.com.tr/kadin-ayakkabi' },
+    // { url: 'https://www.desa.com.tr/kadin-canta' },
+    // { url: 'https://www.desa.com.tr/kadin-aksesuar' },
 
 ]
 
 module.exports={urls}
 
-//

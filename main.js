@@ -202,7 +202,7 @@ Apify.main(async () => {
     }
     else {
         console.log('EMPTY DATA COLLECTION.......')
-      //  throw 'UNSUCCESSFUL DATA COLLECTION.......'
+        throw 'UNSUCCESSFUL DATA COLLECTION.......'
     }
 
     console.log('Crawl finished.');

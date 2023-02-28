@@ -1,89 +1,76 @@
+var convert = require('xml-js');
+var fetch = require('node-fetch')
 const { formatMoney } = require('accounting-js')
+const Apify = require('apify');
+
+async function convertXMLToJSON({ url }) {
+    const response = await fetch(url)
+
+    const xml = await response.text()
+
+    var result1 = convert.xml2json(xml, { compact: true, spaces: 4 });
+
+    const jsondata = JSON.parse(result1)
+
+    return jsondata
+}
 async function handler(page, context) {
 
-    try {
 
-        const { request: { userData: {  } } } = context
 
-        const url = await page.url()
+    const { request: { userData: { start } } } = context
 
-        await page.waitForSelector('.list-content')
+    const url = await page.url()
 
-        //
-        await manualScroll(page)
 
-        const acceptcookies = await page.$('#personaWelcomePopupCloseBtn')
-        if (acceptcookies) {
-            await page.click('#personaWelcomePopupCloseBtn')
+
+    if (start) {
+        const requestQueue = await Apify.openRequestQueue();
+        const jsondata = await convertXMLToJSON({ url })
+
+        const sitemapUrl = jsondata['sitemapindex']['sitemap'].filter(f => f.loc._text.includes('sitemap-products')).map(m => m.loc._text)
+        debugger
+        const jsondata2 = await convertXMLToJSON({ url: sitemapUrl })
+        const productURLs = jsondata2['urlset']['url'].map(m => m.loc._text).filter(f => f.includes(process.env.GENDER))
+
+        for (let url of productURLs) {
+            await requestQueue.addRequest({ url, userData: { start: false } })
         }
-        return await new Promise((resolve, reject) => {
-            try {
-                let pause = false
-                let inv = setInterval(async () => {
-                    console.log('pause', pause)
-                    if (pause === false) {
+        return []
+    } else {
+        debugger
+        await page.waitForSelector('.container-product-detail')
+        let data = await page.evaluate(() => {
+            const priceNew = document.querySelector(".product-detail__sale-price").innerHTML.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
+            const longlink =location.href
+            const link = longlink.substring(longlink.indexOf("https://www.desa.com.tr/") + 24)
+            const longImgUrl = document.querySelector('.product-slider__img.js-product-current-img').src
+            const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://14231c.cdn.akinoncloud.com/') + 35)
+            const title = document.querySelector(".product-detail__name").innerHTML
+            return [{
+                title: 'desa ' + title.replace(/İ/g, 'i').toLowerCase(),//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
+                priceNew,
+                imageUrl: longImgUrl,
+                link,
+                timestamp: Date.now(),
+                marka: 'desa',
 
-                        const collected = await page.evaluate(() => document.querySelectorAll('.product-item-wrapper').length)
+            }]
 
-                        console.log('collected', collected)
-
-                        const loadmorebtn = await page.$eval('.load-more-button', (element) => element.classList.contains('hidden'))
-                        debugger
-                        if (loadmorebtn === false) {
-                            debugger
-                            await page.click('.load-more-button')
-                            await manualScroll(page)
-                        }
-                        else {
-                            pause = true
-                           // clearInterval(inv)
-                            debugger
-                            const data = await page.$$eval('.product-item-wrapper', (productCards, _subcategory, _category, _opts, _node) => {
-                                return productCards.map(productCard => {
-                                    const priceNew = productCard.querySelector(".product-sale-price") ? productCard.querySelector(".product-sale-price").textContent.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim() : productCard.outerHTML
-                                    const longlink = productCard.querySelector('.product-name a') ? productCard.querySelector('.product-name a').href : productCard.outerHTML
-                                    const link = longlink.substring(longlink.indexOf("https://www.desa.com.tr/") + 24)
-                                    const longImgUrl = productCard.querySelector('[data-src]') ? productCard.querySelector('[data-src]').getAttribute('data-src') : productCard.outerHTML
-                                    const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://cdn-ayae.akinon.net/') + 28)
-                                    const title = productCard.querySelector(".product-name a") ? productCard.querySelector(".product-name a").innerHTML : productCard.outerHTML
-                                    return {
-                                        title: 'desa ' + title.replace(/İ/g,'i').toLowerCase(),//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
-                                        priceNew,
-                                        imageUrl: imageUrlshort,
-                                        link,
-                                        timestamp: Date.now(),
-                                        marka: 'desa',
-
-                                    }
-                                }).filter(f => f.imageUrl !== null)
-                            })
-
-
-                            console.log('data length_____', data.length, 'url:', url)
-                            debugger
-                   
-
-
-                            resolve(data.map((m) => {
-                                return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
-                            }).map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }}))
-                            clearInterval(inv)
-
-                        }
-                    }
-                }, 150)
-
-            } catch (error) {
-                debugger
-                console.log('error 1', error)
-               reject(error)
-            }
         })
+        const formatedData =data.map(m=>{return {...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),title:m.title+" _"+process.env.GENDER }})
+        debugger
 
-    } catch (error) {
-        console.log('error 2', error)
+        console.log('data length_____', formatedData.length, 'url:', url)
+        return formatedData
 
     }
+
+
+
+
+
+
 }
 
 
