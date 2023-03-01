@@ -21,7 +21,7 @@ async function handler(page, context) {
             debugger
             await requestQueue.addRequest({ url: `${url}?sayfa=` + i, userData: { start: false } })
         }
-
+        return []
     }
     if (detailPage) {
 
@@ -43,7 +43,6 @@ async function handler(page, context) {
         console.log('data length_____', data.length, 'url:', url, process.env.GENDER)
         return data.map((m) => { return { ...m, title: m.title + " _" + process.env.GENDER } })
     } else {
-
 
         await page.waitForSelector('#ProductPageProductList')
         await page.waitForSelector('.ItemOrj')
