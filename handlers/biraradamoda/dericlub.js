@@ -9,6 +9,7 @@ async function handler(page, context) {
     if (start) {
         debugger
         await page.waitForSelector('#ProductPageProductList')
+        await page.waitForSelector('.ItemOrj')
         const totalPages = await page.evaluate(() => Math.max(...Array.from(document.querySelectorAll('.pageBorder a')).map(m => m.innerHTML.replace(/[^\d]/g, '')).filter(Number)))
         // const totalPages = Math.ceil(productCount / 60)
         const pageUrls = []
@@ -20,6 +21,22 @@ async function handler(page, context) {
             //--pagesLeft
             debugger
             await requestQueue.addRequest({ url: `${url}?sayfa=` + i, userData: { start: false } })
+        }
+
+  
+      
+
+        const data = await page.$$eval('.productItem', (productCards) => {
+            return productCards.map(productCard => {
+                const longlink = productCard.querySelector('.detailLink.detailUrl').href
+                return {
+                    link: longlink,
+                }
+            }).filter(f => f.link !== null)
+        })
+        for (let url of data) {
+            debugger
+            await requestQueue.addRequest({ url: url.link, userData: { start: false, detailPage: true } })
         }
         return []
     }
