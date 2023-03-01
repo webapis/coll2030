@@ -27,7 +27,7 @@ async function handler(page, context) {
                 timestamp: Date.now(),
                 marka: 'defacto',
             }
-        }).filter(f => f.imageUrl !== null && f.title.length > 10)
+        }).filter(f => f.imageUrl !== null && f.title.length > 5)
     })
 
     console.log('data length_____', data.length, 'url:', url,process.env.GENDER)

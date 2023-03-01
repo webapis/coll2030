@@ -21,7 +21,7 @@ async function handler(page, context) {
                     const data = await page.$$eval('.productbox.clearfix.list-item', (productCards) => {
                         return productCards.map(productCard => {
                             const title = productCard.querySelector('.lazy-image.product-name.track-link').getAttribute('title')
-                            const img = productCard.querySelector('.lazy-image.product-name.track-link img').src
+                            const img =productCard.querySelector('.lazy-image.product-name.track-link img')&& productCard.querySelector('.lazy-image.product-name.track-link img').src
                             const priceNew = productCard.querySelector('.product-price') ? productCard.querySelector('.product-price').innerHTML.replace('TL', '').trim() : productCard.querySelector('.product-new-price').innerHTML.replace('TL', '').trim()
                             const link = productCard.querySelector('.lazy-image.product-name.track-link').href
 
@@ -40,7 +40,7 @@ async function handler(page, context) {
                     console.log('data length_____', data.length, 'url:', url)
                     debugger
 
-                    const remap = data.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
+                    const remap = data.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } }).filter(f => f.imageUrl !== null && f.title.length > 5)
                     return resolve(remap)
                     //  await page.click('.button.js-load-more')
 
