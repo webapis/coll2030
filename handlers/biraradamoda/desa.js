@@ -40,11 +40,12 @@ async function handler(page, context) {
     } else {
         debugger
         await page.waitForSelector('.container-product-detail')
+        await page.waitForSelector('[data-popup="1"] img')
         let data = await page.evaluate(() => {
             const priceNew = document.querySelector(".product-detail__sale-price").innerHTML.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
             const longlink =location.href
             const link = longlink.substring(longlink.indexOf("https://www.desa.com.tr/") + 24)
-            const longImgUrl = document.querySelectorAll('.js-product-slider-item img')[1].src
+            const longImgUrl = document.querySelector('[data-popup="1"] img').src
             const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://14231c.cdn.akinoncloud.com/') + 35)
             const title = document.querySelector(".product-detail__name").innerHTML
             return [{
