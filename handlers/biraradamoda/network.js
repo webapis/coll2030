@@ -41,13 +41,13 @@ async function handler(page, context) {
 async function getUrls(page) {
     
     const url = await page.url()
-    await page.waitForSelector('.productCount')
-
+    await page.waitForSelector('.js-total-products-count')
+    await page.waitForSelector('.js-per-page-products-count')
     const productCount = await page.evaluate(() => {
-        return parseInt(document.querySelector(".productCount").childNodes[0].textContent.replace(/[^\d]/g, ''))
+        return parseInt(document.querySelector('.js-total-products-count').innerText)
     })
     const productPerPage = await page.evaluate(() => {
-        return parseInt(document.querySelector(".js-product-total-count").childNodes[0].textContent.replace(/[^\d]/g, ''))
+        return parseInt(document.querySelector('.js-per-page-products-count').innerText)
     })
     
     const totalPages = Math.ceil(productCount / productPerPage)
