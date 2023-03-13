@@ -8,7 +8,7 @@ const { getSheetValues, appendSheetValues } = require('./google.sheet.js')
 const { walkSync } = require('./utils/walkSync')
 const makeDir = require('make-dir');
 const Apify = require('apify');
-const { uploadCollection } = require('./utils/uploadCollection')
+const { uploadCollection } = require('./utils/uploadCollection.js test')
 var _ = require('lodash');
 fs.rmSync(path.join(process.cwd(), `collected-data`), { recursive: true, force: true });
 fs.rmSync(path.join(process.cwd(), `updated-data`), { recursive: true, force: true });
