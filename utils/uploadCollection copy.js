@@ -5,9 +5,31 @@ const fetch = require('node-fetch')
 const makeDir = require('make-dir')
 const path = require('path')
 const { walkSync } = require('./walkSync')
-async function uploadCollection({ fileName, data, gender }) {
+async function uploadCollection({ fileName, data, gender, marka }) {
     console.log('process.env.GH_TOKEN__', process.env.GH_TOKEN)
-  
+    const responsesha = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'get', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" } })
+    
+
+    if (responsesha.ok) {
+        
+        const { sha } = await responsesha.json()
+        await getSingleContent(`${gender}/${marka}.json.gz`)
+        await unzipSingleContent(`single-content/${gender}/${marka}.json.gz`)
+      //  const updatedData = mergePrevAndNewData({ gender, marka, data })
+        
+        await compressFile({ fileName, data, gender })
+        
+        let buff = fs.readFileSync(`${fileName}.json.gz`);
+        let base64data = buff.toString('base64');
+
+        const response = await fetch(`https://api.github.com/repos/webapis/keyword-editor/contents/${gender}/${fileName}.json.gz`, { method: 'put', headers: { Accept: "application/vnd.github.v3+json", authorization: `token ${process.env.GH_TOKEN}`, "X-GitHub-Api-Version": "2022-11-28" }, body: JSON.stringify({ message: 'coder content', sha, content: base64data, branch: 'main' }) })
+
+        if (!response.ok) {
+
+            throw response
+        }
+    }
+    else {
         
         await compressFile({ fileName, data, gender })
         
@@ -18,7 +40,7 @@ async function uploadCollection({ fileName, data, gender }) {
         if (!response.ok) {
             throw response
         }
-    
+    }
 
 }
 
