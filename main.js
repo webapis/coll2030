@@ -68,7 +68,7 @@ Apify.main(async () => {
         } else {
             console.log('unsuccessfull page data collection')
 
-          // throw 'unsuccessfull data collection'
+            // throw 'unsuccessfull data collection'
         }
 
 
@@ -82,7 +82,7 @@ Apify.main(async () => {
         maxConcurrency: parseInt(process.env.MAX_CONCURRENCY) || 1,
         handlePageTimeoutSecs: 3600,
         //   maxRequestRetries:4,
-          navigationTimeoutSecs:120,
+        navigationTimeoutSecs: 120,
         launchContext: {
             // Chrome with stealth should work for most websites.
             // If it doesn't, feel free to remove this.
@@ -180,8 +180,8 @@ Apify.main(async () => {
             },
         ],
         handleFailedRequestFunction: async ({ request: { errorMessages, url, userData: { gender, start } } }) => {
-        //    const google_access_token1 = await getGoogleToken()
-           // await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'ERROR!A:B', values: [[url, errorMessages[0].substring(0, 150), gender, start]] })
+            //    const google_access_token1 = await getGoogleToken()
+            // await appendSheetValues({ access_token: google_access_token1, spreadsheetId: '1IeaYAURMnrbZAsQA_NO_LA_y_qq8MmwxjSo854vz5YM', range: 'ERROR!A:B', values: [[url, errorMessages[0].substring(0, 150), gender, start]] })
 
 
         },
@@ -193,12 +193,21 @@ Apify.main(async () => {
 
 
     if (productItems.length > 0) {
-        console.log('productItems',productItems.length)
-        const uniqueProductCollection =uniqify(productItems,'imageUrl')
-        console.log('uniqueProductCollection',uniqueProductCollection.length)
+        console.log('productItems', productItems.length)
+        const uniqueProductCollection = uniqify(productItems, 'imageUrl')
+        console.log('uniqueProductCollection', uniqueProductCollection.length)
         debugger
-        await uploadCollection({ fileName: `${marka}`, data: uniqueProductCollection, gender: process.env.GENDER,marka })
-
+        const mapGender = uniqueProductCollection.map((m => { return { ...m, gender: m.title.substring(m.title.lastIndexOf('_')) } }))
+        const groupByGender = groupBy(mapGender, 'gender')
+        debugger
+        for (let gender in groupByGender) {
+            const curr = groupByGender[gender]
+            let gnd = gender.replace('_', "")
+            debugger
+            await uploadCollection({ fileName: `${marka}`, data: curr, gender: gnd, marka })
+            debugger
+        }
+        debugger
     }
     else {
         console.log('EMPTY DATA COLLECTION.......')

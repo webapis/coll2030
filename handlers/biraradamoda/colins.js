@@ -12,9 +12,6 @@ async function handler(page, context) {
             let inv = setInterval(async () => {
 
 
-           
-               
-
                 if (totalProducts > 0 && collected >= totalProducts) {
                     clearInterval(inv)
 
