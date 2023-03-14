@@ -1,93 +1,76 @@
 const { formatMoney } = require('accounting-js')
-var fetch = require('node-fetch')
 var convert = require('xml-js');
 const Apify = require('apify');
 
-async function convertXMLToJSON({ url }) {
-    const response = await fetch(url)
-
-    const xml = await response.text()
-
-    var result1 = convert.xml2json(xml, { compact: true, spaces: 4 });
-
-    const jsondata = JSON.parse(result1)
-
-    return jsondata
-}
-
-async function fetProductsSiteMap(url) {
-
-    const jsondata = await convertXMLToJSON({ url })
-
-    const sitemapUrl = jsondata['urlset']['url'].map(m => m.loc._text)
-
-    return sitemapUrl
-
-}
-
 async function handler(page, context) {
     const { request: { userData: { start } } } = context
-    const url = await page.url()
     const requestQueue = await Apify.openRequestQueue();
     let data = []
-    if (start) {
-        const jsondata = await convertXMLToJSON({ url })
-        const sitemapUrl = jsondata['sitemapindex']['sitemap'].map(m => m.loc._text).filter(f => f.includes('_product'))
+    const url = await page.url()
+
+    await page.waitForSelector('#Katalog')
+    await page.waitForSelector('.productItem')
+    const productItems = await page.evaluate(() => document.querySelectorAll('.productItem').length)
+    const noMoreProducts = await page.evaluate(() => document.querySelector(".noMoreProducts").style.display === 'none')
+    debugger
+    if (productItems >= 20 && start) {
+
+        await requestQueue.addRequest({ url: `${url}?page=2`, userData: { start: false } })
+
+    } else if (productItems >= 20 && !start) {
         debugger
-        let promise = []
-
-        for (let p of sitemapUrl) {
-            promise.push(await fetProductsSiteMap(p))
-        }
-
-        const productsSiteMaps = await Promise.all(promise.flat())
-
-        for (let url of productsSiteMaps) {
-            await requestQueue.addRequest({ url, userData: { start: false } })
-        }
-        return data
-
-    } else {
-
-        await page.waitForSelector('#productContent')
-        await page.waitForSelector('#ProductImagesLightGallery img')
-
-        data = await page.evaluate(() => {
-
-            const priceNew = document.querySelector('.currentPrice') ? document.querySelector('.currentPrice').textContent.replace(/\n/g, '').replace('₺', '').trim() : document.querySelector('.addPriceDiscount span').textContent.replace('₺', '').trim()
-            const longlink = location.href
-            const link = longlink.substring(longlink.indexOf("https://www.patirti.com/") + 24)
-            const longImgUrl = document.querySelectorAll('#ProductImagesLightGallery img')[0].src
-            const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf("https://images.patirti.com/") + 27)
-            const title = document.querySelector('#productName').innerText
-            const color = document.querySelectorAll('.productAttrItem b')[1].textContent
-            const gender = document.querySelector('.productAttrItem b').textContent.toLowerCase().replace('kadın','kadin')
-            return [{
-                title: 'patirti ' + title.replace(/İ/g, 'i').toLowerCase() +" "+ color +" "+ "_"+gender,
-                priceNew,
-                imageUrl: imageUrlshort, // imageUrlshort,
-                link,
-                timestamp: Date.now(),
-                marka: 'patirti',
-            }]
-        })
-
-        console.log('data length_____', data.length, 'url:', url)
-
-        const formatprice = data.map((m) => {
-            return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
-        })
-
-
-        return formatprice
-
-
-
-
-
-
+        const currentPage = url.substring(url.indexOf('='))
+        const nextPage = parseInt(url.substring(url.indexOf('=') + 1)) + 1
+        const nextUrl = url.replace(currentPage, `=${nextPage}`)
+        debugger
+        await requestQueue.addRequest({ url: nextUrl, userData: { start: false } })
     }
+
+    if (productItems > 0) {
+        data = await page.$$eval('.productItem', (productCards, _subcategory, _category, _opts, _node) => {
+            return productCards.map(productCard => {
+                const priceNew = productCard.querySelector('.currentPrice') ? productCard.querySelector('.currentPrice').textContent.replace(/\n/g, '').replace('₺', '').trim() : productCard.querySelector('.addPriceDiscount span').textContent.replace('₺', '').trim()
+                const longlink = productCard.querySelector('a.fl').href
+                const link = longlink.substring(longlink.indexOf("https://www.patirti.com/") + 24)
+                const longImgUrl = productCard.querySelector('img').src ? productCard.querySelector('img').src : productCard.querySelector('img[data-bind]').src
+                const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf("https://images.patirti.com/") + 27)
+                const title = productCard.querySelector('m[data-bind]').innerHTML
+                return {
+                    title: 'patirti ' + title.replace(/İ/g, 'i').toLowerCase(),
+                    priceNew,
+                    imageUrl: imageUrlshort, // imageUrlshort,
+                    link,
+
+                    timestamp: Date.now(),
+
+                    marka: 'patirti',
+
+
+
+                }
+            }).filter(f=>f.priceNew)
+        })
+    }
+
+
+    debugger
+
+    console.log('data length_____', data.length, 'url:', url)
+
+    const formatprice = data.map((m) => {
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }) }
+    })
+
+    debugger
+    return formatprice.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
+
+
+
+
+
+
 }
+
 
 
 
