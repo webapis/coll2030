@@ -1,4 +1,4 @@
-name: dericeket
+name: deristore
 on:
   schedule:
     - cron:  '0 0 * * 4'
@@ -11,7 +11,7 @@ jobs:
       GENDER: kadin
       maxconcurrency: '1'
       WEBSITE: 'biraradamoda'
-      marka: 'dericeket'
+      marka: 'deristore'
     secrets: inherit
   erkek_job:
     uses: ./.github/workflows/reusable.yml
@@ -19,13 +19,5 @@ jobs:
       GENDER: erkek
       maxconcurrency: '1'
       WEBSITE: 'biraradamoda'
-      marka: 'dericeket'
-    secrets: inherit
-  ecocuk_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      GENDER: ecocuk
-      maxconcurrency: '1'
-      WEBSITE: 'biraradamoda'
-      marka: 'dericeket'
+      marka: 'deristore'
     secrets: inherit

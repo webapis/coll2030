@@ -194,7 +194,8 @@ Apify.main(async () => {
 
     if (productItems.length > 0) {
         console.log('productItems', productItems.length)
-        const uniqueProductCollection = uniqify(productItems, 'imageUrl')
+        debugger
+        const uniqueProductCollection = uniqify(productItems, 'link')
         console.log('uniqueProductCollection', uniqueProductCollection.length)
         debugger
         const mapGender = uniqueProductCollection.map((m => { return { ...m, gender: m.title.substring(m.title.lastIndexOf('_')) } }))
