@@ -48,11 +48,11 @@ debugger
         await page.waitForSelector('.product-media__slider img')
 
         const data = await page.evaluate(() => {
-
+                const imageUrl =document.querySelector('.product-media__slider img').src
             return [{
                 title: 'koton ' + document.querySelector('.product-info__header-title').innerText.toLowerCase() + ' ' + document.querySelector('.pz-variant__selected').innerText.substring(6),
                 priceNew: document.querySelector('pz-price').innerText.replace('TL', '').trim(),//: newPrice.replace(',', '.').trim(),
-                imageUrl: document.querySelector('.product-media__slider img').src,
+                imageUrl:imageUrl.substring(imageUrl.indexOf('https://ktnimg2.mncdn.com/')+26) ,
                 link: location.href,
                 timestamp: Date.now(),
                 marka: 'koton',
