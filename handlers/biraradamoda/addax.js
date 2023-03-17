@@ -21,7 +21,7 @@ async function handler(page, context) {
             const longlink = productCard.querySelector('a[data-product').href
             const link = longlink.substring(longlink.indexOf("https://www.addax.com.tr/") + 25)
             const longImgUrl = productCard.querySelector("img[data-src]").getAttribute('data-src')
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn3.sorsware.com/") + 26)
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn3.sorsware.com/") + 26)//https://cdn3.sorsware.com/
             const title = productCard.querySelector("img[data-src]").alt
             return {
                 title: 'addax ' + title.replace(/İ/g,'i').toLowerCase(),
