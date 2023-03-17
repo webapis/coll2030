@@ -16,7 +16,7 @@ debugger
             const longlink = document.querySelector('div[data-page] a').href
             const link = longlink.substring(longlink.indexOf("https://www.beymenclub.com/") + 27)
             const longImgUrl = document.querySelectorAll('.m-productImageList [data-src]')[0].getAttribute('data-src').trim()
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.beymen.com/") + 23)
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.beymen.com/mnresize/{width}/{height}/") + 49)
 
             return {
                 title: 'beymenclub ' + title + ' ' + desc,
