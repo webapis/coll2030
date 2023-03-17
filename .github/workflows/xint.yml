@@ -1,7 +1,7 @@
 name: xint
 on:
   schedule:
-    - cron:  '0 0 * * 3'
+    - cron:  '0 0 * * 3,5'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

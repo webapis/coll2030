@@ -1,7 +1,7 @@
 name: desa
 on:
   schedule:
-    - cron:  '0 0 * * 4'
+    - cron:  '0 0 * * 4,6'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

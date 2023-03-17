@@ -1,7 +1,7 @@
 name: patirti
 on:
   schedule:
-    - cron:  '0 0 * * 2'
+    - cron:  '0 0 * * 2,4'
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
 jobs:

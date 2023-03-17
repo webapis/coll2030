@@ -1,7 +1,7 @@
 name: lcwaikiki
 on:
   schedule:
-    - cron:  '0 0 * * 5'
+    - cron:  '0 0 * * 5,1'
 
 env:
   GH_TOKEN: ${{secrets.GH_TOKEN}}
