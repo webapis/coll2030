@@ -53,7 +53,7 @@ debugger
                 title: 'koton ' + document.querySelector('.product-info__header-title').innerText.toLowerCase() + ' ' + document.querySelector('.pz-variant__selected').innerText.substring(6),
                 priceNew: document.querySelector('pz-price').innerText.replace('TL', '').trim(),//: newPrice.replace(',', '.').trim(),
                 imageUrl:imageUrl.substring(imageUrl.indexOf('https://ktnimg2.mncdn.com/')+26) ,
-                link: location.href,
+                link: location.href.substring(location.href.indexOf('https://www.koton.com/')+22),
                 timestamp: Date.now(),
                 marka: 'koton',
             }]
