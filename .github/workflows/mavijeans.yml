@@ -1,4 +1,4 @@
-name: mavi
+name: mavijeans
 on:
   schedule:
     - cron:  '0 0 * * 4,6'
@@ -11,7 +11,7 @@ jobs:
       GENDER: kadin
       maxconcurrency: '1'
       WEBSITE: 'biraradamoda'
-      marka: 'mavi'
+      marka: 'mavijeans'
     secrets: inherit
   erkek_job:
     uses: ./.github/workflows/reusable.yml
@@ -19,5 +19,5 @@ jobs:
       GENDER: erkek
       maxconcurrency: '1'
       WEBSITE: 'biraradamoda'
-      marka: 'mavi'
+      marka: 'mavijeans'
     secrets: inherit
