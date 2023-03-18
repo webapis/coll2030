@@ -1,7 +1,7 @@
 const Apify = require('apify');
 
 async function handler(page, context) {
-    const { request: { userData: {start  } } } = context
+    const { request: { userData: {  } } } = context
     debugger;
     const url = await page.url()
     await page.waitForSelector('.product-list-cards')
@@ -11,17 +11,17 @@ async function handler(page, context) {
     debugger;
     const data = await page.$$eval('.product-item', (items) => {
 
-        return items.map(item => {
-            let productTitle =document.querySelector('.product-title').textContent
-            let productDesc=document.querySelector('.product-desc').textContent
-            const priceNew = item.querySelector('.price') && item.querySelector('.price').innerText.replace('TL', '').trim()
-            const longlink = item.querySelector('.product-card-info') && item.querySelector('.product-card-info').href
-            const link =  longlink.substring(longlink.indexOf('https://www.mavi.com/') + 21)
-            const longImgUrl =  item.querySelectorAll("[data-responsive-image] img")[0].getAttribute('data-src')
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('//sky-static.mavi.com/sys-master/maviTrImages/') + 46)
+        return items.map(document => {
+            let productTitle = document.querySelector('.product-title').textContent
+            let productDesc = document.querySelector('.product-desc').textContent
+            const priceNew = document.querySelector('.price')? document.querySelector('.price').innerText.replace('TL', '').trim():document.querySelector('.ins-product-price').innerText.replace('TL', '')
+            const longlink = document.querySelector('.product-card-info').href
+            const link = longlink.substring(longlink.indexOf('https://www.mavi.com/') + 21)
+            const longImgUrl = document.querySelector('.swiper-slide').querySelector('a img').getAttribute('data-main-src')
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf('//sky-static.mavi.com/') + 22)
 
             return {
-                title: 'mavi '+ productDesc.replace(/\n/g,'')+' '+productTitle.replace(/\n/g,''),
+                title: 'mavi ' + ' ' + productTitle.replace(/\n/g, '').trim() + ' ' + productDesc.replace(/\n/g, '').trim(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
@@ -30,40 +30,37 @@ async function handler(page, context) {
 
             }
         })
-    },subcategory,category,node);
-        console.log('data length_____', data.length)
-        const nextPageExists = await page.$('.button.more-product')
-        debugger;
-        if (nextPageExists && start) {
+    });
+
+    debugger
+
+    console.log('data length_____', data.length, 'url:', url)
+
+    return data.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
 
 
-            const nextPage = `${url}?page=2`
-            const requestQueue = await Apify.openRequestQueue();
+}
 
-            requestQueue.addRequest({ url: nextPage, userData: { start: false} })
-        } else if (nextPageExists && !start) {
+async function getUrls(page) {
+    const url = await page.url()
+    await page.waitForSelector('.right-menu-item.product-number')
+    const productCount = await page.$eval('.right-menu-item.product-number', element => parseInt(element.innerText.replace(/[^\d]/g, '')))
+    const totalPages = Math.ceil(productCount / 24)
+    const pageUrls = []
 
-            const pageUrl = url.slice(0, url.lastIndexOf("=") + 1)
-            const pageNumber = parseInt(url.substr(url.lastIndexOf("=") + 1)) + 1
+    let pagesLeft = totalPages
+    for (let i = 2; i <= totalPages; i++) {
 
-            const nextPage = pageUrl + pageNumber
-            const requestQueue = await Apify.openRequestQueue();
 
-            requestQueue.addRequest({ url: nextPage, userData: { start: false } })
 
-        }
-
-        console.log('data length_____', data.length, 'url:', url)
-
-        return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
+        pageUrls.push(`${url}?page=` + i)
+        --pagesLeft
 
 
     }
 
-async function getUrls(page, param) {
-
-            return { pageUrls: [], productCount: 0, pageLength: 0 }
-        }
+    return { pageUrls, productCount, pageLength: pageUrls.length + 1 }
+}
 
 
 module.exports = { handler, getUrls }
