@@ -193,6 +193,8 @@ Apify.main(async () => {
 
 
     if (productItems.length > 0) {
+        const groupByImageURL =groupBy(productItems,'imageUrl')
+        debugger
         console.log('productItems', productItems.length)
         debugger
         const uniqueProductCollection = uniqify(productItems, 'imageUrl')
