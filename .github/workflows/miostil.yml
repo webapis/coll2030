@@ -13,11 +13,3 @@ jobs:
       WEBSITE: 'biraradamoda'
       marka: 'miostil'
     secrets: inherit
-  erkek_job:
-    uses: ./.github/workflows/reusable.yml
-    with:
-      GENDER: erkek
-      maxconcurrency: '1'
-      WEBSITE: 'biraradamoda'
-      marka: 'miostil'
-    secrets: inherit
