@@ -25,8 +25,8 @@ async function handler(page, context) {
                             return {
                                 title: 'colins ' + title.replace(/İ/g, 'i').toLowerCase(),
                                 priceNew: priceNew,//.replace(',','.'),
-                                imageUrl: img.substring(img.indexOf('https://img-colinstr.mncdn.com/mnresize/') + 40),
-                                link: link.substring(link.indexOf('https://www.colins.com.tr/') + 26),
+                                imageUrl:img&& img.substring(img.indexOf('https://img-colinstr.mncdn.com/mnresize/') + 40),
+                                link:link&& link.substring(link.indexOf('https://www.colins.com.tr/') + 26),
                                 timestamp: Date.now(),
                                 marka: 'colins',
 
