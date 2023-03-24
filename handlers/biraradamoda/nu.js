@@ -16,8 +16,8 @@ async function handler(page, context) {
             const priceNew = Array.from(document.querySelector('.product-item-price').querySelectorAll('span')).map(m=>m.innerText.replace('₺','')).sort().reverse()[0]
             const longlink = document.querySelector('.product--item-title a').href
             const link = longlink.substring(longlink.indexOf("https://www.nu.com.tr/") + 22)
-            const longImgUrl = imageUrl && imageUrl.substring(imageUrl.indexOf('//')+1)
-            const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("https://www.nu.com.tr/") + 29)
+            const longImgUrl = imageUrl && imageUrl.substring(imageUrl.indexOf('//cdn.shopify.com/')+18)
+            const imageUrlshort = imageUrl && longImgUrl.substring(longImgUrl.indexOf("//") + 1)
 
             return {
                 title: 'nu ' + title.replace(/İ/g,'i').toLowerCase(),
