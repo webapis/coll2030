@@ -1,6 +1,6 @@
 const urls = [
   
-    { url: 'https://sarar.com/erkek-giyim'           }
+    { url: 'https://sarar.com/kadin-giyim'           }
 
 ]
 
