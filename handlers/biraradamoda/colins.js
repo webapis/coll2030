@@ -43,7 +43,7 @@ async function handler(page, context) {
 
 
                 } else {
-                    const hiddenLoading = await page.evaluate(()=>document.querySelector('.loading').style.visibility==='hidden')
+                    const hiddenLoading = await page.evaluate(()=>document.querySelector('.loading') && document.querySelector('.loading').style.visibility==='hidden')
                     if(hiddenLoading){
                         await manualScroll(page)
                         totalProducts = await page.evaluate(() => parseInt(document.querySelector('#product-count').innerHTML.replace(/[^\d]/g, '')))
