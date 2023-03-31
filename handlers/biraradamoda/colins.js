@@ -12,7 +12,7 @@ async function handler(page, context) {
             let inv = setInterval(async () => {
 
 
-                if (totalProducts > 0 && collected >= totalProducts) {
+                if (totalProducts > 0 && collected >= (totalProducts-1)) {
                     clearInterval(inv)
 
                     const data = await page.$$eval('.productbox.clearfix.list-item', (productCards) => {
