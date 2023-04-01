@@ -1,73 +1,48 @@
-var convert = require('xml-js');
-var fetch = require('node-fetch')
+
 const { formatMoney } = require('accounting-js')
-const Apify = require('apify');
 
-async function convertXMLToJSON({ url }) {
-    const response = await fetch(url)
 
-    const xml = await response.text()
-
-    var result1 = convert.xml2json(xml, { compact: true, spaces: 4 });
-
-    const jsondata = JSON.parse(result1)
-
-    return jsondata
-}
 async function handler(page, context) {
 
 
 
-    const { request: { userData: { start } } } = context
-
-    const url = await page.url()
+    const { request: { userData: {  } } } = context
 
 
 
-    if (start) {
-        const requestQueue = await Apify.openRequestQueue();
-        const jsondata = await convertXMLToJSON({ url })
 
-        const sitemapUrl = jsondata['sitemapindex']['sitemap'].filter(f => f.loc._text.includes('sitemap-products')).map(m => m.loc._text)
-        debugger
-        const jsondata2 = await convertXMLToJSON({ url: sitemapUrl })
-        const productURLs = jsondata2['urlset']['url'].map(m => m.loc._text).filter(f => f.includes(process.env.GENDER))
+    await page.waitForSelector('.list-content')
 
-        for (let url of productURLs) {
-            await requestQueue.addRequest({ url, userData: { start: false } })
-        }
-        return []
-    } else {
-        debugger
-        await page.waitForSelector('.container-product-detail')
-        await page.waitForSelector('[data-popup="1"] img')
-        let data = await page.evaluate(() => {
-            const priceNew = document.querySelector(".product-detail__sale-price").innerHTML.replace(/\n/g, '').trim().replace('₺', '').replace('TL', '').trim()
-            const longlink =location.href
-            const link = longlink.substring(longlink.indexOf("https://www.desa.com.tr/") + 24)
-            const longImgUrl = document.querySelector('[data-popup="1"] img').src
-            const imageUrlshort = longImgUrl && longImgUrl.substring(longImgUrl.indexOf('https://14231c.cdn.akinoncloud.com/') + 35)
-            const title = document.querySelector(".product-detail__name").innerHTML
-            return [{
-                title: 'desa ' + title.replace(/İ/g, 'i').toLowerCase(),//,+ (_opts.keyword ? (title.toLowerCase().includes(_opts.keyword) ? '' : ' ' + _opts.keyword) : ''),
-                priceNew,
-                imageUrl: longImgUrl,
-                link,
+    await autoScroll(page)
+    debugger
+    const data = await page.$$eval('.product-item-box', (productCards) => {
+        return productCards.map(document => {
+
+            const title = document.querySelector('.product-name a').innerText
+            const img= document.querySelector('.product-item-image').getAttribute('data-src')
+            const priceNew =document.querySelector('.product-sale-price').innerText.replace('TL','').trim()
+            const link = document.querySelector('.product-name a').href
+
+            return {
+                title: 'desa '+title.replace(/İ/g,'i').replaceAll('-',' ').toLowerCase(),
+                priceNew,//:priceNew.replace(',','.'),
+                imageUrl: img.substring(img.indexOf('https://14231c.cdn.akinoncloud.com/')+35),
+                link:link.substring(link.indexOf('https://www.desa.com.tr/')+24),
                 timestamp: Date.now(),
                 marka: 'desa',
 
-            }]
-
+            }
         })
-        const formatedData =data.map(m=>{return {...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),title:m.title+" _"+process.env.GENDER }})
-        debugger
-
-        console.log('data length_____', formatedData.length, 'url:', url)
-        return formatedData
-
-    }
+    })
 
 
+
+    const formatprice = data.map((m) => {
+        return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }), title: m.title + " _" + process.env.GENDER }
+    })
+
+debugger
+    return formatprice
 
 
 
@@ -78,14 +53,30 @@ async function handler(page, context) {
 
 
 
-async function manualScroll(page) {
+async function autoScroll(page) {
     await page.evaluate(async () => {
-        var totalHeight = 0;
-        var distance = 100;
-        let inc = 0
-        window.scrollBy(0, distance);
-        totalHeight += distance;
-        inc = inc + 1
+
+
+        await new Promise((resolve, reject) => {
+            var totalHeight = 0;
+            var distance = 100;
+            let inc = 0
+            var timer = setInterval(() => {
+                var scrollHeight = document.body.scrollHeight;
+                const range = Array.from(document.querySelector('.js-pagination-count.pagination-info div').innerText.split(' ')).filter(Number)
+                const total = range[0]
+                const collected = range[1]
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+                inc = inc + 1
+                if (total === collected) {
+                    clearInterval(timer);
+                    resolve();
+                } else {
+                    document.querySelector('.js-show-more.list-show-more').click()
+                }
+            }, 200);
+        });
     });
 }
 
