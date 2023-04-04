@@ -9,7 +9,7 @@ async function handler(page, context) {
     // }
     await page.waitForSelector('#ProductListMainContainer')
 
-   // await autoScroll(page)
+    // await autoScroll(page)
     debugger;
 
 
@@ -66,22 +66,24 @@ async function autoScroll(page) {
 async function getUrls(page) {
 
     const url = await page.url()
-    await page.waitForSelector('.totalItems')
+
+    const hasPanination = await page.$('.totalItems')
     const pageUrls = []
-    const productCount = await page.evaluate(() =>document.querySelector('.totalItems')? parseInt(document.querySelector('.totalItems').innerText):0)
-    if(productCount>0){
+
+    if (hasPanination) {
+        const productCount = await page.evaluate(() => parseInt(document.querySelector('.totalItems').innerText))
         const totalPages = Math.ceil(productCount / 50)
-  
-    
+
+
         let pagesLeft = totalPages
         for (let i = 2; i <= totalPages; i++) {
-    
-    
-    
+
+
+
             pageUrls.push(`${url}?sayfa=` + i)
             --pagesLeft
-    
-    
+
+
         }
     }
 
