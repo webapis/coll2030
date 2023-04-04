@@ -9,7 +9,7 @@ async function handler(page, context) {
     // }
     await page.waitForSelector('#ProductListMainContainer')
 
-    // await autoScroll(page)
+     await autoScroll(page)
     debugger;
 
 
