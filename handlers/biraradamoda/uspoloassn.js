@@ -4,9 +4,9 @@ async function handler(page, context) {
     const { request: { userData: { } } } = context
 
     const url = await page.url()
-
+debugger
     await page.waitForSelector('.js-product-list-container')
-
+debugger
    // await autoScroll(page)
     const data = await page.$$eval('.js-product-list-item', (productCards) => {
         return productCards.map(document => {
@@ -63,8 +63,8 @@ async function autoScroll(page) {
 }
 async function getUrls(page) {
     const url = await page.url()
-    await page.waitForSelector('.pageBorder')
-    const productCount=Array.from(document.querySelectorAll('.page-list-more p span')).map(m=>m.innerText.replace(/[^\d]/g,'')).reverse()[0]
+    await page.waitForSelector('.page-list-more')
+    const productCount= await page.evaluate(()=>Array.from(document.querySelectorAll('.page-list-more p span')).map(m=>m.innerText.replace(/[^\d]/g,'')).reverse()[0]) 
     const totalPages = Math.ceil(productCount / 24)
     const pageUrls = []
     if (totalPages > 1) {
