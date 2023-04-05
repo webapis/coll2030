@@ -1,6 +1,6 @@
 const urls = [
-    { url: 'https://www.levis.com.tr/erkek-giyim/jean-pantolon'},
-  //  { url: 'https://www.levis.com.tr/erkek-giyim'},
+  //  { url: 'https://www.levis.com.tr/erkek-giyim/jean-pantolon'},
+   { url: 'https://www.levis.com.tr/erkek-giyim'},
 
 
 ]
