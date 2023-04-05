@@ -4,10 +4,11 @@ async function handler(page, context) {
     const { request: { userData: { } } } = context
 
     const url = await page.url()
-debugger
+
     await page.waitForSelector('.js-product-list-container')
 debugger
-   // await autoScroll(page)
+    await autoScroll(page)
+    debugger
     const data = await page.$$eval('.js-product-list-item', (productCards) => {
         return productCards.map(document => {
             const imageUrl = document.querySelector('.js-product-list-item img[data-src]').getAttribute('data-src')
