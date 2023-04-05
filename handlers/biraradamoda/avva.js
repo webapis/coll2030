@@ -16,7 +16,7 @@ async function handler(page, context) {
             const priceNew = document.querySelector('.discountPrice span').innerText.replace('₺', '')
             const longlink = document.querySelector('a.detailLink').href
             const link = longlink.substring(longlink.indexOf('https://www.avva.com.tr/') + 24)
-            const imageUrlshort = imageUrl && imageUrl.substring("https://static.ticimax.cloud/" +29)
+            const imageUrlshort = imageUrl && imageUrl.substring(imageUrl.indexOf("https://static.ticimax.cloud/") +29)
 
             return {
                 title: 'avva ' + title.replace(/İ/g, 'i').toLowerCase(),
@@ -31,7 +31,7 @@ async function handler(page, context) {
 
     console.log('data length_____', data.length, 'url:', url, process.env.GENDER)
 
-
+debugger
     console.log("process.env.GENDER ")
     const formatprice = data.map((m) => {
         return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }), title: m.title + " _" + process.env.GENDER }

@@ -7,16 +7,15 @@ async function handler(page, context) {
 
     await page.waitForSelector('.js-product-list-container')
 
-    await autoScroll(page)
+   // await autoScroll(page)
     const data = await page.$$eval('.js-product-list-item', (productCards) => {
         return productCards.map(document => {
-
-            const imageUrl = document.querySelector('.productItem a.detailLink img').src
-            const title = document.querySelector('.productItem a.detailLink img').alt
-            const priceNew = document.querySelector('.discountPrice span').innerText.replace('₺', '')
-            const longlink = document.querySelector('.productItem a.detailLink').href
-            const link = longlink.substring(longlink.indexOf('https://www.avva.com.tr/') + 24)
-            const imageUrlshort = imageUrl && imageUrl.substring("https://static.ticimax.cloud/" +29)
+            const imageUrl = document.querySelector('.js-product-list-item img[data-src]').getAttribute('data-src')
+            const title = document.querySelector('.js-product-list-item img[data-src]').alt
+            const priceNew = document.querySelector('.product__listing--basket-price span').innerText.replace('TL','').trim()
+            const longlink = document.querySelector('.product__name a').href
+            const link = longlink.substring(longlink.indexOf('https://tr.uspoloassn.com/') + 26)
+            const imageUrlshort = imageUrl && imageUrl.substring("https://aydinli-polo.b-cdn.net/" +31)
 
             return {
                 title: 'uspoloassn ' + title.replace(/İ/g, 'i').toLowerCase(),
@@ -65,14 +64,14 @@ async function autoScroll(page) {
 async function getUrls(page) {
     const url = await page.url()
     await page.waitForSelector('.pageBorder')
-
-    const totalPages = await page.evaluate(() => Math.max(...Array.from(document.querySelectorAll('.pageBorder a')).map(m => m.innerText).filter(Number)))
+    const productCount=Array.from(document.querySelectorAll('.page-list-more p span')).map(m=>m.innerText.replace(/[^\d]/g,'')).reverse()[0]
+    const totalPages = Math.ceil(productCount / 24)
     const pageUrls = []
     if (totalPages > 1) {
         let pagesLeft = totalPages
         for (let i = 2; i <= totalPages; i++) {
 
-            pageUrls.push(`${url}?sayfa=` + i)
+            pageUrls.push(`${url}?page=` + i)
             --pagesLeft
 
 
