@@ -12,7 +12,7 @@ debugger
     const data = await page.$$eval('.js-product-list-item', (productCards) => {
         return productCards.map(document => {
             const imageUrl =document.querySelector('.js-product-list-item img[data-src]') && document.querySelector('.js-product-list-item img[data-src]').getAttribute('data-src')
-            const title = document.querySelector('.js-product-list-item img[data-src]').alt
+            const title = document.querySelector('.product__name a').innerText
             const priceNew = document.querySelector('.product__listing--basket-price span').innerText.replace('TL','').trim()
             const longlink = document.querySelector('.product__name a').href
             const link = longlink.substring(longlink.indexOf('https://tr.uspoloassn.com/') + 26)
