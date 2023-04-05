@@ -5,26 +5,26 @@ async function handler(page, context) {
 
     const url = await page.url()
 
-    await page.waitForSelector('#ProductPageProductList')
+    await page.waitForSelector('.js-product-list-container')
 
     await autoScroll(page)
-    const data = await page.$$eval('.productItem', (productCards) => {
+    const data = await page.$$eval('.js-product-list-item', (productCards) => {
         return productCards.map(document => {
 
-            const imageUrl = document.querySelector('a.detailLink img').src
-            const title = document.querySelector('a.detailLink img').alt
+            const imageUrl = document.querySelector('.productItem a.detailLink img').src
+            const title = document.querySelector('.productItem a.detailLink img').alt
             const priceNew = document.querySelector('.discountPrice span').innerText.replace('₺', '')
-            const longlink = document.querySelector('a.detailLink').href
+            const longlink = document.querySelector('.productItem a.detailLink').href
             const link = longlink.substring(longlink.indexOf('https://www.avva.com.tr/') + 24)
             const imageUrlshort = imageUrl && imageUrl.substring("https://static.ticimax.cloud/" +29)
 
             return {
-                title: 'avva ' + title.replace(/İ/g, 'i').toLowerCase(),
+                title: 'uspoloassn ' + title.replace(/İ/g, 'i').toLowerCase(),
                 priceNew,
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
-                marka: 'avva',
+                marka: 'uspoloassn',
             }
         }).filter(f => f.imageUrl !== null && f.title.length > 5)
     })
