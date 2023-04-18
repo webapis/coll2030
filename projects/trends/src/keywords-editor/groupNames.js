@@ -21,7 +21,8 @@ const arr = [
     {id:20, name: 'Fiyat', keywordType: 'keyword' },
     {id:21, name: 'Ayakkabı', keywordType: 'category', functionName: 'nine' },
     {id:22, name: 'Diger', keywordType: 'category', functionName: 'diger' },
-    {id:23, name: 'Cinsiyet', keywordType: 'keyword' }
+    {id:23, name: 'Cinsiyet', keywordType: 'keyword' },
+    {id:24, name: 'Renk', keywordType: 'keyword' }
 
 ]
 
