@@ -13,7 +13,7 @@ async function handler(page, context) {
 
             const imageUrl =document.querySelector('.product-item-image[data-srcset]')&&  document.querySelector('.product-item-image').getAttribute('data-srcset').split(',').reverse()[0].trim()
             const title = document.querySelector('.product--item-title a').innerText
-            const priceNew = document.querySelector(".is-sale")!==null?(document.querySelector(".is-sale").innerHTML!==null?document.querySelector(".is-sale").innerHTML.replace("₺","").replaceAll("\n","").trim():document.querySelector(".product-item__wrapper").innerHTML):document.querySelector(".money").innerHTML.replace("₺","").replaceAll("\n","").trim()
+            const priceNew = document.querySelector(".product-item-price").innerHTML //document.querySelector(".is-sale")!==null?(document.querySelector(".is-sale").innerHTML!==null?document.querySelector(".is-sale").innerHTML.replace("₺","").replaceAll("\n","").trim():document.querySelector(".product-item__wrapper").innerHTML):document.querySelector(".money").innerHTML.replace("₺","").replaceAll("\n","").trim()
             const longlink = document.querySelector('.product--item-title a').href
             const link = longlink.substring(longlink.indexOf("https://www.nu.com.tr/") + 22)
             const longImgUrl = imageUrl && imageUrl.substring(imageUrl.indexOf('//cdn.shopify.com/')+18)
