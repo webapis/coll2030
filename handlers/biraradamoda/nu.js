@@ -8,12 +8,12 @@ async function handler(page, context) {
     await page.waitForSelector('#CollectionProductGrid')
     await autoScroll(page)
 
-    const data = await page.$$eval('article.product-item', (productCards) => {
+    const data = await page.$$eval('.product-item__wrapper', (productCards) => {
         return productCards.map(document => {
 
             const imageUrl =document.querySelector('.product-item-image[data-srcset]')&&  document.querySelector('.product-item-image').getAttribute('data-srcset').split(',').reverse()[0].trim()
             const title = document.querySelector('.product--item-title a').innerText
-            const priceNew = document.querySelector(".is-sale")?(document.querySelector(".is-sale").textContent?document.querySelector(".is-sale").textContent.replace("₺",""):document.querySelector(".is-sale")):document.querySelector(".money").textContent.replace("₺","")
+            const priceNew = document.querySelector(".is-sale")?(document.querySelector(".is-sale").textContent?document.querySelector(".is-sale").textContent.replace("₺","").replaceAll("\n",""):document.querySelector(".product-item__wrapper").innerHTML):document.querySelector(".money").textContent.replace("₺","")
             const longlink = document.querySelector('.product--item-title a').href
             const link = longlink.substring(longlink.indexOf("https://www.nu.com.tr/") + 22)
             const longImgUrl = imageUrl && imageUrl.substring(imageUrl.indexOf('//cdn.shopify.com/')+18)
