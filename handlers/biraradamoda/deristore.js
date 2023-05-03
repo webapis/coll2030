@@ -1,5 +1,6 @@
 
 
+const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
     const { request: { userData: { } } } = context
 
@@ -13,7 +14,7 @@ async function handler(page, context) {
 
             const imageUrl = document.querySelector('.image img').src
             const title = document.querySelector('.image img').alt.trim()
-            const priceNew = document.querySelector('.price').innerText.replace('₺', '')
+            const priceNew = document.querySelector('.price').innerText.replace('₺', '').replace('TL', '').replace('$', '')+',00'
             const longlink = document.querySelector('.image a').href
             const link = longlink.substring(longlink.indexOf('https://www.deristore.com.tr/') + 29)
      
@@ -33,12 +34,12 @@ async function handler(page, context) {
     console.log('data length_____', data.length, 'url:', url,process.env.GENDER)
 
     console.log("process.env.GENDER ")
-    const mapgender = data.map((m) => {
+    const formatprice = data.map((m) => {
         return { ...m, title: m.title + " _" + process.env.GENDER }
     })
 
-
-    return mapgender
+debugger
+    return formatprice
 }
 
 async function getUrls(page) {

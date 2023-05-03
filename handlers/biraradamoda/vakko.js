@@ -1,4 +1,5 @@
 
+const { formatMoney } = require('accounting-js')
 async function handler(page, context) {
     const { request: { userData: { } } } = context
     debugger;
@@ -40,6 +41,8 @@ async function handler(page, context) {
     debugger
 
     return data.filter(f => f.priceNew !== undefined).map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
+
+    
 }
 
 async function getUrls(page) {

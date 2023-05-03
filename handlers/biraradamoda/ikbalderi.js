@@ -33,7 +33,7 @@ async function handler(page, context) {
     debugger
     console.log("process.env.GENDER ")
     const mapgender = data.map((m) => {
-        return { ...m, title: m.title + " _" + process.env.GENDER }
+        return { ...m,  title: m.title + " _" + process.env.GENDER }
     })
 
     return mapgender

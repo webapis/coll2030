@@ -1,6 +1,6 @@
 const urls = [
 
-    { url: 'https://www.blacknoble.com/kiz-cocuk'},
+    { url: 'https://www.blacknoble.com/kiz-cocuk?currency=try'},
   
 
 ]
