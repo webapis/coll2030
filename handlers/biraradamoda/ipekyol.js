@@ -33,7 +33,7 @@ async function handler(page, context) {
         return []
     } else {
         //collect data
-        await page.waitForSelector('.urun-detay-ul li')
+        await page.waitForSelector('.ems-page-product-detail')
         const data = await page.evaluate(() => {
             const titleDetail = document.querySelectorAll('.urun-detay-ul li') ? Array.from(document.querySelectorAll('.urun-detay-ul li')).map(m => m.innerText).join(' ').replace('|', '') : ''
             const title = document.querySelector('.emos_H1').innerText
