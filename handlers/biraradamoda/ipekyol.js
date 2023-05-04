@@ -26,7 +26,7 @@ async function handler(page, context) {
         const requestQueue = await Apify.openRequestQueue();
         debugger;
         for (let u of sitemapUrl) {
-  
+
             requestQueue.addRequest({ url: u, userData: { start: false } })
         }
 
@@ -35,7 +35,7 @@ async function handler(page, context) {
         //collect data
         await page.waitForSelector('.urun-detay-ul li')
         const data = await page.evaluate(() => {
-            const titleDetail = Array.from(document.querySelectorAll('.urun-detay-ul li')).map(m => m.innerText).join(' ').replace('|', '')
+            const titleDetail = document.querySelectorAll('.urun-detay-ul li') ? Array.from(document.querySelectorAll('.urun-detay-ul li')).map(m => m.innerText).join(' ').replace('|', '') : ''
             const title = document.querySelector('.emos_H1').innerText
             const color = document.querySelector('.listeUrunDetayGrup_listeBaslik') ? document.querySelector('.listeUrunDetayGrup_listeBaslik').innerText.replace('Renk:', '').trim() : ''
             const priceNew = document.querySelector('[data-product-price]').innerText.replace('₺', '').trim()
@@ -50,7 +50,7 @@ async function handler(page, context) {
             }
         })
         debugger
-        console.log('data length_____', data.length, 'url:', url)
+        console.log('data length_____', [data].length, 'url:', url)
 
         return [data].map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
 

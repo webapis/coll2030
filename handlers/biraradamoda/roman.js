@@ -4,46 +4,43 @@ async function handler(page, context) {
     debugger;
     const url = await page.url()
 
-    await page.waitForSelector('.category-product-list')
+    await page.waitForSelector('.product-detail-card')
 
 
-    const data = await page.$$eval('.category-product-list .item.triple-view.instock', (productCards) => {
-        return productCards.map(productCard => {
+    const data = await page.$$eval('.product-item', (productCards) => {
+        return productCards.map(document => {
 
-            const title = productCard.querySelector('.product-list-name') && productCard.querySelector('.product-list-name').textContent
-            const priceNew = productCard.querySelector('.n-price').textContent.replace('TL', '').trim()
-            const longlink = productCard.querySelector('[p-item-link]').href.trim()
-            const link = longlink.substring(longlink.indexOf("https://www.roman.com.tr/detay/") + 31)
-            const longImgUrl = productCard.querySelector('[p-item-link] img').src.trim()
-            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://romancdn.sysrun.net/Content/ProductImage/Original/") + 58)
+            const title = document.querySelector('a.product-title') && document.querySelector('a.product-title').innerText
+            const priceNew = document.querySelector('.product-price').innerText.replace('₺', '').trim()
+            const longlink = document.querySelector('a.product-title').href
+            const link = longlink.substring(longlink.indexOf("https://www.roman.com.tr/") + 25)
+            const longImgUrl = document.querySelector('img[data-src]').getAttribute('data-src')
+            const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://www.roman.com.tr/") + 25)
             return {
-                title:'roman '+title.replace(/İ/g,'i').toLowerCase().replaceAll('-',' '),
-                priceNew,//:priceNew.replace('.','').replace(',','.').trim(),
+                title: 'roman ' + title.replace(/İ/g, 'i').toLowerCase().replaceAll('-', ' '),
+                priceNew,
                 imageUrl: imageUrlshort,
                 link,
                 timestamp: Date.now(),
                 marka: 'roman',
-
-
-
             }
         })
     })
 
     console.log('data length_____', data.length, 'url:', url)
-
-    debugger;
-
-    return data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
+    debugger
+    return data.map(m => { return { ...m, title: m.title + " _" + process.env.GENDER } })
 }
 
 async function getUrls(page) {
     const url = await page.url()
     debugger;
-    await page.waitForSelector('.page-product-count')
-    const productCount = await page.$eval('.page-product-count', element => parseInt(element.textContent.replace(/[^\d]/g, '')))
+    await page.waitForSelector('.pagination a')
+    const totalPages = await page.evaluate(() => {
+        return Array.from(document.querySelectorAll('.pagination a')).map(m => m.innerText).filter(Number).map(m => parseInt(m)).sort().reverse()[0]
+    })
     debugger;
-    const totalPages = Math.ceil(productCount / 24)
+
     const pageUrls = []
 
     let pagesLeft = totalPages
@@ -51,12 +48,12 @@ async function getUrls(page) {
 
 
 
-        pageUrls.push(`${url}?p=` + i)
+        pageUrls.push(`${url}?pg=` + i)
         --pagesLeft
 
 
     }
 
-    return { pageUrls, productCount, pageLength: pageUrls.length + 1 }
+    return { pageUrls, productCount:0, pageLength: pageUrls.length + 1 }
 }
 module.exports = { handler, getUrls }
