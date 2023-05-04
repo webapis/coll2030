@@ -27,15 +27,16 @@ async function handler(page, context) {
         if (acceptcookies) {
             await page.click('#onetrust-accept-btn-handler')
         }
+        await autoScroll(page)
 
         const data = await page.$$eval('.product-item', (productCards) => {
             return productCards.map(productCard => {
                 const priceNew = productCard.querySelector('.price.regular') ? productCard.querySelector('.price.regular').innerHTML.replace('TL', '').trim() : ''
-                const longlink = productCard.querySelector('.item-heading a')? productCard.querySelector('.item-heading a').href:''
+                const longlink = productCard.querySelector('.item-heading a') ? productCard.querySelector('.item-heading a').href : ''
                 const link = longlink.substring(longlink.indexOf("https://www2.hm.com/tr_tr/") + 26)
                 const longImgUrl = productCard.querySelector('[data-src]').getAttribute('data-src')
                 const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("//lp2.hm.com/hmgoepprod?set=source[") + 35)
-                const title =productCard.querySelector('.item-heading a')? productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim():''
+                const title = productCard.querySelector('.item-heading a') ? productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim() : ''
 
                 return {
                     title: 'hm ' + title.replace(/İ/g, 'i').toLowerCase(),
@@ -63,15 +64,26 @@ async function handler(page, context) {
 
 
 
-
-async function manualScroll(page) {
+async function autoScroll(page) {
     await page.evaluate(async () => {
-        var totalHeight = 0;
-        var distance = 100;
-        let inc = 0
-        window.scrollBy(0, distance);
-        totalHeight += distance;
-        inc = inc + 1
+
+
+        await new Promise((resolve, reject) => {
+            var totalHeight = 0;
+            var distance = 100;
+            let inc = 0
+            var timer = setInterval(() => {
+                var scrollHeight = document.body.scrollHeight;
+                var toth = 7775
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+                inc = inc + 1
+                if (totalHeight >= scrollHeight - window.innerHeight) {
+                    clearInterval(timer);
+                    resolve();
+                }
+            }, 200);
+        });
     });
 }
 
