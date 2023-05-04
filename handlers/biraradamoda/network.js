@@ -9,9 +9,9 @@ async function handler(page, context) {
     const data = await page.$$eval('.products__item', (productCards) => {
         return productCards.map(productCard => {
             const imageUrl = productCard.querySelector('[data-original]').getAttribute('data-original')
-            const title = productCard.querySelector('.product__title').innerHTML.trim()
+            const title = document.querySelector('a[title]').getAttribute('title')
             const priceNew = productCard.querySelector(".product__price.-actual").textContent.replace('TL', '').replace(/\n/g, '').trim()
-            const longlink = productCard.querySelector('[data-product-link]').href
+            const longlink = document.querySelector('a[title]').href
             const link = longlink.substring(longlink.indexOf("https://www.network.com.tr/") + 27)
             const imageUrlshort = imageUrl && imageUrl.substring(imageUrl.indexOf("https://img-network.mncdn.com/mnresize/") + 39)
             return {
