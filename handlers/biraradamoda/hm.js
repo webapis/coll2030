@@ -31,11 +31,11 @@ async function handler(page, context) {
         const data = await page.$$eval('.product-item', (productCards) => {
             return productCards.map(productCard => {
                 const priceNew = productCard.querySelector('.price.regular') ? productCard.querySelector('.price.regular').innerHTML.replace('TL', '').trim() : ''
-                const longlink = productCard.querySelector('.item-heading a').href
+                const longlink = productCard.querySelector('.item-heading a')? productCard.querySelector('.item-heading a').href:''
                 const link = longlink.substring(longlink.indexOf("https://www2.hm.com/tr_tr/") + 26)
                 const longImgUrl = productCard.querySelector('[data-src]').getAttribute('data-src')
                 const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("//lp2.hm.com/hmgoepprod?set=source[") + 35)
-                const title = productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim()
+                const title =productCard.querySelector('.item-heading a')? productCard.querySelector('.item-heading a').textContent.replace(/[\n]/g, '').trim():''
 
                 return {
                     title: 'hm ' + title.replace(/İ/g, 'i').toLowerCase(),
