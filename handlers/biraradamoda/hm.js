@@ -30,7 +30,7 @@ async function handler(page, context) {
 
         const data = await page.$$eval('.product-item', (productCards) => {
             return productCards.map(productCard => {
-                const priceNew = productCard.querySelector('.price.regular').innerHTML.replace('TL', '').trim()
+                const priceNew = productCard.querySelector('.price.regular') ? productCard.querySelector('.price.regular').innerHTML.replace('TL', '').trim() : ''
                 const longlink = productCard.querySelector('.item-heading a').href
                 const link = longlink.substring(longlink.indexOf("https://www2.hm.com/tr_tr/") + 26)
                 const longImgUrl = productCard.querySelector('[data-src]').getAttribute('data-src')
@@ -44,7 +44,6 @@ async function handler(page, context) {
                     link,
                     timestamp: Date.now(),
                     marka: 'hm',
-
                 }
             })
         })
