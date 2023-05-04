@@ -1,5 +1,4 @@
 
-const { formatMoney } = require('accounting-js')
 const Apify = require('apify');
 async function handler(page, context) {
     const { request: { userData: { start } } } = context

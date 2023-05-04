@@ -1,5 +1,5 @@
 
-const { formatMoney } = require('accounting-js')
+
 async function handler(page, context) {
     const { request: { userData: {  } } } = context
     const url = await page.url()
@@ -31,7 +31,7 @@ async function handler(page, context) {
     debugger
 
     console.log('data length_____', data.length, 'url:', url)
-    const formatedData =data.map(m=>{return {...m, priceNew: formatMoney(m.priceNew, { symbol: "", precision: 2, thousand: ".", decimal: "," }),title:m.title+" _"+process.env.GENDER }})
+    const formatedData =data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
 
 
     debugger

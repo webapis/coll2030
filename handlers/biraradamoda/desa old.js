@@ -1,6 +1,6 @@
 var convert = require('xml-js');
 var fetch = require('node-fetch')
-const { formatMoney } = require('accounting-js')
+
 const Apify = require('apify');
 
 async function convertXMLToJSON({ url }) {
@@ -60,7 +60,7 @@ debugger
             }]
 
         })
-        const formatedData =data.map(m=>{return {...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }),title:m.title+" _"+process.env.GENDER }})
+        const formatedData =data.map(m=>{return {...m,title:m.title+" _"+process.env.GENDER }})
         debugger
 
         console.log('data length_____', formatedData.length, 'url:', url)

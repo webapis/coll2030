@@ -1,5 +1,5 @@
 
-const { formatMoney } = require('accounting-js')
+
 async function handler(page, context) {
     const { request: { userData: { } } } = context
 
@@ -36,11 +36,7 @@ async function handler(page, context) {
     const mapgender = data.map((m) => {
         return { ...m, title: m.title + " _" + process.env.GENDER }
     })
-    /*
-        const formatprice = data.map((m) => {
-            return { ...m, priceNew: formatMoney(parseFloat(m.priceNew), { symbol: "", precision: 2, thousand: ".", decimal: "," }), title: m.title + " _" + process.env.GENDER }
-        })
-    */
+
 
     return mapgender
 }
