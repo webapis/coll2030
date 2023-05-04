@@ -33,17 +33,19 @@ async function handler(page, context) {
         return []
     } else {
         //collect data
+        debugger
         await page.waitForSelector('.ems-page-product-detail')
+        debugger
         const data = await page.evaluate(() => {
-            const titleDetail = document.querySelectorAll('.urun-detay-ul li') ? Array.from(document.querySelectorAll('.urun-detay-ul li')).map(m => m.innerText).join(' ').replace('|', '') : ''
+           // const titleDetail = document.querySelectorAll('.urun-detay-ul li') ? Array.from(document.querySelectorAll('.urun-detay-ul li')).map(m => m.innerText).join(' ').replace('|', '') : ''
             const title = document.querySelector('.emos_H1').innerText
             const color = document.querySelector('.listeUrunDetayGrup_listeBaslik') ? document.querySelector('.listeUrunDetayGrup_listeBaslik').innerText.replace('Renk:', '').trim() : ''
             const priceNew = document.querySelector('[data-product-price]').innerText.replace('₺', '').trim()
             const imageUrl = document.querySelector('img[data-image-src]').src
             return {
-                title: title + " " + titleDetail + " " + color,
+                title: title  + " " + color,
                 priceNew,
-                imageUrl: imageUrl.substring(imageUrl.indexOf('https://img2-ipekyol.mncdn.com/') + 31),
+                imageUrl: imageUrl.substring(imageUrl.indexOf('https://img2-ipekyol.mncdn.com/mnresize') + 39),
                 link: location.href,
                 timestamp: Date.now(),
                 marka: 'ipekyol',
