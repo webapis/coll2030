@@ -14,7 +14,7 @@ const urls = [
     { url: 'https://www.zara.com/tr/tr/erkek-ayakkabilar-l769.html' },
     { url: 'https://www.zara.com/tr/tr/erkek-chantalar-l563.html' },
     { url: 'https://www.zara.com/tr/tr/erkek-aksesuarlar-l537.html' },
-
+    { url: 'https://www.zara.com/tr/tr/erkek-dish-giyim-trenchkot-l728.html' },
 ]
 
 module.exports={urls}
