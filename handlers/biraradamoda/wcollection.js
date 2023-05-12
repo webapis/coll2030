@@ -13,7 +13,7 @@ async function handler(page, context) {
 
             const imageUrl = document.querySelector('.slider-image-container img').getAttribute('data-src')
             const title = document.querySelector('.product-item__name').innerText
-            const priceNew = document.querySelector('.discount-price')?document.querySelector('.discount-price').innerText.replace('₺','').trim():document.querySelector('.product-item-price-wrapper').innerText.replace('₺','').trim()
+            const priceNew = document.querySelector('.discount-price')?document.querySelector('.discount-price').innerText.replace('₺','').trim().replace(/[a-z]/gi, '') :document.querySelector('.product-item-price-wrapper').innerText.replace('₺','').trim().replace(/[a-z]/gi, '') 
             const longlink = document.querySelector('.product-item__name[href]').getAttribute('href')
             const link = longlink.substring(1)
     
