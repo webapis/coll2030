@@ -36,7 +36,7 @@ export default function mergePrevAndNewData({ gender, marka, data, prevData }) {
             if (deepEqual(matchC, prevData)) {
                 debugger
                 return {
-                    ...matchC, update: false
+                    ...prevData, update: false
                 }
                 // uptodate data
             } else {
