@@ -30,7 +30,7 @@ async function handler(page, context) {
                                     const longlink = productCard.querySelector('.proRowName a[title]').href
                                     const link = longlink.substring(longlink.indexOf("https://www.olegcassini.com.tr/") + 31)
                                      const longImgUrl = productCard.querySelector(".imgInner img").src
-                                     const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://cdn.olegcassini.com.tr/") + 31)
+                                     const imageUrlshort = longImgUrl.substring(longImgUrl.indexOf("https://www.olegcassini.com.tr/") + 31)
                                     const title = productCard.querySelector('.proRowName a[title]').getAttribute('title')
                                     return {
                                         title: 'olegcassini ' + title.replace(/İ/g,'i').toLowerCase(),
