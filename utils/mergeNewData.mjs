@@ -9,10 +9,10 @@ export default function mergePrevAndNewData({ gender, marka, data, prevData }) {
         let res = [];
         res = arr1.filter((f) => {
             const date1 = new Date();
-            const date2 = new Date(parseInt(f.timestamp));
+            const date2 = new Date(f.deletedDate);
             const diffTime = Math.abs(date2 - date1);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-            if (!f.delete || (f.delete && diffDays < 3)) {
+            if (!f.delete || (f.delete && diffDays <= 3)) {
                 debugger
                 return true
             } else {
@@ -35,7 +35,7 @@ export default function mergePrevAndNewData({ gender, marka, data, prevData }) {
         });
         return res;
     }
-    const dataToBeDeleted = filterDataToBeDeleted(prevData, data).map((m) => { return { ...m, delete: true } })
+    const dataToBeDeleted = filterDataToBeDeleted(prevData, data).map((m) => { return { ...m, delete: true, deletedDate: new Date() } })
     const dataToBeUpdated = filterDataToBeUpdated(prevData, data)
     debugger
     let mergedData = []
