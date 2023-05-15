@@ -1,12 +1,13 @@
 
 import { deepEqual } from 'object-agent'
 export default function mergePrevAndNewData({ gender, marka, data, prevData }) {
+
     debugger
     // const prevDataRaw = fs.readFileSync(`single-content/${gender}/${marka}.json`, { encoding: 'utf8' })
     // const prevData = JSON.parse(prevDataRaw)
     const filterDataToBeDeleted = (arr1, arr2) => {
         let res = [];
-        res = arr1.filter(el => {
+        res = arr1.filter((f)=>!f.delete).filter(el => {
             return !arr2.find(element => {
                 return element.imageUrl === el.imageUrl;
             });
