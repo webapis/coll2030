@@ -7,7 +7,19 @@ export default function mergePrevAndNewData({ gender, marka, data, prevData }) {
     // const prevData = JSON.parse(prevDataRaw)
     const filterDataToBeDeleted = (arr1, arr2) => {
         let res = [];
-        res = arr1.filter(el => {
+        res = arr1.filter((f) => {
+            const date1 = new Date();
+            const date2 = new Date(parseInt(f.timestamp));
+            const diffTime = Math.abs(date2 - date1);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+            if (!f.delete || (f.delete && diffDays < 3)) {
+                debugger
+                return true
+            } else {
+                debugger
+                return false
+            }
+        }).filter(el => {
             return !arr2.find(element => {
                 return element.imageUrl === el.imageUrl;
             });

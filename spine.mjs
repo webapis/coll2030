@@ -1,14 +1,36 @@
 
 
 import mergePrevAndNewData from './utils/mergeNewData.mjs'
-const prevData = [{
+const prevData = [
+    {
+        "title": "nu mor kaplamalı,yandan çıt çıtlı uzun yağmurluk-k215025008 _kcocuk",
+        "priceNew": "847.50 ",
+        "imageUrl": "s/files/1/0610/7132/7488/products/K21250081_1320x.jpg?v=1652337961 1320w",
+        "link": "collections/nu-kids/products/mor-kaplamali-yandan-cit-citli-uzun-yagmurluk-k215025008",
+        "timestamp": 1684126162439,
+        "marka": "nu",
+        "gender": "_kcocuk",
+        "delete":"true"
+    },
+    {
+        "title": "nu siyah scuba ve naylon birleşimli, fırfırlı ceket-k215025006 _kcocuk",
+        "priceNew": "2,995.00",
+        "imageUrl": "s/files/1/0610/7132/7488/products/K215025006-NU0014_1_1320x.jpg?v=1647960815 1320w",
+        "link": "collections/nu-kids/products/siyah-scuba-ve-naylon-birlesimli-firfirli-ceket-k215025006",
+        "timestamp": 1684039139905,
+        "marka": "nu",
+        "gender": "_kcocuk",
+        "delete":"true"
+    },
+    
+    {
     "title": "slatra erkek siyah 2 iplik basic oversize t-shirt _erkek",
     "priceNew": "179,99",
     "imageUrl": "53661/Uploads/UrunResimleri/thumb/erkek-siyah-2-iplik-basic-oversize-t-s-09beff.jpg",
     "link": "erkek-siyah-2-iplik-basic-oversize-t-shirt",
     "timestamp": 1680591828399,
     "marka": "slatra",
-    "gender": "old_erkek"
+    "gender": "old_erkek",
 }, {
     "title": "nike nike alphafly 2 erkek yol yarış ayakkabısı _erkek",
     "priceNew": "6.399,90",

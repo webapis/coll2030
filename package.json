@@ -75,7 +75,7 @@
     "dev": "netlify dev",
     "vercel:dev": "vercel dev",
     "netlify:dev": "netlify dev",
-    "spine": "node spine.cjs",
+    "spine": "node spine.mjs",
     "spine2": "node spine2.js",
     "trends:server": "node server/server.js",
     "encryptData": "node encryptData.js",
