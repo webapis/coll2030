@@ -56,11 +56,10 @@ export default function mergePrevAndNewData({ gender, marka, data, prevData }) {
                 debugger
                 //slate data
                 return { ...matchC, update: true }
-
             }
         } else {
             //new data
-            return p
+            return {...p,update: true}
         }
     })
     debugger
