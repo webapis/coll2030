@@ -5,9 +5,9 @@ export default function mergePrevAndNewData({ gender, marka, data, prevData }) {
     debugger
     // const prevDataRaw = fs.readFileSync(`single-content/${gender}/${marka}.json`, { encoding: 'utf8' })
     // const prevData = JSON.parse(prevDataRaw)
-    const filterDataToBeDeleted = (arr1, arr2) => {
+    const filterDataToBeDeleted = (prevData, data) => {
         let res = [];
-        res = arr1.filter((f) => {
+        res = prevData.filter((f) => {
             const date1 = new Date();
             const date2 = new Date(f.deletedDate);
             const diffTime = Math.abs(date2 - date1);
@@ -20,16 +20,16 @@ export default function mergePrevAndNewData({ gender, marka, data, prevData }) {
                 return false
             }
         }).filter(el => {
-            return !arr2.find(element => {
+            return !data.find(element => {
                 return element.imageUrl === el.imageUrl;
             });
         });
         return res;
     }
-    const filterDataToBeUpdated = (arr1, arr2) => {
+    const filterDataToBeUpdated = (prevData, data) => {
         let res = [];
-        res = arr1.filter(el => {
-            return arr2.find(element => {
+        res = prevData.filter(el => {
+            return data.find(element => {
                 return element.imageUrl === el.imageUrl;
             });
         });
