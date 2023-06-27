@@ -13,7 +13,7 @@ const makeDir = require('make-dir');
 const Apify = require('apify');
 import { uploadCollection } from'./utils/uploadCollection.mjs'
 
-var _ = require('lodash');
+
 fs.rmSync(path.join(process.cwd(), `collected-data`), { recursive: true, force: true });
 fs.rmSync(path.join(process.cwd(), `updated-data`), { recursive: true, force: true });
 fs.rmSync(path.join(process.cwd(), `old-data`), { recursive: true, force: true });
@@ -27,7 +27,7 @@ Apify.main(async () => {
     const website = process.env.WEBSITE
     console.log('main running')
     console.log('main', process.env.GENDER)
-    const { urls } = require(`./urls/${website}/${process.env.GENDER}/${marka}`)
+    const { urls } = require(`./urls/biraradamoda/${process.env.GENDER}/${marka}`)
 
     for (let obj of urls) {
 
